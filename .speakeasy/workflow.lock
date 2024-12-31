@@ -13,7 +13,7 @@ targets:
         sourceRevisionDigest: sha256:c7d0011194e8963eb9f8e18a54a21f82a9fc6e53c638b143385ca5aaabc232b5
         sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
         codeSamplesNamespace: firehydrant-typescript-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:faf679af6d543cae3d86b8f9e74219182f7ec66eca7aaccfc438bb56c1958b67
+        codeSamplesRevisionDigest: sha256:1771558c249d5561b632665c4e0dbf19fa77e59cb981fbd8bc1eb3dd43d671a1
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
