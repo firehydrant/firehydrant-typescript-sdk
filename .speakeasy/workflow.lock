@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
         tags:
             - latest
-            - speakeasy-sdk-regen-1735673122
+            - speakeasy-sdk-regen-1735674731
 targets:
     firehydrant-typescript-sdk:
         source: firehydrant-typescript-sdk-OAS
@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:c7d0011194e8963eb9f8e18a54a21f82a9fc6e53c638b143385ca5aaabc232b5
         sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
         codeSamplesNamespace: firehydrant-typescript-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:82059d7b458c17b36a0a86fd435526c2fee3c64ff2f2f44fd5f5f0ce1bc02a48
+        codeSamplesRevisionDigest: sha256:9c36052e29fd6223b18fb1185af499852b1aa276143b40909457b05ddaa2e07a
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
