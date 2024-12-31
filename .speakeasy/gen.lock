@@ -5,8 +5,10 @@ management:
   docVersion: 0.0.1
   speakeasyVersion: 1.460.3
   generationVersion: 2.484.0
-  releaseVersion: 0.0.3
-  configChecksum: 59bee5440c46391717aa4255a4972fc7
+  releaseVersion: 0.0.4
+  configChecksum: bdb4f83e5a8b8240b2e16a2e527f57fc
+  repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
+  installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
 features:
   typescript:
     additionalDependencies: 0.1.0
