@@ -1,0 +1,19 @@
+# UpdateLifecycleMilestoneRequestBody
+
+## Example Usage
+
+```typescript
+import { UpdateLifecycleMilestoneRequestBody } from "firehydrant-typescript-sdk/models/operations";
+
+let value: UpdateLifecycleMilestoneRequestBody = {};
+```
+
+## Fields
+
+| Field                                                                                                                            | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                                           | *string*                                                                                                                         | :heavy_minus_sign:                                                                                                               | The name of the milestone                                                                                                        |
+| `description`                                                                                                                    | *string*                                                                                                                         | :heavy_minus_sign:                                                                                                               | A long-form description of the milestone's purpose                                                                               |
+| `slug`                                                                                                                           | *string*                                                                                                                         | :heavy_minus_sign:                                                                                                               | A unique identifier for the milestone. If not provided, one will be generated from the name.                                     |
+| `position`                                                                                                                       | *number*                                                                                                                         | :heavy_minus_sign:                                                                                                               | The position of the milestone within the phase. If not provided, the milestone will be added as the last milestone in the phase. |
+| `requiredAtMilestoneId`                                                                                                          | *string*                                                                                                                         | :heavy_minus_sign:                                                                                                               | The ID of a later milestone that cannot be started until this milestone has a timestamp populated                                |

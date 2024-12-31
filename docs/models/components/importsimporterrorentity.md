@@ -1,0 +1,19 @@
+# ImportsImportErrorEntity
+
+## Example Usage
+
+```typescript
+import { ImportsImportErrorEntity } from "firehydrant-typescript-sdk/models/components";
+
+let value: ImportsImportErrorEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                   | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `message`                                                                                                              | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `createdAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `data`                                                                                                                 | [components.ImportsImportErrorEntityData](../../models/components/importsimporterrorentitydata.md)                     | :heavy_minus_sign:                                                                                                     | Additional error data                                                                                                  |
+| `resource`                                                                                                             | [components.ImportsImportErrorEntityResourceEntity](../../models/components/importsimporterrorentityresourceentity.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

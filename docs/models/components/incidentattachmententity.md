@@ -1,0 +1,25 @@
+# IncidentAttachmentEntity
+
+IncidentAttachmentEntity model
+
+## Example Usage
+
+```typescript
+import { IncidentAttachmentEntity } from "firehydrant-typescript-sdk/models/components";
+
+let value: IncidentAttachmentEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `fileName`                                                                                             | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `fileContentType`                                                                                      | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `signedUrl`                                                                                            | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `mediaType`                                                                                            | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `description`                                                                                          | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `externalId`                                                                                           | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `fileSize`                                                                                             | *number*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `status`                                                                                               | [components.IncidentAttachmentEntityStatus](../../models/components/incidentattachmententitystatus.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `versions`                                                                                             | [components.Versions](../../models/components/versions.md)                                             | :heavy_minus_sign:                                                                                     | An object with keys that designate a specific version or size of the attachment                        |

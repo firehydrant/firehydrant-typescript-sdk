@@ -1,0 +1,20 @@
+# IncidentsLifecyclePhaseEntity
+
+## Example Usage
+
+```typescript
+import { IncidentsLifecyclePhaseEntity } from "firehydrant-typescript-sdk/models/components";
+
+let value: IncidentsLifecyclePhaseEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                           | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `name`                                                                                                         | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `description`                                                                                                  | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `type`                                                                                                         | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `position`                                                                                                     | *number*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `milestones`                                                                                                   | [components.IncidentsLifecycleMilestoneEntity](../../models/components/incidentslifecyclemilestoneentity.md)[] | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

@@ -1,0 +1,27 @@
+# PostV1TeamsTeamIdSignalRules
+
+Create a Signals rule for a team.
+
+## Example Usage
+
+```typescript
+import { PostV1TeamsTeamIdSignalRules } from "firehydrant-typescript-sdk/models/components";
+
+let value: PostV1TeamsTeamIdSignalRules = {
+  name: "<value>",
+  expression: "<value>",
+  targetType: "OnCallSchedule",
+  targetId: "<id>",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                      | Type                                                                                                                                                       | Required                                                                                                                                                   | Description                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                                                                     | *string*                                                                                                                                                   | :heavy_check_mark:                                                                                                                                         | The rule's name.                                                                                                                                           |
+| `expression`                                                                                                                                               | *string*                                                                                                                                                   | :heavy_check_mark:                                                                                                                                         | The CEL expression that defines the rule.                                                                                                                  |
+| `targetType`                                                                                                                                               | [components.TargetType](../../models/components/targettype.md)                                                                                             | :heavy_check_mark:                                                                                                                                         | The type of target that the rule will notify when matched.                                                                                                 |
+| `targetId`                                                                                                                                                 | *string*                                                                                                                                                   | :heavy_check_mark:                                                                                                                                         | The ID of the target that the rule will notify when matched.                                                                                               |
+| `incidentTypeId`                                                                                                                                           | *string*                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                         | The ID of an incident type that should be used when an alert is promoted to an incident                                                                    |
+| `notificationPriorityOverride`                                                                                                                             | [components.PostV1TeamsTeamIdSignalRulesNotificationPriorityOverride](../../models/components/postv1teamsteamidsignalrulesnotificationpriorityoverride.md) | :heavy_minus_sign:                                                                                                                                         | A notification priority that will be set on the resulting alert (default: HIGH)                                                                            |

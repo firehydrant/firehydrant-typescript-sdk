@@ -1,0 +1,16 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    firehydrant-typescript-sdk-OAS:
+        inputs:
+            - location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-oas:main
+        registry:
+            location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-typescript-sdk-oas
+targets:
+    firehydrant-typescript-sdk:
+        target: typescript
+        source: firehydrant-typescript-sdk-OAS
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-typescript-sdk-oas-code-samples
+            blocking: false

@@ -1,0 +1,20 @@
+# ListTicketsRequest
+
+## Example Usage
+
+```typescript
+import { ListTicketsRequest } from "firehydrant-typescript-sdk/models/operations";
+
+let value: ListTicketsRequest = {};
+```
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `page`                                                                                                               | *number*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `perPage`                                                                                                            | *number*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `tags`                                                                                                               | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | A comma separated list of tags                                                                                       |
+| `tagMatchStrategy`                                                                                                   | [operations.ListTicketsQueryParamTagMatchStrategy](../../models/operations/listticketsqueryparamtagmatchstrategy.md) | :heavy_minus_sign:                                                                                                   | A matching strategy for the tags provided                                                                            |
+| `assignedUser`                                                                                                       | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | Filter tickets assigned to this user id                                                                              |
+| `state`                                                                                                              | [operations.State](../../models/operations/state.md)                                                                 | :heavy_minus_sign:                                                                                                   | Filter tickets by state                                                                                              |

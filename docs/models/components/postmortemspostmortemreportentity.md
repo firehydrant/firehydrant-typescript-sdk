@@ -1,0 +1,27 @@
+# PostMortemsPostMortemReportEntity
+
+PostMortems_PostMortemReportEntity model
+
+## Example Usage
+
+```typescript
+import { PostMortemsPostMortemReportEntity } from "firehydrant-typescript-sdk/models/components";
+
+let value: PostMortemsPostMortemReportEntity = {};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `name`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `summary`                                                                                     | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `incidentId`                                                                                  | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `tagList`                                                                                     | *string*[]                                                                                    | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `additionalDetails`                                                                           | *string*[]                                                                                    | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `incident`                                                                                    | [components.IncidentEntity](../../models/components/incidententity.md)                        | :heavy_minus_sign:                                                                            | IncidentEntity model                                                                          |
+| `questions`                                                                                   | [components.PostMortemsQuestionEntity](../../models/components/postmortemsquestionentity.md)  | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `calendarEvents`                                                                              | [components.CalendarsEventEntity](../../models/components/calendarsevententity.md)            | :heavy_minus_sign:                                                                            | N/A                                                                                           |
