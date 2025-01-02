@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
         tags:
             - latest
-            - speakeasy-sdk-regen-1735691145
+            - speakeasy-sdk-regen-1735836867
 targets:
     firehydrant-typescript-sdk:
         source: firehydrant-typescript-sdk-OAS
@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:c7d0011194e8963eb9f8e18a54a21f82a9fc6e53c638b143385ca5aaabc232b5
         sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
         codeSamplesNamespace: firehydrant-typescript-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:8b86616570acc6465b455ff4534e0e2c3c2fdaceb34692085c7cb0512561aa75
+        codeSamplesRevisionDigest: sha256:5d3528dac8581196902253341b61b6511cd55f0fde55e42f353e7ab65d1cf340
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,8 +22,6 @@ workflow:
         firehydrant-typescript-sdk-OAS:
             inputs:
                 - location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-oas:main
-            registry:
-                location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-typescript-sdk-oas
     targets:
         firehydrant-typescript-sdk:
             target: typescript
