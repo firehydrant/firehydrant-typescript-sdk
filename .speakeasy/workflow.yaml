@@ -4,8 +4,6 @@ sources:
     firehydrant-typescript-sdk-OAS:
         inputs:
             - location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-oas:main
-        registry:
-            location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-typescript-sdk-oas
 targets:
     firehydrant-typescript-sdk:
         target: typescript
