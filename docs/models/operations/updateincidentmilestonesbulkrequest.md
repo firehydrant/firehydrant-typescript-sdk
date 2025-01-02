@@ -11,7 +11,7 @@ let value: UpdateIncidentMilestonesBulkRequest = {
     milestones: [
       {
         type: "<value>",
-        occurredAt: new Date("2022-01-13T20:07:38.173Z"),
+        occurredAt: new Date("2023-01-13T20:07:38.173Z"),
       },
     ],
   },

@@ -17,7 +17,7 @@ let value: PutV1IncidentsIncidentIdMilestonesBulkUpdate = {
   milestones: [
     {
       type: "<value>",
-      occurredAt: new Date("2022-03-19T20:31:56.909Z"),
+      occurredAt: new Date("2023-03-19T20:31:56.909Z"),
     },
   ],
 };

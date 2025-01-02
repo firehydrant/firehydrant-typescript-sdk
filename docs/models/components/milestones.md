@@ -7,7 +7,7 @@ import { Milestones } from "firehydrant-typescript-sdk/models/components";
 
 let value: Milestones = {
   type: "<value>",
-  occurredAt: new Date("2023-04-25T14:17:38.418Z"),
+  occurredAt: new Date("2024-04-24T14:17:38.418Z"),
 };
 ```
 

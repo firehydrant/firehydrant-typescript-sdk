@@ -9,8 +9,8 @@ import { PostV1ScheduledMaintenances } from "firehydrant-typescript-sdk/models/c
 
 let value: PostV1ScheduledMaintenances = {
   name: "<value>",
-  startsAt: new Date("2022-05-11T03:00:50.109Z"),
-  endsAt: new Date("2022-12-15T12:13:46.383Z"),
+  startsAt: new Date("2023-05-11T03:00:50.109Z"),
+  endsAt: new Date("2023-12-15T12:13:46.383Z"),
 };
 ```
 
