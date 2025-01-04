@@ -67,3 +67,13 @@ Based on:
 - [typescript v0.0.10] .
 ### Releases
 - [NPM v0.0.10] https://www.npmjs.com/package/firehydrant-typescript-sdk/v/0.0.10 - .
+
+## 2025-01-04 00:22:39
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.462.2 (2.486.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.0.11] .
+### Releases
+- [NPM v0.0.11] https://www.npmjs.com/package/firehydrant-typescript-sdk/v/0.0.11 - .
