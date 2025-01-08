@@ -1,5 +1,13 @@
-speakeasyVersion: 1.460.3
+speakeasyVersion: 1.465.1
 sources:
+    firehydrant-oas:
+        sourceNamespace: firehydrant-oas
+        sourceRevisionDigest: sha256:e512d73a7a46a2f2c3619032e3b2f10ddf25a609b2d6f02175595d3392240980
+        sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1735863790
+            - 0.0.1
     firehydrant-typescript-sdk-OAS:
         sourceNamespace: firehydrant-typescript-sdk-oas
         sourceRevisionDigest: sha256:c7d0011194e8963eb9f8e18a54a21f82a9fc6e53c638b143385ca5aaabc232b5
@@ -9,23 +17,28 @@ sources:
             - speakeasy-sdk-regen-1735836867
 targets:
     firehydrant-typescript-sdk:
-        source: firehydrant-typescript-sdk-OAS
-        sourceNamespace: firehydrant-typescript-sdk-oas
-        sourceRevisionDigest: sha256:c7d0011194e8963eb9f8e18a54a21f82a9fc6e53c638b143385ca5aaabc232b5
+        source: firehydrant-oas
+        sourceNamespace: firehydrant-oas
+        sourceRevisionDigest: sha256:e512d73a7a46a2f2c3619032e3b2f10ddf25a609b2d6f02175595d3392240980
         sourceBlobDigest: sha256:f6ffe4d71cbc8f195cf28218fe7c5a6212053a7fa58a4e0aa275374cfcf3c675
         codeSamplesNamespace: firehydrant-typescript-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:5d3528dac8581196902253341b61b6511cd55f0fde55e42f353e7ab65d1cf340
+        codeSamplesRevisionDigest: sha256:91c6eb6c8fcf0eba140b3cf4dfb4da432f53f34b7f39b10f77f2e08baaf30784
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
-        firehydrant-typescript-sdk-OAS:
+        firehydrant-oas:
             inputs:
-                - location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-oas:main
+                - location: ./openapi.yaml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+                - location: errors-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-oas
     targets:
         firehydrant-typescript-sdk:
             target: typescript
-            source: firehydrant-typescript-sdk-OAS
+            source: firehydrant-oas
             publish:
                 npm:
                     token: $npm_token
