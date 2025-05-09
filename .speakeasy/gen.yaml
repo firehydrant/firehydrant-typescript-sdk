@@ -3,32 +3,40 @@ generation:
   devContainers:
     enabled: true
     schemaPath: registry.speakeasyapi.dev/firehydrant/firehydrant/firehydrant-oas:main
-  sdkClassName: FirehydrantTypescriptSdk
+  sdkClassName: Firehydrant
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
+    nameResolutionFeb2025: true
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 typescript:
-  version: 0.0.11
+  version: 0.1.13
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
-  author: Speakeasy
+  author: Firehydrant
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIError
+  enableCustomCodeRegions: false
+  enableMCPServer: true
   enableReactQuery: false
   enumFormat: union
-  envVarPrefix: FIREHYDRANTTYPESCRIPTSDK
+  envVarPrefix: FIREHYDRANT
   flattenGlobalSecurity: true
+  flattenSdk: true
+  flattenSpecOptions:
+    tags: false
   flatteningOrder: parameters-first
   imports:
     option: openapi
@@ -39,11 +47,12 @@ typescript:
       shared: models/components
       webhooks: models/webhooks
   inputModelSuffix: input
+  jsonpath: legacy
   maxMethodParams: 0
   methodArguments: require-security-and-request
-  moduleFormat: commonjs
+  moduleFormat: dual
   outputModelSuffix: output
-  packageName: firehydrant-typescript-sdk
+  packageName: firehydrant
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true
