@@ -5,7 +5,7 @@ Attachments_LinkEntity model
 ## Example Usage
 
 ```typescript
-import { AttachmentsLinkEntity } from "firehydrant-typescript-sdk/models/components";
+import { AttachmentsLinkEntity } from "firehydrant/models/components";
 
 let value: AttachmentsLinkEntity = {};
 ```

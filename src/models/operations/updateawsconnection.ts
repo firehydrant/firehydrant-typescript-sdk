@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateAwsConnectionRequest = {
   id: string;
-  patchV1IntegrationsAwsConnectionsId:
-    components.PatchV1IntegrationsAwsConnectionsId;
+  updateAwsConnection: components.UpdateAwsConnection;
 };
 
 /** @internal */
@@ -21,15 +21,19 @@ export const UpdateAwsConnectionRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  patchV1IntegrationsAwsConnectionsId:
-    components.PatchV1IntegrationsAwsConnectionsId$inboundSchema,
+  update_aws_connection: z.lazy(() =>
+    components.UpdateAwsConnection$inboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    "update_aws_connection": "updateAwsConnection",
+  });
 });
 
 /** @internal */
 export type UpdateAwsConnectionRequest$Outbound = {
   id: string;
-  patchV1IntegrationsAwsConnectionsId:
-    components.PatchV1IntegrationsAwsConnectionsId$Outbound;
+  update_aws_connection: components.UpdateAwsConnection$Outbound;
 };
 
 /** @internal */
@@ -39,8 +43,13 @@ export const UpdateAwsConnectionRequest$outboundSchema: z.ZodType<
   UpdateAwsConnectionRequest
 > = z.object({
   id: z.string(),
-  patchV1IntegrationsAwsConnectionsId:
-    components.PatchV1IntegrationsAwsConnectionsId$outboundSchema,
+  updateAwsConnection: z.lazy(() =>
+    components.UpdateAwsConnection$outboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    updateAwsConnection: "update_aws_connection",
+  });
 });
 
 /**

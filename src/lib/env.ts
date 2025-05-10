@@ -7,15 +7,15 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
-  FIREHYDRANTTYPESCRIPTSDK_API_KEY?: string | undefined;
+  FIREHYDRANT_API_KEY?: string | undefined;
 
-  FIREHYDRANTTYPESCRIPTSDK_DEBUG?: boolean | undefined;
+  FIREHYDRANT_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
-  FIREHYDRANTTYPESCRIPTSDK_API_KEY: z.string().optional(),
+  FIREHYDRANT_API_KEY: z.string().optional(),
 
-  FIREHYDRANTTYPESCRIPTSDK_DEBUG: z.coerce.boolean().optional(),
+  FIREHYDRANT_DEBUG: z.coerce.boolean().optional(),
 });
 
 let envMemo: Env | undefined = undefined;

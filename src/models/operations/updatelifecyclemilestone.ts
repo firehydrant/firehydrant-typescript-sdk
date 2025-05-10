@@ -5,30 +5,53 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+/**
+ * The setting for auto-assigning the milestone's timestamp during incident declaration
+ */
+export const UpdateLifecycleMilestoneAutoAssignTimestampOnCreate = {
+  AlwaysSetOnCreate: "always_set_on_create",
+  OnlySetOnManualCreate: "only_set_on_manual_create",
+  NeverSetOnCreate: "never_set_on_create",
+} as const;
+/**
+ * The setting for auto-assigning the milestone's timestamp during incident declaration
+ */
+export type UpdateLifecycleMilestoneAutoAssignTimestampOnCreate = ClosedEnum<
+  typeof UpdateLifecycleMilestoneAutoAssignTimestampOnCreate
+>;
 
 export type UpdateLifecycleMilestoneRequestBody = {
   /**
    * The name of the milestone
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * A long-form description of the milestone's purpose
    */
-  description?: string | undefined;
+  description?: string | null | undefined;
   /**
    * A unique identifier for the milestone. If not provided, one will be generated from the name.
    */
-  slug?: string | undefined;
+  slug?: string | null | undefined;
   /**
    * The position of the milestone within the phase. If not provided, the milestone will be added as the last milestone in the phase.
    */
-  position?: number | undefined;
+  position?: number | null | undefined;
   /**
    * The ID of a later milestone that cannot be started until this milestone has a timestamp populated
    */
-  requiredAtMilestoneId?: string | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
+  /**
+   * The setting for auto-assigning the milestone's timestamp during incident declaration
+   */
+  autoAssignTimestampOnCreate?:
+    | UpdateLifecycleMilestoneAutoAssignTimestampOnCreate
+    | null
+    | undefined;
 };
 
 export type UpdateLifecycleMilestoneRequest = {
@@ -37,29 +60,57 @@ export type UpdateLifecycleMilestoneRequest = {
 };
 
 /** @internal */
+export const UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema:
+  z.ZodNativeEnum<typeof UpdateLifecycleMilestoneAutoAssignTimestampOnCreate> =
+    z.nativeEnum(UpdateLifecycleMilestoneAutoAssignTimestampOnCreate);
+
+/** @internal */
+export const UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema:
+  z.ZodNativeEnum<typeof UpdateLifecycleMilestoneAutoAssignTimestampOnCreate> =
+    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$ {
+  /** @deprecated use `UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema` instead. */
+  export const inboundSchema =
+    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema;
+  /** @deprecated use `UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema` instead. */
+  export const outboundSchema =
+    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema;
+}
+
+/** @internal */
 export const UpdateLifecycleMilestoneRequestBody$inboundSchema: z.ZodType<
   UpdateLifecycleMilestoneRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  position: z.number().int().optional(),
-  required_at_milestone_id: z.string().optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
+  auto_assign_timestamp_on_create: z.nullable(
+    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "required_at_milestone_id": "requiredAtMilestoneId",
+    "auto_assign_timestamp_on_create": "autoAssignTimestampOnCreate",
   });
 });
 
 /** @internal */
 export type UpdateLifecycleMilestoneRequestBody$Outbound = {
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  position?: number | undefined;
-  required_at_milestone_id?: string | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  position?: number | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
+  auto_assign_timestamp_on_create?: string | null | undefined;
 };
 
 /** @internal */
@@ -68,14 +119,18 @@ export const UpdateLifecycleMilestoneRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateLifecycleMilestoneRequestBody
 > = z.object({
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  position: z.number().int().optional(),
-  requiredAtMilestoneId: z.string().optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
+  autoAssignTimestampOnCreate: z.nullable(
+    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     requiredAtMilestoneId: "required_at_milestone_id",
+    autoAssignTimestampOnCreate: "auto_assign_timestamp_on_create",
   });
 });
 

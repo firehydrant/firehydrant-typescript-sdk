@@ -7,19 +7,19 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  SuccinctEntity,
-  SuccinctEntity$inboundSchema,
-  SuccinctEntity$Outbound,
-  SuccinctEntity$outboundSchema,
-} from "./succinctentity.js";
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
 
 /**
  * IncidentImpactEntity model
  */
 export type IncidentImpactEntity = {
-  id?: string | undefined;
-  type?: string | undefined;
-  infrastructure?: SuccinctEntity | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  infrastructure?: NullableSuccinctEntity | null | undefined;
 };
 
 /** @internal */
@@ -28,16 +28,16 @@ export const IncidentImpactEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  infrastructure: SuccinctEntity$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  infrastructure: z.nullable(NullableSuccinctEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type IncidentImpactEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  infrastructure?: SuccinctEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  infrastructure?: NullableSuccinctEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -46,9 +46,9 @@ export const IncidentImpactEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentImpactEntity
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  infrastructure: SuccinctEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  infrastructure: z.nullable(NullableSuccinctEntity$outboundSchema).optional(),
 });
 
 /**

@@ -7,6 +7,12 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 /**
  * PublicAPI_V1_Incidents_TranscriptEntity model
@@ -15,31 +21,32 @@ export type PublicApiv1IncidentsTranscriptEntity = {
   /**
    * The unique identifier for the transcript entry
    */
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * The speaker for the transcript entry
    */
-  speaker?: string | undefined;
+  speaker?: string | null | undefined;
   /**
    * The start time for the transcript entry
    */
-  start?: number | undefined;
+  start?: number | null | undefined;
   /**
    * The end time for the transcript entry
    */
-  until?: number | undefined;
+  until?: number | null | undefined;
   /**
    * The words spoken for the transcript entry
    */
-  words?: string | undefined;
+  words?: string | null | undefined;
   /**
    * The time the transcript entry was created
    */
-  createdAt?: Date | undefined;
+  createdAt?: Date | null | undefined;
   /**
    * The time the transcript entry was last updated
    */
-  updatedAt?: Date | undefined;
+  updatedAt?: Date | null | undefined;
+  author?: NullableAuthorEntity | null | undefined;
 };
 
 /** @internal */
@@ -48,15 +55,18 @@ export const PublicApiv1IncidentsTranscriptEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  speaker: z.string().optional(),
-  start: z.number().int().optional(),
-  until: z.number().int().optional(),
-  words: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  speaker: z.nullable(z.string()).optional(),
+  start: z.nullable(z.number().int()).optional(),
+  until: z.nullable(z.number().int()).optional(),
+  words: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  author: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -66,13 +76,14 @@ export const PublicApiv1IncidentsTranscriptEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type PublicApiv1IncidentsTranscriptEntity$Outbound = {
-  id?: string | undefined;
-  speaker?: string | undefined;
-  start?: number | undefined;
-  until?: number | undefined;
-  words?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  speaker?: string | null | undefined;
+  start?: number | null | undefined;
+  until?: number | null | undefined;
+  words?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  author?: NullableAuthorEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -81,13 +92,14 @@ export const PublicApiv1IncidentsTranscriptEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PublicApiv1IncidentsTranscriptEntity
 > = z.object({
-  id: z.string().optional(),
-  speaker: z.string().optional(),
-  start: z.number().int().optional(),
-  until: z.number().int().optional(),
-  words: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  speaker: z.nullable(z.string()).optional(),
+  start: z.nullable(z.number().int()).optional(),
+  until: z.nullable(z.number().int()).optional(),
+  words: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  author: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

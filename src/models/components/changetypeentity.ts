@@ -8,8 +8,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ChangeTypeEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -18,14 +18,14 @@ export const ChangeTypeEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type ChangeTypeEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -34,8 +34,8 @@ export const ChangeTypeEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChangeTypeEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /**

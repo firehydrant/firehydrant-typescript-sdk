@@ -20,7 +20,7 @@ import {
   ServiceParentDependencyEntity$outboundSchema,
 } from "./serviceparentdependencyentity.js";
 
-export type ServiceDependencies = {};
+export type ServiceDependency = {};
 
 /**
  * ServiceWithAllDependenciesEntity model
@@ -29,62 +29,68 @@ export type ServiceWithAllDependenciesEntity = {
   /**
    * Services that depend on this service
    */
-  childServiceDependencies?: Array<ServiceChildDependencyEntity> | undefined;
+  childServiceDependencies?:
+    | Array<ServiceChildDependencyEntity>
+    | null
+    | undefined;
   /**
    * Services that this service is dependent on
    */
-  parentServiceDependencies?: Array<ServiceParentDependencyEntity> | undefined;
+  parentServiceDependencies?:
+    | Array<ServiceParentDependencyEntity>
+    | null
+    | undefined;
   /**
    * All dependencies. Can be one of: ServiceChildDependencyEntity, ServiceParentDependencyEntity
    */
-  serviceDependencies?: Array<ServiceDependencies> | undefined;
+  serviceDependencies?: Array<ServiceDependency> | null | undefined;
 };
 
 /** @internal */
-export const ServiceDependencies$inboundSchema: z.ZodType<
-  ServiceDependencies,
+export const ServiceDependency$inboundSchema: z.ZodType<
+  ServiceDependency,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type ServiceDependencies$Outbound = {};
+export type ServiceDependency$Outbound = {};
 
 /** @internal */
-export const ServiceDependencies$outboundSchema: z.ZodType<
-  ServiceDependencies$Outbound,
+export const ServiceDependency$outboundSchema: z.ZodType<
+  ServiceDependency$Outbound,
   z.ZodTypeDef,
-  ServiceDependencies
+  ServiceDependency
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ServiceDependencies$ {
-  /** @deprecated use `ServiceDependencies$inboundSchema` instead. */
-  export const inboundSchema = ServiceDependencies$inboundSchema;
-  /** @deprecated use `ServiceDependencies$outboundSchema` instead. */
-  export const outboundSchema = ServiceDependencies$outboundSchema;
-  /** @deprecated use `ServiceDependencies$Outbound` instead. */
-  export type Outbound = ServiceDependencies$Outbound;
+export namespace ServiceDependency$ {
+  /** @deprecated use `ServiceDependency$inboundSchema` instead. */
+  export const inboundSchema = ServiceDependency$inboundSchema;
+  /** @deprecated use `ServiceDependency$outboundSchema` instead. */
+  export const outboundSchema = ServiceDependency$outboundSchema;
+  /** @deprecated use `ServiceDependency$Outbound` instead. */
+  export type Outbound = ServiceDependency$Outbound;
 }
 
-export function serviceDependenciesToJSON(
-  serviceDependencies: ServiceDependencies,
+export function serviceDependencyToJSON(
+  serviceDependency: ServiceDependency,
 ): string {
   return JSON.stringify(
-    ServiceDependencies$outboundSchema.parse(serviceDependencies),
+    ServiceDependency$outboundSchema.parse(serviceDependency),
   );
 }
 
-export function serviceDependenciesFromJSON(
+export function serviceDependencyFromJSON(
   jsonString: string,
-): SafeParseResult<ServiceDependencies, SDKValidationError> {
+): SafeParseResult<ServiceDependency, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ServiceDependencies$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ServiceDependencies' from JSON`,
+    (x) => ServiceDependency$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ServiceDependency' from JSON`,
   );
 }
 
@@ -94,14 +100,15 @@ export const ServiceWithAllDependenciesEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  child_service_dependencies: z.array(
-    ServiceChildDependencyEntity$inboundSchema,
+  child_service_dependencies: z.nullable(
+    z.array(ServiceChildDependencyEntity$inboundSchema),
   ).optional(),
-  parent_service_dependencies: z.array(
-    ServiceParentDependencyEntity$inboundSchema,
+  parent_service_dependencies: z.nullable(
+    z.array(ServiceParentDependencyEntity$inboundSchema),
   ).optional(),
-  service_dependencies: z.array(z.lazy(() => ServiceDependencies$inboundSchema))
-    .optional(),
+  service_dependencies: z.nullable(
+    z.array(z.lazy(() => ServiceDependency$inboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "child_service_dependencies": "childServiceDependencies",
@@ -114,11 +121,13 @@ export const ServiceWithAllDependenciesEntity$inboundSchema: z.ZodType<
 export type ServiceWithAllDependenciesEntity$Outbound = {
   child_service_dependencies?:
     | Array<ServiceChildDependencyEntity$Outbound>
+    | null
     | undefined;
   parent_service_dependencies?:
     | Array<ServiceParentDependencyEntity$Outbound>
+    | null
     | undefined;
-  service_dependencies?: Array<ServiceDependencies$Outbound> | undefined;
+  service_dependencies?: Array<ServiceDependency$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -127,13 +136,15 @@ export const ServiceWithAllDependenciesEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ServiceWithAllDependenciesEntity
 > = z.object({
-  childServiceDependencies: z.array(ServiceChildDependencyEntity$outboundSchema)
-    .optional(),
-  parentServiceDependencies: z.array(
-    ServiceParentDependencyEntity$outboundSchema,
+  childServiceDependencies: z.nullable(
+    z.array(ServiceChildDependencyEntity$outboundSchema),
   ).optional(),
-  serviceDependencies: z.array(z.lazy(() => ServiceDependencies$outboundSchema))
-    .optional(),
+  parentServiceDependencies: z.nullable(
+    z.array(ServiceParentDependencyEntity$outboundSchema),
+  ).optional(),
+  serviceDependencies: z.nullable(
+    z.array(z.lazy(() => ServiceDependency$outboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     childServiceDependencies: "child_service_dependencies",

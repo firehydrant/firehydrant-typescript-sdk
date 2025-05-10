@@ -13,11 +13,11 @@ export type ListRetrospectiveMetricsRequest = {
   /**
    * The start date to return metrics from
    */
-  startDate?: RFCDate | undefined;
+  startDate?: RFCDate | null | undefined;
   /**
    * The end date to return metrics from
    */
-  endDate?: RFCDate | undefined;
+  endDate?: RFCDate | null | undefined;
 };
 
 /** @internal */
@@ -26,8 +26,8 @@ export const ListRetrospectiveMetricsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -37,8 +37,8 @@ export const ListRetrospectiveMetricsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListRetrospectiveMetricsRequest$Outbound = {
-  start_date?: string | undefined;
-  end_date?: string | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
 };
 
 /** @internal */
@@ -47,8 +47,10 @@ export const ListRetrospectiveMetricsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListRetrospectiveMetricsRequest
 > = z.object({
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",

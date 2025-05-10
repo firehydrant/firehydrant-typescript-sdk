@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentTypeRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateIncidentTypeRequest } from "firehydrant/models/operations";
 
 let value: UpdateIncidentTypeRequest = {
   id: "<id>",
-  patchV1IncidentTypesId: {
+  updateIncidentType: {
     name: "<value>",
     template: {},
   },
@@ -16,7 +16,7 @@ let value: UpdateIncidentTypeRequest = {
 
 ## Fields
 
-| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `id`                                                                                   | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `patchV1IncidentTypesId`                                                               | [components.PatchV1IncidentTypesId](../../models/components/patchv1incidenttypesid.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `id`                                                                           | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `updateIncidentType`                                                           | [components.UpdateIncidentType](../../models/components/updateincidenttype.md) | :heavy_check_mark:                                                             | N/A                                                                            |

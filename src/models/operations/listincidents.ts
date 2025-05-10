@@ -13,7 +13,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * A matching strategy for the tags provided
  */
-export const QueryParamTagMatchStrategy = {
+export const ListIncidentsTagMatchStrategy = {
   Any: "any",
   MatchAll: "match_all",
   Exclude: "exclude",
@@ -21,146 +21,158 @@ export const QueryParamTagMatchStrategy = {
 /**
  * A matching strategy for the tags provided
  */
-export type QueryParamTagMatchStrategy = ClosedEnum<
-  typeof QueryParamTagMatchStrategy
+export type ListIncidentsTagMatchStrategy = ClosedEnum<
+  typeof ListIncidentsTagMatchStrategy
 >;
 
 export type ListIncidentsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A JSON string that defines 'logic' and 'user_data'
    */
-  conditions?: string | undefined;
+  conditions?: string | null | undefined;
   /**
    * A comma separated list of environment IDs or 'is_empty' to filter for incidents with no impacted environments
    */
-  environments?: string | undefined;
+  environments?: string | null | undefined;
   /**
    * A comma separated list of service IDs or 'is_empty' to filter for incidents with no impacted services
    */
-  services?: string | undefined;
+  services?: string | null | undefined;
   /**
    * A comma separated list of functionality IDs or 'is_empty' to filter for incidents with no impacted functionalities
    */
-  functionalities?: string | undefined;
+  functionalities?: string | null | undefined;
   /**
    * A comma separated list of infrastructure IDs. Returns incidents that do not have the following infrastructure ids associated with them.
    */
-  excludedInfrastructureIds?: string | undefined;
+  excludedInfrastructureIds?: string | null | undefined;
   /**
    * A comma separated list of team IDs
    */
-  teams?: string | undefined;
+  teams?: string | null | undefined;
   /**
    * A comma separated list of IDs for assigned teams or 'is_empty' to filter for incidents with no active team assignments
    */
-  assignedTeams?: string | undefined;
+  assignedTeams?: string | null | undefined;
   /**
    * Incident status
    */
-  status?: string | undefined;
+  status?: string | null | undefined;
   /**
    * Filters for incidents that started on or after this date
    */
-  startDate?: RFCDate | undefined;
+  startDate?: RFCDate | null | undefined;
   /**
    * Filters for incidents that started on or before this date
    */
-  endDate?: RFCDate | undefined;
+  endDate?: RFCDate | null | undefined;
   /**
    * Filters for incidents that were resolved at or after this time. Combine this with the `current_milestones` parameter if you wish to omit incidents that were re-opened and are still active.
    */
-  resolvedAtOrAfter?: Date | undefined;
+  resolvedAtOrAfter?: Date | null | undefined;
   /**
    * Filters for incidents that were resolved at or before this time. Combine this with the `current_milestones` parameter if you wish to omit incidents that were re-opened and are still active.
    */
-  resolvedAtOrBefore?: Date | undefined;
+  resolvedAtOrBefore?: Date | null | undefined;
+  /**
+   * Filters for incidents that were closed at or after this time
+   */
+  closedAtOrAfter?: Date | null | undefined;
+  /**
+   * Filters for incidents that were closed at or before this time
+   */
+  closedAtOrBefore?: Date | null | undefined;
   /**
    * Filters for incidents that were created at or after this time
    */
-  createdAtOrAfter?: Date | undefined;
+  createdAtOrAfter?: Date | null | undefined;
   /**
    * Filters for incidents that were created at or before this time
    */
-  createdAtOrBefore?: Date | undefined;
+  createdAtOrBefore?: Date | null | undefined;
   /**
    * A text query for an incident that searches on name, summary, and desciption
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A query to search incidents by their name
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * The id of a previously saved search.
    */
-  savedSearchId?: string | undefined;
+  savedSearchId?: string | null | undefined;
   /**
    * A text value of priority
    */
-  priorities?: string | undefined;
+  priorities?: string | null | undefined;
   /**
    * Flag for including incidents where priority has not been set
    */
-  priorityNotSet?: boolean | undefined;
+  priorityNotSet?: boolean | null | undefined;
   /**
    * A text value of severity
    */
-  severities?: string | undefined;
+  severities?: string | null | undefined;
   /**
    * Flag for including incidents where severity has not been set
    */
-  severityNotSet?: boolean | undefined;
+  severityNotSet?: boolean | null | undefined;
   /**
    * A comma separated list of current milestones
    */
-  currentMilestones?: string | undefined;
+  currentMilestones?: string | null | undefined;
   /**
    * A comma separated list of tags
    */
-  tags?: string | undefined;
+  tags?: string | null | undefined;
   /**
    * A matching strategy for the tags provided
    */
-  tagMatchStrategy?: QueryParamTagMatchStrategy | undefined;
+  tagMatchStrategy?: ListIncidentsTagMatchStrategy | null | undefined;
   /**
    * Return archived incidents
    */
-  archived?: boolean | undefined;
+  archived?: boolean | null | undefined;
   /**
    * Filters for incidents that were updated after this date
    */
-  updatedAfter?: Date | undefined;
+  updatedAfter?: Date | null | undefined;
   /**
    * Filters for incidents that were updated before this date
    */
-  updatedBefore?: Date | undefined;
+  updatedBefore?: Date | null | undefined;
   /**
    * A comma separated list of incident type IDs
    */
-  incidentTypeId?: string | undefined;
+  incidentTypeId?: string | null | undefined;
+  /**
+   * A comma separated list of retrospective template IDs
+   */
+  retrospectiveTemplate?: string | null | undefined;
 };
 
 /** @internal */
-export const QueryParamTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamTagMatchStrategy
-> = z.nativeEnum(QueryParamTagMatchStrategy);
+export const ListIncidentsTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
+  typeof ListIncidentsTagMatchStrategy
+> = z.nativeEnum(ListIncidentsTagMatchStrategy);
 
 /** @internal */
-export const QueryParamTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamTagMatchStrategy
-> = QueryParamTagMatchStrategy$inboundSchema;
+export const ListIncidentsTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
+  typeof ListIncidentsTagMatchStrategy
+> = ListIncidentsTagMatchStrategy$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamTagMatchStrategy$ {
-  /** @deprecated use `QueryParamTagMatchStrategy$inboundSchema` instead. */
-  export const inboundSchema = QueryParamTagMatchStrategy$inboundSchema;
-  /** @deprecated use `QueryParamTagMatchStrategy$outboundSchema` instead. */
-  export const outboundSchema = QueryParamTagMatchStrategy$outboundSchema;
+export namespace ListIncidentsTagMatchStrategy$ {
+  /** @deprecated use `ListIncidentsTagMatchStrategy$inboundSchema` instead. */
+  export const inboundSchema = ListIncidentsTagMatchStrategy$inboundSchema;
+  /** @deprecated use `ListIncidentsTagMatchStrategy$outboundSchema` instead. */
+  export const outboundSchema = ListIncidentsTagMatchStrategy$outboundSchema;
 }
 
 /** @internal */
@@ -169,48 +181,56 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  conditions: z.string().optional(),
-  environments: z.string().optional(),
-  services: z.string().optional(),
-  functionalities: z.string().optional(),
-  excluded_infrastructure_ids: z.string().optional(),
-  teams: z.string().optional(),
-  assigned_teams: z.string().optional(),
-  status: z.string().optional(),
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
-  resolved_at_or_after: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  conditions: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(z.string()).optional(),
+  excluded_infrastructure_ids: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  assigned_teams: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  resolved_at_or_after: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  resolved_at_or_before: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  resolved_at_or_before: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  created_at_or_after: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  closed_at_or_after: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  created_at_or_before: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  closed_at_or_before: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
-  saved_search_id: z.string().optional(),
-  priorities: z.string().optional(),
-  priority_not_set: z.boolean().optional(),
-  severities: z.string().optional(),
-  severity_not_set: z.boolean().optional(),
-  current_milestones: z.string().optional(),
-  tags: z.string().optional(),
-  tag_match_strategy: QueryParamTagMatchStrategy$inboundSchema.optional(),
-  archived: z.boolean().optional(),
-  updated_after: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  created_at_or_after: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  updated_before: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  created_at_or_before: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  incident_type_id: z.string().optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  saved_search_id: z.nullable(z.string()).optional(),
+  priorities: z.nullable(z.string()).optional(),
+  priority_not_set: z.nullable(z.boolean()).optional(),
+  severities: z.nullable(z.string()).optional(),
+  severity_not_set: z.nullable(z.boolean()).optional(),
+  current_milestones: z.nullable(z.string()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  tag_match_strategy: z.nullable(ListIncidentsTagMatchStrategy$inboundSchema)
+    .optional(),
+  archived: z.nullable(z.boolean()).optional(),
+  updated_after: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_before: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  incident_type_id: z.nullable(z.string()).optional(),
+  retrospective_template: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -220,6 +240,8 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
     "resolved_at_or_after": "resolvedAtOrAfter",
     "resolved_at_or_before": "resolvedAtOrBefore",
+    "closed_at_or_after": "closedAtOrAfter",
+    "closed_at_or_before": "closedAtOrBefore",
     "created_at_or_after": "createdAtOrAfter",
     "created_at_or_before": "createdAtOrBefore",
     "saved_search_id": "savedSearchId",
@@ -230,41 +252,45 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     "updated_after": "updatedAfter",
     "updated_before": "updatedBefore",
     "incident_type_id": "incidentTypeId",
+    "retrospective_template": "retrospectiveTemplate",
   });
 });
 
 /** @internal */
 export type ListIncidentsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  conditions?: string | undefined;
-  environments?: string | undefined;
-  services?: string | undefined;
-  functionalities?: string | undefined;
-  excluded_infrastructure_ids?: string | undefined;
-  teams?: string | undefined;
-  assigned_teams?: string | undefined;
-  status?: string | undefined;
-  start_date?: string | undefined;
-  end_date?: string | undefined;
-  resolved_at_or_after?: string | undefined;
-  resolved_at_or_before?: string | undefined;
-  created_at_or_after?: string | undefined;
-  created_at_or_before?: string | undefined;
-  query?: string | undefined;
-  name?: string | undefined;
-  saved_search_id?: string | undefined;
-  priorities?: string | undefined;
-  priority_not_set?: boolean | undefined;
-  severities?: string | undefined;
-  severity_not_set?: boolean | undefined;
-  current_milestones?: string | undefined;
-  tags?: string | undefined;
-  tag_match_strategy?: string | undefined;
-  archived?: boolean | undefined;
-  updated_after?: string | undefined;
-  updated_before?: string | undefined;
-  incident_type_id?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  conditions?: string | null | undefined;
+  environments?: string | null | undefined;
+  services?: string | null | undefined;
+  functionalities?: string | null | undefined;
+  excluded_infrastructure_ids?: string | null | undefined;
+  teams?: string | null | undefined;
+  assigned_teams?: string | null | undefined;
+  status?: string | null | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
+  resolved_at_or_after?: string | null | undefined;
+  resolved_at_or_before?: string | null | undefined;
+  closed_at_or_after?: string | null | undefined;
+  closed_at_or_before?: string | null | undefined;
+  created_at_or_after?: string | null | undefined;
+  created_at_or_before?: string | null | undefined;
+  query?: string | null | undefined;
+  name?: string | null | undefined;
+  saved_search_id?: string | null | undefined;
+  priorities?: string | null | undefined;
+  priority_not_set?: boolean | null | undefined;
+  severities?: string | null | undefined;
+  severity_not_set?: boolean | null | undefined;
+  current_milestones?: string | null | undefined;
+  tags?: string | null | undefined;
+  tag_match_strategy?: string | null | undefined;
+  archived?: boolean | null | undefined;
+  updated_after?: string | null | undefined;
+  updated_before?: string | null | undefined;
+  incident_type_id?: string | null | undefined;
+  retrospective_template?: string | null | undefined;
 };
 
 /** @internal */
@@ -273,36 +299,49 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListIncidentsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  conditions: z.string().optional(),
-  environments: z.string().optional(),
-  services: z.string().optional(),
-  functionalities: z.string().optional(),
-  excludedInfrastructureIds: z.string().optional(),
-  teams: z.string().optional(),
-  assignedTeams: z.string().optional(),
-  status: z.string().optional(),
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  resolvedAtOrAfter: z.date().transform(v => v.toISOString()).optional(),
-  resolvedAtOrBefore: z.date().transform(v => v.toISOString()).optional(),
-  createdAtOrAfter: z.date().transform(v => v.toISOString()).optional(),
-  createdAtOrBefore: z.date().transform(v => v.toISOString()).optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
-  savedSearchId: z.string().optional(),
-  priorities: z.string().optional(),
-  priorityNotSet: z.boolean().optional(),
-  severities: z.string().optional(),
-  severityNotSet: z.boolean().optional(),
-  currentMilestones: z.string().optional(),
-  tags: z.string().optional(),
-  tagMatchStrategy: QueryParamTagMatchStrategy$outboundSchema.optional(),
-  archived: z.boolean().optional(),
-  updatedAfter: z.date().transform(v => v.toISOString()).optional(),
-  updatedBefore: z.date().transform(v => v.toISOString()).optional(),
-  incidentTypeId: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  conditions: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(z.string()).optional(),
+  excludedInfrastructureIds: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  assignedTeams: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  resolvedAtOrAfter: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  resolvedAtOrBefore: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  closedAtOrAfter: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  closedAtOrBefore: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  createdAtOrAfter: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  createdAtOrBefore: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  savedSearchId: z.nullable(z.string()).optional(),
+  priorities: z.nullable(z.string()).optional(),
+  priorityNotSet: z.nullable(z.boolean()).optional(),
+  severities: z.nullable(z.string()).optional(),
+  severityNotSet: z.nullable(z.boolean()).optional(),
+  currentMilestones: z.nullable(z.string()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  tagMatchStrategy: z.nullable(ListIncidentsTagMatchStrategy$outboundSchema)
+    .optional(),
+  archived: z.nullable(z.boolean()).optional(),
+  updatedAfter: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedBefore: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  incidentTypeId: z.nullable(z.string()).optional(),
+  retrospectiveTemplate: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",
@@ -312,6 +351,8 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
     endDate: "end_date",
     resolvedAtOrAfter: "resolved_at_or_after",
     resolvedAtOrBefore: "resolved_at_or_before",
+    closedAtOrAfter: "closed_at_or_after",
+    closedAtOrBefore: "closed_at_or_before",
     createdAtOrAfter: "created_at_or_after",
     createdAtOrBefore: "created_at_or_before",
     savedSearchId: "saved_search_id",
@@ -322,6 +363,7 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
     updatedAfter: "updated_after",
     updatedBefore: "updated_before",
     incidentTypeId: "incident_type_id",
+    retrospectiveTemplate: "retrospective_template",
   });
 });
 

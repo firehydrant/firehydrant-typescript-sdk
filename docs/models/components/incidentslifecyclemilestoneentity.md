@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IncidentsLifecycleMilestoneEntity } from "firehydrant-typescript-sdk/models/components";
+import { IncidentsLifecycleMilestoneEntity } from "firehydrant/models/components";
 
 let value: IncidentsLifecycleMilestoneEntity = {};
 ```
@@ -19,5 +19,5 @@ let value: IncidentsLifecycleMilestoneEntity = {};
 | `position`                                                                                    | *number*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `occurredAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `duration`                                                                                    | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
-| `updatedBy`                                                                                   | [components.AuthorEntity](../../models/components/authorentity.md)                            | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `updatedBy`                                                                                   | [components.NullableAuthorEntity](../../models/components/nullableauthorentity.md)            | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |

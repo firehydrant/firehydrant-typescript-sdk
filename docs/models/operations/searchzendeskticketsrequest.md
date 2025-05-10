@@ -3,16 +3,19 @@
 ## Example Usage
 
 ```typescript
-import { SearchZendeskTicketsRequest } from "firehydrant-typescript-sdk/models/operations";
+import { SearchZendeskTicketsRequest } from "firehydrant/models/operations";
 
 let value: SearchZendeskTicketsRequest = {
-  ticketId: "<id>",
+  connectionId: "<id>",
+  query: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                             | Type                              | Required                          | Description                       |
-| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| `ticketId`                        | *string*                          | :heavy_check_mark:                | Zendesk ticket ID                 |
-| `include`                         | *string*                          | :heavy_minus_sign:                | Use to include attached_incidents |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `connectionId`     | *string*           | :heavy_check_mark: | N/A                |
+| `query`            | *string*           | :heavy_check_mark: | N/A                |
+| `page`             | *number*           | :heavy_minus_sign: | N/A                |
+| `perPage`          | *number*           | :heavy_minus_sign: | N/A                |

@@ -12,17 +12,17 @@ export type ListInfrastructuresRequest = {
   /**
    * A query to search infrastructures by their name
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * Omit for any infrastructure that is added to an incident using the format "incident/{incident_id}"
    */
-  omitFor?: string | undefined;
+  omitFor?: string | null | undefined;
   /**
    * Restrict infrastructure search to given type.
    */
-  type?: string | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  type?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -31,11 +31,11 @@ export const ListInfrastructuresRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  query: z.string().optional(),
-  omit_for: z.string().optional(),
-  type: z.string().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  omit_for: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "omit_for": "omitFor",
@@ -45,11 +45,11 @@ export const ListInfrastructuresRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListInfrastructuresRequest$Outbound = {
-  query?: string | undefined;
-  omit_for?: string | undefined;
-  type?: string | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  query?: string | null | undefined;
+  omit_for?: string | null | undefined;
+  type?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -58,11 +58,11 @@ export const ListInfrastructuresRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListInfrastructuresRequest
 > = z.object({
-  query: z.string().optional(),
-  omitFor: z.string().optional(),
-  type: z.string().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  omitFor: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     omitFor: "omit_for",

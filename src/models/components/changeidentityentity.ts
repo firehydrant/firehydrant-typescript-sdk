@@ -12,12 +12,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * ChangeIdentityEntity model
  */
 export type ChangeIdentityEntity = {
-  id?: string | undefined;
-  type?: string | undefined;
-  value?: string | undefined;
-  changeId?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  value?: string | null | undefined;
+  changeId?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -26,14 +26,16 @@ export const ChangeIdentityEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  value: z.string().optional(),
-  change_id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
+  change_id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "change_id": "changeId",
@@ -44,12 +46,12 @@ export const ChangeIdentityEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ChangeIdentityEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  value?: string | undefined;
-  change_id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  value?: string | null | undefined;
+  change_id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -58,12 +60,12 @@ export const ChangeIdentityEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChangeIdentityEntity
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  value: z.string().optional(),
-  changeId: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
+  changeId: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     changeId: "change_id",

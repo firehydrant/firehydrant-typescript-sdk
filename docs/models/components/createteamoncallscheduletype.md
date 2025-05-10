@@ -1,0 +1,17 @@
+# CreateTeamOnCallScheduleType
+
+The type of strategy. Must be one of "daily", "weekly", or "custom".
+
+## Example Usage
+
+```typescript
+import { CreateTeamOnCallScheduleType } from "firehydrant/models/components";
+
+let value: CreateTeamOnCallScheduleType = "daily";
+```
+
+## Values
+
+```typescript
+"daily" | "weekly" | "custom"
+```

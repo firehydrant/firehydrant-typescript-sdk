@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateScimGroupRequest = {
   id: string;
-  putV1ScimV2GroupsId: components.PutV1ScimV2GroupsId;
+  updateScimGroup: components.UpdateScimGroup;
 };
 
 /** @internal */
@@ -20,13 +21,17 @@ export const UpdateScimGroupRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  putV1ScimV2GroupsId: components.PutV1ScimV2GroupsId$inboundSchema,
+  update_scim_group: z.lazy(() => components.UpdateScimGroup$inboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    "update_scim_group": "updateScimGroup",
+  });
 });
 
 /** @internal */
 export type UpdateScimGroupRequest$Outbound = {
   id: string;
-  putV1ScimV2GroupsId: components.PutV1ScimV2GroupsId$Outbound;
+  update_scim_group: components.UpdateScimGroup$Outbound;
 };
 
 /** @internal */
@@ -36,7 +41,11 @@ export const UpdateScimGroupRequest$outboundSchema: z.ZodType<
   UpdateScimGroupRequest
 > = z.object({
   id: z.string(),
-  putV1ScimV2GroupsId: components.PutV1ScimV2GroupsId$outboundSchema,
+  updateScimGroup: z.lazy(() => components.UpdateScimGroup$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    updateScimGroup: "update_scim_group",
+  });
 });
 
 /**

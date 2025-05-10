@@ -10,43 +10,41 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const CreateIncidentImpactPathParamType = {
+export const CreateIncidentImpactType = {
   Environments: "environments",
   Functionalities: "functionalities",
   Services: "services",
   Customers: "customers",
 } as const;
-export type CreateIncidentImpactPathParamType = ClosedEnum<
-  typeof CreateIncidentImpactPathParamType
+export type CreateIncidentImpactType = ClosedEnum<
+  typeof CreateIncidentImpactType
 >;
 
 export type CreateIncidentImpactRequest = {
   incidentId: string;
-  type: CreateIncidentImpactPathParamType;
-  postV1IncidentsIncidentIdImpactType:
-    components.PostV1IncidentsIncidentIdImpactType;
+  type: CreateIncidentImpactType;
+  createIncidentImpact: components.CreateIncidentImpact;
 };
 
 /** @internal */
-export const CreateIncidentImpactPathParamType$inboundSchema: z.ZodNativeEnum<
-  typeof CreateIncidentImpactPathParamType
-> = z.nativeEnum(CreateIncidentImpactPathParamType);
+export const CreateIncidentImpactType$inboundSchema: z.ZodNativeEnum<
+  typeof CreateIncidentImpactType
+> = z.nativeEnum(CreateIncidentImpactType);
 
 /** @internal */
-export const CreateIncidentImpactPathParamType$outboundSchema: z.ZodNativeEnum<
-  typeof CreateIncidentImpactPathParamType
-> = CreateIncidentImpactPathParamType$inboundSchema;
+export const CreateIncidentImpactType$outboundSchema: z.ZodNativeEnum<
+  typeof CreateIncidentImpactType
+> = CreateIncidentImpactType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CreateIncidentImpactPathParamType$ {
-  /** @deprecated use `CreateIncidentImpactPathParamType$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentImpactPathParamType$inboundSchema;
-  /** @deprecated use `CreateIncidentImpactPathParamType$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentImpactPathParamType$outboundSchema;
+export namespace CreateIncidentImpactType$ {
+  /** @deprecated use `CreateIncidentImpactType$inboundSchema` instead. */
+  export const inboundSchema = CreateIncidentImpactType$inboundSchema;
+  /** @deprecated use `CreateIncidentImpactType$outboundSchema` instead. */
+  export const outboundSchema = CreateIncidentImpactType$outboundSchema;
 }
 
 /** @internal */
@@ -56,12 +54,14 @@ export const CreateIncidentImpactRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  type: CreateIncidentImpactPathParamType$inboundSchema,
-  postV1IncidentsIncidentIdImpactType:
-    components.PostV1IncidentsIncidentIdImpactType$inboundSchema,
+  type: CreateIncidentImpactType$inboundSchema,
+  create_incident_impact: z.lazy(() =>
+    components.CreateIncidentImpact$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_impact": "createIncidentImpact",
   });
 });
 
@@ -69,8 +69,7 @@ export const CreateIncidentImpactRequest$inboundSchema: z.ZodType<
 export type CreateIncidentImpactRequest$Outbound = {
   incident_id: string;
   type: string;
-  postV1IncidentsIncidentIdImpactType:
-    components.PostV1IncidentsIncidentIdImpactType$Outbound;
+  create_incident_impact: components.CreateIncidentImpact$Outbound;
 };
 
 /** @internal */
@@ -80,12 +79,14 @@ export const CreateIncidentImpactRequest$outboundSchema: z.ZodType<
   CreateIncidentImpactRequest
 > = z.object({
   incidentId: z.string(),
-  type: CreateIncidentImpactPathParamType$outboundSchema,
-  postV1IncidentsIncidentIdImpactType:
-    components.PostV1IncidentsIncidentIdImpactType$outboundSchema,
+  type: CreateIncidentImpactType$outboundSchema,
+  createIncidentImpact: z.lazy(() =>
+    components.CreateIncidentImpact$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentImpact: "create_incident_impact",
   });
 });
 

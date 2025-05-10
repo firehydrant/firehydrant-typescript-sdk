@@ -7,25 +7,22 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AlertsAlertEntity,
-  AlertsAlertEntity$inboundSchema,
-  AlertsAlertEntity$Outbound,
-  AlertsAlertEntity$outboundSchema,
-} from "./alertsalertentity.js";
+  NullableAlertsAlertEntity,
+  NullableAlertsAlertEntity$inboundSchema,
+  NullableAlertsAlertEntity$Outbound,
+  NullableAlertsAlertEntity$outboundSchema,
+} from "./nullablealertsalertentity.js";
 
 /**
  * Incidents_AlertEntity model
  */
 export type IncidentsAlertEntity = {
-  id?: string | undefined;
-  /**
-   * Alerts_AlertEntity model
-   */
-  alert?: AlertsAlertEntity | undefined;
+  id?: string | null | undefined;
+  alert?: NullableAlertsAlertEntity | null | undefined;
   /**
    * whether or not this is the primary alert for this incident
    */
-  primary?: boolean | undefined;
+  primary?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -34,16 +31,16 @@ export const IncidentsAlertEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  alert: AlertsAlertEntity$inboundSchema.optional(),
-  primary: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  alert: z.nullable(NullableAlertsAlertEntity$inboundSchema).optional(),
+  primary: z.nullable(z.boolean()).optional(),
 });
 
 /** @internal */
 export type IncidentsAlertEntity$Outbound = {
-  id?: string | undefined;
-  alert?: AlertsAlertEntity$Outbound | undefined;
-  primary?: boolean | undefined;
+  id?: string | null | undefined;
+  alert?: NullableAlertsAlertEntity$Outbound | null | undefined;
+  primary?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -52,9 +49,9 @@ export const IncidentsAlertEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsAlertEntity
 > = z.object({
-  id: z.string().optional(),
-  alert: AlertsAlertEntity$outboundSchema.optional(),
-  primary: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  alert: z.nullable(NullableAlertsAlertEntity$outboundSchema).optional(),
+  primary: z.nullable(z.boolean()).optional(),
 });
 
 /**

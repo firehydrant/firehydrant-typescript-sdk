@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentRoleRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateIncidentRoleRequest } from "firehydrant/models/operations";
 
 let value: UpdateIncidentRoleRequest = {
   incidentRoleId: "<id>",
-  patchV1IncidentRolesIncidentRoleId: {},
+  updateIncidentRole: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `incidentRoleId`                                                                                               | *string*                                                                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
-| `patchV1IncidentRolesIncidentRoleId`                                                                           | [components.PatchV1IncidentRolesIncidentRoleId](../../models/components/patchv1incidentrolesincidentroleid.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `incidentRoleId`                                                               | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `updateIncidentRole`                                                           | [components.UpdateIncidentRole](../../models/components/updateincidentrole.md) | :heavy_check_mark:                                                             | N/A                                                                            |

@@ -1,0 +1,39 @@
+# UpdateRetrospectiveTemplateRequestBody
+
+## Example Usage
+
+```typescript
+import { UpdateRetrospectiveTemplateRequestBody } from "firehydrant/models/operations";
+
+let value: UpdateRetrospectiveTemplateRequestBody = {
+  sectionsSlug: [
+    "<value>",
+  ],
+  sectionsElements: [
+    "<value>",
+  ],
+  fieldsLabel: [
+    "<value>",
+  ],
+  fieldsType: [
+    "numeric",
+  ],
+};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                                 | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `description`                                                                                                          | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `isDefault`                                                                                                            | *boolean*                                                                                                              | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `sectionsSlug`                                                                                                         | *string*[]                                                                                                             | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `sectionsElements`                                                                                                     | *string*[]                                                                                                             | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `fieldsId`                                                                                                             | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `fieldsLabel`                                                                                                          | *string*[]                                                                                                             | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `fieldsType`                                                                                                           | [operations.UpdateRetrospectiveTemplateFieldsType](../../models/operations/updateretrospectivetemplatefieldstype.md)[] | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `fieldsHelpText`                                                                                                       | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `fieldsPermissibleValues`                                                                                              | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `fieldsIsRequired`                                                                                                     | *boolean*[]                                                                                                            | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `fieldsSchema`                                                                                                         | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentStatusPageRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateIncidentStatusPageRequest } from "firehydrant/models/operations";
 
 let value: CreateIncidentStatusPageRequest = {
   incidentId: "<id>",
-  postV1IncidentsIncidentIdStatusPages: {
+  createIncidentStatusPage: {
     integrationSlug: "<value>",
     integrationId: "<id>",
   },
@@ -16,7 +16,7 @@ let value: CreateIncidentStatusPageRequest = {
 
 ## Fields
 
-| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `incidentId`                                                                                                       | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `postV1IncidentsIncidentIdStatusPages`                                                                             | [components.PostV1IncidentsIncidentIdStatusPages](../../models/components/postv1incidentsincidentidstatuspages.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `incidentId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `createIncidentStatusPage`                                                                 | [components.CreateIncidentStatusPage](../../models/components/createincidentstatuspage.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |

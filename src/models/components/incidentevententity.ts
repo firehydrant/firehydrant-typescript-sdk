@@ -9,56 +9,55 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   ConversationsAPIEntitiesReference,
   ConversationsAPIEntitiesReference$inboundSchema,
   ConversationsAPIEntitiesReference$Outbound,
   ConversationsAPIEntitiesReference$outboundSchema,
 } from "./conversationsapientitiesreference.js";
 import {
-  VotesEntity,
-  VotesEntity$inboundSchema,
-  VotesEntity$Outbound,
-  VotesEntity$outboundSchema,
-} from "./votesentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
+import {
+  NullableVotesEntity,
+  NullableVotesEntity$inboundSchema,
+  NullableVotesEntity$Outbound,
+  NullableVotesEntity$outboundSchema,
+} from "./nullablevotesentity.js";
 
 /**
  * Can be one of: NoteEntity, TourStepEntity, RootCauseEntity, ChangeTypeEntity, RoleUpdateEntity, TaskUpdateEntity, AlertLinkedEntity, ChatMessageEntity, AddTaskListEntity, ImpactUpdateEntity, TicketUpdateEntity, GeneralUpdateEntity, ChangelogEntryEntity, IncidentStatusEntity, TeamAssignmentEntity, BulkUpdateEntity
  */
 export type IncidentEventEntityData = {};
 
-export const Visibility = {
+export const IncidentEventEntityVisibility = {
   PrivateToOrg: "private_to_org",
   OpenToPublic: "open_to_public",
   InternalStatusPage: "internal_status_page",
 } as const;
-export type Visibility = ClosedEnum<typeof Visibility>;
+export type IncidentEventEntityVisibility = ClosedEnum<
+  typeof IncidentEventEntityVisibility
+>;
 
 /**
  * IncidentEventEntity model
  */
 export type IncidentEventEntity = {
-  id?: string | undefined;
-  incidentId?: string | undefined;
-  type?: string | undefined;
-  context?: string | undefined;
+  id?: string | null | undefined;
+  incidentId?: string | null | undefined;
+  type?: string | null | undefined;
+  context?: string | null | undefined;
   /**
    * Can be one of: NoteEntity, TourStepEntity, RootCauseEntity, ChangeTypeEntity, RoleUpdateEntity, TaskUpdateEntity, AlertLinkedEntity, ChatMessageEntity, AddTaskListEntity, ImpactUpdateEntity, TicketUpdateEntity, GeneralUpdateEntity, ChangelogEntryEntity, IncidentStatusEntity, TeamAssignmentEntity, BulkUpdateEntity
    */
-  data?: IncidentEventEntityData | undefined;
-  occurredAt?: Date | undefined;
-  visibility?: Visibility | undefined;
-  author?: AuthorEntity | undefined;
-  /**
-   * VotesEntity model
-   */
-  votes?: VotesEntity | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference> | undefined;
+  data?: IncidentEventEntityData | null | undefined;
+  occurredAt?: Date | null | undefined;
+  visibility?: IncidentEventEntityVisibility | null | undefined;
+  author?: NullableAuthorEntity | null | undefined;
+  votes?: NullableVotesEntity | null | undefined;
+  conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
 };
 
 /** @internal */
@@ -110,22 +109,24 @@ export function incidentEventEntityDataFromJSON(
 }
 
 /** @internal */
-export const Visibility$inboundSchema: z.ZodNativeEnum<typeof Visibility> = z
-  .nativeEnum(Visibility);
+export const IncidentEventEntityVisibility$inboundSchema: z.ZodNativeEnum<
+  typeof IncidentEventEntityVisibility
+> = z.nativeEnum(IncidentEventEntityVisibility);
 
 /** @internal */
-export const Visibility$outboundSchema: z.ZodNativeEnum<typeof Visibility> =
-  Visibility$inboundSchema;
+export const IncidentEventEntityVisibility$outboundSchema: z.ZodNativeEnum<
+  typeof IncidentEventEntityVisibility
+> = IncidentEventEntityVisibility$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Visibility$ {
-  /** @deprecated use `Visibility$inboundSchema` instead. */
-  export const inboundSchema = Visibility$inboundSchema;
-  /** @deprecated use `Visibility$outboundSchema` instead. */
-  export const outboundSchema = Visibility$outboundSchema;
+export namespace IncidentEventEntityVisibility$ {
+  /** @deprecated use `IncidentEventEntityVisibility$inboundSchema` instead. */
+  export const inboundSchema = IncidentEventEntityVisibility$inboundSchema;
+  /** @deprecated use `IncidentEventEntityVisibility$outboundSchema` instead. */
+  export const outboundSchema = IncidentEventEntityVisibility$outboundSchema;
 }
 
 /** @internal */
@@ -134,18 +135,22 @@ export const IncidentEventEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  incident_id: z.string().optional(),
-  type: z.string().optional(),
-  context: z.string().optional(),
-  data: z.lazy(() => IncidentEventEntityData$inboundSchema).optional(),
-  occurred_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  incident_id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  context: z.nullable(z.string()).optional(),
+  data: z.nullable(z.lazy(() => IncidentEventEntityData$inboundSchema))
     .optional(),
-  visibility: Visibility$inboundSchema.optional(),
-  author: AuthorEntity$inboundSchema.optional(),
-  votes: VotesEntity$inboundSchema.optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$inboundSchema)
+  occurred_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  visibility: z.nullable(IncidentEventEntityVisibility$inboundSchema)
     .optional(),
+  author: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  votes: z.nullable(NullableVotesEntity$inboundSchema).optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
@@ -155,16 +160,19 @@ export const IncidentEventEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentEventEntity$Outbound = {
-  id?: string | undefined;
-  incident_id?: string | undefined;
-  type?: string | undefined;
-  context?: string | undefined;
-  data?: IncidentEventEntityData$Outbound | undefined;
-  occurred_at?: string | undefined;
-  visibility?: string | undefined;
-  author?: AuthorEntity$Outbound | undefined;
-  votes?: VotesEntity$Outbound | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference$Outbound> | undefined;
+  id?: string | null | undefined;
+  incident_id?: string | null | undefined;
+  type?: string | null | undefined;
+  context?: string | null | undefined;
+  data?: IncidentEventEntityData$Outbound | null | undefined;
+  occurred_at?: string | null | undefined;
+  visibility?: string | null | undefined;
+  author?: NullableAuthorEntity$Outbound | null | undefined;
+  votes?: NullableVotesEntity$Outbound | null | undefined;
+  conversations?:
+    | Array<ConversationsAPIEntitiesReference$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -173,17 +181,20 @@ export const IncidentEventEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentEventEntity
 > = z.object({
-  id: z.string().optional(),
-  incidentId: z.string().optional(),
-  type: z.string().optional(),
-  context: z.string().optional(),
-  data: z.lazy(() => IncidentEventEntityData$outboundSchema).optional(),
-  occurredAt: z.date().transform(v => v.toISOString()).optional(),
-  visibility: Visibility$outboundSchema.optional(),
-  author: AuthorEntity$outboundSchema.optional(),
-  votes: VotesEntity$outboundSchema.optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$outboundSchema)
+  id: z.nullable(z.string()).optional(),
+  incidentId: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  context: z.nullable(z.string()).optional(),
+  data: z.nullable(z.lazy(() => IncidentEventEntityData$outboundSchema))
     .optional(),
+  occurredAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  visibility: z.nullable(IncidentEventEntityVisibility$outboundSchema)
+    .optional(),
+  author: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  votes: z.nullable(NullableVotesEntity$outboundSchema).optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",

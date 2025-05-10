@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateTeamOnCallScheduleRequest = {
   teamId: string;
   scheduleId: string;
-  patchV1TeamsTeamIdOnCallSchedulesScheduleId:
-    components.PatchV1TeamsTeamIdOnCallSchedulesScheduleId;
+  updateTeamOnCallSchedule: components.UpdateTeamOnCallSchedule;
 };
 
 /** @internal */
@@ -24,12 +23,14 @@ export const UpdateTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
 > = z.object({
   team_id: z.string(),
   schedule_id: z.string(),
-  patchV1TeamsTeamIdOnCallSchedulesScheduleId:
-    components.PatchV1TeamsTeamIdOnCallSchedulesScheduleId$inboundSchema,
+  update_team_on_call_schedule: z.lazy(() =>
+    components.UpdateTeamOnCallSchedule$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
     "schedule_id": "scheduleId",
+    "update_team_on_call_schedule": "updateTeamOnCallSchedule",
   });
 });
 
@@ -37,8 +38,7 @@ export const UpdateTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
 export type UpdateTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
   schedule_id: string;
-  patchV1TeamsTeamIdOnCallSchedulesScheduleId:
-    components.PatchV1TeamsTeamIdOnCallSchedulesScheduleId$Outbound;
+  update_team_on_call_schedule: components.UpdateTeamOnCallSchedule$Outbound;
 };
 
 /** @internal */
@@ -49,12 +49,14 @@ export const UpdateTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
 > = z.object({
   teamId: z.string(),
   scheduleId: z.string(),
-  patchV1TeamsTeamIdOnCallSchedulesScheduleId:
-    components.PatchV1TeamsTeamIdOnCallSchedulesScheduleId$outboundSchema,
+  updateTeamOnCallSchedule: z.lazy(() =>
+    components.UpdateTeamOnCallSchedule$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
     scheduleId: "schedule_id",
+    updateTeamOnCallSchedule: "update_team_on_call_schedule",
   });
 });
 

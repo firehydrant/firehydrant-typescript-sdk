@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateIncidentChatMessageRequest = {
   messageId: string;
   incidentId: string;
-  patchV1IncidentsIncidentIdGenericChatMessagesMessageId:
-    components.PatchV1IncidentsIncidentIdGenericChatMessagesMessageId;
+  updateIncidentChatMessage: components.UpdateIncidentChatMessage;
 };
 
 /** @internal */
@@ -24,13 +23,14 @@ export const UpdateIncidentChatMessageRequest$inboundSchema: z.ZodType<
 > = z.object({
   message_id: z.string(),
   incident_id: z.string(),
-  patchV1IncidentsIncidentIdGenericChatMessagesMessageId:
-    components
-      .PatchV1IncidentsIncidentIdGenericChatMessagesMessageId$inboundSchema,
+  update_incident_chat_message: z.lazy(() =>
+    components.UpdateIncidentChatMessage$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "message_id": "messageId",
     "incident_id": "incidentId",
+    "update_incident_chat_message": "updateIncidentChatMessage",
   });
 });
 
@@ -38,8 +38,7 @@ export const UpdateIncidentChatMessageRequest$inboundSchema: z.ZodType<
 export type UpdateIncidentChatMessageRequest$Outbound = {
   message_id: string;
   incident_id: string;
-  patchV1IncidentsIncidentIdGenericChatMessagesMessageId:
-    components.PatchV1IncidentsIncidentIdGenericChatMessagesMessageId$Outbound;
+  update_incident_chat_message: components.UpdateIncidentChatMessage$Outbound;
 };
 
 /** @internal */
@@ -50,13 +49,14 @@ export const UpdateIncidentChatMessageRequest$outboundSchema: z.ZodType<
 > = z.object({
   messageId: z.string(),
   incidentId: z.string(),
-  patchV1IncidentsIncidentIdGenericChatMessagesMessageId:
-    components
-      .PatchV1IncidentsIncidentIdGenericChatMessagesMessageId$outboundSchema,
+  updateIncidentChatMessage: z.lazy(() =>
+    components.UpdateIncidentChatMessage$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     messageId: "message_id",
     incidentId: "incident_id",
+    updateIncidentChatMessage: "update_incident_chat_message",
   });
 });
 

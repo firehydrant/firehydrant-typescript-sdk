@@ -1,0 +1,30 @@
+# AlertsSirenAlertEntity
+
+## Example Usage
+
+```typescript
+import { AlertsSirenAlertEntity } from "firehydrant/models/components";
+
+let value: AlertsSirenAlertEntity = {
+  signalRule: {
+    deduplicationExpiry: "PT1H",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `id`                                                                                               | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `summary`                                                                                          | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `description`                                                                                      | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `startsAt`                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)      | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `endsAt`                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)      | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `status`                                                                                           | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `remoteId`                                                                                         | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `remoteUrl`                                                                                        | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `labels`                                                                                           | [components.AlertsSirenAlertEntityLabels](../../models/components/alertssirenalertentitylabels.md) | :heavy_minus_sign:                                                                                 | Arbitrary key:value pairs of labels.                                                               |
+| `tags`                                                                                             | *string*[]                                                                                         | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `signalId`                                                                                         | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `signalRule`                                                                                       | [components.NullableSignalsAPIRuleEntity](../../models/components/nullablesignalsapiruleentity.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

@@ -9,16 +9,16 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListRunbookActionsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * List actions supporting this specific Runbook type
    */
-  type?: string | undefined;
+  type?: string | null | undefined;
   /**
    * Boolean to determine whether to return a slimified version of the action object's integration
    */
-  lite?: boolean | undefined;
+  lite?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -27,10 +27,10 @@ export const ListRunbookActionsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  type: z.string().optional(),
-  lite: z.boolean().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  type: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -39,10 +39,10 @@ export const ListRunbookActionsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListRunbookActionsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  type?: string | undefined;
-  lite?: boolean | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  type?: string | null | undefined;
+  lite?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -51,10 +51,10 @@ export const ListRunbookActionsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListRunbookActionsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  type: z.string().optional(),
-  lite: z.boolean().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  type: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

@@ -12,29 +12,29 @@ export type ListFunctionalitiesRequest = {
   /**
    * A query to search functionalities by their name or description
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A query to search functionalities by their name
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * A query to search services by if they are impacted with active incidents
    */
-  impacted?: string | undefined;
+  impacted?: string | null | undefined;
   /**
    * A comma separated list of label key / values in the format of 'key=value,key2=value2'. To filter change events that have a key (with no specific value), omit the value
    */
-  labels?: string | undefined;
+  labels?: string | null | undefined;
   /**
    * A query to search functionalities by their owning team ID
    */
-  owner?: string | undefined;
+  owner?: string | null | undefined;
   /**
    * Boolean to determine whether to return a slimified version of the functionalities object
    */
-  lite?: boolean | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  lite?: boolean | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -43,14 +43,14 @@ export const ListFunctionalitiesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  query: z.string().optional(),
-  name: z.string().optional(),
-  impacted: z.string().optional(),
-  labels: z.string().optional(),
-  owner: z.string().optional(),
-  lite: z.boolean().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  impacted: z.nullable(z.string()).optional(),
+  labels: z.nullable(z.string()).optional(),
+  owner: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -59,14 +59,14 @@ export const ListFunctionalitiesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListFunctionalitiesRequest$Outbound = {
-  query?: string | undefined;
-  name?: string | undefined;
-  impacted?: string | undefined;
-  labels?: string | undefined;
-  owner?: string | undefined;
-  lite?: boolean | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  query?: string | null | undefined;
+  name?: string | null | undefined;
+  impacted?: string | null | undefined;
+  labels?: string | null | undefined;
+  owner?: string | null | undefined;
+  lite?: boolean | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -75,14 +75,14 @@ export const ListFunctionalitiesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListFunctionalitiesRequest
 > = z.object({
-  query: z.string().optional(),
-  name: z.string().optional(),
-  impacted: z.string().optional(),
-  labels: z.string().optional(),
-  owner: z.string().optional(),
-  lite: z.boolean().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  impacted: z.nullable(z.string()).optional(),
+  labels: z.nullable(z.string()).optional(),
+  owner: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

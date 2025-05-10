@@ -9,10 +9,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SeverityMatrixItemEntity = {
-  severity?: string | undefined;
-  conditionId?: string | undefined;
-  impactId?: string | undefined;
-  impactType?: string | undefined;
+  severity?: string | null | undefined;
+  conditionId?: string | null | undefined;
+  impactId?: string | null | undefined;
+  impactType?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,10 +21,10 @@ export const SeverityMatrixItemEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  severity: z.string().optional(),
-  condition_id: z.string().optional(),
-  impact_id: z.string().optional(),
-  impact_type: z.string().optional(),
+  severity: z.nullable(z.string()).optional(),
+  condition_id: z.nullable(z.string()).optional(),
+  impact_id: z.nullable(z.string()).optional(),
+  impact_type: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "condition_id": "conditionId",
@@ -35,10 +35,10 @@ export const SeverityMatrixItemEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SeverityMatrixItemEntity$Outbound = {
-  severity?: string | undefined;
-  condition_id?: string | undefined;
-  impact_id?: string | undefined;
-  impact_type?: string | undefined;
+  severity?: string | null | undefined;
+  condition_id?: string | null | undefined;
+  impact_id?: string | null | undefined;
+  impact_type?: string | null | undefined;
 };
 
 /** @internal */
@@ -47,10 +47,10 @@ export const SeverityMatrixItemEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SeverityMatrixItemEntity
 > = z.object({
-  severity: z.string().optional(),
-  conditionId: z.string().optional(),
-  impactId: z.string().optional(),
-  impactType: z.string().optional(),
+  severity: z.nullable(z.string()).optional(),
+  conditionId: z.nullable(z.string()).optional(),
+  impactId: z.nullable(z.string()).optional(),
+  impactType: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     conditionId: "condition_id",

@@ -13,18 +13,18 @@ import {
   IncidentsRoleAssignmentEntity$outboundSchema,
 } from "./incidentsroleassignmententity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Incidents_RoleAssignmentEntityPaginated model
  */
 export type IncidentsRoleAssignmentEntityPaginated = {
-  data?: Array<IncidentsRoleAssignmentEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IncidentsRoleAssignmentEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,15 @@ export const IncidentsRoleAssignmentEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(IncidentsRoleAssignmentEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(IncidentsRoleAssignmentEntity$inboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type IncidentsRoleAssignmentEntityPaginated$Outbound = {
-  data?: Array<IncidentsRoleAssignmentEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<IncidentsRoleAssignmentEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +50,9 @@ export const IncidentsRoleAssignmentEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsRoleAssignmentEntityPaginated
 > = z.object({
-  data: z.array(IncidentsRoleAssignmentEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(IncidentsRoleAssignmentEntity$outboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

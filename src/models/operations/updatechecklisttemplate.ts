@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateChecklistTemplateRequest = {
   id: string;
-  patchV1ChecklistTemplatesId: components.PatchV1ChecklistTemplatesId;
+  updateChecklistTemplate: components.UpdateChecklistTemplate;
 };
 
 /** @internal */
@@ -20,14 +21,19 @@ export const UpdateChecklistTemplateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  patchV1ChecklistTemplatesId:
-    components.PatchV1ChecklistTemplatesId$inboundSchema,
+  update_checklist_template: z.lazy(() =>
+    components.UpdateChecklistTemplate$inboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    "update_checklist_template": "updateChecklistTemplate",
+  });
 });
 
 /** @internal */
 export type UpdateChecklistTemplateRequest$Outbound = {
   id: string;
-  patchV1ChecklistTemplatesId: components.PatchV1ChecklistTemplatesId$Outbound;
+  update_checklist_template: components.UpdateChecklistTemplate$Outbound;
 };
 
 /** @internal */
@@ -37,8 +43,13 @@ export const UpdateChecklistTemplateRequest$outboundSchema: z.ZodType<
   UpdateChecklistTemplateRequest
 > = z.object({
   id: z.string(),
-  patchV1ChecklistTemplatesId:
-    components.PatchV1ChecklistTemplatesId$outboundSchema,
+  updateChecklistTemplate: z.lazy(() =>
+    components.UpdateChecklistTemplate$outboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    updateChecklistTemplate: "update_checklist_template",
+  });
 });
 
 /**

@@ -13,32 +13,33 @@ import {
   IncidentsRelatedChangeEventEntity$outboundSchema,
 } from "./incidentsrelatedchangeevententity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Incidents_RelatedChangeEventEntityPaginated model
  */
 export type IncidentsRelatedChangeEventEntityPaginated = {
-  data?: Array<IncidentsRelatedChangeEventEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IncidentsRelatedChangeEventEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
 export const IncidentsRelatedChangeEventEntityPaginated$inboundSchema:
   z.ZodType<IncidentsRelatedChangeEventEntityPaginated, z.ZodTypeDef, unknown> =
     z.object({
-      data: z.array(IncidentsRelatedChangeEventEntity$inboundSchema).optional(),
-      pagination: PaginationEntity$inboundSchema.optional(),
+      data: z.nullable(z.array(IncidentsRelatedChangeEventEntity$inboundSchema))
+        .optional(),
+      pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
     });
 
 /** @internal */
 export type IncidentsRelatedChangeEventEntityPaginated$Outbound = {
-  data?: Array<IncidentsRelatedChangeEventEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<IncidentsRelatedChangeEventEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -48,8 +49,9 @@ export const IncidentsRelatedChangeEventEntityPaginated$outboundSchema:
     z.ZodTypeDef,
     IncidentsRelatedChangeEventEntityPaginated
   > = z.object({
-    data: z.array(IncidentsRelatedChangeEventEntity$outboundSchema).optional(),
-    pagination: PaginationEntity$outboundSchema.optional(),
+    data: z.nullable(z.array(IncidentsRelatedChangeEventEntity$outboundSchema))
+      .optional(),
+    pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
 /**

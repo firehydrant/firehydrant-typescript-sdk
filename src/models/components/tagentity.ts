@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * TagEntity model
  */
 export type TagEntity = {
-  name?: string | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -20,12 +20,12 @@ export const TagEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  name: z.string().optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type TagEntity$Outbound = {
-  name?: string | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -34,7 +34,7 @@ export const TagEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TagEntity
 > = z.object({
-  name: z.string().optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /**

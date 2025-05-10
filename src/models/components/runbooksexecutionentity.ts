@@ -8,39 +8,42 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  RunbooksExecutionEntityExecutedForEntity,
-  RunbooksExecutionEntityExecutedForEntity$inboundSchema,
-  RunbooksExecutionEntityExecutedForEntity$Outbound,
-  RunbooksExecutionEntityExecutedForEntity$outboundSchema,
-} from "./runbooksexecutionentityexecutedforentity.js";
+  NullableRunbooksExecutionEntityExecutedForEntity,
+  NullableRunbooksExecutionEntityExecutedForEntity$inboundSchema,
+  NullableRunbooksExecutionEntityExecutedForEntity$Outbound,
+  NullableRunbooksExecutionEntityExecutedForEntity$outboundSchema,
+} from "./nullablerunbooksexecutionentityexecutedforentity.js";
 import {
-  RunbooksExecutionStepEntity,
-  RunbooksExecutionStepEntity$inboundSchema,
-  RunbooksExecutionStepEntity$Outbound,
-  RunbooksExecutionStepEntity$outboundSchema,
-} from "./runbooksexecutionstepentity.js";
+  NullableRunbooksExecutionStepEntity,
+  NullableRunbooksExecutionStepEntity$inboundSchema,
+  NullableRunbooksExecutionStepEntity$Outbound,
+  NullableRunbooksExecutionStepEntity$outboundSchema,
+} from "./nullablerunbooksexecutionstepentity.js";
 import {
-  SlimRunbookEntity,
-  SlimRunbookEntity$inboundSchema,
-  SlimRunbookEntity$Outbound,
-  SlimRunbookEntity$outboundSchema,
-} from "./slimrunbookentity.js";
+  NullableSlimRunbookEntity,
+  NullableSlimRunbookEntity$inboundSchema,
+  NullableSlimRunbookEntity$Outbound,
+  NullableSlimRunbookEntity$outboundSchema,
+} from "./nullableslimrunbookentity.js";
 
 /**
  * Runbooks_ExecutionEntity model
  */
 export type RunbooksExecutionEntity = {
-  id?: string | undefined;
-  status?: string | undefined;
-  statusReason?: string | undefined;
-  statusReasonMessage?: string | undefined;
-  hasBeenRerun?: boolean | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  createdBy?: string | undefined;
-  runbook?: SlimRunbookEntity | undefined;
-  steps?: RunbooksExecutionStepEntity | undefined;
-  executedFor?: RunbooksExecutionEntityExecutedForEntity | undefined;
+  id?: string | null | undefined;
+  status?: string | null | undefined;
+  statusReason?: string | null | undefined;
+  statusReasonMessage?: string | null | undefined;
+  hasBeenRerun?: boolean | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  createdBy?: string | null | undefined;
+  runbook?: NullableSlimRunbookEntity | null | undefined;
+  steps?: NullableRunbooksExecutionStepEntity | null | undefined;
+  executedFor?:
+    | NullableRunbooksExecutionEntityExecutedForEntity
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -49,20 +52,24 @@ export const RunbooksExecutionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  status: z.string().optional(),
-  status_reason: z.string().optional(),
-  status_reason_message: z.string().optional(),
-  has_been_rerun: z.boolean().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  status_reason: z.nullable(z.string()).optional(),
+  status_reason_message: z.nullable(z.string()).optional(),
+  has_been_rerun: z.nullable(z.boolean()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  created_by: z.nullable(z.string()).optional(),
+  runbook: z.nullable(NullableSlimRunbookEntity$inboundSchema).optional(),
+  steps: z.nullable(NullableRunbooksExecutionStepEntity$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  created_by: z.string().optional(),
-  runbook: SlimRunbookEntity$inboundSchema.optional(),
-  steps: RunbooksExecutionStepEntity$inboundSchema.optional(),
-  executed_for: RunbooksExecutionEntityExecutedForEntity$inboundSchema
-    .optional(),
+  executed_for: z.nullable(
+    NullableRunbooksExecutionEntityExecutedForEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "status_reason": "statusReason",
@@ -77,17 +84,20 @@ export const RunbooksExecutionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type RunbooksExecutionEntity$Outbound = {
-  id?: string | undefined;
-  status?: string | undefined;
-  status_reason?: string | undefined;
-  status_reason_message?: string | undefined;
-  has_been_rerun?: boolean | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  created_by?: string | undefined;
-  runbook?: SlimRunbookEntity$Outbound | undefined;
-  steps?: RunbooksExecutionStepEntity$Outbound | undefined;
-  executed_for?: RunbooksExecutionEntityExecutedForEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  status?: string | null | undefined;
+  status_reason?: string | null | undefined;
+  status_reason_message?: string | null | undefined;
+  has_been_rerun?: boolean | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  created_by?: string | null | undefined;
+  runbook?: NullableSlimRunbookEntity$Outbound | null | undefined;
+  steps?: NullableRunbooksExecutionStepEntity$Outbound | null | undefined;
+  executed_for?:
+    | NullableRunbooksExecutionEntityExecutedForEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -96,18 +106,20 @@ export const RunbooksExecutionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RunbooksExecutionEntity
 > = z.object({
-  id: z.string().optional(),
-  status: z.string().optional(),
-  statusReason: z.string().optional(),
-  statusReasonMessage: z.string().optional(),
-  hasBeenRerun: z.boolean().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  createdBy: z.string().optional(),
-  runbook: SlimRunbookEntity$outboundSchema.optional(),
-  steps: RunbooksExecutionStepEntity$outboundSchema.optional(),
-  executedFor: RunbooksExecutionEntityExecutedForEntity$outboundSchema
+  id: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  statusReason: z.nullable(z.string()).optional(),
+  statusReasonMessage: z.nullable(z.string()).optional(),
+  hasBeenRerun: z.nullable(z.boolean()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdBy: z.nullable(z.string()).optional(),
+  runbook: z.nullable(NullableSlimRunbookEntity$outboundSchema).optional(),
+  steps: z.nullable(NullableRunbooksExecutionStepEntity$outboundSchema)
     .optional(),
+  executedFor: z.nullable(
+    NullableRunbooksExecutionEntityExecutedForEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     statusReason: "status_reason",

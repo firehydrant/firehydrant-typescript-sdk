@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateTicketRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateTicketRequest } from "firehydrant/models/operations";
 
 let value: UpdateTicketRequest = {
   ticketId: "<id>",
-  patchV1TicketingTicketsTicketId: {},
+  updateTicket: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ticketId`                                                                                               | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `patchV1TicketingTicketsTicketId`                                                                        | [components.PatchV1TicketingTicketsTicketId](../../models/components/patchv1ticketingticketsticketid.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ticketId`                                                         | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `updateTicket`                                                     | [components.UpdateTicket](../../models/components/updateticket.md) | :heavy_check_mark:                                                 | N/A                                                                |

@@ -5,47 +5,51 @@
 import { ClientSDK } from "../lib/sdks.js";
 import { AccountSettings } from "./accountsettings.js";
 import { Alerts } from "./alerts.js";
-import { AwsCloudtrailBatchEvents } from "./awscloudtrailbatchevents.js";
-import { AwsConnections } from "./awsconnections.js";
+import { Audiences } from "./audiences.js";
+import { CallRoutes } from "./callroutes.js";
+import { CatalogEntries } from "./catalogentries.js";
 import { Changes } from "./changes.js";
-import { ChecklistTemplates } from "./checklisttemplates.js";
 import { Communication } from "./communication.js";
-import { Confluence } from "./confluence.js";
 import { Conversations } from "./conversations.js";
-import { Environments } from "./environments.js";
-import { Functionalities } from "./functionalities.js";
 import { Incidents } from "./incidents.js";
 import { IncidentSettings } from "./incidentsettings.js";
-import { Infrastructures } from "./infrastructures.js";
 import { Integrations } from "./integrations.js";
-import { Maintenances } from "./maintenances.js";
-import { Metrics } from "./metrics.js";
 import { MetricsReporting } from "./metricsreporting.js";
-import { OnCallSchedules } from "./oncallschedules.js";
-import { ProjectConfigurations } from "./projectconfigurations.js";
 import { Retrospectives } from "./retrospectives.js";
 import { Runbooks } from "./runbooks.js";
 import { Scim } from "./scim.js";
-import { Services } from "./services.js";
 import { Signals } from "./signals.js";
-import { Slack } from "./slack.js";
-import { Statuspage } from "./statuspage.js";
 import { StatusPages } from "./statuspages.js";
-import { StatusUpdateTemplates } from "./statusupdatetemplates.js";
-import { System } from "./system.js";
 import { Tasks } from "./tasks.js";
 import { Teams } from "./teams.js";
 import { Ticketing } from "./ticketing.js";
-import { TicketingPriorities } from "./ticketingpriorities.js";
-import { Tickets } from "./tickets.js";
 import { Users } from "./users.js";
 import { Webhooks } from "./webhooks.js";
-import { Zendesk } from "./zendesk.js";
 
-export class FirehydrantTypescriptSDK extends ClientSDK {
+export class Firehydrant extends ClientSDK {
   private _accountSettings?: AccountSettings;
   get accountSettings(): AccountSettings {
     return (this._accountSettings ??= new AccountSettings(this._options));
+  }
+
+  private _catalogEntries?: CatalogEntries;
+  get catalogEntries(): CatalogEntries {
+    return (this._catalogEntries ??= new CatalogEntries(this._options));
+  }
+
+  private _teams?: Teams;
+  get teams(): Teams {
+    return (this._teams ??= new Teams(this._options));
+  }
+
+  private _signals?: Signals;
+  get signals(): Signals {
+    return (this._signals ??= new Signals(this._options));
+  }
+
+  private _changes?: Changes;
+  get changes(): Changes {
+    return (this._changes ??= new Changes(this._options));
   }
 
   private _incidents?: Incidents;
@@ -58,14 +62,9 @@ export class FirehydrantTypescriptSDK extends ClientSDK {
     return (this._alerts ??= new Alerts(this._options));
   }
 
-  private _services?: Services;
-  get services(): Services {
-    return (this._services ??= new Services(this._options));
-  }
-
-  private _changes?: Changes;
-  get changes(): Changes {
-    return (this._changes ??= new Changes(this._options));
+  private _statusPages?: StatusPages;
+  get statusPages(): StatusPages {
+    return (this._statusPages ??= new StatusPages(this._options));
   }
 
   private _tasks?: Tasks;
@@ -73,96 +72,9 @@ export class FirehydrantTypescriptSDK extends ClientSDK {
     return (this._tasks ??= new Tasks(this._options));
   }
 
-  private _checklistTemplates?: ChecklistTemplates;
-  get checklistTemplates(): ChecklistTemplates {
-    return (this._checklistTemplates ??= new ChecklistTemplates(this._options));
-  }
-
   private _conversations?: Conversations;
   get conversations(): Conversations {
     return (this._conversations ??= new Conversations(this._options));
-  }
-
-  private _users?: Users;
-  get users(): Users {
-    return (this._users ??= new Users(this._options));
-  }
-
-  private _incidentSettings?: IncidentSettings;
-  get incidentSettings(): IncidentSettings {
-    return (this._incidentSettings ??= new IncidentSettings(this._options));
-  }
-
-  private _environments?: Environments;
-  get environments(): Environments {
-    return (this._environments ??= new Environments(this._options));
-  }
-
-  private _functionalities?: Functionalities;
-  get functionalities(): Functionalities {
-    return (this._functionalities ??= new Functionalities(this._options));
-  }
-
-  private _statusPages?: StatusPages;
-  get statusPages(): StatusPages {
-    return (this._statusPages ??= new StatusPages(this._options));
-  }
-
-  private _infrastructures?: Infrastructures;
-  get infrastructures(): Infrastructures {
-    return (this._infrastructures ??= new Infrastructures(this._options));
-  }
-
-  private _integrations?: Integrations;
-  get integrations(): Integrations {
-    return (this._integrations ??= new Integrations(this._options));
-  }
-
-  private _awsCloudtrailBatchEvents?: AwsCloudtrailBatchEvents;
-  get awsCloudtrailBatchEvents(): AwsCloudtrailBatchEvents {
-    return (this._awsCloudtrailBatchEvents ??= new AwsCloudtrailBatchEvents(
-      this._options,
-    ));
-  }
-
-  private _awsConnections?: AwsConnections;
-  get awsConnections(): AwsConnections {
-    return (this._awsConnections ??= new AwsConnections(this._options));
-  }
-
-  private _confluence?: Confluence;
-  get confluence(): Confluence {
-    return (this._confluence ??= new Confluence(this._options));
-  }
-
-  private _slack?: Slack;
-  get slack(): Slack {
-    return (this._slack ??= new Slack(this._options));
-  }
-
-  private _statuspage?: Statuspage;
-  get statuspage(): Statuspage {
-    return (this._statuspage ??= new Statuspage(this._options));
-  }
-
-  private _zendesk?: Zendesk;
-  get zendesk(): Zendesk {
-    return (this._zendesk ??= new Zendesk(this._options));
-  }
-
-  private _metricsReporting?: MetricsReporting;
-  get metricsReporting(): MetricsReporting {
-    return (this._metricsReporting ??= new MetricsReporting(this._options));
-  }
-
-  private _metrics?: Metrics;
-  get metrics(): Metrics {
-    return (this._metrics ??= new Metrics(this._options));
-  }
-
-  private _system?: System;
-  get system(): System {
-    return (this._system ??= new System(this._options));
   }
 
   private _retrospectives?: Retrospectives;
@@ -170,29 +82,29 @@ export class FirehydrantTypescriptSDK extends ClientSDK {
     return (this._retrospectives ??= new Retrospectives(this._options));
   }
 
+  private _incidentSettings?: IncidentSettings;
+  get incidentSettings(): IncidentSettings {
+    return (this._incidentSettings ??= new IncidentSettings(this._options));
+  }
+
+  private _integrations?: Integrations;
+  get integrations(): Integrations {
+    return (this._integrations ??= new Integrations(this._options));
+  }
+
+  private _users?: Users;
+  get users(): Users {
+    return (this._users ??= new Users(this._options));
+  }
+
+  private _metricsReporting?: MetricsReporting;
+  get metricsReporting(): MetricsReporting {
+    return (this._metricsReporting ??= new MetricsReporting(this._options));
+  }
+
   private _runbooks?: Runbooks;
   get runbooks(): Runbooks {
     return (this._runbooks ??= new Runbooks(this._options));
-  }
-
-  private _maintenances?: Maintenances;
-  get maintenances(): Maintenances {
-    return (this._maintenances ??= new Maintenances(this._options));
-  }
-
-  private _teams?: Teams;
-  get teams(): Teams {
-    return (this._teams ??= new Teams(this._options));
-  }
-
-  private _scim?: Scim;
-  get scim(): Scim {
-    return (this._scim ??= new Scim(this._options));
-  }
-
-  private _signals?: Signals;
-  get signals(): Signals {
-    return (this._signals ??= new Signals(this._options));
   }
 
   private _communication?: Communication;
@@ -200,44 +112,28 @@ export class FirehydrantTypescriptSDK extends ClientSDK {
     return (this._communication ??= new Communication(this._options));
   }
 
-  private _statusUpdateTemplates?: StatusUpdateTemplates;
-  get statusUpdateTemplates(): StatusUpdateTemplates {
-    return (this._statusUpdateTemplates ??= new StatusUpdateTemplates(
-      this._options,
-    ));
-  }
-
-  private _onCallSchedules?: OnCallSchedules;
-  get onCallSchedules(): OnCallSchedules {
-    return (this._onCallSchedules ??= new OnCallSchedules(this._options));
-  }
-
-  private _ticketingPriorities?: TicketingPriorities;
-  get ticketingPriorities(): TicketingPriorities {
-    return (this._ticketingPriorities ??= new TicketingPriorities(
-      this._options,
-    ));
-  }
-
   private _ticketing?: Ticketing;
   get ticketing(): Ticketing {
     return (this._ticketing ??= new Ticketing(this._options));
   }
 
-  private _projectConfigurations?: ProjectConfigurations;
-  get projectConfigurations(): ProjectConfigurations {
-    return (this._projectConfigurations ??= new ProjectConfigurations(
-      this._options,
-    ));
+  private _scim?: Scim;
+  get scim(): Scim {
+    return (this._scim ??= new Scim(this._options));
   }
 
-  private _tickets?: Tickets;
-  get tickets(): Tickets {
-    return (this._tickets ??= new Tickets(this._options));
+  private _callRoutes?: CallRoutes;
+  get callRoutes(): CallRoutes {
+    return (this._callRoutes ??= new CallRoutes(this._options));
   }
 
   private _webhooks?: Webhooks;
   get webhooks(): Webhooks {
     return (this._webhooks ??= new Webhooks(this._options));
+  }
+
+  private _audiences?: Audiences;
+  get audiences(): Audiences {
+    return (this._audiences ??= new Audiences(this._options));
   }
 }

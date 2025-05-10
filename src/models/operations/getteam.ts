@@ -13,7 +13,7 @@ export type GetTeamRequest = {
   /**
    * Boolean to determine whether to return a slimified version of the teams object
    */
-  lite?: boolean | undefined;
+  lite?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -23,7 +23,7 @@ export const GetTeamRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
-  lite: z.boolean().optional(),
+  lite: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
@@ -33,7 +33,7 @@ export const GetTeamRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type GetTeamRequest$Outbound = {
   team_id: string;
-  lite?: boolean | undefined;
+  lite?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -43,7 +43,7 @@ export const GetTeamRequest$outboundSchema: z.ZodType<
   GetTeamRequest
 > = z.object({
   teamId: z.string(),
-  lite: z.boolean().optional(),
+  lite: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",

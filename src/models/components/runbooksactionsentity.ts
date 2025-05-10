@@ -8,177 +8,196 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IntegrationsIntegrationEntity,
-  IntegrationsIntegrationEntity$inboundSchema,
-  IntegrationsIntegrationEntity$Outbound,
-  IntegrationsIntegrationEntity$outboundSchema,
-} from "./integrationsintegrationentity.js";
+  NullableIntegrationsIntegrationEntity,
+  NullableIntegrationsIntegrationEntity$inboundSchema,
+  NullableIntegrationsIntegrationEntity$Outbound,
+  NullableIntegrationsIntegrationEntity$outboundSchema,
+} from "./nullableintegrationsintegrationentity.js";
 import {
-  RunbooksActionConfigEntity,
-  RunbooksActionConfigEntity$inboundSchema,
-  RunbooksActionConfigEntity$Outbound,
-  RunbooksActionConfigEntity$outboundSchema,
-} from "./runbooksactionconfigentity.js";
+  NullableRunbooksActionConfigEntity,
+  NullableRunbooksActionConfigEntity$inboundSchema,
+  NullableRunbooksActionConfigEntity$Outbound,
+  NullableRunbooksActionConfigEntity$outboundSchema,
+} from "./nullablerunbooksactionconfigentity.js";
 
-export type Prerequisites = {};
+export type RunbooksActionsEntityPrerequisites = {};
 
-export type DefaultLogic = {};
+export type RunbooksActionsEntityDefaultLogic = {};
 
-export type DefaultRuleData = {};
+export type RunbooksActionsEntityDefaultRuleData = {};
 
 export type RunbooksActionsEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  config?: RunbooksActionConfigEntity | undefined;
-  category?: string | undefined;
-  prerequisites?: Prerequisites | undefined;
-  /**
-   * Integrations_IntegrationEntity model
-   */
-  integration?: IntegrationsIntegrationEntity | undefined;
-  supportedRunbookTypes?: Array<string> | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  automatable?: boolean | undefined;
-  rerunnable?: boolean | undefined;
-  repeatable?: boolean | undefined;
-  defaultLogic?: DefaultLogic | undefined;
-  defaultRuleData?: DefaultRuleData | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  config?: NullableRunbooksActionConfigEntity | null | undefined;
+  category?: string | null | undefined;
+  prerequisites?: RunbooksActionsEntityPrerequisites | null | undefined;
+  integration?: NullableIntegrationsIntegrationEntity | null | undefined;
+  supportedRunbookTypes?: Array<string> | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  automatable?: boolean | null | undefined;
+  rerunnable?: boolean | null | undefined;
+  repeatable?: boolean | null | undefined;
+  defaultLogic?: RunbooksActionsEntityDefaultLogic | null | undefined;
+  defaultRuleData?: RunbooksActionsEntityDefaultRuleData | null | undefined;
 };
 
 /** @internal */
-export const Prerequisites$inboundSchema: z.ZodType<
-  Prerequisites,
+export const RunbooksActionsEntityPrerequisites$inboundSchema: z.ZodType<
+  RunbooksActionsEntityPrerequisites,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type Prerequisites$Outbound = {};
+export type RunbooksActionsEntityPrerequisites$Outbound = {};
 
 /** @internal */
-export const Prerequisites$outboundSchema: z.ZodType<
-  Prerequisites$Outbound,
+export const RunbooksActionsEntityPrerequisites$outboundSchema: z.ZodType<
+  RunbooksActionsEntityPrerequisites$Outbound,
   z.ZodTypeDef,
-  Prerequisites
+  RunbooksActionsEntityPrerequisites
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Prerequisites$ {
-  /** @deprecated use `Prerequisites$inboundSchema` instead. */
-  export const inboundSchema = Prerequisites$inboundSchema;
-  /** @deprecated use `Prerequisites$outboundSchema` instead. */
-  export const outboundSchema = Prerequisites$outboundSchema;
-  /** @deprecated use `Prerequisites$Outbound` instead. */
-  export type Outbound = Prerequisites$Outbound;
+export namespace RunbooksActionsEntityPrerequisites$ {
+  /** @deprecated use `RunbooksActionsEntityPrerequisites$inboundSchema` instead. */
+  export const inboundSchema = RunbooksActionsEntityPrerequisites$inboundSchema;
+  /** @deprecated use `RunbooksActionsEntityPrerequisites$outboundSchema` instead. */
+  export const outboundSchema =
+    RunbooksActionsEntityPrerequisites$outboundSchema;
+  /** @deprecated use `RunbooksActionsEntityPrerequisites$Outbound` instead. */
+  export type Outbound = RunbooksActionsEntityPrerequisites$Outbound;
 }
 
-export function prerequisitesToJSON(prerequisites: Prerequisites): string {
-  return JSON.stringify(Prerequisites$outboundSchema.parse(prerequisites));
-}
-
-export function prerequisitesFromJSON(
-  jsonString: string,
-): SafeParseResult<Prerequisites, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Prerequisites$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Prerequisites' from JSON`,
-  );
-}
-
-/** @internal */
-export const DefaultLogic$inboundSchema: z.ZodType<
-  DefaultLogic,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type DefaultLogic$Outbound = {};
-
-/** @internal */
-export const DefaultLogic$outboundSchema: z.ZodType<
-  DefaultLogic$Outbound,
-  z.ZodTypeDef,
-  DefaultLogic
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DefaultLogic$ {
-  /** @deprecated use `DefaultLogic$inboundSchema` instead. */
-  export const inboundSchema = DefaultLogic$inboundSchema;
-  /** @deprecated use `DefaultLogic$outboundSchema` instead. */
-  export const outboundSchema = DefaultLogic$outboundSchema;
-  /** @deprecated use `DefaultLogic$Outbound` instead. */
-  export type Outbound = DefaultLogic$Outbound;
-}
-
-export function defaultLogicToJSON(defaultLogic: DefaultLogic): string {
-  return JSON.stringify(DefaultLogic$outboundSchema.parse(defaultLogic));
-}
-
-export function defaultLogicFromJSON(
-  jsonString: string,
-): SafeParseResult<DefaultLogic, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DefaultLogic$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DefaultLogic' from JSON`,
-  );
-}
-
-/** @internal */
-export const DefaultRuleData$inboundSchema: z.ZodType<
-  DefaultRuleData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type DefaultRuleData$Outbound = {};
-
-/** @internal */
-export const DefaultRuleData$outboundSchema: z.ZodType<
-  DefaultRuleData$Outbound,
-  z.ZodTypeDef,
-  DefaultRuleData
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DefaultRuleData$ {
-  /** @deprecated use `DefaultRuleData$inboundSchema` instead. */
-  export const inboundSchema = DefaultRuleData$inboundSchema;
-  /** @deprecated use `DefaultRuleData$outboundSchema` instead. */
-  export const outboundSchema = DefaultRuleData$outboundSchema;
-  /** @deprecated use `DefaultRuleData$Outbound` instead. */
-  export type Outbound = DefaultRuleData$Outbound;
-}
-
-export function defaultRuleDataToJSON(
-  defaultRuleData: DefaultRuleData,
+export function runbooksActionsEntityPrerequisitesToJSON(
+  runbooksActionsEntityPrerequisites: RunbooksActionsEntityPrerequisites,
 ): string {
-  return JSON.stringify(DefaultRuleData$outboundSchema.parse(defaultRuleData));
+  return JSON.stringify(
+    RunbooksActionsEntityPrerequisites$outboundSchema.parse(
+      runbooksActionsEntityPrerequisites,
+    ),
+  );
 }
 
-export function defaultRuleDataFromJSON(
+export function runbooksActionsEntityPrerequisitesFromJSON(
   jsonString: string,
-): SafeParseResult<DefaultRuleData, SDKValidationError> {
+): SafeParseResult<RunbooksActionsEntityPrerequisites, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DefaultRuleData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DefaultRuleData' from JSON`,
+    (x) =>
+      RunbooksActionsEntityPrerequisites$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbooksActionsEntityPrerequisites' from JSON`,
+  );
+}
+
+/** @internal */
+export const RunbooksActionsEntityDefaultLogic$inboundSchema: z.ZodType<
+  RunbooksActionsEntityDefaultLogic,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type RunbooksActionsEntityDefaultLogic$Outbound = {};
+
+/** @internal */
+export const RunbooksActionsEntityDefaultLogic$outboundSchema: z.ZodType<
+  RunbooksActionsEntityDefaultLogic$Outbound,
+  z.ZodTypeDef,
+  RunbooksActionsEntityDefaultLogic
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RunbooksActionsEntityDefaultLogic$ {
+  /** @deprecated use `RunbooksActionsEntityDefaultLogic$inboundSchema` instead. */
+  export const inboundSchema = RunbooksActionsEntityDefaultLogic$inboundSchema;
+  /** @deprecated use `RunbooksActionsEntityDefaultLogic$outboundSchema` instead. */
+  export const outboundSchema =
+    RunbooksActionsEntityDefaultLogic$outboundSchema;
+  /** @deprecated use `RunbooksActionsEntityDefaultLogic$Outbound` instead. */
+  export type Outbound = RunbooksActionsEntityDefaultLogic$Outbound;
+}
+
+export function runbooksActionsEntityDefaultLogicToJSON(
+  runbooksActionsEntityDefaultLogic: RunbooksActionsEntityDefaultLogic,
+): string {
+  return JSON.stringify(
+    RunbooksActionsEntityDefaultLogic$outboundSchema.parse(
+      runbooksActionsEntityDefaultLogic,
+    ),
+  );
+}
+
+export function runbooksActionsEntityDefaultLogicFromJSON(
+  jsonString: string,
+): SafeParseResult<RunbooksActionsEntityDefaultLogic, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RunbooksActionsEntityDefaultLogic$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbooksActionsEntityDefaultLogic' from JSON`,
+  );
+}
+
+/** @internal */
+export const RunbooksActionsEntityDefaultRuleData$inboundSchema: z.ZodType<
+  RunbooksActionsEntityDefaultRuleData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type RunbooksActionsEntityDefaultRuleData$Outbound = {};
+
+/** @internal */
+export const RunbooksActionsEntityDefaultRuleData$outboundSchema: z.ZodType<
+  RunbooksActionsEntityDefaultRuleData$Outbound,
+  z.ZodTypeDef,
+  RunbooksActionsEntityDefaultRuleData
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RunbooksActionsEntityDefaultRuleData$ {
+  /** @deprecated use `RunbooksActionsEntityDefaultRuleData$inboundSchema` instead. */
+  export const inboundSchema =
+    RunbooksActionsEntityDefaultRuleData$inboundSchema;
+  /** @deprecated use `RunbooksActionsEntityDefaultRuleData$outboundSchema` instead. */
+  export const outboundSchema =
+    RunbooksActionsEntityDefaultRuleData$outboundSchema;
+  /** @deprecated use `RunbooksActionsEntityDefaultRuleData$Outbound` instead. */
+  export type Outbound = RunbooksActionsEntityDefaultRuleData$Outbound;
+}
+
+export function runbooksActionsEntityDefaultRuleDataToJSON(
+  runbooksActionsEntityDefaultRuleData: RunbooksActionsEntityDefaultRuleData,
+): string {
+  return JSON.stringify(
+    RunbooksActionsEntityDefaultRuleData$outboundSchema.parse(
+      runbooksActionsEntityDefaultRuleData,
+    ),
+  );
+}
+
+export function runbooksActionsEntityDefaultRuleDataFromJSON(
+  jsonString: string,
+): SafeParseResult<RunbooksActionsEntityDefaultRuleData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RunbooksActionsEntityDefaultRuleData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbooksActionsEntityDefaultRuleData' from JSON`,
   );
 }
 
@@ -188,24 +207,34 @@ export const RunbooksActionsEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  config: RunbooksActionConfigEntity$inboundSchema.optional(),
-  category: z.string().optional(),
-  prerequisites: z.lazy(() => Prerequisites$inboundSchema).optional(),
-  integration: IntegrationsIntegrationEntity$inboundSchema.optional(),
-  supported_runbook_types: z.array(z.string()).optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  config: z.nullable(NullableRunbooksActionConfigEntity$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  category: z.nullable(z.string()).optional(),
+  prerequisites: z.nullable(
+    z.lazy(() => RunbooksActionsEntityPrerequisites$inboundSchema),
+  ).optional(),
+  integration: z.nullable(NullableIntegrationsIntegrationEntity$inboundSchema)
     .optional(),
-  automatable: z.boolean().optional(),
-  rerunnable: z.boolean().optional(),
-  repeatable: z.boolean().optional(),
-  default_logic: z.lazy(() => DefaultLogic$inboundSchema).optional(),
-  default_rule_data: z.lazy(() => DefaultRuleData$inboundSchema).optional(),
+  supported_runbook_types: z.nullable(z.array(z.string())).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  automatable: z.nullable(z.boolean()).optional(),
+  rerunnable: z.nullable(z.boolean()).optional(),
+  repeatable: z.nullable(z.boolean()).optional(),
+  default_logic: z.nullable(
+    z.lazy(() => RunbooksActionsEntityDefaultLogic$inboundSchema),
+  ).optional(),
+  default_rule_data: z.nullable(
+    z.lazy(() => RunbooksActionsEntityDefaultRuleData$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "supported_runbook_types": "supportedRunbookTypes",
@@ -218,22 +247,31 @@ export const RunbooksActionsEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type RunbooksActionsEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  config?: RunbooksActionConfigEntity$Outbound | undefined;
-  category?: string | undefined;
-  prerequisites?: Prerequisites$Outbound | undefined;
-  integration?: IntegrationsIntegrationEntity$Outbound | undefined;
-  supported_runbook_types?: Array<string> | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  automatable?: boolean | undefined;
-  rerunnable?: boolean | undefined;
-  repeatable?: boolean | undefined;
-  default_logic?: DefaultLogic$Outbound | undefined;
-  default_rule_data?: DefaultRuleData$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  config?: NullableRunbooksActionConfigEntity$Outbound | null | undefined;
+  category?: string | null | undefined;
+  prerequisites?:
+    | RunbooksActionsEntityPrerequisites$Outbound
+    | null
+    | undefined;
+  integration?:
+    | NullableIntegrationsIntegrationEntity$Outbound
+    | null
+    | undefined;
+  supported_runbook_types?: Array<string> | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  automatable?: boolean | null | undefined;
+  rerunnable?: boolean | null | undefined;
+  repeatable?: boolean | null | undefined;
+  default_logic?: RunbooksActionsEntityDefaultLogic$Outbound | null | undefined;
+  default_rule_data?:
+    | RunbooksActionsEntityDefaultRuleData$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -242,22 +280,30 @@ export const RunbooksActionsEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RunbooksActionsEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  config: RunbooksActionConfigEntity$outboundSchema.optional(),
-  category: z.string().optional(),
-  prerequisites: z.lazy(() => Prerequisites$outboundSchema).optional(),
-  integration: IntegrationsIntegrationEntity$outboundSchema.optional(),
-  supportedRunbookTypes: z.array(z.string()).optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  automatable: z.boolean().optional(),
-  rerunnable: z.boolean().optional(),
-  repeatable: z.boolean().optional(),
-  defaultLogic: z.lazy(() => DefaultLogic$outboundSchema).optional(),
-  defaultRuleData: z.lazy(() => DefaultRuleData$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  config: z.nullable(NullableRunbooksActionConfigEntity$outboundSchema)
+    .optional(),
+  category: z.nullable(z.string()).optional(),
+  prerequisites: z.nullable(
+    z.lazy(() => RunbooksActionsEntityPrerequisites$outboundSchema),
+  ).optional(),
+  integration: z.nullable(NullableIntegrationsIntegrationEntity$outboundSchema)
+    .optional(),
+  supportedRunbookTypes: z.nullable(z.array(z.string())).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  automatable: z.nullable(z.boolean()).optional(),
+  rerunnable: z.nullable(z.boolean()).optional(),
+  repeatable: z.nullable(z.boolean()).optional(),
+  defaultLogic: z.nullable(
+    z.lazy(() => RunbooksActionsEntityDefaultLogic$outboundSchema),
+  ).optional(),
+  defaultRuleData: z.nullable(
+    z.lazy(() => RunbooksActionsEntityDefaultRuleData$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     supportedRunbookTypes: "supported_runbook_types",

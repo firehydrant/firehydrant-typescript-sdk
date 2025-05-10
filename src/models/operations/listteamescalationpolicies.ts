@@ -13,9 +13,9 @@ export type ListTeamEscalationPoliciesRequest = {
   /**
    * A query string for searching through the list of escalation policies.
    */
-  query?: string | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -25,9 +25,9 @@ export const ListTeamEscalationPoliciesRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
@@ -38,9 +38,9 @@ export const ListTeamEscalationPoliciesRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListTeamEscalationPoliciesRequest$Outbound = {
   team_id: string;
-  query?: string | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -50,9 +50,9 @@ export const ListTeamEscalationPoliciesRequest$outboundSchema: z.ZodType<
   ListTeamEscalationPoliciesRequest
 > = z.object({
   teamId: z.string(),
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",

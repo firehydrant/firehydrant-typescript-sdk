@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateChangeRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateChangeRequest } from "firehydrant/models/operations";
 
 let value: UpdateChangeRequest = {
   changeId: "<id>",
-  patchV1ChangesChangeId: {},
+  updateChange: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `changeId`                                                                             | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `patchV1ChangesChangeId`                                                               | [components.PatchV1ChangesChangeId](../../models/components/patchv1changeschangeid.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `changeId`                                                         | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `updateChange`                                                     | [components.UpdateChange](../../models/components/updatechange.md) | :heavy_check_mark:                                                 | N/A                                                                |

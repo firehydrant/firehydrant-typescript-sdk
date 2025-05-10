@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IncidentsTeamAssignmentEntityLite } from "firehydrant-typescript-sdk/models/components";
+import { IncidentsTeamAssignmentEntityLite } from "firehydrant/models/components";
 
 let value: IncidentsTeamAssignmentEntityLite = {};
 ```
@@ -16,4 +16,4 @@ let value: IncidentsTeamAssignmentEntityLite = {};
 | `status`                                                                                      | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
-| `team`                                                                                        | [components.TeamEntityLite](../../models/components/teamentitylite.md)                        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `team`                                                                                        | [components.NullableTeamEntityLite](../../models/components/nullableteamentitylite.md)        | :heavy_minus_sign:                                                                            | N/A                                                                                           |

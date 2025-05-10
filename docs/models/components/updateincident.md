@@ -1,0 +1,26 @@
+# UpdateIncident
+
+Updates an incident with provided parameters
+
+## Example Usage
+
+```typescript
+import { UpdateIncident } from "firehydrant/models/components";
+
+let value: UpdateIncident = {};
+```
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `name`                                                                             | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `summary`                                                                          | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `customerImpactSummary`                                                            | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `description`                                                                      | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `labels`                                                                           | [components.UpdateIncidentLabels](../../models/components/updateincidentlabels.md) | :heavy_minus_sign:                                                                 | Key:value pairs to track custom data for the incident                              |
+| `priority`                                                                         | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `severity`                                                                         | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `severityConditionId`                                                              | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `severityImpactId`                                                                 | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `tagList`                                                                          | *string*[]                                                                         | :heavy_minus_sign:                                                                 | List of tags for the incident                                                      |

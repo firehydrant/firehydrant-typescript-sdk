@@ -8,10 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ChecklistCheckEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  status?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  status?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -20,18 +20,18 @@ export const ChecklistCheckEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  status: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  status: z.nullable(z.boolean()).optional(),
 });
 
 /** @internal */
 export type ChecklistCheckEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  status?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  status?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -40,10 +40,10 @@ export const ChecklistCheckEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChecklistCheckEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  status: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  status: z.nullable(z.boolean()).optional(),
 });
 
 /**

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateScimUserRequest = {
   id: string;
-  patchV1ScimV2UsersId: components.PatchV1ScimV2UsersId;
+  updateScimUser: components.UpdateScimUser;
 };
 
 /** @internal */
@@ -20,13 +21,17 @@ export const UpdateScimUserRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  patchV1ScimV2UsersId: components.PatchV1ScimV2UsersId$inboundSchema,
+  update_scim_user: z.lazy(() => components.UpdateScimUser$inboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    "update_scim_user": "updateScimUser",
+  });
 });
 
 /** @internal */
 export type UpdateScimUserRequest$Outbound = {
   id: string;
-  patchV1ScimV2UsersId: components.PatchV1ScimV2UsersId$Outbound;
+  update_scim_user: components.UpdateScimUser$Outbound;
 };
 
 /** @internal */
@@ -36,7 +41,11 @@ export const UpdateScimUserRequest$outboundSchema: z.ZodType<
   UpdateScimUserRequest
 > = z.object({
   id: z.string(),
-  patchV1ScimV2UsersId: components.PatchV1ScimV2UsersId$outboundSchema,
+  updateScimUser: z.lazy(() => components.UpdateScimUser$outboundSchema),
+}).transform((v) => {
+  return remap$(v, {
+    updateScimUser: "update_scim_user",
+  });
 });
 
 /**

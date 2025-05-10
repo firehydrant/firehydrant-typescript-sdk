@@ -20,7 +20,7 @@ export type MetricsInfrastructureListEntity = {
   /**
    * List of infrastructure metrics
    */
-  data?: Array<MetricsInfrastructureMetricsEntity> | undefined;
+  data?: Array<MetricsInfrastructureMetricsEntity> | null | undefined;
 };
 
 /** @internal */
@@ -29,12 +29,13 @@ export const MetricsInfrastructureListEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(MetricsInfrastructureMetricsEntity$inboundSchema).optional(),
+  data: z.nullable(z.array(MetricsInfrastructureMetricsEntity$inboundSchema))
+    .optional(),
 });
 
 /** @internal */
 export type MetricsInfrastructureListEntity$Outbound = {
-  data?: Array<MetricsInfrastructureMetricsEntity$Outbound> | undefined;
+  data?: Array<MetricsInfrastructureMetricsEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -43,7 +44,8 @@ export const MetricsInfrastructureListEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MetricsInfrastructureListEntity
 > = z.object({
-  data: z.array(MetricsInfrastructureMetricsEntity$outboundSchema).optional(),
+  data: z.nullable(z.array(MetricsInfrastructureMetricsEntity$outboundSchema))
+    .optional(),
 });
 
 /**

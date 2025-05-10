@@ -18,14 +18,14 @@ export const Tier = {
 export type Tier = ClosedEnum<typeof Tier>;
 
 export type EntitlementEntity = {
-  currentCount?: number | undefined;
-  errors?: Array<string> | undefined;
-  exists?: boolean | undefined;
-  available?: boolean | undefined;
-  maximum?: number | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  tier?: Tier | undefined;
+  currentCount?: number | null | undefined;
+  errors?: Array<string> | null | undefined;
+  exists?: boolean | null | undefined;
+  available?: boolean | null | undefined;
+  maximum?: number | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  tier?: Tier | null | undefined;
 };
 
 /** @internal */
@@ -54,14 +54,14 @@ export const EntitlementEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  current_count: z.number().int().optional(),
-  errors: z.array(z.string()).optional(),
-  exists: z.boolean().optional(),
-  available: z.boolean().optional(),
-  maximum: z.number().int().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  tier: Tier$inboundSchema.optional(),
+  current_count: z.nullable(z.number().int()).optional(),
+  errors: z.nullable(z.array(z.string())).optional(),
+  exists: z.nullable(z.boolean()).optional(),
+  available: z.nullable(z.boolean()).optional(),
+  maximum: z.nullable(z.number().int()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  tier: z.nullable(Tier$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "current_count": "currentCount",
@@ -70,14 +70,14 @@ export const EntitlementEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EntitlementEntity$Outbound = {
-  current_count?: number | undefined;
-  errors?: Array<string> | undefined;
-  exists?: boolean | undefined;
-  available?: boolean | undefined;
-  maximum?: number | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  tier?: string | undefined;
+  current_count?: number | null | undefined;
+  errors?: Array<string> | null | undefined;
+  exists?: boolean | null | undefined;
+  available?: boolean | null | undefined;
+  maximum?: number | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  tier?: string | null | undefined;
 };
 
 /** @internal */
@@ -86,14 +86,14 @@ export const EntitlementEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EntitlementEntity
 > = z.object({
-  currentCount: z.number().int().optional(),
-  errors: z.array(z.string()).optional(),
-  exists: z.boolean().optional(),
-  available: z.boolean().optional(),
-  maximum: z.number().int().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  tier: Tier$outboundSchema.optional(),
+  currentCount: z.nullable(z.number().int()).optional(),
+  errors: z.nullable(z.array(z.string())).optional(),
+  exists: z.nullable(z.boolean()).optional(),
+  available: z.nullable(z.boolean()).optional(),
+  maximum: z.nullable(z.number().int()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  tier: z.nullable(Tier$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     currentCount: "current_count",

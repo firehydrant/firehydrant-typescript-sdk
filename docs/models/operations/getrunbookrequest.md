@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetRunbookRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetRunbookRequest } from "firehydrant/models/operations";
 
 let value: GetRunbookRequest = {
   runbookId: "<id>",

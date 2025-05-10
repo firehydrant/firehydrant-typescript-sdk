@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateChangeEventRequest = {
   changeEventId: string;
-  patchV1ChangesEventsChangeEventId:
-    components.PatchV1ChangesEventsChangeEventId;
+  updateChangeEvent: components.UpdateChangeEvent;
 };
 
 /** @internal */
@@ -22,19 +21,18 @@ export const UpdateChangeEventRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   change_event_id: z.string(),
-  patchV1ChangesEventsChangeEventId:
-    components.PatchV1ChangesEventsChangeEventId$inboundSchema,
+  update_change_event: z.lazy(() => components.UpdateChangeEvent$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "change_event_id": "changeEventId",
+    "update_change_event": "updateChangeEvent",
   });
 });
 
 /** @internal */
 export type UpdateChangeEventRequest$Outbound = {
   change_event_id: string;
-  patchV1ChangesEventsChangeEventId:
-    components.PatchV1ChangesEventsChangeEventId$Outbound;
+  update_change_event: components.UpdateChangeEvent$Outbound;
 };
 
 /** @internal */
@@ -44,11 +42,11 @@ export const UpdateChangeEventRequest$outboundSchema: z.ZodType<
   UpdateChangeEventRequest
 > = z.object({
   changeEventId: z.string(),
-  patchV1ChangesEventsChangeEventId:
-    components.PatchV1ChangesEventsChangeEventId$outboundSchema,
+  updateChangeEvent: z.lazy(() => components.UpdateChangeEvent$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     changeEventId: "change_event_id",
+    updateChangeEvent: "update_change_event",
   });
 });
 

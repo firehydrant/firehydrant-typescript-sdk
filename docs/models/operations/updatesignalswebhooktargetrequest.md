@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSignalsWebhookTargetRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateSignalsWebhookTargetRequest } from "firehydrant/models/operations";
 
 let value: UpdateSignalsWebhookTargetRequest = {
   id: "<id>",
-  patchV1SignalsWebhookTargetsId: {},
+  updateSignalsWebhookTarget: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `id`                                                                                                   | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `patchV1SignalsWebhookTargetsId`                                                                       | [components.PatchV1SignalsWebhookTargetsId](../../models/components/patchv1signalswebhooktargetsid.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `updateSignalsWebhookTarget`                                                                   | [components.UpdateSignalsWebhookTarget](../../models/components/updatesignalswebhooktarget.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

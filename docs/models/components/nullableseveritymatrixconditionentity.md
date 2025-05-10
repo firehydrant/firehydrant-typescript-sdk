@@ -1,0 +1,19 @@
+# NullableSeverityMatrixConditionEntity
+
+SeverityMatrix_ConditionEntity model
+
+## Example Usage
+
+```typescript
+import { NullableSeverityMatrixConditionEntity } from "firehydrant/models/components";
+
+let value: NullableSeverityMatrixConditionEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                                                                                              | Type                                                                                                                                                                               | Required                                                                                                                                                                           | Description                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                                               | *string*                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                 | N/A                                                                                                                                                                                |
+| `name`                                                                                                                                                                             | *string*                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                 | N/A                                                                                                                                                                                |
+| `position`                                                                                                                                                                         | *number*                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                 | Position is used to determine ordering of conditions in API responses and dropdowns. The condition with the lowest position (typically 0) will be considered the Default Condition |

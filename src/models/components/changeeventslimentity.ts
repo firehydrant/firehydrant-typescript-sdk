@@ -32,23 +32,23 @@ import {
 export type ChangeEventSlimEntityLabels = {};
 
 export type ChangeEventSlimEntity = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  externalId?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  startsAt?: Date | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  externalId?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  startsAt?: Date | null | undefined;
   endsAt?: Date | null | undefined;
   durationMs?: number | null | undefined;
   durationIso8601?: string | null | undefined;
-  environments?: Array<EnvironmentEntryEntity> | undefined;
-  authors?: Array<AuthorEntity> | undefined;
+  environments?: Array<EnvironmentEntryEntity> | null | undefined;
+  authors?: Array<AuthorEntity> | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: ChangeEventSlimEntityLabels | undefined;
-  services?: Array<ServiceEntityLite> | undefined;
+  labels?: ChangeEventSlimEntityLabels | null | undefined;
+  services?: Array<ServiceEntityLite> | null | undefined;
 };
 
 /** @internal */
@@ -107,25 +107,30 @@ export const ChangeEventSlimEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  external_id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  starts_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  starts_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   ends_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   duration_ms: z.nullable(z.number().int()).optional(),
   duration_iso8601: z.nullable(z.string()).optional(),
-  environments: z.array(EnvironmentEntryEntity$inboundSchema).optional(),
-  authors: z.array(AuthorEntity$inboundSchema).optional(),
-  labels: z.lazy(() => ChangeEventSlimEntityLabels$inboundSchema).optional(),
-  services: z.array(ServiceEntityLite$inboundSchema).optional(),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$inboundSchema))
+    .optional(),
+  authors: z.nullable(z.array(AuthorEntity$inboundSchema)).optional(),
+  labels: z.nullable(z.lazy(() => ChangeEventSlimEntityLabels$inboundSchema))
+    .optional(),
+  services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "external_id": "externalId",
@@ -140,20 +145,20 @@ export const ChangeEventSlimEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ChangeEventSlimEntity$Outbound = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  external_id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  starts_at?: string | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  external_id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  starts_at?: string | null | undefined;
   ends_at?: string | null | undefined;
   duration_ms?: number | null | undefined;
   duration_iso8601?: string | null | undefined;
-  environments?: Array<EnvironmentEntryEntity$Outbound> | undefined;
-  authors?: Array<AuthorEntity$Outbound> | undefined;
-  labels?: ChangeEventSlimEntityLabels$Outbound | undefined;
-  services?: Array<ServiceEntityLite$Outbound> | undefined;
+  environments?: Array<EnvironmentEntryEntity$Outbound> | null | undefined;
+  authors?: Array<AuthorEntity$Outbound> | null | undefined;
+  labels?: ChangeEventSlimEntityLabels$Outbound | null | undefined;
+  services?: Array<ServiceEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -162,20 +167,22 @@ export const ChangeEventSlimEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChangeEventSlimEntity
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  externalId: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  startsAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   endsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   durationMs: z.nullable(z.number().int()).optional(),
   durationIso8601: z.nullable(z.string()).optional(),
-  environments: z.array(EnvironmentEntryEntity$outboundSchema).optional(),
-  authors: z.array(AuthorEntity$outboundSchema).optional(),
-  labels: z.lazy(() => ChangeEventSlimEntityLabels$outboundSchema).optional(),
-  services: z.array(ServiceEntityLite$outboundSchema).optional(),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$outboundSchema))
+    .optional(),
+  authors: z.nullable(z.array(AuthorEntity$outboundSchema)).optional(),
+  labels: z.nullable(z.lazy(() => ChangeEventSlimEntityLabels$outboundSchema))
+    .optional(),
+  services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     externalId: "external_id",

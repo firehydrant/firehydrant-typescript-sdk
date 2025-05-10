@@ -17,7 +17,7 @@ import {
  * Lifecycles_PhaseEntityList model
  */
 export type LifecyclesPhaseEntityList = {
-  data?: Array<LifecyclesPhaseEntity> | undefined;
+  data?: Array<LifecyclesPhaseEntity> | null | undefined;
 };
 
 /** @internal */
@@ -26,12 +26,12 @@ export const LifecyclesPhaseEntityList$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(LifecyclesPhaseEntity$inboundSchema).optional(),
+  data: z.nullable(z.array(LifecyclesPhaseEntity$inboundSchema)).optional(),
 });
 
 /** @internal */
 export type LifecyclesPhaseEntityList$Outbound = {
-  data?: Array<LifecyclesPhaseEntity$Outbound> | undefined;
+  data?: Array<LifecyclesPhaseEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -40,7 +40,7 @@ export const LifecyclesPhaseEntityList$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LifecyclesPhaseEntityList
 > = z.object({
-  data: z.array(LifecyclesPhaseEntity$outboundSchema).optional(),
+  data: z.nullable(z.array(LifecyclesPhaseEntity$outboundSchema)).optional(),
 });
 
 /**

@@ -9,64 +9,61 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  TicketingProjectFieldMapCasesElseEntity,
-  TicketingProjectFieldMapCasesElseEntity$inboundSchema,
-  TicketingProjectFieldMapCasesElseEntity$Outbound,
-  TicketingProjectFieldMapCasesElseEntity$outboundSchema,
-} from "./ticketingprojectfieldmapcaseselseentity.js";
+  NullableTicketingProjectFieldMapCasesElseEntity,
+  NullableTicketingProjectFieldMapCasesElseEntity$inboundSchema,
+  NullableTicketingProjectFieldMapCasesElseEntity$Outbound,
+  NullableTicketingProjectFieldMapCasesElseEntity$outboundSchema,
+} from "./nullableticketingprojectfieldmapcaseselseentity.js";
+import {
+  NullableTicketingProjectFieldMapExternalValueEntity,
+  NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema,
+  NullableTicketingProjectFieldMapExternalValueEntity$Outbound,
+  NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema,
+} from "./nullableticketingprojectfieldmapexternalvalueentity.js";
 import {
   TicketingProjectFieldMapCasesEntity,
   TicketingProjectFieldMapCasesEntity$inboundSchema,
   TicketingProjectFieldMapCasesEntity$Outbound,
   TicketingProjectFieldMapCasesEntity$outboundSchema,
 } from "./ticketingprojectfieldmapcasesentity.js";
-import {
-  TicketingProjectFieldMapExternalValueEntity,
-  TicketingProjectFieldMapExternalValueEntity$inboundSchema,
-  TicketingProjectFieldMapExternalValueEntity$Outbound,
-  TicketingProjectFieldMapExternalValueEntity$outboundSchema,
-} from "./ticketingprojectfieldmapexternalvalueentity.js";
 
-export const TicketingProjectFieldMapBodyEntityStrategy = {
+export const StrategyEnum = {
   Basic: "basic",
   Logic: "logic",
 } as const;
-export type TicketingProjectFieldMapBodyEntityStrategy = ClosedEnum<
-  typeof TicketingProjectFieldMapBodyEntityStrategy
->;
+export type StrategyEnum = ClosedEnum<typeof StrategyEnum>;
 
 export type UserData = {};
 
 export type TicketingProjectFieldMapBodyEntity = {
-  strategy?: TicketingProjectFieldMapBodyEntityStrategy | undefined;
-  externalField?: string | undefined;
-  externalValue?: TicketingProjectFieldMapExternalValueEntity | undefined;
-  userData?: UserData | undefined;
-  cases?: Array<TicketingProjectFieldMapCasesEntity> | undefined;
-  else?: TicketingProjectFieldMapCasesElseEntity | undefined;
+  strategy?: StrategyEnum | null | undefined;
+  externalField?: string | null | undefined;
+  externalValue?:
+    | NullableTicketingProjectFieldMapExternalValueEntity
+    | null
+    | undefined;
+  userData?: UserData | null | undefined;
+  cases?: Array<TicketingProjectFieldMapCasesEntity> | null | undefined;
+  else?: NullableTicketingProjectFieldMapCasesElseEntity | null | undefined;
 };
 
 /** @internal */
-export const TicketingProjectFieldMapBodyEntityStrategy$inboundSchema:
-  z.ZodNativeEnum<typeof TicketingProjectFieldMapBodyEntityStrategy> = z
-    .nativeEnum(TicketingProjectFieldMapBodyEntityStrategy);
+export const StrategyEnum$inboundSchema: z.ZodNativeEnum<typeof StrategyEnum> =
+  z.nativeEnum(StrategyEnum);
 
 /** @internal */
-export const TicketingProjectFieldMapBodyEntityStrategy$outboundSchema:
-  z.ZodNativeEnum<typeof TicketingProjectFieldMapBodyEntityStrategy> =
-    TicketingProjectFieldMapBodyEntityStrategy$inboundSchema;
+export const StrategyEnum$outboundSchema: z.ZodNativeEnum<typeof StrategyEnum> =
+  StrategyEnum$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TicketingProjectFieldMapBodyEntityStrategy$ {
-  /** @deprecated use `TicketingProjectFieldMapBodyEntityStrategy$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectFieldMapBodyEntityStrategy$inboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapBodyEntityStrategy$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectFieldMapBodyEntityStrategy$outboundSchema;
+export namespace StrategyEnum$ {
+  /** @deprecated use `StrategyEnum$inboundSchema` instead. */
+  export const inboundSchema = StrategyEnum$inboundSchema;
+  /** @deprecated use `StrategyEnum$outboundSchema` instead. */
+  export const outboundSchema = StrategyEnum$outboundSchema;
 }
 
 /** @internal */
@@ -119,13 +116,17 @@ export const TicketingProjectFieldMapBodyEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  strategy: TicketingProjectFieldMapBodyEntityStrategy$inboundSchema.optional(),
-  external_field: z.string().optional(),
-  external_value: TicketingProjectFieldMapExternalValueEntity$inboundSchema
+  strategy: z.nullable(StrategyEnum$inboundSchema).optional(),
+  external_field: z.nullable(z.string()).optional(),
+  external_value: z.nullable(
+    NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema,
+  ).optional(),
+  user_data: z.nullable(z.lazy(() => UserData$inboundSchema)).optional(),
+  cases: z.nullable(z.array(TicketingProjectFieldMapCasesEntity$inboundSchema))
     .optional(),
-  user_data: z.lazy(() => UserData$inboundSchema).optional(),
-  cases: z.array(TicketingProjectFieldMapCasesEntity$inboundSchema).optional(),
-  else: TicketingProjectFieldMapCasesElseEntity$inboundSchema.optional(),
+  else: z.nullable(
+    NullableTicketingProjectFieldMapCasesElseEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "external_field": "externalField",
@@ -136,14 +137,21 @@ export const TicketingProjectFieldMapBodyEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingProjectFieldMapBodyEntity$Outbound = {
-  strategy?: string | undefined;
-  external_field?: string | undefined;
+  strategy?: string | null | undefined;
+  external_field?: string | null | undefined;
   external_value?:
-    | TicketingProjectFieldMapExternalValueEntity$Outbound
+    | NullableTicketingProjectFieldMapExternalValueEntity$Outbound
+    | null
     | undefined;
-  user_data?: UserData$Outbound | undefined;
-  cases?: Array<TicketingProjectFieldMapCasesEntity$Outbound> | undefined;
-  else?: TicketingProjectFieldMapCasesElseEntity$Outbound | undefined;
+  user_data?: UserData$Outbound | null | undefined;
+  cases?:
+    | Array<TicketingProjectFieldMapCasesEntity$Outbound>
+    | null
+    | undefined;
+  else?:
+    | NullableTicketingProjectFieldMapCasesElseEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -152,14 +160,17 @@ export const TicketingProjectFieldMapBodyEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectFieldMapBodyEntity
 > = z.object({
-  strategy: TicketingProjectFieldMapBodyEntityStrategy$outboundSchema
+  strategy: z.nullable(StrategyEnum$outboundSchema).optional(),
+  externalField: z.nullable(z.string()).optional(),
+  externalValue: z.nullable(
+    NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema,
+  ).optional(),
+  userData: z.nullable(z.lazy(() => UserData$outboundSchema)).optional(),
+  cases: z.nullable(z.array(TicketingProjectFieldMapCasesEntity$outboundSchema))
     .optional(),
-  externalField: z.string().optional(),
-  externalValue: TicketingProjectFieldMapExternalValueEntity$outboundSchema
-    .optional(),
-  userData: z.lazy(() => UserData$outboundSchema).optional(),
-  cases: z.array(TicketingProjectFieldMapCasesEntity$outboundSchema).optional(),
-  else: TicketingProjectFieldMapCasesElseEntity$outboundSchema.optional(),
+  else: z.nullable(
+    NullableTicketingProjectFieldMapCasesElseEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     externalField: "external_field",

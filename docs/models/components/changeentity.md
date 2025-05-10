@@ -5,7 +5,7 @@ ChangeEntity model
 ## Example Usage
 
 ```typescript
-import { ChangeEntity } from "firehydrant-typescript-sdk/models/components";
+import { ChangeEntity } from "firehydrant/models/components";
 
 let value: ChangeEntity = {};
 ```

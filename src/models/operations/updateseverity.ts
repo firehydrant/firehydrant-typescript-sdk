@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateSeverityRequest = {
   severitySlug: string;
-  patchV1SeveritiesSeveritySlug: components.PatchV1SeveritiesSeveritySlug;
+  updateSeverity: components.UpdateSeverity;
 };
 
 /** @internal */
@@ -21,19 +21,18 @@ export const UpdateSeverityRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   severity_slug: z.string(),
-  patchV1SeveritiesSeveritySlug:
-    components.PatchV1SeveritiesSeveritySlug$inboundSchema,
+  update_severity: z.lazy(() => components.UpdateSeverity$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "severity_slug": "severitySlug",
+    "update_severity": "updateSeverity",
   });
 });
 
 /** @internal */
 export type UpdateSeverityRequest$Outbound = {
   severity_slug: string;
-  patchV1SeveritiesSeveritySlug:
-    components.PatchV1SeveritiesSeveritySlug$Outbound;
+  update_severity: components.UpdateSeverity$Outbound;
 };
 
 /** @internal */
@@ -43,11 +42,11 @@ export const UpdateSeverityRequest$outboundSchema: z.ZodType<
   UpdateSeverityRequest
 > = z.object({
   severitySlug: z.string(),
-  patchV1SeveritiesSeveritySlug:
-    components.PatchV1SeveritiesSeveritySlug$outboundSchema,
+  updateSeverity: z.lazy(() => components.UpdateSeverity$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     severitySlug: "severity_slug",
+    updateSeverity: "update_severity",
   });
 });
 

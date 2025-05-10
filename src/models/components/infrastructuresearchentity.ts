@@ -11,8 +11,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * InfrastructureSearchEntity model
  */
 export type InfrastructureSearchEntity = {
-  type?: string | undefined;
-  infrastructure?: string | undefined;
+  type?: string | null | undefined;
+  infrastructure?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,14 +21,14 @@ export const InfrastructureSearchEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.string().optional(),
-  infrastructure: z.string().optional(),
+  type: z.nullable(z.string()).optional(),
+  infrastructure: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type InfrastructureSearchEntity$Outbound = {
-  type?: string | undefined;
-  infrastructure?: string | undefined;
+  type?: string | null | undefined;
+  infrastructure?: string | null | undefined;
 };
 
 /** @internal */
@@ -37,8 +37,8 @@ export const InfrastructureSearchEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   InfrastructureSearchEntity
 > = z.object({
-  type: z.string().optional(),
-  infrastructure: z.string().optional(),
+  type: z.nullable(z.string()).optional(),
+  infrastructure: z.nullable(z.string()).optional(),
 });
 
 /**

@@ -8,42 +8,42 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CalendarsEventEntity,
-  CalendarsEventEntity$inboundSchema,
-  CalendarsEventEntity$Outbound,
-  CalendarsEventEntity$outboundSchema,
-} from "./calendarsevententity.js";
+  NullableCalendarsEventEntity,
+  NullableCalendarsEventEntity$inboundSchema,
+  NullableCalendarsEventEntity$Outbound,
+  NullableCalendarsEventEntity$outboundSchema,
+} from "./nullablecalendarsevententity.js";
 import {
-  IncidentEntity,
-  IncidentEntity$inboundSchema,
-  IncidentEntity$Outbound,
-  IncidentEntity$outboundSchema,
-} from "./incidententity.js";
+  NullableIncidentEntity,
+  NullableIncidentEntity$inboundSchema,
+  NullableIncidentEntity$Outbound,
+  NullableIncidentEntity$outboundSchema,
+} from "./nullableincidententity.js";
 import {
-  PostMortemsQuestionEntity,
-  PostMortemsQuestionEntity$inboundSchema,
-  PostMortemsQuestionEntity$Outbound,
-  PostMortemsQuestionEntity$outboundSchema,
-} from "./postmortemsquestionentity.js";
+  NullablePostMortemsQuestionEntity,
+  NullablePostMortemsQuestionEntity$inboundSchema,
+  NullablePostMortemsQuestionEntity$Outbound,
+  NullablePostMortemsQuestionEntity$outboundSchema,
+} from "./nullablepostmortemsquestionentity.js";
 
 /**
  * PostMortems_PostMortemReportEntity model
  */
 export type PostMortemsPostMortemReportEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  incidentId?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  tagList?: Array<string> | undefined;
-  additionalDetails?: Array<string> | undefined;
-  /**
-   * IncidentEntity model
-   */
-  incident?: IncidentEntity | undefined;
-  questions?: PostMortemsQuestionEntity | undefined;
-  calendarEvents?: CalendarsEventEntity | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  incidentId?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  tagList?: Array<string> | null | undefined;
+  additionalDetails?: Array<string> | null | undefined;
+  incident?: NullableIncidentEntity | null | undefined;
+  questions?: NullablePostMortemsQuestionEntity | null | undefined;
+  calendarEvents?: NullableCalendarsEventEntity | null | undefined;
+  retrospectiveShim?: boolean | null | undefined;
+  retrospectiveId?: string | null | undefined;
+  retrospectiveNote?: string | null | undefined;
 };
 
 /** @internal */
@@ -52,19 +52,26 @@ export const PostMortemsPostMortemReportEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  incident_id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  incident_id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  tag_list: z.nullable(z.array(z.string())).optional(),
+  additional_details: z.nullable(z.array(z.string())).optional(),
+  incident: z.nullable(NullableIncidentEntity$inboundSchema).optional(),
+  questions: z.nullable(NullablePostMortemsQuestionEntity$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  calendar_events: z.nullable(NullableCalendarsEventEntity$inboundSchema)
     .optional(),
-  tag_list: z.array(z.string()).optional(),
-  additional_details: z.array(z.string()).optional(),
-  incident: IncidentEntity$inboundSchema.optional(),
-  questions: PostMortemsQuestionEntity$inboundSchema.optional(),
-  calendar_events: CalendarsEventEntity$inboundSchema.optional(),
+  retrospective_shim: z.nullable(z.boolean()).optional(),
+  retrospective_id: z.nullable(z.string()).optional(),
+  retrospective_note: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
@@ -73,22 +80,28 @@ export const PostMortemsPostMortemReportEntity$inboundSchema: z.ZodType<
     "tag_list": "tagList",
     "additional_details": "additionalDetails",
     "calendar_events": "calendarEvents",
+    "retrospective_shim": "retrospectiveShim",
+    "retrospective_id": "retrospectiveId",
+    "retrospective_note": "retrospectiveNote",
   });
 });
 
 /** @internal */
 export type PostMortemsPostMortemReportEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  incident_id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  tag_list?: Array<string> | undefined;
-  additional_details?: Array<string> | undefined;
-  incident?: IncidentEntity$Outbound | undefined;
-  questions?: PostMortemsQuestionEntity$Outbound | undefined;
-  calendar_events?: CalendarsEventEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  incident_id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  tag_list?: Array<string> | null | undefined;
+  additional_details?: Array<string> | null | undefined;
+  incident?: NullableIncidentEntity$Outbound | null | undefined;
+  questions?: NullablePostMortemsQuestionEntity$Outbound | null | undefined;
+  calendar_events?: NullableCalendarsEventEntity$Outbound | null | undefined;
+  retrospective_shim?: boolean | null | undefined;
+  retrospective_id?: string | null | undefined;
+  retrospective_note?: string | null | undefined;
 };
 
 /** @internal */
@@ -97,17 +110,22 @@ export const PostMortemsPostMortemReportEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PostMortemsPostMortemReportEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  incidentId: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  tagList: z.array(z.string()).optional(),
-  additionalDetails: z.array(z.string()).optional(),
-  incident: IncidentEntity$outboundSchema.optional(),
-  questions: PostMortemsQuestionEntity$outboundSchema.optional(),
-  calendarEvents: CalendarsEventEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  incidentId: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  tagList: z.nullable(z.array(z.string())).optional(),
+  additionalDetails: z.nullable(z.array(z.string())).optional(),
+  incident: z.nullable(NullableIncidentEntity$outboundSchema).optional(),
+  questions: z.nullable(NullablePostMortemsQuestionEntity$outboundSchema)
+    .optional(),
+  calendarEvents: z.nullable(NullableCalendarsEventEntity$outboundSchema)
+    .optional(),
+  retrospectiveShim: z.nullable(z.boolean()).optional(),
+  retrospectiveId: z.nullable(z.string()).optional(),
+  retrospectiveNote: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
@@ -116,6 +134,9 @@ export const PostMortemsPostMortemReportEntity$outboundSchema: z.ZodType<
     tagList: "tag_list",
     additionalDetails: "additional_details",
     calendarEvents: "calendar_events",
+    retrospectiveShim: "retrospective_shim",
+    retrospectiveId: "retrospective_id",
+    retrospectiveNote: "retrospective_note",
   });
 });
 

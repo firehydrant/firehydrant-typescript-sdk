@@ -12,14 +12,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * UserEntity model
  */
 export type UserEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  email?: string | undefined;
-  slackUserId?: string | undefined;
-  slackLinked?: boolean | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  signalsEnabledNotificationTypes?: Array<string> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  slackUserId?: string | null | undefined;
+  slackLinked?: boolean | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  signalsEnabledNotificationTypes?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -28,16 +28,19 @@ export const UserEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  email: z.string().optional(),
-  slack_user_id: z.string().optional(),
-  "slack_linked?": z.boolean().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  slack_user_id: z.nullable(z.string()).optional(),
+  "slack_linked?": z.nullable(z.boolean()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  signals_enabled_notification_types: z.nullable(z.array(z.string()))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  signals_enabled_notification_types: z.array(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "slack_user_id": "slackUserId",
@@ -50,14 +53,14 @@ export const UserEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UserEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  email?: string | undefined;
-  slack_user_id?: string | undefined;
-  "slack_linked?"?: boolean | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  signals_enabled_notification_types?: Array<string> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  slack_user_id?: string | null | undefined;
+  "slack_linked?"?: boolean | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  signals_enabled_notification_types?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -66,14 +69,14 @@ export const UserEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UserEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  email: z.string().optional(),
-  slackUserId: z.string().optional(),
-  slackLinked: z.boolean().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  signalsEnabledNotificationTypes: z.array(z.string()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  slackUserId: z.nullable(z.string()).optional(),
+  slackLinked: z.nullable(z.boolean()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  signalsEnabledNotificationTypes: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     slackUserId: "slack_user_id",

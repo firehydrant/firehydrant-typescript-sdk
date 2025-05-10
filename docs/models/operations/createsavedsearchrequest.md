@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateSavedSearchRequest } from "firehydrant/models/operations";
 
 let value: CreateSavedSearchRequest = {
-  resourceType: "analytics",
-  postV1SavedSearchesResourceType: {
+  resourceType: "ticket_tasks",
+  createSavedSearch: {
     name: "<value>",
     filterValues: {
       "key": "<value>",
@@ -18,7 +18,7 @@ let value: CreateSavedSearchRequest = {
 
 ## Fields
 
-| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `resourceType`                                                                                           | [operations.PathParamResourceType](../../models/operations/pathparamresourcetype.md)                     | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `postV1SavedSearchesResourceType`                                                                        | [components.PostV1SavedSearchesResourceType](../../models/components/postv1savedsearchesresourcetype.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `resourceType`                                                                                       | [operations.CreateSavedSearchResourceType](../../models/operations/createsavedsearchresourcetype.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `createSavedSearch`                                                                                  | [components.CreateSavedSearch](../../models/components/createsavedsearch.md)                         | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

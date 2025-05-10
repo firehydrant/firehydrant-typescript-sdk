@@ -10,77 +10,83 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const QueryParamSortField = {
+export const ListUserInvolvementMetricsSortField = {
   UserCount: "user_count",
   IncidentCount: "incident_count",
   TimeSpent: "time_spent",
 } as const;
-export type QueryParamSortField = ClosedEnum<typeof QueryParamSortField>;
+export type ListUserInvolvementMetricsSortField = ClosedEnum<
+  typeof ListUserInvolvementMetricsSortField
+>;
 
-export const QueryParamSortDirection = {
+export const ListUserInvolvementMetricsSortDirection = {
   Asc: "asc",
   Desc: "desc",
 } as const;
-export type QueryParamSortDirection = ClosedEnum<
-  typeof QueryParamSortDirection
+export type ListUserInvolvementMetricsSortDirection = ClosedEnum<
+  typeof ListUserInvolvementMetricsSortDirection
 >;
 
 export type ListUserInvolvementMetricsRequest = {
   /**
    * The start date to return metrics from
    */
-  startDate?: RFCDate | undefined;
+  startDate?: RFCDate | null | undefined;
   /**
    * The end date to return metrics from
    */
-  endDate?: RFCDate | undefined;
-  bucketSize?: string | undefined;
-  by?: string | undefined;
-  sortField?: QueryParamSortField | undefined;
-  sortDirection?: QueryParamSortDirection | undefined;
-  sortLimit?: number | undefined;
+  endDate?: RFCDate | null | undefined;
+  bucketSize?: string | null | undefined;
+  by?: string | null | undefined;
+  sortField?: ListUserInvolvementMetricsSortField | null | undefined;
+  sortDirection?: ListUserInvolvementMetricsSortDirection | null | undefined;
+  sortLimit?: number | null | undefined;
 };
 
 /** @internal */
-export const QueryParamSortField$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSortField
-> = z.nativeEnum(QueryParamSortField);
+export const ListUserInvolvementMetricsSortField$inboundSchema: z.ZodNativeEnum<
+  typeof ListUserInvolvementMetricsSortField
+> = z.nativeEnum(ListUserInvolvementMetricsSortField);
 
 /** @internal */
-export const QueryParamSortField$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSortField
-> = QueryParamSortField$inboundSchema;
+export const ListUserInvolvementMetricsSortField$outboundSchema:
+  z.ZodNativeEnum<typeof ListUserInvolvementMetricsSortField> =
+    ListUserInvolvementMetricsSortField$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamSortField$ {
-  /** @deprecated use `QueryParamSortField$inboundSchema` instead. */
-  export const inboundSchema = QueryParamSortField$inboundSchema;
-  /** @deprecated use `QueryParamSortField$outboundSchema` instead. */
-  export const outboundSchema = QueryParamSortField$outboundSchema;
+export namespace ListUserInvolvementMetricsSortField$ {
+  /** @deprecated use `ListUserInvolvementMetricsSortField$inboundSchema` instead. */
+  export const inboundSchema =
+    ListUserInvolvementMetricsSortField$inboundSchema;
+  /** @deprecated use `ListUserInvolvementMetricsSortField$outboundSchema` instead. */
+  export const outboundSchema =
+    ListUserInvolvementMetricsSortField$outboundSchema;
 }
 
 /** @internal */
-export const QueryParamSortDirection$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSortDirection
-> = z.nativeEnum(QueryParamSortDirection);
+export const ListUserInvolvementMetricsSortDirection$inboundSchema:
+  z.ZodNativeEnum<typeof ListUserInvolvementMetricsSortDirection> = z
+    .nativeEnum(ListUserInvolvementMetricsSortDirection);
 
 /** @internal */
-export const QueryParamSortDirection$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSortDirection
-> = QueryParamSortDirection$inboundSchema;
+export const ListUserInvolvementMetricsSortDirection$outboundSchema:
+  z.ZodNativeEnum<typeof ListUserInvolvementMetricsSortDirection> =
+    ListUserInvolvementMetricsSortDirection$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamSortDirection$ {
-  /** @deprecated use `QueryParamSortDirection$inboundSchema` instead. */
-  export const inboundSchema = QueryParamSortDirection$inboundSchema;
-  /** @deprecated use `QueryParamSortDirection$outboundSchema` instead. */
-  export const outboundSchema = QueryParamSortDirection$outboundSchema;
+export namespace ListUserInvolvementMetricsSortDirection$ {
+  /** @deprecated use `ListUserInvolvementMetricsSortDirection$inboundSchema` instead. */
+  export const inboundSchema =
+    ListUserInvolvementMetricsSortDirection$inboundSchema;
+  /** @deprecated use `ListUserInvolvementMetricsSortDirection$outboundSchema` instead. */
+  export const outboundSchema =
+    ListUserInvolvementMetricsSortDirection$outboundSchema;
 }
 
 /** @internal */
@@ -89,13 +95,16 @@ export const ListUserInvolvementMetricsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
-  bucket_size: z.string().optional(),
-  by: z.string().optional(),
-  sort_field: QueryParamSortField$inboundSchema.optional(),
-  sort_direction: QueryParamSortDirection$inboundSchema.optional(),
-  sort_limit: z.number().int().optional(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  bucket_size: z.nullable(z.string()).optional(),
+  by: z.nullable(z.string()).optional(),
+  sort_field: z.nullable(ListUserInvolvementMetricsSortField$inboundSchema)
+    .optional(),
+  sort_direction: z.nullable(
+    ListUserInvolvementMetricsSortDirection$inboundSchema,
+  ).optional(),
+  sort_limit: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -109,13 +118,13 @@ export const ListUserInvolvementMetricsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListUserInvolvementMetricsRequest$Outbound = {
-  start_date?: string | undefined;
-  end_date?: string | undefined;
-  bucket_size?: string | undefined;
-  by?: string | undefined;
-  sort_field?: string | undefined;
-  sort_direction?: string | undefined;
-  sort_limit?: number | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
+  bucket_size?: string | null | undefined;
+  by?: string | null | undefined;
+  sort_field?: string | null | undefined;
+  sort_direction?: string | null | undefined;
+  sort_limit?: number | null | undefined;
 };
 
 /** @internal */
@@ -124,13 +133,18 @@ export const ListUserInvolvementMetricsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListUserInvolvementMetricsRequest
 > = z.object({
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  bucketSize: z.string().optional(),
-  by: z.string().optional(),
-  sortField: QueryParamSortField$outboundSchema.optional(),
-  sortDirection: QueryParamSortDirection$outboundSchema.optional(),
-  sortLimit: z.number().int().optional(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  bucketSize: z.nullable(z.string()).optional(),
+  by: z.nullable(z.string()).optional(),
+  sortField: z.nullable(ListUserInvolvementMetricsSortField$outboundSchema)
+    .optional(),
+  sortDirection: z.nullable(
+    ListUserInvolvementMetricsSortDirection$outboundSchema,
+  ).optional(),
+  sortLimit: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",

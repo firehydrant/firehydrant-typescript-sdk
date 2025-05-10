@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateIncidentTypeRequest = {
   id: string;
-  patchV1IncidentTypesId: components.PatchV1IncidentTypesId;
+  updateIncidentType: components.UpdateIncidentType;
 };
 
 /** @internal */
@@ -20,13 +21,19 @@ export const UpdateIncidentTypeRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  patchV1IncidentTypesId: components.PatchV1IncidentTypesId$inboundSchema,
+  update_incident_type: z.lazy(() =>
+    components.UpdateIncidentType$inboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    "update_incident_type": "updateIncidentType",
+  });
 });
 
 /** @internal */
 export type UpdateIncidentTypeRequest$Outbound = {
   id: string;
-  patchV1IncidentTypesId: components.PatchV1IncidentTypesId$Outbound;
+  update_incident_type: components.UpdateIncidentType$Outbound;
 };
 
 /** @internal */
@@ -36,7 +43,13 @@ export const UpdateIncidentTypeRequest$outboundSchema: z.ZodType<
   UpdateIncidentTypeRequest
 > = z.object({
   id: z.string(),
-  patchV1IncidentTypesId: components.PatchV1IncidentTypesId$outboundSchema,
+  updateIncidentType: z.lazy(() =>
+    components.UpdateIncidentType$outboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    updateIncidentType: "update_incident_type",
+  });
 });
 
 /**

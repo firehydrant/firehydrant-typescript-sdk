@@ -9,8 +9,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IntegrationsStatuspageSeverityEntity = {
-  severitySlug?: string | undefined;
-  remoteStatus?: string | undefined;
+  severitySlug?: string | null | undefined;
+  remoteStatus?: string | null | undefined;
 };
 
 /** @internal */
@@ -19,8 +19,8 @@ export const IntegrationsStatuspageSeverityEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  severity_slug: z.string().optional(),
-  remote_status: z.string().optional(),
+  severity_slug: z.nullable(z.string()).optional(),
+  remote_status: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "severity_slug": "severitySlug",
@@ -30,8 +30,8 @@ export const IntegrationsStatuspageSeverityEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsStatuspageSeverityEntity$Outbound = {
-  severity_slug?: string | undefined;
-  remote_status?: string | undefined;
+  severity_slug?: string | null | undefined;
+  remote_status?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,8 +40,8 @@ export const IntegrationsStatuspageSeverityEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsStatuspageSeverityEntity
 > = z.object({
-  severitySlug: z.string().optional(),
-  remoteStatus: z.string().optional(),
+  severitySlug: z.nullable(z.string()).optional(),
+  remoteStatus: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     severitySlug: "severity_slug",

@@ -15,35 +15,35 @@ export type MetricsInfrastructureMetricsEntity = {
   /**
    * The UUID of the component
    */
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * The name of the component
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * Mean Time To Detection (seconds) for all incidents for this component in this time period
    */
-  mttd?: number | undefined;
+  mttd?: number | null | undefined;
   /**
    * Mean Time To Acknowledgement (seconds) for all incidents for this component in this time period
    */
-  mtta?: number | undefined;
+  mtta?: number | null | undefined;
   /**
    * Mean Time To Mitigation (seconds) for all incidents for this component in this time period
    */
-  mttm?: number | undefined;
+  mttm?: number | null | undefined;
   /**
    * Mean Time To Resolution (seconds) for all incidents for this component in this time period
    */
-  mttr?: number | undefined;
+  mttr?: number | null | undefined;
   /**
    * Number of incidents in this time period for this component
    */
-  count?: number | undefined;
+  count?: number | null | undefined;
   /**
    * Total time (seconds) the component was impacted (MTTR x Incident Count)
    */
-  totalTime?: number | undefined;
+  totalTime?: number | null | undefined;
 };
 
 /** @internal */
@@ -52,14 +52,14 @@ export const MetricsInfrastructureMetricsEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  mttd: z.number().int().optional(),
-  mtta: z.number().int().optional(),
-  mttm: z.number().int().optional(),
-  mttr: z.number().int().optional(),
-  count: z.number().int().optional(),
-  total_time: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  mttd: z.nullable(z.number().int()).optional(),
+  mtta: z.nullable(z.number().int()).optional(),
+  mttm: z.nullable(z.number().int()).optional(),
+  mttr: z.nullable(z.number().int()).optional(),
+  count: z.nullable(z.number().int()).optional(),
+  total_time: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "total_time": "totalTime",
@@ -68,14 +68,14 @@ export const MetricsInfrastructureMetricsEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type MetricsInfrastructureMetricsEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  mttd?: number | undefined;
-  mtta?: number | undefined;
-  mttm?: number | undefined;
-  mttr?: number | undefined;
-  count?: number | undefined;
-  total_time?: number | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  mttd?: number | null | undefined;
+  mtta?: number | null | undefined;
+  mttm?: number | null | undefined;
+  mttr?: number | null | undefined;
+  count?: number | null | undefined;
+  total_time?: number | null | undefined;
 };
 
 /** @internal */
@@ -84,14 +84,14 @@ export const MetricsInfrastructureMetricsEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MetricsInfrastructureMetricsEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  mttd: z.number().int().optional(),
-  mtta: z.number().int().optional(),
-  mttm: z.number().int().optional(),
-  mttr: z.number().int().optional(),
-  count: z.number().int().optional(),
-  totalTime: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  mttd: z.nullable(z.number().int()).optional(),
+  mtta: z.nullable(z.number().int()).optional(),
+  mttm: z.nullable(z.number().int()).optional(),
+  mttr: z.nullable(z.number().int()).optional(),
+  count: z.nullable(z.number().int()).optional(),
+  totalTime: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     totalTime: "total_time",

@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   ExternalResourceEntity,
   ExternalResourceEntity$inboundSchema,
   ExternalResourceEntity$Outbound,
@@ -25,6 +19,18 @@ import {
   LinksEntity$Outbound,
   LinksEntity$outboundSchema,
 } from "./linksentity.js";
+import {
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
+import {
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 import {
   ServiceEntityLite,
   ServiceEntityLite$inboundSchema,
@@ -47,40 +53,40 @@ export type FunctionalityEntityLabels = {};
  * FunctionalityEntity model
  */
 export type FunctionalityEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: FunctionalityEntityLabels | undefined;
+  labels?: FunctionalityEntityLabels | null | undefined;
   /**
    * List of active incident guids
    */
-  activeIncidents?: Array<string> | undefined;
+  activeIncidents?: Array<string> | null | undefined;
   /**
    * List of links attached to this functionality.
    */
-  links?: Array<LinksEntity> | undefined;
-  owner?: TeamEntityLite | undefined;
-  alertOnAdd?: boolean | undefined;
-  autoAddRespondingTeam?: boolean | undefined;
-  updatedBy?: AuthorEntity | undefined;
+  links?: Array<LinksEntity> | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
+  alertOnAdd?: boolean | null | undefined;
+  autoAddRespondingTeam?: boolean | null | undefined;
+  updatedBy?: NullableAuthorEntity | null | undefined;
   /**
    * Services this functionality provides
    */
-  services?: Array<ServiceEntityLite> | undefined;
+  services?: Array<ServiceEntityLite> | null | undefined;
   /**
    * Information about known linkages to representations of services outside of FireHydrant.
    */
-  externalResources?: Array<ExternalResourceEntity> | undefined;
+  externalResources?: Array<ExternalResourceEntity> | null | undefined;
   /**
    * List of teams attached to the functionality
    */
-  teams?: Array<TeamEntityLite> | undefined;
+  teams?: Array<TeamEntityLite> | null | undefined;
 };
 
 /** @internal */
@@ -137,24 +143,28 @@ export const FunctionalityEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  labels: z.nullable(z.lazy(() => FunctionalityEntityLabels$inboundSchema))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  active_incidents: z.nullable(z.array(z.string())).optional(),
+  links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  alert_on_add: z.nullable(z.boolean()).optional(),
+  auto_add_responding_team: z.nullable(z.boolean()).optional(),
+  updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
+  external_resources: z.nullable(z.array(ExternalResourceEntity$inboundSchema))
     .optional(),
-  labels: z.lazy(() => FunctionalityEntityLabels$inboundSchema).optional(),
-  active_incidents: z.array(z.string()).optional(),
-  links: z.array(LinksEntity$inboundSchema).optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  alert_on_add: z.boolean().optional(),
-  auto_add_responding_team: z.boolean().optional(),
-  updated_by: AuthorEntity$inboundSchema.optional(),
-  services: z.array(ServiceEntityLite$inboundSchema).optional(),
-  external_resources: z.array(ExternalResourceEntity$inboundSchema).optional(),
-  teams: z.array(TeamEntityLite$inboundSchema).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -169,22 +179,25 @@ export const FunctionalityEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FunctionalityEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  labels?: FunctionalityEntityLabels$Outbound | undefined;
-  active_incidents?: Array<string> | undefined;
-  links?: Array<LinksEntity$Outbound> | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  alert_on_add?: boolean | undefined;
-  auto_add_responding_team?: boolean | undefined;
-  updated_by?: AuthorEntity$Outbound | undefined;
-  services?: Array<ServiceEntityLite$Outbound> | undefined;
-  external_resources?: Array<ExternalResourceEntity$Outbound> | undefined;
-  teams?: Array<TeamEntityLite$Outbound> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  labels?: FunctionalityEntityLabels$Outbound | null | undefined;
+  active_incidents?: Array<string> | null | undefined;
+  links?: Array<LinksEntity$Outbound> | null | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  alert_on_add?: boolean | null | undefined;
+  auto_add_responding_team?: boolean | null | undefined;
+  updated_by?: NullableAuthorEntity$Outbound | null | undefined;
+  services?: Array<ServiceEntityLite$Outbound> | null | undefined;
+  external_resources?:
+    | Array<ExternalResourceEntity$Outbound>
+    | null
+    | undefined;
+  teams?: Array<TeamEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -193,22 +206,24 @@ export const FunctionalityEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FunctionalityEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  labels: z.lazy(() => FunctionalityEntityLabels$outboundSchema).optional(),
-  activeIncidents: z.array(z.string()).optional(),
-  links: z.array(LinksEntity$outboundSchema).optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  alertOnAdd: z.boolean().optional(),
-  autoAddRespondingTeam: z.boolean().optional(),
-  updatedBy: AuthorEntity$outboundSchema.optional(),
-  services: z.array(ServiceEntityLite$outboundSchema).optional(),
-  externalResources: z.array(ExternalResourceEntity$outboundSchema).optional(),
-  teams: z.array(TeamEntityLite$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  labels: z.nullable(z.lazy(() => FunctionalityEntityLabels$outboundSchema))
+    .optional(),
+  activeIncidents: z.nullable(z.array(z.string())).optional(),
+  links: z.nullable(z.array(LinksEntity$outboundSchema)).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  alertOnAdd: z.nullable(z.boolean()).optional(),
+  autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
+  updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
+  externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
+    .optional(),
+  teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

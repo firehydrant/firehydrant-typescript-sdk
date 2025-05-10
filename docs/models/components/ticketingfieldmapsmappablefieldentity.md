@@ -5,7 +5,7 @@ Ticketing_FieldMaps_MappableFieldEntity model
 ## Example Usage
 
 ```typescript
-import { TicketingFieldMapsMappableFieldEntity } from "firehydrant-typescript-sdk/models/components";
+import { TicketingFieldMapsMappableFieldEntity } from "firehydrant/models/components";
 
 let value: TicketingFieldMapsMappableFieldEntity = {};
 ```
@@ -17,5 +17,5 @@ let value: TicketingFieldMapsMappableFieldEntity = {};
 | `value`                               | *string*                              | :heavy_minus_sign:                    | The ID of the field                   |
 | `label`                               | *string*                              | :heavy_minus_sign:                    | The human-readable name of the field  |
 | `type`                                | *string*                              | :heavy_minus_sign:                    | The allowed type of the field         |
-| `allowedValues`                       | *string*                              | :heavy_minus_sign:                    | The allowed values of the field       |
+| `allowedValues`                       | *string*[]                            | :heavy_minus_sign:                    | The allowed values of the field       |
 | `required`                            | *string*                              | :heavy_minus_sign:                    | If the field is required to be mapped |

@@ -5,7 +5,7 @@ IncidentRoleEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentRoleEntity } from "firehydrant-typescript-sdk/models/components";
+import { IncidentRoleEntity } from "firehydrant/models/components";
 
 let value: IncidentRoleEntity = {};
 ```

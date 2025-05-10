@@ -7,25 +7,25 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ActorEntity,
-  ActorEntity$inboundSchema,
-  ActorEntity$Outbound,
-  ActorEntity$outboundSchema,
-} from "./actorentity.js";
+  NullableActorEntity,
+  NullableActorEntity$inboundSchema,
+  NullableActorEntity$Outbound,
+  NullableActorEntity$outboundSchema,
+} from "./nullableactorentity.js";
 import {
-  OrganizationEntity,
-  OrganizationEntity$inboundSchema,
-  OrganizationEntity$Outbound,
-  OrganizationEntity$outboundSchema,
-} from "./organizationentity.js";
+  NullableOrganizationEntity,
+  NullableOrganizationEntity$inboundSchema,
+  NullableOrganizationEntity$Outbound,
+  NullableOrganizationEntity$outboundSchema,
+} from "./nullableorganizationentity.js";
 
 /**
  * PongEntity model
  */
 export type PongEntity = {
-  response?: string | undefined;
-  actor?: ActorEntity | undefined;
-  organization?: OrganizationEntity | undefined;
+  response?: string | null | undefined;
+  actor?: NullableActorEntity | null | undefined;
+  organization?: NullableOrganizationEntity | null | undefined;
 };
 
 /** @internal */
@@ -34,16 +34,16 @@ export const PongEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  response: z.string().optional(),
-  actor: ActorEntity$inboundSchema.optional(),
-  organization: OrganizationEntity$inboundSchema.optional(),
+  response: z.nullable(z.string()).optional(),
+  actor: z.nullable(NullableActorEntity$inboundSchema).optional(),
+  organization: z.nullable(NullableOrganizationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type PongEntity$Outbound = {
-  response?: string | undefined;
-  actor?: ActorEntity$Outbound | undefined;
-  organization?: OrganizationEntity$Outbound | undefined;
+  response?: string | null | undefined;
+  actor?: NullableActorEntity$Outbound | null | undefined;
+  organization?: NullableOrganizationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -52,9 +52,10 @@ export const PongEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PongEntity
 > = z.object({
-  response: z.string().optional(),
-  actor: ActorEntity$outboundSchema.optional(),
-  organization: OrganizationEntity$outboundSchema.optional(),
+  response: z.nullable(z.string()).optional(),
+  actor: z.nullable(NullableActorEntity$outboundSchema).optional(),
+  organization: z.nullable(NullableOrganizationEntity$outboundSchema)
+    .optional(),
 });
 
 /**

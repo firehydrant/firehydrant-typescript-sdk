@@ -9,39 +9,45 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const Type = {
+export const IncidentTypeEntityTemplateImpactEntityType = {
+  Customer: "customer",
   Environment: "environment",
   Functionality: "functionality",
   Service: "service",
 } as const;
-export type Type = ClosedEnum<typeof Type>;
+export type IncidentTypeEntityTemplateImpactEntityType = ClosedEnum<
+  typeof IncidentTypeEntityTemplateImpactEntityType
+>;
 
 export type IncidentTypeEntityTemplateImpactEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  conditionId?: string | undefined;
-  conditionName?: string | undefined;
-  type?: Type | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  conditionId?: string | null | undefined;
+  conditionName?: string | null | undefined;
+  type?: IncidentTypeEntityTemplateImpactEntityType | null | undefined;
 };
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const IncidentTypeEntityTemplateImpactEntityType$inboundSchema:
+  z.ZodNativeEnum<typeof IncidentTypeEntityTemplateImpactEntityType> = z
+    .nativeEnum(IncidentTypeEntityTemplateImpactEntityType);
 
 /** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
+export const IncidentTypeEntityTemplateImpactEntityType$outboundSchema:
+  z.ZodNativeEnum<typeof IncidentTypeEntityTemplateImpactEntityType> =
+    IncidentTypeEntityTemplateImpactEntityType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
+export namespace IncidentTypeEntityTemplateImpactEntityType$ {
+  /** @deprecated use `IncidentTypeEntityTemplateImpactEntityType$inboundSchema` instead. */
+  export const inboundSchema =
+    IncidentTypeEntityTemplateImpactEntityType$inboundSchema;
+  /** @deprecated use `IncidentTypeEntityTemplateImpactEntityType$outboundSchema` instead. */
+  export const outboundSchema =
+    IncidentTypeEntityTemplateImpactEntityType$outboundSchema;
 }
 
 /** @internal */
@@ -50,11 +56,12 @@ export const IncidentTypeEntityTemplateImpactEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  condition_id: z.string().optional(),
-  condition_name: z.string().optional(),
-  type: Type$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  condition_id: z.nullable(z.string()).optional(),
+  condition_name: z.nullable(z.string()).optional(),
+  type: z.nullable(IncidentTypeEntityTemplateImpactEntityType$inboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "condition_id": "conditionId",
@@ -64,11 +71,11 @@ export const IncidentTypeEntityTemplateImpactEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentTypeEntityTemplateImpactEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  condition_id?: string | undefined;
-  condition_name?: string | undefined;
-  type?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  condition_id?: string | null | undefined;
+  condition_name?: string | null | undefined;
+  type?: string | null | undefined;
 };
 
 /** @internal */
@@ -77,11 +84,12 @@ export const IncidentTypeEntityTemplateImpactEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentTypeEntityTemplateImpactEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  conditionId: z.string().optional(),
-  conditionName: z.string().optional(),
-  type: Type$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  conditionId: z.nullable(z.string()).optional(),
+  conditionName: z.nullable(z.string()).optional(),
+  type: z.nullable(IncidentTypeEntityTemplateImpactEntityType$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     conditionId: "condition_id",

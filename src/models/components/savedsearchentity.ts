@@ -17,20 +17,20 @@ export type FilterValues = {};
  * SavedSearchEntity model
  */
 export type SavedSearchEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  resourceType?: string | undefined;
-  userId?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  resourceType?: string | null | undefined;
+  userId?: string | null | undefined;
   /**
    * Whether or not this saved search is private
    */
-  isPrivate?: boolean | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  isPrivate?: boolean | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * An unstructured key/value pair of saved values for searching
    */
-  filterValues?: FilterValues | undefined;
+  filterValues?: FilterValues | null | undefined;
 };
 
 /** @internal */
@@ -83,16 +83,19 @@ export const SavedSearchEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  resource_type: z.string().optional(),
-  user_id: z.string().optional(),
-  is_private: z.boolean().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  resource_type: z.nullable(z.string()).optional(),
+  user_id: z.nullable(z.string()).optional(),
+  is_private: z.nullable(z.boolean()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  filter_values: z.nullable(z.lazy(() => FilterValues$inboundSchema))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  filter_values: z.lazy(() => FilterValues$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "resource_type": "resourceType",
@@ -106,14 +109,14 @@ export const SavedSearchEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SavedSearchEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  resource_type?: string | undefined;
-  user_id?: string | undefined;
-  is_private?: boolean | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  filter_values?: FilterValues$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  resource_type?: string | null | undefined;
+  user_id?: string | null | undefined;
+  is_private?: boolean | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  filter_values?: FilterValues$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -122,14 +125,15 @@ export const SavedSearchEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SavedSearchEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  resourceType: z.string().optional(),
-  userId: z.string().optional(),
-  isPrivate: z.boolean().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  filterValues: z.lazy(() => FilterValues$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  resourceType: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.string()).optional(),
+  isPrivate: z.nullable(z.boolean()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  filterValues: z.nullable(z.lazy(() => FilterValues$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     resourceType: "resource_type",

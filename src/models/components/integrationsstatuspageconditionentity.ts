@@ -18,9 +18,9 @@ export const StatuspageioCondition = {
 export type StatuspageioCondition = ClosedEnum<typeof StatuspageioCondition>;
 
 export type IntegrationsStatuspageConditionEntity = {
-  conditionId?: string | undefined;
-  conditionName?: string | undefined;
-  statuspageioCondition?: StatuspageioCondition | undefined;
+  conditionId?: string | null | undefined;
+  conditionName?: string | null | undefined;
+  statuspageioCondition?: StatuspageioCondition | null | undefined;
 };
 
 /** @internal */
@@ -50,9 +50,10 @@ export const IntegrationsStatuspageConditionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  condition_id: z.string().optional(),
-  condition_name: z.string().optional(),
-  statuspageio_condition: StatuspageioCondition$inboundSchema.optional(),
+  condition_id: z.nullable(z.string()).optional(),
+  condition_name: z.nullable(z.string()).optional(),
+  statuspageio_condition: z.nullable(StatuspageioCondition$inboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "condition_id": "conditionId",
@@ -63,9 +64,9 @@ export const IntegrationsStatuspageConditionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsStatuspageConditionEntity$Outbound = {
-  condition_id?: string | undefined;
-  condition_name?: string | undefined;
-  statuspageio_condition?: string | undefined;
+  condition_id?: string | null | undefined;
+  condition_name?: string | null | undefined;
+  statuspageio_condition?: string | null | undefined;
 };
 
 /** @internal */
@@ -74,9 +75,10 @@ export const IntegrationsStatuspageConditionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsStatuspageConditionEntity
 > = z.object({
-  conditionId: z.string().optional(),
-  conditionName: z.string().optional(),
-  statuspageioCondition: StatuspageioCondition$outboundSchema.optional(),
+  conditionId: z.nullable(z.string()).optional(),
+  conditionName: z.nullable(z.string()).optional(),
+  statuspageioCondition: z.nullable(StatuspageioCondition$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     conditionId: "condition_id",

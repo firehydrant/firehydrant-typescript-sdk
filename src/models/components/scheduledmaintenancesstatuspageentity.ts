@@ -9,10 +9,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ScheduledMaintenancesStatusPageEntity = {
-  id?: string | undefined;
-  integrationId?: string | undefined;
-  integrationSlug?: string | undefined;
-  integrationName?: string | undefined;
+  id?: string | null | undefined;
+  integrationId?: string | null | undefined;
+  integrationSlug?: string | null | undefined;
+  integrationName?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,10 +21,10 @@ export const ScheduledMaintenancesStatusPageEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  integration_id: z.string().optional(),
-  integration_slug: z.string().optional(),
-  integration_name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  integration_id: z.nullable(z.string()).optional(),
+  integration_slug: z.nullable(z.string()).optional(),
+  integration_name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "integration_id": "integrationId",
@@ -35,10 +35,10 @@ export const ScheduledMaintenancesStatusPageEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ScheduledMaintenancesStatusPageEntity$Outbound = {
-  id?: string | undefined;
-  integration_id?: string | undefined;
-  integration_slug?: string | undefined;
-  integration_name?: string | undefined;
+  id?: string | null | undefined;
+  integration_id?: string | null | undefined;
+  integration_slug?: string | null | undefined;
+  integration_name?: string | null | undefined;
 };
 
 /** @internal */
@@ -47,10 +47,10 @@ export const ScheduledMaintenancesStatusPageEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ScheduledMaintenancesStatusPageEntity
 > = z.object({
-  id: z.string().optional(),
-  integrationId: z.string().optional(),
-  integrationSlug: z.string().optional(),
-  integrationName: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
+  integrationSlug: z.nullable(z.string()).optional(),
+  integrationName: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     integrationId: "integration_id",

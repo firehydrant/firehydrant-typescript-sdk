@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   ConversationsAPIEntitiesReference,
   ConversationsAPIEntitiesReference$inboundSchema,
   ConversationsAPIEntitiesReference$Outbound,
@@ -25,12 +19,6 @@ import {
   CustomFieldsFieldValue$Outbound,
   CustomFieldsFieldValue$outboundSchema,
 } from "./customfieldsfieldvalue.js";
-import {
-  EventNoteEntity,
-  EventNoteEntity$inboundSchema,
-  EventNoteEntity$Outbound,
-  EventNoteEntity$outboundSchema,
-} from "./eventnoteentity.js";
 import {
   IncidentEntityFieldRequirementEntity,
   IncidentEntityFieldRequirementEntity$inboundSchema,
@@ -49,12 +37,6 @@ import {
   IncidentsConferenceBridgeEntity$Outbound,
   IncidentsConferenceBridgeEntity$outboundSchema,
 } from "./incidentsconferencebridgeentity.js";
-import {
-  IncidentsContextObjectEntity,
-  IncidentsContextObjectEntity$inboundSchema,
-  IncidentsContextObjectEntity$Outbound,
-  IncidentsContextObjectEntity$outboundSchema,
-} from "./incidentscontextobjectentity.js";
 import {
   IncidentsImpactEntity,
   IncidentsImpactEntity$inboundSchema,
@@ -98,23 +80,47 @@ import {
   IncidentsTeamAssignmentEntityLite$outboundSchema,
 } from "./incidentsteamassignmententitylite.js";
 import {
-  OrganizationEntity,
-  OrganizationEntity$inboundSchema,
-  OrganizationEntity$Outbound,
-  OrganizationEntity$outboundSchema,
-} from "./organizationentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 import {
-  SeverityMatrixConditionEntity,
-  SeverityMatrixConditionEntity$inboundSchema,
-  SeverityMatrixConditionEntity$Outbound,
-  SeverityMatrixConditionEntity$outboundSchema,
-} from "./severitymatrixconditionentity.js";
+  NullableEventNoteEntity,
+  NullableEventNoteEntity$inboundSchema,
+  NullableEventNoteEntity$Outbound,
+  NullableEventNoteEntity$outboundSchema,
+} from "./nullableeventnoteentity.js";
 import {
-  SeverityMatrixImpactEntity,
-  SeverityMatrixImpactEntity$inboundSchema,
-  SeverityMatrixImpactEntity$Outbound,
-  SeverityMatrixImpactEntity$outboundSchema,
-} from "./severitymatriximpactentity.js";
+  NullableIncidentsContextObjectEntity,
+  NullableIncidentsContextObjectEntity$inboundSchema,
+  NullableIncidentsContextObjectEntity$Outbound,
+  NullableIncidentsContextObjectEntity$outboundSchema,
+} from "./nullableincidentscontextobjectentity.js";
+import {
+  NullableOrganizationEntity,
+  NullableOrganizationEntity$inboundSchema,
+  NullableOrganizationEntity$Outbound,
+  NullableOrganizationEntity$outboundSchema,
+} from "./nullableorganizationentity.js";
+import {
+  NullableSeverityMatrixConditionEntity,
+  NullableSeverityMatrixConditionEntity$inboundSchema,
+  NullableSeverityMatrixConditionEntity$Outbound,
+  NullableSeverityMatrixConditionEntity$outboundSchema,
+} from "./nullableseveritymatrixconditionentity.js";
+import {
+  NullableSeverityMatrixImpactEntity,
+  NullableSeverityMatrixImpactEntity$inboundSchema,
+  NullableSeverityMatrixImpactEntity$Outbound,
+  NullableSeverityMatrixImpactEntity$outboundSchema,
+} from "./nullableseveritymatriximpactentity.js";
+import {
+  NullableTicketingTicketEntity,
+  NullableTicketingTicketEntity$inboundSchema,
+  NullableTicketingTicketEntity$Outbound,
+  NullableTicketingTicketEntity$outboundSchema,
+} from "./nullableticketingticketentity.js";
 import {
   SuccinctEntity,
   SuccinctEntity$inboundSchema,
@@ -133,7 +139,7 @@ import {
  */
 export type IncidentEntityLabels = {};
 
-export type RetroExports = {};
+export type IncidentEntityRetroExport = {};
 
 /**
  * IncidentEntity model
@@ -142,106 +148,101 @@ export type IncidentEntity = {
   /**
    * UUID of the Incident
    */
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * Name of the incident
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * The time the incident was opened
    */
-  createdAt?: Date | undefined;
+  createdAt?: Date | null | undefined;
   /**
    * The time the incident started
    */
-  startedAt?: Date | undefined;
+  startedAt?: Date | null | undefined;
   /**
    * The time the incident was archived
    */
-  discardedAt?: Date | undefined;
-  summary?: string | undefined;
-  customerImpactSummary?: string | undefined;
-  description?: string | undefined;
+  discardedAt?: Date | null | undefined;
+  summary?: string | null | undefined;
+  customerImpactSummary?: string | null | undefined;
+  description?: string | null | undefined;
   /**
    * The type/slug of the current milestone. Will be one of the currently configured milestones for the given incident.
    */
-  currentMilestone?: string | undefined;
+  currentMilestone?: string | null | undefined;
   /**
    * Incident number
    */
-  number?: number | undefined;
-  priority?: string | undefined;
-  severity?: string | undefined;
-  severityColor?: string | undefined;
-  severityImpact?: string | undefined;
-  severityCondition?: string | undefined;
-  tagList?: Array<string> | undefined;
-  /**
-   * SeverityMatrix_ImpactEntity model
-   */
-  severityImpactObject?: SeverityMatrixImpactEntity | undefined;
-  /**
-   * SeverityMatrix_ConditionEntity model
-   */
-  severityConditionObject?: SeverityMatrixConditionEntity | undefined;
-  privateId?: string | undefined;
-  organizationId?: string | undefined;
+  number?: number | null | undefined;
+  priority?: string | null | undefined;
+  severity?: string | null | undefined;
+  severityColor?: string | null | undefined;
+  severityImpact?: string | null | undefined;
+  severityCondition?: string | null | undefined;
+  tagList?: Array<string> | null | undefined;
+  severityImpactObject?: NullableSeverityMatrixImpactEntity | null | undefined;
+  severityConditionObject?:
+    | NullableSeverityMatrixConditionEntity
+    | null
+    | undefined;
+  privateId?: string | null | undefined;
+  organizationId?: string | null | undefined;
   /**
    * DEPRECATED: Please use lifecycle phases instead
    */
-  milestones?: Array<IncidentsMilestoneEntity> | undefined;
-  lifecyclePhases?: Array<IncidentsLifecyclePhaseEntity> | undefined;
+  milestones?: Array<IncidentsMilestoneEntity> | null | undefined;
+  lifecyclePhases?: Array<IncidentsLifecyclePhaseEntity> | null | undefined;
   lifecycleMeasurements?:
     | Array<IncidentsLifecycleMeasurementEntity>
+    | null
     | undefined;
-  active?: boolean | undefined;
+  active?: boolean | null | undefined;
   /**
    * A key/value of labels
    */
-  labels?: IncidentEntityLabels | undefined;
-  roleAssignments?: Array<IncidentsRoleAssignmentEntity> | undefined;
-  statusPages?: Array<IncidentsStatusPageEntity> | undefined;
-  incidentUrl?: string | undefined;
-  privateStatusPageUrl?: string | undefined;
-  organization?: OrganizationEntity | undefined;
-  customersImpacted?: number | undefined;
-  monetaryImpact?: number | undefined;
-  monetaryImpactCents?: number | undefined;
-  lastUpdate?: string | undefined;
-  /**
-   * Event_NoteEntity model
-   */
-  lastNote?: EventNoteEntity | undefined;
-  reportId?: string | undefined;
-  aiIncidentSummary?: string | undefined;
-  services?: Array<SuccinctEntity> | undefined;
-  environments?: Array<SuccinctEntity> | undefined;
-  functionalities?: Array<SuccinctEntity> | undefined;
-  channelName?: string | undefined;
-  channelReference?: string | undefined;
-  channelId?: string | undefined;
+  labels?: IncidentEntityLabels | null | undefined;
+  roleAssignments?: Array<IncidentsRoleAssignmentEntity> | null | undefined;
+  statusPages?: Array<IncidentsStatusPageEntity> | null | undefined;
+  incidentUrl?: string | null | undefined;
+  privateStatusPageUrl?: string | null | undefined;
+  organization?: NullableOrganizationEntity | null | undefined;
+  customersImpacted?: number | null | undefined;
+  monetaryImpact?: number | null | undefined;
+  monetaryImpactCents?: number | null | undefined;
+  lastUpdate?: string | null | undefined;
+  lastNote?: NullableEventNoteEntity | null | undefined;
+  reportId?: string | null | undefined;
+  aiIncidentSummary?: string | null | undefined;
+  services?: Array<SuccinctEntity> | null | undefined;
+  environments?: Array<SuccinctEntity> | null | undefined;
+  functionalities?: Array<SuccinctEntity> | null | undefined;
+  channelName?: string | null | undefined;
+  channelReference?: string | null | undefined;
+  channelId?: string | null | undefined;
   /**
    * inoperative: 0, operational: 1, archived: 2
    */
-  channelStatus?: string | undefined;
-  incidentTickets?: Array<TicketingTicketEntity> | undefined;
-  /**
-   * Ticketing_TicketEntity model
-   */
-  ticket?: TicketingTicketEntity | undefined;
-  impacts?: Array<IncidentsImpactEntity> | undefined;
-  conferenceBridges?: Array<IncidentsConferenceBridgeEntity> | undefined;
-  incidentChannels?: Array<IncidentsChannelEntity> | undefined;
+  channelStatus?: string | null | undefined;
+  incidentTickets?: Array<TicketingTicketEntity> | null | undefined;
+  ticket?: NullableTicketingTicketEntity | null | undefined;
+  impacts?: Array<IncidentsImpactEntity> | null | undefined;
+  conferenceBridges?: Array<IncidentsConferenceBridgeEntity> | null | undefined;
+  incidentChannels?: Array<IncidentsChannelEntity> | null | undefined;
   /**
    * A list of objects attached to this item. Can be one of: LinkEntity, CustomerSupportIssueEntity, or GenericAttachmentEntity
    */
-  retroExports?: Array<RetroExports> | undefined;
-  createdBy?: AuthorEntity | undefined;
-  contextObject?: IncidentsContextObjectEntity | undefined;
-  teamAssignments?: Array<IncidentsTeamAssignmentEntityLite> | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference> | undefined;
-  customFields?: Array<CustomFieldsFieldValue> | undefined;
-  fieldRequirements?: Array<IncidentEntityFieldRequirementEntity> | undefined;
+  retroExports?: Array<IncidentEntityRetroExport> | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  contextObject?: NullableIncidentsContextObjectEntity | null | undefined;
+  teamAssignments?: Array<IncidentsTeamAssignmentEntityLite> | null | undefined;
+  conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
+  customFields?: Array<CustomFieldsFieldValue> | null | undefined;
+  fieldRequirements?:
+    | Array<IncidentEntityFieldRequirementEntity>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -293,46 +294,50 @@ export function incidentEntityLabelsFromJSON(
 }
 
 /** @internal */
-export const RetroExports$inboundSchema: z.ZodType<
-  RetroExports,
+export const IncidentEntityRetroExport$inboundSchema: z.ZodType<
+  IncidentEntityRetroExport,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type RetroExports$Outbound = {};
+export type IncidentEntityRetroExport$Outbound = {};
 
 /** @internal */
-export const RetroExports$outboundSchema: z.ZodType<
-  RetroExports$Outbound,
+export const IncidentEntityRetroExport$outboundSchema: z.ZodType<
+  IncidentEntityRetroExport$Outbound,
   z.ZodTypeDef,
-  RetroExports
+  IncidentEntityRetroExport
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RetroExports$ {
-  /** @deprecated use `RetroExports$inboundSchema` instead. */
-  export const inboundSchema = RetroExports$inboundSchema;
-  /** @deprecated use `RetroExports$outboundSchema` instead. */
-  export const outboundSchema = RetroExports$outboundSchema;
-  /** @deprecated use `RetroExports$Outbound` instead. */
-  export type Outbound = RetroExports$Outbound;
+export namespace IncidentEntityRetroExport$ {
+  /** @deprecated use `IncidentEntityRetroExport$inboundSchema` instead. */
+  export const inboundSchema = IncidentEntityRetroExport$inboundSchema;
+  /** @deprecated use `IncidentEntityRetroExport$outboundSchema` instead. */
+  export const outboundSchema = IncidentEntityRetroExport$outboundSchema;
+  /** @deprecated use `IncidentEntityRetroExport$Outbound` instead. */
+  export type Outbound = IncidentEntityRetroExport$Outbound;
 }
 
-export function retroExportsToJSON(retroExports: RetroExports): string {
-  return JSON.stringify(RetroExports$outboundSchema.parse(retroExports));
+export function incidentEntityRetroExportToJSON(
+  incidentEntityRetroExport: IncidentEntityRetroExport,
+): string {
+  return JSON.stringify(
+    IncidentEntityRetroExport$outboundSchema.parse(incidentEntityRetroExport),
+  );
 }
 
-export function retroExportsFromJSON(
+export function incidentEntityRetroExportFromJSON(
   jsonString: string,
-): SafeParseResult<RetroExports, SDKValidationError> {
+): SafeParseResult<IncidentEntityRetroExport, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => RetroExports$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RetroExports' from JSON`,
+    (x) => IncidentEntityRetroExport$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'IncidentEntityRetroExport' from JSON`,
   );
 }
 
@@ -342,75 +347,94 @@ export const IncidentEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  started_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  discarded_at: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  summary: z.string().optional(),
-  customer_impact_summary: z.string().optional(),
-  description: z.string().optional(),
-  current_milestone: z.string().optional(),
-  number: z.number().int().optional(),
-  priority: z.string().optional(),
-  severity: z.string().optional(),
-  severity_color: z.string().optional(),
-  severity_impact: z.string().optional(),
-  severity_condition: z.string().optional(),
-  tag_list: z.array(z.string()).optional(),
-  severity_impact_object: SeverityMatrixImpactEntity$inboundSchema.optional(),
-  severity_condition_object: SeverityMatrixConditionEntity$inboundSchema
-    .optional(),
-  private_id: z.string().optional(),
-  organization_id: z.string().optional(),
-  milestones: z.array(IncidentsMilestoneEntity$inboundSchema).optional(),
-  lifecycle_phases: z.array(IncidentsLifecyclePhaseEntity$inboundSchema)
-    .optional(),
-  lifecycle_measurements: z.array(
-    IncidentsLifecycleMeasurementEntity$inboundSchema,
+  started_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  active: z.boolean().optional(),
-  labels: z.lazy(() => IncidentEntityLabels$inboundSchema).optional(),
-  role_assignments: z.array(IncidentsRoleAssignmentEntity$inboundSchema)
+  discarded_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  summary: z.nullable(z.string()).optional(),
+  customer_impact_summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  current_milestone: z.nullable(z.string()).optional(),
+  number: z.nullable(z.number().int()).optional(),
+  priority: z.nullable(z.string()).optional(),
+  severity: z.nullable(z.string()).optional(),
+  severity_color: z.nullable(z.string()).optional(),
+  severity_impact: z.nullable(z.string()).optional(),
+  severity_condition: z.nullable(z.string()).optional(),
+  tag_list: z.nullable(z.array(z.string())).optional(),
+  severity_impact_object: z.nullable(
+    NullableSeverityMatrixImpactEntity$inboundSchema,
+  ).optional(),
+  severity_condition_object: z.nullable(
+    NullableSeverityMatrixConditionEntity$inboundSchema,
+  ).optional(),
+  private_id: z.nullable(z.string()).optional(),
+  organization_id: z.nullable(z.string()).optional(),
+  milestones: z.nullable(z.array(IncidentsMilestoneEntity$inboundSchema))
     .optional(),
-  status_pages: z.array(IncidentsStatusPageEntity$inboundSchema).optional(),
-  incident_url: z.string().optional(),
-  private_status_page_url: z.string().optional(),
-  organization: OrganizationEntity$inboundSchema.optional(),
-  customers_impacted: z.number().int().optional(),
-  monetary_impact: z.number().int().optional(),
-  monetary_impact_cents: z.number().int().optional(),
-  last_update: z.string().optional(),
-  last_note: EventNoteEntity$inboundSchema.optional(),
-  report_id: z.string().optional(),
-  ai_incident_summary: z.string().optional(),
-  services: z.array(SuccinctEntity$inboundSchema).optional(),
-  environments: z.array(SuccinctEntity$inboundSchema).optional(),
-  functionalities: z.array(SuccinctEntity$inboundSchema).optional(),
-  channel_name: z.string().optional(),
-  channel_reference: z.string().optional(),
-  channel_id: z.string().optional(),
-  channel_status: z.string().optional(),
-  incident_tickets: z.array(TicketingTicketEntity$inboundSchema).optional(),
-  ticket: TicketingTicketEntity$inboundSchema.optional(),
-  impacts: z.array(IncidentsImpactEntity$inboundSchema).optional(),
-  conference_bridges: z.array(IncidentsConferenceBridgeEntity$inboundSchema)
+  lifecycle_phases: z.nullable(
+    z.array(IncidentsLifecyclePhaseEntity$inboundSchema),
+  ).optional(),
+  lifecycle_measurements: z.nullable(
+    z.array(IncidentsLifecycleMeasurementEntity$inboundSchema),
+  ).optional(),
+  active: z.nullable(z.boolean()).optional(),
+  labels: z.nullable(z.lazy(() => IncidentEntityLabels$inboundSchema))
     .optional(),
-  incident_channels: z.array(IncidentsChannelEntity$inboundSchema).optional(),
-  retro_exports: z.array(z.lazy(() => RetroExports$inboundSchema)).optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  context_object: IncidentsContextObjectEntity$inboundSchema.optional(),
-  team_assignments: z.array(IncidentsTeamAssignmentEntityLite$inboundSchema)
+  role_assignments: z.nullable(
+    z.array(IncidentsRoleAssignmentEntity$inboundSchema),
+  ).optional(),
+  status_pages: z.nullable(z.array(IncidentsStatusPageEntity$inboundSchema))
     .optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$inboundSchema)
+  incident_url: z.nullable(z.string()).optional(),
+  private_status_page_url: z.nullable(z.string()).optional(),
+  organization: z.nullable(NullableOrganizationEntity$inboundSchema).optional(),
+  customers_impacted: z.nullable(z.number().int()).optional(),
+  monetary_impact: z.nullable(z.number().int()).optional(),
+  monetary_impact_cents: z.nullable(z.number().int()).optional(),
+  last_update: z.nullable(z.string()).optional(),
+  last_note: z.nullable(NullableEventNoteEntity$inboundSchema).optional(),
+  report_id: z.nullable(z.string()).optional(),
+  ai_incident_summary: z.nullable(z.string()).optional(),
+  services: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
+  environments: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
+  functionalities: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
+  channel_name: z.nullable(z.string()).optional(),
+  channel_reference: z.nullable(z.string()).optional(),
+  channel_id: z.nullable(z.string()).optional(),
+  channel_status: z.nullable(z.string()).optional(),
+  incident_tickets: z.nullable(z.array(TicketingTicketEntity$inboundSchema))
     .optional(),
-  custom_fields: z.array(CustomFieldsFieldValue$inboundSchema).optional(),
-  field_requirements: z.array(
-    IncidentEntityFieldRequirementEntity$inboundSchema,
+  ticket: z.nullable(NullableTicketingTicketEntity$inboundSchema).optional(),
+  impacts: z.nullable(z.array(IncidentsImpactEntity$inboundSchema)).optional(),
+  conference_bridges: z.nullable(
+    z.array(IncidentsConferenceBridgeEntity$inboundSchema),
+  ).optional(),
+  incident_channels: z.nullable(z.array(IncidentsChannelEntity$inboundSchema))
+    .optional(),
+  retro_exports: z.nullable(
+    z.array(z.lazy(() => IncidentEntityRetroExport$inboundSchema)),
+  ).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  context_object: z.nullable(NullableIncidentsContextObjectEntity$inboundSchema)
+    .optional(),
+  team_assignments: z.nullable(
+    z.array(IncidentsTeamAssignmentEntityLite$inboundSchema),
+  ).optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$inboundSchema),
+  ).optional(),
+  custom_fields: z.nullable(z.array(CustomFieldsFieldValue$inboundSchema))
+    .optional(),
+  field_requirements: z.nullable(
+    z.array(IncidentEntityFieldRequirementEntity$inboundSchema),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -458,71 +482,91 @@ export const IncidentEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  created_at?: string | undefined;
-  started_at?: string | undefined;
-  discarded_at?: string | undefined;
-  summary?: string | undefined;
-  customer_impact_summary?: string | undefined;
-  description?: string | undefined;
-  current_milestone?: string | undefined;
-  number?: number | undefined;
-  priority?: string | undefined;
-  severity?: string | undefined;
-  severity_color?: string | undefined;
-  severity_impact?: string | undefined;
-  severity_condition?: string | undefined;
-  tag_list?: Array<string> | undefined;
-  severity_impact_object?: SeverityMatrixImpactEntity$Outbound | undefined;
-  severity_condition_object?:
-    | SeverityMatrixConditionEntity$Outbound
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  created_at?: string | null | undefined;
+  started_at?: string | null | undefined;
+  discarded_at?: string | null | undefined;
+  summary?: string | null | undefined;
+  customer_impact_summary?: string | null | undefined;
+  description?: string | null | undefined;
+  current_milestone?: string | null | undefined;
+  number?: number | null | undefined;
+  priority?: string | null | undefined;
+  severity?: string | null | undefined;
+  severity_color?: string | null | undefined;
+  severity_impact?: string | null | undefined;
+  severity_condition?: string | null | undefined;
+  tag_list?: Array<string> | null | undefined;
+  severity_impact_object?:
+    | NullableSeverityMatrixImpactEntity$Outbound
+    | null
     | undefined;
-  private_id?: string | undefined;
-  organization_id?: string | undefined;
-  milestones?: Array<IncidentsMilestoneEntity$Outbound> | undefined;
-  lifecycle_phases?: Array<IncidentsLifecyclePhaseEntity$Outbound> | undefined;
+  severity_condition_object?:
+    | NullableSeverityMatrixConditionEntity$Outbound
+    | null
+    | undefined;
+  private_id?: string | null | undefined;
+  organization_id?: string | null | undefined;
+  milestones?: Array<IncidentsMilestoneEntity$Outbound> | null | undefined;
+  lifecycle_phases?:
+    | Array<IncidentsLifecyclePhaseEntity$Outbound>
+    | null
+    | undefined;
   lifecycle_measurements?:
     | Array<IncidentsLifecycleMeasurementEntity$Outbound>
+    | null
     | undefined;
-  active?: boolean | undefined;
-  labels?: IncidentEntityLabels$Outbound | undefined;
-  role_assignments?: Array<IncidentsRoleAssignmentEntity$Outbound> | undefined;
-  status_pages?: Array<IncidentsStatusPageEntity$Outbound> | undefined;
-  incident_url?: string | undefined;
-  private_status_page_url?: string | undefined;
-  organization?: OrganizationEntity$Outbound | undefined;
-  customers_impacted?: number | undefined;
-  monetary_impact?: number | undefined;
-  monetary_impact_cents?: number | undefined;
-  last_update?: string | undefined;
-  last_note?: EventNoteEntity$Outbound | undefined;
-  report_id?: string | undefined;
-  ai_incident_summary?: string | undefined;
-  services?: Array<SuccinctEntity$Outbound> | undefined;
-  environments?: Array<SuccinctEntity$Outbound> | undefined;
-  functionalities?: Array<SuccinctEntity$Outbound> | undefined;
-  channel_name?: string | undefined;
-  channel_reference?: string | undefined;
-  channel_id?: string | undefined;
-  channel_status?: string | undefined;
-  incident_tickets?: Array<TicketingTicketEntity$Outbound> | undefined;
-  ticket?: TicketingTicketEntity$Outbound | undefined;
-  impacts?: Array<IncidentsImpactEntity$Outbound> | undefined;
+  active?: boolean | null | undefined;
+  labels?: IncidentEntityLabels$Outbound | null | undefined;
+  role_assignments?:
+    | Array<IncidentsRoleAssignmentEntity$Outbound>
+    | null
+    | undefined;
+  status_pages?: Array<IncidentsStatusPageEntity$Outbound> | null | undefined;
+  incident_url?: string | null | undefined;
+  private_status_page_url?: string | null | undefined;
+  organization?: NullableOrganizationEntity$Outbound | null | undefined;
+  customers_impacted?: number | null | undefined;
+  monetary_impact?: number | null | undefined;
+  monetary_impact_cents?: number | null | undefined;
+  last_update?: string | null | undefined;
+  last_note?: NullableEventNoteEntity$Outbound | null | undefined;
+  report_id?: string | null | undefined;
+  ai_incident_summary?: string | null | undefined;
+  services?: Array<SuccinctEntity$Outbound> | null | undefined;
+  environments?: Array<SuccinctEntity$Outbound> | null | undefined;
+  functionalities?: Array<SuccinctEntity$Outbound> | null | undefined;
+  channel_name?: string | null | undefined;
+  channel_reference?: string | null | undefined;
+  channel_id?: string | null | undefined;
+  channel_status?: string | null | undefined;
+  incident_tickets?: Array<TicketingTicketEntity$Outbound> | null | undefined;
+  ticket?: NullableTicketingTicketEntity$Outbound | null | undefined;
+  impacts?: Array<IncidentsImpactEntity$Outbound> | null | undefined;
   conference_bridges?:
     | Array<IncidentsConferenceBridgeEntity$Outbound>
+    | null
     | undefined;
-  incident_channels?: Array<IncidentsChannelEntity$Outbound> | undefined;
-  retro_exports?: Array<RetroExports$Outbound> | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  context_object?: IncidentsContextObjectEntity$Outbound | undefined;
+  incident_channels?: Array<IncidentsChannelEntity$Outbound> | null | undefined;
+  retro_exports?: Array<IncidentEntityRetroExport$Outbound> | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  context_object?:
+    | NullableIncidentsContextObjectEntity$Outbound
+    | null
+    | undefined;
   team_assignments?:
     | Array<IncidentsTeamAssignmentEntityLite$Outbound>
+    | null
     | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference$Outbound> | undefined;
-  custom_fields?: Array<CustomFieldsFieldValue$Outbound> | undefined;
+  conversations?:
+    | Array<ConversationsAPIEntitiesReference$Outbound>
+    | null
+    | undefined;
+  custom_fields?: Array<CustomFieldsFieldValue$Outbound> | null | undefined;
   field_requirements?:
     | Array<IncidentEntityFieldRequirementEntity$Outbound>
+    | null
     | undefined;
 };
 
@@ -532,71 +576,90 @@ export const IncidentEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  startedAt: z.date().transform(v => v.toISOString()).optional(),
-  discardedAt: z.date().transform(v => v.toISOString()).optional(),
-  summary: z.string().optional(),
-  customerImpactSummary: z.string().optional(),
-  description: z.string().optional(),
-  currentMilestone: z.string().optional(),
-  number: z.number().int().optional(),
-  priority: z.string().optional(),
-  severity: z.string().optional(),
-  severityColor: z.string().optional(),
-  severityImpact: z.string().optional(),
-  severityCondition: z.string().optional(),
-  tagList: z.array(z.string()).optional(),
-  severityImpactObject: SeverityMatrixImpactEntity$outboundSchema.optional(),
-  severityConditionObject: SeverityMatrixConditionEntity$outboundSchema
-    .optional(),
-  privateId: z.string().optional(),
-  organizationId: z.string().optional(),
-  milestones: z.array(IncidentsMilestoneEntity$outboundSchema).optional(),
-  lifecyclePhases: z.array(IncidentsLifecyclePhaseEntity$outboundSchema)
-    .optional(),
-  lifecycleMeasurements: z.array(
-    IncidentsLifecycleMeasurementEntity$outboundSchema,
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  startedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  discardedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  summary: z.nullable(z.string()).optional(),
+  customerImpactSummary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  currentMilestone: z.nullable(z.string()).optional(),
+  number: z.nullable(z.number().int()).optional(),
+  priority: z.nullable(z.string()).optional(),
+  severity: z.nullable(z.string()).optional(),
+  severityColor: z.nullable(z.string()).optional(),
+  severityImpact: z.nullable(z.string()).optional(),
+  severityCondition: z.nullable(z.string()).optional(),
+  tagList: z.nullable(z.array(z.string())).optional(),
+  severityImpactObject: z.nullable(
+    NullableSeverityMatrixImpactEntity$outboundSchema,
   ).optional(),
-  active: z.boolean().optional(),
-  labels: z.lazy(() => IncidentEntityLabels$outboundSchema).optional(),
-  roleAssignments: z.array(IncidentsRoleAssignmentEntity$outboundSchema)
+  severityConditionObject: z.nullable(
+    NullableSeverityMatrixConditionEntity$outboundSchema,
+  ).optional(),
+  privateId: z.nullable(z.string()).optional(),
+  organizationId: z.nullable(z.string()).optional(),
+  milestones: z.nullable(z.array(IncidentsMilestoneEntity$outboundSchema))
     .optional(),
-  statusPages: z.array(IncidentsStatusPageEntity$outboundSchema).optional(),
-  incidentUrl: z.string().optional(),
-  privateStatusPageUrl: z.string().optional(),
-  organization: OrganizationEntity$outboundSchema.optional(),
-  customersImpacted: z.number().int().optional(),
-  monetaryImpact: z.number().int().optional(),
-  monetaryImpactCents: z.number().int().optional(),
-  lastUpdate: z.string().optional(),
-  lastNote: EventNoteEntity$outboundSchema.optional(),
-  reportId: z.string().optional(),
-  aiIncidentSummary: z.string().optional(),
-  services: z.array(SuccinctEntity$outboundSchema).optional(),
-  environments: z.array(SuccinctEntity$outboundSchema).optional(),
-  functionalities: z.array(SuccinctEntity$outboundSchema).optional(),
-  channelName: z.string().optional(),
-  channelReference: z.string().optional(),
-  channelId: z.string().optional(),
-  channelStatus: z.string().optional(),
-  incidentTickets: z.array(TicketingTicketEntity$outboundSchema).optional(),
-  ticket: TicketingTicketEntity$outboundSchema.optional(),
-  impacts: z.array(IncidentsImpactEntity$outboundSchema).optional(),
-  conferenceBridges: z.array(IncidentsConferenceBridgeEntity$outboundSchema)
+  lifecyclePhases: z.nullable(
+    z.array(IncidentsLifecyclePhaseEntity$outboundSchema),
+  ).optional(),
+  lifecycleMeasurements: z.nullable(
+    z.array(IncidentsLifecycleMeasurementEntity$outboundSchema),
+  ).optional(),
+  active: z.nullable(z.boolean()).optional(),
+  labels: z.nullable(z.lazy(() => IncidentEntityLabels$outboundSchema))
     .optional(),
-  incidentChannels: z.array(IncidentsChannelEntity$outboundSchema).optional(),
-  retroExports: z.array(z.lazy(() => RetroExports$outboundSchema)).optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  contextObject: IncidentsContextObjectEntity$outboundSchema.optional(),
-  teamAssignments: z.array(IncidentsTeamAssignmentEntityLite$outboundSchema)
+  roleAssignments: z.nullable(
+    z.array(IncidentsRoleAssignmentEntity$outboundSchema),
+  ).optional(),
+  statusPages: z.nullable(z.array(IncidentsStatusPageEntity$outboundSchema))
     .optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$outboundSchema)
+  incidentUrl: z.nullable(z.string()).optional(),
+  privateStatusPageUrl: z.nullable(z.string()).optional(),
+  organization: z.nullable(NullableOrganizationEntity$outboundSchema)
     .optional(),
-  customFields: z.array(CustomFieldsFieldValue$outboundSchema).optional(),
-  fieldRequirements: z.array(
-    IncidentEntityFieldRequirementEntity$outboundSchema,
+  customersImpacted: z.nullable(z.number().int()).optional(),
+  monetaryImpact: z.nullable(z.number().int()).optional(),
+  monetaryImpactCents: z.nullable(z.number().int()).optional(),
+  lastUpdate: z.nullable(z.string()).optional(),
+  lastNote: z.nullable(NullableEventNoteEntity$outboundSchema).optional(),
+  reportId: z.nullable(z.string()).optional(),
+  aiIncidentSummary: z.nullable(z.string()).optional(),
+  services: z.nullable(z.array(SuccinctEntity$outboundSchema)).optional(),
+  environments: z.nullable(z.array(SuccinctEntity$outboundSchema)).optional(),
+  functionalities: z.nullable(z.array(SuccinctEntity$outboundSchema))
+    .optional(),
+  channelName: z.nullable(z.string()).optional(),
+  channelReference: z.nullable(z.string()).optional(),
+  channelId: z.nullable(z.string()).optional(),
+  channelStatus: z.nullable(z.string()).optional(),
+  incidentTickets: z.nullable(z.array(TicketingTicketEntity$outboundSchema))
+    .optional(),
+  ticket: z.nullable(NullableTicketingTicketEntity$outboundSchema).optional(),
+  impacts: z.nullable(z.array(IncidentsImpactEntity$outboundSchema)).optional(),
+  conferenceBridges: z.nullable(
+    z.array(IncidentsConferenceBridgeEntity$outboundSchema),
+  ).optional(),
+  incidentChannels: z.nullable(z.array(IncidentsChannelEntity$outboundSchema))
+    .optional(),
+  retroExports: z.nullable(
+    z.array(z.lazy(() => IncidentEntityRetroExport$outboundSchema)),
+  ).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  contextObject: z.nullable(NullableIncidentsContextObjectEntity$outboundSchema)
+    .optional(),
+  teamAssignments: z.nullable(
+    z.array(IncidentsTeamAssignmentEntityLite$outboundSchema),
+  ).optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$outboundSchema),
+  ).optional(),
+  customFields: z.nullable(z.array(CustomFieldsFieldValue$outboundSchema))
+    .optional(),
+  fieldRequirements: z.nullable(
+    z.array(IncidentEntityFieldRequirementEntity$outboundSchema),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {

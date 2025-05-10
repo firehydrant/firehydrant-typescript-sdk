@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateIncidentTaskRequest = {
   taskId: string;
   incidentId: string;
-  patchV1IncidentsIncidentIdTasksTaskId:
-    components.PatchV1IncidentsIncidentIdTasksTaskId;
+  updateIncidentTask: components.UpdateIncidentTask;
 };
 
 /** @internal */
@@ -24,12 +23,14 @@ export const UpdateIncidentTaskRequest$inboundSchema: z.ZodType<
 > = z.object({
   task_id: z.string(),
   incident_id: z.string(),
-  patchV1IncidentsIncidentIdTasksTaskId:
-    components.PatchV1IncidentsIncidentIdTasksTaskId$inboundSchema,
+  update_incident_task: z.lazy(() =>
+    components.UpdateIncidentTask$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "task_id": "taskId",
     "incident_id": "incidentId",
+    "update_incident_task": "updateIncidentTask",
   });
 });
 
@@ -37,8 +38,7 @@ export const UpdateIncidentTaskRequest$inboundSchema: z.ZodType<
 export type UpdateIncidentTaskRequest$Outbound = {
   task_id: string;
   incident_id: string;
-  patchV1IncidentsIncidentIdTasksTaskId:
-    components.PatchV1IncidentsIncidentIdTasksTaskId$Outbound;
+  update_incident_task: components.UpdateIncidentTask$Outbound;
 };
 
 /** @internal */
@@ -49,12 +49,14 @@ export const UpdateIncidentTaskRequest$outboundSchema: z.ZodType<
 > = z.object({
   taskId: z.string(),
   incidentId: z.string(),
-  patchV1IncidentsIncidentIdTasksTaskId:
-    components.PatchV1IncidentsIncidentIdTasksTaskId$outboundSchema,
+  updateIncidentTask: z.lazy(() =>
+    components.UpdateIncidentTask$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     taskId: "task_id",
     incidentId: "incident_id",
+    updateIncidentTask: "update_incident_task",
   });
 });
 

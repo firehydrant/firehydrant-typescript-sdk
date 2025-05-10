@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentStatusPageRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdStatusPages:
-    components.PostV1IncidentsIncidentIdStatusPages;
+  createIncidentStatusPage: components.CreateIncidentStatusPage;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const CreateIncidentStatusPageRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdStatusPages:
-    components.PostV1IncidentsIncidentIdStatusPages$inboundSchema,
+  create_incident_status_page: z.lazy(() =>
+    components.CreateIncidentStatusPage$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_status_page": "createIncidentStatusPage",
   });
 });
 
 /** @internal */
 export type CreateIncidentStatusPageRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdStatusPages:
-    components.PostV1IncidentsIncidentIdStatusPages$Outbound;
+  create_incident_status_page: components.CreateIncidentStatusPage$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const CreateIncidentStatusPageRequest$outboundSchema: z.ZodType<
   CreateIncidentStatusPageRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdStatusPages:
-    components.PostV1IncidentsIncidentIdStatusPages$outboundSchema,
+  createIncidentStatusPage: z.lazy(() =>
+    components.CreateIncidentStatusPage$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentStatusPage: "create_incident_status_page",
   });
 });
 

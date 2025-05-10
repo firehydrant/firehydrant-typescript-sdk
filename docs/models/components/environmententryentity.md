@@ -5,7 +5,7 @@ EnvironmentEntryEntity model
 ## Example Usage
 
 ```typescript
-import { EnvironmentEntryEntity } from "firehydrant-typescript-sdk/models/components";
+import { EnvironmentEntryEntity } from "firehydrant/models/components";
 
 let value: EnvironmentEntryEntity = {};
 ```
@@ -20,5 +20,5 @@ let value: EnvironmentEntryEntity = {};
 | `description`                                                                                 | *string*                                                                                      | :heavy_minus_sign:                                                                            | Description of the Environment                                                                |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The time the environment was updated                                                          |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The time the environment was created                                                          |
-| `activeIncidents`                                                                             | *string*                                                                                      | :heavy_minus_sign:                                                                            | List of active incident guids                                                                 |
+| `activeIncidents`                                                                             | *string*[]                                                                                    | :heavy_minus_sign:                                                                            | List of active incident guids                                                                 |
 | `externalResources`                                                                           | [components.ExternalResourceEntity](../../models/components/externalresourceentity.md)[]      | :heavy_minus_sign:                                                                            | Information about known linkages to representations of services outside of FireHydrant.       |

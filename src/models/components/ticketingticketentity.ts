@@ -9,23 +9,29 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttachmentsLinkEntity,
-  AttachmentsLinkEntity$inboundSchema,
-  AttachmentsLinkEntity$Outbound,
-  AttachmentsLinkEntity$outboundSchema,
-} from "./attachmentslinkentity.js";
-import {
   AuthorEntity,
   AuthorEntity$inboundSchema,
   AuthorEntity$Outbound,
   AuthorEntity$outboundSchema,
 } from "./authorentity.js";
 import {
-  TicketingPriorityEntity,
-  TicketingPriorityEntity$inboundSchema,
-  TicketingPriorityEntity$Outbound,
-  TicketingPriorityEntity$outboundSchema,
-} from "./ticketingpriorityentity.js";
+  NullableAttachmentsLinkEntity,
+  NullableAttachmentsLinkEntity$inboundSchema,
+  NullableAttachmentsLinkEntity$Outbound,
+  NullableAttachmentsLinkEntity$outboundSchema,
+} from "./nullableattachmentslinkentity.js";
+import {
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
+import {
+  NullableTicketingPriorityEntity,
+  NullableTicketingPriorityEntity$inboundSchema,
+  NullableTicketingPriorityEntity$Outbound,
+  NullableTicketingPriorityEntity$outboundSchema,
+} from "./nullableticketingpriorityentity.js";
 
 export const TicketingTicketEntityState = {
   Open: "open",
@@ -46,51 +52,45 @@ export type TicketingTicketEntityType = ClosedEnum<
   typeof TicketingTicketEntityType
 >;
 
-export type TicketingTicketEntityAttachments = {};
+export type TicketingTicketEntityAttachment = {};
 
 /**
  * Ticketing_TicketEntity model
  */
 export type TicketingTicketEntity = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  state?: TicketingTicketEntityState | undefined;
-  type?: TicketingTicketEntityType | undefined;
-  assignees?: Array<AuthorEntity> | undefined;
-  /**
-   * Ticketing_PriorityEntity model
-   */
-  priority?: TicketingPriorityEntity | undefined;
-  createdBy?: AuthorEntity | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  state?: TicketingTicketEntityState | null | undefined;
+  type?: TicketingTicketEntityType | null | undefined;
+  assignees?: Array<AuthorEntity> | null | undefined;
+  priority?: NullableTicketingPriorityEntity | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
   /**
    * A list of objects attached to this item. Can be one of: LinkEntity, CustomerSupportIssueEntity, or GenericAttachmentEntity
    */
-  attachments?: Array<TicketingTicketEntityAttachments> | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  tagList?: Array<string> | undefined;
+  attachments?: Array<TicketingTicketEntityAttachment> | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  tagList?: Array<string> | null | undefined;
   /**
    * ID of incident that this ticket is related to
    */
-  incidentId?: string | undefined;
+  incidentId?: string | null | undefined;
   /**
    * Name of incident that this ticket is related to
    */
-  incidentName?: string | undefined;
+  incidentName?: string | null | undefined;
   /**
    * Milestone of incident that this ticket is related to
    */
-  incidentCurrentMilestone?: string | undefined;
+  incidentCurrentMilestone?: string | null | undefined;
   /**
    * ID of task that this ticket is related to
    */
-  taskId?: string | undefined;
-  dueAt?: Date | undefined;
-  /**
-   * Attachments_LinkEntity model
-   */
-  link?: AttachmentsLinkEntity | undefined;
+  taskId?: string | null | undefined;
+  dueAt?: Date | null | undefined;
+  link?: NullableAttachmentsLinkEntity | null | undefined;
 };
 
 /** @internal */
@@ -136,52 +136,52 @@ export namespace TicketingTicketEntityType$ {
 }
 
 /** @internal */
-export const TicketingTicketEntityAttachments$inboundSchema: z.ZodType<
-  TicketingTicketEntityAttachments,
+export const TicketingTicketEntityAttachment$inboundSchema: z.ZodType<
+  TicketingTicketEntityAttachment,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type TicketingTicketEntityAttachments$Outbound = {};
+export type TicketingTicketEntityAttachment$Outbound = {};
 
 /** @internal */
-export const TicketingTicketEntityAttachments$outboundSchema: z.ZodType<
-  TicketingTicketEntityAttachments$Outbound,
+export const TicketingTicketEntityAttachment$outboundSchema: z.ZodType<
+  TicketingTicketEntityAttachment$Outbound,
   z.ZodTypeDef,
-  TicketingTicketEntityAttachments
+  TicketingTicketEntityAttachment
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TicketingTicketEntityAttachments$ {
-  /** @deprecated use `TicketingTicketEntityAttachments$inboundSchema` instead. */
-  export const inboundSchema = TicketingTicketEntityAttachments$inboundSchema;
-  /** @deprecated use `TicketingTicketEntityAttachments$outboundSchema` instead. */
-  export const outboundSchema = TicketingTicketEntityAttachments$outboundSchema;
-  /** @deprecated use `TicketingTicketEntityAttachments$Outbound` instead. */
-  export type Outbound = TicketingTicketEntityAttachments$Outbound;
+export namespace TicketingTicketEntityAttachment$ {
+  /** @deprecated use `TicketingTicketEntityAttachment$inboundSchema` instead. */
+  export const inboundSchema = TicketingTicketEntityAttachment$inboundSchema;
+  /** @deprecated use `TicketingTicketEntityAttachment$outboundSchema` instead. */
+  export const outboundSchema = TicketingTicketEntityAttachment$outboundSchema;
+  /** @deprecated use `TicketingTicketEntityAttachment$Outbound` instead. */
+  export type Outbound = TicketingTicketEntityAttachment$Outbound;
 }
 
-export function ticketingTicketEntityAttachmentsToJSON(
-  ticketingTicketEntityAttachments: TicketingTicketEntityAttachments,
+export function ticketingTicketEntityAttachmentToJSON(
+  ticketingTicketEntityAttachment: TicketingTicketEntityAttachment,
 ): string {
   return JSON.stringify(
-    TicketingTicketEntityAttachments$outboundSchema.parse(
-      ticketingTicketEntityAttachments,
+    TicketingTicketEntityAttachment$outboundSchema.parse(
+      ticketingTicketEntityAttachment,
     ),
   );
 }
 
-export function ticketingTicketEntityAttachmentsFromJSON(
+export function ticketingTicketEntityAttachmentFromJSON(
   jsonString: string,
-): SafeParseResult<TicketingTicketEntityAttachments, SDKValidationError> {
+): SafeParseResult<TicketingTicketEntityAttachment, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TicketingTicketEntityAttachments$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TicketingTicketEntityAttachments' from JSON`,
+    (x) => TicketingTicketEntityAttachment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TicketingTicketEntityAttachment' from JSON`,
   );
 }
 
@@ -191,29 +191,33 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  state: TicketingTicketEntityState$inboundSchema.optional(),
-  type: TicketingTicketEntityType$inboundSchema.optional(),
-  assignees: z.array(AuthorEntity$inboundSchema).optional(),
-  priority: TicketingPriorityEntity$inboundSchema.optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  attachments: z.array(
-    z.lazy(() => TicketingTicketEntityAttachments$inboundSchema),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  state: z.nullable(TicketingTicketEntityState$inboundSchema).optional(),
+  type: z.nullable(TicketingTicketEntityType$inboundSchema).optional(),
+  assignees: z.nullable(z.array(AuthorEntity$inboundSchema)).optional(),
+  priority: z.nullable(NullableTicketingPriorityEntity$inboundSchema)
+    .optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  attachments: z.nullable(
+    z.array(z.lazy(() => TicketingTicketEntityAttachment$inboundSchema)),
   ).optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  tag_list: z.array(z.string()).optional(),
-  incident_id: z.string().optional(),
-  incident_name: z.string().optional(),
-  incident_current_milestone: z.string().optional(),
-  task_id: z.string().optional(),
-  due_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  link: AttachmentsLinkEntity$inboundSchema.optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  tag_list: z.nullable(z.array(z.string())).optional(),
+  incident_id: z.nullable(z.string()).optional(),
+  incident_name: z.nullable(z.string()).optional(),
+  incident_current_milestone: z.nullable(z.string()).optional(),
+  task_id: z.nullable(z.string()).optional(),
+  due_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  link: z.nullable(NullableAttachmentsLinkEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_by": "createdBy",
@@ -230,24 +234,27 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingTicketEntity$Outbound = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  state?: string | undefined;
-  type?: string | undefined;
-  assignees?: Array<AuthorEntity$Outbound> | undefined;
-  priority?: TicketingPriorityEntity$Outbound | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  attachments?: Array<TicketingTicketEntityAttachments$Outbound> | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  tag_list?: Array<string> | undefined;
-  incident_id?: string | undefined;
-  incident_name?: string | undefined;
-  incident_current_milestone?: string | undefined;
-  task_id?: string | undefined;
-  due_at?: string | undefined;
-  link?: AttachmentsLinkEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  state?: string | null | undefined;
+  type?: string | null | undefined;
+  assignees?: Array<AuthorEntity$Outbound> | null | undefined;
+  priority?: NullableTicketingPriorityEntity$Outbound | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  attachments?:
+    | Array<TicketingTicketEntityAttachment$Outbound>
+    | null
+    | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  tag_list?: Array<string> | null | undefined;
+  incident_id?: string | null | undefined;
+  incident_name?: string | null | undefined;
+  incident_current_milestone?: string | null | undefined;
+  task_id?: string | null | undefined;
+  due_at?: string | null | undefined;
+  link?: NullableAttachmentsLinkEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -256,26 +263,27 @@ export const TicketingTicketEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingTicketEntity
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  state: TicketingTicketEntityState$outboundSchema.optional(),
-  type: TicketingTicketEntityType$outboundSchema.optional(),
-  assignees: z.array(AuthorEntity$outboundSchema).optional(),
-  priority: TicketingPriorityEntity$outboundSchema.optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  attachments: z.array(
-    z.lazy(() => TicketingTicketEntityAttachments$outboundSchema),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  state: z.nullable(TicketingTicketEntityState$outboundSchema).optional(),
+  type: z.nullable(TicketingTicketEntityType$outboundSchema).optional(),
+  assignees: z.nullable(z.array(AuthorEntity$outboundSchema)).optional(),
+  priority: z.nullable(NullableTicketingPriorityEntity$outboundSchema)
+    .optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  attachments: z.nullable(
+    z.array(z.lazy(() => TicketingTicketEntityAttachment$outboundSchema)),
   ).optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  tagList: z.array(z.string()).optional(),
-  incidentId: z.string().optional(),
-  incidentName: z.string().optional(),
-  incidentCurrentMilestone: z.string().optional(),
-  taskId: z.string().optional(),
-  dueAt: z.date().transform(v => v.toISOString()).optional(),
-  link: AttachmentsLinkEntity$outboundSchema.optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  tagList: z.nullable(z.array(z.string())).optional(),
+  incidentId: z.nullable(z.string()).optional(),
+  incidentName: z.nullable(z.string()).optional(),
+  incidentCurrentMilestone: z.nullable(z.string()).optional(),
+  taskId: z.nullable(z.string()).optional(),
+  dueAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  link: z.nullable(NullableAttachmentsLinkEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdBy: "created_by",

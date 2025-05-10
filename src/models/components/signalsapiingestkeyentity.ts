@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Signals_API_IngestKeyEntity model
  */
 export type SignalsAPIIngestKeyEntity = {
-  url?: string | undefined;
+  url?: string | null | undefined;
 };
 
 /** @internal */
@@ -20,12 +20,12 @@ export const SignalsAPIIngestKeyEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  url: z.string().optional(),
+  url: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type SignalsAPIIngestKeyEntity$Outbound = {
-  url?: string | undefined;
+  url?: string | null | undefined;
 };
 
 /** @internal */
@@ -34,7 +34,7 @@ export const SignalsAPIIngestKeyEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SignalsAPIIngestKeyEntity
 > = z.object({
-  url: z.string().optional(),
+  url: z.nullable(z.string()).optional(),
 });
 
 /**

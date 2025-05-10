@@ -14,8 +14,8 @@ import {
 } from "./reportsdatapointentity.js";
 
 export type ReportsBucketEntity = {
-  bucket?: string | undefined;
-  points?: Array<ReportsDataPointEntity> | undefined;
+  bucket?: string | null | undefined;
+  points?: Array<ReportsDataPointEntity> | null | undefined;
 };
 
 /** @internal */
@@ -24,14 +24,14 @@ export const ReportsBucketEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  bucket: z.string().optional(),
-  points: z.array(ReportsDataPointEntity$inboundSchema).optional(),
+  bucket: z.nullable(z.string()).optional(),
+  points: z.nullable(z.array(ReportsDataPointEntity$inboundSchema)).optional(),
 });
 
 /** @internal */
 export type ReportsBucketEntity$Outbound = {
-  bucket?: string | undefined;
-  points?: Array<ReportsDataPointEntity$Outbound> | undefined;
+  bucket?: string | null | undefined;
+  points?: Array<ReportsDataPointEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -40,8 +40,8 @@ export const ReportsBucketEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ReportsBucketEntity
 > = z.object({
-  bucket: z.string().optional(),
-  points: z.array(ReportsDataPointEntity$outboundSchema).optional(),
+  bucket: z.nullable(z.string()).optional(),
+  points: z.nullable(z.array(ReportsDataPointEntity$outboundSchema)).optional(),
 });
 
 /**

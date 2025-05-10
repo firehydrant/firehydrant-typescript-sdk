@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   ChecklistTemplateEntity,
   ChecklistTemplateEntity$inboundSchema,
   ChecklistTemplateEntity$Outbound,
@@ -26,23 +20,29 @@ import {
   FunctionalityEntityLite$outboundSchema,
 } from "./functionalityentitylite.js";
 import {
-  IntegrationsMicrosoftTeamsV2ChannelEntity,
-  IntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema,
-  IntegrationsMicrosoftTeamsV2ChannelEntity$Outbound,
-  IntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema,
-} from "./integrationsmicrosoftteamsv2channelentity.js";
-import {
-  IntegrationsSlackSlackChannelEntity,
-  IntegrationsSlackSlackChannelEntity$inboundSchema,
-  IntegrationsSlackSlackChannelEntity$Outbound,
-  IntegrationsSlackSlackChannelEntity$outboundSchema,
-} from "./integrationsslackslackchannelentity.js";
-import {
   MembershipEntity,
   MembershipEntity$inboundSchema,
   MembershipEntity$Outbound,
   MembershipEntity$outboundSchema,
 } from "./membershipentity.js";
+import {
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
+import {
+  NullableIntegrationsMicrosoftTeamsV2ChannelEntity,
+  NullableIntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema,
+  NullableIntegrationsMicrosoftTeamsV2ChannelEntity$Outbound,
+  NullableIntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema,
+} from "./nullableintegrationsmicrosoftteamsv2channelentity.js";
+import {
+  NullableIntegrationsSlackSlackChannelEntity,
+  NullableIntegrationsSlackSlackChannelEntity$inboundSchema,
+  NullableIntegrationsSlackSlackChannelEntity$Outbound,
+  NullableIntegrationsSlackSlackChannelEntity$outboundSchema,
+} from "./nullableintegrationsslackslackchannelentity.js";
 import {
   ServiceEntityLite,
   ServiceEntityLite$inboundSchema,
@@ -60,25 +60,28 @@ import {
  * TeamEntity model
  */
 export type TeamEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  signalsIcalUrl?: string | undefined;
-  createdBy?: AuthorEntity | undefined;
-  inSupportHours?: boolean | undefined;
-  slackChannel?: IntegrationsSlackSlackChannelEntity | undefined;
-  msTeamsChannel?: IntegrationsMicrosoftTeamsV2ChannelEntity | undefined;
-  memberships?: Array<MembershipEntity> | undefined;
-  ownedChecklistTemplates?: Array<ChecklistTemplateEntity> | undefined;
-  ownedFunctionalities?: Array<FunctionalityEntityLite> | undefined;
-  ownedServices?: Array<ServiceEntityLite> | undefined;
-  ownedRunbooks?: Array<SlimRunbookEntity> | undefined;
-  respondingServices?: Array<ServiceEntityLite> | undefined;
-  services?: Array<ServiceEntityLite> | undefined;
-  functionalities?: Array<FunctionalityEntityLite> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  signalsIcalUrl?: string | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  inSupportHours?: boolean | null | undefined;
+  slackChannel?: NullableIntegrationsSlackSlackChannelEntity | null | undefined;
+  msTeamsChannel?:
+    | NullableIntegrationsMicrosoftTeamsV2ChannelEntity
+    | null
+    | undefined;
+  memberships?: Array<MembershipEntity> | null | undefined;
+  ownedChecklistTemplates?: Array<ChecklistTemplateEntity> | null | undefined;
+  ownedFunctionalities?: Array<FunctionalityEntityLite> | null | undefined;
+  ownedServices?: Array<ServiceEntityLite> | null | undefined;
+  ownedRunbooks?: Array<SlimRunbookEntity> | null | undefined;
+  respondingServices?: Array<ServiceEntityLite> | null | undefined;
+  services?: Array<ServiceEntityLite> | null | undefined;
+  functionalities?: Array<FunctionalityEntityLite> | null | undefined;
 };
 
 /** @internal */
@@ -87,30 +90,41 @@ export const TeamEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  signals_ical_url: z.nullable(z.string()).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  in_support_hours: z.nullable(z.boolean()).optional(),
+  slack_channel: z.nullable(
+    NullableIntegrationsSlackSlackChannelEntity$inboundSchema,
+  ).optional(),
+  ms_teams_channel: z.nullable(
+    NullableIntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema,
+  ).optional(),
+  memberships: z.nullable(z.array(MembershipEntity$inboundSchema)).optional(),
+  owned_checklist_templates: z.nullable(
+    z.array(ChecklistTemplateEntity$inboundSchema),
+  ).optional(),
+  owned_functionalities: z.nullable(
+    z.array(FunctionalityEntityLite$inboundSchema),
+  ).optional(),
+  owned_services: z.nullable(z.array(ServiceEntityLite$inboundSchema))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  owned_runbooks: z.nullable(z.array(SlimRunbookEntity$inboundSchema))
     .optional(),
-  signals_ical_url: z.string().optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  in_support_hours: z.boolean().optional(),
-  slack_channel: IntegrationsSlackSlackChannelEntity$inboundSchema.optional(),
-  ms_teams_channel: IntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema
+  responding_services: z.nullable(z.array(ServiceEntityLite$inboundSchema))
     .optional(),
-  memberships: z.array(MembershipEntity$inboundSchema).optional(),
-  owned_checklist_templates: z.array(ChecklistTemplateEntity$inboundSchema)
+  services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
+  functionalities: z.nullable(z.array(FunctionalityEntityLite$inboundSchema))
     .optional(),
-  owned_functionalities: z.array(FunctionalityEntityLite$inboundSchema)
-    .optional(),
-  owned_services: z.array(ServiceEntityLite$inboundSchema).optional(),
-  owned_runbooks: z.array(SlimRunbookEntity$inboundSchema).optional(),
-  responding_services: z.array(ServiceEntityLite$inboundSchema).optional(),
-  services: z.array(ServiceEntityLite$inboundSchema).optional(),
-  functionalities: z.array(FunctionalityEntityLite$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -130,29 +144,37 @@ export const TeamEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TeamEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  signals_ical_url?: string | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  in_support_hours?: boolean | undefined;
-  slack_channel?: IntegrationsSlackSlackChannelEntity$Outbound | undefined;
-  ms_teams_channel?:
-    | IntegrationsMicrosoftTeamsV2ChannelEntity$Outbound
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  signals_ical_url?: string | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  in_support_hours?: boolean | null | undefined;
+  slack_channel?:
+    | NullableIntegrationsSlackSlackChannelEntity$Outbound
+    | null
     | undefined;
-  memberships?: Array<MembershipEntity$Outbound> | undefined;
+  ms_teams_channel?:
+    | NullableIntegrationsMicrosoftTeamsV2ChannelEntity$Outbound
+    | null
+    | undefined;
+  memberships?: Array<MembershipEntity$Outbound> | null | undefined;
   owned_checklist_templates?:
     | Array<ChecklistTemplateEntity$Outbound>
+    | null
     | undefined;
-  owned_functionalities?: Array<FunctionalityEntityLite$Outbound> | undefined;
-  owned_services?: Array<ServiceEntityLite$Outbound> | undefined;
-  owned_runbooks?: Array<SlimRunbookEntity$Outbound> | undefined;
-  responding_services?: Array<ServiceEntityLite$Outbound> | undefined;
-  services?: Array<ServiceEntityLite$Outbound> | undefined;
-  functionalities?: Array<FunctionalityEntityLite$Outbound> | undefined;
+  owned_functionalities?:
+    | Array<FunctionalityEntityLite$Outbound>
+    | null
+    | undefined;
+  owned_services?: Array<ServiceEntityLite$Outbound> | null | undefined;
+  owned_runbooks?: Array<SlimRunbookEntity$Outbound> | null | undefined;
+  responding_services?: Array<ServiceEntityLite$Outbound> | null | undefined;
+  services?: Array<ServiceEntityLite$Outbound> | null | undefined;
+  functionalities?: Array<FunctionalityEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -161,28 +183,37 @@ export const TeamEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TeamEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  signalsIcalUrl: z.string().optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  inSupportHours: z.boolean().optional(),
-  slackChannel: IntegrationsSlackSlackChannelEntity$outboundSchema.optional(),
-  msTeamsChannel: IntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  signalsIcalUrl: z.nullable(z.string()).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  inSupportHours: z.nullable(z.boolean()).optional(),
+  slackChannel: z.nullable(
+    NullableIntegrationsSlackSlackChannelEntity$outboundSchema,
+  ).optional(),
+  msTeamsChannel: z.nullable(
+    NullableIntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema,
+  ).optional(),
+  memberships: z.nullable(z.array(MembershipEntity$outboundSchema)).optional(),
+  ownedChecklistTemplates: z.nullable(
+    z.array(ChecklistTemplateEntity$outboundSchema),
+  ).optional(),
+  ownedFunctionalities: z.nullable(
+    z.array(FunctionalityEntityLite$outboundSchema),
+  ).optional(),
+  ownedServices: z.nullable(z.array(ServiceEntityLite$outboundSchema))
     .optional(),
-  memberships: z.array(MembershipEntity$outboundSchema).optional(),
-  ownedChecklistTemplates: z.array(ChecklistTemplateEntity$outboundSchema)
+  ownedRunbooks: z.nullable(z.array(SlimRunbookEntity$outboundSchema))
     .optional(),
-  ownedFunctionalities: z.array(FunctionalityEntityLite$outboundSchema)
+  respondingServices: z.nullable(z.array(ServiceEntityLite$outboundSchema))
     .optional(),
-  ownedServices: z.array(ServiceEntityLite$outboundSchema).optional(),
-  ownedRunbooks: z.array(SlimRunbookEntity$outboundSchema).optional(),
-  respondingServices: z.array(ServiceEntityLite$outboundSchema).optional(),
-  services: z.array(ServiceEntityLite$outboundSchema).optional(),
-  functionalities: z.array(FunctionalityEntityLite$outboundSchema).optional(),
+  services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
+  functionalities: z.nullable(z.array(FunctionalityEntityLite$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

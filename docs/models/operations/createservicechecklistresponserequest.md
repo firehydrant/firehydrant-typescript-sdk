@@ -3,12 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { CreateServiceChecklistResponseRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateServiceChecklistResponseRequest } from "firehydrant/models/operations";
 
 let value: CreateServiceChecklistResponseRequest = {
   serviceId: "<id>",
   checklistId: "<id>",
-  postV1ServicesServiceIdChecklistResponseChecklistId: {
+  createServiceChecklistResponse: {
     checkId: "<id>",
     status: false,
   },
@@ -17,8 +17,8 @@ let value: CreateServiceChecklistResponseRequest = {
 
 ## Fields
 
-| Field                                                                                                                                            | Type                                                                                                                                             | Required                                                                                                                                         | Description                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `serviceId`                                                                                                                                      | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
-| `checklistId`                                                                                                                                    | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
-| `postV1ServicesServiceIdChecklistResponseChecklistId`                                                                                            | [components.PostV1ServicesServiceIdChecklistResponseChecklistId](../../models/components/postv1servicesserviceidchecklistresponsechecklistid.md) | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `serviceId`                                                                                            | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `checklistId`                                                                                          | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `createServiceChecklistResponse`                                                                       | [components.CreateServiceChecklistResponse](../../models/components/createservicechecklistresponse.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

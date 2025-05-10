@@ -1,0 +1,21 @@
+# RetrospectivesFieldEntity
+
+## Example Usage
+
+```typescript
+import { RetrospectivesFieldEntity } from "firehydrant/models/components";
+
+let value: RetrospectivesFieldEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                 | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `label`                                                                                              | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `type`                                                                                               | [components.RetrospectivesFieldEntityType](../../models/components/retrospectivesfieldentitytype.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `helpText`                                                                                           | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `permissibleValues`                                                                                  | *string*[]                                                                                           | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `isRequired`                                                                                         | *boolean*                                                                                            | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `schema`                                                                                             | *string*[]                                                                                           | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

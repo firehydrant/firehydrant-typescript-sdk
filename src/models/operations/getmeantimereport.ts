@@ -13,55 +13,55 @@ export type GetMeanTimeReportRequest = {
   /**
    * A comma separated list of environment IDs
    */
-  environments?: string | undefined;
+  environments?: string | null | undefined;
   /**
    * A comma separated list of team IDs
    */
-  teams?: string | undefined;
+  teams?: string | null | undefined;
   /**
    * A comma separated list of service IDs
    */
-  services?: string | undefined;
+  services?: string | null | undefined;
   /**
    * Incident status
    */
-  status?: string | undefined;
+  status?: string | null | undefined;
   /**
    * The start date to return incidents from
    */
-  startDate?: RFCDate | undefined;
+  startDate?: RFCDate | null | undefined;
   /**
    * The end date to return incidents from
    */
-  endDate?: RFCDate | undefined;
+  endDate?: RFCDate | null | undefined;
   /**
    * A text query for an incident that searches on name, summary, and desciption
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * The id of a previously saved search.
    */
-  savedSearchId?: string | undefined;
+  savedSearchId?: string | null | undefined;
   /**
    * A comma separated list of priorities
    */
-  priorities?: string | undefined;
+  priorities?: string | null | undefined;
   /**
    * Flag for including incidents where priority has not been set
    */
-  priorityNotSet?: boolean | undefined;
+  priorityNotSet?: boolean | null | undefined;
   /**
    * A comma separated list of severities
    */
-  severities?: string | undefined;
+  severities?: string | null | undefined;
   /**
    * Flag for including incidents where severity has not been set
    */
-  severityNotSet?: boolean | undefined;
+  severityNotSet?: boolean | null | undefined;
   /**
    * A comma separated list of current milestones
    */
-  currentMilestones?: string | undefined;
+  currentMilestones?: string | null | undefined;
 };
 
 /** @internal */
@@ -70,19 +70,19 @@ export const GetMeanTimeReportRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  environments: z.string().optional(),
-  teams: z.string().optional(),
-  services: z.string().optional(),
-  status: z.string().optional(),
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
-  query: z.string().optional(),
-  saved_search_id: z.string().optional(),
-  priorities: z.string().optional(),
-  priority_not_set: z.boolean().optional(),
-  severities: z.string().optional(),
-  severity_not_set: z.boolean().optional(),
-  current_milestones: z.string().optional(),
+  environments: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  query: z.nullable(z.string()).optional(),
+  saved_search_id: z.nullable(z.string()).optional(),
+  priorities: z.nullable(z.string()).optional(),
+  priority_not_set: z.nullable(z.boolean()).optional(),
+  severities: z.nullable(z.string()).optional(),
+  severity_not_set: z.nullable(z.boolean()).optional(),
+  current_milestones: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -96,19 +96,19 @@ export const GetMeanTimeReportRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type GetMeanTimeReportRequest$Outbound = {
-  environments?: string | undefined;
-  teams?: string | undefined;
-  services?: string | undefined;
-  status?: string | undefined;
-  start_date?: string | undefined;
-  end_date?: string | undefined;
-  query?: string | undefined;
-  saved_search_id?: string | undefined;
-  priorities?: string | undefined;
-  priority_not_set?: boolean | undefined;
-  severities?: string | undefined;
-  severity_not_set?: boolean | undefined;
-  current_milestones?: string | undefined;
+  environments?: string | null | undefined;
+  teams?: string | null | undefined;
+  services?: string | null | undefined;
+  status?: string | null | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
+  query?: string | null | undefined;
+  saved_search_id?: string | null | undefined;
+  priorities?: string | null | undefined;
+  priority_not_set?: boolean | null | undefined;
+  severities?: string | null | undefined;
+  severity_not_set?: boolean | null | undefined;
+  current_milestones?: string | null | undefined;
 };
 
 /** @internal */
@@ -117,19 +117,21 @@ export const GetMeanTimeReportRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetMeanTimeReportRequest
 > = z.object({
-  environments: z.string().optional(),
-  teams: z.string().optional(),
-  services: z.string().optional(),
-  status: z.string().optional(),
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  query: z.string().optional(),
-  savedSearchId: z.string().optional(),
-  priorities: z.string().optional(),
-  priorityNotSet: z.boolean().optional(),
-  severities: z.string().optional(),
-  severityNotSet: z.boolean().optional(),
-  currentMilestones: z.string().optional(),
+  environments: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  query: z.nullable(z.string()).optional(),
+  savedSearchId: z.nullable(z.string()).optional(),
+  priorities: z.nullable(z.string()).optional(),
+  priorityNotSet: z.nullable(z.boolean()).optional(),
+  severities: z.nullable(z.string()).optional(),
+  severityNotSet: z.nullable(z.boolean()).optional(),
+  currentMilestones: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",

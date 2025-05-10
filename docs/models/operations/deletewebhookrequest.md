@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteWebhookRequest } from "firehydrant-typescript-sdk/models/operations";
+import { DeleteWebhookRequest } from "firehydrant/models/operations";
 
 let value: DeleteWebhookRequest = {
   webhookId: "<id>",

@@ -9,12 +9,12 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAwsCloudtrailBatchesRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * AWS connection ID
    */
-  connectionId?: string | undefined;
+  connectionId?: string | null | undefined;
 };
 
 /** @internal */
@@ -23,9 +23,9 @@ export const ListAwsCloudtrailBatchesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  connection_id: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  connection_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -35,9 +35,9 @@ export const ListAwsCloudtrailBatchesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListAwsCloudtrailBatchesRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  connection_id?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  connection_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -46,9 +46,9 @@ export const ListAwsCloudtrailBatchesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListAwsCloudtrailBatchesRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  connectionId: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  connectionId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",
