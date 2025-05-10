@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateChangeIdentityRequest = {
   identityId: string;
   changeId: string;
-  patchV1ChangesChangeIdIdentitiesIdentityId:
-    components.PatchV1ChangesChangeIdIdentitiesIdentityId;
+  updateChangeIdentity: components.UpdateChangeIdentity;
 };
 
 /** @internal */
@@ -24,12 +23,14 @@ export const UpdateChangeIdentityRequest$inboundSchema: z.ZodType<
 > = z.object({
   identity_id: z.string(),
   change_id: z.string(),
-  patchV1ChangesChangeIdIdentitiesIdentityId:
-    components.PatchV1ChangesChangeIdIdentitiesIdentityId$inboundSchema,
+  update_change_identity: z.lazy(() =>
+    components.UpdateChangeIdentity$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "identity_id": "identityId",
     "change_id": "changeId",
+    "update_change_identity": "updateChangeIdentity",
   });
 });
 
@@ -37,8 +38,7 @@ export const UpdateChangeIdentityRequest$inboundSchema: z.ZodType<
 export type UpdateChangeIdentityRequest$Outbound = {
   identity_id: string;
   change_id: string;
-  patchV1ChangesChangeIdIdentitiesIdentityId:
-    components.PatchV1ChangesChangeIdIdentitiesIdentityId$Outbound;
+  update_change_identity: components.UpdateChangeIdentity$Outbound;
 };
 
 /** @internal */
@@ -49,12 +49,14 @@ export const UpdateChangeIdentityRequest$outboundSchema: z.ZodType<
 > = z.object({
   identityId: z.string(),
   changeId: z.string(),
-  patchV1ChangesChangeIdIdentitiesIdentityId:
-    components.PatchV1ChangesChangeIdIdentitiesIdentityId$outboundSchema,
+  updateChangeIdentity: z.lazy(() =>
+    components.UpdateChangeIdentity$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     identityId: "identity_id",
     changeId: "change_id",
+    updateChangeIdentity: "update_change_identity",
   });
 });
 

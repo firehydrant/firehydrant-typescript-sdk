@@ -1,19 +1,19 @@
-# UpdateAwsCloudTrailBatchRequest
+# UpdateAwsCloudtrailBatchRequest
 
 ## Example Usage
 
 ```typescript
-import { UpdateAwsCloudTrailBatchRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateAwsCloudtrailBatchRequest } from "firehydrant/models/operations";
 
-let value: UpdateAwsCloudTrailBatchRequest = {
+let value: UpdateAwsCloudtrailBatchRequest = {
   id: "<id>",
-  patchV1IntegrationsAwsCloudtrailBatchesId: {},
+  updateAwsCloudtrailBatch: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                        | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                         | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
-| `patchV1IntegrationsAwsCloudtrailBatchesId`                                                                                  | [components.PatchV1IntegrationsAwsCloudtrailBatchesId](../../models/components/patchv1integrationsawscloudtrailbatchesid.md) | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `id`                                                                                       | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `updateAwsCloudtrailBatch`                                                                 | [components.UpdateAwsCloudtrailBatch](../../models/components/updateawscloudtrailbatch.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |

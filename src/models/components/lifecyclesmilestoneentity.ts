@@ -8,22 +8,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 export type LifecyclesMilestoneEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  position?: number | undefined;
-  createdBy?: AuthorEntity | undefined;
-  updatedBy?: AuthorEntity | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  autoAssignTimestampOnCreate?: string | null | undefined;
+  position?: number | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  updatedBy?: NullableAuthorEntity | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -32,19 +33,23 @@ export const LifecyclesMilestoneEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  position: z.number().int().optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  updated_by: AuthorEntity$inboundSchema.optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  auto_assign_timestamp_on_create: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "auto_assign_timestamp_on_create": "autoAssignTimestampOnCreate",
     "created_by": "createdBy",
     "updated_by": "updatedBy",
     "created_at": "createdAt",
@@ -54,15 +59,16 @@ export const LifecyclesMilestoneEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type LifecyclesMilestoneEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  position?: number | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  updated_by?: AuthorEntity$Outbound | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  auto_assign_timestamp_on_create?: string | null | undefined;
+  position?: number | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  updated_by?: NullableAuthorEntity$Outbound | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -71,17 +77,19 @@ export const LifecyclesMilestoneEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LifecyclesMilestoneEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  position: z.number().int().optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  updatedBy: AuthorEntity$outboundSchema.optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  autoAssignTimestampOnCreate: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
+    autoAssignTimestampOnCreate: "auto_assign_timestamp_on_create",
     createdBy: "created_by",
     updatedBy: "updated_by",
     createdAt: "created_at",

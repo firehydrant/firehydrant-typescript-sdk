@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ExternalResourceEntity } from "firehydrant-typescript-sdk/models/components";
+import { ExternalResourceEntity } from "firehydrant/models/components";
 
 let value: ExternalResourceEntity = {};
 ```
@@ -14,6 +14,7 @@ let value: ExternalResourceEntity = {};
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `connectionType`                                                                              | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `connectionName`                                                                              | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `connectionFullFaviconUrl`                                                                    | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `connectionId`                                                                                | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `remoteId`                                                                                    | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `remoteUrl`                                                                                   | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |

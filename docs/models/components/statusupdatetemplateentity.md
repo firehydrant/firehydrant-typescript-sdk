@@ -5,7 +5,7 @@ StatusUpdateTemplateEntity model
 ## Example Usage
 
 ```typescript
-import { StatusUpdateTemplateEntity } from "firehydrant-typescript-sdk/models/components";
+import { StatusUpdateTemplateEntity } from "firehydrant/models/components";
 
 let value: StatusUpdateTemplateEntity = {};
 ```

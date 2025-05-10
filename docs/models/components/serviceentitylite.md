@@ -5,7 +5,7 @@ ServiceEntityLite model
 ## Example Usage
 
 ```typescript
-import { ServiceEntityLite } from "firehydrant-typescript-sdk/models/components";
+import { ServiceEntityLite } from "firehydrant/models/components";
 
 let value: ServiceEntityLite = {};
 ```

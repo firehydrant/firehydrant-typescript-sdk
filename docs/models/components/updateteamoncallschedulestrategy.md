@@ -1,0 +1,22 @@
+# UpdateTeamOnCallScheduleStrategy
+
+An object that specifies how the schedule's on-call shifts should be generated.
+
+## Example Usage
+
+```typescript
+import { UpdateTeamOnCallScheduleStrategy } from "firehydrant/models/components";
+
+let value: UpdateTeamOnCallScheduleStrategy = {
+  type: "daily",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                         | Type                                                                                                                                                                          | Required                                                                                                                                                                      | Description                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                                                        | [components.UpdateTeamOnCallScheduleType](../../models/components/updateteamoncallscheduletype.md)                                                                            | :heavy_check_mark:                                                                                                                                                            | The type of strategy. Must be one of "daily", "weekly", or "custom".                                                                                                          |
+| `handoffTime`                                                                                                                                                                 | *string*                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                            | An ISO8601 time string specifying when on-call shifts should hand off. This value is only used if the strategy type is "daily" or "weekly".                                   |
+| `handoffDay`                                                                                                                                                                  | [components.UpdateTeamOnCallScheduleHandoffDay](../../models/components/updateteamoncallschedulehandoffday.md)                                                                | :heavy_minus_sign:                                                                                                                                                            | The day of the week on which on-call shifts should hand off, as its long-form name (e.g. "monday", "tuesday", etc). This value is only used if the strategy type is "weekly". |
+| `shiftDuration`                                                                                                                                                               | *string*                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                            | An ISO8601 duration string specifying how long each shift should last. This value is only used if the strategy type is "custom".                                              |

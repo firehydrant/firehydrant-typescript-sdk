@@ -5,7 +5,7 @@ Event_NoteEntity model
 ## Example Usage
 
 ```typescript
-import { EventNoteEntity } from "firehydrant-typescript-sdk/models/components";
+import { EventNoteEntity } from "firehydrant/models/components";
 
 let value: EventNoteEntity = {};
 ```

@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdatePostMortemReportRequest = {
   reportId: string;
-  patchV1PostMortemsReportsReportId:
-    components.PatchV1PostMortemsReportsReportId;
+  updatePostMortemReport: components.UpdatePostMortemReport;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdatePostMortemReportRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   report_id: z.string(),
-  patchV1PostMortemsReportsReportId:
-    components.PatchV1PostMortemsReportsReportId$inboundSchema,
+  update_post_mortem_report: z.lazy(() =>
+    components.UpdatePostMortemReport$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "report_id": "reportId",
+    "update_post_mortem_report": "updatePostMortemReport",
   });
 });
 
 /** @internal */
 export type UpdatePostMortemReportRequest$Outbound = {
   report_id: string;
-  patchV1PostMortemsReportsReportId:
-    components.PatchV1PostMortemsReportsReportId$Outbound;
+  update_post_mortem_report: components.UpdatePostMortemReport$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const UpdatePostMortemReportRequest$outboundSchema: z.ZodType<
   UpdatePostMortemReportRequest
 > = z.object({
   reportId: z.string(),
-  patchV1PostMortemsReportsReportId:
-    components.PatchV1PostMortemsReportsReportId$outboundSchema,
+  updatePostMortemReport: z.lazy(() =>
+    components.UpdatePostMortemReport$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     reportId: "report_id",
+    updatePostMortemReport: "update_post_mortem_report",
   });
 });
 

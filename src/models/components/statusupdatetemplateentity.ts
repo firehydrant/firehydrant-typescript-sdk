@@ -12,12 +12,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * StatusUpdateTemplateEntity model
  */
 export type StatusUpdateTemplateEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  body?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  discardedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  body?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  discardedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -26,15 +26,17 @@ export const StatusUpdateTemplateEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  body: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  discarded_at: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  body: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  discarded_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -46,12 +48,12 @@ export const StatusUpdateTemplateEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type StatusUpdateTemplateEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  body?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  discarded_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  body?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  discarded_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -60,12 +62,12 @@ export const StatusUpdateTemplateEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   StatusUpdateTemplateEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  body: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  discardedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  body: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  discardedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

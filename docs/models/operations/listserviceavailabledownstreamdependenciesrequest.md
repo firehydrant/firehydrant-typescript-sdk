@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListServiceAvailableDownstreamDependenciesRequest } from "firehydrant-typescript-sdk/models/operations";
+import { ListServiceAvailableDownstreamDependenciesRequest } from "firehydrant/models/operations";
 
 let value: ListServiceAvailableDownstreamDependenciesRequest = {
   serviceId: "<id>",

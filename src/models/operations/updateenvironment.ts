@@ -14,7 +14,7 @@ export type UpdateEnvironmentRequest = {
    * Environment UUID
    */
   environmentId: string;
-  patchV1EnvironmentsEnvironmentId: components.PatchV1EnvironmentsEnvironmentId;
+  updateEnvironment: components.UpdateEnvironment;
 };
 
 /** @internal */
@@ -24,19 +24,18 @@ export const UpdateEnvironmentRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   environment_id: z.string(),
-  patchV1EnvironmentsEnvironmentId:
-    components.PatchV1EnvironmentsEnvironmentId$inboundSchema,
+  update_environment: z.lazy(() => components.UpdateEnvironment$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "environment_id": "environmentId",
+    "update_environment": "updateEnvironment",
   });
 });
 
 /** @internal */
 export type UpdateEnvironmentRequest$Outbound = {
   environment_id: string;
-  patchV1EnvironmentsEnvironmentId:
-    components.PatchV1EnvironmentsEnvironmentId$Outbound;
+  update_environment: components.UpdateEnvironment$Outbound;
 };
 
 /** @internal */
@@ -46,11 +45,11 @@ export const UpdateEnvironmentRequest$outboundSchema: z.ZodType<
   UpdateEnvironmentRequest
 > = z.object({
   environmentId: z.string(),
-  patchV1EnvironmentsEnvironmentId:
-    components.PatchV1EnvironmentsEnvironmentId$outboundSchema,
+  updateEnvironment: z.lazy(() => components.UpdateEnvironment$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     environmentId: "environment_id",
+    updateEnvironment: "update_environment",
   });
 });
 

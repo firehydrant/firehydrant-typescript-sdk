@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateRunbookRequest = {
   runbookId: string;
-  putV1RunbooksRunbookId: components.PutV1RunbooksRunbookId;
+  updateRunbook: components.UpdateRunbook;
 };
 
 /** @internal */
@@ -21,17 +21,18 @@ export const UpdateRunbookRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   runbook_id: z.string(),
-  putV1RunbooksRunbookId: components.PutV1RunbooksRunbookId$inboundSchema,
+  update_runbook: z.lazy(() => components.UpdateRunbook$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "runbook_id": "runbookId",
+    "update_runbook": "updateRunbook",
   });
 });
 
 /** @internal */
 export type UpdateRunbookRequest$Outbound = {
   runbook_id: string;
-  putV1RunbooksRunbookId: components.PutV1RunbooksRunbookId$Outbound;
+  update_runbook: components.UpdateRunbook$Outbound;
 };
 
 /** @internal */
@@ -41,10 +42,11 @@ export const UpdateRunbookRequest$outboundSchema: z.ZodType<
   UpdateRunbookRequest
 > = z.object({
   runbookId: z.string(),
-  putV1RunbooksRunbookId: components.PutV1RunbooksRunbookId$outboundSchema,
+  updateRunbook: z.lazy(() => components.UpdateRunbook$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     runbookId: "runbook_id",
+    updateRunbook: "update_runbook",
   });
 });
 

@@ -9,40 +9,44 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const State = {
+export const ImportsImportEntityState = {
   Preprocessing: "preprocessing",
   ReadyForImport: "ready_for_import",
   Importing: "importing",
   Completed: "completed",
+  Failed: "failed",
 } as const;
-export type State = ClosedEnum<typeof State>;
+export type ImportsImportEntityState = ClosedEnum<
+  typeof ImportsImportEntityState
+>;
 
 /**
  * Imports_ImportEntity model
  */
 export type ImportsImportEntity = {
-  state?: State | undefined;
-  updatedAt?: Date | undefined;
+  state?: ImportsImportEntityState | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
-export const State$inboundSchema: z.ZodNativeEnum<typeof State> = z.nativeEnum(
-  State,
-);
+export const ImportsImportEntityState$inboundSchema: z.ZodNativeEnum<
+  typeof ImportsImportEntityState
+> = z.nativeEnum(ImportsImportEntityState);
 
 /** @internal */
-export const State$outboundSchema: z.ZodNativeEnum<typeof State> =
-  State$inboundSchema;
+export const ImportsImportEntityState$outboundSchema: z.ZodNativeEnum<
+  typeof ImportsImportEntityState
+> = ImportsImportEntityState$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace State$ {
-  /** @deprecated use `State$inboundSchema` instead. */
-  export const inboundSchema = State$inboundSchema;
-  /** @deprecated use `State$outboundSchema` instead. */
-  export const outboundSchema = State$outboundSchema;
+export namespace ImportsImportEntityState$ {
+  /** @deprecated use `ImportsImportEntityState$inboundSchema` instead. */
+  export const inboundSchema = ImportsImportEntityState$inboundSchema;
+  /** @deprecated use `ImportsImportEntityState$outboundSchema` instead. */
+  export const outboundSchema = ImportsImportEntityState$outboundSchema;
 }
 
 /** @internal */
@@ -51,9 +55,10 @@ export const ImportsImportEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  state: State$inboundSchema.optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  state: z.nullable(ImportsImportEntityState$inboundSchema).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "updated_at": "updatedAt",
@@ -62,8 +67,8 @@ export const ImportsImportEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ImportsImportEntity$Outbound = {
-  state?: string | undefined;
-  updated_at?: string | undefined;
+  state?: string | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -72,8 +77,8 @@ export const ImportsImportEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ImportsImportEntity
 > = z.object({
-  state: State$outboundSchema.optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  state: z.nullable(ImportsImportEntityState$outboundSchema).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     updatedAt: "updated_at",

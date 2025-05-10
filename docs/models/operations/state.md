@@ -5,9 +5,9 @@ Filter tickets by state
 ## Example Usage
 
 ```typescript
-import { State } from "firehydrant-typescript-sdk/models/operations";
+import { State } from "firehydrant/models/operations";
 
-let value: State = "in_progress";
+let value: State = "open";
 ```
 
 ## Values

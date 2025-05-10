@@ -15,23 +15,23 @@ export type TicketingFieldMapsMappableFieldEntity = {
   /**
    * The ID of the field
    */
-  value?: string | undefined;
+  value?: string | null | undefined;
   /**
    * The human-readable name of the field
    */
-  label?: string | undefined;
+  label?: string | null | undefined;
   /**
    * The allowed type of the field
    */
-  type?: string | undefined;
+  type?: string | null | undefined;
   /**
    * The allowed values of the field
    */
-  allowedValues?: string | undefined;
+  allowedValues?: Array<string> | null | undefined;
   /**
    * If the field is required to be mapped
    */
-  required?: string | undefined;
+  required?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,11 +40,11 @@ export const TicketingFieldMapsMappableFieldEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  value: z.string().optional(),
-  label: z.string().optional(),
-  type: z.string().optional(),
-  allowed_values: z.string().optional(),
-  required: z.string().optional(),
+  value: z.nullable(z.string()).optional(),
+  label: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  allowed_values: z.nullable(z.array(z.string())).optional(),
+  required: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "allowed_values": "allowedValues",
@@ -53,11 +53,11 @@ export const TicketingFieldMapsMappableFieldEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingFieldMapsMappableFieldEntity$Outbound = {
-  value?: string | undefined;
-  label?: string | undefined;
-  type?: string | undefined;
-  allowed_values?: string | undefined;
-  required?: string | undefined;
+  value?: string | null | undefined;
+  label?: string | null | undefined;
+  type?: string | null | undefined;
+  allowed_values?: Array<string> | null | undefined;
+  required?: string | null | undefined;
 };
 
 /** @internal */
@@ -66,11 +66,11 @@ export const TicketingFieldMapsMappableFieldEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingFieldMapsMappableFieldEntity
 > = z.object({
-  value: z.string().optional(),
-  label: z.string().optional(),
-  type: z.string().optional(),
-  allowedValues: z.string().optional(),
-  required: z.string().optional(),
+  value: z.nullable(z.string()).optional(),
+  label: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  allowedValues: z.nullable(z.array(z.string())).optional(),
+  required: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     allowedValues: "allowed_values",

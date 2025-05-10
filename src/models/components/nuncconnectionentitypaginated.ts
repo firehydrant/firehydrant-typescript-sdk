@@ -7,24 +7,24 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
+import {
   NuncConnectionEntity,
   NuncConnectionEntity$inboundSchema,
   NuncConnectionEntity$Outbound,
   NuncConnectionEntity$outboundSchema,
 } from "./nuncconnectionentity.js";
-import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
 
 /**
  * NuncConnectionEntityPaginated model
  */
 export type NuncConnectionEntityPaginated = {
-  data?: Array<NuncConnectionEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<NuncConnectionEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const NuncConnectionEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(NuncConnectionEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(NuncConnectionEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type NuncConnectionEntityPaginated$Outbound = {
-  data?: Array<NuncConnectionEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<NuncConnectionEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const NuncConnectionEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NuncConnectionEntityPaginated
 > = z.object({
-  data: z.array(NuncConnectionEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(NuncConnectionEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

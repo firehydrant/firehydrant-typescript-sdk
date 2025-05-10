@@ -21,35 +21,35 @@ export type EnvironmentEntryEntity = {
   /**
    * UUID of the Environment
    */
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * Name of the Environment
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * Slug of the Environment
    */
-  slug?: string | undefined;
+  slug?: string | null | undefined;
   /**
    * Description of the Environment
    */
-  description?: string | undefined;
+  description?: string | null | undefined;
   /**
    * The time the environment was updated
    */
-  updatedAt?: Date | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * The time the environment was created
    */
-  createdAt?: Date | undefined;
+  createdAt?: Date | null | undefined;
   /**
    * List of active incident guids
    */
-  activeIncidents?: string | undefined;
+  activeIncidents?: Array<string> | null | undefined;
   /**
    * Information about known linkages to representations of services outside of FireHydrant.
    */
-  externalResources?: Array<ExternalResourceEntity> | undefined;
+  externalResources?: Array<ExternalResourceEntity> | null | undefined;
 };
 
 /** @internal */
@@ -58,16 +58,19 @@ export const EnvironmentEntryEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  active_incidents: z.nullable(z.array(z.string())).optional(),
+  external_resources: z.nullable(z.array(ExternalResourceEntity$inboundSchema))
     .optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  active_incidents: z.string().optional(),
-  external_resources: z.array(ExternalResourceEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "updated_at": "updatedAt",
@@ -79,14 +82,17 @@ export const EnvironmentEntryEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EnvironmentEntryEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  updated_at?: string | undefined;
-  created_at?: string | undefined;
-  active_incidents?: string | undefined;
-  external_resources?: Array<ExternalResourceEntity$Outbound> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  created_at?: string | null | undefined;
+  active_incidents?: Array<string> | null | undefined;
+  external_resources?:
+    | Array<ExternalResourceEntity$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -95,14 +101,15 @@ export const EnvironmentEntryEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvironmentEntryEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  activeIncidents: z.string().optional(),
-  externalResources: z.array(ExternalResourceEntity$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  activeIncidents: z.nullable(z.array(z.string())).optional(),
+  externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     updatedAt: "updated_at",

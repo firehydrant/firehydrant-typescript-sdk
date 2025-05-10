@@ -3,9 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { Tier } from "firehydrant-typescript-sdk/models/components";
+import { Tier } from "firehydrant/models/components";
 
-let value: Tier = "enterprise";
+let value: Tier = "essentials";
 ```
 
 ## Values

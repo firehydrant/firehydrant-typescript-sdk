@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * A matching strategy for the tags provided
  */
-export const ListTicketsQueryParamTagMatchStrategy = {
+export const ListTicketsTagMatchStrategy = {
   Any: "any",
   MatchAll: "match_all",
   Exclude: "exclude",
@@ -20,8 +20,8 @@ export const ListTicketsQueryParamTagMatchStrategy = {
 /**
  * A matching strategy for the tags provided
  */
-export type ListTicketsQueryParamTagMatchStrategy = ClosedEnum<
-  typeof ListTicketsQueryParamTagMatchStrategy
+export type ListTicketsTagMatchStrategy = ClosedEnum<
+  typeof ListTicketsTagMatchStrategy
 >;
 
 /**
@@ -39,48 +39,45 @@ export const State = {
 export type State = ClosedEnum<typeof State>;
 
 export type ListTicketsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A comma separated list of tags
    */
-  tags?: string | undefined;
+  tags?: string | null | undefined;
   /**
    * A matching strategy for the tags provided
    */
-  tagMatchStrategy?: ListTicketsQueryParamTagMatchStrategy | undefined;
+  tagMatchStrategy?: ListTicketsTagMatchStrategy | null | undefined;
   /**
    * Filter tickets assigned to this user id
    */
-  assignedUser?: string | undefined;
+  assignedUser?: string | null | undefined;
   /**
    * Filter tickets by state
    */
-  state?: State | undefined;
+  state?: State | null | undefined;
 };
 
 /** @internal */
-export const ListTicketsQueryParamTagMatchStrategy$inboundSchema:
-  z.ZodNativeEnum<typeof ListTicketsQueryParamTagMatchStrategy> = z.nativeEnum(
-    ListTicketsQueryParamTagMatchStrategy,
-  );
+export const ListTicketsTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
+  typeof ListTicketsTagMatchStrategy
+> = z.nativeEnum(ListTicketsTagMatchStrategy);
 
 /** @internal */
-export const ListTicketsQueryParamTagMatchStrategy$outboundSchema:
-  z.ZodNativeEnum<typeof ListTicketsQueryParamTagMatchStrategy> =
-    ListTicketsQueryParamTagMatchStrategy$inboundSchema;
+export const ListTicketsTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
+  typeof ListTicketsTagMatchStrategy
+> = ListTicketsTagMatchStrategy$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ListTicketsQueryParamTagMatchStrategy$ {
-  /** @deprecated use `ListTicketsQueryParamTagMatchStrategy$inboundSchema` instead. */
-  export const inboundSchema =
-    ListTicketsQueryParamTagMatchStrategy$inboundSchema;
-  /** @deprecated use `ListTicketsQueryParamTagMatchStrategy$outboundSchema` instead. */
-  export const outboundSchema =
-    ListTicketsQueryParamTagMatchStrategy$outboundSchema;
+export namespace ListTicketsTagMatchStrategy$ {
+  /** @deprecated use `ListTicketsTagMatchStrategy$inboundSchema` instead. */
+  export const inboundSchema = ListTicketsTagMatchStrategy$inboundSchema;
+  /** @deprecated use `ListTicketsTagMatchStrategy$outboundSchema` instead. */
+  export const outboundSchema = ListTicketsTagMatchStrategy$outboundSchema;
 }
 
 /** @internal */
@@ -109,13 +106,13 @@ export const ListTicketsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  tags: z.string().optional(),
-  tag_match_strategy: ListTicketsQueryParamTagMatchStrategy$inboundSchema
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  tag_match_strategy: z.nullable(ListTicketsTagMatchStrategy$inboundSchema)
     .optional(),
-  assigned_user: z.string().optional(),
-  state: State$inboundSchema.optional(),
+  assigned_user: z.nullable(z.string()).optional(),
+  state: z.nullable(State$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -126,12 +123,12 @@ export const ListTicketsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListTicketsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  tags?: string | undefined;
-  tag_match_strategy?: string | undefined;
-  assigned_user?: string | undefined;
-  state?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  tags?: string | null | undefined;
+  tag_match_strategy?: string | null | undefined;
+  assigned_user?: string | null | undefined;
+  state?: string | null | undefined;
 };
 
 /** @internal */
@@ -140,13 +137,13 @@ export const ListTicketsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListTicketsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  tags: z.string().optional(),
-  tagMatchStrategy: ListTicketsQueryParamTagMatchStrategy$outboundSchema
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  tagMatchStrategy: z.nullable(ListTicketsTagMatchStrategy$outboundSchema)
     .optional(),
-  assignedUser: z.string().optional(),
-  state: State$outboundSchema.optional(),
+  assignedUser: z.nullable(z.string()).optional(),
+  state: z.nullable(State$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

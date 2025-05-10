@@ -3,19 +3,19 @@
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicyRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateTeamEscalationPolicyRequest } from "firehydrant/models/operations";
 
 let value: UpdateTeamEscalationPolicyRequest = {
   teamId: "<id>",
   id: "<id>",
-  patchV1TeamsTeamIdEscalationPoliciesId: {},
+  updateTeamEscalationPolicy: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `teamId`                                                                                                               | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
-| `id`                                                                                                                   | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
-| `patchV1TeamsTeamIdEscalationPoliciesId`                                                                               | [components.PatchV1TeamsTeamIdEscalationPoliciesId](../../models/components/patchv1teamsteamidescalationpoliciesid.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `teamId`                                                                                       | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `updateTeamEscalationPolicy`                                                                   | [components.UpdateTeamEscalationPolicy](../../models/components/updateteamescalationpolicy.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

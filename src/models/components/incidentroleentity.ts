@@ -12,13 +12,13 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * IncidentRoleEntity model
  */
 export type IncidentRoleEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  discardedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  discardedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -27,16 +27,18 @@ export const IncidentRoleEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  discarded_at: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  discarded_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -48,13 +50,13 @@ export const IncidentRoleEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentRoleEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  discarded_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  discarded_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -63,13 +65,13 @@ export const IncidentRoleEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentRoleEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  discardedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  discardedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

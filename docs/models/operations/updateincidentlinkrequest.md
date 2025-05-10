@@ -3,19 +3,19 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentLinkRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateIncidentLinkRequest } from "firehydrant/models/operations";
 
 let value: UpdateIncidentLinkRequest = {
   linkId: "<id>",
   incidentId: "<id>",
-  putV1IncidentsIncidentIdLinksLinkId: {},
+  updateIncidentLink: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `linkId`                                                                                                         | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `incidentId`                                                                                                     | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `putV1IncidentsIncidentIdLinksLinkId`                                                                            | [components.PutV1IncidentsIncidentIdLinksLinkId](../../models/components/putv1incidentsincidentidlinkslinkid.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `linkId`                                                                       | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `incidentId`                                                                   | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `updateIncidentLink`                                                           | [components.UpdateIncidentLink](../../models/components/updateincidentlink.md) | :heavy_check_mark:                                                             | N/A                                                                            |

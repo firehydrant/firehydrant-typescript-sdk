@@ -3,19 +3,19 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateSavedSearchRequest } from "firehydrant/models/operations";
 
 let value: UpdateSavedSearchRequest = {
-  resourceType: "alerts",
+  resourceType: "impact_analytics",
   savedSearchId: "<id>",
-  patchV1SavedSearchesResourceTypeSavedSearchId: {},
+  updateSavedSearch: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                                | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `resourceType`                                                                                                                       | [operations.UpdateSavedSearchPathParamResourceType](../../models/operations/updatesavedsearchpathparamresourcetype.md)               | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
-| `savedSearchId`                                                                                                                      | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
-| `patchV1SavedSearchesResourceTypeSavedSearchId`                                                                                      | [components.PatchV1SavedSearchesResourceTypeSavedSearchId](../../models/components/patchv1savedsearchesresourcetypesavedsearchid.md) | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `resourceType`                                                                                       | [operations.UpdateSavedSearchResourceType](../../models/operations/updatesavedsearchresourcetype.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `savedSearchId`                                                                                      | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `updateSavedSearch`                                                                                  | [components.UpdateSavedSearch](../../models/components/updatesavedsearch.md)                         | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

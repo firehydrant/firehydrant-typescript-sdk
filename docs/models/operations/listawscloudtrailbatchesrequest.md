@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListAwsCloudtrailBatchesRequest } from "firehydrant-typescript-sdk/models/operations";
+import { ListAwsCloudtrailBatchesRequest } from "firehydrant/models/operations";
 
 let value: ListAwsCloudtrailBatchesRequest = {};
 ```

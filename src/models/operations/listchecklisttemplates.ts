@@ -9,12 +9,12 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListChecklistTemplatesRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A query to search checklist templates by their name
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
 };
 
 /** @internal */
@@ -23,9 +23,9 @@ export const ListChecklistTemplatesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  query: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -34,9 +34,9 @@ export const ListChecklistTemplatesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListChecklistTemplatesRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  query?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  query?: string | null | undefined;
 };
 
 /** @internal */
@@ -45,9 +45,9 @@ export const ListChecklistTemplatesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListChecklistTemplatesRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  query: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

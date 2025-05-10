@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateWebhookRequest = {
   webhookId: string;
-  patchV1WebhooksWebhookId: components.PatchV1WebhooksWebhookId;
+  updateWebhook: components.UpdateWebhook;
 };
 
 /** @internal */
@@ -21,17 +21,18 @@ export const UpdateWebhookRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   webhook_id: z.string(),
-  patchV1WebhooksWebhookId: components.PatchV1WebhooksWebhookId$inboundSchema,
+  update_webhook: z.lazy(() => components.UpdateWebhook$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "webhook_id": "webhookId",
+    "update_webhook": "updateWebhook",
   });
 });
 
 /** @internal */
 export type UpdateWebhookRequest$Outbound = {
   webhook_id: string;
-  patchV1WebhooksWebhookId: components.PatchV1WebhooksWebhookId$Outbound;
+  update_webhook: components.UpdateWebhook$Outbound;
 };
 
 /** @internal */
@@ -41,10 +42,11 @@ export const UpdateWebhookRequest$outboundSchema: z.ZodType<
   UpdateWebhookRequest
 > = z.object({
   webhookId: z.string(),
-  patchV1WebhooksWebhookId: components.PatchV1WebhooksWebhookId$outboundSchema,
+  updateWebhook: z.lazy(() => components.UpdateWebhook$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     webhookId: "webhook_id",
+    updateWebhook: "update_webhook",
   });
 });
 

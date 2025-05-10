@@ -8,29 +8,29 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 import {
-  TaskListItemEntity,
-  TaskListItemEntity$inboundSchema,
-  TaskListItemEntity$Outbound,
-  TaskListItemEntity$outboundSchema,
-} from "./tasklistitementity.js";
+  NullableTaskListItemEntity,
+  NullableTaskListItemEntity$inboundSchema,
+  NullableTaskListItemEntity$Outbound,
+  NullableTaskListItemEntity$outboundSchema,
+} from "./nullabletasklistitementity.js";
 
 /**
  * TaskListEntity model
  */
 export type TaskListEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  createdBy?: AuthorEntity | undefined;
-  taskListItems?: TaskListItemEntity | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  taskListItems?: NullableTaskListItemEntity | null | undefined;
 };
 
 /** @internal */
@@ -39,15 +39,18 @@ export const TaskListEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  task_list_items: z.nullable(NullableTaskListItemEntity$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  task_list_items: TaskListItemEntity$inboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -59,13 +62,13 @@ export const TaskListEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TaskListEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  task_list_items?: TaskListItemEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  task_list_items?: NullableTaskListItemEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -74,13 +77,14 @@ export const TaskListEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TaskListEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  taskListItems: TaskListItemEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  taskListItems: z.nullable(NullableTaskListItemEntity$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

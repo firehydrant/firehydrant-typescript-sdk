@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateChangeIdentityRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateChangeIdentityRequest } from "firehydrant/models/operations";
 
 let value: CreateChangeIdentityRequest = {
   changeId: "<id>",
-  postV1ChangesChangeIdIdentities: {
+  createChangeIdentity: {
     type: "<value>",
     value: "<value>",
   },
@@ -16,7 +16,7 @@ let value: CreateChangeIdentityRequest = {
 
 ## Fields
 
-| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `changeId`                                                                                               | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `postV1ChangesChangeIdIdentities`                                                                        | [components.PostV1ChangesChangeIdIdentities](../../models/components/postv1changeschangeididentities.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `changeId`                                                                         | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `createChangeIdentity`                                                             | [components.CreateChangeIdentity](../../models/components/createchangeidentity.md) | :heavy_check_mark:                                                                 | N/A                                                                                |

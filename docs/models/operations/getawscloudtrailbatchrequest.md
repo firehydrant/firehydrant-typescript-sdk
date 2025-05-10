@@ -1,11 +1,11 @@
-# GetAwsCloudTrailBatchRequest
+# GetAwsCloudtrailBatchRequest
 
 ## Example Usage
 
 ```typescript
-import { GetAwsCloudTrailBatchRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetAwsCloudtrailBatchRequest } from "firehydrant/models/operations";
 
-let value: GetAwsCloudTrailBatchRequest = {
+let value: GetAwsCloudtrailBatchRequest = {
   id: "<id>",
 };
 ```

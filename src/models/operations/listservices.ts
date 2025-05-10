@@ -9,56 +9,56 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListServicesRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A comma separated list of label key / values in the format of 'key=value,key2=value2'. To filter change events that have a key (with no specific value), omit the value
    */
-  labels?: string | undefined;
+  labels?: string | null | undefined;
   /**
    * A query to search services by their name or description
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A query to search services by their name
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * A query to search services by their tier
    */
-  tiers?: string | undefined;
+  tiers?: string | null | undefined;
   /**
    * A query to search services by if they are impacted with active incidents
    */
-  impacted?: string | undefined;
+  impacted?: string | null | undefined;
   /**
    * A query to search services by their owner
    */
-  owner?: string | undefined;
+  owner?: string | null | undefined;
   /**
    * A comma separated list of team ids
    */
-  respondingTeams?: string | undefined;
+  respondingTeams?: string | null | undefined;
   /**
    * A comma separated list of functionality ids
    */
-  functionalities?: string | undefined;
+  functionalities?: string | null | undefined;
   /**
    * A query to find services that are available to be downstream dependencies for the passed service ID
    */
-  availableDownstreamDependenciesForId?: string | undefined;
+  availableDownstreamDependenciesForId?: string | null | undefined;
   /**
    * A query to find services that are available to be upstream dependencies for the passed service ID
    */
-  availableUpstreamDependenciesForId?: string | undefined;
+  availableUpstreamDependenciesForId?: string | null | undefined;
   /**
    * Boolean to determine whether to return a slimified version of the services object
    */
-  lite?: boolean | undefined;
+  lite?: boolean | null | undefined;
   /**
    * Use in conjunction with lite param to specify additional attributes to include
    */
-  include?: Array<string> | undefined;
+  include?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -67,20 +67,20 @@ export const ListServicesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  labels: z.string().optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
-  tiers: z.string().optional(),
-  impacted: z.string().optional(),
-  owner: z.string().optional(),
-  responding_teams: z.string().optional(),
-  functionalities: z.string().optional(),
-  available_downstream_dependencies_for_id: z.string().optional(),
-  available_upstream_dependencies_for_id: z.string().optional(),
-  lite: z.boolean().optional(),
-  include: z.array(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  labels: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  tiers: z.nullable(z.string()).optional(),
+  impacted: z.nullable(z.string()).optional(),
+  owner: z.nullable(z.string()).optional(),
+  responding_teams: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(z.string()).optional(),
+  available_downstream_dependencies_for_id: z.nullable(z.string()).optional(),
+  available_upstream_dependencies_for_id: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
+  include: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -94,20 +94,20 @@ export const ListServicesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListServicesRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  labels?: string | undefined;
-  query?: string | undefined;
-  name?: string | undefined;
-  tiers?: string | undefined;
-  impacted?: string | undefined;
-  owner?: string | undefined;
-  responding_teams?: string | undefined;
-  functionalities?: string | undefined;
-  available_downstream_dependencies_for_id?: string | undefined;
-  available_upstream_dependencies_for_id?: string | undefined;
-  lite?: boolean | undefined;
-  include?: Array<string> | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  labels?: string | null | undefined;
+  query?: string | null | undefined;
+  name?: string | null | undefined;
+  tiers?: string | null | undefined;
+  impacted?: string | null | undefined;
+  owner?: string | null | undefined;
+  responding_teams?: string | null | undefined;
+  functionalities?: string | null | undefined;
+  available_downstream_dependencies_for_id?: string | null | undefined;
+  available_upstream_dependencies_for_id?: string | null | undefined;
+  lite?: boolean | null | undefined;
+  include?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -116,20 +116,20 @@ export const ListServicesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListServicesRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  labels: z.string().optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
-  tiers: z.string().optional(),
-  impacted: z.string().optional(),
-  owner: z.string().optional(),
-  respondingTeams: z.string().optional(),
-  functionalities: z.string().optional(),
-  availableDownstreamDependenciesForId: z.string().optional(),
-  availableUpstreamDependenciesForId: z.string().optional(),
-  lite: z.boolean().optional(),
-  include: z.array(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  labels: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  tiers: z.nullable(z.string()).optional(),
+  impacted: z.nullable(z.string()).optional(),
+  owner: z.nullable(z.string()).optional(),
+  respondingTeams: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(z.string()).optional(),
+  availableDownstreamDependenciesForId: z.nullable(z.string()).optional(),
+  availableUpstreamDependenciesForId: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
+  include: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

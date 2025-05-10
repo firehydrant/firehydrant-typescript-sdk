@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdatePriorityRequest = {
   prioritySlug: string;
-  patchV1PrioritiesPrioritySlug: components.PatchV1PrioritiesPrioritySlug;
+  updatePriority: components.UpdatePriority;
 };
 
 /** @internal */
@@ -21,19 +21,18 @@ export const UpdatePriorityRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   priority_slug: z.string(),
-  patchV1PrioritiesPrioritySlug:
-    components.PatchV1PrioritiesPrioritySlug$inboundSchema,
+  update_priority: z.lazy(() => components.UpdatePriority$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "priority_slug": "prioritySlug",
+    "update_priority": "updatePriority",
   });
 });
 
 /** @internal */
 export type UpdatePriorityRequest$Outbound = {
   priority_slug: string;
-  patchV1PrioritiesPrioritySlug:
-    components.PatchV1PrioritiesPrioritySlug$Outbound;
+  update_priority: components.UpdatePriority$Outbound;
 };
 
 /** @internal */
@@ -43,11 +42,11 @@ export const UpdatePriorityRequest$outboundSchema: z.ZodType<
   UpdatePriorityRequest
 > = z.object({
   prioritySlug: z.string(),
-  patchV1PrioritiesPrioritySlug:
-    components.PatchV1PrioritiesPrioritySlug$outboundSchema,
+  updatePriority: z.lazy(() => components.UpdatePriority$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     prioritySlug: "priority_slug",
+    updatePriority: "update_priority",
   });
 });
 

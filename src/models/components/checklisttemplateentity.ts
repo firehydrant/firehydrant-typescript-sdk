@@ -14,33 +14,33 @@ import {
   ChecklistCheckEntity$outboundSchema,
 } from "./checklistcheckentity.js";
 import {
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
+import {
   ServiceEntityChecklist,
   ServiceEntityChecklist$inboundSchema,
   ServiceEntityChecklist$Outbound,
   ServiceEntityChecklist$outboundSchema,
 } from "./serviceentitychecklist.js";
-import {
-  TeamEntityLite,
-  TeamEntityLite$inboundSchema,
-  TeamEntityLite$Outbound,
-  TeamEntityLite$outboundSchema,
-} from "./teamentitylite.js";
 
 /**
  * ChecklistTemplateEntity model
  */
 export type ChecklistTemplateEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  createdAt?: string | undefined;
-  updatedAt?: Date | undefined;
-  checks?: Array<ChecklistCheckEntity> | undefined;
-  owner?: TeamEntityLite | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  createdAt?: string | null | undefined;
+  updatedAt?: Date | null | undefined;
+  checks?: Array<ChecklistCheckEntity> | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
   /**
    * List of services that use this checklist
    */
-  connectedServices?: Array<ServiceEntityChecklist> | undefined;
+  connectedServices?: Array<ServiceEntityChecklist> | null | undefined;
 };
 
 /** @internal */
@@ -49,15 +49,17 @@ export const ChecklistTemplateEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  created_at: z.string().optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  created_at: z.nullable(z.string()).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  checks: z.nullable(z.array(ChecklistCheckEntity$inboundSchema)).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  connected_services: z.nullable(z.array(ServiceEntityChecklist$inboundSchema))
     .optional(),
-  checks: z.array(ChecklistCheckEntity$inboundSchema).optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  connected_services: z.array(ServiceEntityChecklist$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -68,14 +70,17 @@ export const ChecklistTemplateEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ChecklistTemplateEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  checks?: Array<ChecklistCheckEntity$Outbound> | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  connected_services?: Array<ServiceEntityChecklist$Outbound> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  checks?: Array<ChecklistCheckEntity$Outbound> | null | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  connected_services?:
+    | Array<ServiceEntityChecklist$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -84,14 +89,15 @@ export const ChecklistTemplateEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChecklistTemplateEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  createdAt: z.string().optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  checks: z.array(ChecklistCheckEntity$outboundSchema).optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  connectedServices: z.array(ServiceEntityChecklist$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.string()).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  checks: z.nullable(z.array(ChecklistCheckEntity$outboundSchema)).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  connectedServices: z.nullable(z.array(ServiceEntityChecklist$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

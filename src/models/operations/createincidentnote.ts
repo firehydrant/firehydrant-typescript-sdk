@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentNoteRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdNotes: components.PostV1IncidentsIncidentIdNotes;
+  createIncidentNote: components.CreateIncidentNote;
 };
 
 /** @internal */
@@ -21,19 +21,20 @@ export const CreateIncidentNoteRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdNotes:
-    components.PostV1IncidentsIncidentIdNotes$inboundSchema,
+  create_incident_note: z.lazy(() =>
+    components.CreateIncidentNote$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_note": "createIncidentNote",
   });
 });
 
 /** @internal */
 export type CreateIncidentNoteRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdNotes:
-    components.PostV1IncidentsIncidentIdNotes$Outbound;
+  create_incident_note: components.CreateIncidentNote$Outbound;
 };
 
 /** @internal */
@@ -43,11 +44,13 @@ export const CreateIncidentNoteRequest$outboundSchema: z.ZodType<
   CreateIncidentNoteRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdNotes:
-    components.PostV1IncidentsIncidentIdNotes$outboundSchema,
+  createIncidentNote: z.lazy(() =>
+    components.CreateIncidentNote$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentNote: "create_incident_note",
   });
 });
 

@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  TeamEntityLite,
-  TeamEntityLite$inboundSchema,
-  TeamEntityLite$Outbound,
-  TeamEntityLite$outboundSchema,
-} from "./teamentitylite.js";
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 
 /**
  * An object of label key and values
@@ -20,23 +20,23 @@ import {
 export type ServiceEntityChecklistLabels = {};
 
 export type ServiceEntityChecklist = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  serviceTier?: number | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  allowedParams?: Array<string> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  serviceTier?: number | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  allowedParams?: Array<string> | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: ServiceEntityChecklistLabels | undefined;
-  alertOnAdd?: boolean | undefined;
-  autoAddRespondingTeam?: boolean | undefined;
-  completedChecks?: number | undefined;
-  owner?: TeamEntityLite | undefined;
-  serviceChecklistUpdatedAt?: Date | undefined;
+  labels?: ServiceEntityChecklistLabels | null | undefined;
+  alertOnAdd?: boolean | null | undefined;
+  autoAddRespondingTeam?: boolean | null | undefined;
+  completedChecks?: number | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
+  serviceChecklistUpdatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -95,23 +95,26 @@ export const ServiceEntityChecklist$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  service_tier: z.number().int().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  service_tier: z.nullable(z.number().int()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  allowed_params: z.nullable(z.array(z.string())).optional(),
+  labels: z.nullable(z.lazy(() => ServiceEntityChecklistLabels$inboundSchema))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  allowed_params: z.array(z.string()).optional(),
-  labels: z.lazy(() => ServiceEntityChecklistLabels$inboundSchema).optional(),
-  alert_on_add: z.boolean().optional(),
-  auto_add_responding_team: z.boolean().optional(),
-  completed_checks: z.number().int().optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  service_checklist_updated_at: z.string().datetime({ offset: true }).transform(
-    v => new Date(v)
+  alert_on_add: z.nullable(z.boolean()).optional(),
+  auto_add_responding_team: z.nullable(z.boolean()).optional(),
+  completed_checks: z.nullable(z.number().int()).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  service_checklist_updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -128,20 +131,20 @@ export const ServiceEntityChecklist$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ServiceEntityChecklist$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  service_tier?: number | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  allowed_params?: Array<string> | undefined;
-  labels?: ServiceEntityChecklistLabels$Outbound | undefined;
-  alert_on_add?: boolean | undefined;
-  auto_add_responding_team?: boolean | undefined;
-  completed_checks?: number | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  service_checklist_updated_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  service_tier?: number | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  allowed_params?: Array<string> | null | undefined;
+  labels?: ServiceEntityChecklistLabels$Outbound | null | undefined;
+  alert_on_add?: boolean | null | undefined;
+  auto_add_responding_team?: boolean | null | undefined;
+  completed_checks?: number | null | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  service_checklist_updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -150,21 +153,23 @@ export const ServiceEntityChecklist$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ServiceEntityChecklist
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  serviceTier: z.number().int().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  allowedParams: z.array(z.string()).optional(),
-  labels: z.lazy(() => ServiceEntityChecklistLabels$outboundSchema).optional(),
-  alertOnAdd: z.boolean().optional(),
-  autoAddRespondingTeam: z.boolean().optional(),
-  completedChecks: z.number().int().optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  serviceChecklistUpdatedAt: z.date().transform(v => v.toISOString())
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  serviceTier: z.nullable(z.number().int()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  allowedParams: z.nullable(z.array(z.string())).optional(),
+  labels: z.nullable(z.lazy(() => ServiceEntityChecklistLabels$outboundSchema))
     .optional(),
+  alertOnAdd: z.nullable(z.boolean()).optional(),
+  autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
+  completedChecks: z.nullable(z.number().int()).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  serviceChecklistUpdatedAt: z.nullable(
+    z.date().transform(v => v.toISOString()),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     serviceTier: "service_tier",

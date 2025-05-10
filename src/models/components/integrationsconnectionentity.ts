@@ -8,72 +8,87 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 /**
  * Integration-specific details of this connection. As identified by the integration_slug, this object will be represented by that integration's ConnectionEntity.
  */
-export type Details = {};
+export type IntegrationsConnectionEntityDetails = {};
 
+/**
+ * Integrations_ConnectionEntity model
+ */
 export type IntegrationsConnectionEntity = {
-  id?: string | undefined;
-  integrationSlug?: string | undefined;
-  integrationId?: string | undefined;
-  displayName?: string | undefined;
-  configurationUrl?: string | undefined;
-  authorizedBy?: string | undefined;
-  authorizedById?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  integrationSlug?: string | null | undefined;
+  integrationId?: string | null | undefined;
+  displayName?: string | null | undefined;
+  configurationUrl?: string | null | undefined;
+  authorizedBy?: string | null | undefined;
+  authorizedById?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * Integration-specific details of this connection. As identified by the integration_slug, this object will be represented by that integration's ConnectionEntity.
    */
-  details?: Details | undefined;
-  defaultAuthorizedActor?: AuthorEntity | undefined;
+  details?: IntegrationsConnectionEntityDetails | null | undefined;
+  defaultAuthorizedActor?: NullableAuthorEntity | null | undefined;
 };
 
 /** @internal */
-export const Details$inboundSchema: z.ZodType<Details, z.ZodTypeDef, unknown> =
-  z.object({});
-
-/** @internal */
-export type Details$Outbound = {};
-
-/** @internal */
-export const Details$outboundSchema: z.ZodType<
-  Details$Outbound,
+export const IntegrationsConnectionEntityDetails$inboundSchema: z.ZodType<
+  IntegrationsConnectionEntityDetails,
   z.ZodTypeDef,
-  Details
+  unknown
+> = z.object({});
+
+/** @internal */
+export type IntegrationsConnectionEntityDetails$Outbound = {};
+
+/** @internal */
+export const IntegrationsConnectionEntityDetails$outboundSchema: z.ZodType<
+  IntegrationsConnectionEntityDetails$Outbound,
+  z.ZodTypeDef,
+  IntegrationsConnectionEntityDetails
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Details$ {
-  /** @deprecated use `Details$inboundSchema` instead. */
-  export const inboundSchema = Details$inboundSchema;
-  /** @deprecated use `Details$outboundSchema` instead. */
-  export const outboundSchema = Details$outboundSchema;
-  /** @deprecated use `Details$Outbound` instead. */
-  export type Outbound = Details$Outbound;
+export namespace IntegrationsConnectionEntityDetails$ {
+  /** @deprecated use `IntegrationsConnectionEntityDetails$inboundSchema` instead. */
+  export const inboundSchema =
+    IntegrationsConnectionEntityDetails$inboundSchema;
+  /** @deprecated use `IntegrationsConnectionEntityDetails$outboundSchema` instead. */
+  export const outboundSchema =
+    IntegrationsConnectionEntityDetails$outboundSchema;
+  /** @deprecated use `IntegrationsConnectionEntityDetails$Outbound` instead. */
+  export type Outbound = IntegrationsConnectionEntityDetails$Outbound;
 }
 
-export function detailsToJSON(details: Details): string {
-  return JSON.stringify(Details$outboundSchema.parse(details));
+export function integrationsConnectionEntityDetailsToJSON(
+  integrationsConnectionEntityDetails: IntegrationsConnectionEntityDetails,
+): string {
+  return JSON.stringify(
+    IntegrationsConnectionEntityDetails$outboundSchema.parse(
+      integrationsConnectionEntityDetails,
+    ),
+  );
 }
 
-export function detailsFromJSON(
+export function integrationsConnectionEntityDetailsFromJSON(
   jsonString: string,
-): SafeParseResult<Details, SDKValidationError> {
+): SafeParseResult<IntegrationsConnectionEntityDetails, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Details$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Details' from JSON`,
+    (x) =>
+      IntegrationsConnectionEntityDetails$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'IntegrationsConnectionEntityDetails' from JSON`,
   );
 }
 
@@ -83,19 +98,24 @@ export const IntegrationsConnectionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  integration_slug: z.string().optional(),
-  integration_id: z.string().optional(),
-  display_name: z.string().optional(),
-  configuration_url: z.string().optional(),
-  authorized_by: z.string().optional(),
-  authorized_by_id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  integration_slug: z.nullable(z.string()).optional(),
+  integration_id: z.nullable(z.string()).optional(),
+  display_name: z.nullable(z.string()).optional(),
+  configuration_url: z.nullable(z.string()).optional(),
+  authorized_by: z.nullable(z.string()).optional(),
+  authorized_by_id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  details: z.nullable(
+    z.lazy(() => IntegrationsConnectionEntityDetails$inboundSchema),
+  ).optional(),
+  default_authorized_actor: z.nullable(NullableAuthorEntity$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  details: z.lazy(() => Details$inboundSchema).optional(),
-  default_authorized_actor: AuthorEntity$inboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
     "integration_slug": "integrationSlug",
@@ -112,17 +132,17 @@ export const IntegrationsConnectionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsConnectionEntity$Outbound = {
-  id?: string | undefined;
-  integration_slug?: string | undefined;
-  integration_id?: string | undefined;
-  display_name?: string | undefined;
-  configuration_url?: string | undefined;
-  authorized_by?: string | undefined;
-  authorized_by_id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  details?: Details$Outbound | undefined;
-  default_authorized_actor?: AuthorEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  integration_slug?: string | null | undefined;
+  integration_id?: string | null | undefined;
+  display_name?: string | null | undefined;
+  configuration_url?: string | null | undefined;
+  authorized_by?: string | null | undefined;
+  authorized_by_id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  details?: IntegrationsConnectionEntityDetails$Outbound | null | undefined;
+  default_authorized_actor?: NullableAuthorEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -131,17 +151,20 @@ export const IntegrationsConnectionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsConnectionEntity
 > = z.object({
-  id: z.string().optional(),
-  integrationSlug: z.string().optional(),
-  integrationId: z.string().optional(),
-  displayName: z.string().optional(),
-  configurationUrl: z.string().optional(),
-  authorizedBy: z.string().optional(),
-  authorizedById: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  details: z.lazy(() => Details$outboundSchema).optional(),
-  defaultAuthorizedActor: AuthorEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  integrationSlug: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
+  displayName: z.nullable(z.string()).optional(),
+  configurationUrl: z.nullable(z.string()).optional(),
+  authorizedBy: z.nullable(z.string()).optional(),
+  authorizedById: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  details: z.nullable(
+    z.lazy(() => IntegrationsConnectionEntityDetails$outboundSchema),
+  ).optional(),
+  defaultAuthorizedActor: z.nullable(NullableAuthorEntity$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     integrationSlug: "integration_slug",

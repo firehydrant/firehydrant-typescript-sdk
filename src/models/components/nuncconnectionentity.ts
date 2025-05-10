@@ -14,64 +14,64 @@ import {
   LinksEntity$outboundSchema,
 } from "./linksentity.js";
 import {
-  MediaImageEntity,
-  MediaImageEntity$inboundSchema,
-  MediaImageEntity$Outbound,
-  MediaImageEntity$outboundSchema,
-} from "./mediaimageentity.js";
+  NullableMediaImageEntity,
+  NullableMediaImageEntity$inboundSchema,
+  NullableMediaImageEntity$Outbound,
+  NullableMediaImageEntity$outboundSchema,
+} from "./nullablemediaimageentity.js";
 import {
-  NuncComponentEntity,
-  NuncComponentEntity$inboundSchema,
-  NuncComponentEntity$Outbound,
-  NuncComponentEntity$outboundSchema,
-} from "./nunccomponententity.js";
+  NullableNuncComponentEntity,
+  NullableNuncComponentEntity$inboundSchema,
+  NullableNuncComponentEntity$Outbound,
+  NullableNuncComponentEntity$outboundSchema,
+} from "./nullablenunccomponententity.js";
 import {
-  NuncComponentGroupEntity,
-  NuncComponentGroupEntity$inboundSchema,
-  NuncComponentGroupEntity$Outbound,
-  NuncComponentGroupEntity$outboundSchema,
-} from "./nunccomponentgroupentity.js";
+  NullableNuncComponentGroupEntity,
+  NullableNuncComponentGroupEntity$inboundSchema,
+  NullableNuncComponentGroupEntity$Outbound,
+  NullableNuncComponentGroupEntity$outboundSchema,
+} from "./nullablenunccomponentgroupentity.js";
 import {
-  NuncConditionEntity,
-  NuncConditionEntity$inboundSchema,
-  NuncConditionEntity$Outbound,
-  NuncConditionEntity$outboundSchema,
-} from "./nuncconditionentity.js";
+  NullableNuncConditionEntity,
+  NullableNuncConditionEntity$inboundSchema,
+  NullableNuncConditionEntity$Outbound,
+  NullableNuncConditionEntity$outboundSchema,
+} from "./nullablenuncconditionentity.js";
 
 /**
  * NuncConnectionEntity model
  */
 export type NuncConnectionEntity = {
-  id?: string | undefined;
-  domain?: string | undefined;
-  companyName?: string | undefined;
-  companyWebsite?: string | undefined;
-  cname?: string | undefined;
-  greetingTitle?: string | undefined;
-  greetingBody?: string | undefined;
-  operationalMessage?: string | undefined;
-  companyTosUrl?: string | undefined;
-  primaryColor?: string | undefined;
-  secondaryColor?: string | undefined;
-  buttonBackgroundColor?: string | undefined;
-  buttonTextColor?: string | undefined;
-  linkColor?: string | undefined;
-  title?: string | undefined;
-  exposedFields?: string | undefined;
-  conditions?: NuncConditionEntity | undefined;
-  components?: NuncComponentEntity | undefined;
-  componentGroups?: NuncComponentGroupEntity | undefined;
-  logo?: MediaImageEntity | undefined;
-  coverImage?: MediaImageEntity | undefined;
-  favicon?: MediaImageEntity | undefined;
-  openGraphImage?: MediaImageEntity | undefined;
-  darkLogo?: MediaImageEntity | undefined;
-  enableHistogram?: boolean | undefined;
-  uiVersion?: number | undefined;
+  id?: string | null | undefined;
+  domain?: string | null | undefined;
+  companyName?: string | null | undefined;
+  companyWebsite?: string | null | undefined;
+  cname?: string | null | undefined;
+  greetingTitle?: string | null | undefined;
+  greetingBody?: string | null | undefined;
+  operationalMessage?: string | null | undefined;
+  companyTosUrl?: string | null | undefined;
+  primaryColor?: string | null | undefined;
+  secondaryColor?: string | null | undefined;
+  buttonBackgroundColor?: string | null | undefined;
+  buttonTextColor?: string | null | undefined;
+  linkColor?: string | null | undefined;
+  title?: string | null | undefined;
+  exposedFields?: Array<string> | null | undefined;
+  conditions?: NullableNuncConditionEntity | null | undefined;
+  components?: NullableNuncComponentEntity | null | undefined;
+  componentGroups?: NullableNuncComponentGroupEntity | null | undefined;
+  logo?: NullableMediaImageEntity | null | undefined;
+  coverImage?: NullableMediaImageEntity | null | undefined;
+  favicon?: NullableMediaImageEntity | null | undefined;
+  openGraphImage?: NullableMediaImageEntity | null | undefined;
+  darkLogo?: NullableMediaImageEntity | null | undefined;
+  enableHistogram?: boolean | null | undefined;
+  uiVersion?: number | null | undefined;
   /**
    * List of links attached to this status page.
    */
-  links?: Array<LinksEntity> | undefined;
+  links?: Array<LinksEntity> | null | undefined;
 };
 
 /** @internal */
@@ -80,33 +80,35 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  domain: z.string().optional(),
-  company_name: z.string().optional(),
-  company_website: z.string().optional(),
-  cname: z.string().optional(),
-  greeting_title: z.string().optional(),
-  greeting_body: z.string().optional(),
-  operational_message: z.string().optional(),
-  company_tos_url: z.string().optional(),
-  primary_color: z.string().optional(),
-  secondary_color: z.string().optional(),
-  button_background_color: z.string().optional(),
-  button_text_color: z.string().optional(),
-  link_color: z.string().optional(),
-  title: z.string().optional(),
-  exposed_fields: z.string().optional(),
-  conditions: NuncConditionEntity$inboundSchema.optional(),
-  components: NuncComponentEntity$inboundSchema.optional(),
-  component_groups: NuncComponentGroupEntity$inboundSchema.optional(),
-  logo: MediaImageEntity$inboundSchema.optional(),
-  cover_image: MediaImageEntity$inboundSchema.optional(),
-  favicon: MediaImageEntity$inboundSchema.optional(),
-  open_graph_image: MediaImageEntity$inboundSchema.optional(),
-  dark_logo: MediaImageEntity$inboundSchema.optional(),
-  enable_histogram: z.boolean().optional(),
-  ui_version: z.number().int().optional(),
-  links: z.array(LinksEntity$inboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  domain: z.nullable(z.string()).optional(),
+  company_name: z.nullable(z.string()).optional(),
+  company_website: z.nullable(z.string()).optional(),
+  cname: z.nullable(z.string()).optional(),
+  greeting_title: z.nullable(z.string()).optional(),
+  greeting_body: z.nullable(z.string()).optional(),
+  operational_message: z.nullable(z.string()).optional(),
+  company_tos_url: z.nullable(z.string()).optional(),
+  primary_color: z.nullable(z.string()).optional(),
+  secondary_color: z.nullable(z.string()).optional(),
+  button_background_color: z.nullable(z.string()).optional(),
+  button_text_color: z.nullable(z.string()).optional(),
+  link_color: z.nullable(z.string()).optional(),
+  title: z.nullable(z.string()).optional(),
+  exposed_fields: z.nullable(z.array(z.string())).optional(),
+  conditions: z.nullable(NullableNuncConditionEntity$inboundSchema).optional(),
+  components: z.nullable(NullableNuncComponentEntity$inboundSchema).optional(),
+  component_groups: z.nullable(NullableNuncComponentGroupEntity$inboundSchema)
+    .optional(),
+  logo: z.nullable(NullableMediaImageEntity$inboundSchema).optional(),
+  cover_image: z.nullable(NullableMediaImageEntity$inboundSchema).optional(),
+  favicon: z.nullable(NullableMediaImageEntity$inboundSchema).optional(),
+  open_graph_image: z.nullable(NullableMediaImageEntity$inboundSchema)
+    .optional(),
+  dark_logo: z.nullable(NullableMediaImageEntity$inboundSchema).optional(),
+  enable_histogram: z.nullable(z.boolean()).optional(),
+  ui_version: z.nullable(z.number().int()).optional(),
+  links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -132,33 +134,36 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type NuncConnectionEntity$Outbound = {
-  id?: string | undefined;
-  domain?: string | undefined;
-  company_name?: string | undefined;
-  company_website?: string | undefined;
-  cname?: string | undefined;
-  greeting_title?: string | undefined;
-  greeting_body?: string | undefined;
-  operational_message?: string | undefined;
-  company_tos_url?: string | undefined;
-  primary_color?: string | undefined;
-  secondary_color?: string | undefined;
-  button_background_color?: string | undefined;
-  button_text_color?: string | undefined;
-  link_color?: string | undefined;
-  title?: string | undefined;
-  exposed_fields?: string | undefined;
-  conditions?: NuncConditionEntity$Outbound | undefined;
-  components?: NuncComponentEntity$Outbound | undefined;
-  component_groups?: NuncComponentGroupEntity$Outbound | undefined;
-  logo?: MediaImageEntity$Outbound | undefined;
-  cover_image?: MediaImageEntity$Outbound | undefined;
-  favicon?: MediaImageEntity$Outbound | undefined;
-  open_graph_image?: MediaImageEntity$Outbound | undefined;
-  dark_logo?: MediaImageEntity$Outbound | undefined;
-  enable_histogram?: boolean | undefined;
-  ui_version?: number | undefined;
-  links?: Array<LinksEntity$Outbound> | undefined;
+  id?: string | null | undefined;
+  domain?: string | null | undefined;
+  company_name?: string | null | undefined;
+  company_website?: string | null | undefined;
+  cname?: string | null | undefined;
+  greeting_title?: string | null | undefined;
+  greeting_body?: string | null | undefined;
+  operational_message?: string | null | undefined;
+  company_tos_url?: string | null | undefined;
+  primary_color?: string | null | undefined;
+  secondary_color?: string | null | undefined;
+  button_background_color?: string | null | undefined;
+  button_text_color?: string | null | undefined;
+  link_color?: string | null | undefined;
+  title?: string | null | undefined;
+  exposed_fields?: Array<string> | null | undefined;
+  conditions?: NullableNuncConditionEntity$Outbound | null | undefined;
+  components?: NullableNuncComponentEntity$Outbound | null | undefined;
+  component_groups?:
+    | NullableNuncComponentGroupEntity$Outbound
+    | null
+    | undefined;
+  logo?: NullableMediaImageEntity$Outbound | null | undefined;
+  cover_image?: NullableMediaImageEntity$Outbound | null | undefined;
+  favicon?: NullableMediaImageEntity$Outbound | null | undefined;
+  open_graph_image?: NullableMediaImageEntity$Outbound | null | undefined;
+  dark_logo?: NullableMediaImageEntity$Outbound | null | undefined;
+  enable_histogram?: boolean | null | undefined;
+  ui_version?: number | null | undefined;
+  links?: Array<LinksEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -167,33 +172,35 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NuncConnectionEntity
 > = z.object({
-  id: z.string().optional(),
-  domain: z.string().optional(),
-  companyName: z.string().optional(),
-  companyWebsite: z.string().optional(),
-  cname: z.string().optional(),
-  greetingTitle: z.string().optional(),
-  greetingBody: z.string().optional(),
-  operationalMessage: z.string().optional(),
-  companyTosUrl: z.string().optional(),
-  primaryColor: z.string().optional(),
-  secondaryColor: z.string().optional(),
-  buttonBackgroundColor: z.string().optional(),
-  buttonTextColor: z.string().optional(),
-  linkColor: z.string().optional(),
-  title: z.string().optional(),
-  exposedFields: z.string().optional(),
-  conditions: NuncConditionEntity$outboundSchema.optional(),
-  components: NuncComponentEntity$outboundSchema.optional(),
-  componentGroups: NuncComponentGroupEntity$outboundSchema.optional(),
-  logo: MediaImageEntity$outboundSchema.optional(),
-  coverImage: MediaImageEntity$outboundSchema.optional(),
-  favicon: MediaImageEntity$outboundSchema.optional(),
-  openGraphImage: MediaImageEntity$outboundSchema.optional(),
-  darkLogo: MediaImageEntity$outboundSchema.optional(),
-  enableHistogram: z.boolean().optional(),
-  uiVersion: z.number().int().optional(),
-  links: z.array(LinksEntity$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  domain: z.nullable(z.string()).optional(),
+  companyName: z.nullable(z.string()).optional(),
+  companyWebsite: z.nullable(z.string()).optional(),
+  cname: z.nullable(z.string()).optional(),
+  greetingTitle: z.nullable(z.string()).optional(),
+  greetingBody: z.nullable(z.string()).optional(),
+  operationalMessage: z.nullable(z.string()).optional(),
+  companyTosUrl: z.nullable(z.string()).optional(),
+  primaryColor: z.nullable(z.string()).optional(),
+  secondaryColor: z.nullable(z.string()).optional(),
+  buttonBackgroundColor: z.nullable(z.string()).optional(),
+  buttonTextColor: z.nullable(z.string()).optional(),
+  linkColor: z.nullable(z.string()).optional(),
+  title: z.nullable(z.string()).optional(),
+  exposedFields: z.nullable(z.array(z.string())).optional(),
+  conditions: z.nullable(NullableNuncConditionEntity$outboundSchema).optional(),
+  components: z.nullable(NullableNuncComponentEntity$outboundSchema).optional(),
+  componentGroups: z.nullable(NullableNuncComponentGroupEntity$outboundSchema)
+    .optional(),
+  logo: z.nullable(NullableMediaImageEntity$outboundSchema).optional(),
+  coverImage: z.nullable(NullableMediaImageEntity$outboundSchema).optional(),
+  favicon: z.nullable(NullableMediaImageEntity$outboundSchema).optional(),
+  openGraphImage: z.nullable(NullableMediaImageEntity$outboundSchema)
+    .optional(),
+  darkLogo: z.nullable(NullableMediaImageEntity$outboundSchema).optional(),
+  enableHistogram: z.nullable(z.boolean()).optional(),
+  uiVersion: z.nullable(z.number().int()).optional(),
+  links: z.nullable(z.array(LinksEntity$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",

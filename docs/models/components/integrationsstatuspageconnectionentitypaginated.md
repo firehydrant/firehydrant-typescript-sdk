@@ -5,7 +5,7 @@ Integrations_Statuspage_ConnectionEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IntegrationsStatuspageConnectionEntityPaginated } from "firehydrant-typescript-sdk/models/components";
+import { IntegrationsStatuspageConnectionEntityPaginated } from "firehydrant/models/components";
 
 let value: IntegrationsStatuspageConnectionEntityPaginated = {};
 ```
@@ -15,4 +15,4 @@ let value: IntegrationsStatuspageConnectionEntityPaginated = {};
 | Field                                                                                                                    | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
 | `data`                                                                                                                   | [components.IntegrationsStatuspageConnectionEntity](../../models/components/integrationsstatuspageconnectionentity.md)[] | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
-| `pagination`                                                                                                             | [components.PaginationEntity](../../models/components/paginationentity.md)                                               | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `pagination`                                                                                                             | [components.NullablePaginationEntity](../../models/components/nullablepaginationentity.md)                               | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |

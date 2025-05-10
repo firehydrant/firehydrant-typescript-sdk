@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateRunbookExecutionStepRequest = {
   executionId: string;
   stepId: string;
-  putV1RunbooksExecutionsExecutionIdStepsStepId:
-    components.PutV1RunbooksExecutionsExecutionIdStepsStepId;
+  updateRunbookExecutionStep: components.UpdateRunbookExecutionStep;
 };
 
 /** @internal */
@@ -24,12 +23,14 @@ export const UpdateRunbookExecutionStepRequest$inboundSchema: z.ZodType<
 > = z.object({
   execution_id: z.string(),
   step_id: z.string(),
-  putV1RunbooksExecutionsExecutionIdStepsStepId:
-    components.PutV1RunbooksExecutionsExecutionIdStepsStepId$inboundSchema,
+  update_runbook_execution_step: z.lazy(() =>
+    components.UpdateRunbookExecutionStep$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "execution_id": "executionId",
     "step_id": "stepId",
+    "update_runbook_execution_step": "updateRunbookExecutionStep",
   });
 });
 
@@ -37,8 +38,7 @@ export const UpdateRunbookExecutionStepRequest$inboundSchema: z.ZodType<
 export type UpdateRunbookExecutionStepRequest$Outbound = {
   execution_id: string;
   step_id: string;
-  putV1RunbooksExecutionsExecutionIdStepsStepId:
-    components.PutV1RunbooksExecutionsExecutionIdStepsStepId$Outbound;
+  update_runbook_execution_step: components.UpdateRunbookExecutionStep$Outbound;
 };
 
 /** @internal */
@@ -49,12 +49,14 @@ export const UpdateRunbookExecutionStepRequest$outboundSchema: z.ZodType<
 > = z.object({
   executionId: z.string(),
   stepId: z.string(),
-  putV1RunbooksExecutionsExecutionIdStepsStepId:
-    components.PutV1RunbooksExecutionsExecutionIdStepsStepId$outboundSchema,
+  updateRunbookExecutionStep: z.lazy(() =>
+    components.UpdateRunbookExecutionStep$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     executionId: "execution_id",
     stepId: "step_id",
+    updateRunbookExecutionStep: "update_runbook_execution_step",
   });
 });
 

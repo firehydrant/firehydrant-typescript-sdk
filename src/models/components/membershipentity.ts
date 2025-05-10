@@ -8,41 +8,35 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IncidentRoleEntity,
-  IncidentRoleEntity$inboundSchema,
-  IncidentRoleEntity$Outbound,
-  IncidentRoleEntity$outboundSchema,
-} from "./incidentroleentity.js";
+  NullableIncidentRoleEntity,
+  NullableIncidentRoleEntity$inboundSchema,
+  NullableIncidentRoleEntity$Outbound,
+  NullableIncidentRoleEntity$outboundSchema,
+} from "./nullableincidentroleentity.js";
 import {
-  ScheduleEntity,
-  ScheduleEntity$inboundSchema,
-  ScheduleEntity$Outbound,
-  ScheduleEntity$outboundSchema,
-} from "./scheduleentity.js";
+  NullableScheduleEntity,
+  NullableScheduleEntity$inboundSchema,
+  NullableScheduleEntity$Outbound,
+  NullableScheduleEntity$outboundSchema,
+} from "./nullablescheduleentity.js";
 import {
-  SuccinctEntity,
-  SuccinctEntity$inboundSchema,
-  SuccinctEntity$Outbound,
-  SuccinctEntity$outboundSchema,
-} from "./succinctentity.js";
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
 import {
-  UserEntity,
-  UserEntity$inboundSchema,
-  UserEntity$Outbound,
-  UserEntity$outboundSchema,
-} from "./userentity.js";
+  NullableUserEntity,
+  NullableUserEntity$inboundSchema,
+  NullableUserEntity$Outbound,
+  NullableUserEntity$outboundSchema,
+} from "./nullableuserentity.js";
 
 export type MembershipEntity = {
-  /**
-   * UserEntity model
-   */
-  user?: UserEntity | undefined;
-  schedule?: ScheduleEntity | undefined;
-  signalsOnCallSchedule?: SuccinctEntity | undefined;
-  /**
-   * IncidentRoleEntity model
-   */
-  defaultIncidentRole?: IncidentRoleEntity | undefined;
+  user?: NullableUserEntity | null | undefined;
+  schedule?: NullableScheduleEntity | null | undefined;
+  signalsOnCallSchedule?: NullableSuccinctEntity | null | undefined;
+  defaultIncidentRole?: NullableIncidentRoleEntity | null | undefined;
 };
 
 /** @internal */
@@ -51,10 +45,12 @@ export const MembershipEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  user: UserEntity$inboundSchema.optional(),
-  schedule: ScheduleEntity$inboundSchema.optional(),
-  signals_on_call_schedule: SuccinctEntity$inboundSchema.optional(),
-  default_incident_role: IncidentRoleEntity$inboundSchema.optional(),
+  user: z.nullable(NullableUserEntity$inboundSchema).optional(),
+  schedule: z.nullable(NullableScheduleEntity$inboundSchema).optional(),
+  signals_on_call_schedule: z.nullable(NullableSuccinctEntity$inboundSchema)
+    .optional(),
+  default_incident_role: z.nullable(NullableIncidentRoleEntity$inboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "signals_on_call_schedule": "signalsOnCallSchedule",
@@ -64,10 +60,13 @@ export const MembershipEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type MembershipEntity$Outbound = {
-  user?: UserEntity$Outbound | undefined;
-  schedule?: ScheduleEntity$Outbound | undefined;
-  signals_on_call_schedule?: SuccinctEntity$Outbound | undefined;
-  default_incident_role?: IncidentRoleEntity$Outbound | undefined;
+  user?: NullableUserEntity$Outbound | null | undefined;
+  schedule?: NullableScheduleEntity$Outbound | null | undefined;
+  signals_on_call_schedule?: NullableSuccinctEntity$Outbound | null | undefined;
+  default_incident_role?:
+    | NullableIncidentRoleEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -76,10 +75,12 @@ export const MembershipEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MembershipEntity
 > = z.object({
-  user: UserEntity$outboundSchema.optional(),
-  schedule: ScheduleEntity$outboundSchema.optional(),
-  signalsOnCallSchedule: SuccinctEntity$outboundSchema.optional(),
-  defaultIncidentRole: IncidentRoleEntity$outboundSchema.optional(),
+  user: z.nullable(NullableUserEntity$outboundSchema).optional(),
+  schedule: z.nullable(NullableScheduleEntity$outboundSchema).optional(),
+  signalsOnCallSchedule: z.nullable(NullableSuccinctEntity$outboundSchema)
+    .optional(),
+  defaultIncidentRole: z.nullable(NullableIncidentRoleEntity$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     signalsOnCallSchedule: "signals_on_call_schedule",

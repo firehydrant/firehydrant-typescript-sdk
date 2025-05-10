@@ -1,0 +1,24 @@
+# NullableSlimRunbookEntity
+
+## Example Usage
+
+```typescript
+import { NullableSlimRunbookEntity } from "firehydrant/models/components";
+
+let value: NullableSlimRunbookEntity = {};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `name`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `summary`                                                                                     | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `description`                                                                                 | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `type`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `attachmentRule`                                                                              | [components.NullableRulesRuleEntity](../../models/components/nullablerulesruleentity.md)      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `owner`                                                                                       | [components.NullableTeamEntityLite](../../models/components/nullableteamentitylite.md)        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `categories`                                                                                  | *string*[]                                                                                    | :heavy_minus_sign:                                                                            | categories the runbook applies to                                                             |

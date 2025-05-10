@@ -1,5 +1,0 @@
-# FirehydrantTypescriptSDK
-
-## Overview
-
-### Available Operations

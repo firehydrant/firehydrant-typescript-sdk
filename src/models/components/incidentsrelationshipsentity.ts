@@ -7,6 +7,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  NullablePublicApiv1IncidentsSuccinctEntity,
+  NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema,
+  NullablePublicApiv1IncidentsSuccinctEntity$Outbound,
+  NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema,
+} from "./nullablepublicapiv1incidentssuccinctentity.js";
+import {
   PublicApiv1IncidentsSuccinctEntity,
   PublicApiv1IncidentsSuccinctEntity$inboundSchema,
   PublicApiv1IncidentsSuccinctEntity$Outbound,
@@ -17,15 +23,15 @@ import {
  * Incidents_RelationshipsEntity model
  */
 export type IncidentsRelationshipsEntity = {
-  parent?: PublicApiv1IncidentsSuccinctEntity | undefined;
+  parent?: NullablePublicApiv1IncidentsSuccinctEntity | null | undefined;
   /**
    * The root incident's child incidents.
    */
-  children?: Array<PublicApiv1IncidentsSuccinctEntity> | undefined;
+  children?: Array<PublicApiv1IncidentsSuccinctEntity> | null | undefined;
   /**
    * A list of incidents that share the root incident's parent.
    */
-  siblings?: Array<PublicApiv1IncidentsSuccinctEntity> | undefined;
+  siblings?: Array<PublicApiv1IncidentsSuccinctEntity> | null | undefined;
 };
 
 /** @internal */
@@ -34,18 +40,30 @@ export const IncidentsRelationshipsEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  parent: PublicApiv1IncidentsSuccinctEntity$inboundSchema.optional(),
-  children: z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema)
+  parent: z.nullable(NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema)
     .optional(),
-  siblings: z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema)
-    .optional(),
+  children: z.nullable(
+    z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema),
+  ).optional(),
+  siblings: z.nullable(
+    z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema),
+  ).optional(),
 });
 
 /** @internal */
 export type IncidentsRelationshipsEntity$Outbound = {
-  parent?: PublicApiv1IncidentsSuccinctEntity$Outbound | undefined;
-  children?: Array<PublicApiv1IncidentsSuccinctEntity$Outbound> | undefined;
-  siblings?: Array<PublicApiv1IncidentsSuccinctEntity$Outbound> | undefined;
+  parent?:
+    | NullablePublicApiv1IncidentsSuccinctEntity$Outbound
+    | null
+    | undefined;
+  children?:
+    | Array<PublicApiv1IncidentsSuccinctEntity$Outbound>
+    | null
+    | undefined;
+  siblings?:
+    | Array<PublicApiv1IncidentsSuccinctEntity$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -54,11 +72,14 @@ export const IncidentsRelationshipsEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsRelationshipsEntity
 > = z.object({
-  parent: PublicApiv1IncidentsSuccinctEntity$outboundSchema.optional(),
-  children: z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema)
+  parent: z.nullable(NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema)
     .optional(),
-  siblings: z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema)
-    .optional(),
+  children: z.nullable(
+    z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema),
+  ).optional(),
+  siblings: z.nullable(
+    z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema),
+  ).optional(),
 });
 
 /**

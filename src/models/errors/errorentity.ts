@@ -16,32 +16,32 @@ export type Meta = {};
  * ErrorEntity model
  */
 export type ErrorEntityData = {
-  detail?: string | undefined;
-  messages?: Array<string> | undefined;
+  detail?: string | null | undefined;
+  messages?: Array<string> | null | undefined;
   /**
    * An object with additional error metadata
    */
-  meta?: Meta | undefined;
+  meta?: Meta | null | undefined;
   /**
    * A stable code on which to match errors
    */
-  code?: string | undefined;
+  code?: string | null | undefined;
 };
 
 /**
  * ErrorEntity model
  */
 export class ErrorEntity extends Error {
-  detail?: string | undefined;
-  messages?: Array<string> | undefined;
+  detail?: string | null | undefined;
+  messages?: Array<string> | null | undefined;
   /**
    * An object with additional error metadata
    */
-  meta?: Meta | undefined;
+  meta?: Meta | null | undefined;
   /**
    * A stable code on which to match errors
    */
-  code?: string | undefined;
+  code?: string | null | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: ErrorEntityData;
@@ -106,10 +106,10 @@ export const ErrorEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  detail: z.string().optional(),
-  messages: z.array(z.string()).optional(),
-  meta: z.lazy(() => Meta$inboundSchema).optional(),
-  code: z.string().optional(),
+  detail: z.nullable(z.string()).optional(),
+  messages: z.nullable(z.array(z.string())).optional(),
+  meta: z.nullable(z.lazy(() => Meta$inboundSchema)).optional(),
+  code: z.nullable(z.string()).optional(),
 })
   .transform((v) => {
     return new ErrorEntity(v);
@@ -117,10 +117,10 @@ export const ErrorEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ErrorEntity$Outbound = {
-  detail?: string | undefined;
-  messages?: Array<string> | undefined;
-  meta?: Meta$Outbound | undefined;
-  code?: string | undefined;
+  detail?: string | null | undefined;
+  messages?: Array<string> | null | undefined;
+  meta?: Meta$Outbound | null | undefined;
+  code?: string | null | undefined;
 };
 
 /** @internal */
@@ -131,10 +131,10 @@ export const ErrorEntity$outboundSchema: z.ZodType<
 > = z.instanceof(ErrorEntity)
   .transform(v => v.data$)
   .pipe(z.object({
-    detail: z.string().optional(),
-    messages: z.array(z.string()).optional(),
-    meta: z.lazy(() => Meta$outboundSchema).optional(),
-    code: z.string().optional(),
+    detail: z.nullable(z.string()).optional(),
+    messages: z.nullable(z.array(z.string())).optional(),
+    meta: z.nullable(z.lazy(() => Meta$outboundSchema)).optional(),
+    code: z.nullable(z.string()).optional(),
   }));
 
 /**

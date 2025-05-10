@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ImportsImportErrorEntityResourceEntity,
-  ImportsImportErrorEntityResourceEntity$inboundSchema,
-  ImportsImportErrorEntityResourceEntity$Outbound,
-  ImportsImportErrorEntityResourceEntity$outboundSchema,
-} from "./importsimporterrorentityresourceentity.js";
+  NullableImportsImportErrorEntityResourceEntity,
+  NullableImportsImportErrorEntityResourceEntity$inboundSchema,
+  NullableImportsImportErrorEntityResourceEntity$Outbound,
+  NullableImportsImportErrorEntityResourceEntity$outboundSchema,
+} from "./nullableimportsimporterrorentityresourceentity.js";
 
 /**
  * Additional error data
@@ -20,14 +20,14 @@ import {
 export type ImportsImportErrorEntityData = {};
 
 export type ImportsImportErrorEntity = {
-  id?: string | undefined;
-  message?: string | undefined;
-  createdAt?: Date | undefined;
+  id?: string | null | undefined;
+  message?: string | null | undefined;
+  createdAt?: Date | null | undefined;
   /**
    * Additional error data
    */
-  data?: ImportsImportErrorEntityData | undefined;
-  resource?: ImportsImportErrorEntityResourceEntity | undefined;
+  data?: ImportsImportErrorEntityData | null | undefined;
+  resource?: NullableImportsImportErrorEntityResourceEntity | null | undefined;
 };
 
 /** @internal */
@@ -86,12 +86,16 @@ export const ImportsImportErrorEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  message: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  message: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  data: z.nullable(z.lazy(() => ImportsImportErrorEntityData$inboundSchema))
     .optional(),
-  data: z.lazy(() => ImportsImportErrorEntityData$inboundSchema).optional(),
-  resource: ImportsImportErrorEntityResourceEntity$inboundSchema.optional(),
+  resource: z.nullable(
+    NullableImportsImportErrorEntityResourceEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -100,11 +104,14 @@ export const ImportsImportErrorEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ImportsImportErrorEntity$Outbound = {
-  id?: string | undefined;
-  message?: string | undefined;
-  created_at?: string | undefined;
-  data?: ImportsImportErrorEntityData$Outbound | undefined;
-  resource?: ImportsImportErrorEntityResourceEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  message?: string | null | undefined;
+  created_at?: string | null | undefined;
+  data?: ImportsImportErrorEntityData$Outbound | null | undefined;
+  resource?:
+    | NullableImportsImportErrorEntityResourceEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -113,11 +120,14 @@ export const ImportsImportErrorEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ImportsImportErrorEntity
 > = z.object({
-  id: z.string().optional(),
-  message: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  data: z.lazy(() => ImportsImportErrorEntityData$outboundSchema).optional(),
-  resource: ImportsImportErrorEntityResourceEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  message: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  data: z.nullable(z.lazy(() => ImportsImportErrorEntityData$outboundSchema))
+    .optional(),
+  resource: z.nullable(
+    NullableImportsImportErrorEntityResourceEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

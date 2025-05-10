@@ -7,26 +7,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  SeverityMatrixConditionEntity,
-  SeverityMatrixConditionEntity$inboundSchema,
-  SeverityMatrixConditionEntity$Outbound,
-  SeverityMatrixConditionEntity$outboundSchema,
-} from "./severitymatrixconditionentity.js";
+  NullableSeverityMatrixConditionEntity,
+  NullableSeverityMatrixConditionEntity$inboundSchema,
+  NullableSeverityMatrixConditionEntity$Outbound,
+  NullableSeverityMatrixConditionEntity$outboundSchema,
+} from "./nullableseveritymatrixconditionentity.js";
 import {
-  SuccinctEntity,
-  SuccinctEntity$inboundSchema,
-  SuccinctEntity$Outbound,
-  SuccinctEntity$outboundSchema,
-} from "./succinctentity.js";
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
 
 export type ScheduledMaintenancesImpactEntity = {
-  id?: string | undefined;
-  type?: string | undefined;
-  impact?: SuccinctEntity | undefined;
-  /**
-   * SeverityMatrix_ConditionEntity model
-   */
-  condition?: SeverityMatrixConditionEntity | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  impact?: NullableSuccinctEntity | null | undefined;
+  condition?: NullableSeverityMatrixConditionEntity | null | undefined;
 };
 
 /** @internal */
@@ -35,18 +32,19 @@ export const ScheduledMaintenancesImpactEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  impact: SuccinctEntity$inboundSchema.optional(),
-  condition: SeverityMatrixConditionEntity$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  impact: z.nullable(NullableSuccinctEntity$inboundSchema).optional(),
+  condition: z.nullable(NullableSeverityMatrixConditionEntity$inboundSchema)
+    .optional(),
 });
 
 /** @internal */
 export type ScheduledMaintenancesImpactEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  impact?: SuccinctEntity$Outbound | undefined;
-  condition?: SeverityMatrixConditionEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  impact?: NullableSuccinctEntity$Outbound | null | undefined;
+  condition?: NullableSeverityMatrixConditionEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -55,10 +53,11 @@ export const ScheduledMaintenancesImpactEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ScheduledMaintenancesImpactEntity
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  impact: SuccinctEntity$outboundSchema.optional(),
-  condition: SeverityMatrixConditionEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  impact: z.nullable(NullableSuccinctEntity$outboundSchema).optional(),
+  condition: z.nullable(NullableSeverityMatrixConditionEntity$outboundSchema)
+    .optional(),
 });
 
 /**

@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateTeamSignalRuleRequest = {
   teamId: string;
   id: string;
-  patchV1TeamsTeamIdSignalRulesId: components.PatchV1TeamsTeamIdSignalRulesId;
+  updateTeamSignalRule: components.UpdateTeamSignalRule;
 };
 
 /** @internal */
@@ -23,11 +23,13 @@ export const UpdateTeamSignalRuleRequest$inboundSchema: z.ZodType<
 > = z.object({
   team_id: z.string(),
   id: z.string(),
-  patchV1TeamsTeamIdSignalRulesId:
-    components.PatchV1TeamsTeamIdSignalRulesId$inboundSchema,
+  update_team_signal_rule: z.lazy(() =>
+    components.UpdateTeamSignalRule$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "update_team_signal_rule": "updateTeamSignalRule",
   });
 });
 
@@ -35,8 +37,7 @@ export const UpdateTeamSignalRuleRequest$inboundSchema: z.ZodType<
 export type UpdateTeamSignalRuleRequest$Outbound = {
   team_id: string;
   id: string;
-  patchV1TeamsTeamIdSignalRulesId:
-    components.PatchV1TeamsTeamIdSignalRulesId$Outbound;
+  update_team_signal_rule: components.UpdateTeamSignalRule$Outbound;
 };
 
 /** @internal */
@@ -47,11 +48,13 @@ export const UpdateTeamSignalRuleRequest$outboundSchema: z.ZodType<
 > = z.object({
   teamId: z.string(),
   id: z.string(),
-  patchV1TeamsTeamIdSignalRulesId:
-    components.PatchV1TeamsTeamIdSignalRulesId$outboundSchema,
+  updateTeamSignalRule: z.lazy(() =>
+    components.UpdateTeamSignalRule$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    updateTeamSignalRule: "update_team_signal_rule",
   });
 });
 

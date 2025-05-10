@@ -3,75 +3,84 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type UpdateAwsCloudTrailBatchRequest = {
+export type UpdateAwsCloudtrailBatchRequest = {
   id: string;
-  patchV1IntegrationsAwsCloudtrailBatchesId:
-    components.PatchV1IntegrationsAwsCloudtrailBatchesId;
+  updateAwsCloudtrailBatch: components.UpdateAwsCloudtrailBatch;
 };
 
 /** @internal */
-export const UpdateAwsCloudTrailBatchRequest$inboundSchema: z.ZodType<
-  UpdateAwsCloudTrailBatchRequest,
+export const UpdateAwsCloudtrailBatchRequest$inboundSchema: z.ZodType<
+  UpdateAwsCloudtrailBatchRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string(),
-  patchV1IntegrationsAwsCloudtrailBatchesId:
-    components.PatchV1IntegrationsAwsCloudtrailBatchesId$inboundSchema,
+  update_aws_cloudtrail_batch: z.lazy(() =>
+    components.UpdateAwsCloudtrailBatch$inboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    "update_aws_cloudtrail_batch": "updateAwsCloudtrailBatch",
+  });
 });
 
 /** @internal */
-export type UpdateAwsCloudTrailBatchRequest$Outbound = {
+export type UpdateAwsCloudtrailBatchRequest$Outbound = {
   id: string;
-  patchV1IntegrationsAwsCloudtrailBatchesId:
-    components.PatchV1IntegrationsAwsCloudtrailBatchesId$Outbound;
+  update_aws_cloudtrail_batch: components.UpdateAwsCloudtrailBatch$Outbound;
 };
 
 /** @internal */
-export const UpdateAwsCloudTrailBatchRequest$outboundSchema: z.ZodType<
-  UpdateAwsCloudTrailBatchRequest$Outbound,
+export const UpdateAwsCloudtrailBatchRequest$outboundSchema: z.ZodType<
+  UpdateAwsCloudtrailBatchRequest$Outbound,
   z.ZodTypeDef,
-  UpdateAwsCloudTrailBatchRequest
+  UpdateAwsCloudtrailBatchRequest
 > = z.object({
   id: z.string(),
-  patchV1IntegrationsAwsCloudtrailBatchesId:
-    components.PatchV1IntegrationsAwsCloudtrailBatchesId$outboundSchema,
+  updateAwsCloudtrailBatch: z.lazy(() =>
+    components.UpdateAwsCloudtrailBatch$outboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    updateAwsCloudtrailBatch: "update_aws_cloudtrail_batch",
+  });
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace UpdateAwsCloudTrailBatchRequest$ {
-  /** @deprecated use `UpdateAwsCloudTrailBatchRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateAwsCloudTrailBatchRequest$inboundSchema;
-  /** @deprecated use `UpdateAwsCloudTrailBatchRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateAwsCloudTrailBatchRequest$outboundSchema;
-  /** @deprecated use `UpdateAwsCloudTrailBatchRequest$Outbound` instead. */
-  export type Outbound = UpdateAwsCloudTrailBatchRequest$Outbound;
+export namespace UpdateAwsCloudtrailBatchRequest$ {
+  /** @deprecated use `UpdateAwsCloudtrailBatchRequest$inboundSchema` instead. */
+  export const inboundSchema = UpdateAwsCloudtrailBatchRequest$inboundSchema;
+  /** @deprecated use `UpdateAwsCloudtrailBatchRequest$outboundSchema` instead. */
+  export const outboundSchema = UpdateAwsCloudtrailBatchRequest$outboundSchema;
+  /** @deprecated use `UpdateAwsCloudtrailBatchRequest$Outbound` instead. */
+  export type Outbound = UpdateAwsCloudtrailBatchRequest$Outbound;
 }
 
-export function updateAwsCloudTrailBatchRequestToJSON(
-  updateAwsCloudTrailBatchRequest: UpdateAwsCloudTrailBatchRequest,
+export function updateAwsCloudtrailBatchRequestToJSON(
+  updateAwsCloudtrailBatchRequest: UpdateAwsCloudtrailBatchRequest,
 ): string {
   return JSON.stringify(
-    UpdateAwsCloudTrailBatchRequest$outboundSchema.parse(
-      updateAwsCloudTrailBatchRequest,
+    UpdateAwsCloudtrailBatchRequest$outboundSchema.parse(
+      updateAwsCloudtrailBatchRequest,
     ),
   );
 }
 
-export function updateAwsCloudTrailBatchRequestFromJSON(
+export function updateAwsCloudtrailBatchRequestFromJSON(
   jsonString: string,
-): SafeParseResult<UpdateAwsCloudTrailBatchRequest, SDKValidationError> {
+): SafeParseResult<UpdateAwsCloudtrailBatchRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => UpdateAwsCloudTrailBatchRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UpdateAwsCloudTrailBatchRequest' from JSON`,
+    (x) => UpdateAwsCloudtrailBatchRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateAwsCloudtrailBatchRequest' from JSON`,
   );
 }

@@ -9,18 +9,18 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IncidentsMilestoneEntity = {
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * The milestone's type. This will be one of the currently configured milestones for the given incident.
    */
-  type?: string | undefined;
+  type?: string | null | undefined;
   /**
    * How long the incident spent in this milestones, in ISO 8601 Duration Format. This will be null if the milestone is the incident's current milestone.
    */
-  duration?: string | undefined;
-  occurredAt?: Date | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  duration?: string | null | undefined;
+  occurredAt?: Date | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -29,15 +29,18 @@ export const IncidentsMilestoneEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  duration: z.string().optional(),
-  occurred_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  duration: z.nullable(z.string()).optional(),
+  occurred_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "occurred_at": "occurredAt",
@@ -48,12 +51,12 @@ export const IncidentsMilestoneEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsMilestoneEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  duration?: string | undefined;
-  occurred_at?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  duration?: string | null | undefined;
+  occurred_at?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -62,12 +65,12 @@ export const IncidentsMilestoneEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsMilestoneEntity
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  duration: z.string().optional(),
-  occurredAt: z.date().transform(v => v.toISOString()).optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  duration: z.nullable(z.string()).optional(),
+  occurredAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     occurredAt: "occurred_at",

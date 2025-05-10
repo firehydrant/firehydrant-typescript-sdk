@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { GetSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetSavedSearchRequest } from "firehydrant/models/operations";
 
 let value: GetSavedSearchRequest = {
-  resourceType: "incidents",
+  resourceType: "ticket_follow_ups",
   savedSearchId: "<id>",
 };
 ```
 
 ## Fields
 
-| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `resourceType`                                                                                                   | [operations.GetSavedSearchPathParamResourceType](../../models/operations/getsavedsearchpathparamresourcetype.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `savedSearchId`                                                                                                  | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `resourceType`                                                                                 | [operations.GetSavedSearchResourceType](../../models/operations/getsavedsearchresourcetype.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `savedSearchId`                                                                                | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |

@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateTeamEscalationPolicyRequest } from "firehydrant/models/operations";
 
 let value: CreateTeamEscalationPolicyRequest = {
   teamId: "<id>",
-  postV1TeamsTeamIdEscalationPolicies: {
+  createTeamEscalationPolicy: {
     name: "<value>",
     steps: [
       {
         targets: [
           {
-            type: "SlackChannel",
+            type: "User",
             id: "<id>",
           },
         ],
@@ -26,7 +26,7 @@ let value: CreateTeamEscalationPolicyRequest = {
 
 ## Fields
 
-| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `teamId`                                                                                                         | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `postV1TeamsTeamIdEscalationPolicies`                                                                            | [components.PostV1TeamsTeamIdEscalationPolicies](../../models/components/postv1teamsteamidescalationpolicies.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `teamId`                                                                                       | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `createTeamEscalationPolicy`                                                                   | [components.CreateTeamEscalationPolicy](../../models/components/createteamescalationpolicy.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

@@ -8,10 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ScheduleEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  integration?: string | undefined;
-  discarded?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  integration?: string | null | undefined;
+  discarded?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -20,18 +20,18 @@ export const ScheduleEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  integration: z.string().optional(),
-  discarded: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  integration: z.nullable(z.string()).optional(),
+  discarded: z.nullable(z.boolean()).optional(),
 });
 
 /** @internal */
 export type ScheduleEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  integration?: string | undefined;
-  discarded?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  integration?: string | null | undefined;
+  discarded?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -40,10 +40,10 @@ export const ScheduleEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ScheduleEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  integration: z.string().optional(),
-  discarded: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  integration: z.nullable(z.string()).optional(),
+  discarded: z.nullable(z.boolean()).optional(),
 });
 
 /**

@@ -5,7 +5,7 @@ PublicAPI_V1_Incidents_TranscriptEntity model
 ## Example Usage
 
 ```typescript
-import { PublicApiv1IncidentsTranscriptEntity } from "firehydrant-typescript-sdk/models/components";
+import { PublicApiv1IncidentsTranscriptEntity } from "firehydrant/models/components";
 
 let value: PublicApiv1IncidentsTranscriptEntity = {};
 ```
@@ -21,3 +21,4 @@ let value: PublicApiv1IncidentsTranscriptEntity = {};
 | `words`                                                                                       | *string*                                                                                      | :heavy_minus_sign:                                                                            | The words spoken for the transcript entry                                                     |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The time the transcript entry was created                                                     |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The time the transcript entry was last updated                                                |
+| `author`                                                                                      | [components.NullableAuthorEntity](../../models/components/nullableauthorentity.md)            | :heavy_minus_sign:                                                                            | N/A                                                                                           |

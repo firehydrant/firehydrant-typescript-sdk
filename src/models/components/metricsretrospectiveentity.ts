@@ -13,18 +13,18 @@ import {
   MetricsRetrospectiveEntityDataEntity$outboundSchema,
 } from "./metricsretrospectiveentitydataentity.js";
 import {
-  MetricsRetrospectiveEntitySummaryEntity,
-  MetricsRetrospectiveEntitySummaryEntity$inboundSchema,
-  MetricsRetrospectiveEntitySummaryEntity$Outbound,
-  MetricsRetrospectiveEntitySummaryEntity$outboundSchema,
-} from "./metricsretrospectiveentitysummaryentity.js";
+  NullableMetricsRetrospectiveEntitySummaryEntity,
+  NullableMetricsRetrospectiveEntitySummaryEntity$inboundSchema,
+  NullableMetricsRetrospectiveEntitySummaryEntity$Outbound,
+  NullableMetricsRetrospectiveEntitySummaryEntity$outboundSchema,
+} from "./nullablemetricsretrospectiveentitysummaryentity.js";
 
 /**
  * Metrics_RetrospectiveEntity model
  */
 export type MetricsRetrospectiveEntity = {
-  data?: Array<MetricsRetrospectiveEntityDataEntity> | undefined;
-  summary?: MetricsRetrospectiveEntitySummaryEntity | undefined;
+  data?: Array<MetricsRetrospectiveEntityDataEntity> | null | undefined;
+  summary?: NullableMetricsRetrospectiveEntitySummaryEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,23 @@ export const MetricsRetrospectiveEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(MetricsRetrospectiveEntityDataEntity$inboundSchema).optional(),
-  summary: MetricsRetrospectiveEntitySummaryEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(MetricsRetrospectiveEntityDataEntity$inboundSchema))
+    .optional(),
+  summary: z.nullable(
+    NullableMetricsRetrospectiveEntitySummaryEntity$inboundSchema,
+  ).optional(),
 });
 
 /** @internal */
 export type MetricsRetrospectiveEntity$Outbound = {
-  data?: Array<MetricsRetrospectiveEntityDataEntity$Outbound> | undefined;
-  summary?: MetricsRetrospectiveEntitySummaryEntity$Outbound | undefined;
+  data?:
+    | Array<MetricsRetrospectiveEntityDataEntity$Outbound>
+    | null
+    | undefined;
+  summary?:
+    | NullableMetricsRetrospectiveEntitySummaryEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -49,8 +58,11 @@ export const MetricsRetrospectiveEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MetricsRetrospectiveEntity
 > = z.object({
-  data: z.array(MetricsRetrospectiveEntityDataEntity$outboundSchema).optional(),
-  summary: MetricsRetrospectiveEntitySummaryEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(MetricsRetrospectiveEntityDataEntity$outboundSchema))
+    .optional(),
+  summary: z.nullable(
+    NullableMetricsRetrospectiveEntitySummaryEntity$outboundSchema,
+  ).optional(),
 });
 
 /**

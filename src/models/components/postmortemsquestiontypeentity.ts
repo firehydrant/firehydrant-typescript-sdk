@@ -12,12 +12,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * PostMortems_QuestionTypeEntity model
  */
 export type PostMortemsQuestionTypeEntity = {
-  id?: string | undefined;
-  title?: string | undefined;
-  tooltip?: string | undefined;
-  kind?: string | undefined;
-  isRequired?: boolean | undefined;
-  availableOptions?: Array<string> | undefined;
+  id?: string | null | undefined;
+  title?: string | null | undefined;
+  tooltip?: string | null | undefined;
+  kind?: string | null | undefined;
+  isRequired?: boolean | null | undefined;
+  availableOptions?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -26,12 +26,12 @@ export const PostMortemsQuestionTypeEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  title: z.string().optional(),
-  tooltip: z.string().optional(),
-  kind: z.string().optional(),
-  is_required: z.boolean().optional(),
-  available_options: z.array(z.string()).optional(),
+  id: z.nullable(z.string()).optional(),
+  title: z.nullable(z.string()).optional(),
+  tooltip: z.nullable(z.string()).optional(),
+  kind: z.nullable(z.string()).optional(),
+  is_required: z.nullable(z.boolean()).optional(),
+  available_options: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "is_required": "isRequired",
@@ -41,12 +41,12 @@ export const PostMortemsQuestionTypeEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type PostMortemsQuestionTypeEntity$Outbound = {
-  id?: string | undefined;
-  title?: string | undefined;
-  tooltip?: string | undefined;
-  kind?: string | undefined;
-  is_required?: boolean | undefined;
-  available_options?: Array<string> | undefined;
+  id?: string | null | undefined;
+  title?: string | null | undefined;
+  tooltip?: string | null | undefined;
+  kind?: string | null | undefined;
+  is_required?: boolean | null | undefined;
+  available_options?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -55,12 +55,12 @@ export const PostMortemsQuestionTypeEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PostMortemsQuestionTypeEntity
 > = z.object({
-  id: z.string().optional(),
-  title: z.string().optional(),
-  tooltip: z.string().optional(),
-  kind: z.string().optional(),
-  isRequired: z.boolean().optional(),
-  availableOptions: z.array(z.string()).optional(),
+  id: z.nullable(z.string()).optional(),
+  title: z.nullable(z.string()).optional(),
+  tooltip: z.nullable(z.string()).optional(),
+  kind: z.nullable(z.string()).optional(),
+  isRequired: z.nullable(z.boolean()).optional(),
+  availableOptions: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     isRequired: "is_required",

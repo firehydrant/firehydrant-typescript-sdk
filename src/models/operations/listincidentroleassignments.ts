@@ -26,7 +26,7 @@ export type ListIncidentRoleAssignmentsRequest = {
   /**
    * Filter on status of the role assignment
    */
-  status?: Status | undefined;
+  status?: Status | null | undefined;
 };
 
 /** @internal */
@@ -55,7 +55,7 @@ export const ListIncidentRoleAssignmentsRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  status: Status$inboundSchema.optional(),
+  status: z.nullable(Status$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
@@ -65,7 +65,7 @@ export const ListIncidentRoleAssignmentsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListIncidentRoleAssignmentsRequest$Outbound = {
   incident_id: string;
-  status?: string | undefined;
+  status?: string | null | undefined;
 };
 
 /** @internal */
@@ -75,7 +75,7 @@ export const ListIncidentRoleAssignmentsRequest$outboundSchema: z.ZodType<
   ListIncidentRoleAssignmentsRequest
 > = z.object({
   incidentId: z.string(),
-  status: Status$outboundSchema.optional(),
+  status: z.nullable(Status$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",

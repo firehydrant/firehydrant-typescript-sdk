@@ -14,8 +14,7 @@ export type UpdateStatuspageConnectionRequest = {
    * Connection UUID
    */
   connectionId: string;
-  patchV1IntegrationsStatuspageConnectionsConnectionId:
-    components.PatchV1IntegrationsStatuspageConnectionsConnectionId;
+  updateStatuspageConnection: components.UpdateStatuspageConnection;
 };
 
 /** @internal */
@@ -25,20 +24,20 @@ export const UpdateStatuspageConnectionRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   connection_id: z.string(),
-  patchV1IntegrationsStatuspageConnectionsConnectionId:
-    components
-      .PatchV1IntegrationsStatuspageConnectionsConnectionId$inboundSchema,
+  update_statuspage_connection: z.lazy(() =>
+    components.UpdateStatuspageConnection$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "connection_id": "connectionId",
+    "update_statuspage_connection": "updateStatuspageConnection",
   });
 });
 
 /** @internal */
 export type UpdateStatuspageConnectionRequest$Outbound = {
   connection_id: string;
-  patchV1IntegrationsStatuspageConnectionsConnectionId:
-    components.PatchV1IntegrationsStatuspageConnectionsConnectionId$Outbound;
+  update_statuspage_connection: components.UpdateStatuspageConnection$Outbound;
 };
 
 /** @internal */
@@ -48,12 +47,13 @@ export const UpdateStatuspageConnectionRequest$outboundSchema: z.ZodType<
   UpdateStatuspageConnectionRequest
 > = z.object({
   connectionId: z.string(),
-  patchV1IntegrationsStatuspageConnectionsConnectionId:
-    components
-      .PatchV1IntegrationsStatuspageConnectionsConnectionId$outboundSchema,
+  updateStatuspageConnection: z.lazy(() =>
+    components.UpdateStatuspageConnection$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     connectionId: "connection_id",
+    updateStatuspageConnection: "update_statuspage_connection",
   });
 });
 

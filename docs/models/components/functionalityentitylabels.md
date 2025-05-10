@@ -5,7 +5,7 @@ An object of label key and values
 ## Example Usage
 
 ```typescript
-import { FunctionalityEntityLabels } from "firehydrant-typescript-sdk/models/components";
+import { FunctionalityEntityLabels } from "firehydrant/models/components";
 
 let value: FunctionalityEntityLabels = {};
 ```

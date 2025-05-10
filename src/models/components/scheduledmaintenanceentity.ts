@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IncidentEntity,
-  IncidentEntity$inboundSchema,
-  IncidentEntity$Outbound,
-  IncidentEntity$outboundSchema,
-} from "./incidententity.js";
+  NullableIncidentEntity,
+  NullableIncidentEntity$inboundSchema,
+  NullableIncidentEntity$Outbound,
+  NullableIncidentEntity$outboundSchema,
+} from "./nullableincidententity.js";
 import {
   ScheduledMaintenancesImpactEntity,
   ScheduledMaintenancesImpactEntity$inboundSchema,
@@ -35,24 +35,21 @@ export type ScheduledMaintenanceEntityLabels = {};
  * ScheduledMaintenanceEntity model
  */
 export type ScheduledMaintenanceEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  startsAt?: Date | undefined;
-  endsAt?: Date | undefined;
-  /**
-   * IncidentEntity model
-   */
-  incident?: IncidentEntity | undefined;
-  statusPages?: Array<ScheduledMaintenancesStatusPageEntity> | undefined;
-  impacts?: Array<ScheduledMaintenancesImpactEntity> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  startsAt?: Date | null | undefined;
+  endsAt?: Date | null | undefined;
+  incident?: NullableIncidentEntity | null | undefined;
+  statusPages?: Array<ScheduledMaintenancesStatusPageEntity> | null | undefined;
+  impacts?: Array<ScheduledMaintenancesImpactEntity> | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: ScheduledMaintenanceEntityLabels | undefined;
+  labels?: ScheduledMaintenanceEntityLabels | null | undefined;
 };
 
 /** @internal */
@@ -111,24 +108,31 @@ export const ScheduledMaintenanceEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  starts_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  ends_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  incident: z.nullable(NullableIncidentEntity$inboundSchema).optional(),
+  status_pages: z.nullable(
+    z.array(ScheduledMaintenancesStatusPageEntity$inboundSchema),
+  ).optional(),
+  impacts: z.nullable(z.array(ScheduledMaintenancesImpactEntity$inboundSchema))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  starts_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  ends_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  incident: IncidentEntity$inboundSchema.optional(),
-  status_pages: z.array(ScheduledMaintenancesStatusPageEntity$inboundSchema)
-    .optional(),
-  impacts: z.array(ScheduledMaintenancesImpactEntity$inboundSchema).optional(),
-  labels: z.lazy(() => ScheduledMaintenanceEntityLabels$inboundSchema)
-    .optional(),
+  labels: z.nullable(
+    z.lazy(() => ScheduledMaintenanceEntityLabels$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -141,20 +145,24 @@ export const ScheduledMaintenanceEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ScheduledMaintenanceEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  starts_at?: string | undefined;
-  ends_at?: string | undefined;
-  incident?: IncidentEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  starts_at?: string | null | undefined;
+  ends_at?: string | null | undefined;
+  incident?: NullableIncidentEntity$Outbound | null | undefined;
   status_pages?:
     | Array<ScheduledMaintenancesStatusPageEntity$Outbound>
+    | null
     | undefined;
-  impacts?: Array<ScheduledMaintenancesImpactEntity$Outbound> | undefined;
-  labels?: ScheduledMaintenanceEntityLabels$Outbound | undefined;
+  impacts?:
+    | Array<ScheduledMaintenancesImpactEntity$Outbound>
+    | null
+    | undefined;
+  labels?: ScheduledMaintenanceEntityLabels$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -163,20 +171,23 @@ export const ScheduledMaintenanceEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ScheduledMaintenanceEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  startsAt: z.date().transform(v => v.toISOString()).optional(),
-  endsAt: z.date().transform(v => v.toISOString()).optional(),
-  incident: IncidentEntity$outboundSchema.optional(),
-  statusPages: z.array(ScheduledMaintenancesStatusPageEntity$outboundSchema)
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  endsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  incident: z.nullable(NullableIncidentEntity$outboundSchema).optional(),
+  statusPages: z.nullable(
+    z.array(ScheduledMaintenancesStatusPageEntity$outboundSchema),
+  ).optional(),
+  impacts: z.nullable(z.array(ScheduledMaintenancesImpactEntity$outboundSchema))
     .optional(),
-  impacts: z.array(ScheduledMaintenancesImpactEntity$outboundSchema).optional(),
-  labels: z.lazy(() => ScheduledMaintenanceEntityLabels$outboundSchema)
-    .optional(),
+  labels: z.nullable(
+    z.lazy(() => ScheduledMaintenanceEntityLabels$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

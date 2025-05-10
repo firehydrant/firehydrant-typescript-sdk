@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListTicketTagsRequest = {
-  prefix?: string | undefined;
+  prefix?: string | null | undefined;
 };
 
 /** @internal */
@@ -17,12 +17,12 @@ export const ListTicketTagsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  prefix: z.string().optional(),
+  prefix: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type ListTicketTagsRequest$Outbound = {
-  prefix?: string | undefined;
+  prefix?: string | null | undefined;
 };
 
 /** @internal */
@@ -31,7 +31,7 @@ export const ListTicketTagsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListTicketTagsRequest
 > = z.object({
-  prefix: z.string().optional(),
+  prefix: z.nullable(z.string()).optional(),
 });
 
 /**

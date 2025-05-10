@@ -13,18 +13,18 @@ import {
   IntegrationsAwsConnectionEntity$outboundSchema,
 } from "./integrationsawsconnectionentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Integrations_Aws_ConnectionEntityPaginated model
  */
 export type IntegrationsAwsConnectionEntityPaginated = {
-  data?: Array<IntegrationsAwsConnectionEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IntegrationsAwsConnectionEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,15 @@ export const IntegrationsAwsConnectionEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(IntegrationsAwsConnectionEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(IntegrationsAwsConnectionEntity$inboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type IntegrationsAwsConnectionEntityPaginated$Outbound = {
-  data?: Array<IntegrationsAwsConnectionEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<IntegrationsAwsConnectionEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +50,9 @@ export const IntegrationsAwsConnectionEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsAwsConnectionEntityPaginated
 > = z.object({
-  data: z.array(IntegrationsAwsConnectionEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(IntegrationsAwsConnectionEntity$outboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

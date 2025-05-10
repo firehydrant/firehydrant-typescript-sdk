@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateTicketingPriorityRequest = {
   id: string;
-  patchV1TicketingPrioritiesId: components.PatchV1TicketingPrioritiesId;
+  updateTicketingPriority: components.UpdateTicketingPriority;
 };
 
 /** @internal */
@@ -20,15 +21,19 @@ export const UpdateTicketingPriorityRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  patchV1TicketingPrioritiesId:
-    components.PatchV1TicketingPrioritiesId$inboundSchema,
+  update_ticketing_priority: z.lazy(() =>
+    components.UpdateTicketingPriority$inboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    "update_ticketing_priority": "updateTicketingPriority",
+  });
 });
 
 /** @internal */
 export type UpdateTicketingPriorityRequest$Outbound = {
   id: string;
-  patchV1TicketingPrioritiesId:
-    components.PatchV1TicketingPrioritiesId$Outbound;
+  update_ticketing_priority: components.UpdateTicketingPriority$Outbound;
 };
 
 /** @internal */
@@ -38,8 +43,13 @@ export const UpdateTicketingPriorityRequest$outboundSchema: z.ZodType<
   UpdateTicketingPriorityRequest
 > = z.object({
   id: z.string(),
-  patchV1TicketingPrioritiesId:
-    components.PatchV1TicketingPrioritiesId$outboundSchema,
+  updateTicketingPriority: z.lazy(() =>
+    components.UpdateTicketingPriority$outboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    updateTicketingPriority: "update_ticketing_priority",
+  });
 });
 
 /**

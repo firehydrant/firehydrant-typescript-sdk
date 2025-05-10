@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomFieldsFieldValue } from "firehydrant-typescript-sdk/models/components";
+import { CustomFieldsFieldValue } from "firehydrant/models/components";
 
 let value: CustomFieldsFieldValue = {};
 ```
@@ -18,6 +18,6 @@ let value: CustomFieldsFieldValue = {};
 | `description`      | *string*           | :heavy_minus_sign: | N/A                |
 | `slug`             | *string*           | :heavy_minus_sign: | N/A                |
 | `fieldId`          | *string*           | :heavy_minus_sign: | N/A                |
-| `valueArray`       | *string*           | :heavy_minus_sign: | N/A                |
+| `valueArray`       | *string*[]         | :heavy_minus_sign: | N/A                |
 | `valueString`      | *string*           | :heavy_minus_sign: | N/A                |
 | `value`            | *string*           | :heavy_minus_sign: | N/A                |

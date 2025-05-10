@@ -9,14 +9,14 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IncidentsLifecycleMeasurementEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  startsAtMilestone?: string | undefined;
-  endsAtMilestone?: string | undefined;
-  value?: string | undefined;
-  calculatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  startsAtMilestone?: string | null | undefined;
+  endsAtMilestone?: string | null | undefined;
+  value?: string | null | undefined;
+  calculatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -25,15 +25,15 @@ export const IncidentsLifecycleMeasurementEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  starts_at_milestone: z.string().optional(),
-  ends_at_milestone: z.string().optional(),
-  value: z.string().optional(),
-  calculated_at: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  starts_at_milestone: z.nullable(z.string()).optional(),
+  ends_at_milestone: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
+  calculated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -45,14 +45,14 @@ export const IncidentsLifecycleMeasurementEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsLifecycleMeasurementEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  starts_at_milestone?: string | undefined;
-  ends_at_milestone?: string | undefined;
-  value?: string | undefined;
-  calculated_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  starts_at_milestone?: string | null | undefined;
+  ends_at_milestone?: string | null | undefined;
+  value?: string | null | undefined;
+  calculated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -61,14 +61,14 @@ export const IncidentsLifecycleMeasurementEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsLifecycleMeasurementEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  startsAtMilestone: z.string().optional(),
-  endsAtMilestone: z.string().optional(),
-  value: z.string().optional(),
-  calculatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  startsAtMilestone: z.nullable(z.string()).optional(),
+  endsAtMilestone: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
+  calculatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     startsAtMilestone: "starts_at_milestone",

@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentTaskListRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdTaskLists:
-    components.PostV1IncidentsIncidentIdTaskLists;
+  createIncidentTaskList: components.CreateIncidentTaskList;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const CreateIncidentTaskListRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdTaskLists:
-    components.PostV1IncidentsIncidentIdTaskLists$inboundSchema,
+  create_incident_task_list: z.lazy(() =>
+    components.CreateIncidentTaskList$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_task_list": "createIncidentTaskList",
   });
 });
 
 /** @internal */
 export type CreateIncidentTaskListRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdTaskLists:
-    components.PostV1IncidentsIncidentIdTaskLists$Outbound;
+  create_incident_task_list: components.CreateIncidentTaskList$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const CreateIncidentTaskListRequest$outboundSchema: z.ZodType<
   CreateIncidentTaskListRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdTaskLists:
-    components.PostV1IncidentsIncidentIdTaskLists$outboundSchema,
+  createIncidentTaskList: z.lazy(() =>
+    components.CreateIncidentTaskList$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentTaskList: "create_incident_task_list",
   });
 });
 

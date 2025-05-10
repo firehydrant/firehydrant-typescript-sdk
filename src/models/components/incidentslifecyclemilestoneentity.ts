@@ -8,22 +8,22 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 export type IncidentsLifecycleMilestoneEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  position?: number | undefined;
-  occurredAt?: Date | undefined;
-  duration?: string | undefined;
-  updatedBy?: AuthorEntity | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  position?: number | null | undefined;
+  occurredAt?: Date | null | undefined;
+  duration?: string | null | undefined;
+  updatedBy?: NullableAuthorEntity | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -32,17 +32,19 @@ export const IncidentsLifecycleMilestoneEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  position: z.number().int().optional(),
-  occurred_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  duration: z.string().optional(),
-  updated_by: AuthorEntity$inboundSchema.optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  occurred_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  duration: z.nullable(z.string()).optional(),
+  updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "occurred_at": "occurredAt",
@@ -53,15 +55,15 @@ export const IncidentsLifecycleMilestoneEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsLifecycleMilestoneEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  position?: number | undefined;
-  occurred_at?: string | undefined;
-  duration?: string | undefined;
-  updated_by?: AuthorEntity$Outbound | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  position?: number | null | undefined;
+  occurred_at?: string | null | undefined;
+  duration?: string | null | undefined;
+  updated_by?: NullableAuthorEntity$Outbound | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -70,15 +72,15 @@ export const IncidentsLifecycleMilestoneEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsLifecycleMilestoneEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  position: z.number().int().optional(),
-  occurredAt: z.date().transform(v => v.toISOString()).optional(),
-  duration: z.string().optional(),
-  updatedBy: AuthorEntity$outboundSchema.optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  occurredAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  duration: z.nullable(z.string()).optional(),
+  updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     occurredAt: "occurred_at",

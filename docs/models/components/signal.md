@@ -1,0 +1,23 @@
+# Signal
+
+## Example Usage
+
+```typescript
+import { Signal } from "firehydrant/models/components";
+
+let value: Signal = {};
+```
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `id`                                                                                             | *string*                                                                                         | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `organizationId`                                                                                 | *string*                                                                                         | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `summary`                                                                                        | *string*                                                                                         | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `body`                                                                                           | *string*                                                                                         | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `level`                                                                                          | *string*                                                                                         | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `annotations`                                                                                    | [components.Annotations](../../models/components/annotations.md)                                 | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `tags`                                                                                           | *string*[]                                                                                       | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `images`                                                                                         | [components.Image](../../models/components/image.md)[]                                           | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `links`                                                                                          | [components.DebugSignalsExpressionLink](../../models/components/debugsignalsexpressionlink.md)[] | :heavy_minus_sign:                                                                               | N/A                                                                                              |

@@ -3,75 +3,91 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type IncidentsConferenceBridgeEntityAttachments = {};
+export type IncidentsConferenceBridgeEntityAttachment = {};
 
+/**
+ * Incidents_ConferenceBridgeEntity model
+ */
 export type IncidentsConferenceBridgeEntity = {
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * A list of objects attached to this item. Can be one of: LinkEntity, CustomerSupportIssueEntity, or GenericAttachmentEntity
    */
-  attachments?: Array<IncidentsConferenceBridgeEntityAttachments> | undefined;
+  attachments?:
+    | Array<IncidentsConferenceBridgeEntityAttachment>
+    | null
+    | undefined;
+  hasTranslatedTranscripts?: boolean | null | undefined;
+  /**
+   * A list of language codes that have translated transcripts for this conference bridge
+   */
+  languageCodes?: Array<string> | null | undefined;
+  transcriptionStatus?: string | null | undefined;
+  transcriptionSubCode?: string | null | undefined;
 };
 
 /** @internal */
-export const IncidentsConferenceBridgeEntityAttachments$inboundSchema:
-  z.ZodType<IncidentsConferenceBridgeEntityAttachments, z.ZodTypeDef, unknown> =
-    z.object({});
+export const IncidentsConferenceBridgeEntityAttachment$inboundSchema: z.ZodType<
+  IncidentsConferenceBridgeEntityAttachment,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
 
 /** @internal */
-export type IncidentsConferenceBridgeEntityAttachments$Outbound = {};
+export type IncidentsConferenceBridgeEntityAttachment$Outbound = {};
 
 /** @internal */
-export const IncidentsConferenceBridgeEntityAttachments$outboundSchema:
+export const IncidentsConferenceBridgeEntityAttachment$outboundSchema:
   z.ZodType<
-    IncidentsConferenceBridgeEntityAttachments$Outbound,
+    IncidentsConferenceBridgeEntityAttachment$Outbound,
     z.ZodTypeDef,
-    IncidentsConferenceBridgeEntityAttachments
+    IncidentsConferenceBridgeEntityAttachment
   > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace IncidentsConferenceBridgeEntityAttachments$ {
-  /** @deprecated use `IncidentsConferenceBridgeEntityAttachments$inboundSchema` instead. */
+export namespace IncidentsConferenceBridgeEntityAttachment$ {
+  /** @deprecated use `IncidentsConferenceBridgeEntityAttachment$inboundSchema` instead. */
   export const inboundSchema =
-    IncidentsConferenceBridgeEntityAttachments$inboundSchema;
-  /** @deprecated use `IncidentsConferenceBridgeEntityAttachments$outboundSchema` instead. */
+    IncidentsConferenceBridgeEntityAttachment$inboundSchema;
+  /** @deprecated use `IncidentsConferenceBridgeEntityAttachment$outboundSchema` instead. */
   export const outboundSchema =
-    IncidentsConferenceBridgeEntityAttachments$outboundSchema;
-  /** @deprecated use `IncidentsConferenceBridgeEntityAttachments$Outbound` instead. */
-  export type Outbound = IncidentsConferenceBridgeEntityAttachments$Outbound;
+    IncidentsConferenceBridgeEntityAttachment$outboundSchema;
+  /** @deprecated use `IncidentsConferenceBridgeEntityAttachment$Outbound` instead. */
+  export type Outbound = IncidentsConferenceBridgeEntityAttachment$Outbound;
 }
 
-export function incidentsConferenceBridgeEntityAttachmentsToJSON(
-  incidentsConferenceBridgeEntityAttachments:
-    IncidentsConferenceBridgeEntityAttachments,
+export function incidentsConferenceBridgeEntityAttachmentToJSON(
+  incidentsConferenceBridgeEntityAttachment:
+    IncidentsConferenceBridgeEntityAttachment,
 ): string {
   return JSON.stringify(
-    IncidentsConferenceBridgeEntityAttachments$outboundSchema.parse(
-      incidentsConferenceBridgeEntityAttachments,
+    IncidentsConferenceBridgeEntityAttachment$outboundSchema.parse(
+      incidentsConferenceBridgeEntityAttachment,
     ),
   );
 }
 
-export function incidentsConferenceBridgeEntityAttachmentsFromJSON(
+export function incidentsConferenceBridgeEntityAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  IncidentsConferenceBridgeEntityAttachments,
+  IncidentsConferenceBridgeEntityAttachment,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      IncidentsConferenceBridgeEntityAttachments$inboundSchema.parse(
+      IncidentsConferenceBridgeEntityAttachment$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'IncidentsConferenceBridgeEntityAttachments' from JSON`,
+    `Failed to parse 'IncidentsConferenceBridgeEntityAttachment' from JSON`,
   );
 }
 
@@ -81,18 +97,36 @@ export const IncidentsConferenceBridgeEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  attachments: z.array(
-    z.lazy(() => IncidentsConferenceBridgeEntityAttachments$inboundSchema),
+  id: z.nullable(z.string()).optional(),
+  attachments: z.nullable(
+    z.array(
+      z.lazy(() => IncidentsConferenceBridgeEntityAttachment$inboundSchema),
+    ),
   ).optional(),
+  has_translated_transcripts: z.nullable(z.boolean()).optional(),
+  language_codes: z.nullable(z.array(z.string())).optional(),
+  transcription_status: z.nullable(z.string()).optional(),
+  transcription_sub_code: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "has_translated_transcripts": "hasTranslatedTranscripts",
+    "language_codes": "languageCodes",
+    "transcription_status": "transcriptionStatus",
+    "transcription_sub_code": "transcriptionSubCode",
+  });
 });
 
 /** @internal */
 export type IncidentsConferenceBridgeEntity$Outbound = {
-  id?: string | undefined;
+  id?: string | null | undefined;
   attachments?:
-    | Array<IncidentsConferenceBridgeEntityAttachments$Outbound>
+    | Array<IncidentsConferenceBridgeEntityAttachment$Outbound>
+    | null
     | undefined;
+  has_translated_transcripts?: boolean | null | undefined;
+  language_codes?: Array<string> | null | undefined;
+  transcription_status?: string | null | undefined;
+  transcription_sub_code?: string | null | undefined;
 };
 
 /** @internal */
@@ -101,10 +135,23 @@ export const IncidentsConferenceBridgeEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsConferenceBridgeEntity
 > = z.object({
-  id: z.string().optional(),
-  attachments: z.array(
-    z.lazy(() => IncidentsConferenceBridgeEntityAttachments$outboundSchema),
+  id: z.nullable(z.string()).optional(),
+  attachments: z.nullable(
+    z.array(z.lazy(() =>
+      IncidentsConferenceBridgeEntityAttachment$outboundSchema
+    )),
   ).optional(),
+  hasTranslatedTranscripts: z.nullable(z.boolean()).optional(),
+  languageCodes: z.nullable(z.array(z.string())).optional(),
+  transcriptionStatus: z.nullable(z.string()).optional(),
+  transcriptionSubCode: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    hasTranslatedTranscripts: "has_translated_transcripts",
+    languageCodes: "language_codes",
+    transcriptionStatus: "transcription_status",
+    transcriptionSubCode: "transcription_sub_code",
+  });
 });
 
 /**

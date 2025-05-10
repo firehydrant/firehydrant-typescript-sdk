@@ -9,20 +9,20 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAwsConnectionsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * AWS account ID containing the role to be assumed
    */
-  awsAccountId?: string | undefined;
+  awsAccountId?: string | null | undefined;
   /**
    * ARN of the role to be assumed
    */
-  targetArn?: string | undefined;
+  targetArn?: string | null | undefined;
   /**
    * The external ID supplied when assuming the role
    */
-  externalId?: string | undefined;
+  externalId?: string | null | undefined;
 };
 
 /** @internal */
@@ -31,11 +31,11 @@ export const ListAwsConnectionsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  aws_account_id: z.string().optional(),
-  target_arn: z.string().optional(),
-  external_id: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  aws_account_id: z.nullable(z.string()).optional(),
+  target_arn: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -47,11 +47,11 @@ export const ListAwsConnectionsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListAwsConnectionsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  aws_account_id?: string | undefined;
-  target_arn?: string | undefined;
-  external_id?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  aws_account_id?: string | null | undefined;
+  target_arn?: string | null | undefined;
+  external_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -60,11 +60,11 @@ export const ListAwsConnectionsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListAwsConnectionsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  awsAccountId: z.string().optional(),
-  targetArn: z.string().optional(),
-  externalId: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  awsAccountId: z.nullable(z.string()).optional(),
+  targetArn: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

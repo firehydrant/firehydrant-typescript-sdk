@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateSeverityMatrixConditionRequest = {
   conditionId: string;
-  patchV1SeverityMatrixConditionsConditionId:
-    components.PatchV1SeverityMatrixConditionsConditionId;
+  updateSeverityMatrixCondition: components.UpdateSeverityMatrixCondition;
 };
 
 /** @internal */
@@ -22,19 +21,21 @@ export const UpdateSeverityMatrixConditionRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   condition_id: z.string(),
-  patchV1SeverityMatrixConditionsConditionId:
-    components.PatchV1SeverityMatrixConditionsConditionId$inboundSchema,
+  update_severity_matrix_condition: z.lazy(() =>
+    components.UpdateSeverityMatrixCondition$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "condition_id": "conditionId",
+    "update_severity_matrix_condition": "updateSeverityMatrixCondition",
   });
 });
 
 /** @internal */
 export type UpdateSeverityMatrixConditionRequest$Outbound = {
   condition_id: string;
-  patchV1SeverityMatrixConditionsConditionId:
-    components.PatchV1SeverityMatrixConditionsConditionId$Outbound;
+  update_severity_matrix_condition:
+    components.UpdateSeverityMatrixCondition$Outbound;
 };
 
 /** @internal */
@@ -44,11 +45,13 @@ export const UpdateSeverityMatrixConditionRequest$outboundSchema: z.ZodType<
   UpdateSeverityMatrixConditionRequest
 > = z.object({
   conditionId: z.string(),
-  patchV1SeverityMatrixConditionsConditionId:
-    components.PatchV1SeverityMatrixConditionsConditionId$outboundSchema,
+  updateSeverityMatrixCondition: z.lazy(() =>
+    components.UpdateSeverityMatrixCondition$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     conditionId: "condition_id",
+    updateSeverityMatrixCondition: "update_severity_matrix_condition",
   });
 });
 

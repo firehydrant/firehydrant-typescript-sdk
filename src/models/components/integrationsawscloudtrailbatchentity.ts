@@ -9,11 +9,11 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IntegrationsAwsConnectionEntity,
-  IntegrationsAwsConnectionEntity$inboundSchema,
-  IntegrationsAwsConnectionEntity$Outbound,
-  IntegrationsAwsConnectionEntity$outboundSchema,
-} from "./integrationsawsconnectionentity.js";
+  NullableIntegrationsAwsConnectionEntity,
+  NullableIntegrationsAwsConnectionEntity$inboundSchema,
+  NullableIntegrationsAwsConnectionEntity$Outbound,
+  NullableIntegrationsAwsConnectionEntity$outboundSchema,
+} from "./nullableintegrationsawsconnectionentity.js";
 
 export const IntegrationsAwsCloudtrailBatchEntityStatus = {
   InProgress: "in_progress",
@@ -30,16 +30,13 @@ export type IntegrationsAwsCloudtrailBatchEntityStatus = ClosedEnum<
  * Integrations_Aws_CloudtrailBatchEntity model
  */
 export type IntegrationsAwsCloudtrailBatchEntity = {
-  id?: string | undefined;
-  eventsCreated?: number | undefined;
-  status?: IntegrationsAwsCloudtrailBatchEntityStatus | undefined;
-  startsAt?: Date | undefined;
-  endsAt?: Date | undefined;
-  /**
-   * Integrations_Aws_ConnectionEntity model
-   */
-  connection?: IntegrationsAwsConnectionEntity | undefined;
-  createdAt?: Date | undefined;
+  id?: string | null | undefined;
+  eventsCreated?: number | null | undefined;
+  status?: IntegrationsAwsCloudtrailBatchEntityStatus | null | undefined;
+  startsAt?: Date | null | undefined;
+  endsAt?: Date | null | undefined;
+  connection?: NullableIntegrationsAwsConnectionEntity | null | undefined;
+  createdAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -71,16 +68,21 @@ export const IntegrationsAwsCloudtrailBatchEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  events_created: z.number().int().optional(),
-  status: IntegrationsAwsCloudtrailBatchEntityStatus$inboundSchema.optional(),
-  starts_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  events_created: z.nullable(z.number().int()).optional(),
+  status: z.nullable(IntegrationsAwsCloudtrailBatchEntityStatus$inboundSchema)
     .optional(),
-  ends_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  starts_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  ends_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  connection: z.nullable(NullableIntegrationsAwsConnectionEntity$inboundSchema)
     .optional(),
-  connection: IntegrationsAwsConnectionEntity$inboundSchema.optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "events_created": "eventsCreated",
@@ -92,13 +94,16 @@ export const IntegrationsAwsCloudtrailBatchEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsAwsCloudtrailBatchEntity$Outbound = {
-  id?: string | undefined;
-  events_created?: number | undefined;
-  status?: string | undefined;
-  starts_at?: string | undefined;
-  ends_at?: string | undefined;
-  connection?: IntegrationsAwsConnectionEntity$Outbound | undefined;
-  created_at?: string | undefined;
+  id?: string | null | undefined;
+  events_created?: number | null | undefined;
+  status?: string | null | undefined;
+  starts_at?: string | null | undefined;
+  ends_at?: string | null | undefined;
+  connection?:
+    | NullableIntegrationsAwsConnectionEntity$Outbound
+    | null
+    | undefined;
+  created_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -107,13 +112,15 @@ export const IntegrationsAwsCloudtrailBatchEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsAwsCloudtrailBatchEntity
 > = z.object({
-  id: z.string().optional(),
-  eventsCreated: z.number().int().optional(),
-  status: IntegrationsAwsCloudtrailBatchEntityStatus$outboundSchema.optional(),
-  startsAt: z.date().transform(v => v.toISOString()).optional(),
-  endsAt: z.date().transform(v => v.toISOString()).optional(),
-  connection: IntegrationsAwsConnectionEntity$outboundSchema.optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  eventsCreated: z.nullable(z.number().int()).optional(),
+  status: z.nullable(IntegrationsAwsCloudtrailBatchEntityStatus$outboundSchema)
+    .optional(),
+  startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  endsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  connection: z.nullable(NullableIntegrationsAwsConnectionEntity$outboundSchema)
+    .optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     eventsCreated: "events_created",

@@ -8,28 +8,31 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IncidentTypeEntityTemplateEntity,
-  IncidentTypeEntityTemplateEntity$inboundSchema,
-  IncidentTypeEntityTemplateEntity$Outbound,
-  IncidentTypeEntityTemplateEntity$outboundSchema,
-} from "./incidenttypeentitytemplateentity.js";
+  NullableIncidentTypeEntityTemplateEntity,
+  NullableIncidentTypeEntityTemplateEntity$inboundSchema,
+  NullableIncidentTypeEntityTemplateEntity$Outbound,
+  NullableIncidentTypeEntityTemplateEntity$outboundSchema,
+} from "./nullableincidenttypeentitytemplateentity.js";
 import {
-  IncidentTypeEntityTemplateValuesEntity,
-  IncidentTypeEntityTemplateValuesEntity$inboundSchema,
-  IncidentTypeEntityTemplateValuesEntity$Outbound,
-  IncidentTypeEntityTemplateValuesEntity$outboundSchema,
-} from "./incidenttypeentitytemplatevaluesentity.js";
+  NullableIncidentTypeEntityTemplateValuesEntity,
+  NullableIncidentTypeEntityTemplateValuesEntity$inboundSchema,
+  NullableIncidentTypeEntityTemplateValuesEntity$Outbound,
+  NullableIncidentTypeEntityTemplateValuesEntity$outboundSchema,
+} from "./nullableincidenttypeentitytemplatevaluesentity.js";
 
 /**
  * IncidentTypeEntity model
  */
 export type IncidentTypeEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  template?: IncidentTypeEntityTemplateEntity | undefined;
-  templateValues?: IncidentTypeEntityTemplateValuesEntity | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  template?: NullableIncidentTypeEntityTemplateEntity | null | undefined;
+  templateValues?:
+    | NullableIncidentTypeEntityTemplateValuesEntity
+    | null
+    | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -38,15 +41,19 @@ export const IncidentTypeEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  template: IncidentTypeEntityTemplateEntity$inboundSchema.optional(),
-  template_values: IncidentTypeEntityTemplateValuesEntity$inboundSchema
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  template: z.nullable(NullableIncidentTypeEntityTemplateEntity$inboundSchema)
     .optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  template_values: z.nullable(
+    NullableIncidentTypeEntityTemplateValuesEntity$inboundSchema,
+  ).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "template_values": "templateValues",
@@ -57,12 +64,18 @@ export const IncidentTypeEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentTypeEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  template?: IncidentTypeEntityTemplateEntity$Outbound | undefined;
-  template_values?: IncidentTypeEntityTemplateValuesEntity$Outbound | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  template?:
+    | NullableIncidentTypeEntityTemplateEntity$Outbound
+    | null
+    | undefined;
+  template_values?:
+    | NullableIncidentTypeEntityTemplateValuesEntity$Outbound
+    | null
+    | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -71,13 +84,15 @@ export const IncidentTypeEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentTypeEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  template: IncidentTypeEntityTemplateEntity$outboundSchema.optional(),
-  templateValues: IncidentTypeEntityTemplateValuesEntity$outboundSchema
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  template: z.nullable(NullableIncidentTypeEntityTemplateEntity$outboundSchema)
     .optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  templateValues: z.nullable(
+    NullableIncidentTypeEntityTemplateValuesEntity$outboundSchema,
+  ).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     templateValues: "template_values",

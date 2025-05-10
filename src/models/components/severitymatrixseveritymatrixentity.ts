@@ -29,9 +29,9 @@ import {
  * SeverityMatrix_SeverityMatrixEntity model
  */
 export type SeverityMatrixSeverityMatrixEntity = {
-  matrix?: Array<SeverityMatrixItemEntity> | undefined;
-  impacts?: Array<SeverityMatrixImpactEntity> | undefined;
-  conditions?: Array<SeverityMatrixConditionEntity> | undefined;
+  matrix?: Array<SeverityMatrixItemEntity> | null | undefined;
+  impacts?: Array<SeverityMatrixImpactEntity> | null | undefined;
+  conditions?: Array<SeverityMatrixConditionEntity> | null | undefined;
 };
 
 /** @internal */
@@ -40,16 +40,19 @@ export const SeverityMatrixSeverityMatrixEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  matrix: z.array(SeverityMatrixItemEntity$inboundSchema).optional(),
-  impacts: z.array(SeverityMatrixImpactEntity$inboundSchema).optional(),
-  conditions: z.array(SeverityMatrixConditionEntity$inboundSchema).optional(),
+  matrix: z.nullable(z.array(SeverityMatrixItemEntity$inboundSchema))
+    .optional(),
+  impacts: z.nullable(z.array(SeverityMatrixImpactEntity$inboundSchema))
+    .optional(),
+  conditions: z.nullable(z.array(SeverityMatrixConditionEntity$inboundSchema))
+    .optional(),
 });
 
 /** @internal */
 export type SeverityMatrixSeverityMatrixEntity$Outbound = {
-  matrix?: Array<SeverityMatrixItemEntity$Outbound> | undefined;
-  impacts?: Array<SeverityMatrixImpactEntity$Outbound> | undefined;
-  conditions?: Array<SeverityMatrixConditionEntity$Outbound> | undefined;
+  matrix?: Array<SeverityMatrixItemEntity$Outbound> | null | undefined;
+  impacts?: Array<SeverityMatrixImpactEntity$Outbound> | null | undefined;
+  conditions?: Array<SeverityMatrixConditionEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -58,9 +61,12 @@ export const SeverityMatrixSeverityMatrixEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SeverityMatrixSeverityMatrixEntity
 > = z.object({
-  matrix: z.array(SeverityMatrixItemEntity$outboundSchema).optional(),
-  impacts: z.array(SeverityMatrixImpactEntity$outboundSchema).optional(),
-  conditions: z.array(SeverityMatrixConditionEntity$outboundSchema).optional(),
+  matrix: z.nullable(z.array(SeverityMatrixItemEntity$outboundSchema))
+    .optional(),
+  impacts: z.nullable(z.array(SeverityMatrixImpactEntity$outboundSchema))
+    .optional(),
+  conditions: z.nullable(z.array(SeverityMatrixConditionEntity$outboundSchema))
+    .optional(),
 });
 
 /**

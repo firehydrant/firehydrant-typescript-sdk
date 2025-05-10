@@ -13,8 +13,8 @@ export type ListSlackEmojiActionsRequest = {
    * Slack Connection UUID
    */
   connectionId: string;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -24,8 +24,8 @@ export const ListSlackEmojiActionsRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   connection_id: z.string(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "connection_id": "connectionId",
@@ -36,8 +36,8 @@ export const ListSlackEmojiActionsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListSlackEmojiActionsRequest$Outbound = {
   connection_id: string;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -47,8 +47,8 @@ export const ListSlackEmojiActionsRequest$outboundSchema: z.ZodType<
   ListSlackEmojiActionsRequest
 > = z.object({
   connectionId: z.string(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     connectionId: "connection_id",

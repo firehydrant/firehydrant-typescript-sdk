@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateCustomFieldDefinitionRequest = {
   fieldId: string;
-  patchV1CustomFieldsDefinitionsFieldId:
-    components.PatchV1CustomFieldsDefinitionsFieldId;
+  updateCustomFieldDefinition: components.UpdateCustomFieldDefinition;
 };
 
 /** @internal */
@@ -22,19 +21,21 @@ export const UpdateCustomFieldDefinitionRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   field_id: z.string(),
-  patchV1CustomFieldsDefinitionsFieldId:
-    components.PatchV1CustomFieldsDefinitionsFieldId$inboundSchema,
+  update_custom_field_definition: z.lazy(() =>
+    components.UpdateCustomFieldDefinition$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "field_id": "fieldId",
+    "update_custom_field_definition": "updateCustomFieldDefinition",
   });
 });
 
 /** @internal */
 export type UpdateCustomFieldDefinitionRequest$Outbound = {
   field_id: string;
-  patchV1CustomFieldsDefinitionsFieldId:
-    components.PatchV1CustomFieldsDefinitionsFieldId$Outbound;
+  update_custom_field_definition:
+    components.UpdateCustomFieldDefinition$Outbound;
 };
 
 /** @internal */
@@ -44,11 +45,13 @@ export const UpdateCustomFieldDefinitionRequest$outboundSchema: z.ZodType<
   UpdateCustomFieldDefinitionRequest
 > = z.object({
   fieldId: z.string(),
-  patchV1CustomFieldsDefinitionsFieldId:
-    components.PatchV1CustomFieldsDefinitionsFieldId$outboundSchema,
+  updateCustomFieldDefinition: z.lazy(() =>
+    components.UpdateCustomFieldDefinition$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     fieldId: "field_id",
+    updateCustomFieldDefinition: "update_custom_field_definition",
   });
 });
 

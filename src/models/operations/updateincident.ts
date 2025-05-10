@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateIncidentRequest = {
   incidentId: string;
-  patchV1IncidentsIncidentId: components.PatchV1IncidentsIncidentId;
+  updateIncident: components.UpdateIncident;
 };
 
 /** @internal */
@@ -21,18 +21,18 @@ export const UpdateIncidentRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  patchV1IncidentsIncidentId:
-    components.PatchV1IncidentsIncidentId$inboundSchema,
+  update_incident: z.lazy(() => components.UpdateIncident$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "update_incident": "updateIncident",
   });
 });
 
 /** @internal */
 export type UpdateIncidentRequest$Outbound = {
   incident_id: string;
-  patchV1IncidentsIncidentId: components.PatchV1IncidentsIncidentId$Outbound;
+  update_incident: components.UpdateIncident$Outbound;
 };
 
 /** @internal */
@@ -42,11 +42,11 @@ export const UpdateIncidentRequest$outboundSchema: z.ZodType<
   UpdateIncidentRequest
 > = z.object({
   incidentId: z.string(),
-  patchV1IncidentsIncidentId:
-    components.PatchV1IncidentsIncidentId$outboundSchema,
+  updateIncident: z.lazy(() => components.UpdateIncident$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    updateIncident: "update_incident",
   });
 });
 

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SeverityMatrixItemEntity } from "firehydrant-typescript-sdk/models/components";
+import { SeverityMatrixItemEntity } from "firehydrant/models/components";
 
 let value: SeverityMatrixItemEntity = {};
 ```

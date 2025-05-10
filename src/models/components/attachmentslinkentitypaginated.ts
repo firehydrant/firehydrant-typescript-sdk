@@ -13,18 +13,18 @@ import {
   AttachmentsLinkEntity$outboundSchema,
 } from "./attachmentslinkentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Attachments_LinkEntityPaginated model
  */
 export type AttachmentsLinkEntityPaginated = {
-  data?: Array<AttachmentsLinkEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<AttachmentsLinkEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const AttachmentsLinkEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(AttachmentsLinkEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(AttachmentsLinkEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type AttachmentsLinkEntityPaginated$Outbound = {
-  data?: Array<AttachmentsLinkEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<AttachmentsLinkEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const AttachmentsLinkEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AttachmentsLinkEntityPaginated
 > = z.object({
-  data: z.array(AttachmentsLinkEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(AttachmentsLinkEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**
