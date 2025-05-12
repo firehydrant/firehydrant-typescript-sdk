@@ -52,7 +52,7 @@ typescript:
   methodArguments: require-security-and-request
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: firehydrant
+  packageName: firehydrant-typescript-sdk
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true
