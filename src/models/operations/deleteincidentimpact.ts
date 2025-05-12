@@ -9,42 +9,41 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const DeleteIncidentImpactPathParamType = {
+export const DeleteIncidentImpactType = {
   Environments: "environments",
   Functionalities: "functionalities",
   Services: "services",
   Customers: "customers",
 } as const;
-export type DeleteIncidentImpactPathParamType = ClosedEnum<
-  typeof DeleteIncidentImpactPathParamType
+export type DeleteIncidentImpactType = ClosedEnum<
+  typeof DeleteIncidentImpactType
 >;
 
 export type DeleteIncidentImpactRequest = {
   incidentId: string;
-  type: DeleteIncidentImpactPathParamType;
+  type: DeleteIncidentImpactType;
   id: string;
 };
 
 /** @internal */
-export const DeleteIncidentImpactPathParamType$inboundSchema: z.ZodNativeEnum<
-  typeof DeleteIncidentImpactPathParamType
-> = z.nativeEnum(DeleteIncidentImpactPathParamType);
+export const DeleteIncidentImpactType$inboundSchema: z.ZodNativeEnum<
+  typeof DeleteIncidentImpactType
+> = z.nativeEnum(DeleteIncidentImpactType);
 
 /** @internal */
-export const DeleteIncidentImpactPathParamType$outboundSchema: z.ZodNativeEnum<
-  typeof DeleteIncidentImpactPathParamType
-> = DeleteIncidentImpactPathParamType$inboundSchema;
+export const DeleteIncidentImpactType$outboundSchema: z.ZodNativeEnum<
+  typeof DeleteIncidentImpactType
+> = DeleteIncidentImpactType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DeleteIncidentImpactPathParamType$ {
-  /** @deprecated use `DeleteIncidentImpactPathParamType$inboundSchema` instead. */
-  export const inboundSchema = DeleteIncidentImpactPathParamType$inboundSchema;
-  /** @deprecated use `DeleteIncidentImpactPathParamType$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteIncidentImpactPathParamType$outboundSchema;
+export namespace DeleteIncidentImpactType$ {
+  /** @deprecated use `DeleteIncidentImpactType$inboundSchema` instead. */
+  export const inboundSchema = DeleteIncidentImpactType$inboundSchema;
+  /** @deprecated use `DeleteIncidentImpactType$outboundSchema` instead. */
+  export const outboundSchema = DeleteIncidentImpactType$outboundSchema;
 }
 
 /** @internal */
@@ -54,7 +53,7 @@ export const DeleteIncidentImpactRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  type: DeleteIncidentImpactPathParamType$inboundSchema,
+  type: DeleteIncidentImpactType$inboundSchema,
   id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -76,7 +75,7 @@ export const DeleteIncidentImpactRequest$outboundSchema: z.ZodType<
   DeleteIncidentImpactRequest
 > = z.object({
   incidentId: z.string(),
-  type: DeleteIncidentImpactPathParamType$outboundSchema,
+  type: DeleteIncidentImpactType$outboundSchema,
   id: z.string(),
 }).transform((v) => {
   return remap$(v, {

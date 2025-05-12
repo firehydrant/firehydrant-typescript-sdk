@@ -9,16 +9,16 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListEnvironmentsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A query to search environments by their name or description
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A query to search environments by their name
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -27,10 +27,10 @@ export const ListEnvironmentsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -39,10 +39,10 @@ export const ListEnvironmentsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListEnvironmentsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  query?: string | undefined;
-  name?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  query?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -51,10 +51,10 @@ export const ListEnvironmentsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListEnvironmentsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

@@ -1,0 +1,21 @@
+# CreateIncidentType
+
+Create a new incident type
+
+## Example Usage
+
+```typescript
+import { CreateIncidentType } from "firehydrant/models/components";
+
+let value: CreateIncidentType = {
+  name: "<value>",
+  template: {},
+};
+```
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `name`                                                                                         | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `template`                                                                                     | [components.CreateIncidentTypeTemplate](../../models/components/createincidenttypetemplate.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

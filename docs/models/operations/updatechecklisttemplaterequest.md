@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateChecklistTemplateRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateChecklistTemplateRequest } from "firehydrant/models/operations";
 
 let value: UpdateChecklistTemplateRequest = {
   id: "<id>",
-  patchV1ChecklistTemplatesId: {},
+  updateChecklistTemplate: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `patchV1ChecklistTemplatesId`                                                                    | [components.PatchV1ChecklistTemplatesId](../../models/components/patchv1checklisttemplatesid.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `id`                                                                                     | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `updateChecklistTemplate`                                                                | [components.UpdateChecklistTemplate](../../models/components/updatechecklisttemplate.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |

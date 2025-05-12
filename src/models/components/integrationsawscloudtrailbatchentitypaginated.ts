@@ -13,18 +13,18 @@ import {
   IntegrationsAwsCloudtrailBatchEntity$outboundSchema,
 } from "./integrationsawscloudtrailbatchentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Integrations_Aws_CloudtrailBatchEntityPaginated model
  */
 export type IntegrationsAwsCloudtrailBatchEntityPaginated = {
-  data?: Array<IntegrationsAwsCloudtrailBatchEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IntegrationsAwsCloudtrailBatchEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -34,15 +34,19 @@ export const IntegrationsAwsCloudtrailBatchEntityPaginated$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    data: z.array(IntegrationsAwsCloudtrailBatchEntity$inboundSchema)
-      .optional(),
-    pagination: PaginationEntity$inboundSchema.optional(),
+    data: z.nullable(
+      z.array(IntegrationsAwsCloudtrailBatchEntity$inboundSchema),
+    ).optional(),
+    pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
   });
 
 /** @internal */
 export type IntegrationsAwsCloudtrailBatchEntityPaginated$Outbound = {
-  data?: Array<IntegrationsAwsCloudtrailBatchEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?:
+    | Array<IntegrationsAwsCloudtrailBatchEntity$Outbound>
+    | null
+    | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -52,9 +56,10 @@ export const IntegrationsAwsCloudtrailBatchEntityPaginated$outboundSchema:
     z.ZodTypeDef,
     IntegrationsAwsCloudtrailBatchEntityPaginated
   > = z.object({
-    data: z.array(IntegrationsAwsCloudtrailBatchEntity$outboundSchema)
-      .optional(),
-    pagination: PaginationEntity$outboundSchema.optional(),
+    data: z.nullable(
+      z.array(IntegrationsAwsCloudtrailBatchEntity$outboundSchema),
+    ).optional(),
+    pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
 /**

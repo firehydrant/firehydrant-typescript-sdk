@@ -5,10 +5,26 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type CreateLifecycleMilestoneRequestBody = {
+/**
+ * The setting for auto-assigning the milestone's timestamp during incident declaration
+ */
+export const CreateLifecycleMilestoneAutoAssignTimestampOnCreate = {
+  AlwaysSetOnCreate: "always_set_on_create",
+  OnlySetOnManualCreate: "only_set_on_manual_create",
+  NeverSetOnCreate: "never_set_on_create",
+} as const;
+/**
+ * The setting for auto-assigning the milestone's timestamp during incident declaration
+ */
+export type CreateLifecycleMilestoneAutoAssignTimestampOnCreate = ClosedEnum<
+  typeof CreateLifecycleMilestoneAutoAssignTimestampOnCreate
+>;
+
+export type CreateLifecycleMilestoneRequest = {
   /**
    * The name of the milestone
    */
@@ -20,7 +36,7 @@ export type CreateLifecycleMilestoneRequestBody = {
   /**
    * A unique identifier for the milestone. If not provided, one will be generated from the name.
    */
-  slug?: string | undefined;
+  slug?: string | null | undefined;
   /**
    * The ID of the phase to which the milestone should belong
    */
@@ -28,58 +44,97 @@ export type CreateLifecycleMilestoneRequestBody = {
   /**
    * The position of the milestone within the phase. If not provided, the milestone will be added as the last milestone in the phase.
    */
-  position?: number | undefined;
+  position?: number | null | undefined;
   /**
    * The ID of a later milestone that cannot be started until this milestone has a timestamp populated
    */
-  requiredAtMilestoneId?: string | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
+  /**
+   * The setting for auto-assigning the milestone's timestamp during incident declaration
+   */
+  autoAssignTimestampOnCreate?:
+    | CreateLifecycleMilestoneAutoAssignTimestampOnCreate
+    | null
+    | undefined;
 };
 
 /** @internal */
-export const CreateLifecycleMilestoneRequestBody$inboundSchema: z.ZodType<
-  CreateLifecycleMilestoneRequestBody,
+export const CreateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema:
+  z.ZodNativeEnum<typeof CreateLifecycleMilestoneAutoAssignTimestampOnCreate> =
+    z.nativeEnum(CreateLifecycleMilestoneAutoAssignTimestampOnCreate);
+
+/** @internal */
+export const CreateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema:
+  z.ZodNativeEnum<typeof CreateLifecycleMilestoneAutoAssignTimestampOnCreate> =
+    CreateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateLifecycleMilestoneAutoAssignTimestampOnCreate$ {
+  /** @deprecated use `CreateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema;
+  /** @deprecated use `CreateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema;
+}
+
+/** @internal */
+export const CreateLifecycleMilestoneRequest$inboundSchema: z.ZodType<
+  CreateLifecycleMilestoneRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
   name: z.string(),
   description: z.string(),
-  slug: z.string().optional(),
+  slug: z.nullable(z.string()).optional(),
   phase_id: z.string(),
-  position: z.number().int().optional(),
-  required_at_milestone_id: z.string().optional(),
+  position: z.nullable(z.number().int()).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
+  auto_assign_timestamp_on_create: z.nullable(
+    CreateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "phase_id": "phaseId",
     "required_at_milestone_id": "requiredAtMilestoneId",
+    "auto_assign_timestamp_on_create": "autoAssignTimestampOnCreate",
   });
 });
 
 /** @internal */
-export type CreateLifecycleMilestoneRequestBody$Outbound = {
+export type CreateLifecycleMilestoneRequest$Outbound = {
   name: string;
   description: string;
-  slug?: string | undefined;
+  slug?: string | null | undefined;
   phase_id: string;
-  position?: number | undefined;
-  required_at_milestone_id?: string | undefined;
+  position?: number | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
+  auto_assign_timestamp_on_create?: string | null | undefined;
 };
 
 /** @internal */
-export const CreateLifecycleMilestoneRequestBody$outboundSchema: z.ZodType<
-  CreateLifecycleMilestoneRequestBody$Outbound,
+export const CreateLifecycleMilestoneRequest$outboundSchema: z.ZodType<
+  CreateLifecycleMilestoneRequest$Outbound,
   z.ZodTypeDef,
-  CreateLifecycleMilestoneRequestBody
+  CreateLifecycleMilestoneRequest
 > = z.object({
   name: z.string(),
   description: z.string(),
-  slug: z.string().optional(),
+  slug: z.nullable(z.string()).optional(),
   phaseId: z.string(),
-  position: z.number().int().optional(),
-  requiredAtMilestoneId: z.string().optional(),
+  position: z.nullable(z.number().int()).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
+  autoAssignTimestampOnCreate: z.nullable(
+    CreateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     phaseId: "phase_id",
     requiredAtMilestoneId: "required_at_milestone_id",
+    autoAssignTimestampOnCreate: "auto_assign_timestamp_on_create",
   });
 });
 
@@ -87,34 +142,31 @@ export const CreateLifecycleMilestoneRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CreateLifecycleMilestoneRequestBody$ {
-  /** @deprecated use `CreateLifecycleMilestoneRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateLifecycleMilestoneRequestBody$inboundSchema;
-  /** @deprecated use `CreateLifecycleMilestoneRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateLifecycleMilestoneRequestBody$outboundSchema;
-  /** @deprecated use `CreateLifecycleMilestoneRequestBody$Outbound` instead. */
-  export type Outbound = CreateLifecycleMilestoneRequestBody$Outbound;
+export namespace CreateLifecycleMilestoneRequest$ {
+  /** @deprecated use `CreateLifecycleMilestoneRequest$inboundSchema` instead. */
+  export const inboundSchema = CreateLifecycleMilestoneRequest$inboundSchema;
+  /** @deprecated use `CreateLifecycleMilestoneRequest$outboundSchema` instead. */
+  export const outboundSchema = CreateLifecycleMilestoneRequest$outboundSchema;
+  /** @deprecated use `CreateLifecycleMilestoneRequest$Outbound` instead. */
+  export type Outbound = CreateLifecycleMilestoneRequest$Outbound;
 }
 
-export function createLifecycleMilestoneRequestBodyToJSON(
-  createLifecycleMilestoneRequestBody: CreateLifecycleMilestoneRequestBody,
+export function createLifecycleMilestoneRequestToJSON(
+  createLifecycleMilestoneRequest: CreateLifecycleMilestoneRequest,
 ): string {
   return JSON.stringify(
-    CreateLifecycleMilestoneRequestBody$outboundSchema.parse(
-      createLifecycleMilestoneRequestBody,
+    CreateLifecycleMilestoneRequest$outboundSchema.parse(
+      createLifecycleMilestoneRequest,
     ),
   );
 }
 
-export function createLifecycleMilestoneRequestBodyFromJSON(
+export function createLifecycleMilestoneRequestFromJSON(
   jsonString: string,
-): SafeParseResult<CreateLifecycleMilestoneRequestBody, SDKValidationError> {
+): SafeParseResult<CreateLifecycleMilestoneRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      CreateLifecycleMilestoneRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateLifecycleMilestoneRequestBody' from JSON`,
+    (x) => CreateLifecycleMilestoneRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateLifecycleMilestoneRequest' from JSON`,
   );
 }

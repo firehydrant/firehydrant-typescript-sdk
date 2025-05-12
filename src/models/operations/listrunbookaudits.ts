@@ -22,16 +22,16 @@ export const AuditableType = {
 export type AuditableType = ClosedEnum<typeof AuditableType>;
 
 export type ListRunbookAuditsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A query to filter audits by type
    */
-  auditableType?: AuditableType | undefined;
+  auditableType?: AuditableType | null | undefined;
   /**
    * A query to sort audits by their created_at timestamp. Options are 'asc' or 'desc'
    */
-  sort?: string | undefined;
+  sort?: string | null | undefined;
 };
 
 /** @internal */
@@ -61,10 +61,12 @@ export const ListRunbookAuditsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  auditable_type: AuditableType$inboundSchema.default("Runbooks::Step"),
-  sort: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  auditable_type: z.nullable(
+    AuditableType$inboundSchema.default("Runbooks::Step"),
+  ),
+  sort: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -74,10 +76,10 @@ export const ListRunbookAuditsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListRunbookAuditsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  auditable_type: string;
-  sort?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  auditable_type: string | null;
+  sort?: string | null | undefined;
 };
 
 /** @internal */
@@ -86,10 +88,12 @@ export const ListRunbookAuditsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListRunbookAuditsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  auditableType: AuditableType$outboundSchema.default("Runbooks::Step"),
-  sort: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  auditableType: z.nullable(
+    AuditableType$outboundSchema.default("Runbooks::Step"),
+  ),
+  sort: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

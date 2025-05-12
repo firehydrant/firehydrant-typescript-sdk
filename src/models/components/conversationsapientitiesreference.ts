@@ -8,19 +8,19 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ConversationsAPIEntitiesChannel,
-  ConversationsAPIEntitiesChannel$inboundSchema,
-  ConversationsAPIEntitiesChannel$Outbound,
-  ConversationsAPIEntitiesChannel$outboundSchema,
-} from "./conversationsapientitieschannel.js";
+  NullableConversationsAPIEntitiesChannel,
+  NullableConversationsAPIEntitiesChannel$inboundSchema,
+  NullableConversationsAPIEntitiesChannel$Outbound,
+  NullableConversationsAPIEntitiesChannel$outboundSchema,
+} from "./nullableconversationsapientitieschannel.js";
 
 export type ConversationsAPIEntitiesReference = {
-  id?: string | undefined;
-  resourceClass?: string | undefined;
-  resourceId?: string | undefined;
-  field?: string | undefined;
-  commentsUrl?: string | undefined;
-  channel?: ConversationsAPIEntitiesChannel | undefined;
+  id?: string | null | undefined;
+  resourceClass?: string | null | undefined;
+  resourceId?: string | null | undefined;
+  field?: string | null | undefined;
+  commentsUrl?: string | null | undefined;
+  channel?: NullableConversationsAPIEntitiesChannel | null | undefined;
 };
 
 /** @internal */
@@ -29,12 +29,13 @@ export const ConversationsAPIEntitiesReference$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  resource_class: z.string().optional(),
-  resource_id: z.string().optional(),
-  field: z.string().optional(),
-  comments_url: z.string().optional(),
-  channel: ConversationsAPIEntitiesChannel$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  resource_class: z.nullable(z.string()).optional(),
+  resource_id: z.nullable(z.string()).optional(),
+  field: z.nullable(z.string()).optional(),
+  comments_url: z.nullable(z.string()).optional(),
+  channel: z.nullable(NullableConversationsAPIEntitiesChannel$inboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "resource_class": "resourceClass",
@@ -45,12 +46,12 @@ export const ConversationsAPIEntitiesReference$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ConversationsAPIEntitiesReference$Outbound = {
-  id?: string | undefined;
-  resource_class?: string | undefined;
-  resource_id?: string | undefined;
-  field?: string | undefined;
-  comments_url?: string | undefined;
-  channel?: ConversationsAPIEntitiesChannel$Outbound | undefined;
+  id?: string | null | undefined;
+  resource_class?: string | null | undefined;
+  resource_id?: string | null | undefined;
+  field?: string | null | undefined;
+  comments_url?: string | null | undefined;
+  channel?: NullableConversationsAPIEntitiesChannel$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -59,12 +60,13 @@ export const ConversationsAPIEntitiesReference$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ConversationsAPIEntitiesReference
 > = z.object({
-  id: z.string().optional(),
-  resourceClass: z.string().optional(),
-  resourceId: z.string().optional(),
-  field: z.string().optional(),
-  commentsUrl: z.string().optional(),
-  channel: ConversationsAPIEntitiesChannel$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  resourceClass: z.nullable(z.string()).optional(),
+  resourceId: z.nullable(z.string()).optional(),
+  field: z.nullable(z.string()).optional(),
+  commentsUrl: z.nullable(z.string()).optional(),
+  channel: z.nullable(NullableConversationsAPIEntitiesChannel$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     resourceClass: "resource_class",

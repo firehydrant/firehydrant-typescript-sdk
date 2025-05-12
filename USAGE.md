@@ -1,14 +1,13 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.accountSettings
-    .getAiPreferences();
+  const result = await firehydrant.accountSettings.ping();
 
   // Handle the result
   console.log(result);

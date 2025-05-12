@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateStatusUpdateTemplateRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateStatusUpdateTemplateRequest } from "firehydrant/models/operations";
 
 let value: UpdateStatusUpdateTemplateRequest = {
   statusUpdateTemplateId: "<id>",
-  patchV1StatusUpdateTemplatesStatusUpdateTemplateId: {},
+  updateStatusUpdateTemplate: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                                          | Type                                                                                                                                           | Required                                                                                                                                       | Description                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `statusUpdateTemplateId`                                                                                                                       | *string*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
-| `patchV1StatusUpdateTemplatesStatusUpdateTemplateId`                                                                                           | [components.PatchV1StatusUpdateTemplatesStatusUpdateTemplateId](../../models/components/patchv1statusupdatetemplatesstatusupdatetemplateid.md) | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `statusUpdateTemplateId`                                                                       | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `updateStatusUpdateTemplate`                                                                   | [components.UpdateStatusUpdateTemplate](../../models/components/updatestatusupdatetemplate.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

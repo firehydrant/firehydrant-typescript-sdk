@@ -12,11 +12,11 @@ export type UpdateSlackEmojiActionRequestBody = {
   /**
    * The name of the emoji to associate with this action
    */
-  emojiName?: string | undefined;
+  emojiName?: string | null | undefined;
   /**
    * The ID of the incident type to associate with this emoji action
    */
-  incidentTypeId?: string | undefined;
+  incidentTypeId?: string | null | undefined;
 };
 
 export type UpdateSlackEmojiActionRequest = {
@@ -34,8 +34,8 @@ export const UpdateSlackEmojiActionRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  emoji_name: z.string().optional(),
-  incident_type_id: z.string().optional(),
+  emoji_name: z.nullable(z.string()).optional(),
+  incident_type_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "emoji_name": "emojiName",
@@ -45,8 +45,8 @@ export const UpdateSlackEmojiActionRequestBody$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UpdateSlackEmojiActionRequestBody$Outbound = {
-  emoji_name?: string | undefined;
-  incident_type_id?: string | undefined;
+  emoji_name?: string | null | undefined;
+  incident_type_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -55,8 +55,8 @@ export const UpdateSlackEmojiActionRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateSlackEmojiActionRequestBody
 > = z.object({
-  emojiName: z.string().optional(),
-  incidentTypeId: z.string().optional(),
+  emojiName: z.nullable(z.string()).optional(),
+  incidentTypeId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     emojiName: "emoji_name",

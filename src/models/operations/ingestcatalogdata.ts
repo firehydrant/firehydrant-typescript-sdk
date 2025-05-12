@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IngestCatalogDataRequest = {
   catalogId: string;
-  postV1CatalogsCatalogIdIngest: components.PostV1CatalogsCatalogIdIngest;
+  ingestCatalogData: components.IngestCatalogData;
 };
 
 /** @internal */
@@ -21,19 +21,18 @@ export const IngestCatalogDataRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   catalog_id: z.string(),
-  postV1CatalogsCatalogIdIngest:
-    components.PostV1CatalogsCatalogIdIngest$inboundSchema,
+  ingest_catalog_data: z.lazy(() => components.IngestCatalogData$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "catalog_id": "catalogId",
+    "ingest_catalog_data": "ingestCatalogData",
   });
 });
 
 /** @internal */
 export type IngestCatalogDataRequest$Outbound = {
   catalog_id: string;
-  postV1CatalogsCatalogIdIngest:
-    components.PostV1CatalogsCatalogIdIngest$Outbound;
+  ingest_catalog_data: components.IngestCatalogData$Outbound;
 };
 
 /** @internal */
@@ -43,11 +42,11 @@ export const IngestCatalogDataRequest$outboundSchema: z.ZodType<
   IngestCatalogDataRequest
 > = z.object({
   catalogId: z.string(),
-  postV1CatalogsCatalogIdIngest:
-    components.PostV1CatalogsCatalogIdIngest$outboundSchema,
+  ingestCatalogData: z.lazy(() => components.IngestCatalogData$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     catalogId: "catalog_id",
+    ingestCatalogData: "ingest_catalog_data",
   });
 });
 

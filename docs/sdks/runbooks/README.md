@@ -7,116 +7,37 @@ Operations related to Runbooks
 
 ### Available Operations
 
-* [listAudits](#listaudits) - List runbook audits
-* [list](#list) - List runbooks
-* [create](#create) - Create a runbook
-* [listActions](#listactions) - List runbook actions
-* [listExecutions](#listexecutions) - List runbook executions
-* [createExecution](#createexecution) - Create a runbook execution
-* [getExecution](#getexecution) - Get a runbook execution
-* [updateExecutionStep](#updateexecutionstep) - Update a runbook execution step
-* [getExecutionStepScript](#getexecutionstepscript) - Get a runbook execution step script
-* [updateExecutionStepScriptState](#updateexecutionstepscriptstate) - Update the script state for a runbook execution step
-* [updateExecutionStepVotes](#updateexecutionstepvotes) - Update votes for a runbook execution step
-* [getStepVoteStatus](#getstepvotestatus) - Get vote counts for a runbook step
-* [updateExecutionVotes](#updateexecutionvotes) - Vote on a runbook execution
-* [getExecutionVoteStatus](#getexecutionvotestatus) - Get vote counts for a runbook execution
-* [listSelectOptions](#listselectoptions) - List select options for a runbook integration action field
-* [get](#get) - Get a runbook
-* [update](#update) - Update a runbook
-* [delete](#delete) - Delete a runbook
+* [listRunbookActions](#listrunbookactions) - List runbook actions
+* [listRunbookExecutions](#listrunbookexecutions) - List runbook executions
+* [createRunbookExecution](#createrunbookexecution) - Create a runbook execution
+* [getRunbookExecution](#getrunbookexecution) - Get a runbook execution
+* [deleteRunbookExecution](#deleterunbookexecution) - Terminate a runbook execution
+* [updateRunbookExecutionStep](#updaterunbookexecutionstep) - Update a runbook step execution
+* [getRunbookExecutionStepScript](#getrunbookexecutionstepscript) - Get a step's bash script
+* [updateRunbookExecutionStepScript](#updaterunbookexecutionstepscript) - Update a script step's execution status
+* [getRunbookActionFieldOptions](#getrunbookactionfieldoptions) - List select options for a runbook integration action field
+* [listRunbooks](#listrunbooks) - List runbooks
+* [createRunbook](#createrunbook) - Create a runbook
+* [getRunbook](#getrunbook) - Get a runbook
+* [updateRunbook](#updaterunbook) - Update a runbook
+* [deleteRunbook](#deleterunbook) - Delete a runbook
+* [listRunbookAudits](#listrunbookaudits) - List runbook audits
 
-## listAudits
+## listRunbookActions
 
-Please contact support to enable audit logging for your account.
+List all runbook actions available through your connected integrations
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.runbooks.listAudits({});
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksListAudits } from "firehydrant-typescript-sdk/funcs/runbooksListAudits.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksListAudits(firehydrantTypescriptSDK, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListRunbookAuditsRequest](../../models/operations/listrunbookauditsrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## list
-
-Lists all available runbooks.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.list({});
+  const result = await firehydrant.runbooks.listRunbookActions({});
 
   // Handle the result
   console.log(result);
@@ -130,179 +51,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksList } from "firehydrant-typescript-sdk/funcs/runbooksList.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksListRunbookActions } from "firehydrant/funcs/runbooksListRunbookActions.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksList(firehydrantTypescriptSDK, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListRunbooksRequest](../../models/operations/listrunbooksrequest.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.RunbookEntity](../../models/components/runbookentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## create
-
-Create a new runbook for use with incidents.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.create({
-    name: "<value>",
-    type: "general",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksCreate } from "firehydrant-typescript-sdk/funcs/runbooksCreate.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksCreate(firehydrantTypescriptSDK, {
-    name: "<value>",
-    type: "general",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.PostV1Runbooks](../../models/components/postv1runbooks.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.RunbookEntity](../../models/components/runbookentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listActions
-
-List all Runbook actions available through your connected integrations
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.listActions({});
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksListActions } from "firehydrant-typescript-sdk/funcs/runbooksListActions.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksListActions(firehydrantTypescriptSDK, {});
+  const res = await runbooksListRunbookActions(firehydrant, {});
 
   if (!res.ok) {
     throw res.error;
@@ -332,31 +91,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## listExecutions
+## listRunbookExecutions
 
-List all Runbook executions across all Runbooks
+List all runbook executions across all runbooks
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.listExecutions({});
+  const result = await firehydrant.runbooks.listRunbookExecutions({});
 
   // Handle the result
   console.log(result);
@@ -370,17 +123,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksListExecutions } from "firehydrant-typescript-sdk/funcs/runbooksListExecutions.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksListRunbookExecutions } from "firehydrant/funcs/runbooksListRunbookExecutions.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksListExecutions(firehydrantTypescriptSDK, {});
+  const res = await runbooksListRunbookExecutions(firehydrant, {});
 
   if (!res.ok) {
     throw res.error;
@@ -410,31 +163,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## createExecution
+## createRunbookExecution
 
 Attaches a runbook to an incident and executes it
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.createExecution({
+  const result = await firehydrant.runbooks.createRunbookExecution({
     executeFor: "<value>",
     runbookId: "<id>",
   });
@@ -451,17 +198,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksCreateExecution } from "firehydrant-typescript-sdk/funcs/runbooksCreateExecution.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksCreateRunbookExecution } from "firehydrant/funcs/runbooksCreateRunbookExecution.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksCreateExecution(firehydrantTypescriptSDK, {
+  const res = await runbooksCreateRunbookExecution(firehydrant, {
     executeFor: "<value>",
     runbookId: "<id>",
   });
@@ -483,7 +230,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.PostV1RunbooksExecutions](../../models/components/postv1runbooksexecutions.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CreateRunbookExecution](../../models/components/createrunbookexecution.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -494,31 +241,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## getExecution
+## getRunbookExecution
 
 Retrieve a runbook execution by ID
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.getExecution({
+  const result = await firehydrant.runbooks.getRunbookExecution({
     executionId: "<id>",
   });
 
@@ -534,17 +275,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksGetExecution } from "firehydrant-typescript-sdk/funcs/runbooksGetExecution.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksGetRunbookExecution } from "firehydrant/funcs/runbooksGetRunbookExecution.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksGetExecution(firehydrantTypescriptSDK, {
+  const res = await runbooksGetRunbookExecution(firehydrant, {
     executionId: "<id>",
   });
 
@@ -576,35 +317,105 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## updateExecutionStep
+## deleteRunbookExecution
+
+Terminates a runbook execution, preventing any further steps from being executed
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.runbooks.deleteRunbookExecution({
+    executionId: "<id>",
+    reason: "<value>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksDeleteRunbookExecution } from "firehydrant/funcs/runbooksDeleteRunbookExecution.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await runbooksDeleteRunbookExecution(firehydrant, {
+    executionId: "<id>",
+    reason: "<value>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteRunbookExecutionRequest](../../models/operations/deleterunbookexecutionrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateRunbookExecutionStep
 
 Updates a runbook step execution, especially for changing the state of a step execution.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.updateExecutionStep({
+  const result = await firehydrant.runbooks.updateRunbookExecutionStep({
     executionId: "<id>",
     stepId: "<id>",
-    putV1RunbooksExecutionsExecutionIdStepsStepId: {
-      state: "Colorado",
+    updateRunbookExecutionStep: {
+      state: "Maine",
     },
   });
 
@@ -620,21 +431,21 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksUpdateExecutionStep } from "firehydrant-typescript-sdk/funcs/runbooksUpdateExecutionStep.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksUpdateRunbookExecutionStep } from "firehydrant/funcs/runbooksUpdateRunbookExecutionStep.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksUpdateExecutionStep(firehydrantTypescriptSDK, {
+  const res = await runbooksUpdateRunbookExecutionStep(firehydrant, {
     executionId: "<id>",
     stepId: "<id>",
-    putV1RunbooksExecutionsExecutionIdStepsStepId: {
-      state: "Colorado",
+    updateRunbookExecutionStep: {
+      state: "Maine",
     },
   });
 
@@ -666,31 +477,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## getExecutionStepScript
+## getRunbookExecutionStepScript
 
 Retrieves the bash script from a "script" step.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.getExecutionStepScript({
+  const result = await firehydrant.runbooks.getRunbookExecutionStepScript({
     executionId: "<id>",
     stepId: "<id>",
   });
@@ -707,17 +512,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksGetExecutionStepScript } from "firehydrant-typescript-sdk/funcs/runbooksGetExecutionStepScript.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksGetRunbookExecutionStepScript } from "firehydrant/funcs/runbooksGetRunbookExecutionStepScript.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksGetExecutionStepScript(firehydrantTypescriptSDK, {
+  const res = await runbooksGetRunbookExecutionStepScript(firehydrant, {
     executionId: "<id>",
     stepId: "<id>",
   });
@@ -750,34 +555,28 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## updateExecutionStepScriptState
+## updateRunbookExecutionStepScript
 
 Updates the execution's step.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.updateExecutionStepScriptState({
+  const result = await firehydrant.runbooks.updateRunbookExecutionStepScript({
     executionId: "<id>",
     stepId: "<id>",
-    state: "West Virginia",
+    state: "Tennessee",
   });
 
   // Handle the result
@@ -792,20 +591,20 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksUpdateExecutionStepScriptState } from "firehydrant-typescript-sdk/funcs/runbooksUpdateExecutionStepScriptState.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksUpdateRunbookExecutionStepScript } from "firehydrant/funcs/runbooksUpdateRunbookExecutionStepScript.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksUpdateExecutionStepScriptState(firehydrantTypescriptSDK, {
+  const res = await runbooksUpdateRunbookExecutionStepScript(firehydrant, {
     executionId: "<id>",
     stepId: "<id>",
-    state: "West Virginia",
+    state: "Tennessee",
   });
 
   if (!res.ok) {
@@ -825,7 +624,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateRunbookExecutionStepScriptStateRequest](../../models/operations/updaterunbookexecutionstepscriptstaterequest.md)                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateRunbookExecutionStepScriptRequest](../../models/operations/updaterunbookexecutionstepscriptrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -836,375 +635,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateExecutionStepVotes
-
-Allows for upvoting or downvoting an event
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.updateExecutionStepVotes({
-    executionId: "<id>",
-    stepId: "<id>",
-    patchV1RunbooksExecutionsExecutionIdStepsStepIdVotes: {
-      direction: "up",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksUpdateExecutionStepVotes } from "firehydrant-typescript-sdk/funcs/runbooksUpdateExecutionStepVotes.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksUpdateExecutionStepVotes(firehydrantTypescriptSDK, {
-    executionId: "<id>",
-    stepId: "<id>",
-    patchV1RunbooksExecutionsExecutionIdStepsStepIdVotes: {
-      direction: "up",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateRunbookExecutionStepVotesRequest](../../models/operations/updaterunbookexecutionstepvotesrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.VotesEntity](../../models/components/votesentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## getStepVoteStatus
-
-Returns the current vote counts for an object
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.getStepVoteStatus({
-    executionId: "<id>",
-    stepId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksGetStepVoteStatus } from "firehydrant-typescript-sdk/funcs/runbooksGetStepVoteStatus.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksGetStepVoteStatus(firehydrantTypescriptSDK, {
-    executionId: "<id>",
-    stepId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetRunbookStepVoteStatusRequest](../../models/operations/getrunbookstepvotestatusrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.VotesEntity](../../models/components/votesentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateExecutionVotes
-
-Allows for upvoting or downvoting an event
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.updateExecutionVotes({
-    executionId: "<id>",
-    patchV1RunbooksExecutionsExecutionIdVotes: {
-      direction: "down",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksUpdateExecutionVotes } from "firehydrant-typescript-sdk/funcs/runbooksUpdateExecutionVotes.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksUpdateExecutionVotes(firehydrantTypescriptSDK, {
-    executionId: "<id>",
-    patchV1RunbooksExecutionsExecutionIdVotes: {
-      direction: "down",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateRunbookExecutionVotesRequest](../../models/operations/updaterunbookexecutionvotesrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.VotesEntity](../../models/components/votesentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## getExecutionVoteStatus
-
-Returns the current vote counts for an object
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.getExecutionVoteStatus({
-    executionId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksGetExecutionVoteStatus } from "firehydrant-typescript-sdk/funcs/runbooksGetExecutionVoteStatus.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await runbooksGetExecutionVoteStatus(firehydrantTypescriptSDK, {
-    executionId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetRunbookExecutionVoteStatusRequest](../../models/operations/getrunbookexecutionvotestatusrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.VotesEntity](../../models/components/votesentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listSelectOptions
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getRunbookActionFieldOptions
 
 List select options for a runbook integration action field
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.runbooks.listSelectOptions({
+  await firehydrant.runbooks.getRunbookActionFieldOptions({
     integrationSlug: "<value>",
     actionSlug: "<value>",
     field: "<value>",
@@ -1221,17 +670,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksListSelectOptions } from "firehydrant-typescript-sdk/funcs/runbooksListSelectOptions.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksGetRunbookActionFieldOptions } from "firehydrant/funcs/runbooksGetRunbookActionFieldOptions.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksListSelectOptions(firehydrantTypescriptSDK, {
+  const res = await runbooksGetRunbookActionFieldOptions(firehydrant, {
     integrationSlug: "<value>",
     actionSlug: "<value>",
     field: "<value>",
@@ -1253,7 +702,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetRunbookSelectOptionsRequest](../../models/operations/getrunbookselectoptionsrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.GetRunbookActionFieldOptionsRequest](../../models/operations/getrunbookactionfieldoptionsrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1264,31 +713,175 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## get
+## listRunbooks
+
+Lists all available runbooks.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.runbooks.listRunbooks({});
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksListRunbooks } from "firehydrant/funcs/runbooksListRunbooks.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await runbooksListRunbooks(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListRunbooksRequest](../../models/operations/listrunbooksrequest.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.RunbookEntity](../../models/components/runbookentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createRunbook
+
+Create a new runbook for use with incidents.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.runbooks.createRunbook({
+    name: "<value>",
+    type: "incident_role",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksCreateRunbook } from "firehydrant/funcs/runbooksCreateRunbook.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await runbooksCreateRunbook(firehydrant, {
+    name: "<value>",
+    type: "incident_role",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.CreateRunbook](../../models/components/createrunbook.md)                                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.RunbookEntity](../../models/components/runbookentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getRunbook
 
 Get a runbook and all its configuration
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.get({
+  const result = await firehydrant.runbooks.getRunbook({
     runbookId: "<id>",
   });
 
@@ -1304,17 +897,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksGet } from "firehydrant-typescript-sdk/funcs/runbooksGet.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksGetRunbook } from "firehydrant/funcs/runbooksGetRunbook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksGet(firehydrantTypescriptSDK, {
+  const res = await runbooksGetRunbook(firehydrant, {
     runbookId: "<id>",
   });
 
@@ -1346,17 +939,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## update
+## updateRunbook
 
 Update a runbook and any attachment rules associated with it. This endpoint is used to configure nearly everything
 about a runbook, including but not limited to the steps, environments, attachment rules, and severities.
@@ -1365,16 +952,16 @@ about a runbook, including but not limited to the steps, environments, attachmen
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.update({
+  const result = await firehydrant.runbooks.updateRunbook({
     runbookId: "<id>",
-    putV1RunbooksRunbookId: {},
+    updateRunbook: {},
   });
 
   // Handle the result
@@ -1389,19 +976,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksUpdate } from "firehydrant-typescript-sdk/funcs/runbooksUpdate.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksUpdateRunbook } from "firehydrant/funcs/runbooksUpdateRunbook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksUpdate(firehydrantTypescriptSDK, {
+  const res = await runbooksUpdateRunbook(firehydrant, {
     runbookId: "<id>",
-    putV1RunbooksRunbookId: {},
+    updateRunbook: {},
   });
 
   if (!res.ok) {
@@ -1432,31 +1019,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## delete
+## deleteRunbook
 
 Delete a runbook and make it unavailable for any future incidents.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.runbooks.delete({
+  const result = await firehydrant.runbooks.deleteRunbook({
     runbookId: "<id>",
   });
 
@@ -1472,17 +1053,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { runbooksDelete } from "firehydrant-typescript-sdk/funcs/runbooksDelete.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksDeleteRunbook } from "firehydrant/funcs/runbooksDeleteRunbook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await runbooksDelete(firehydrantTypescriptSDK, {
+  const res = await runbooksDeleteRunbook(firehydrant, {
     runbookId: "<id>",
   });
 
@@ -1514,12 +1095,76 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listRunbookAudits
+
+Please contact support to enable audit logging for your account.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.runbooks.listRunbookAudits({});
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { runbooksListRunbookAudits } from "firehydrant/funcs/runbooksListRunbookAudits.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await runbooksListRunbookAudits(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListRunbookAuditsRequest](../../models/operations/listrunbookauditsrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

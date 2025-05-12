@@ -5,7 +5,7 @@ NuncEmailSubscribersEntity model
 ## Example Usage
 
 ```typescript
-import { NuncEmailSubscribersEntity } from "firehydrant-typescript-sdk/models/components";
+import { NuncEmailSubscribersEntity } from "firehydrant/models/components";
 
 let value: NuncEmailSubscribersEntity = {};
 ```

@@ -13,7 +13,7 @@ export type GetServiceDependenciesRequest = {
   /**
    * If true, returns all dependencies in one array. If false, splits dependencies into different arrays for child and parent dependencies
    */
-  flatten?: boolean | undefined;
+  flatten?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -23,7 +23,7 @@ export const GetServiceDependenciesRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   service_id: z.string(),
-  flatten: z.boolean().optional(),
+  flatten: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "service_id": "serviceId",
@@ -33,7 +33,7 @@ export const GetServiceDependenciesRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type GetServiceDependenciesRequest$Outbound = {
   service_id: string;
-  flatten?: boolean | undefined;
+  flatten?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -43,7 +43,7 @@ export const GetServiceDependenciesRequest$outboundSchema: z.ZodType<
   GetServiceDependenciesRequest
 > = z.object({
   serviceId: z.string(),
-  flatten: z.boolean().optional(),
+  flatten: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     serviceId: "service_id",

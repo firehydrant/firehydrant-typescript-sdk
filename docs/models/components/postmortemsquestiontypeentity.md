@@ -5,7 +5,7 @@ PostMortems_QuestionTypeEntity model
 ## Example Usage
 
 ```typescript
-import { PostMortemsQuestionTypeEntity } from "firehydrant-typescript-sdk/models/components";
+import { PostMortemsQuestionTypeEntity } from "firehydrant/models/components";
 
 let value: PostMortemsQuestionTypeEntity = {};
 ```

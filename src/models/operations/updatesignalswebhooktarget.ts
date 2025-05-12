@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
@@ -10,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateSignalsWebhookTargetRequest = {
   id: string;
-  patchV1SignalsWebhookTargetsId: components.PatchV1SignalsWebhookTargetsId;
+  updateSignalsWebhookTarget: components.UpdateSignalsWebhookTarget;
 };
 
 /** @internal */
@@ -20,15 +21,19 @@ export const UpdateSignalsWebhookTargetRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  patchV1SignalsWebhookTargetsId:
-    components.PatchV1SignalsWebhookTargetsId$inboundSchema,
+  update_signals_webhook_target: z.lazy(() =>
+    components.UpdateSignalsWebhookTarget$inboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    "update_signals_webhook_target": "updateSignalsWebhookTarget",
+  });
 });
 
 /** @internal */
 export type UpdateSignalsWebhookTargetRequest$Outbound = {
   id: string;
-  patchV1SignalsWebhookTargetsId:
-    components.PatchV1SignalsWebhookTargetsId$Outbound;
+  update_signals_webhook_target: components.UpdateSignalsWebhookTarget$Outbound;
 };
 
 /** @internal */
@@ -38,8 +43,13 @@ export const UpdateSignalsWebhookTargetRequest$outboundSchema: z.ZodType<
   UpdateSignalsWebhookTargetRequest
 > = z.object({
   id: z.string(),
-  patchV1SignalsWebhookTargetsId:
-    components.PatchV1SignalsWebhookTargetsId$outboundSchema,
+  updateSignalsWebhookTarget: z.lazy(() =>
+    components.UpdateSignalsWebhookTarget$outboundSchema
+  ),
+}).transform((v) => {
+  return remap$(v, {
+    updateSignalsWebhookTarget: "update_signals_webhook_target",
+  });
 });
 
 /**

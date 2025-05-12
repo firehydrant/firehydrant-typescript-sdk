@@ -15,15 +15,15 @@ export type NuncEmailSubscribersEntity = {
   /**
    * UUID of the subscriber
    */
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * Email of the subscriber
    */
-  email?: string | undefined;
+  email?: string | null | undefined;
   /**
    * The time the subscriber was created
    */
-  createdAt?: Date | undefined;
+  createdAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -32,10 +32,11 @@ export const NuncEmailSubscribersEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  email: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -44,9 +45,9 @@ export const NuncEmailSubscribersEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type NuncEmailSubscribersEntity$Outbound = {
-  id?: string | undefined;
-  email?: string | undefined;
-  created_at?: string | undefined;
+  id?: string | null | undefined;
+  email?: string | null | undefined;
+  created_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -55,9 +56,9 @@ export const NuncEmailSubscribersEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NuncEmailSubscribersEntity
 > = z.object({
-  id: z.string().optional(),
-  email: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

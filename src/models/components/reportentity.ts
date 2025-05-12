@@ -19,10 +19,10 @@ import {
  * ReportEntity model
  */
 export type ReportEntity = {
-  data?: Array<ReportsBucketEntity> | undefined;
-  startDate?: RFCDate | undefined;
-  endDate?: RFCDate | undefined;
-  bucketPeriod?: string | undefined;
+  data?: Array<ReportsBucketEntity> | null | undefined;
+  startDate?: RFCDate | null | undefined;
+  endDate?: RFCDate | null | undefined;
+  bucketPeriod?: string | null | undefined;
 };
 
 /** @internal */
@@ -31,10 +31,10 @@ export const ReportEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(ReportsBucketEntity$inboundSchema).optional(),
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
-  bucket_period: z.string().optional(),
+  data: z.nullable(z.array(ReportsBucketEntity$inboundSchema)).optional(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  bucket_period: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -45,10 +45,10 @@ export const ReportEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ReportEntity$Outbound = {
-  data?: Array<ReportsBucketEntity$Outbound> | undefined;
-  start_date?: string | undefined;
-  end_date?: string | undefined;
-  bucket_period?: string | undefined;
+  data?: Array<ReportsBucketEntity$Outbound> | null | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
+  bucket_period?: string | null | undefined;
 };
 
 /** @internal */
@@ -57,10 +57,12 @@ export const ReportEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ReportEntity
 > = z.object({
-  data: z.array(ReportsBucketEntity$outboundSchema).optional(),
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  bucketPeriod: z.string().optional(),
+  data: z.nullable(z.array(ReportsBucketEntity$outboundSchema)).optional(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  bucketPeriod: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",

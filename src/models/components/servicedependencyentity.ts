@@ -8,28 +8,22 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ServiceEntity,
-  ServiceEntity$inboundSchema,
-  ServiceEntity$Outbound,
-  ServiceEntity$outboundSchema,
-} from "./serviceentity.js";
+  NullableServiceEntity,
+  NullableServiceEntity$inboundSchema,
+  NullableServiceEntity$Outbound,
+  NullableServiceEntity$outboundSchema,
+} from "./nullableserviceentity.js";
 
 /**
  * ServiceDependencyEntity model
  */
 export type ServiceDependencyEntity = {
-  id?: string | undefined;
-  notes?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  /**
-   * ServiceEntity model
-   */
-  service?: ServiceEntity | undefined;
-  /**
-   * ServiceEntity model
-   */
-  connectedService?: ServiceEntity | undefined;
+  id?: string | null | undefined;
+  notes?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  service?: NullableServiceEntity | null | undefined;
+  connectedService?: NullableServiceEntity | null | undefined;
 };
 
 /** @internal */
@@ -38,14 +32,16 @@ export const ServiceDependencyEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  notes: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  service: ServiceEntity$inboundSchema.optional(),
-  connected_service: ServiceEntity$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  notes: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  service: z.nullable(NullableServiceEntity$inboundSchema).optional(),
+  connected_service: z.nullable(NullableServiceEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -56,12 +52,12 @@ export const ServiceDependencyEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ServiceDependencyEntity$Outbound = {
-  id?: string | undefined;
-  notes?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  service?: ServiceEntity$Outbound | undefined;
-  connected_service?: ServiceEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  notes?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  service?: NullableServiceEntity$Outbound | null | undefined;
+  connected_service?: NullableServiceEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -70,12 +66,12 @@ export const ServiceDependencyEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ServiceDependencyEntity
 > = z.object({
-  id: z.string().optional(),
-  notes: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  service: ServiceEntity$outboundSchema.optional(),
-  connectedService: ServiceEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  notes: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  service: z.nullable(NullableServiceEntity$outboundSchema).optional(),
+  connectedService: z.nullable(NullableServiceEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

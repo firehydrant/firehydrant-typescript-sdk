@@ -11,44 +11,45 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Type of Entitlement
  */
-export const Type = {
+export const ListEntitlementsType = {
   Quota: "quota",
   Access: "access",
 } as const;
 /**
  * Type of Entitlement
  */
-export type Type = ClosedEnum<typeof Type>;
+export type ListEntitlementsType = ClosedEnum<typeof ListEntitlementsType>;
 
 export type ListEntitlementsRequest = {
   /**
    * Name of Entitlement
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * Type of Entitlement
    */
-  type?: Type | undefined;
+  type?: ListEntitlementsType | null | undefined;
 };
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const ListEntitlementsType$inboundSchema: z.ZodNativeEnum<
+  typeof ListEntitlementsType
+> = z.nativeEnum(ListEntitlementsType);
 
 /** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
+export const ListEntitlementsType$outboundSchema: z.ZodNativeEnum<
+  typeof ListEntitlementsType
+> = ListEntitlementsType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
+export namespace ListEntitlementsType$ {
+  /** @deprecated use `ListEntitlementsType$inboundSchema` instead. */
+  export const inboundSchema = ListEntitlementsType$inboundSchema;
+  /** @deprecated use `ListEntitlementsType$outboundSchema` instead. */
+  export const outboundSchema = ListEntitlementsType$outboundSchema;
 }
 
 /** @internal */
@@ -57,14 +58,14 @@ export const ListEntitlementsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  name: z.string().optional(),
-  type: Type$inboundSchema.optional(),
+  name: z.nullable(z.string()).optional(),
+  type: z.nullable(ListEntitlementsType$inboundSchema).optional(),
 });
 
 /** @internal */
 export type ListEntitlementsRequest$Outbound = {
-  name?: string | undefined;
-  type?: string | undefined;
+  name?: string | null | undefined;
+  type?: string | null | undefined;
 };
 
 /** @internal */
@@ -73,8 +74,8 @@ export const ListEntitlementsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListEntitlementsRequest
 > = z.object({
-  name: z.string().optional(),
-  type: Type$outboundSchema.optional(),
+  name: z.nullable(z.string()).optional(),
+  type: z.nullable(ListEntitlementsType$outboundSchema).optional(),
 });
 
 /**

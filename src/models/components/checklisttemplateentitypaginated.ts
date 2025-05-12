@@ -13,18 +13,18 @@ import {
   ChecklistTemplateEntity$outboundSchema,
 } from "./checklisttemplateentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * ChecklistTemplateEntityPaginated model
  */
 export type ChecklistTemplateEntityPaginated = {
-  data?: Array<ChecklistTemplateEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<ChecklistTemplateEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const ChecklistTemplateEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(ChecklistTemplateEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(ChecklistTemplateEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type ChecklistTemplateEntityPaginated$Outbound = {
-  data?: Array<ChecklistTemplateEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<ChecklistTemplateEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const ChecklistTemplateEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChecklistTemplateEntityPaginated
 > = z.object({
-  data: z.array(ChecklistTemplateEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(ChecklistTemplateEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

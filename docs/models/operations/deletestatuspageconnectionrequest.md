@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteStatuspageConnectionRequest } from "firehydrant-typescript-sdk/models/operations";
+import { DeleteStatuspageConnectionRequest } from "firehydrant/models/operations";
 
 let value: DeleteStatuspageConnectionRequest = {
   connectionId: "<id>",

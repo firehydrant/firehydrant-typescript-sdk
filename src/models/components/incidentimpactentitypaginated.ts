@@ -13,18 +13,18 @@ import {
   IncidentImpactEntity$outboundSchema,
 } from "./incidentimpactentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * IncidentImpactEntityPaginated model
  */
 export type IncidentImpactEntityPaginated = {
-  data?: Array<IncidentImpactEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IncidentImpactEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const IncidentImpactEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(IncidentImpactEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(IncidentImpactEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type IncidentImpactEntityPaginated$Outbound = {
-  data?: Array<IncidentImpactEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<IncidentImpactEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const IncidentImpactEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentImpactEntityPaginated
 > = z.object({
-  data: z.array(IncidentImpactEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(IncidentImpactEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

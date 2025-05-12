@@ -12,9 +12,9 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Event_GenericChatMessageEntity model
  */
 export type EventGenericChatMessageEntity = {
-  id?: string | undefined;
-  body?: string | undefined;
-  createdAt?: Date | undefined;
+  id?: string | null | undefined;
+  body?: string | null | undefined;
+  createdAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -23,10 +23,11 @@ export const EventGenericChatMessageEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  body: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  body: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -35,9 +36,9 @@ export const EventGenericChatMessageEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EventGenericChatMessageEntity$Outbound = {
-  id?: string | undefined;
-  body?: string | undefined;
-  created_at?: string | undefined;
+  id?: string | null | undefined;
+  body?: string | null | undefined;
+  created_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -46,9 +47,9 @@ export const EventGenericChatMessageEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventGenericChatMessageEntity
 > = z.object({
-  id: z.string().optional(),
-  body: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  body: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

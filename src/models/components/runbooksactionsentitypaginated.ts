@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 import {
   RunbooksActionsEntity,
   RunbooksActionsEntity$inboundSchema,
@@ -23,8 +23,8 @@ import {
  * Runbooks_ActionsEntityPaginated model
  */
 export type RunbooksActionsEntityPaginated = {
-  data?: Array<RunbooksActionsEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<RunbooksActionsEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const RunbooksActionsEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(RunbooksActionsEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(RunbooksActionsEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type RunbooksActionsEntityPaginated$Outbound = {
-  data?: Array<RunbooksActionsEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<RunbooksActionsEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const RunbooksActionsEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RunbooksActionsEntityPaginated
 > = z.object({
-  data: z.array(RunbooksActionsEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(RunbooksActionsEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

@@ -3,436 +3,40 @@
 
 ## Overview
 
+Operations related to Metrics & Reporting
+
 ### Available Operations
 
-* [listMeasurementDefinitions](#listmeasurementdefinitions) - List measurement definitions
-* [createMeasurementDefinition](#createmeasurementdefinition) - Create a measurement definition
-* [getMeasurementDefinition](#getmeasurementdefinition) - Get a measurement definition
-* [deleteMeasurementDefinition](#deletemeasurementdefinition) - Archive a measurement definition
-* [updateMeasurementDefinition](#updatemeasurementdefinition) - Update a measurement definition
+* [getMeanTimeReport](#getmeantimereport) - Get mean time metrics for incidents
+* [listRetrospectiveMetrics](#listretrospectivemetrics) - List retrospective metrics
+* [listUserInvolvementMetrics](#listuserinvolvementmetrics) - List user metrics
 * [listIncidentMetrics](#listincidentmetrics) - List incident metrics and analytics
-* [listRetrospectives](#listretrospectives) - List retrospective metrics for a date range
-* [listUserInvolvementMetrics](#listuserinvolvementmetrics) - List user involvement metrics
-* [listInfrastructureMetrics](#listinfrastructuremetrics) - List metrics for all services, environments, functionalities, or customers
-* [getMeanTime](#getmeantime) - Get mean time metrics for incidents
+* [listInfrastructureTypeMetrics](#listinfrastructuretypemetrics) - List metrics for a component type
+* [listInfrastructureMetrics](#listinfrastructuremetrics) - Get metrics for a component
+* [getSavedSearch](#getsavedsearch) - Get a saved search
+* [deleteSavedSearch](#deletesavedsearch) - Delete a saved search
+* [updateSavedSearch](#updatesavedsearch) - Update a saved search
 * [listSavedSearches](#listsavedsearches) - List saved searches
 * [createSavedSearch](#createsavedsearch) - Create a saved search
-
-## listMeasurementDefinitions
-
-List all of the measurement definitions in the organization
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.metricsReporting.listMeasurementDefinitions({});
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingListMeasurementDefinitions } from "firehydrant-typescript-sdk/funcs/metricsReportingListMeasurementDefinitions.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingListMeasurementDefinitions(firehydrantTypescriptSDK, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListMeasurementDefinitionsRequest](../../models/operations/listmeasurementdefinitionsrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createMeasurementDefinition
-
-Create a new measurement definition
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.metricsReporting.createMeasurementDefinition({
-    name: "<value>",
-    startsAtMilestoneId: "<id>",
-    endsAtMilestoneId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingCreateMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/metricsReportingCreateMeasurementDefinition.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingCreateMeasurementDefinition(firehydrantTypescriptSDK, {
-    name: "<value>",
-    startsAtMilestoneId: "<id>",
-    endsAtMilestoneId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateMeasurementDefinitionRequestBody](../../models/operations/createmeasurementdefinitionrequestbody.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## getMeasurementDefinition
-
-Retrieve a single measurement definition from its ID
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.metricsReporting.getMeasurementDefinition({
-    measurementDefinitionId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingGetMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/metricsReportingGetMeasurementDefinition.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingGetMeasurementDefinition(firehydrantTypescriptSDK, {
-    measurementDefinitionId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetMeasurementDefinitionRequest](../../models/operations/getmeasurementdefinitionrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## deleteMeasurementDefinition
-
-Archives a measurement definition which will hide it from lists and metrics
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.metricsReporting.deleteMeasurementDefinition({
-    measurementDefinitionId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingDeleteMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/metricsReportingDeleteMeasurementDefinition.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingDeleteMeasurementDefinition(firehydrantTypescriptSDK, {
-    measurementDefinitionId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteMeasurementDefinitionRequest](../../models/operations/deletemeasurementdefinitionrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateMeasurementDefinition
-
-Update a single measurement definition from its ID
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.metricsReporting.updateMeasurementDefinition({
-    measurementDefinitionId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingUpdateMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/metricsReportingUpdateMeasurementDefinition.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingUpdateMeasurementDefinition(firehydrantTypescriptSDK, {
-    measurementDefinitionId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateMeasurementDefinitionRequest](../../models/operations/updatemeasurementdefinitionrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listIncidentMetrics
+* [getSignalsTimeseriesAnalytics](#getsignalstimeseriesanalytics) - Generate timeseries alert metrics
+* [getSignalsGroupedMetrics](#getsignalsgroupedmetrics) - Generate grouped alert metrics
+* [getSignalsMttxAnalytics](#getsignalsmttxanalytics) - Get MTTX analytics for signals
+
+## getMeanTimeReport
 
 Returns a report with time bucketed analytics data
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.listIncidentMetrics({});
+  const result = await firehydrant.metricsReporting.getMeanTimeReport({});
 
   // Handle the result
   console.log(result);
@@ -446,333 +50,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingListIncidentMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListIncidentMetrics.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingGetMeanTimeReport } from "firehydrant/funcs/metricsReportingGetMeanTimeReport.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await metricsReportingListIncidentMetrics(firehydrantTypescriptSDK, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListIncidentMetricsRequest](../../models/operations/listincidentmetricsrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.MetricsMetricsEntity](../../models/components/metricsmetricsentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listRetrospectives
-
-Returns a report with retrospective analytics data
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.listRetrospectives({});
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingListRetrospectives } from "firehydrant-typescript-sdk/funcs/metricsReportingListRetrospectives.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingListRetrospectives(firehydrantTypescriptSDK, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListRetrospectiveMetricsRequest](../../models/operations/listretrospectivemetricsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.MetricsRetrospectiveEntity](../../models/components/metricsretrospectiveentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listUserInvolvementMetrics
-
-Returns a report with time bucketed analytics data
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.listUserInvolvementMetrics({});
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingListUserInvolvementMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListUserInvolvementMetrics.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingListUserInvolvementMetrics(firehydrantTypescriptSDK, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListUserInvolvementMetricsRequest](../../models/operations/listuserinvolvementmetricsrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.MetricsMetricsEntity](../../models/components/metricsmetricsentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listInfrastructureMetrics
-
-Returns metrics for all components of a given type
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.listInfrastructureMetrics({
-    infraType: "services",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingListInfrastructureMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListInfrastructureMetrics.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingListInfrastructureMetrics(firehydrantTypescriptSDK, {
-    infraType: "services",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListInfrastructureMetricsRequest](../../models/operations/listinfrastructuremetricsrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.MetricsInfrastructureListEntity](../../models/components/metricsinfrastructurelistentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## getMeanTime
-
-Returns a report with time bucketed analytics data
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.getMeanTime({});
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingGetMeanTime } from "firehydrant-typescript-sdk/funcs/metricsReportingGetMeanTime.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await metricsReportingGetMeanTime(firehydrantTypescriptSDK, {});
+  const res = await metricsReportingGetMeanTimeReport(firehydrant, {});
 
   if (!res.ok) {
     throw res.error;
@@ -802,32 +90,242 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## listSavedSearches
+## listRetrospectiveMetrics
 
-Lists save searches
+Returns a report with retrospective analytics data
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.listSavedSearches({
-    resourceType: "incident_events",
+  const result = await firehydrant.metricsReporting.listRetrospectiveMetrics({});
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingListRetrospectiveMetrics } from "firehydrant/funcs/metricsReportingListRetrospectiveMetrics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingListRetrospectiveMetrics(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListRetrospectiveMetricsRequest](../../models/operations/listretrospectivemetricsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.MetricsRetrospectiveEntity](../../models/components/metricsretrospectiveentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listUserInvolvementMetrics
+
+Returns a report with time bucketed analytics data
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.listUserInvolvementMetrics({});
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingListUserInvolvementMetrics } from "firehydrant/funcs/metricsReportingListUserInvolvementMetrics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingListUserInvolvementMetrics(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListUserInvolvementMetricsRequest](../../models/operations/listuserinvolvementmetricsrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.MetricsMetricsEntity](../../models/components/metricsmetricsentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listIncidentMetrics
+
+Returns a report with time bucketed analytics data
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.listIncidentMetrics({});
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingListIncidentMetrics } from "firehydrant/funcs/metricsReportingListIncidentMetrics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingListIncidentMetrics(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListIncidentMetricsRequest](../../models/operations/listincidentmetricsrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.MetricsMetricsEntity](../../models/components/metricsmetricsentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listInfrastructureTypeMetrics
+
+Returns metrics for all components of a given type
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.listInfrastructureTypeMetrics({
+    infraType: "customers",
   });
 
   // Handle the result
@@ -842,18 +340,408 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingListSavedSearches } from "firehydrant-typescript-sdk/funcs/metricsReportingListSavedSearches.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingListInfrastructureTypeMetrics } from "firehydrant/funcs/metricsReportingListInfrastructureTypeMetrics.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await metricsReportingListSavedSearches(firehydrantTypescriptSDK, {
+  const res = await metricsReportingListInfrastructureTypeMetrics(firehydrant, {
+    infraType: "customers",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListInfrastructureTypeMetricsRequest](../../models/operations/listinfrastructuretypemetricsrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.MetricsInfrastructureListEntity](../../models/components/metricsinfrastructurelistentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listInfrastructureMetrics
+
+Return metrics for a specific component
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.listInfrastructureMetrics({
+    infraType: "environments",
+    infraId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingListInfrastructureMetrics } from "firehydrant/funcs/metricsReportingListInfrastructureMetrics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingListInfrastructureMetrics(firehydrant, {
+    infraType: "environments",
+    infraId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListInfrastructureMetricsRequest](../../models/operations/listinfrastructuremetricsrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.MetricsInfrastructureMetricsEntity](../../models/components/metricsinfrastructuremetricsentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSavedSearch
+
+Retrieve a specific save search
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.getSavedSearch({
+    resourceType: "incidents",
+    savedSearchId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingGetSavedSearch } from "firehydrant/funcs/metricsReportingGetSavedSearch.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingGetSavedSearch(firehydrant, {
+    resourceType: "incidents",
+    savedSearchId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSavedSearchRequest](../../models/operations/getsavedsearchrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SavedSearchEntity](../../models/components/savedsearchentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteSavedSearch
+
+Delete a specific saved search
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.deleteSavedSearch({
+    resourceType: "scheduled_maintenances",
+    savedSearchId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingDeleteSavedSearch } from "firehydrant/funcs/metricsReportingDeleteSavedSearch.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingDeleteSavedSearch(firehydrant, {
+    resourceType: "scheduled_maintenances",
+    savedSearchId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteSavedSearchRequest](../../models/operations/deletesavedsearchrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SavedSearchEntity](../../models/components/savedsearchentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateSavedSearch
+
+Update a specific saved search
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.updateSavedSearch({
     resourceType: "incident_events",
+    savedSearchId: "<id>",
+    updateSavedSearch: {},
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingUpdateSavedSearch } from "firehydrant/funcs/metricsReportingUpdateSavedSearch.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingUpdateSavedSearch(firehydrant, {
+    resourceType: "incident_events",
+    savedSearchId: "<id>",
+    updateSavedSearch: {},
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateSavedSearchRequest](../../models/operations/updatesavedsearchrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SavedSearchEntity](../../models/components/savedsearchentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listSavedSearches
+
+Lists saved searches
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.metricsReporting.listSavedSearches({
+    resourceType: "incidents",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingListSavedSearches } from "firehydrant/funcs/metricsReportingListSavedSearches.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingListSavedSearches(firehydrant, {
+    resourceType: "incidents",
   });
 
   if (!res.ok) {
@@ -884,15 +772,9 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
 ## createSavedSearch
 
@@ -901,19 +783,21 @@ Create a new saved search for a particular resource type
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.metricsReporting.createSavedSearch({
-    resourceType: "ticket_follow_ups",
-    postV1SavedSearchesResourceType: {
+  const result = await firehydrant.metricsReporting.createSavedSearch({
+    resourceType: "services",
+    createSavedSearch: {
       name: "<value>",
       filterValues: {
-
+        "key": "<value>",
+        "key1": "<value>",
+        "key2": "<value>",
       },
     },
   });
@@ -930,22 +814,24 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { metricsReportingCreateSavedSearch } from "firehydrant-typescript-sdk/funcs/metricsReportingCreateSavedSearch.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingCreateSavedSearch } from "firehydrant/funcs/metricsReportingCreateSavedSearch.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await metricsReportingCreateSavedSearch(firehydrantTypescriptSDK, {
-    resourceType: "ticket_follow_ups",
-    postV1SavedSearchesResourceType: {
+  const res = await metricsReportingCreateSavedSearch(firehydrant, {
+    resourceType: "services",
+    createSavedSearch: {
       name: "<value>",
       filterValues: {
-  
+        "key": "<value>",
+        "key1": "<value>",
+        "key2": "<value>",
       },
     },
   });
@@ -978,12 +864,216 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSignalsTimeseriesAnalytics
+
+Generate a timeseries-based report of metrics for Signals alerts
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.metricsReporting.getSignalsTimeseriesAnalytics({});
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingGetSignalsTimeseriesAnalytics } from "firehydrant/funcs/metricsReportingGetSignalsTimeseriesAnalytics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingGetSignalsTimeseriesAnalytics(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSignalsTimeseriesAnalyticsRequest](../../models/operations/getsignalstimeseriesanalyticsrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSignalsGroupedMetrics
+
+Generate a report of grouped metrics for Signals alerts
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.metricsReporting.getSignalsGroupedMetrics({});
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingGetSignalsGroupedMetrics } from "firehydrant/funcs/metricsReportingGetSignalsGroupedMetrics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingGetSignalsGroupedMetrics(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSignalsGroupedMetricsRequest](../../models/operations/getsignalsgroupedmetricsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSignalsMttxAnalytics
+
+Get mean-time-to-acknowledged (MTTA) and mean-time-to-resolved (MTTR) metrics for Signals alerts
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.metricsReporting.getSignalsMttxAnalytics({});
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { metricsReportingGetSignalsMttxAnalytics } from "firehydrant/funcs/metricsReportingGetSignalsMttxAnalytics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingGetSignalsMttxAnalytics(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSignalsMttxAnalyticsRequest](../../models/operations/getsignalsmttxanalyticsrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

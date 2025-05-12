@@ -8,10 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AuthorEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  source?: string | undefined;
-  email?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  source?: string | null | undefined;
+  email?: string | null | undefined;
 };
 
 /** @internal */
@@ -20,18 +20,18 @@ export const AuthorEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  source: z.string().optional(),
-  email: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  source: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type AuthorEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  source?: string | undefined;
-  email?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  source?: string | null | undefined;
+  email?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,10 +40,10 @@ export const AuthorEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AuthorEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  source: z.string().optional(),
-  email: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  source: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
 });
 
 /**

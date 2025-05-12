@@ -17,15 +17,15 @@ export type TicketingProjectConfigEntityDetails = {};
  * Ticketing_ProjectConfigEntity model
  */
 export type TicketingProjectConfigEntity = {
-  id?: string | undefined;
-  connectionId?: string | undefined;
-  connectionType?: string | undefined;
-  ticketingProjectId?: string | undefined;
-  ticketingProjectName?: string | undefined;
+  id?: string | null | undefined;
+  connectionId?: string | null | undefined;
+  connectionType?: string | null | undefined;
+  ticketingProjectId?: string | null | undefined;
+  ticketingProjectName?: string | null | undefined;
   /**
    * A config object containing details about the project config. Can be one of: Ticketing::JiraCloud::ProjectConfigEntity, Ticketing::JiraOnprem::ProjectConfigEntity, or Ticketing::Shortcut::ProjectConfigEntity
    */
-  details?: TicketingProjectConfigEntityDetails | undefined;
+  details?: TicketingProjectConfigEntityDetails | null | undefined;
 };
 
 /** @internal */
@@ -87,13 +87,14 @@ export const TicketingProjectConfigEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  connection_id: z.string().optional(),
-  connection_type: z.string().optional(),
-  ticketing_project_id: z.string().optional(),
-  ticketing_project_name: z.string().optional(),
-  details: z.lazy(() => TicketingProjectConfigEntityDetails$inboundSchema)
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  connection_id: z.nullable(z.string()).optional(),
+  connection_type: z.nullable(z.string()).optional(),
+  ticketing_project_id: z.nullable(z.string()).optional(),
+  ticketing_project_name: z.nullable(z.string()).optional(),
+  details: z.nullable(
+    z.lazy(() => TicketingProjectConfigEntityDetails$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "connection_id": "connectionId",
@@ -105,12 +106,12 @@ export const TicketingProjectConfigEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingProjectConfigEntity$Outbound = {
-  id?: string | undefined;
-  connection_id?: string | undefined;
-  connection_type?: string | undefined;
-  ticketing_project_id?: string | undefined;
-  ticketing_project_name?: string | undefined;
-  details?: TicketingProjectConfigEntityDetails$Outbound | undefined;
+  id?: string | null | undefined;
+  connection_id?: string | null | undefined;
+  connection_type?: string | null | undefined;
+  ticketing_project_id?: string | null | undefined;
+  ticketing_project_name?: string | null | undefined;
+  details?: TicketingProjectConfigEntityDetails$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -119,13 +120,14 @@ export const TicketingProjectConfigEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectConfigEntity
 > = z.object({
-  id: z.string().optional(),
-  connectionId: z.string().optional(),
-  connectionType: z.string().optional(),
-  ticketingProjectId: z.string().optional(),
-  ticketingProjectName: z.string().optional(),
-  details: z.lazy(() => TicketingProjectConfigEntityDetails$outboundSchema)
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  connectionId: z.nullable(z.string()).optional(),
+  connectionType: z.nullable(z.string()).optional(),
+  ticketingProjectId: z.nullable(z.string()).optional(),
+  ticketingProjectName: z.nullable(z.string()).optional(),
+  details: z.nullable(
+    z.lazy(() => TicketingProjectConfigEntityDetails$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     connectionId: "connection_id",

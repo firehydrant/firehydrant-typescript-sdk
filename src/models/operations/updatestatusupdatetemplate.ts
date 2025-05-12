@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateStatusUpdateTemplateRequest = {
   statusUpdateTemplateId: string;
-  patchV1StatusUpdateTemplatesStatusUpdateTemplateId:
-    components.PatchV1StatusUpdateTemplatesStatusUpdateTemplateId;
+  updateStatusUpdateTemplate: components.UpdateStatusUpdateTemplate;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdateStatusUpdateTemplateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   status_update_template_id: z.string(),
-  patchV1StatusUpdateTemplatesStatusUpdateTemplateId:
-    components.PatchV1StatusUpdateTemplatesStatusUpdateTemplateId$inboundSchema,
+  update_status_update_template: z.lazy(() =>
+    components.UpdateStatusUpdateTemplate$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "status_update_template_id": "statusUpdateTemplateId",
+    "update_status_update_template": "updateStatusUpdateTemplate",
   });
 });
 
 /** @internal */
 export type UpdateStatusUpdateTemplateRequest$Outbound = {
   status_update_template_id: string;
-  patchV1StatusUpdateTemplatesStatusUpdateTemplateId:
-    components.PatchV1StatusUpdateTemplatesStatusUpdateTemplateId$Outbound;
+  update_status_update_template: components.UpdateStatusUpdateTemplate$Outbound;
 };
 
 /** @internal */
@@ -44,12 +44,13 @@ export const UpdateStatusUpdateTemplateRequest$outboundSchema: z.ZodType<
   UpdateStatusUpdateTemplateRequest
 > = z.object({
   statusUpdateTemplateId: z.string(),
-  patchV1StatusUpdateTemplatesStatusUpdateTemplateId:
-    components
-      .PatchV1StatusUpdateTemplatesStatusUpdateTemplateId$outboundSchema,
+  updateStatusUpdateTemplate: z.lazy(() =>
+    components.UpdateStatusUpdateTemplate$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     statusUpdateTemplateId: "status_update_template_id",
+    updateStatusUpdateTemplate: "update_status_update_template",
   });
 });
 

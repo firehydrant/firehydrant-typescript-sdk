@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateCustomFieldDefinitionRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateCustomFieldDefinitionRequest } from "firehydrant/models/operations";
 
 let value: UpdateCustomFieldDefinitionRequest = {
   fieldId: "<id>",
-  patchV1CustomFieldsDefinitionsFieldId: {},
+  updateCustomFieldDefinition: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `fieldId`                                                                                                            | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `patchV1CustomFieldsDefinitionsFieldId`                                                                              | [components.PatchV1CustomFieldsDefinitionsFieldId](../../models/components/patchv1customfieldsdefinitionsfieldid.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `fieldId`                                                                                        | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `updateCustomFieldDefinition`                                                                    | [components.UpdateCustomFieldDefinition](../../models/components/updatecustomfielddefinition.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

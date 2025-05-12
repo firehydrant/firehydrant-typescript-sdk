@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetWebhookRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetWebhookRequest } from "firehydrant/models/operations";
 
 let value: GetWebhookRequest = {
   webhookId: "<id>",

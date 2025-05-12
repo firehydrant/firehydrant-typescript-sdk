@@ -3,9 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { By } from "firehydrant-typescript-sdk/models/operations";
+import { By } from "firehydrant/models/operations";
 
-let value: By = "priority";
+let value: By = "total";
 ```
 
 ## Values

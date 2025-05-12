@@ -14,12 +14,12 @@ import {
 } from "./incidentslifecyclemilestoneentity.js";
 
 export type IncidentsLifecyclePhaseEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  position?: number | undefined;
-  milestones?: Array<IncidentsLifecycleMilestoneEntity> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  position?: number | null | undefined;
+  milestones?: Array<IncidentsLifecycleMilestoneEntity> | null | undefined;
 };
 
 /** @internal */
@@ -28,23 +28,27 @@ export const IncidentsLifecyclePhaseEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  position: z.number().int().optional(),
-  milestones: z.array(IncidentsLifecycleMilestoneEntity$inboundSchema)
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  milestones: z.nullable(
+    z.array(IncidentsLifecycleMilestoneEntity$inboundSchema),
+  ).optional(),
 });
 
 /** @internal */
 export type IncidentsLifecyclePhaseEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  position?: number | undefined;
-  milestones?: Array<IncidentsLifecycleMilestoneEntity$Outbound> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  position?: number | null | undefined;
+  milestones?:
+    | Array<IncidentsLifecycleMilestoneEntity$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -53,13 +57,14 @@ export const IncidentsLifecyclePhaseEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsLifecyclePhaseEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  position: z.number().int().optional(),
-  milestones: z.array(IncidentsLifecycleMilestoneEntity$outboundSchema)
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  milestones: z.nullable(
+    z.array(IncidentsLifecycleMilestoneEntity$outboundSchema),
+  ).optional(),
 });
 
 /**

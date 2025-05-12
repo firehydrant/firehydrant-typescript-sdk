@@ -9,7 +9,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const DeleteSavedSearchPathParamResourceType = {
+export const DeleteSavedSearchResourceType = {
   ChangeEvents: "change_events",
   Incidents: "incidents",
   Services: "services",
@@ -21,37 +21,34 @@ export const DeleteSavedSearchPathParamResourceType = {
   Alerts: "alerts",
   IncidentEvents: "incident_events",
 } as const;
-export type DeleteSavedSearchPathParamResourceType = ClosedEnum<
-  typeof DeleteSavedSearchPathParamResourceType
+export type DeleteSavedSearchResourceType = ClosedEnum<
+  typeof DeleteSavedSearchResourceType
 >;
 
 export type DeleteSavedSearchRequest = {
-  resourceType: DeleteSavedSearchPathParamResourceType;
+  resourceType: DeleteSavedSearchResourceType;
   savedSearchId: string;
 };
 
 /** @internal */
-export const DeleteSavedSearchPathParamResourceType$inboundSchema:
-  z.ZodNativeEnum<typeof DeleteSavedSearchPathParamResourceType> = z.nativeEnum(
-    DeleteSavedSearchPathParamResourceType,
-  );
+export const DeleteSavedSearchResourceType$inboundSchema: z.ZodNativeEnum<
+  typeof DeleteSavedSearchResourceType
+> = z.nativeEnum(DeleteSavedSearchResourceType);
 
 /** @internal */
-export const DeleteSavedSearchPathParamResourceType$outboundSchema:
-  z.ZodNativeEnum<typeof DeleteSavedSearchPathParamResourceType> =
-    DeleteSavedSearchPathParamResourceType$inboundSchema;
+export const DeleteSavedSearchResourceType$outboundSchema: z.ZodNativeEnum<
+  typeof DeleteSavedSearchResourceType
+> = DeleteSavedSearchResourceType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DeleteSavedSearchPathParamResourceType$ {
-  /** @deprecated use `DeleteSavedSearchPathParamResourceType$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteSavedSearchPathParamResourceType$inboundSchema;
-  /** @deprecated use `DeleteSavedSearchPathParamResourceType$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteSavedSearchPathParamResourceType$outboundSchema;
+export namespace DeleteSavedSearchResourceType$ {
+  /** @deprecated use `DeleteSavedSearchResourceType$inboundSchema` instead. */
+  export const inboundSchema = DeleteSavedSearchResourceType$inboundSchema;
+  /** @deprecated use `DeleteSavedSearchResourceType$outboundSchema` instead. */
+  export const outboundSchema = DeleteSavedSearchResourceType$outboundSchema;
 }
 
 /** @internal */
@@ -60,7 +57,7 @@ export const DeleteSavedSearchRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  resource_type: DeleteSavedSearchPathParamResourceType$inboundSchema,
+  resource_type: DeleteSavedSearchResourceType$inboundSchema,
   saved_search_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -81,7 +78,7 @@ export const DeleteSavedSearchRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DeleteSavedSearchRequest
 > = z.object({
-  resourceType: DeleteSavedSearchPathParamResourceType$outboundSchema,
+  resourceType: DeleteSavedSearchResourceType$outboundSchema,
   savedSearchId: z.string(),
 }).transform((v) => {
   return remap$(v, {

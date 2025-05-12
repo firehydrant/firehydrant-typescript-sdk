@@ -10,55 +10,126 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Sort runbooks by their updated date. Accepts 'asc', 'desc'
+ * Sort runbooks by their updated date. Accepts 'asc', 'desc'. This parameter is deprecated in favor of 'order_by' and 'order_direction'.
  */
-export const ListRunbooksQueryParamSort = {
+export const ListRunbooksSort = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 /**
- * Sort runbooks by their updated date. Accepts 'asc', 'desc'
+ * Sort runbooks by their updated date. Accepts 'asc', 'desc'. This parameter is deprecated in favor of 'order_by' and 'order_direction'.
  */
-export type ListRunbooksQueryParamSort = ClosedEnum<
-  typeof ListRunbooksQueryParamSort
->;
+export type ListRunbooksSort = ClosedEnum<typeof ListRunbooksSort>;
+
+/**
+ * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', and 'created_at'.
+ */
+export const OrderBy = {
+  UpdatedAt: "updated_at",
+  Name: "name",
+  CreatedAt: "created_at",
+} as const;
+/**
+ * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', and 'created_at'.
+ */
+export type OrderBy = ClosedEnum<typeof OrderBy>;
+
+/**
+ * Allows assigning a direction to how the specified `order_by` parameter is sorted. This parameter must be paired with `order_by` and does nothing on its own.
+ */
+export const OrderDirection = {
+  Asc: "asc",
+  Desc: "desc",
+} as const;
+/**
+ * Allows assigning a direction to how the specified `order_by` parameter is sorted. This parameter must be paired with `order_by` and does nothing on its own.
+ */
+export type OrderDirection = ClosedEnum<typeof OrderDirection>;
 
 export type ListRunbooksRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A query to search runbooks by their name
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * A query to search runbooks by their owners
    */
-  owners?: string | undefined;
+  owners?: string | null | undefined;
   /**
-   * Sort runbooks by their updated date. Accepts 'asc', 'desc'
+   * Sort runbooks by their updated date. Accepts 'asc', 'desc'. This parameter is deprecated in favor of 'order_by' and 'order_direction'.
    */
-  sort?: ListRunbooksQueryParamSort | undefined;
+  sort?: ListRunbooksSort | null | undefined;
+  /**
+   * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', and 'created_at'.
+   */
+  orderBy?: OrderBy | null | undefined;
+  /**
+   * Allows assigning a direction to how the specified `order_by` parameter is sorted. This parameter must be paired with `order_by` and does nothing on its own.
+   */
+  orderDirection?: OrderDirection | null | undefined;
 };
 
 /** @internal */
-export const ListRunbooksQueryParamSort$inboundSchema: z.ZodNativeEnum<
-  typeof ListRunbooksQueryParamSort
-> = z.nativeEnum(ListRunbooksQueryParamSort);
+export const ListRunbooksSort$inboundSchema: z.ZodNativeEnum<
+  typeof ListRunbooksSort
+> = z.nativeEnum(ListRunbooksSort);
 
 /** @internal */
-export const ListRunbooksQueryParamSort$outboundSchema: z.ZodNativeEnum<
-  typeof ListRunbooksQueryParamSort
-> = ListRunbooksQueryParamSort$inboundSchema;
+export const ListRunbooksSort$outboundSchema: z.ZodNativeEnum<
+  typeof ListRunbooksSort
+> = ListRunbooksSort$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ListRunbooksQueryParamSort$ {
-  /** @deprecated use `ListRunbooksQueryParamSort$inboundSchema` instead. */
-  export const inboundSchema = ListRunbooksQueryParamSort$inboundSchema;
-  /** @deprecated use `ListRunbooksQueryParamSort$outboundSchema` instead. */
-  export const outboundSchema = ListRunbooksQueryParamSort$outboundSchema;
+export namespace ListRunbooksSort$ {
+  /** @deprecated use `ListRunbooksSort$inboundSchema` instead. */
+  export const inboundSchema = ListRunbooksSort$inboundSchema;
+  /** @deprecated use `ListRunbooksSort$outboundSchema` instead. */
+  export const outboundSchema = ListRunbooksSort$outboundSchema;
+}
+
+/** @internal */
+export const OrderBy$inboundSchema: z.ZodNativeEnum<typeof OrderBy> = z
+  .nativeEnum(OrderBy);
+
+/** @internal */
+export const OrderBy$outboundSchema: z.ZodNativeEnum<typeof OrderBy> =
+  OrderBy$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderBy$ {
+  /** @deprecated use `OrderBy$inboundSchema` instead. */
+  export const inboundSchema = OrderBy$inboundSchema;
+  /** @deprecated use `OrderBy$outboundSchema` instead. */
+  export const outboundSchema = OrderBy$outboundSchema;
+}
+
+/** @internal */
+export const OrderDirection$inboundSchema: z.ZodNativeEnum<
+  typeof OrderDirection
+> = z.nativeEnum(OrderDirection);
+
+/** @internal */
+export const OrderDirection$outboundSchema: z.ZodNativeEnum<
+  typeof OrderDirection
+> = OrderDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderDirection$ {
+  /** @deprecated use `OrderDirection$inboundSchema` instead. */
+  export const inboundSchema = OrderDirection$inboundSchema;
+  /** @deprecated use `OrderDirection$outboundSchema` instead. */
+  export const outboundSchema = OrderDirection$outboundSchema;
 }
 
 /** @internal */
@@ -67,24 +138,30 @@ export const ListRunbooksRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  name: z.string().optional(),
-  owners: z.string().optional(),
-  sort: ListRunbooksQueryParamSort$inboundSchema.optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  name: z.nullable(z.string()).optional(),
+  owners: z.nullable(z.string()).optional(),
+  sort: z.nullable(ListRunbooksSort$inboundSchema).optional(),
+  order_by: z.nullable(OrderBy$inboundSchema).optional(),
+  order_direction: z.nullable(OrderDirection$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
+    "order_by": "orderBy",
+    "order_direction": "orderDirection",
   });
 });
 
 /** @internal */
 export type ListRunbooksRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  name?: string | undefined;
-  owners?: string | undefined;
-  sort?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  name?: string | null | undefined;
+  owners?: string | null | undefined;
+  sort?: string | null | undefined;
+  order_by?: string | null | undefined;
+  order_direction?: string | null | undefined;
 };
 
 /** @internal */
@@ -93,14 +170,18 @@ export const ListRunbooksRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListRunbooksRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  name: z.string().optional(),
-  owners: z.string().optional(),
-  sort: ListRunbooksQueryParamSort$outboundSchema.optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  name: z.nullable(z.string()).optional(),
+  owners: z.nullable(z.string()).optional(),
+  sort: z.nullable(ListRunbooksSort$outboundSchema).optional(),
+  orderBy: z.nullable(OrderBy$outboundSchema).optional(),
+  orderDirection: z.nullable(OrderDirection$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",
+    orderBy: "order_by",
+    orderDirection: "order_direction",
   });
 });
 

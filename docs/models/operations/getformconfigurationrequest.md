@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetFormConfigurationRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetFormConfigurationRequest } from "firehydrant/models/operations";
 
 let value: GetFormConfigurationRequest = {
   slug: "<value>",

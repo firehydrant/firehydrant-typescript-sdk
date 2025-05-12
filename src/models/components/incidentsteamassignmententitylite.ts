@@ -8,18 +8,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  TeamEntityLite,
-  TeamEntityLite$inboundSchema,
-  TeamEntityLite$Outbound,
-  TeamEntityLite$outboundSchema,
-} from "./teamentitylite.js";
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 
 export type IncidentsTeamAssignmentEntityLite = {
-  id?: string | undefined;
-  status?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  team?: TeamEntityLite | undefined;
+  id?: string | null | undefined;
+  status?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  team?: NullableTeamEntityLite | null | undefined;
 };
 
 /** @internal */
@@ -28,13 +28,15 @@ export const IncidentsTeamAssignmentEntityLite$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  status: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  team: TeamEntityLite$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  team: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -44,11 +46,11 @@ export const IncidentsTeamAssignmentEntityLite$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsTeamAssignmentEntityLite$Outbound = {
-  id?: string | undefined;
-  status?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  team?: TeamEntityLite$Outbound | undefined;
+  id?: string | null | undefined;
+  status?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  team?: NullableTeamEntityLite$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -57,11 +59,11 @@ export const IncidentsTeamAssignmentEntityLite$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsTeamAssignmentEntityLite
 > = z.object({
-  id: z.string().optional(),
-  status: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  team: TeamEntityLite$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  team: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

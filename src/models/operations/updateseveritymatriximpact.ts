@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateSeverityMatrixImpactRequest = {
   impactId: string;
-  patchV1SeverityMatrixImpactsImpactId:
-    components.PatchV1SeverityMatrixImpactsImpactId;
+  updateSeverityMatrixImpact: components.UpdateSeverityMatrixImpact;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdateSeverityMatrixImpactRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   impact_id: z.string(),
-  patchV1SeverityMatrixImpactsImpactId:
-    components.PatchV1SeverityMatrixImpactsImpactId$inboundSchema,
+  update_severity_matrix_impact: z.lazy(() =>
+    components.UpdateSeverityMatrixImpact$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "impact_id": "impactId",
+    "update_severity_matrix_impact": "updateSeverityMatrixImpact",
   });
 });
 
 /** @internal */
 export type UpdateSeverityMatrixImpactRequest$Outbound = {
   impact_id: string;
-  patchV1SeverityMatrixImpactsImpactId:
-    components.PatchV1SeverityMatrixImpactsImpactId$Outbound;
+  update_severity_matrix_impact: components.UpdateSeverityMatrixImpact$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const UpdateSeverityMatrixImpactRequest$outboundSchema: z.ZodType<
   UpdateSeverityMatrixImpactRequest
 > = z.object({
   impactId: z.string(),
-  patchV1SeverityMatrixImpactsImpactId:
-    components.PatchV1SeverityMatrixImpactsImpactId$outboundSchema,
+  updateSeverityMatrixImpact: z.lazy(() =>
+    components.UpdateSeverityMatrixImpact$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     impactId: "impact_id",
+    updateSeverityMatrixImpact: "update_severity_matrix_impact",
   });
 });
 

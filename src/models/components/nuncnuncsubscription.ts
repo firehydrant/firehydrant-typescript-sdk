@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Nunc_NuncSubscription model
  */
 export type NuncNuncSubscription = {
-  response?: string | undefined;
+  response?: string | null | undefined;
 };
 
 /** @internal */
@@ -20,12 +20,12 @@ export const NuncNuncSubscription$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  response: z.string().optional(),
+  response: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type NuncNuncSubscription$Outbound = {
-  response?: string | undefined;
+  response?: string | null | undefined;
 };
 
 /** @internal */
@@ -34,7 +34,7 @@ export const NuncNuncSubscription$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NuncNuncSubscription
 > = z.object({
-  response: z.string().optional(),
+  response: z.nullable(z.string()).optional(),
 });
 
 /**

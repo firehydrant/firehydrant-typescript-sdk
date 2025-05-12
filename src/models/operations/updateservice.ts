@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateServiceRequest = {
   serviceId: string;
-  patchV1ServicesServiceId: components.PatchV1ServicesServiceId;
+  updateService: components.UpdateService;
 };
 
 /** @internal */
@@ -21,17 +21,18 @@ export const UpdateServiceRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   service_id: z.string(),
-  patchV1ServicesServiceId: components.PatchV1ServicesServiceId$inboundSchema,
+  update_service: z.lazy(() => components.UpdateService$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "service_id": "serviceId",
+    "update_service": "updateService",
   });
 });
 
 /** @internal */
 export type UpdateServiceRequest$Outbound = {
   service_id: string;
-  patchV1ServicesServiceId: components.PatchV1ServicesServiceId$Outbound;
+  update_service: components.UpdateService$Outbound;
 };
 
 /** @internal */
@@ -41,10 +42,11 @@ export const UpdateServiceRequest$outboundSchema: z.ZodType<
   UpdateServiceRequest
 > = z.object({
   serviceId: z.string(),
-  patchV1ServicesServiceId: components.PatchV1ServicesServiceId$outboundSchema,
+  updateService: z.lazy(() => components.UpdateService$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     serviceId: "service_id",
+    updateService: "update_service",
   });
 });
 

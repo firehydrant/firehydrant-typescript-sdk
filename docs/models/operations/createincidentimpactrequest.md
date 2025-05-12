@@ -3,12 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentImpactRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateIncidentImpactRequest } from "firehydrant/models/operations";
 
 let value: CreateIncidentImpactRequest = {
   incidentId: "<id>",
-  type: "customers",
-  postV1IncidentsIncidentIdImpactType: {
+  type: "services",
+  createIncidentImpact: {
     id: "<id>",
   },
 };
@@ -16,8 +16,8 @@ let value: CreateIncidentImpactRequest = {
 
 ## Fields
 
-| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `incidentId`                                                                                                     | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `type`                                                                                                           | [operations.CreateIncidentImpactPathParamType](../../models/operations/createincidentimpactpathparamtype.md)     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `postV1IncidentsIncidentIdImpactType`                                                                            | [components.PostV1IncidentsIncidentIdImpactType](../../models/components/postv1incidentsincidentidimpacttype.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `incidentId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `type`                                                                                     | [operations.CreateIncidentImpactType](../../models/operations/createincidentimpacttype.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `createIncidentImpact`                                                                     | [components.CreateIncidentImpact](../../models/components/createincidentimpact.md)         | :heavy_check_mark:                                                                         | N/A                                                                                        |

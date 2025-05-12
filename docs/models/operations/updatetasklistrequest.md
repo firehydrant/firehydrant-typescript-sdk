@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateTaskListRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateTaskListRequest } from "firehydrant/models/operations";
 
 let value: UpdateTaskListRequest = {
   taskListId: "<id>",
-  patchV1TaskListsTaskListId: {},
+  updateTaskList: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `taskListId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `patchV1TaskListsTaskListId`                                                                   | [components.PatchV1TaskListsTaskListId](../../models/components/patchv1taskliststasklistid.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `taskListId`                                                           | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `updateTaskList`                                                       | [components.UpdateTaskList](../../models/components/updatetasklist.md) | :heavy_check_mark:                                                     | N/A                                                                    |

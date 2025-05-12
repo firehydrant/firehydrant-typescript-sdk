@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateTeamEscalationPolicyRequest = {
   teamId: string;
-  postV1TeamsTeamIdEscalationPolicies:
-    components.PostV1TeamsTeamIdEscalationPolicies;
+  createTeamEscalationPolicy: components.CreateTeamEscalationPolicy;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const CreateTeamEscalationPolicyRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
-  postV1TeamsTeamIdEscalationPolicies:
-    components.PostV1TeamsTeamIdEscalationPolicies$inboundSchema,
+  create_team_escalation_policy: z.lazy(() =>
+    components.CreateTeamEscalationPolicy$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "create_team_escalation_policy": "createTeamEscalationPolicy",
   });
 });
 
 /** @internal */
 export type CreateTeamEscalationPolicyRequest$Outbound = {
   team_id: string;
-  postV1TeamsTeamIdEscalationPolicies:
-    components.PostV1TeamsTeamIdEscalationPolicies$Outbound;
+  create_team_escalation_policy: components.CreateTeamEscalationPolicy$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const CreateTeamEscalationPolicyRequest$outboundSchema: z.ZodType<
   CreateTeamEscalationPolicyRequest
 > = z.object({
   teamId: z.string(),
-  postV1TeamsTeamIdEscalationPolicies:
-    components.PostV1TeamsTeamIdEscalationPolicies$outboundSchema,
+  createTeamEscalationPolicy: z.lazy(() =>
+    components.CreateTeamEscalationPolicy$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    createTeamEscalationPolicy: "create_team_escalation_policy",
   });
 });
 

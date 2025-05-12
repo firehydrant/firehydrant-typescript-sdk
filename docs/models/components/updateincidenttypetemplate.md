@@ -1,0 +1,24 @@
+# UpdateIncidentTypeTemplate
+
+## Example Usage
+
+```typescript
+import { UpdateIncidentTypeTemplate } from "firehydrant/models/components";
+
+let value: UpdateIncidentTypeTemplate = {};
+```
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `description`                                                                                | *string*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `customerImpactSummary`                                                                      | *string*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `labels`                                                                                     | Record<string, *string*>                                                                     | :heavy_minus_sign:                                                                           | A labels hash of keys and values                                                             |
+| `severity`                                                                                   | *string*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `priority`                                                                                   | *string*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `tagList`                                                                                    | *string*[]                                                                                   | :heavy_minus_sign:                                                                           | List of tags for the incident                                                                |
+| `runbookIds`                                                                                 | *string*[]                                                                                   | :heavy_minus_sign:                                                                           | List of ids of Runbooks to attach to incidents created from this type                        |
+| `privateIncident`                                                                            | *boolean*                                                                                    | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `teamIds`                                                                                    | *string*[]                                                                                   | :heavy_minus_sign:                                                                           | List of ids of teams to be assigned to incidents                                             |
+| `impacts`                                                                                    | [components.UpdateIncidentTypeImpact](../../models/components/updateincidenttypeimpact.md)[] | :heavy_minus_sign:                                                                           | An array of impact/condition combinations                                                    |

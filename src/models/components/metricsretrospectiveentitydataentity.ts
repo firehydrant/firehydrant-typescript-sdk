@@ -8,8 +8,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type MetricsRetrospectiveEntityDataEntity = {
-  x?: string | undefined;
-  y?: number | undefined;
+  x?: string | null | undefined;
+  y?: number | null | undefined;
 };
 
 /** @internal */
@@ -18,14 +18,14 @@ export const MetricsRetrospectiveEntityDataEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  x: z.string().optional(),
-  y: z.number().optional(),
+  x: z.nullable(z.string()).optional(),
+  y: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type MetricsRetrospectiveEntityDataEntity$Outbound = {
-  x?: string | undefined;
-  y?: number | undefined;
+  x?: string | null | undefined;
+  y?: number | null | undefined;
 };
 
 /** @internal */
@@ -34,8 +34,8 @@ export const MetricsRetrospectiveEntityDataEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MetricsRetrospectiveEntityDataEntity
 > = z.object({
-  x: z.string().optional(),
-  y: z.number().optional(),
+  x: z.nullable(z.string()).optional(),
+  y: z.nullable(z.number()).optional(),
 });
 
 /**

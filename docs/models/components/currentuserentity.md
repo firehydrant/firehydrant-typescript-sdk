@@ -5,7 +5,7 @@ CurrentUserEntity model
 ## Example Usage
 
 ```typescript
-import { CurrentUserEntity } from "firehydrant-typescript-sdk/models/components";
+import { CurrentUserEntity } from "firehydrant/models/components";
 
 let value: CurrentUserEntity = {};
 ```

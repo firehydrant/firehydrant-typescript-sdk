@@ -1,0 +1,19 @@
+# NullableIncidentTypeEntityTemplateValuesEntity
+
+## Example Usage
+
+```typescript
+import { NullableIncidentTypeEntityTemplateValuesEntity } from "firehydrant/models/components";
+
+let value: NullableIncidentTypeEntityTemplateValuesEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                                    | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `services`                                                                                                               | [components.IncidentTypeEntityTemplateImpactEntity](../../models/components/incidenttypeentitytemplateimpactentity.md)[] | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `functionalities`                                                                                                        | [components.IncidentTypeEntityTemplateImpactEntity](../../models/components/incidenttypeentitytemplateimpactentity.md)[] | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `environments`                                                                                                           | [components.IncidentTypeEntityTemplateImpactEntity](../../models/components/incidenttypeentitytemplateimpactentity.md)[] | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `runbooks`                                                                                                               | [components.Runbooks](../../models/components/runbooks.md)                                                               | :heavy_minus_sign:                                                                                                       | A hash mapping runbook IDs to runbook names.                                                                             |
+| `teams`                                                                                                                  | [components.TeamEntity](../../models/components/teamentity.md)[]                                                         | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |

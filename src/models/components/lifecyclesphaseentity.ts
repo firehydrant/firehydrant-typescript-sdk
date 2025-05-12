@@ -17,12 +17,12 @@ import {
  * Lifecycles_PhaseEntity model
  */
 export type LifecyclesPhaseEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  position?: number | undefined;
-  milestones?: Array<LifecyclesMilestoneEntity> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  position?: number | null | undefined;
+  milestones?: Array<LifecyclesMilestoneEntity> | null | undefined;
 };
 
 /** @internal */
@@ -31,22 +31,23 @@ export const LifecyclesPhaseEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  position: z.number().int().optional(),
-  milestones: z.array(LifecyclesMilestoneEntity$inboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  milestones: z.nullable(z.array(LifecyclesMilestoneEntity$inboundSchema))
+    .optional(),
 });
 
 /** @internal */
 export type LifecyclesPhaseEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  position?: number | undefined;
-  milestones?: Array<LifecyclesMilestoneEntity$Outbound> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  position?: number | null | undefined;
+  milestones?: Array<LifecyclesMilestoneEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -55,12 +56,13 @@ export const LifecyclesPhaseEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LifecyclesPhaseEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  position: z.number().int().optional(),
-  milestones: z.array(LifecyclesMilestoneEntity$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  milestones: z.nullable(z.array(LifecyclesMilestoneEntity$outboundSchema))
+    .optional(),
 });
 
 /**

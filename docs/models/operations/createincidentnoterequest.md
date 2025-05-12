@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentNoteRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateIncidentNoteRequest } from "firehydrant/models/operations";
 
 let value: CreateIncidentNoteRequest = {
   incidentId: "<id>",
-  postV1IncidentsIncidentIdNotes: {
+  createIncidentNote: {
     body: "<value>",
   },
 };
@@ -15,7 +15,7 @@ let value: CreateIncidentNoteRequest = {
 
 ## Fields
 
-| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `incidentId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `postV1IncidentsIncidentIdNotes`                                                                       | [components.PostV1IncidentsIncidentIdNotes](../../models/components/postv1incidentsincidentidnotes.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `incidentId`                                                                   | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `createIncidentNote`                                                           | [components.CreateIncidentNote](../../models/components/createincidentnote.md) | :heavy_check_mark:                                                             | N/A                                                                            |

@@ -8,34 +8,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IntegrationsConnectionEntity,
-  IntegrationsConnectionEntity$inboundSchema,
-  IntegrationsConnectionEntity$Outbound,
-  IntegrationsConnectionEntity$outboundSchema,
-} from "./integrationsconnectionentity.js";
+  NullableIntegrationsConnectionEntity,
+  NullableIntegrationsConnectionEntity$inboundSchema,
+  NullableIntegrationsConnectionEntity$Outbound,
+  NullableIntegrationsConnectionEntity$outboundSchema,
+} from "./nullableintegrationsconnectionentity.js";
 import {
-  IntegrationsIntegrationEntityLogoEntity,
-  IntegrationsIntegrationEntityLogoEntity$inboundSchema,
-  IntegrationsIntegrationEntityLogoEntity$Outbound,
-  IntegrationsIntegrationEntityLogoEntity$outboundSchema,
-} from "./integrationsintegrationentitylogoentity.js";
+  NullableIntegrationsIntegrationEntityLogoEntity,
+  NullableIntegrationsIntegrationEntityLogoEntity$inboundSchema,
+  NullableIntegrationsIntegrationEntityLogoEntity$Outbound,
+  NullableIntegrationsIntegrationEntityLogoEntity$outboundSchema,
+} from "./nullableintegrationsintegrationentitylogoentity.js";
 
 /**
  * Integrations_IntegrationEntity model
  */
 export type IntegrationsIntegrationEntity = {
-  id?: string | undefined;
-  slug?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  setupUrl?: string | undefined;
-  createdAt?: Date | undefined;
-  connections?: IntegrationsConnectionEntity | undefined;
-  enabled?: boolean | undefined;
-  installed?: boolean | undefined;
-  deprecated?: boolean | undefined;
-  logo?: IntegrationsIntegrationEntityLogoEntity | undefined;
-  natIp?: string | undefined;
+  id?: string | null | undefined;
+  slug?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  setupUrl?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  connections?: NullableIntegrationsConnectionEntity | null | undefined;
+  enabled?: boolean | null | undefined;
+  installed?: boolean | null | undefined;
+  deprecated?: boolean | null | undefined;
+  logo?: NullableIntegrationsIntegrationEntityLogoEntity | null | undefined;
+  natIp?: string | null | undefined;
 };
 
 /** @internal */
@@ -44,19 +44,23 @@ export const IntegrationsIntegrationEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  slug: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  setup_url: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  setup_url: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  connections: z.nullable(NullableIntegrationsConnectionEntity$inboundSchema)
     .optional(),
-  connections: IntegrationsConnectionEntity$inboundSchema.optional(),
-  enabled: z.boolean().optional(),
-  installed: z.boolean().optional(),
-  deprecated: z.boolean().optional(),
-  logo: IntegrationsIntegrationEntityLogoEntity$inboundSchema.optional(),
-  nat_ip: z.string().optional(),
+  enabled: z.nullable(z.boolean()).optional(),
+  installed: z.nullable(z.boolean()).optional(),
+  deprecated: z.nullable(z.boolean()).optional(),
+  logo: z.nullable(
+    NullableIntegrationsIntegrationEntityLogoEntity$inboundSchema,
+  ).optional(),
+  nat_ip: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "setup_url": "setupUrl",
@@ -67,18 +71,24 @@ export const IntegrationsIntegrationEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsIntegrationEntity$Outbound = {
-  id?: string | undefined;
-  slug?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  setup_url?: string | undefined;
-  created_at?: string | undefined;
-  connections?: IntegrationsConnectionEntity$Outbound | undefined;
-  enabled?: boolean | undefined;
-  installed?: boolean | undefined;
-  deprecated?: boolean | undefined;
-  logo?: IntegrationsIntegrationEntityLogoEntity$Outbound | undefined;
-  nat_ip?: string | undefined;
+  id?: string | null | undefined;
+  slug?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  setup_url?: string | null | undefined;
+  created_at?: string | null | undefined;
+  connections?:
+    | NullableIntegrationsConnectionEntity$Outbound
+    | null
+    | undefined;
+  enabled?: boolean | null | undefined;
+  installed?: boolean | null | undefined;
+  deprecated?: boolean | null | undefined;
+  logo?:
+    | NullableIntegrationsIntegrationEntityLogoEntity$Outbound
+    | null
+    | undefined;
+  nat_ip?: string | null | undefined;
 };
 
 /** @internal */
@@ -87,18 +97,21 @@ export const IntegrationsIntegrationEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsIntegrationEntity
 > = z.object({
-  id: z.string().optional(),
-  slug: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  setupUrl: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  connections: IntegrationsConnectionEntity$outboundSchema.optional(),
-  enabled: z.boolean().optional(),
-  installed: z.boolean().optional(),
-  deprecated: z.boolean().optional(),
-  logo: IntegrationsIntegrationEntityLogoEntity$outboundSchema.optional(),
-  natIp: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  setupUrl: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  connections: z.nullable(NullableIntegrationsConnectionEntity$outboundSchema)
+    .optional(),
+  enabled: z.nullable(z.boolean()).optional(),
+  installed: z.nullable(z.boolean()).optional(),
+  deprecated: z.nullable(z.boolean()).optional(),
+  logo: z.nullable(
+    NullableIntegrationsIntegrationEntityLogoEntity$outboundSchema,
+  ).optional(),
+  natIp: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     setupUrl: "setup_url",

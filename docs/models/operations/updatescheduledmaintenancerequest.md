@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateScheduledMaintenanceRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateScheduledMaintenanceRequest } from "firehydrant/models/operations";
 
 let value: UpdateScheduledMaintenanceRequest = {
   scheduledMaintenanceId: "<id>",
-  patchV1ScheduledMaintenancesScheduledMaintenanceId: {},
+  updateScheduledMaintenance: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                                          | Type                                                                                                                                           | Required                                                                                                                                       | Description                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scheduledMaintenanceId`                                                                                                                       | *string*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
-| `patchV1ScheduledMaintenancesScheduledMaintenanceId`                                                                                           | [components.PatchV1ScheduledMaintenancesScheduledMaintenanceId](../../models/components/patchv1scheduledmaintenancesscheduledmaintenanceid.md) | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `scheduledMaintenanceId`                                                                       | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `updateScheduledMaintenance`                                                                   | [components.UpdateScheduledMaintenance](../../models/components/updatescheduledmaintenance.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

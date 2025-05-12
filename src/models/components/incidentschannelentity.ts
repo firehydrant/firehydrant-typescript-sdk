@@ -12,14 +12,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Incidents_ChannelEntity model
  */
 export type IncidentsChannelEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  source?: string | undefined;
-  sourceName?: string | undefined;
-  sourceId?: string | undefined;
-  url?: string | undefined;
-  iconUrl?: string | undefined;
-  status?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  source?: string | null | undefined;
+  sourceName?: string | null | undefined;
+  sourceId?: string | null | undefined;
+  url?: string | null | undefined;
+  iconUrl?: string | null | undefined;
+  status?: string | null | undefined;
 };
 
 /** @internal */
@@ -28,14 +28,14 @@ export const IncidentsChannelEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  source: z.string().optional(),
-  source_name: z.string().optional(),
-  source_id: z.string().optional(),
-  url: z.string().optional(),
-  icon_url: z.string().optional(),
-  status: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  source: z.nullable(z.string()).optional(),
+  source_name: z.nullable(z.string()).optional(),
+  source_id: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+  icon_url: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "source_name": "sourceName",
@@ -46,14 +46,14 @@ export const IncidentsChannelEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsChannelEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  source?: string | undefined;
-  source_name?: string | undefined;
-  source_id?: string | undefined;
-  url?: string | undefined;
-  icon_url?: string | undefined;
-  status?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  source?: string | null | undefined;
+  source_name?: string | null | undefined;
+  source_id?: string | null | undefined;
+  url?: string | null | undefined;
+  icon_url?: string | null | undefined;
+  status?: string | null | undefined;
 };
 
 /** @internal */
@@ -62,14 +62,14 @@ export const IncidentsChannelEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsChannelEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  source: z.string().optional(),
-  sourceName: z.string().optional(),
-  sourceId: z.string().optional(),
-  url: z.string().optional(),
-  iconUrl: z.string().optional(),
-  status: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  source: z.nullable(z.string()).optional(),
+  sourceName: z.nullable(z.string()).optional(),
+  sourceId: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+  iconUrl: z.nullable(z.string()).optional(),
+  status: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     sourceName: "source_name",

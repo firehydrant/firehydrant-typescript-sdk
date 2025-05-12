@@ -5,7 +5,7 @@ Incidents_MilestoneEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IncidentsMilestoneEntityPaginated } from "firehydrant-typescript-sdk/models/components";
+import { IncidentsMilestoneEntityPaginated } from "firehydrant/models/components";
 
 let value: IncidentsMilestoneEntityPaginated = {};
 ```
@@ -15,4 +15,4 @@ let value: IncidentsMilestoneEntityPaginated = {};
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `data`                                                                                       | [components.IncidentsMilestoneEntity](../../models/components/incidentsmilestoneentity.md)[] | :heavy_minus_sign:                                                                           | N/A                                                                                          |
-| `pagination`                                                                                 | [components.PaginationEntity](../../models/components/paginationentity.md)                   | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `pagination`                                                                                 | [components.NullablePaginationEntity](../../models/components/nullablepaginationentity.md)   | :heavy_minus_sign:                                                                           | N/A                                                                                          |

@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentRoleAssignmentRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdRoleAssignments:
-    components.PostV1IncidentsIncidentIdRoleAssignments;
+  createIncidentRoleAssignment: components.CreateIncidentRoleAssignment;
 };
 
 /** @internal */
@@ -22,19 +21,21 @@ export const CreateIncidentRoleAssignmentRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdRoleAssignments:
-    components.PostV1IncidentsIncidentIdRoleAssignments$inboundSchema,
+  create_incident_role_assignment: z.lazy(() =>
+    components.CreateIncidentRoleAssignment$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_role_assignment": "createIncidentRoleAssignment",
   });
 });
 
 /** @internal */
 export type CreateIncidentRoleAssignmentRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdRoleAssignments:
-    components.PostV1IncidentsIncidentIdRoleAssignments$Outbound;
+  create_incident_role_assignment:
+    components.CreateIncidentRoleAssignment$Outbound;
 };
 
 /** @internal */
@@ -44,11 +45,13 @@ export const CreateIncidentRoleAssignmentRequest$outboundSchema: z.ZodType<
   CreateIncidentRoleAssignmentRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdRoleAssignments:
-    components.PostV1IncidentsIncidentIdRoleAssignments$outboundSchema,
+  createIncidentRoleAssignment: z.lazy(() =>
+    components.CreateIncidentRoleAssignment$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentRoleAssignment: "create_incident_role_assignment",
   });
 });
 

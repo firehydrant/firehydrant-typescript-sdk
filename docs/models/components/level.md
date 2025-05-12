@@ -3,9 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { Level } from "firehydrant-typescript-sdk/models/components";
+import { Level } from "firehydrant/models/components";
 
-let value: Level = "fatal";
+let value: Level = "warn";
 ```
 
 ## Values

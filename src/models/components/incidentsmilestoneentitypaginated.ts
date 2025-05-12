@@ -13,18 +13,18 @@ import {
   IncidentsMilestoneEntity$outboundSchema,
 } from "./incidentsmilestoneentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Incidents_MilestoneEntityPaginated model
  */
 export type IncidentsMilestoneEntityPaginated = {
-  data?: Array<IncidentsMilestoneEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IncidentsMilestoneEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const IncidentsMilestoneEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(IncidentsMilestoneEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(IncidentsMilestoneEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type IncidentsMilestoneEntityPaginated$Outbound = {
-  data?: Array<IncidentsMilestoneEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<IncidentsMilestoneEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const IncidentsMilestoneEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsMilestoneEntityPaginated
 > = z.object({
-  data: z.array(IncidentsMilestoneEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(IncidentsMilestoneEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

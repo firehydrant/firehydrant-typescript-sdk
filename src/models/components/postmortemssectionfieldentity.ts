@@ -11,9 +11,9 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * PostMortems_SectionFieldEntity model
  */
 export type PostMortemsSectionFieldEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  value?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  value?: string | null | undefined;
 };
 
 /** @internal */
@@ -22,16 +22,16 @@ export const PostMortemsSectionFieldEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  value: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type PostMortemsSectionFieldEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  value?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  value?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,9 +40,9 @@ export const PostMortemsSectionFieldEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PostMortemsSectionFieldEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  value: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
 });
 
 /**

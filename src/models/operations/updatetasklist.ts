@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateTaskListRequest = {
   taskListId: string;
-  patchV1TaskListsTaskListId: components.PatchV1TaskListsTaskListId;
+  updateTaskList: components.UpdateTaskList;
 };
 
 /** @internal */
@@ -21,18 +21,18 @@ export const UpdateTaskListRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   task_list_id: z.string(),
-  patchV1TaskListsTaskListId:
-    components.PatchV1TaskListsTaskListId$inboundSchema,
+  update_task_list: z.lazy(() => components.UpdateTaskList$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "task_list_id": "taskListId",
+    "update_task_list": "updateTaskList",
   });
 });
 
 /** @internal */
 export type UpdateTaskListRequest$Outbound = {
   task_list_id: string;
-  patchV1TaskListsTaskListId: components.PatchV1TaskListsTaskListId$Outbound;
+  update_task_list: components.UpdateTaskList$Outbound;
 };
 
 /** @internal */
@@ -42,11 +42,11 @@ export const UpdateTaskListRequest$outboundSchema: z.ZodType<
   UpdateTaskListRequest
 > = z.object({
   taskListId: z.string(),
-  patchV1TaskListsTaskListId:
-    components.PatchV1TaskListsTaskListId$outboundSchema,
+  updateTaskList: z.lazy(() => components.UpdateTaskList$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     taskListId: "task_list_id",
+    updateTaskList: "update_task_list",
   });
 });
 

@@ -10,7 +10,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const UpdateSavedSearchPathParamResourceType = {
+export const UpdateSavedSearchResourceType = {
   ChangeEvents: "change_events",
   Incidents: "incidents",
   Services: "services",
@@ -22,39 +22,35 @@ export const UpdateSavedSearchPathParamResourceType = {
   Alerts: "alerts",
   IncidentEvents: "incident_events",
 } as const;
-export type UpdateSavedSearchPathParamResourceType = ClosedEnum<
-  typeof UpdateSavedSearchPathParamResourceType
+export type UpdateSavedSearchResourceType = ClosedEnum<
+  typeof UpdateSavedSearchResourceType
 >;
 
 export type UpdateSavedSearchRequest = {
-  resourceType: UpdateSavedSearchPathParamResourceType;
+  resourceType: UpdateSavedSearchResourceType;
   savedSearchId: string;
-  patchV1SavedSearchesResourceTypeSavedSearchId:
-    components.PatchV1SavedSearchesResourceTypeSavedSearchId;
+  updateSavedSearch: components.UpdateSavedSearch;
 };
 
 /** @internal */
-export const UpdateSavedSearchPathParamResourceType$inboundSchema:
-  z.ZodNativeEnum<typeof UpdateSavedSearchPathParamResourceType> = z.nativeEnum(
-    UpdateSavedSearchPathParamResourceType,
-  );
+export const UpdateSavedSearchResourceType$inboundSchema: z.ZodNativeEnum<
+  typeof UpdateSavedSearchResourceType
+> = z.nativeEnum(UpdateSavedSearchResourceType);
 
 /** @internal */
-export const UpdateSavedSearchPathParamResourceType$outboundSchema:
-  z.ZodNativeEnum<typeof UpdateSavedSearchPathParamResourceType> =
-    UpdateSavedSearchPathParamResourceType$inboundSchema;
+export const UpdateSavedSearchResourceType$outboundSchema: z.ZodNativeEnum<
+  typeof UpdateSavedSearchResourceType
+> = UpdateSavedSearchResourceType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace UpdateSavedSearchPathParamResourceType$ {
-  /** @deprecated use `UpdateSavedSearchPathParamResourceType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateSavedSearchPathParamResourceType$inboundSchema;
-  /** @deprecated use `UpdateSavedSearchPathParamResourceType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateSavedSearchPathParamResourceType$outboundSchema;
+export namespace UpdateSavedSearchResourceType$ {
+  /** @deprecated use `UpdateSavedSearchResourceType$inboundSchema` instead. */
+  export const inboundSchema = UpdateSavedSearchResourceType$inboundSchema;
+  /** @deprecated use `UpdateSavedSearchResourceType$outboundSchema` instead. */
+  export const outboundSchema = UpdateSavedSearchResourceType$outboundSchema;
 }
 
 /** @internal */
@@ -63,14 +59,14 @@ export const UpdateSavedSearchRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  resource_type: UpdateSavedSearchPathParamResourceType$inboundSchema,
+  resource_type: UpdateSavedSearchResourceType$inboundSchema,
   saved_search_id: z.string(),
-  patchV1SavedSearchesResourceTypeSavedSearchId:
-    components.PatchV1SavedSearchesResourceTypeSavedSearchId$inboundSchema,
+  update_saved_search: z.lazy(() => components.UpdateSavedSearch$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "resource_type": "resourceType",
     "saved_search_id": "savedSearchId",
+    "update_saved_search": "updateSavedSearch",
   });
 });
 
@@ -78,8 +74,7 @@ export const UpdateSavedSearchRequest$inboundSchema: z.ZodType<
 export type UpdateSavedSearchRequest$Outbound = {
   resource_type: string;
   saved_search_id: string;
-  patchV1SavedSearchesResourceTypeSavedSearchId:
-    components.PatchV1SavedSearchesResourceTypeSavedSearchId$Outbound;
+  update_saved_search: components.UpdateSavedSearch$Outbound;
 };
 
 /** @internal */
@@ -88,14 +83,14 @@ export const UpdateSavedSearchRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateSavedSearchRequest
 > = z.object({
-  resourceType: UpdateSavedSearchPathParamResourceType$outboundSchema,
+  resourceType: UpdateSavedSearchResourceType$outboundSchema,
   savedSearchId: z.string(),
-  patchV1SavedSearchesResourceTypeSavedSearchId:
-    components.PatchV1SavedSearchesResourceTypeSavedSearchId$outboundSchema,
+  updateSavedSearch: z.lazy(() => components.UpdateSavedSearch$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     resourceType: "resource_type",
     savedSearchId: "saved_search_id",
+    updateSavedSearch: "update_saved_search",
   });
 });
 

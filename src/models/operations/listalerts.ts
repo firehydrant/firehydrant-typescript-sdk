@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * The strategy to match tags. `any` will return alerts that have at least one of the supplied tags, `match_all` will return only alerts that have all of the supplied tags, and `exclude` will only return alerts that have none of the supplied tags. This currently only works for Signals alerts.
  */
-export const TagMatchStrategy = {
+export const ListAlertsTagMatchStrategy = {
   Any: "any",
   MatchAll: "match_all",
   Exclude: "exclude",
@@ -20,72 +20,74 @@ export const TagMatchStrategy = {
 /**
  * The strategy to match tags. `any` will return alerts that have at least one of the supplied tags, `match_all` will return only alerts that have all of the supplied tags, and `exclude` will only return alerts that have none of the supplied tags. This currently only works for Signals alerts.
  */
-export type TagMatchStrategy = ClosedEnum<typeof TagMatchStrategy>;
+export type ListAlertsTagMatchStrategy = ClosedEnum<
+  typeof ListAlertsTagMatchStrategy
+>;
 
 export type ListAlertsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A text query for alerts
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A comma separated list of user IDs. This currently only works for Signals alerts.
    */
-  users?: string | undefined;
+  users?: string | null | undefined;
   /**
    * A comma separated list of team IDs. This currently only works for Signals alerts.
    */
-  teams?: string | undefined;
+  teams?: string | null | undefined;
   /**
    * A comma separated list of signals rule IDs. This currently only works for Signals alerts.
    */
-  signalRules?: string | undefined;
+  signalRules?: string | null | undefined;
   /**
    * A comma separated list of environment IDs. This currently only works for Signals alerts.
    */
-  environments?: string | undefined;
+  environments?: string | null | undefined;
   /**
    * A comma separated list of functionality IDs. This currently only works for Signals alerts.
    */
-  functionalities?: string | undefined;
+  functionalities?: string | null | undefined;
   /**
    * A comma separated list of service IDs. This currently only works for Signals alerts.
    */
-  services?: string | undefined;
+  services?: string | null | undefined;
   /**
    * A comma separated list of tags. This currently only works for Signals alerts.
    */
-  tags?: string | undefined;
+  tags?: string | null | undefined;
   /**
    * The strategy to match tags. `any` will return alerts that have at least one of the supplied tags, `match_all` will return only alerts that have all of the supplied tags, and `exclude` will only return alerts that have none of the supplied tags. This currently only works for Signals alerts.
    */
-  tagMatchStrategy?: TagMatchStrategy | undefined;
+  tagMatchStrategy?: ListAlertsTagMatchStrategy | null | undefined;
   /**
-   * A comma separated list of statuses to filter by. Valid statuses are: opened, acknowledged, resolved, ignored, or expired
+   * A comma separated list of statuses to filter by. Valid statuses are: opened, acknowledged, resolved, ignored, expired, or linked
    */
-  statuses?: string | undefined;
+  statuses?: string | null | undefined;
 };
 
 /** @internal */
-export const TagMatchStrategy$inboundSchema: z.ZodNativeEnum<
-  typeof TagMatchStrategy
-> = z.nativeEnum(TagMatchStrategy);
+export const ListAlertsTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
+  typeof ListAlertsTagMatchStrategy
+> = z.nativeEnum(ListAlertsTagMatchStrategy);
 
 /** @internal */
-export const TagMatchStrategy$outboundSchema: z.ZodNativeEnum<
-  typeof TagMatchStrategy
-> = TagMatchStrategy$inboundSchema;
+export const ListAlertsTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
+  typeof ListAlertsTagMatchStrategy
+> = ListAlertsTagMatchStrategy$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TagMatchStrategy$ {
-  /** @deprecated use `TagMatchStrategy$inboundSchema` instead. */
-  export const inboundSchema = TagMatchStrategy$inboundSchema;
-  /** @deprecated use `TagMatchStrategy$outboundSchema` instead. */
-  export const outboundSchema = TagMatchStrategy$outboundSchema;
+export namespace ListAlertsTagMatchStrategy$ {
+  /** @deprecated use `ListAlertsTagMatchStrategy$inboundSchema` instead. */
+  export const inboundSchema = ListAlertsTagMatchStrategy$inboundSchema;
+  /** @deprecated use `ListAlertsTagMatchStrategy$outboundSchema` instead. */
+  export const outboundSchema = ListAlertsTagMatchStrategy$outboundSchema;
 }
 
 /** @internal */
@@ -94,18 +96,19 @@ export const ListAlertsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  query: z.string().optional(),
-  users: z.string().optional(),
-  teams: z.string().optional(),
-  signal_rules: z.string().optional(),
-  environments: z.string().optional(),
-  functionalities: z.string().optional(),
-  services: z.string().optional(),
-  tags: z.string().optional(),
-  tag_match_strategy: TagMatchStrategy$inboundSchema.optional(),
-  statuses: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
+  users: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  signal_rules: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  tag_match_strategy: z.nullable(ListAlertsTagMatchStrategy$inboundSchema)
+    .optional(),
+  statuses: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -116,18 +119,18 @@ export const ListAlertsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListAlertsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  query?: string | undefined;
-  users?: string | undefined;
-  teams?: string | undefined;
-  signal_rules?: string | undefined;
-  environments?: string | undefined;
-  functionalities?: string | undefined;
-  services?: string | undefined;
-  tags?: string | undefined;
-  tag_match_strategy?: string | undefined;
-  statuses?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  query?: string | null | undefined;
+  users?: string | null | undefined;
+  teams?: string | null | undefined;
+  signal_rules?: string | null | undefined;
+  environments?: string | null | undefined;
+  functionalities?: string | null | undefined;
+  services?: string | null | undefined;
+  tags?: string | null | undefined;
+  tag_match_strategy?: string | null | undefined;
+  statuses?: string | null | undefined;
 };
 
 /** @internal */
@@ -136,18 +139,19 @@ export const ListAlertsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListAlertsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  query: z.string().optional(),
-  users: z.string().optional(),
-  teams: z.string().optional(),
-  signalRules: z.string().optional(),
-  environments: z.string().optional(),
-  functionalities: z.string().optional(),
-  services: z.string().optional(),
-  tags: z.string().optional(),
-  tagMatchStrategy: TagMatchStrategy$outboundSchema.optional(),
-  statuses: z.string().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
+  users: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  signalRules: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  tagMatchStrategy: z.nullable(ListAlertsTagMatchStrategy$outboundSchema)
+    .optional(),
+  statuses: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

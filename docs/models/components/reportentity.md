@@ -5,7 +5,7 @@ ReportEntity model
 ## Example Usage
 
 ```typescript
-import { ReportEntity } from "firehydrant-typescript-sdk/models/components";
+import { ReportEntity } from "firehydrant/models/components";
 
 let value: ReportEntity = {};
 ```

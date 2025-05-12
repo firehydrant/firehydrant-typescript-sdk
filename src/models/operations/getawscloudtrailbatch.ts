@@ -7,13 +7,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type GetAwsCloudTrailBatchRequest = {
+export type GetAwsCloudtrailBatchRequest = {
   id: string;
 };
 
 /** @internal */
-export const GetAwsCloudTrailBatchRequest$inboundSchema: z.ZodType<
-  GetAwsCloudTrailBatchRequest,
+export const GetAwsCloudtrailBatchRequest$inboundSchema: z.ZodType<
+  GetAwsCloudtrailBatchRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -21,15 +21,15 @@ export const GetAwsCloudTrailBatchRequest$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetAwsCloudTrailBatchRequest$Outbound = {
+export type GetAwsCloudtrailBatchRequest$Outbound = {
   id: string;
 };
 
 /** @internal */
-export const GetAwsCloudTrailBatchRequest$outboundSchema: z.ZodType<
-  GetAwsCloudTrailBatchRequest$Outbound,
+export const GetAwsCloudtrailBatchRequest$outboundSchema: z.ZodType<
+  GetAwsCloudtrailBatchRequest$Outbound,
   z.ZodTypeDef,
-  GetAwsCloudTrailBatchRequest
+  GetAwsCloudtrailBatchRequest
 > = z.object({
   id: z.string(),
 });
@@ -38,31 +38,31 @@ export const GetAwsCloudTrailBatchRequest$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetAwsCloudTrailBatchRequest$ {
-  /** @deprecated use `GetAwsCloudTrailBatchRequest$inboundSchema` instead. */
-  export const inboundSchema = GetAwsCloudTrailBatchRequest$inboundSchema;
-  /** @deprecated use `GetAwsCloudTrailBatchRequest$outboundSchema` instead. */
-  export const outboundSchema = GetAwsCloudTrailBatchRequest$outboundSchema;
-  /** @deprecated use `GetAwsCloudTrailBatchRequest$Outbound` instead. */
-  export type Outbound = GetAwsCloudTrailBatchRequest$Outbound;
+export namespace GetAwsCloudtrailBatchRequest$ {
+  /** @deprecated use `GetAwsCloudtrailBatchRequest$inboundSchema` instead. */
+  export const inboundSchema = GetAwsCloudtrailBatchRequest$inboundSchema;
+  /** @deprecated use `GetAwsCloudtrailBatchRequest$outboundSchema` instead. */
+  export const outboundSchema = GetAwsCloudtrailBatchRequest$outboundSchema;
+  /** @deprecated use `GetAwsCloudtrailBatchRequest$Outbound` instead. */
+  export type Outbound = GetAwsCloudtrailBatchRequest$Outbound;
 }
 
-export function getAwsCloudTrailBatchRequestToJSON(
-  getAwsCloudTrailBatchRequest: GetAwsCloudTrailBatchRequest,
+export function getAwsCloudtrailBatchRequestToJSON(
+  getAwsCloudtrailBatchRequest: GetAwsCloudtrailBatchRequest,
 ): string {
   return JSON.stringify(
-    GetAwsCloudTrailBatchRequest$outboundSchema.parse(
-      getAwsCloudTrailBatchRequest,
+    GetAwsCloudtrailBatchRequest$outboundSchema.parse(
+      getAwsCloudtrailBatchRequest,
     ),
   );
 }
 
-export function getAwsCloudTrailBatchRequestFromJSON(
+export function getAwsCloudtrailBatchRequestFromJSON(
   jsonString: string,
-): SafeParseResult<GetAwsCloudTrailBatchRequest, SDKValidationError> {
+): SafeParseResult<GetAwsCloudtrailBatchRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetAwsCloudTrailBatchRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAwsCloudTrailBatchRequest' from JSON`,
+    (x) => GetAwsCloudtrailBatchRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAwsCloudtrailBatchRequest' from JSON`,
   );
 }

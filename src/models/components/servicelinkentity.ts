@@ -8,21 +8,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ServiceEntity,
-  ServiceEntity$inboundSchema,
-  ServiceEntity$Outbound,
-  ServiceEntity$outboundSchema,
-} from "./serviceentity.js";
+  NullableServiceEntity,
+  NullableServiceEntity$inboundSchema,
+  NullableServiceEntity$Outbound,
+  NullableServiceEntity$outboundSchema,
+} from "./nullableserviceentity.js";
 
 /**
  * ServiceLinkEntity model
  */
 export type ServiceLinkEntity = {
-  statusCode?: number | undefined;
-  /**
-   * ServiceEntity model
-   */
-  service?: ServiceEntity | undefined;
+  statusCode?: number | null | undefined;
+  service?: NullableServiceEntity | null | undefined;
 };
 
 /** @internal */
@@ -31,8 +28,8 @@ export const ServiceLinkEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  status_code: z.number().int().optional(),
-  service: ServiceEntity$inboundSchema.optional(),
+  status_code: z.nullable(z.number().int()).optional(),
+  service: z.nullable(NullableServiceEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "status_code": "statusCode",
@@ -41,8 +38,8 @@ export const ServiceLinkEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ServiceLinkEntity$Outbound = {
-  status_code?: number | undefined;
-  service?: ServiceEntity$Outbound | undefined;
+  status_code?: number | null | undefined;
+  service?: NullableServiceEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -51,8 +48,8 @@ export const ServiceLinkEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ServiceLinkEntity
 > = z.object({
-  statusCode: z.number().int().optional(),
-  service: ServiceEntity$outboundSchema.optional(),
+  statusCode: z.nullable(z.number().int()).optional(),
+  service: z.nullable(NullableServiceEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     statusCode: "status_code",

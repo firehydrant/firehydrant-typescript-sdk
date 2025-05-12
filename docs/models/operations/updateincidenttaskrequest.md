@@ -3,19 +3,19 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentTaskRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateIncidentTaskRequest } from "firehydrant/models/operations";
 
 let value: UpdateIncidentTaskRequest = {
   taskId: "<id>",
   incidentId: "<id>",
-  patchV1IncidentsIncidentIdTasksTaskId: {},
+  updateIncidentTask: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `taskId`                                                                                                             | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `incidentId`                                                                                                         | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `patchV1IncidentsIncidentIdTasksTaskId`                                                                              | [components.PatchV1IncidentsIncidentIdTasksTaskId](../../models/components/patchv1incidentsincidentidtaskstaskid.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `taskId`                                                                       | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `incidentId`                                                                   | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `updateIncidentTask`                                                           | [components.UpdateIncidentTask](../../models/components/updateincidenttask.md) | :heavy_check_mark:                                                             | N/A                                                                            |

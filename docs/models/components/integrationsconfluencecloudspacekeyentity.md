@@ -5,7 +5,7 @@ Integrations_ConfluenceCloud_SpaceKeyEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsConfluenceCloudSpaceKeyEntity } from "firehydrant-typescript-sdk/models/components";
+import { IntegrationsConfluenceCloudSpaceKeyEntity } from "firehydrant/models/components";
 
 let value: IntegrationsConfluenceCloudSpaceKeyEntity = {};
 ```

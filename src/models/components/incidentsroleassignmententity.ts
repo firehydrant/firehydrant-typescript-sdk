@@ -9,59 +9,59 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IncidentRoleEntity,
-  IncidentRoleEntity$inboundSchema,
-  IncidentRoleEntity$Outbound,
-  IncidentRoleEntity$outboundSchema,
-} from "./incidentroleentity.js";
+  NullableIncidentRoleEntity,
+  NullableIncidentRoleEntity$inboundSchema,
+  NullableIncidentRoleEntity$Outbound,
+  NullableIncidentRoleEntity$outboundSchema,
+} from "./nullableincidentroleentity.js";
 import {
-  UserEntity,
-  UserEntity$inboundSchema,
-  UserEntity$Outbound,
-  UserEntity$outboundSchema,
-} from "./userentity.js";
+  NullableUserEntity,
+  NullableUserEntity$inboundSchema,
+  NullableUserEntity$Outbound,
+  NullableUserEntity$outboundSchema,
+} from "./nullableuserentity.js";
 
-export const Status = {
+export const IncidentsRoleAssignmentEntityStatus = {
   Active: "active",
   Inactive: "inactive",
 } as const;
-export type Status = ClosedEnum<typeof Status>;
+export type IncidentsRoleAssignmentEntityStatus = ClosedEnum<
+  typeof IncidentsRoleAssignmentEntityStatus
+>;
 
 /**
  * Incidents_RoleAssignmentEntity model
  */
 export type IncidentsRoleAssignmentEntity = {
-  id?: string | undefined;
-  status?: Status | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  /**
-   * IncidentRoleEntity model
-   */
-  incidentRole?: IncidentRoleEntity | undefined;
-  /**
-   * UserEntity model
-   */
-  user?: UserEntity | undefined;
+  id?: string | null | undefined;
+  status?: IncidentsRoleAssignmentEntityStatus | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  incidentRole?: NullableIncidentRoleEntity | null | undefined;
+  user?: NullableUserEntity | null | undefined;
 };
 
 /** @internal */
-export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
-  .nativeEnum(Status);
+export const IncidentsRoleAssignmentEntityStatus$inboundSchema: z.ZodNativeEnum<
+  typeof IncidentsRoleAssignmentEntityStatus
+> = z.nativeEnum(IncidentsRoleAssignmentEntityStatus);
 
 /** @internal */
-export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
-  Status$inboundSchema;
+export const IncidentsRoleAssignmentEntityStatus$outboundSchema:
+  z.ZodNativeEnum<typeof IncidentsRoleAssignmentEntityStatus> =
+    IncidentsRoleAssignmentEntityStatus$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Status$ {
-  /** @deprecated use `Status$inboundSchema` instead. */
-  export const inboundSchema = Status$inboundSchema;
-  /** @deprecated use `Status$outboundSchema` instead. */
-  export const outboundSchema = Status$outboundSchema;
+export namespace IncidentsRoleAssignmentEntityStatus$ {
+  /** @deprecated use `IncidentsRoleAssignmentEntityStatus$inboundSchema` instead. */
+  export const inboundSchema =
+    IncidentsRoleAssignmentEntityStatus$inboundSchema;
+  /** @deprecated use `IncidentsRoleAssignmentEntityStatus$outboundSchema` instead. */
+  export const outboundSchema =
+    IncidentsRoleAssignmentEntityStatus$outboundSchema;
 }
 
 /** @internal */
@@ -70,14 +70,18 @@ export const IncidentsRoleAssignmentEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  status: Status$inboundSchema.optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  status: z.nullable(IncidentsRoleAssignmentEntityStatus$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  incident_role: z.nullable(NullableIncidentRoleEntity$inboundSchema)
     .optional(),
-  incident_role: IncidentRoleEntity$inboundSchema.optional(),
-  user: UserEntity$inboundSchema.optional(),
+  user: z.nullable(NullableUserEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -88,12 +92,12 @@ export const IncidentsRoleAssignmentEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsRoleAssignmentEntity$Outbound = {
-  id?: string | undefined;
-  status?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  incident_role?: IncidentRoleEntity$Outbound | undefined;
-  user?: UserEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  status?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  incident_role?: NullableIncidentRoleEntity$Outbound | null | undefined;
+  user?: NullableUserEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -102,12 +106,14 @@ export const IncidentsRoleAssignmentEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsRoleAssignmentEntity
 > = z.object({
-  id: z.string().optional(),
-  status: Status$outboundSchema.optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  incidentRole: IncidentRoleEntity$outboundSchema.optional(),
-  user: UserEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  status: z.nullable(IncidentsRoleAssignmentEntityStatus$outboundSchema)
+    .optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  incidentRole: z.nullable(NullableIncidentRoleEntity$outboundSchema)
+    .optional(),
+  user: z.nullable(NullableUserEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

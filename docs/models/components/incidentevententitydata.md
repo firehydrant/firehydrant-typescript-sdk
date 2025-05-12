@@ -5,7 +5,7 @@ Can be one of: NoteEntity, TourStepEntity, RootCauseEntity, ChangeTypeEntity, Ro
 ## Example Usage
 
 ```typescript
-import { IncidentEventEntityData } from "firehydrant-typescript-sdk/models/components";
+import { IncidentEventEntityData } from "firehydrant/models/components";
 
 let value: IncidentEventEntityData = {};
 ```

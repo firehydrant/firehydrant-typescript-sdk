@@ -24,11 +24,11 @@ import {
  * Event_NoteEntity model
  */
 export type EventNoteEntity = {
-  id?: string | undefined;
-  body?: string | undefined;
-  createdAt?: Date | undefined;
-  statusPages?: Array<IncidentsStatusPageEntity> | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference> | undefined;
+  id?: string | null | undefined;
+  body?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  statusPages?: Array<IncidentsStatusPageEntity> | null | undefined;
+  conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
 };
 
 /** @internal */
@@ -37,13 +37,16 @@ export const EventNoteEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  body: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  body: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  status_pages: z.nullable(z.array(IncidentsStatusPageEntity$inboundSchema))
     .optional(),
-  status_pages: z.array(IncidentsStatusPageEntity$inboundSchema).optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$inboundSchema)
-    .optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -53,11 +56,14 @@ export const EventNoteEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EventNoteEntity$Outbound = {
-  id?: string | undefined;
-  body?: string | undefined;
-  created_at?: string | undefined;
-  status_pages?: Array<IncidentsStatusPageEntity$Outbound> | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference$Outbound> | undefined;
+  id?: string | null | undefined;
+  body?: string | null | undefined;
+  created_at?: string | null | undefined;
+  status_pages?: Array<IncidentsStatusPageEntity$Outbound> | null | undefined;
+  conversations?:
+    | Array<ConversationsAPIEntitiesReference$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -66,12 +72,14 @@ export const EventNoteEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventNoteEntity
 > = z.object({
-  id: z.string().optional(),
-  body: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  statusPages: z.array(IncidentsStatusPageEntity$outboundSchema).optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$outboundSchema)
+  id: z.nullable(z.string()).optional(),
+  body: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  statusPages: z.nullable(z.array(IncidentsStatusPageEntity$outboundSchema))
     .optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

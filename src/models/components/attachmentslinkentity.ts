@@ -12,19 +12,19 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Attachments_LinkEntity model
  */
 export type AttachmentsLinkEntity = {
-  id?: string | undefined;
-  type?: string | undefined;
-  displayText?: string | undefined;
-  hrefUrl?: string | undefined;
-  iconUrl?: string | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  displayText?: string | null | undefined;
+  hrefUrl?: string | null | undefined;
+  iconUrl?: string | null | undefined;
   /**
    * Link can be edited
    */
-  editable?: boolean | undefined;
+  editable?: boolean | null | undefined;
   /**
    * Link can be deleted
    */
-  deletable?: boolean | undefined;
+  deletable?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -33,13 +33,13 @@ export const AttachmentsLinkEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  display_text: z.string().optional(),
-  href_url: z.string().optional(),
-  icon_url: z.string().optional(),
-  editable: z.boolean().optional(),
-  deletable: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  display_text: z.nullable(z.string()).optional(),
+  href_url: z.nullable(z.string()).optional(),
+  icon_url: z.nullable(z.string()).optional(),
+  editable: z.nullable(z.boolean()).optional(),
+  deletable: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "display_text": "displayText",
@@ -50,13 +50,13 @@ export const AttachmentsLinkEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AttachmentsLinkEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  display_text?: string | undefined;
-  href_url?: string | undefined;
-  icon_url?: string | undefined;
-  editable?: boolean | undefined;
-  deletable?: boolean | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  display_text?: string | null | undefined;
+  href_url?: string | null | undefined;
+  icon_url?: string | null | undefined;
+  editable?: boolean | null | undefined;
+  deletable?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -65,13 +65,13 @@ export const AttachmentsLinkEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AttachmentsLinkEntity
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  displayText: z.string().optional(),
-  hrefUrl: z.string().optional(),
-  iconUrl: z.string().optional(),
-  editable: z.boolean().optional(),
-  deletable: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  displayText: z.nullable(z.string()).optional(),
+  hrefUrl: z.nullable(z.string()).optional(),
+  iconUrl: z.nullable(z.string()).optional(),
+  editable: z.nullable(z.boolean()).optional(),
+  deletable: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     displayText: "display_text",

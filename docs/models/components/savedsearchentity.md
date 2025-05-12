@@ -5,7 +5,7 @@ SavedSearchEntity model
 ## Example Usage
 
 ```typescript
-import { SavedSearchEntity } from "firehydrant-typescript-sdk/models/components";
+import { SavedSearchEntity } from "firehydrant/models/components";
 
 let value: SavedSearchEntity = {};
 ```

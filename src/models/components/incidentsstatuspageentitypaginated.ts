@@ -13,18 +13,18 @@ import {
   IncidentsStatusPageEntity$outboundSchema,
 } from "./incidentsstatuspageentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Incidents_StatusPageEntityPaginated model
  */
 export type IncidentsStatusPageEntityPaginated = {
-  data?: Array<IncidentsStatusPageEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IncidentsStatusPageEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const IncidentsStatusPageEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(IncidentsStatusPageEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(IncidentsStatusPageEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type IncidentsStatusPageEntityPaginated$Outbound = {
-  data?: Array<IncidentsStatusPageEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<IncidentsStatusPageEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,9 @@ export const IncidentsStatusPageEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsStatusPageEntityPaginated
 > = z.object({
-  data: z.array(IncidentsStatusPageEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(IncidentsStatusPageEntity$outboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

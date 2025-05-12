@@ -12,11 +12,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * SeverityMatrix_ImpactEntity model
  */
 export type SeverityMatrixImpactEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  type?: string | undefined;
-  affectsId?: string | undefined;
-  position?: number | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  type?: string | null | undefined;
+  affectsId?: string | null | undefined;
+  position?: number | null | undefined;
 };
 
 /** @internal */
@@ -25,11 +25,11 @@ export const SeverityMatrixImpactEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  type: z.string().optional(),
-  affects_id: z.string().optional(),
-  position: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  affects_id: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "affects_id": "affectsId",
@@ -38,11 +38,11 @@ export const SeverityMatrixImpactEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SeverityMatrixImpactEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  type?: string | undefined;
-  affects_id?: string | undefined;
-  position?: number | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  type?: string | null | undefined;
+  affects_id?: string | null | undefined;
+  position?: number | null | undefined;
 };
 
 /** @internal */
@@ -51,11 +51,11 @@ export const SeverityMatrixImpactEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SeverityMatrixImpactEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  type: z.string().optional(),
-  affectsId: z.string().optional(),
-  position: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  affectsId: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     affectsId: "affects_id",

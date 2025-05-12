@@ -13,18 +13,18 @@ import {
   IntegrationsStatuspageConnectionEntity$outboundSchema,
 } from "./integrationsstatuspageconnectionentity.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 
 /**
  * Integrations_Statuspage_ConnectionEntityPaginated model
  */
 export type IntegrationsStatuspageConnectionEntityPaginated = {
-  data?: Array<IntegrationsStatuspageConnectionEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<IntegrationsStatuspageConnectionEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -34,15 +34,19 @@ export const IntegrationsStatuspageConnectionEntityPaginated$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    data: z.array(IntegrationsStatuspageConnectionEntity$inboundSchema)
-      .optional(),
-    pagination: PaginationEntity$inboundSchema.optional(),
+    data: z.nullable(
+      z.array(IntegrationsStatuspageConnectionEntity$inboundSchema),
+    ).optional(),
+    pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
   });
 
 /** @internal */
 export type IntegrationsStatuspageConnectionEntityPaginated$Outbound = {
-  data?: Array<IntegrationsStatuspageConnectionEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?:
+    | Array<IntegrationsStatuspageConnectionEntity$Outbound>
+    | null
+    | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -52,9 +56,10 @@ export const IntegrationsStatuspageConnectionEntityPaginated$outboundSchema:
     z.ZodTypeDef,
     IntegrationsStatuspageConnectionEntityPaginated
   > = z.object({
-    data: z.array(IntegrationsStatuspageConnectionEntity$outboundSchema)
-      .optional(),
-    pagination: PaginationEntity$outboundSchema.optional(),
+    data: z.nullable(
+      z.array(IntegrationsStatuspageConnectionEntity$outboundSchema),
+    ).optional(),
+    pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
 /**

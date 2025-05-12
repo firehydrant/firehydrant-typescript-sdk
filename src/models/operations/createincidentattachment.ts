@@ -10,7 +10,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type FileT = {
+export type CreateIncidentAttachmentFile = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
@@ -22,10 +22,10 @@ export const VoteDirection = {
 export type VoteDirection = ClosedEnum<typeof VoteDirection>;
 
 export type CreateIncidentAttachmentRequestBody = {
-  file: FileT | Blob;
-  description?: string | undefined;
-  occurredAt?: Date | undefined;
-  voteDirection?: VoteDirection | undefined;
+  file: CreateIncidentAttachmentFile | Blob;
+  description?: string | null | undefined;
+  occurredAt?: Date | null | undefined;
+  voteDirection?: VoteDirection | null | undefined;
 };
 
 export type CreateIncidentAttachmentRequest = {
@@ -34,28 +34,31 @@ export type CreateIncidentAttachmentRequest = {
 };
 
 /** @internal */
-export const FileT$inboundSchema: z.ZodType<FileT, z.ZodTypeDef, unknown> = z
-  .object({
-    fileName: z.string(),
-    content: z.union([
-      z.instanceof(ReadableStream<Uint8Array>),
-      z.instanceof(Blob),
-      z.instanceof(ArrayBuffer),
-      z.instanceof(Uint8Array),
-    ]),
-  });
+export const CreateIncidentAttachmentFile$inboundSchema: z.ZodType<
+  CreateIncidentAttachmentFile,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  fileName: z.string(),
+  content: z.union([
+    z.instanceof(ReadableStream<Uint8Array>),
+    z.instanceof(Blob),
+    z.instanceof(ArrayBuffer),
+    z.instanceof(Uint8Array),
+  ]),
+});
 
 /** @internal */
-export type FileT$Outbound = {
+export type CreateIncidentAttachmentFile$Outbound = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
-export const FileT$outboundSchema: z.ZodType<
-  FileT$Outbound,
+export const CreateIncidentAttachmentFile$outboundSchema: z.ZodType<
+  CreateIncidentAttachmentFile$Outbound,
   z.ZodTypeDef,
-  FileT
+  CreateIncidentAttachmentFile
 > = z.object({
   fileName: z.string(),
   content: z.union([
@@ -70,26 +73,32 @@ export const FileT$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FileT$ {
-  /** @deprecated use `FileT$inboundSchema` instead. */
-  export const inboundSchema = FileT$inboundSchema;
-  /** @deprecated use `FileT$outboundSchema` instead. */
-  export const outboundSchema = FileT$outboundSchema;
-  /** @deprecated use `FileT$Outbound` instead. */
-  export type Outbound = FileT$Outbound;
+export namespace CreateIncidentAttachmentFile$ {
+  /** @deprecated use `CreateIncidentAttachmentFile$inboundSchema` instead. */
+  export const inboundSchema = CreateIncidentAttachmentFile$inboundSchema;
+  /** @deprecated use `CreateIncidentAttachmentFile$outboundSchema` instead. */
+  export const outboundSchema = CreateIncidentAttachmentFile$outboundSchema;
+  /** @deprecated use `CreateIncidentAttachmentFile$Outbound` instead. */
+  export type Outbound = CreateIncidentAttachmentFile$Outbound;
 }
 
-export function fileToJSON(fileT: FileT): string {
-  return JSON.stringify(FileT$outboundSchema.parse(fileT));
+export function createIncidentAttachmentFileToJSON(
+  createIncidentAttachmentFile: CreateIncidentAttachmentFile,
+): string {
+  return JSON.stringify(
+    CreateIncidentAttachmentFile$outboundSchema.parse(
+      createIncidentAttachmentFile,
+    ),
+  );
 }
 
-export function fileFromJSON(
+export function createIncidentAttachmentFileFromJSON(
   jsonString: string,
-): SafeParseResult<FileT, SDKValidationError> {
+): SafeParseResult<CreateIncidentAttachmentFile, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => FileT$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FileT' from JSON`,
+    (x) => CreateIncidentAttachmentFile$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateIncidentAttachmentFile' from JSON`,
   );
 }
 
@@ -120,11 +129,12 @@ export const CreateIncidentAttachmentRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  file: z.lazy(() => FileT$inboundSchema),
-  description: z.string().optional(),
-  occurred_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  vote_direction: VoteDirection$inboundSchema.optional(),
+  file: z.lazy(() => CreateIncidentAttachmentFile$inboundSchema),
+  description: z.nullable(z.string()).optional(),
+  occurred_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  vote_direction: z.nullable(VoteDirection$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "occurred_at": "occurredAt",
@@ -134,10 +144,10 @@ export const CreateIncidentAttachmentRequestBody$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CreateIncidentAttachmentRequestBody$Outbound = {
-  file: FileT$Outbound | Blob;
-  description?: string | undefined;
-  occurred_at?: string | undefined;
-  vote_direction?: string | undefined;
+  file: CreateIncidentAttachmentFile$Outbound | Blob;
+  description?: string | null | undefined;
+  occurred_at?: string | null | undefined;
+  vote_direction?: string | null | undefined;
 };
 
 /** @internal */
@@ -146,10 +156,12 @@ export const CreateIncidentAttachmentRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CreateIncidentAttachmentRequestBody
 > = z.object({
-  file: z.lazy(() => FileT$outboundSchema).or(blobLikeSchema),
-  description: z.string().optional(),
-  occurredAt: z.date().transform(v => v.toISOString()).optional(),
-  voteDirection: VoteDirection$outboundSchema.optional(),
+  file: z.lazy(() => CreateIncidentAttachmentFile$outboundSchema).or(
+    blobLikeSchema,
+  ),
+  description: z.nullable(z.string()).optional(),
+  occurredAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  voteDirection: z.nullable(VoteDirection$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     occurredAt: "occurred_at",

@@ -7,25 +7,28 @@ import { conversationsCreateCommentReaction } from "../funcs/conversationsCreate
 import { conversationsDeleteComment } from "../funcs/conversationsDeleteComment.js";
 import { conversationsDeleteCommentReaction } from "../funcs/conversationsDeleteCommentReaction.js";
 import { conversationsGetComment } from "../funcs/conversationsGetComment.js";
+import { conversationsGetVoteStatus } from "../funcs/conversationsGetVoteStatus.js";
 import { conversationsListCommentReactions } from "../funcs/conversationsListCommentReactions.js";
 import { conversationsListComments } from "../funcs/conversationsListComments.js";
 import { conversationsUpdateComment } from "../funcs/conversationsUpdateComment.js";
+import { conversationsUpdateVote } from "../funcs/conversationsUpdateVote.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Conversations extends ClientSDK {
   /**
-   * List comments for a conversation
+   * Get votes
    *
    * @remarks
-   * ALPHA - List all of the comments that have been added to the organization
+   * Get an object's current vote counts
    */
-  async listComments(
-    request: operations.ListConversationCommentsRequest,
+  async getVoteStatus(
+    request: operations.GetVoteStatusRequest,
     options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(conversationsListComments(
+  ): Promise<components.VotesEntity> {
+    return unwrapAsync(conversationsGetVoteStatus(
       this,
       request,
       options,
@@ -33,16 +36,16 @@ export class Conversations extends ClientSDK {
   }
 
   /**
-   * Create a comment for a conversation
+   * Update votes
    *
    * @remarks
-   * ALPHA - Creates a comment for a project
+   * Upvote or downvote an object
    */
-  async createComment(
-    request: operations.CreateConversationCommentRequest,
+  async updateVote(
+    request: operations.UpdateVoteRequest,
     options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(conversationsCreateComment(
+  ): Promise<components.VotesEntity> {
+    return unwrapAsync(conversationsUpdateVote(
       this,
       request,
       options,
@@ -50,50 +53,16 @@ export class Conversations extends ClientSDK {
   }
 
   /**
-   * Get a conversation comment
+   * Delete a reaction from a conversation comment
    *
    * @remarks
-   * ALPHA - Retrieves a single comment by ID
+   * ALPHA - Archive a reaction
    */
-  async getComment(
-    request: operations.GetConversationCommentRequest,
+  async deleteCommentReaction(
+    request: operations.DeleteCommentReactionRequest,
     options?: RequestOptions,
   ): Promise<void> {
-    return unwrapAsync(conversationsGetComment(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a conversation comment
-   *
-   * @remarks
-   * ALPHA - Archive a comment
-   */
-  async deleteComment(
-    request: operations.DeleteConversationCommentRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(conversationsDeleteComment(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Update a conversation comment
-   *
-   * @remarks
-   * ALPHA - Update a comment's attributes
-   */
-  async updateComment(
-    request: operations.UpdateConversationCommentRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(conversationsUpdateComment(
+    return unwrapAsync(conversationsDeleteCommentReaction(
       this,
       request,
       options,
@@ -107,7 +76,7 @@ export class Conversations extends ClientSDK {
    * ALPHA - List all of the reactions that have been added to a comment
    */
   async listCommentReactions(
-    request: operations.ListConversationCommentReactionsRequest,
+    request: operations.ListCommentReactionsRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(conversationsListCommentReactions(
@@ -124,7 +93,7 @@ export class Conversations extends ClientSDK {
    * ALPHA - Create a reaction on a comment
    */
   async createCommentReaction(
-    request: operations.CreateConversationCommentReactionRequest,
+    request: operations.CreateCommentReactionRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(conversationsCreateCommentReaction(
@@ -135,16 +104,84 @@ export class Conversations extends ClientSDK {
   }
 
   /**
-   * Delete a reaction from a conversation comment
+   * Get a conversation comment
    *
    * @remarks
-   * ALPHA - Archive a reaction
+   * ALPHA - Retrieves a single comment by ID
    */
-  async deleteCommentReaction(
-    request: operations.DeleteConversationCommentReactionRequest,
+  async getComment(
+    request: operations.GetCommentRequest,
     options?: RequestOptions,
   ): Promise<void> {
-    return unwrapAsync(conversationsDeleteCommentReaction(
+    return unwrapAsync(conversationsGetComment(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Archive a conversation comment
+   *
+   * @remarks
+   * ALPHA - Archive a comment
+   */
+  async deleteComment(
+    request: operations.DeleteCommentRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(conversationsDeleteComment(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a conversation comment
+   *
+   * @remarks
+   * ALPHA - Update a comment's attributes
+   */
+  async updateComment(
+    request: operations.UpdateCommentRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(conversationsUpdateComment(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List comments for a conversation
+   *
+   * @remarks
+   * ALPHA - List all of the comments that have been added to the organization
+   */
+  async listComments(
+    request: operations.ListCommentsRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(conversationsListComments(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Create a conversation comment
+   *
+   * @remarks
+   * ALPHA - Creates a comment for a project
+   */
+  async createComment(
+    request: operations.CreateCommentRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(conversationsCreateComment(
       this,
       request,
       options,

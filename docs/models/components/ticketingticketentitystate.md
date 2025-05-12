@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TicketingTicketEntityState } from "firehydrant-typescript-sdk/models/components";
+import { TicketingTicketEntityState } from "firehydrant/models/components";
 
 let value: TicketingTicketEntityState = "cancelled";
 ```

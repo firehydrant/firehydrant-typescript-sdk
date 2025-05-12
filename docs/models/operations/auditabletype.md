@@ -5,7 +5,7 @@ A query to filter audits by type
 ## Example Usage
 
 ```typescript
-import { AuditableType } from "firehydrant-typescript-sdk/models/operations";
+import { AuditableType } from "firehydrant/models/operations";
 
 let value: AuditableType = "Runbooks::Step";
 ```

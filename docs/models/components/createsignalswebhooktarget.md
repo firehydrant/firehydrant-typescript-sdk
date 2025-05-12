@@ -1,0 +1,23 @@
+# CreateSignalsWebhookTarget
+
+Create a Signals webhook target.
+
+## Example Usage
+
+```typescript
+import { CreateSignalsWebhookTarget } from "firehydrant/models/components";
+
+let value: CreateSignalsWebhookTarget = {
+  name: "<value>",
+  url: "https://heavy-solution.biz/",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                      | Type                                                                                                                                                                       | Required                                                                                                                                                                   | Description                                                                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                                                                                     | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | The webhook target's name.                                                                                                                                                 |
+| `description`                                                                                                                                                              | *string*                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                         | An optional detailed description of the webhook target.                                                                                                                    |
+| `url`                                                                                                                                                                      | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | The URL that the webhook target will notify.                                                                                                                               |
+| `signingKey`                                                                                                                                                               | *string*                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                         | An optional secret we will provide in the `FH-Signature` header<br/>when sending a payload to the webhook target. This key will not be<br/>shown in any response once configured.<br/> |

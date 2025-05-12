@@ -3,9 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { TicketingTicketEntityType } from "firehydrant-typescript-sdk/models/components";
+import { TicketingTicketEntityType } from "firehydrant/models/components";
 
-let value: TicketingTicketEntityType = "task";
+let value: TicketingTicketEntityType = "follow_up";
 ```
 
 ## Values

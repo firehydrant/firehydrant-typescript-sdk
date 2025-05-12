@@ -3,9 +3,10 @@
  */
 
 import * as z from "zod";
-import { FirehydrantTypescriptSDKCore } from "../core.js";
+import { FirehydrantCore } from "../core.js";
 import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -18,9 +19,9 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,19 +30,13 @@ import { Result } from "../types/fp.js";
  * @remarks
  * ALPHA - Create a reaction on a comment
  */
-export async function conversationsCreateCommentReaction(
-  client: FirehydrantTypescriptSDKCore,
-  request: operations.CreateConversationCommentReactionRequest,
+export function conversationsCreateCommentReaction(
+  client: FirehydrantCore,
+  request: operations.CreateCommentReactionRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     void,
-    | errors.BadRequest
-    | errors.Unauthorized
-    | errors.NotFound
-    | errors.Timeout
-    | errors.RateLimited
-    | errors.InternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -51,23 +46,45 @@ export async function conversationsCreateCommentReaction(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: FirehydrantCore,
+  request: operations.CreateCommentReactionRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      void,
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.CreateConversationCommentReactionRequest$outboundSchema.parse(
-        value,
-      ),
+      operations.CreateCommentReactionRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON(
-    "body",
-    payload.postV1ConversationsConversationIdCommentsCommentIdReactions,
-    { explode: true },
-  );
+  const body = encodeJSON("body", payload.create_comment_reaction, {
+    explode: true,
+  });
 
   const pathParams = {
     comment_id: encodeSimple("comment_id", payload.comment_id, {
@@ -84,17 +101,18 @@ export async function conversationsCreateCommentReaction(
     "/v1/conversations/{conversation_id}/comments/{comment_id}/reactions",
   )(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/json",
-    Accept: "application/json",
-  });
+    Accept: "*/*",
+  }));
 
   const secConfig = await extractSecurity(client._options.apiKey);
   const securityInput = secConfig == null ? {} : { apiKey: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    operationID: "createConversationCommentReaction",
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
+    operationID: "create_comment_reaction",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -116,59 +134,23 @@ export async function conversationsCreateCommentReaction(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: [
-      "400",
-      "401",
-      "403",
-      "404",
-      "407",
-      "408",
-      "413",
-      "414",
-      "415",
-      "422",
-      "429",
-      "431",
-      "4XX",
-      "500",
-      "501",
-      "502",
-      "503",
-      "504",
-      "505",
-      "506",
-      "507",
-      "508",
-      "510",
-      "511",
-      "5XX",
-    ],
+    errorCodes: ["4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
-  const responseFields = {
-    HttpMeta: { Response: response, Request: req },
-  };
-
   const [result] = await M.match<
     void,
-    | errors.BadRequest
-    | errors.Unauthorized
-    | errors.NotFound
-    | errors.Timeout
-    | errors.RateLimited
-    | errors.InternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -178,23 +160,12 @@ export async function conversationsCreateCommentReaction(
     | ConnectionError
   >(
     M.nil(201, z.void()),
-    M.jsonErr(
-      [400, 413, 414, 415, 422, 431, 510],
-      errors.BadRequest$inboundSchema,
-    ),
-    M.jsonErr([401, 403, 407, 511], errors.Unauthorized$inboundSchema),
-    M.jsonErr([404, 501, 505], errors.NotFound$inboundSchema),
-    M.jsonErr([408, 504], errors.Timeout$inboundSchema),
-    M.jsonErr(429, errors.RateLimited$inboundSchema),
-    M.jsonErr(
-      [500, 502, 503, 506, 507, 508],
-      errors.InternalServerError$inboundSchema,
-    ),
-    M.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields });
+    M.fail("4XX"),
+    M.fail("5XX"),
+  )(response);
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

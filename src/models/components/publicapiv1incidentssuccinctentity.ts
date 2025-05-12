@@ -8,9 +8,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type PublicApiv1IncidentsSuccinctEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  number?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  number?: number | null | undefined;
 };
 
 /** @internal */
@@ -19,16 +19,16 @@ export const PublicApiv1IncidentsSuccinctEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  number: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  number: z.nullable(z.number().int()).optional(),
 });
 
 /** @internal */
 export type PublicApiv1IncidentsSuccinctEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  number?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  number?: number | null | undefined;
 };
 
 /** @internal */
@@ -37,9 +37,9 @@ export const PublicApiv1IncidentsSuccinctEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PublicApiv1IncidentsSuccinctEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  number: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  number: z.nullable(z.number().int()).optional(),
 });
 
 /**

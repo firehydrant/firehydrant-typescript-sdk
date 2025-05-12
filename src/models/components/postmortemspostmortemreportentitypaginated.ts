@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 import {
   PostMortemsPostMortemReportEntity,
   PostMortemsPostMortemReportEntity$inboundSchema,
@@ -23,22 +23,23 @@ import {
  * PostMortems_PostMortemReportEntityPaginated model
  */
 export type PostMortemsPostMortemReportEntityPaginated = {
-  data?: Array<PostMortemsPostMortemReportEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<PostMortemsPostMortemReportEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
 export const PostMortemsPostMortemReportEntityPaginated$inboundSchema:
   z.ZodType<PostMortemsPostMortemReportEntityPaginated, z.ZodTypeDef, unknown> =
     z.object({
-      data: z.array(PostMortemsPostMortemReportEntity$inboundSchema).optional(),
-      pagination: PaginationEntity$inboundSchema.optional(),
+      data: z.nullable(z.array(PostMortemsPostMortemReportEntity$inboundSchema))
+        .optional(),
+      pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
     });
 
 /** @internal */
 export type PostMortemsPostMortemReportEntityPaginated$Outbound = {
-  data?: Array<PostMortemsPostMortemReportEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<PostMortemsPostMortemReportEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -48,8 +49,9 @@ export const PostMortemsPostMortemReportEntityPaginated$outboundSchema:
     z.ZodTypeDef,
     PostMortemsPostMortemReportEntityPaginated
   > = z.object({
-    data: z.array(PostMortemsPostMortemReportEntity$outboundSchema).optional(),
-    pagination: PaginationEntity$outboundSchema.optional(),
+    data: z.nullable(z.array(PostMortemsPostMortemReportEntity$outboundSchema))
+      .optional(),
+    pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
 /**

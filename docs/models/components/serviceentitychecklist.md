@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ServiceEntityChecklist } from "firehydrant-typescript-sdk/models/components";
+import { ServiceEntityChecklist } from "firehydrant/models/components";
 
 let value: ServiceEntityChecklist = {};
 ```
@@ -24,5 +24,5 @@ let value: ServiceEntityChecklist = {};
 | `alertOnAdd`                                                                                       | *boolean*                                                                                          | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
 | `autoAddRespondingTeam`                                                                            | *boolean*                                                                                          | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
 | `completedChecks`                                                                                  | *number*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
-| `owner`                                                                                            | [components.TeamEntityLite](../../models/components/teamentitylite.md)                             | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `owner`                                                                                            | [components.NullableTeamEntityLite](../../models/components/nullableteamentitylite.md)             | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
 | `serviceChecklistUpdatedAt`                                                                        | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)      | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

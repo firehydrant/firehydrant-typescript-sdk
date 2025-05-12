@@ -8,27 +8,27 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   ConversationsAPIEntitiesReference,
   ConversationsAPIEntitiesReference$inboundSchema,
   ConversationsAPIEntitiesReference$Outbound,
   ConversationsAPIEntitiesReference$outboundSchema,
 } from "./conversationsapientitiesreference.js";
+import {
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 /**
  * PostMortems_ReasonEntity model
  */
 export type PostMortemsReasonEntity = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  position?: number | undefined;
-  createdBy?: AuthorEntity | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference> | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  position?: number | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
 };
 
 /** @internal */
@@ -37,12 +37,13 @@ export const PostMortemsReasonEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  position: z.number().int().optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$inboundSchema)
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_by": "createdBy",
@@ -51,11 +52,14 @@ export const PostMortemsReasonEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type PostMortemsReasonEntity$Outbound = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  position?: number | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference$Outbound> | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  position?: number | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  conversations?:
+    | Array<ConversationsAPIEntitiesReference$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -64,12 +68,13 @@ export const PostMortemsReasonEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PostMortemsReasonEntity
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  position: z.number().int().optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$outboundSchema)
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdBy: "created_by",

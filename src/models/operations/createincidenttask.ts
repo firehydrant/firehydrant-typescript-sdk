@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentTaskRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdTasks: components.PostV1IncidentsIncidentIdTasks;
+  createIncidentTask: components.CreateIncidentTask;
 };
 
 /** @internal */
@@ -21,19 +21,20 @@ export const CreateIncidentTaskRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdTasks:
-    components.PostV1IncidentsIncidentIdTasks$inboundSchema,
+  create_incident_task: z.lazy(() =>
+    components.CreateIncidentTask$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_task": "createIncidentTask",
   });
 });
 
 /** @internal */
 export type CreateIncidentTaskRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdTasks:
-    components.PostV1IncidentsIncidentIdTasks$Outbound;
+  create_incident_task: components.CreateIncidentTask$Outbound;
 };
 
 /** @internal */
@@ -43,11 +44,13 @@ export const CreateIncidentTaskRequest$outboundSchema: z.ZodType<
   CreateIncidentTaskRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdTasks:
-    components.PostV1IncidentsIncidentIdTasks$outboundSchema,
+  createIncidentTask: z.lazy(() =>
+    components.CreateIncidentTask$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentTask: "create_incident_task",
   });
 });
 

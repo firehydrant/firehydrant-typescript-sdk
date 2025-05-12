@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { IncidentsImpactEntityType } from "firehydrant-typescript-sdk/models/components";
+import { IncidentsImpactEntityType } from "firehydrant/models/components";
 
-let value: IncidentsImpactEntityType = "functionality";
+let value: IncidentsImpactEntityType = "service";
 ```
 
 ## Values
 
 ```typescript
-"environment" | "functionality" | "service"
+"customer" | "environment" | "functionality" | "service"
 ```

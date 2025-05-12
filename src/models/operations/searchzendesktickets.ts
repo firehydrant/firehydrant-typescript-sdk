@@ -9,14 +9,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SearchZendeskTicketsRequest = {
-  /**
-   * Zendesk ticket ID
-   */
-  ticketId: string;
-  /**
-   * Use to include attached_incidents
-   */
-  include?: string | undefined;
+  connectionId: string;
+  query: string;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -25,18 +21,23 @@ export const SearchZendeskTicketsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  ticket_id: z.string(),
-  include: z.string().optional(),
+  connection_id: z.string(),
+  query: z.string(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    "ticket_id": "ticketId",
+    "connection_id": "connectionId",
+    "per_page": "perPage",
   });
 });
 
 /** @internal */
 export type SearchZendeskTicketsRequest$Outbound = {
-  ticket_id: string;
-  include?: string | undefined;
+  connection_id: string;
+  query: string;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -45,11 +46,14 @@ export const SearchZendeskTicketsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SearchZendeskTicketsRequest
 > = z.object({
-  ticketId: z.string(),
-  include: z.string().optional(),
+  connectionId: z.string(),
+  query: z.string(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    ticketId: "ticket_id",
+    connectionId: "connection_id",
+    perPage: "per_page",
   });
 });
 

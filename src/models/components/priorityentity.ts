@@ -12,12 +12,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * PriorityEntity model
  */
 export type PriorityEntity = {
-  slug?: string | undefined;
-  description?: string | undefined;
-  position?: number | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  default?: boolean | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  position?: number | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  default?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -26,14 +26,16 @@ export const PriorityEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  position: z.number().int().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  default: z.boolean().optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  default: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -43,12 +45,12 @@ export const PriorityEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type PriorityEntity$Outbound = {
-  slug?: string | undefined;
-  description?: string | undefined;
-  position?: number | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  default?: boolean | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  position?: number | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  default?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -57,12 +59,12 @@ export const PriorityEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PriorityEntity
 > = z.object({
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  position: z.number().int().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  default: z.boolean().optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  default: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

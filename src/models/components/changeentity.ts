@@ -20,24 +20,24 @@ export type ChangeEntity = {
   /**
    * UUID of the Change
    */
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * Description of the Change
    */
-  summary?: string | undefined;
+  summary?: string | null | undefined;
   /**
    * The time the change entry was created
    */
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * Arbitrary key/value pairs of labels.
    */
-  labels?: ChangeEntityLabels | undefined;
+  labels?: ChangeEntityLabels | null | undefined;
   /**
    * Description of the Change
    */
-  description?: string | undefined;
+  description?: string | null | undefined;
 };
 
 /** @internal */
@@ -94,14 +94,16 @@ export const ChangeEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  labels: z.lazy(() => ChangeEntityLabels$inboundSchema).optional(),
-  description: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  labels: z.nullable(z.lazy(() => ChangeEntityLabels$inboundSchema)).optional(),
+  description: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -111,12 +113,12 @@ export const ChangeEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ChangeEntity$Outbound = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  labels?: ChangeEntityLabels$Outbound | undefined;
-  description?: string | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  labels?: ChangeEntityLabels$Outbound | null | undefined;
+  description?: string | null | undefined;
 };
 
 /** @internal */
@@ -125,12 +127,13 @@ export const ChangeEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChangeEntity
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  labels: z.lazy(() => ChangeEntityLabels$outboundSchema).optional(),
-  description: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  labels: z.nullable(z.lazy(() => ChangeEntityLabels$outboundSchema))
+    .optional(),
+  description: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

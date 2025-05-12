@@ -10,9 +10,9 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListIncidentAttachmentsRequest = {
   incidentId: string;
-  attachableType?: string | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  attachableType?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -22,9 +22,9 @@ export const ListIncidentAttachmentsRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  attachable_type: z.string().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  attachable_type: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
@@ -36,9 +36,9 @@ export const ListIncidentAttachmentsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListIncidentAttachmentsRequest$Outbound = {
   incident_id: string;
-  attachable_type?: string | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  attachable_type?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -48,9 +48,9 @@ export const ListIncidentAttachmentsRequest$outboundSchema: z.ZodType<
   ListIncidentAttachmentsRequest
 > = z.object({
   incidentId: z.string(),
-  attachableType: z.string().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  attachableType: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",

@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateServiceRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateServiceRequest } from "firehydrant/models/operations";
 
 let value: UpdateServiceRequest = {
   serviceId: "<id>",
-  patchV1ServicesServiceId: {},
+  updateService: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `serviceId`                                                                                | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `patchV1ServicesServiceId`                                                                 | [components.PatchV1ServicesServiceId](../../models/components/patchv1servicesserviceid.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `serviceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `updateService`                                                      | [components.UpdateService](../../models/components/updateservice.md) | :heavy_check_mark:                                                   | N/A                                                                  |

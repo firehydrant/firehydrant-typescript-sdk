@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateFunctionalityRequest = {
   functionalityId: string;
-  patchV1FunctionalitiesFunctionalityId:
-    components.PatchV1FunctionalitiesFunctionalityId;
+  updateFunctionality: components.UpdateFunctionality;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdateFunctionalityRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   functionality_id: z.string(),
-  patchV1FunctionalitiesFunctionalityId:
-    components.PatchV1FunctionalitiesFunctionalityId$inboundSchema,
+  update_functionality: z.lazy(() =>
+    components.UpdateFunctionality$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "functionality_id": "functionalityId",
+    "update_functionality": "updateFunctionality",
   });
 });
 
 /** @internal */
 export type UpdateFunctionalityRequest$Outbound = {
   functionality_id: string;
-  patchV1FunctionalitiesFunctionalityId:
-    components.PatchV1FunctionalitiesFunctionalityId$Outbound;
+  update_functionality: components.UpdateFunctionality$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const UpdateFunctionalityRequest$outboundSchema: z.ZodType<
   UpdateFunctionalityRequest
 > = z.object({
   functionalityId: z.string(),
-  patchV1FunctionalitiesFunctionalityId:
-    components.PatchV1FunctionalitiesFunctionalityId$outboundSchema,
+  updateFunctionality: z.lazy(() =>
+    components.UpdateFunctionality$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     functionalityId: "functionality_id",
+    updateFunctionality: "update_functionality",
   });
 });
 

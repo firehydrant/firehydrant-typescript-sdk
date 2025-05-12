@@ -8,8 +8,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SuccinctEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -18,14 +18,14 @@ export const SuccinctEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type SuccinctEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -34,8 +34,8 @@ export const SuccinctEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SuccinctEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /**

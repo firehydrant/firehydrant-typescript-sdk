@@ -31,15 +31,15 @@ export const MessageType = {
 export type MessageType = ClosedEnum<typeof MessageType>;
 
 export type AlertsProcessingLogEntryEntity = {
-  id?: string | undefined;
+  id?: string | null | undefined;
   /**
    * An unstructured representation of this log entry's context.
    */
-  context?: Context | undefined;
-  createdAt?: Date | undefined;
-  level?: Level | undefined;
-  message?: string | undefined;
-  messageType?: MessageType | undefined;
+  context?: Context | null | undefined;
+  createdAt?: Date | null | undefined;
+  level?: Level | null | undefined;
+  message?: string | null | undefined;
+  messageType?: MessageType | null | undefined;
 };
 
 /** @internal */
@@ -128,13 +128,14 @@ export const AlertsProcessingLogEntryEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  context: z.lazy(() => Context$inboundSchema).optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  level: Level$inboundSchema.optional(),
-  message: z.string().optional(),
-  message_type: MessageType$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  context: z.nullable(z.lazy(() => Context$inboundSchema)).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  level: z.nullable(Level$inboundSchema).optional(),
+  message: z.nullable(z.string()).optional(),
+  message_type: z.nullable(MessageType$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -144,12 +145,12 @@ export const AlertsProcessingLogEntryEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AlertsProcessingLogEntryEntity$Outbound = {
-  id?: string | undefined;
-  context?: Context$Outbound | undefined;
-  created_at?: string | undefined;
-  level?: string | undefined;
-  message?: string | undefined;
-  message_type?: string | undefined;
+  id?: string | null | undefined;
+  context?: Context$Outbound | null | undefined;
+  created_at?: string | null | undefined;
+  level?: string | null | undefined;
+  message?: string | null | undefined;
+  message_type?: string | null | undefined;
 };
 
 /** @internal */
@@ -158,12 +159,12 @@ export const AlertsProcessingLogEntryEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AlertsProcessingLogEntryEntity
 > = z.object({
-  id: z.string().optional(),
-  context: z.lazy(() => Context$outboundSchema).optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  level: Level$outboundSchema.optional(),
-  message: z.string().optional(),
-  messageType: MessageType$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  context: z.nullable(z.lazy(() => Context$outboundSchema)).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  level: z.nullable(Level$outboundSchema).optional(),
+  message: z.nullable(z.string()).optional(),
+  messageType: z.nullable(MessageType$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

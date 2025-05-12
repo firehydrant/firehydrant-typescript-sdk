@@ -9,8 +9,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListRunbookExecutionsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -19,8 +19,8 @@ export const ListRunbookExecutionsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -29,8 +29,8 @@ export const ListRunbookExecutionsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListRunbookExecutionsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -39,8 +39,8 @@ export const ListRunbookExecutionsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListRunbookExecutionsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

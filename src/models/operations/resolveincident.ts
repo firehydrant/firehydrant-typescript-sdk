@@ -12,7 +12,7 @@ export type ResolveIncidentRequestBody = {
   /**
    * The slug of any milestone in the post-incident or closed phase to set on the incident (and its children, if `resolve_children` os set). Must be one of the configured milestones available on this incident.
    */
-  milestone?: string | undefined;
+  milestone?: string | null | undefined;
 };
 
 export type ResolveIncidentRequest = {
@@ -26,12 +26,12 @@ export const ResolveIncidentRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  milestone: z.string().optional(),
+  milestone: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type ResolveIncidentRequestBody$Outbound = {
-  milestone?: string | undefined;
+  milestone?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,7 +40,7 @@ export const ResolveIncidentRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ResolveIncidentRequestBody
 > = z.object({
-  milestone: z.string().optional(),
+  milestone: z.nullable(z.string()).optional(),
 });
 
 /**

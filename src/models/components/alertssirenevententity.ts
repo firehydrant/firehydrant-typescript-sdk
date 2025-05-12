@@ -11,53 +11,63 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * The event's payload
  */
-export type Data = {};
+export type AlertsSirenEventEntityData = {};
 
 export type AlertsSirenEventEntity = {
-  id?: string | undefined;
-  type?: string | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
   /**
    * The event's payload
    */
-  data?: Data | undefined;
-  createdAt?: Date | undefined;
+  data?: AlertsSirenEventEntityData | null | undefined;
+  createdAt?: Date | null | undefined;
 };
 
 /** @internal */
-export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
-  .object({});
+export const AlertsSirenEventEntityData$inboundSchema: z.ZodType<
+  AlertsSirenEventEntityData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
 
 /** @internal */
-export type Data$Outbound = {};
+export type AlertsSirenEventEntityData$Outbound = {};
 
 /** @internal */
-export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
-  z.object({});
+export const AlertsSirenEventEntityData$outboundSchema: z.ZodType<
+  AlertsSirenEventEntityData$Outbound,
+  z.ZodTypeDef,
+  AlertsSirenEventEntityData
+> = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Data$ {
-  /** @deprecated use `Data$inboundSchema` instead. */
-  export const inboundSchema = Data$inboundSchema;
-  /** @deprecated use `Data$outboundSchema` instead. */
-  export const outboundSchema = Data$outboundSchema;
-  /** @deprecated use `Data$Outbound` instead. */
-  export type Outbound = Data$Outbound;
+export namespace AlertsSirenEventEntityData$ {
+  /** @deprecated use `AlertsSirenEventEntityData$inboundSchema` instead. */
+  export const inboundSchema = AlertsSirenEventEntityData$inboundSchema;
+  /** @deprecated use `AlertsSirenEventEntityData$outboundSchema` instead. */
+  export const outboundSchema = AlertsSirenEventEntityData$outboundSchema;
+  /** @deprecated use `AlertsSirenEventEntityData$Outbound` instead. */
+  export type Outbound = AlertsSirenEventEntityData$Outbound;
 }
 
-export function dataToJSON(data: Data): string {
-  return JSON.stringify(Data$outboundSchema.parse(data));
+export function alertsSirenEventEntityDataToJSON(
+  alertsSirenEventEntityData: AlertsSirenEventEntityData,
+): string {
+  return JSON.stringify(
+    AlertsSirenEventEntityData$outboundSchema.parse(alertsSirenEventEntityData),
+  );
 }
 
-export function dataFromJSON(
+export function alertsSirenEventEntityDataFromJSON(
   jsonString: string,
-): SafeParseResult<Data, SDKValidationError> {
+): SafeParseResult<AlertsSirenEventEntityData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Data' from JSON`,
+    (x) => AlertsSirenEventEntityData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AlertsSirenEventEntityData' from JSON`,
   );
 }
 
@@ -67,11 +77,13 @@ export const AlertsSirenEventEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  data: z.lazy(() => Data$inboundSchema).optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  data: z.nullable(z.lazy(() => AlertsSirenEventEntityData$inboundSchema))
     .optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -80,10 +92,10 @@ export const AlertsSirenEventEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AlertsSirenEventEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  data?: Data$Outbound | undefined;
-  created_at?: string | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  data?: AlertsSirenEventEntityData$Outbound | null | undefined;
+  created_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -92,10 +104,11 @@ export const AlertsSirenEventEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AlertsSirenEventEntity
 > = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  data: z.lazy(() => Data$outboundSchema).optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  data: z.nullable(z.lazy(() => AlertsSirenEventEntityData$outboundSchema))
+    .optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

@@ -9,14 +9,15 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ExternalResourceEntity = {
-  connectionType?: string | undefined;
-  connectionName?: string | undefined;
-  connectionId?: string | undefined;
-  remoteId?: string | undefined;
-  remoteUrl?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  name?: string | undefined;
+  connectionType?: string | null | undefined;
+  connectionName?: string | null | undefined;
+  connectionFullFaviconUrl?: string | null | undefined;
+  connectionId?: string | null | undefined;
+  remoteId?: string | null | undefined;
+  remoteUrl?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -25,20 +26,24 @@ export const ExternalResourceEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  connection_type: z.string().optional(),
-  connection_name: z.string().optional(),
-  connection_id: z.string().optional(),
-  remote_id: z.string().optional(),
-  remote_url: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  name: z.string().optional(),
+  connection_type: z.nullable(z.string()).optional(),
+  connection_name: z.nullable(z.string()).optional(),
+  connection_full_favicon_url: z.nullable(z.string()).optional(),
+  connection_id: z.nullable(z.string()).optional(),
+  remote_id: z.nullable(z.string()).optional(),
+  remote_url: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "connection_type": "connectionType",
     "connection_name": "connectionName",
+    "connection_full_favicon_url": "connectionFullFaviconUrl",
     "connection_id": "connectionId",
     "remote_id": "remoteId",
     "remote_url": "remoteUrl",
@@ -49,14 +54,15 @@ export const ExternalResourceEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ExternalResourceEntity$Outbound = {
-  connection_type?: string | undefined;
-  connection_name?: string | undefined;
-  connection_id?: string | undefined;
-  remote_id?: string | undefined;
-  remote_url?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  name?: string | undefined;
+  connection_type?: string | null | undefined;
+  connection_name?: string | null | undefined;
+  connection_full_favicon_url?: string | null | undefined;
+  connection_id?: string | null | undefined;
+  remote_id?: string | null | undefined;
+  remote_url?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -65,18 +71,20 @@ export const ExternalResourceEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExternalResourceEntity
 > = z.object({
-  connectionType: z.string().optional(),
-  connectionName: z.string().optional(),
-  connectionId: z.string().optional(),
-  remoteId: z.string().optional(),
-  remoteUrl: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  name: z.string().optional(),
+  connectionType: z.nullable(z.string()).optional(),
+  connectionName: z.nullable(z.string()).optional(),
+  connectionFullFaviconUrl: z.nullable(z.string()).optional(),
+  connectionId: z.nullable(z.string()).optional(),
+  remoteId: z.nullable(z.string()).optional(),
+  remoteUrl: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     connectionType: "connection_type",
     connectionName: "connection_name",
+    connectionFullFaviconUrl: "connection_full_favicon_url",
     connectionId: "connection_id",
     remoteId: "remote_id",
     remoteUrl: "remote_url",
