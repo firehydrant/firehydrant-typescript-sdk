@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateStatuspageConnectionRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateStatuspageConnectionRequest } from "firehydrant/models/operations";
 
 let value: UpdateStatuspageConnectionRequest = {
   connectionId: "<id>",
-  patchV1IntegrationsStatuspageConnectionsConnectionId: {},
+  updateStatuspageConnection: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                                              | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `connectionId`                                                                                                                                     | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | Connection UUID                                                                                                                                    |
-| `patchV1IntegrationsStatuspageConnectionsConnectionId`                                                                                             | [components.PatchV1IntegrationsStatuspageConnectionsConnectionId](../../models/components/patchv1integrationsstatuspageconnectionsconnectionid.md) | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `connectionId`                                                                                 | *string*                                                                                       | :heavy_check_mark:                                                                             | Connection UUID                                                                                |
+| `updateStatuspageConnection`                                                                   | [components.UpdateStatuspageConnection](../../models/components/updatestatuspageconnection.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

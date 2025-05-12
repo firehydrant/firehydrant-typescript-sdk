@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateIncidentRoleRequest = {
   incidentRoleId: string;
-  patchV1IncidentRolesIncidentRoleId:
-    components.PatchV1IncidentRolesIncidentRoleId;
+  updateIncidentRole: components.UpdateIncidentRole;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdateIncidentRoleRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_role_id: z.string(),
-  patchV1IncidentRolesIncidentRoleId:
-    components.PatchV1IncidentRolesIncidentRoleId$inboundSchema,
+  update_incident_role: z.lazy(() =>
+    components.UpdateIncidentRole$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_role_id": "incidentRoleId",
+    "update_incident_role": "updateIncidentRole",
   });
 });
 
 /** @internal */
 export type UpdateIncidentRoleRequest$Outbound = {
   incident_role_id: string;
-  patchV1IncidentRolesIncidentRoleId:
-    components.PatchV1IncidentRolesIncidentRoleId$Outbound;
+  update_incident_role: components.UpdateIncidentRole$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const UpdateIncidentRoleRequest$outboundSchema: z.ZodType<
   UpdateIncidentRoleRequest
 > = z.object({
   incidentRoleId: z.string(),
-  patchV1IncidentRolesIncidentRoleId:
-    components.PatchV1IncidentRolesIncidentRoleId$outboundSchema,
+  updateIncidentRole: z.lazy(() =>
+    components.UpdateIncidentRole$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentRoleId: "incident_role_id",
+    updateIncidentRole: "update_incident_role",
   });
 });
 

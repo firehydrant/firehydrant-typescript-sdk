@@ -8,64 +8,61 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 import {
-  RulesRuleEntity,
-  RulesRuleEntity$inboundSchema,
-  RulesRuleEntity$Outbound,
-  RulesRuleEntity$outboundSchema,
-} from "./rulesruleentity.js";
+  NullableRulesRuleEntity,
+  NullableRulesRuleEntity$inboundSchema,
+  NullableRulesRuleEntity$Outbound,
+  NullableRulesRuleEntity$outboundSchema,
+} from "./nullablerulesruleentity.js";
 import {
-  RunbookStepEntity,
-  RunbookStepEntity$inboundSchema,
-  RunbookStepEntity$Outbound,
-  RunbookStepEntity$outboundSchema,
-} from "./runbookstepentity.js";
+  NullableRunbookStepEntity,
+  NullableRunbookStepEntity$inboundSchema,
+  NullableRunbookStepEntity$Outbound,
+  NullableRunbookStepEntity$outboundSchema,
+} from "./nullablerunbookstepentity.js";
 import {
-  TeamEntityLite,
-  TeamEntityLite$inboundSchema,
-  TeamEntityLite$Outbound,
-  TeamEntityLite$outboundSchema,
-} from "./teamentitylite.js";
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 import {
-  VotesEntity,
-  VotesEntity$inboundSchema,
-  VotesEntity$Outbound,
-  VotesEntity$outboundSchema,
-} from "./votesentity.js";
+  NullableVotesEntity,
+  NullableVotesEntity$inboundSchema,
+  NullableVotesEntity$Outbound,
+  NullableVotesEntity$outboundSchema,
+} from "./nullablevotesentity.js";
 
 /**
  * RunbookEntity model
  */
 export type RunbookEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  runbookTemplateId?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  createdBy?: AuthorEntity | undefined;
-  updatedBy?: AuthorEntity | undefined;
-  steps?: RunbookStepEntity | undefined;
-  attachmentRule?: RulesRuleEntity | undefined;
-  /**
-   * VotesEntity model
-   */
-  votes?: VotesEntity | undefined;
-  isEditable?: boolean | undefined;
-  owner?: TeamEntityLite | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  runbookTemplateId?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  updatedBy?: NullableAuthorEntity | null | undefined;
+  steps?: NullableRunbookStepEntity | null | undefined;
+  attachmentRule?: NullableRulesRuleEntity | null | undefined;
+  votes?: NullableVotesEntity | null | undefined;
+  isEditable?: boolean | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
   /**
    * categories the runbook applies to
    */
-  categories?: string | undefined;
-  autoAttachToRestrictedIncidents?: boolean | undefined;
-  tutorial?: boolean | undefined;
+  categories?: Array<string> | null | undefined;
+  autoAttachToRestrictedIncidents?: boolean | null | undefined;
+  tutorial?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -74,26 +71,28 @@ export const RunbookEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  runbook_template_id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  updated_by: AuthorEntity$inboundSchema.optional(),
-  steps: RunbookStepEntity$inboundSchema.optional(),
-  attachment_rule: RulesRuleEntity$inboundSchema.optional(),
-  votes: VotesEntity$inboundSchema.optional(),
-  is_editable: z.boolean().optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  categories: z.string().optional(),
-  auto_attach_to_restricted_incidents: z.boolean().optional(),
-  tutorial: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  runbook_template_id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  steps: z.nullable(NullableRunbookStepEntity$inboundSchema).optional(),
+  attachment_rule: z.nullable(NullableRulesRuleEntity$inboundSchema).optional(),
+  votes: z.nullable(NullableVotesEntity$inboundSchema).optional(),
+  is_editable: z.nullable(z.boolean()).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  categories: z.nullable(z.array(z.string())).optional(),
+  auto_attach_to_restricted_incidents: z.nullable(z.boolean()).optional(),
+  tutorial: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "runbook_template_id": "runbookTemplateId",
@@ -109,24 +108,24 @@ export const RunbookEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type RunbookEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  runbook_template_id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  updated_by?: AuthorEntity$Outbound | undefined;
-  steps?: RunbookStepEntity$Outbound | undefined;
-  attachment_rule?: RulesRuleEntity$Outbound | undefined;
-  votes?: VotesEntity$Outbound | undefined;
-  is_editable?: boolean | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  categories?: string | undefined;
-  auto_attach_to_restricted_incidents?: boolean | undefined;
-  tutorial?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  runbook_template_id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  updated_by?: NullableAuthorEntity$Outbound | null | undefined;
+  steps?: NullableRunbookStepEntity$Outbound | null | undefined;
+  attachment_rule?: NullableRulesRuleEntity$Outbound | null | undefined;
+  votes?: NullableVotesEntity$Outbound | null | undefined;
+  is_editable?: boolean | null | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  categories?: Array<string> | null | undefined;
+  auto_attach_to_restricted_incidents?: boolean | null | undefined;
+  tutorial?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -135,24 +134,24 @@ export const RunbookEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RunbookEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  runbookTemplateId: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  updatedBy: AuthorEntity$outboundSchema.optional(),
-  steps: RunbookStepEntity$outboundSchema.optional(),
-  attachmentRule: RulesRuleEntity$outboundSchema.optional(),
-  votes: VotesEntity$outboundSchema.optional(),
-  isEditable: z.boolean().optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  categories: z.string().optional(),
-  autoAttachToRestrictedIncidents: z.boolean().optional(),
-  tutorial: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  runbookTemplateId: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  steps: z.nullable(NullableRunbookStepEntity$outboundSchema).optional(),
+  attachmentRule: z.nullable(NullableRulesRuleEntity$outboundSchema).optional(),
+  votes: z.nullable(NullableVotesEntity$outboundSchema).optional(),
+  isEditable: z.nullable(z.boolean()).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  categories: z.nullable(z.array(z.string())).optional(),
+  autoAttachToRestrictedIncidents: z.nullable(z.boolean()).optional(),
+  tutorial: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     runbookTemplateId: "runbook_template_id",

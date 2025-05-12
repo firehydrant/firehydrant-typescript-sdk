@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateChangeRequest = {
   changeId: string;
-  patchV1ChangesChangeId: components.PatchV1ChangesChangeId;
+  updateChange: components.UpdateChange;
 };
 
 /** @internal */
@@ -21,17 +21,18 @@ export const UpdateChangeRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   change_id: z.string(),
-  patchV1ChangesChangeId: components.PatchV1ChangesChangeId$inboundSchema,
+  update_change: z.lazy(() => components.UpdateChange$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "change_id": "changeId",
+    "update_change": "updateChange",
   });
 });
 
 /** @internal */
 export type UpdateChangeRequest$Outbound = {
   change_id: string;
-  patchV1ChangesChangeId: components.PatchV1ChangesChangeId$Outbound;
+  update_change: components.UpdateChange$Outbound;
 };
 
 /** @internal */
@@ -41,10 +42,11 @@ export const UpdateChangeRequest$outboundSchema: z.ZodType<
   UpdateChangeRequest
 > = z.object({
   changeId: z.string(),
-  patchV1ChangesChangeId: components.PatchV1ChangesChangeId$outboundSchema,
+  updateChange: z.lazy(() => components.UpdateChange$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     changeId: "change_id",
+    updateChange: "update_change",
   });
 });
 

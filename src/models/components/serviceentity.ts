@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   ChecklistTemplateEntity,
   ChecklistTemplateEntity$inboundSchema,
   ChecklistTemplateEntity$Outbound,
@@ -32,17 +26,29 @@ import {
   FunctionalityEntity$outboundSchema,
 } from "./functionalityentity.js";
 import {
-  ImportsImportableResourceEntity,
-  ImportsImportableResourceEntity$inboundSchema,
-  ImportsImportableResourceEntity$Outbound,
-  ImportsImportableResourceEntity$outboundSchema,
-} from "./importsimportableresourceentity.js";
-import {
   LinksEntity,
   LinksEntity$inboundSchema,
   LinksEntity$Outbound,
   LinksEntity$outboundSchema,
 } from "./linksentity.js";
+import {
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
+import {
+  NullableImportsImportableResourceEntity,
+  NullableImportsImportableResourceEntity$inboundSchema,
+  NullableImportsImportableResourceEntity$Outbound,
+  NullableImportsImportableResourceEntity$outboundSchema,
+} from "./nullableimportsimportableresourceentity.js";
+import {
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 import {
   TeamEntityLite,
   TeamEntityLite$inboundSchema,
@@ -58,63 +64,63 @@ export type ServiceEntityLabels = {};
 /**
  * Indicates the settings of the catalog that manages this service
  */
-export type ManagedBySettings = {};
+export type ServiceEntityManagedBySettings = {};
 
 /**
  * ServiceEntity model
  */
 export type ServiceEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  serviceTier?: number | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  allowedParams?: Array<string> | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  serviceTier?: number | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  allowedParams?: Array<string> | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: ServiceEntityLabels | undefined;
-  alertOnAdd?: boolean | undefined;
-  autoAddRespondingTeam?: boolean | undefined;
+  labels?: ServiceEntityLabels | null | undefined;
+  alertOnAdd?: boolean | null | undefined;
+  autoAddRespondingTeam?: boolean | null | undefined;
   /**
    * List of active incident guids
    */
-  activeIncidents?: Array<string> | undefined;
+  activeIncidents?: Array<string> | null | undefined;
   /**
    * List of checklists associated with a service
    */
-  checklists?: Array<ChecklistTemplateEntity> | undefined;
-  completedChecks?: number | undefined;
+  checklists?: Array<ChecklistTemplateEntity> | null | undefined;
+  completedChecks?: number | null | undefined;
   /**
    * Information about known linkages to representations of services outside of FireHydrant.
    */
-  externalResources?: Array<ExternalResourceEntity> | undefined;
+  externalResources?: Array<ExternalResourceEntity> | null | undefined;
   /**
    * List of functionalities attached to the service
    */
-  functionalities?: Array<FunctionalityEntity> | undefined;
-  lastImport?: ImportsImportableResourceEntity | undefined;
+  functionalities?: Array<FunctionalityEntity> | null | undefined;
+  lastImport?: NullableImportsImportableResourceEntity | null | undefined;
   /**
    * List of links attached to this service.
    */
-  links?: Array<LinksEntity> | undefined;
+  links?: Array<LinksEntity> | null | undefined;
   /**
    * If set, this field indicates that the service is managed by an integration and thus cannot be set manually
    */
-  managedBy?: string | undefined;
+  managedBy?: string | null | undefined;
   /**
    * Indicates the settings of the catalog that manages this service
    */
-  managedBySettings?: ManagedBySettings | undefined;
-  owner?: TeamEntityLite | undefined;
-  serviceChecklistUpdatedAt?: Date | undefined;
+  managedBySettings?: ServiceEntityManagedBySettings | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
+  serviceChecklistUpdatedAt?: Date | null | undefined;
   /**
    * List of teams attached to the service
    */
-  teams?: Array<TeamEntityLite> | undefined;
-  updatedBy?: AuthorEntity | undefined;
+  teams?: Array<TeamEntityLite> | null | undefined;
+  updatedBy?: NullableAuthorEntity | null | undefined;
 };
 
 /** @internal */
@@ -166,50 +172,52 @@ export function serviceEntityLabelsFromJSON(
 }
 
 /** @internal */
-export const ManagedBySettings$inboundSchema: z.ZodType<
-  ManagedBySettings,
+export const ServiceEntityManagedBySettings$inboundSchema: z.ZodType<
+  ServiceEntityManagedBySettings,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type ManagedBySettings$Outbound = {};
+export type ServiceEntityManagedBySettings$Outbound = {};
 
 /** @internal */
-export const ManagedBySettings$outboundSchema: z.ZodType<
-  ManagedBySettings$Outbound,
+export const ServiceEntityManagedBySettings$outboundSchema: z.ZodType<
+  ServiceEntityManagedBySettings$Outbound,
   z.ZodTypeDef,
-  ManagedBySettings
+  ServiceEntityManagedBySettings
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ManagedBySettings$ {
-  /** @deprecated use `ManagedBySettings$inboundSchema` instead. */
-  export const inboundSchema = ManagedBySettings$inboundSchema;
-  /** @deprecated use `ManagedBySettings$outboundSchema` instead. */
-  export const outboundSchema = ManagedBySettings$outboundSchema;
-  /** @deprecated use `ManagedBySettings$Outbound` instead. */
-  export type Outbound = ManagedBySettings$Outbound;
+export namespace ServiceEntityManagedBySettings$ {
+  /** @deprecated use `ServiceEntityManagedBySettings$inboundSchema` instead. */
+  export const inboundSchema = ServiceEntityManagedBySettings$inboundSchema;
+  /** @deprecated use `ServiceEntityManagedBySettings$outboundSchema` instead. */
+  export const outboundSchema = ServiceEntityManagedBySettings$outboundSchema;
+  /** @deprecated use `ServiceEntityManagedBySettings$Outbound` instead. */
+  export type Outbound = ServiceEntityManagedBySettings$Outbound;
 }
 
-export function managedBySettingsToJSON(
-  managedBySettings: ManagedBySettings,
+export function serviceEntityManagedBySettingsToJSON(
+  serviceEntityManagedBySettings: ServiceEntityManagedBySettings,
 ): string {
   return JSON.stringify(
-    ManagedBySettings$outboundSchema.parse(managedBySettings),
+    ServiceEntityManagedBySettings$outboundSchema.parse(
+      serviceEntityManagedBySettings,
+    ),
   );
 }
 
-export function managedBySettingsFromJSON(
+export function serviceEntityManagedBySettingsFromJSON(
   jsonString: string,
-): SafeParseResult<ManagedBySettings, SDKValidationError> {
+): SafeParseResult<ServiceEntityManagedBySettings, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ManagedBySettings$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ManagedBySettings' from JSON`,
+    (x) => ServiceEntityManagedBySettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ServiceEntityManagedBySettings' from JSON`,
   );
 }
 
@@ -219,34 +227,43 @@ export const ServiceEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  service_tier: z.number().int().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  allowed_params: z.array(z.string()).optional(),
-  labels: z.lazy(() => ServiceEntityLabels$inboundSchema).optional(),
-  alert_on_add: z.boolean().optional(),
-  auto_add_responding_team: z.boolean().optional(),
-  active_incidents: z.array(z.string()).optional(),
-  checklists: z.array(ChecklistTemplateEntity$inboundSchema).optional(),
-  completed_checks: z.number().int().optional(),
-  external_resources: z.array(ExternalResourceEntity$inboundSchema).optional(),
-  functionalities: z.array(FunctionalityEntity$inboundSchema).optional(),
-  last_import: ImportsImportableResourceEntity$inboundSchema.optional(),
-  links: z.array(LinksEntity$inboundSchema).optional(),
-  managed_by: z.string().optional(),
-  managed_by_settings: z.lazy(() => ManagedBySettings$inboundSchema).optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  service_checklist_updated_at: z.string().datetime({ offset: true }).transform(
-    v => new Date(v)
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  service_tier: z.nullable(z.number().int()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  teams: z.array(TeamEntityLite$inboundSchema).optional(),
-  updated_by: AuthorEntity$inboundSchema.optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  allowed_params: z.nullable(z.array(z.string())).optional(),
+  labels: z.nullable(z.lazy(() => ServiceEntityLabels$inboundSchema))
+    .optional(),
+  alert_on_add: z.nullable(z.boolean()).optional(),
+  auto_add_responding_team: z.nullable(z.boolean()).optional(),
+  active_incidents: z.nullable(z.array(z.string())).optional(),
+  checklists: z.nullable(z.array(ChecklistTemplateEntity$inboundSchema))
+    .optional(),
+  completed_checks: z.nullable(z.number().int()).optional(),
+  external_resources: z.nullable(z.array(ExternalResourceEntity$inboundSchema))
+    .optional(),
+  functionalities: z.nullable(z.array(FunctionalityEntity$inboundSchema))
+    .optional(),
+  last_import: z.nullable(NullableImportsImportableResourceEntity$inboundSchema)
+    .optional(),
+  links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
+  managed_by: z.nullable(z.string()).optional(),
+  managed_by_settings: z.nullable(
+    z.lazy(() => ServiceEntityManagedBySettings$inboundSchema),
+  ).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  service_checklist_updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
+  updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "service_tier": "serviceTier",
@@ -268,30 +285,39 @@ export const ServiceEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ServiceEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  service_tier?: number | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  allowed_params?: Array<string> | undefined;
-  labels?: ServiceEntityLabels$Outbound | undefined;
-  alert_on_add?: boolean | undefined;
-  auto_add_responding_team?: boolean | undefined;
-  active_incidents?: Array<string> | undefined;
-  checklists?: Array<ChecklistTemplateEntity$Outbound> | undefined;
-  completed_checks?: number | undefined;
-  external_resources?: Array<ExternalResourceEntity$Outbound> | undefined;
-  functionalities?: Array<FunctionalityEntity$Outbound> | undefined;
-  last_import?: ImportsImportableResourceEntity$Outbound | undefined;
-  links?: Array<LinksEntity$Outbound> | undefined;
-  managed_by?: string | undefined;
-  managed_by_settings?: ManagedBySettings$Outbound | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  service_checklist_updated_at?: string | undefined;
-  teams?: Array<TeamEntityLite$Outbound> | undefined;
-  updated_by?: AuthorEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  service_tier?: number | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  allowed_params?: Array<string> | null | undefined;
+  labels?: ServiceEntityLabels$Outbound | null | undefined;
+  alert_on_add?: boolean | null | undefined;
+  auto_add_responding_team?: boolean | null | undefined;
+  active_incidents?: Array<string> | null | undefined;
+  checklists?: Array<ChecklistTemplateEntity$Outbound> | null | undefined;
+  completed_checks?: number | null | undefined;
+  external_resources?:
+    | Array<ExternalResourceEntity$Outbound>
+    | null
+    | undefined;
+  functionalities?: Array<FunctionalityEntity$Outbound> | null | undefined;
+  last_import?:
+    | NullableImportsImportableResourceEntity$Outbound
+    | null
+    | undefined;
+  links?: Array<LinksEntity$Outbound> | null | undefined;
+  managed_by?: string | null | undefined;
+  managed_by_settings?:
+    | ServiceEntityManagedBySettings$Outbound
+    | null
+    | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  service_checklist_updated_at?: string | null | undefined;
+  teams?: Array<TeamEntityLite$Outbound> | null | undefined;
+  updated_by?: NullableAuthorEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -300,31 +326,39 @@ export const ServiceEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ServiceEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  serviceTier: z.number().int().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  allowedParams: z.array(z.string()).optional(),
-  labels: z.lazy(() => ServiceEntityLabels$outboundSchema).optional(),
-  alertOnAdd: z.boolean().optional(),
-  autoAddRespondingTeam: z.boolean().optional(),
-  activeIncidents: z.array(z.string()).optional(),
-  checklists: z.array(ChecklistTemplateEntity$outboundSchema).optional(),
-  completedChecks: z.number().int().optional(),
-  externalResources: z.array(ExternalResourceEntity$outboundSchema).optional(),
-  functionalities: z.array(FunctionalityEntity$outboundSchema).optional(),
-  lastImport: ImportsImportableResourceEntity$outboundSchema.optional(),
-  links: z.array(LinksEntity$outboundSchema).optional(),
-  managedBy: z.string().optional(),
-  managedBySettings: z.lazy(() => ManagedBySettings$outboundSchema).optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  serviceChecklistUpdatedAt: z.date().transform(v => v.toISOString())
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  serviceTier: z.nullable(z.number().int()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  allowedParams: z.nullable(z.array(z.string())).optional(),
+  labels: z.nullable(z.lazy(() => ServiceEntityLabels$outboundSchema))
     .optional(),
-  teams: z.array(TeamEntityLite$outboundSchema).optional(),
-  updatedBy: AuthorEntity$outboundSchema.optional(),
+  alertOnAdd: z.nullable(z.boolean()).optional(),
+  autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
+  activeIncidents: z.nullable(z.array(z.string())).optional(),
+  checklists: z.nullable(z.array(ChecklistTemplateEntity$outboundSchema))
+    .optional(),
+  completedChecks: z.nullable(z.number().int()).optional(),
+  externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
+    .optional(),
+  functionalities: z.nullable(z.array(FunctionalityEntity$outboundSchema))
+    .optional(),
+  lastImport: z.nullable(NullableImportsImportableResourceEntity$outboundSchema)
+    .optional(),
+  links: z.nullable(z.array(LinksEntity$outboundSchema)).optional(),
+  managedBy: z.nullable(z.string()).optional(),
+  managedBySettings: z.nullable(
+    z.lazy(() => ServiceEntityManagedBySettings$outboundSchema),
+  ).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  serviceChecklistUpdatedAt: z.nullable(
+    z.date().transform(v => v.toISOString()),
+  ).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),
+  updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     serviceTier: "service_tier",

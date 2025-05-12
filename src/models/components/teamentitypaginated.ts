@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 import {
   TeamEntity,
   TeamEntity$inboundSchema,
@@ -23,8 +23,8 @@ import {
  * TeamEntityPaginated model
  */
 export type TeamEntityPaginated = {
-  data?: Array<TeamEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<TeamEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,14 @@ export const TeamEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(TeamEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(TeamEntity$inboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type TeamEntityPaginated$Outbound = {
-  data?: Array<TeamEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<TeamEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +49,8 @@ export const TeamEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TeamEntityPaginated
 > = z.object({
-  data: z.array(TeamEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(TeamEntity$outboundSchema)).optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

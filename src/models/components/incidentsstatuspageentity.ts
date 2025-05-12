@@ -8,22 +8,22 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  IntegrationEntity,
-  IntegrationEntity$inboundSchema,
-  IntegrationEntity$Outbound,
-  IntegrationEntity$outboundSchema,
-} from "./integrationentity.js";
+  NullableIntegrationEntity,
+  NullableIntegrationEntity$inboundSchema,
+  NullableIntegrationEntity$Outbound,
+  NullableIntegrationEntity$outboundSchema,
+} from "./nullableintegrationentity.js";
 
 /**
  * Incidents_StatusPageEntity model
  */
 export type IncidentsStatusPageEntity = {
-  id?: string | undefined;
-  url?: string | undefined;
-  externalId?: string | undefined;
-  name?: string | undefined;
-  displayName?: string | undefined;
-  integration?: IntegrationEntity | undefined;
+  id?: string | null | undefined;
+  url?: string | null | undefined;
+  externalId?: string | null | undefined;
+  name?: string | null | undefined;
+  displayName?: string | null | undefined;
+  integration?: NullableIntegrationEntity | null | undefined;
 };
 
 /** @internal */
@@ -32,12 +32,12 @@ export const IncidentsStatusPageEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  url: z.string().optional(),
-  external_id: z.string().optional(),
-  name: z.string().optional(),
-  display_name: z.string().optional(),
-  integration: IntegrationEntity$inboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  display_name: z.nullable(z.string()).optional(),
+  integration: z.nullable(NullableIntegrationEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "external_id": "externalId",
@@ -47,12 +47,12 @@ export const IncidentsStatusPageEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsStatusPageEntity$Outbound = {
-  id?: string | undefined;
-  url?: string | undefined;
-  external_id?: string | undefined;
-  name?: string | undefined;
-  display_name?: string | undefined;
-  integration?: IntegrationEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  url?: string | null | undefined;
+  external_id?: string | null | undefined;
+  name?: string | null | undefined;
+  display_name?: string | null | undefined;
+  integration?: NullableIntegrationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -61,12 +61,12 @@ export const IncidentsStatusPageEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsStatusPageEntity
 > = z.object({
-  id: z.string().optional(),
-  url: z.string().optional(),
-  externalId: z.string().optional(),
-  name: z.string().optional(),
-  displayName: z.string().optional(),
-  integration: IntegrationEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  displayName: z.nullable(z.string()).optional(),
+  integration: z.nullable(NullableIntegrationEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     externalId: "external_id",

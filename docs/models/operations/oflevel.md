@@ -5,9 +5,9 @@ Returns logs of all levels equal to or above the provided level
 ## Example Usage
 
 ```typescript
-import { OfLevel } from "firehydrant-typescript-sdk/models/operations";
+import { OfLevel } from "firehydrant/models/operations";
 
-let value: OfLevel = "debug";
+let value: OfLevel = "unknown";
 ```
 
 ## Values

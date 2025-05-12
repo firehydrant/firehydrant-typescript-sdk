@@ -8,34 +8,28 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  TicketingProjectConfigEntity,
-  TicketingProjectConfigEntity$inboundSchema,
-  TicketingProjectConfigEntity$Outbound,
-  TicketingProjectConfigEntity$outboundSchema,
-} from "./ticketingprojectconfigentity.js";
+  NullableTicketingProjectConfigEntity,
+  NullableTicketingProjectConfigEntity$inboundSchema,
+  NullableTicketingProjectConfigEntity$Outbound,
+  NullableTicketingProjectConfigEntity$outboundSchema,
+} from "./nullableticketingprojectconfigentity.js";
 import {
-  TicketingProjectFieldMapEntity,
-  TicketingProjectFieldMapEntity$inboundSchema,
-  TicketingProjectFieldMapEntity$Outbound,
-  TicketingProjectFieldMapEntity$outboundSchema,
-} from "./ticketingprojectfieldmapentity.js";
+  NullableTicketingProjectFieldMapEntity,
+  NullableTicketingProjectFieldMapEntity$inboundSchema,
+  NullableTicketingProjectFieldMapEntity$Outbound,
+  NullableTicketingProjectFieldMapEntity$outboundSchema,
+} from "./nullableticketingprojectfieldmapentity.js";
 
 /**
  * Ticketing_Projects_ProjectListItemEntity model
  */
 export type TicketingProjectsProjectListItemEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  /**
-   * Ticketing_ProjectConfigEntity model
-   */
-  config?: TicketingProjectConfigEntity | undefined;
-  /**
-   * Ticketing_ProjectFieldMapEntity model
-   */
-  fieldMap?: TicketingProjectFieldMapEntity | undefined;
-  updatedAt?: Date | undefined;
-  connectionSlug?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  config?: NullableTicketingProjectConfigEntity | null | undefined;
+  fieldMap?: NullableTicketingProjectFieldMapEntity | null | undefined;
+  updatedAt?: Date | null | undefined;
+  connectionSlug?: string | null | undefined;
 };
 
 /** @internal */
@@ -44,13 +38,16 @@ export const TicketingProjectsProjectListItemEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  config: TicketingProjectConfigEntity$inboundSchema.optional(),
-  field_map: TicketingProjectFieldMapEntity$inboundSchema.optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  config: z.nullable(NullableTicketingProjectConfigEntity$inboundSchema)
     .optional(),
-  connection_slug: z.string().optional(),
+  field_map: z.nullable(NullableTicketingProjectFieldMapEntity$inboundSchema)
+    .optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  connection_slug: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "field_map": "fieldMap",
@@ -61,12 +58,15 @@ export const TicketingProjectsProjectListItemEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingProjectsProjectListItemEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  config?: TicketingProjectConfigEntity$Outbound | undefined;
-  field_map?: TicketingProjectFieldMapEntity$Outbound | undefined;
-  updated_at?: string | undefined;
-  connection_slug?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  config?: NullableTicketingProjectConfigEntity$Outbound | null | undefined;
+  field_map?:
+    | NullableTicketingProjectFieldMapEntity$Outbound
+    | null
+    | undefined;
+  updated_at?: string | null | undefined;
+  connection_slug?: string | null | undefined;
 };
 
 /** @internal */
@@ -75,12 +75,14 @@ export const TicketingProjectsProjectListItemEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectsProjectListItemEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  config: TicketingProjectConfigEntity$outboundSchema.optional(),
-  fieldMap: TicketingProjectFieldMapEntity$outboundSchema.optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  connectionSlug: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  config: z.nullable(NullableTicketingProjectConfigEntity$outboundSchema)
+    .optional(),
+  fieldMap: z.nullable(NullableTicketingProjectFieldMapEntity$outboundSchema)
+    .optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  connectionSlug: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     fieldMap: "field_map",

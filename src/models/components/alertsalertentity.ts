@@ -8,23 +8,41 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  AlertsSirenAlertEntity,
+  AlertsSirenAlertEntity$inboundSchema,
+  AlertsSirenAlertEntity$Outbound,
+  AlertsSirenAlertEntity$outboundSchema,
+} from "./alertssirenalertentity.js";
+import {
   AlertsSirenEventEntity,
   AlertsSirenEventEntity$inboundSchema,
   AlertsSirenEventEntity$Outbound,
   AlertsSirenEventEntity$outboundSchema,
 } from "./alertssirenevententity.js";
 import {
+  ConversationsAPIEntitiesReference,
+  ConversationsAPIEntitiesReference$inboundSchema,
+  ConversationsAPIEntitiesReference$Outbound,
+  ConversationsAPIEntitiesReference$outboundSchema,
+} from "./conversationsapientitiesreference.js";
+import {
+  NullableSignalsAPIRuleEntity,
+  NullableSignalsAPIRuleEntity$inboundSchema,
+  NullableSignalsAPIRuleEntity$Outbound,
+  NullableSignalsAPIRuleEntity$outboundSchema,
+} from "./nullablesignalsapiruleentity.js";
+import {
+  NullableSignalsAPITargetEntity,
+  NullableSignalsAPITargetEntity$inboundSchema,
+  NullableSignalsAPITargetEntity$Outbound,
+  NullableSignalsAPITargetEntity$outboundSchema,
+} from "./nullablesignalsapitargetentity.js";
+import {
   PublicApiv1IncidentsSuccinctEntity,
   PublicApiv1IncidentsSuccinctEntity$inboundSchema,
   PublicApiv1IncidentsSuccinctEntity$Outbound,
   PublicApiv1IncidentsSuccinctEntity$outboundSchema,
 } from "./publicapiv1incidentssuccinctentity.js";
-import {
-  SignalsAPIRuleEntity,
-  SignalsAPIRuleEntity$inboundSchema,
-  SignalsAPIRuleEntity$Outbound,
-  SignalsAPIRuleEntity$outboundSchema,
-} from "./signalsapiruleentity.js";
 import {
   SuccinctEntity,
   SuccinctEntity$inboundSchema,
@@ -35,80 +53,91 @@ import {
 /**
  * Arbitrary key:value pairs of labels.
  */
-export type Labels = {};
+export type AlertsAlertEntityLabels = {};
 
 /**
  * Alerts_AlertEntity model
  */
 export type AlertsAlertEntity = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  priority?: string | undefined;
-  integrationName?: string | undefined;
-  startsAt?: Date | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  priority?: string | null | undefined;
+  integrationName?: string | null | undefined;
+  startsAt?: Date | null | undefined;
   endsAt?: Date | null | undefined;
   durationMs?: number | null | undefined;
   durationIso8601?: string | null | undefined;
-  status?: string | undefined;
-  remoteId?: string | undefined;
-  remoteUrl?: string | undefined;
+  status?: string | null | undefined;
+  remoteId?: string | null | undefined;
+  remoteUrl?: string | null | undefined;
   /**
    * Arbitrary key:value pairs of labels.
    */
-  labels?: Labels | undefined;
-  environments?: Array<SuccinctEntity> | undefined;
-  services?: Array<SuccinctEntity> | undefined;
-  tags?: Array<string> | undefined;
-  sourceIcon?: string | undefined;
-  signalId?: string | undefined;
-  signalRule?: SignalsAPIRuleEntity | undefined;
-  teamName?: string | undefined;
-  teamId?: string | undefined;
-  position?: number | undefined;
-  incidents?: Array<PublicApiv1IncidentsSuccinctEntity> | undefined;
-  events?: Array<AlertsSirenEventEntity> | undefined;
-  isExpired?: boolean | undefined;
+  labels?: AlertsAlertEntityLabels | null | undefined;
+  environments?: Array<SuccinctEntity> | null | undefined;
+  services?: Array<SuccinctEntity> | null | undefined;
+  tags?: Array<string> | null | undefined;
+  sourceIcon?: string | null | undefined;
+  signalId?: string | null | undefined;
+  signalRule?: NullableSignalsAPIRuleEntity | null | undefined;
+  signalTarget?: NullableSignalsAPITargetEntity | null | undefined;
+  teamName?: string | null | undefined;
+  teamId?: string | null | undefined;
+  position?: number | null | undefined;
+  incidents?: Array<PublicApiv1IncidentsSuccinctEntity> | null | undefined;
+  events?: Array<AlertsSirenEventEntity> | null | undefined;
+  isExpired?: boolean | null | undefined;
+  parentAlerts?: Array<AlertsSirenAlertEntity> | null | undefined;
+  childAlerts?: Array<AlertsSirenAlertEntity> | null | undefined;
+  conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
 };
 
 /** @internal */
-export const Labels$inboundSchema: z.ZodType<Labels, z.ZodTypeDef, unknown> = z
-  .object({});
-
-/** @internal */
-export type Labels$Outbound = {};
-
-/** @internal */
-export const Labels$outboundSchema: z.ZodType<
-  Labels$Outbound,
+export const AlertsAlertEntityLabels$inboundSchema: z.ZodType<
+  AlertsAlertEntityLabels,
   z.ZodTypeDef,
-  Labels
+  unknown
+> = z.object({});
+
+/** @internal */
+export type AlertsAlertEntityLabels$Outbound = {};
+
+/** @internal */
+export const AlertsAlertEntityLabels$outboundSchema: z.ZodType<
+  AlertsAlertEntityLabels$Outbound,
+  z.ZodTypeDef,
+  AlertsAlertEntityLabels
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Labels$ {
-  /** @deprecated use `Labels$inboundSchema` instead. */
-  export const inboundSchema = Labels$inboundSchema;
-  /** @deprecated use `Labels$outboundSchema` instead. */
-  export const outboundSchema = Labels$outboundSchema;
-  /** @deprecated use `Labels$Outbound` instead. */
-  export type Outbound = Labels$Outbound;
+export namespace AlertsAlertEntityLabels$ {
+  /** @deprecated use `AlertsAlertEntityLabels$inboundSchema` instead. */
+  export const inboundSchema = AlertsAlertEntityLabels$inboundSchema;
+  /** @deprecated use `AlertsAlertEntityLabels$outboundSchema` instead. */
+  export const outboundSchema = AlertsAlertEntityLabels$outboundSchema;
+  /** @deprecated use `AlertsAlertEntityLabels$Outbound` instead. */
+  export type Outbound = AlertsAlertEntityLabels$Outbound;
 }
 
-export function labelsToJSON(labels: Labels): string {
-  return JSON.stringify(Labels$outboundSchema.parse(labels));
+export function alertsAlertEntityLabelsToJSON(
+  alertsAlertEntityLabels: AlertsAlertEntityLabels,
+): string {
+  return JSON.stringify(
+    AlertsAlertEntityLabels$outboundSchema.parse(alertsAlertEntityLabels),
+  );
 }
 
-export function labelsFromJSON(
+export function alertsAlertEntityLabelsFromJSON(
   jsonString: string,
-): SafeParseResult<Labels, SDKValidationError> {
+): SafeParseResult<AlertsAlertEntityLabels, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Labels$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Labels' from JSON`,
+    (x) => AlertsAlertEntityLabels$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AlertsAlertEntityLabels' from JSON`,
   );
 }
 
@@ -118,35 +147,48 @@ export const AlertsAlertEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  priority: z.string().optional(),
-  integration_name: z.string().optional(),
-  starts_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  priority: z.nullable(z.string()).optional(),
+  integration_name: z.nullable(z.string()).optional(),
+  starts_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   ends_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   duration_ms: z.nullable(z.number().int()).optional(),
   duration_iso8601: z.nullable(z.string()).optional(),
-  status: z.string().optional(),
-  remote_id: z.string().optional(),
-  remote_url: z.string().optional(),
-  labels: z.lazy(() => Labels$inboundSchema).optional(),
-  environments: z.array(SuccinctEntity$inboundSchema).optional(),
-  services: z.array(SuccinctEntity$inboundSchema).optional(),
-  tags: z.array(z.string()).optional(),
-  source_icon: z.string().optional(),
-  signal_id: z.string().optional(),
-  signal_rule: SignalsAPIRuleEntity$inboundSchema.optional(),
-  team_name: z.string().optional(),
-  team_id: z.string().optional(),
-  position: z.number().int().optional(),
-  incidents: z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema)
+  status: z.nullable(z.string()).optional(),
+  remote_id: z.nullable(z.string()).optional(),
+  remote_url: z.nullable(z.string()).optional(),
+  labels: z.nullable(z.lazy(() => AlertsAlertEntityLabels$inboundSchema))
     .optional(),
-  events: z.array(AlertsSirenEventEntity$inboundSchema).optional(),
-  is_expired: z.boolean().optional(),
+  environments: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
+  services: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
+  tags: z.nullable(z.array(z.string())).optional(),
+  source_icon: z.nullable(z.string()).optional(),
+  signal_id: z.nullable(z.string()).optional(),
+  signal_rule: z.nullable(NullableSignalsAPIRuleEntity$inboundSchema)
+    .optional(),
+  signal_target: z.nullable(NullableSignalsAPITargetEntity$inboundSchema)
+    .optional(),
+  team_name: z.nullable(z.string()).optional(),
+  team_id: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  incidents: z.nullable(
+    z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema),
+  ).optional(),
+  events: z.nullable(z.array(AlertsSirenEventEntity$inboundSchema)).optional(),
+  is_expired: z.nullable(z.boolean()).optional(),
+  parent_alerts: z.nullable(z.array(AlertsSirenAlertEntity$inboundSchema))
+    .optional(),
+  child_alerts: z.nullable(z.array(AlertsSirenAlertEntity$inboundSchema))
+    .optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "integration_name": "integrationName",
@@ -159,39 +201,52 @@ export const AlertsAlertEntity$inboundSchema: z.ZodType<
     "source_icon": "sourceIcon",
     "signal_id": "signalId",
     "signal_rule": "signalRule",
+    "signal_target": "signalTarget",
     "team_name": "teamName",
     "team_id": "teamId",
     "is_expired": "isExpired",
+    "parent_alerts": "parentAlerts",
+    "child_alerts": "childAlerts",
   });
 });
 
 /** @internal */
 export type AlertsAlertEntity$Outbound = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  priority?: string | undefined;
-  integration_name?: string | undefined;
-  starts_at?: string | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  priority?: string | null | undefined;
+  integration_name?: string | null | undefined;
+  starts_at?: string | null | undefined;
   ends_at?: string | null | undefined;
   duration_ms?: number | null | undefined;
   duration_iso8601?: string | null | undefined;
-  status?: string | undefined;
-  remote_id?: string | undefined;
-  remote_url?: string | undefined;
-  labels?: Labels$Outbound | undefined;
-  environments?: Array<SuccinctEntity$Outbound> | undefined;
-  services?: Array<SuccinctEntity$Outbound> | undefined;
-  tags?: Array<string> | undefined;
-  source_icon?: string | undefined;
-  signal_id?: string | undefined;
-  signal_rule?: SignalsAPIRuleEntity$Outbound | undefined;
-  team_name?: string | undefined;
-  team_id?: string | undefined;
-  position?: number | undefined;
-  incidents?: Array<PublicApiv1IncidentsSuccinctEntity$Outbound> | undefined;
-  events?: Array<AlertsSirenEventEntity$Outbound> | undefined;
-  is_expired?: boolean | undefined;
+  status?: string | null | undefined;
+  remote_id?: string | null | undefined;
+  remote_url?: string | null | undefined;
+  labels?: AlertsAlertEntityLabels$Outbound | null | undefined;
+  environments?: Array<SuccinctEntity$Outbound> | null | undefined;
+  services?: Array<SuccinctEntity$Outbound> | null | undefined;
+  tags?: Array<string> | null | undefined;
+  source_icon?: string | null | undefined;
+  signal_id?: string | null | undefined;
+  signal_rule?: NullableSignalsAPIRuleEntity$Outbound | null | undefined;
+  signal_target?: NullableSignalsAPITargetEntity$Outbound | null | undefined;
+  team_name?: string | null | undefined;
+  team_id?: string | null | undefined;
+  position?: number | null | undefined;
+  incidents?:
+    | Array<PublicApiv1IncidentsSuccinctEntity$Outbound>
+    | null
+    | undefined;
+  events?: Array<AlertsSirenEventEntity$Outbound> | null | undefined;
+  is_expired?: boolean | null | undefined;
+  parent_alerts?: Array<AlertsSirenAlertEntity$Outbound> | null | undefined;
+  child_alerts?: Array<AlertsSirenAlertEntity$Outbound> | null | undefined;
+  conversations?:
+    | Array<ConversationsAPIEntitiesReference$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -200,32 +255,44 @@ export const AlertsAlertEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AlertsAlertEntity
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  priority: z.string().optional(),
-  integrationName: z.string().optional(),
-  startsAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  priority: z.nullable(z.string()).optional(),
+  integrationName: z.nullable(z.string()).optional(),
+  startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   endsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   durationMs: z.nullable(z.number().int()).optional(),
   durationIso8601: z.nullable(z.string()).optional(),
-  status: z.string().optional(),
-  remoteId: z.string().optional(),
-  remoteUrl: z.string().optional(),
-  labels: z.lazy(() => Labels$outboundSchema).optional(),
-  environments: z.array(SuccinctEntity$outboundSchema).optional(),
-  services: z.array(SuccinctEntity$outboundSchema).optional(),
-  tags: z.array(z.string()).optional(),
-  sourceIcon: z.string().optional(),
-  signalId: z.string().optional(),
-  signalRule: SignalsAPIRuleEntity$outboundSchema.optional(),
-  teamName: z.string().optional(),
-  teamId: z.string().optional(),
-  position: z.number().int().optional(),
-  incidents: z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema)
+  status: z.nullable(z.string()).optional(),
+  remoteId: z.nullable(z.string()).optional(),
+  remoteUrl: z.nullable(z.string()).optional(),
+  labels: z.nullable(z.lazy(() => AlertsAlertEntityLabels$outboundSchema))
     .optional(),
-  events: z.array(AlertsSirenEventEntity$outboundSchema).optional(),
-  isExpired: z.boolean().optional(),
+  environments: z.nullable(z.array(SuccinctEntity$outboundSchema)).optional(),
+  services: z.nullable(z.array(SuccinctEntity$outboundSchema)).optional(),
+  tags: z.nullable(z.array(z.string())).optional(),
+  sourceIcon: z.nullable(z.string()).optional(),
+  signalId: z.nullable(z.string()).optional(),
+  signalRule: z.nullable(NullableSignalsAPIRuleEntity$outboundSchema)
+    .optional(),
+  signalTarget: z.nullable(NullableSignalsAPITargetEntity$outboundSchema)
+    .optional(),
+  teamName: z.nullable(z.string()).optional(),
+  teamId: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  incidents: z.nullable(
+    z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema),
+  ).optional(),
+  events: z.nullable(z.array(AlertsSirenEventEntity$outboundSchema)).optional(),
+  isExpired: z.nullable(z.boolean()).optional(),
+  parentAlerts: z.nullable(z.array(AlertsSirenAlertEntity$outboundSchema))
+    .optional(),
+  childAlerts: z.nullable(z.array(AlertsSirenAlertEntity$outboundSchema))
+    .optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     integrationName: "integration_name",
@@ -238,9 +305,12 @@ export const AlertsAlertEntity$outboundSchema: z.ZodType<
     sourceIcon: "source_icon",
     signalId: "signal_id",
     signalRule: "signal_rule",
+    signalTarget: "signal_target",
     teamName: "team_name",
     teamId: "team_id",
     isExpired: "is_expired",
+    parentAlerts: "parent_alerts",
+    childAlerts: "child_alerts",
   });
 });
 

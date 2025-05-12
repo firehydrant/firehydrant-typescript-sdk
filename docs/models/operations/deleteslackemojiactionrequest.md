@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteSlackEmojiActionRequest } from "firehydrant-typescript-sdk/models/operations";
+import { DeleteSlackEmojiActionRequest } from "firehydrant/models/operations";
 
 let value: DeleteSlackEmojiActionRequest = {
   connectionId: "<id>",

@@ -7,156 +7,78 @@ Operations related to Incidents
 
 ### Available Operations
 
-* [getAiSummaryVoteStatus](#getaisummaryvotestatus) - Get the vote status for an AI-generated incident summary
-* [list](#list) - List incidents
-* [create](#create) - Create an incident
-* [get](#get) - Get an incident
-* [archive](#archive) - Archive an incident
-* [update](#update) - Update an incident
-* [deleteAlert](#deletealert) - Delete an alert from an incident
-* [setAlertAsPrimary](#setalertasprimary) - Set an alert as primary for an incident
-* [listAttachments](#listattachments) - List attachments for an incident
-* [createAttachment](#createattachment) - Create an attachment for an incident
-* [getChannel](#getchannel) - Get chat channel information for an incident
-* [close](#close) - Close an incident
-* [listEvents](#listevents) - List events for an incident
-* [getEvent](#getevent) - Get an incident event
-* [deleteEvent](#deleteevent) - Delete an incident event
-* [updateEvent](#updateevent) - Update an incident event
-* [updateEventVotes](#updateeventvotes) - Update votes for an incident event
-* [getEventVoteStatus](#geteventvotestatus) - Get vote counts for an incident event
-* [createGenericChatMessage](#creategenericchatmessage) - Create a chat message for an incident
-* [deleteChatMessage](#deletechatmessage) - Delete a chat message from an incident
-* [updateChatMessage](#updatechatmessage) - Update a chat message in an incident
-* [updateImpacts](#updateimpacts) - Replace all impacts for an incident
-* [partialUpdateImpacts](#partialupdateimpacts) - Update impacts for an incident
-* [listImpact](#listimpact) - List impacted infrastructure for an incident
-* [createImpact](#createimpact) - Add impacted infrastructure to an incident
-* [deleteImpact](#deleteimpact) - Remove impacted infrastructure from an incident
-* [listLinks](#listlinks) - List links for an incident
-* [createLink](#createlink) - Create a link for an incident
-* [updateLink](#updatelink) - Update an external link for an incident
-* [deleteLink](#deletelink) - Delete an external link from an incident
-* [listMilestones](#listmilestones) - List milestones for an incident
-* [updateMilestonesBulk](#updatemilestonesbulk) - Bulk update milestone timestamps for an incident
-* [createNote](#createnote) - Create a note for an incident
-* [updateNote](#updatenote) - Update a note for an incident
-* [listRelatedChangeEvents](#listrelatedchangeevents) - List related changes for an incident
-* [createRelatedChange](#createrelatedchange) - Add a related change to an incident
-* [updateRelatedChangeEvent](#updaterelatedchangeevent) - Update a related change event for an incident
-* [getRelationships](#getrelationships) - List incident relationships
-* [resolve](#resolve) - Resolve an incident
-* [listRoleAssignments](#listroleassignments) - List role assignments for an incident
-* [createRoleAssignment](#createroleassignment) - Create a role assignment for an incident
-* [deleteRoleAssignment](#deleteroleassignment) - Delete a role assignment from an incident
-* [listSimilar](#listsimilar) - List similar incidents
-* [listStatusPages](#liststatuspages) - List status pages for an incident
-* [addStatusPage](#addstatuspage) - Add a status page to an incident
-* [createTaskList](#createtasklist) - Add tasks from a task list to an incident
-* [createTeamAssignment](#createteamassignment) - Assign a team to an incident
-* [deleteTeamAssignment](#deleteteamassignment) - Remove a team assignment from an incident
-* [getTranscript](#gettranscript) - List transcript messages for an incident
-* [deleteTranscript](#deletetranscript) - Delete a transcript from an incident
-* [unarchive](#unarchive) - Unarchive an incident
-* [getUserRole](#getuserrole) - Get a user's role in an incident
+* [listIncidents](#listincidents) - List incidents
+* [createIncident](#createincident) - Create an incident
+* [getIncidentChannel](#getincidentchannel) - Get chat channel information for an incident
+* [closeIncident](#closeincident) - Close an incident
+* [resolveIncident](#resolveincident) - Resolve an incident
+* [getIncident](#getincident) - Get an incident
+* [deleteIncident](#deleteincident) - Archive an incident
+* [updateIncident](#updateincident) - Update an incident
+* [unarchiveIncident](#unarchiveincident) - Unarchive an incident
+* [bulkUpdateIncidentMilestones](#bulkupdateincidentmilestones) - Update milestone times
+* [listIncidentMilestones](#listincidentmilestones) - List incident milestones
+* [listIncidentChangeEvents](#listincidentchangeevents) - List related changes on an incident
+* [createIncidentChangeEvent](#createincidentchangeevent) - Add a related change to an incident
+* [updateIncidentChangeEvent](#updateincidentchangeevent) - Update a change attached to an incident
+* [listIncidentStatusPages](#listincidentstatuspages) - List status pages for an incident
+* [createIncidentStatusPage](#createincidentstatuspage) - Add a status page to an incident
+* [listIncidentLinks](#listincidentlinks) - List links on an incident
+* [createIncidentLink](#createincidentlink) - Add a link to an incident
+* [updateIncidentLink](#updateincidentlink) - Update the external incident link
+* [deleteIncidentLink](#deleteincidentlink) - Remove a link from an incident
+* [updateTranscriptAttribution](#updatetranscriptattribution) - Update the attribution of a transcript
+* [listTranscriptEntries](#listtranscriptentries) - Lists all of the messages in the incident's transcript
+* [deleteTranscriptEntry](#deletetranscriptentry) - Delete a transcript from an incident
+* [listIncidentConferenceBridges](#listincidentconferencebridges) - Retrieve all conference bridges for an incident
+* [getConferenceBridgeTranslation](#getconferencebridgetranslation) - Retrieve the translations for a specific conference bridge
+* [listSimilarIncidents](#listsimilarincidents) - List similar incidents
+* [listIncidentAttachments](#listincidentattachments) - List attachments for an incident
+* [createIncidentAttachment](#createincidentattachment) - Add an attachment to the incident timeline
+* [listIncidentEvents](#listincidentevents) - List events for an incident
+* [getIncidentEvent](#getincidentevent) - Get an incident event
+* [deleteIncidentEvent](#deleteincidentevent) - Delete an incident event
+* [updateIncidentEvent](#updateincidentevent) - Update an incident event
+* [updateIncidentImpactPut](#updateincidentimpactput) - Update impacts for an incident
+* [updateIncidentImpactPatch](#updateincidentimpactpatch) - Update impacts for an incident
+* [listIncidentImpacts](#listincidentimpacts) - List impacted infrastructure for an incident
+* [createIncidentImpact](#createincidentimpact) - Add impacted infrastructure to an incident
+* [deleteIncidentImpact](#deleteincidentimpact) - Remove impacted infrastructure from an incident
+* [createIncidentNote](#createincidentnote) - Add a note to an incident
+* [updateIncidentNote](#updateincidentnote) - Update a note
+* [createIncidentChatMessage](#createincidentchatmessage) - Add a chat message to an incident
+* [deleteIncidentChatMessage](#deleteincidentchatmessage) - Delete a chat message from an incident
+* [updateIncidentChatMessage](#updateincidentchatmessage) - Update a chat message on an incident
+* [listIncidentRoleAssignments](#listincidentroleassignments) - List incident assignees
+* [createIncidentRoleAssignment](#createincidentroleassignment) - Assign a user to an incident
+* [deleteIncidentRoleAssignment](#deleteincidentroleassignment) - Unassign a user from an incident
+* [createIncidentTeamAssignment](#createincidentteamassignment) - Assign a team to an incident
+* [deleteIncidentTeamAssignment](#deleteincidentteamassignment) - Unassign a team from an incident
+* [getIncidentUser](#getincidentuser) - Get the current user's incident role
+* [getIncidentRelationships](#getincidentrelationships) - List incident relationships
+* [listScheduledMaintenances](#listscheduledmaintenances) - List scheduled maintenance events
+* [createScheduledMaintenance](#createscheduledmaintenance) - Create a scheduled maintenance event
+* [getScheduledMaintenance](#getscheduledmaintenance) - Get a scheduled maintenance event
+* [deleteScheduledMaintenance](#deletescheduledmaintenance) - Delete a scheduled maintenance event
+* [updateScheduledMaintenance](#updatescheduledmaintenance) - Update a scheduled maintenance event
+* [getAiIncidentSummaryVoteStatus](#getaiincidentsummaryvotestatus) - Get the current user's vote status for an AI-generated incident summary
+* [voteAiIncidentSummary](#voteaiincidentsummary) - Vote on an AI-generated incident summary
 
-## getAiSummaryVoteStatus
-
-Get the vote status for an AI-generated incident summary
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.incidents.getAiSummaryVoteStatus({
-    incidentId: "<id>",
-    generatedSummaryId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetAiSummaryVoteStatus } from "firehydrant-typescript-sdk/funcs/incidentsGetAiSummaryVoteStatus.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsGetAiSummaryVoteStatus(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    generatedSummaryId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIncidentAiSummaryVoteStatusRequest](../../models/operations/getincidentaisummaryvotestatusrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## list
+## listIncidents
 
 List all of the incidents in the organization
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.list({});
+  const result = await firehydrant.incidents.listIncidents({});
 
   // Handle the result
   console.log(result);
@@ -170,17 +92,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsList } from "firehydrant-typescript-sdk/funcs/incidentsList.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidents } from "firehydrant/funcs/incidentsListIncidents.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsList(firehydrantTypescriptSDK, {});
+  const res = await incidentsListIncidents(firehydrant, {});
 
   if (!res.ok) {
     throw res.error;
@@ -210,31 +132,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## create
+## createIncident
 
 Create a new incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.create({
+  const result = await firehydrant.incidents.createIncident({
     name: "<value>",
   });
 
@@ -250,17 +166,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreate } from "firehydrant-typescript-sdk/funcs/incidentsCreate.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncident } from "firehydrant/funcs/incidentsCreateIncident.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreate(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncident(firehydrant, {
     name: "<value>",
   });
 
@@ -281,7 +197,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.PostV1Incidents](../../models/components/postv1incidents.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CreateIncident](../../models/components/createincident.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -292,31 +208,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## get
+## getIncidentChannel
 
-Retrieve a single incident from its ID
+Gives chat channel information for the specified incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.get({
+  const result = await firehydrant.incidents.getIncidentChannel({
     incidentId: "<id>",
   });
 
@@ -332,17 +242,245 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGet } from "firehydrant-typescript-sdk/funcs/incidentsGet.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetIncidentChannel } from "firehydrant/funcs/incidentsGetIncidentChannel.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsGet(firehydrantTypescriptSDK, {
+  const res = await incidentsGetIncidentChannel(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetIncidentChannelRequest](../../models/operations/getincidentchannelrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsChannelEntity](../../models/components/incidentschannelentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## closeIncident
+
+Closes an incident and optionally close all children
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.closeIncident({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCloseIncident } from "firehydrant/funcs/incidentsCloseIncident.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsCloseIncident(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CloseIncidentRequest](../../models/operations/closeincidentrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## resolveIncident
+
+Resolves a currently active incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.resolveIncident({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsResolveIncident } from "firehydrant/funcs/incidentsResolveIncident.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsResolveIncident(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ResolveIncidentRequest](../../models/operations/resolveincidentrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getIncident
+
+Retrieve a single incident from its ID
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.getIncident({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetIncident } from "firehydrant/funcs/incidentsGetIncident.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsGetIncident(firehydrant, {
     incidentId: "<id>",
   });
 
@@ -374,31 +512,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## archive
+## deleteIncident
 
 Archives an incident which will hide it from lists and metrics
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.archive({
+  const result = await firehydrant.incidents.deleteIncident({
     incidentId: "<id>",
   });
 
@@ -414,17 +546,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsArchive } from "firehydrant-typescript-sdk/funcs/incidentsArchive.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncident } from "firehydrant/funcs/incidentsDeleteIncident.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsArchive(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteIncident(firehydrant, {
     incidentId: "<id>",
   });
 
@@ -445,7 +577,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ArchiveIncidentRequest](../../models/operations/archiveincidentrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DeleteIncidentRequest](../../models/operations/deleteincidentrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -456,33 +588,27 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## update
+## updateIncident
 
 Updates an incident with provided parameters
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.update({
+  const result = await firehydrant.incidents.updateIncident({
     incidentId: "<id>",
-    patchV1IncidentsIncidentId: {},
+    updateIncident: {},
   });
 
   // Handle the result
@@ -497,19 +623,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdate } from "firehydrant-typescript-sdk/funcs/incidentsUpdate.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncident } from "firehydrant/funcs/incidentsUpdateIncident.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsUpdate(firehydrantTypescriptSDK, {
+  const res = await incidentsUpdateIncident(firehydrant, {
     incidentId: "<id>",
-    patchV1IncidentsIncidentId: {},
+    updateIncident: {},
   });
 
   if (!res.ok) {
@@ -540,33 +666,854 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## deleteAlert
+## unarchiveIncident
 
-Remove an alert from an incident
+Unarchive an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.incidents.deleteAlert({
-    incidentAlertId: "<id>",
+  const result = await firehydrant.incidents.unarchiveIncident({
     incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUnarchiveIncident } from "firehydrant/funcs/incidentsUnarchiveIncident.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsUnarchiveIncident(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UnarchiveIncidentRequest](../../models/operations/unarchiveincidentrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## bulkUpdateIncidentMilestones
+
+Update milestone times in bulk for a given incident. All milestone
+times for an incident must occur in chronological order
+corresponding to the configured order of milestones. If the result
+of this request would cause any milestone(s) to appear out of place,
+a 422 response will instead be returned. This includes milestones
+not explicitly submitted or updated in this request.
+
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.bulkUpdateIncidentMilestones({
+    incidentId: "<id>",
+    bulkUpdateIncidentMilestones: {
+      milestones: [
+        {
+          type: "<value>",
+          occurredAt: new Date("2025-04-19T18:24:04.583Z"),
+        },
+        {
+          type: "<value>",
+          occurredAt: new Date("2024-09-22T18:15:43.263Z"),
+        },
+        {
+          type: "<value>",
+          occurredAt: new Date("2023-08-29T06:50:58.826Z"),
+        },
+      ],
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsBulkUpdateIncidentMilestones } from "firehydrant/funcs/incidentsBulkUpdateIncidentMilestones.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsBulkUpdateIncidentMilestones(firehydrant, {
+    incidentId: "<id>",
+    bulkUpdateIncidentMilestones: {
+      milestones: [
+        {
+          type: "<value>",
+          occurredAt: new Date("2025-04-19T18:24:04.583Z"),
+        },
+        {
+          type: "<value>",
+          occurredAt: new Date("2024-09-22T18:15:43.263Z"),
+        },
+        {
+          type: "<value>",
+          occurredAt: new Date("2023-08-29T06:50:58.826Z"),
+        },
+      ],
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.BulkUpdateIncidentMilestonesRequest](../../models/operations/bulkupdateincidentmilestonesrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsMilestoneEntityPaginated](../../models/components/incidentsmilestoneentitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listIncidentMilestones
+
+List times and durations for each milestone on an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listIncidentMilestones({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentMilestones } from "firehydrant/funcs/incidentsListIncidentMilestones.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListIncidentMilestones(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListIncidentMilestonesRequest](../../models/operations/listincidentmilestonesrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsMilestoneEntityPaginated](../../models/components/incidentsmilestoneentitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listIncidentChangeEvents
+
+List related changes that have been attached to an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listIncidentChangeEvents({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentChangeEvents } from "firehydrant/funcs/incidentsListIncidentChangeEvents.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListIncidentChangeEvents(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListIncidentChangeEventsRequest](../../models/operations/listincidentchangeeventsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsRelatedChangeEventEntityPaginated](../../models/components/incidentsrelatedchangeevententitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createIncidentChangeEvent
+
+Add a related change to an incident. Changes added to an incident can be causes, fixes, or suspects. To remove a change from an incident, the type field should be set to dismissed.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.createIncidentChangeEvent({
+    incidentId: "<id>",
+    createIncidentChangeEvent: {
+      changeEventId: "<id>",
+      type: "caused",
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentChangeEvent } from "firehydrant/funcs/incidentsCreateIncidentChangeEvent.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsCreateIncidentChangeEvent(firehydrant, {
+    incidentId: "<id>",
+    createIncidentChangeEvent: {
+      changeEventId: "<id>",
+      type: "caused",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateIncidentChangeEventRequest](../../models/operations/createincidentchangeeventrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsRelatedChangeEventEntity](../../models/components/incidentsrelatedchangeevententity.md)\>**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| errors.ErrorEntity | 400, 409           | application/json   |
+| errors.APIError    | 4XX, 5XX           | \*/\*              |
+
+## updateIncidentChangeEvent
+
+Update a change attached to an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.updateIncidentChangeEvent({
+    relatedChangeEventId: "<id>",
+    incidentId: "<id>",
+    updateIncidentChangeEvent: {},
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentChangeEvent } from "firehydrant/funcs/incidentsUpdateIncidentChangeEvent.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsUpdateIncidentChangeEvent(firehydrant, {
+    relatedChangeEventId: "<id>",
+    incidentId: "<id>",
+    updateIncidentChangeEvent: {},
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateIncidentChangeEventRequest](../../models/operations/updateincidentchangeeventrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsRelatedChangeEventEntity](../../models/components/incidentsrelatedchangeevententity.md)\>**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| errors.ErrorEntity | 400, 409           | application/json   |
+| errors.APIError    | 4XX, 5XX           | \*/\*              |
+
+## listIncidentStatusPages
+
+List status pages that are attached to an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listIncidentStatusPages({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentStatusPages } from "firehydrant/funcs/incidentsListIncidentStatusPages.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListIncidentStatusPages(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListIncidentStatusPagesRequest](../../models/operations/listincidentstatuspagesrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsStatusPageEntityPaginated](../../models/components/incidentsstatuspageentitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createIncidentStatusPage
+
+Add a status page to an incident.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.createIncidentStatusPage({
+    incidentId: "<id>",
+    createIncidentStatusPage: {
+      integrationSlug: "<value>",
+      integrationId: "<id>",
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentStatusPage } from "firehydrant/funcs/incidentsCreateIncidentStatusPage.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsCreateIncidentStatusPage(firehydrant, {
+    incidentId: "<id>",
+    createIncidentStatusPage: {
+      integrationSlug: "<value>",
+      integrationId: "<id>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateIncidentStatusPageRequest](../../models/operations/createincidentstatuspagerequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsStatusPageEntity](../../models/components/incidentsstatuspageentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listIncidentLinks
+
+List all the editable, external incident links attached to an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listIncidentLinks({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentLinks } from "firehydrant/funcs/incidentsListIncidentLinks.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListIncidentLinks(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListIncidentLinksRequest](../../models/operations/listincidentlinksrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.AttachmentsLinkEntityPaginated](../../models/components/attachmentslinkentitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createIncidentLink
+
+Allows adding adhoc links to an incident as an attachment
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.createIncidentLink({
+    incidentId: "<id>",
+    createIncidentLink: {
+      href: "<value>",
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentLink } from "firehydrant/funcs/incidentsCreateIncidentLink.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsCreateIncidentLink(firehydrant, {
+    incidentId: "<id>",
+    createIncidentLink: {
+      href: "<value>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateIncidentLinkRequest](../../models/operations/createincidentlinkrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.AttachmentsLinkEntity](../../models/components/attachmentslinkentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateIncidentLink
+
+Update the external incident link attributes
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.incidents.updateIncidentLink({
+    linkId: "<id>",
+    incidentId: "<id>",
+    updateIncidentLink: {},
   });
 
 
@@ -580,19 +1527,20 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteAlert } from "firehydrant-typescript-sdk/funcs/incidentsDeleteAlert.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentLink } from "firehydrant/funcs/incidentsUpdateIncidentLink.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsDeleteAlert(firehydrantTypescriptSDK, {
-    incidentAlertId: "<id>",
+  const res = await incidentsUpdateIncidentLink(firehydrant, {
+    linkId: "<id>",
     incidentId: "<id>",
+    updateIncidentLink: {},
   });
 
   if (!res.ok) {
@@ -611,7 +1559,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteIncidentAlertRequest](../../models/operations/deleteincidentalertrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateIncidentLinkRequest](../../models/operations/updateincidentlinkrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -622,36 +1570,182 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## setAlertAsPrimary
+## deleteIncidentLink
 
-Setting an alert as primary will overwrite milestone times in the FireHydrant incident with times included in the primary alert. Services attached to the primary alert will also be automatically added to the incident.
+Remove a link from an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.setAlertAsPrimary({
-    incidentAlertId: "<id>",
+  await firehydrant.incidents.deleteIncidentLink({
+    linkId: "<id>",
     incidentId: "<id>",
-    patchV1IncidentsIncidentIdAlertsIncidentAlertIdPrimary: {
-      primary: true,
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncidentLink } from "firehydrant/funcs/incidentsDeleteIncidentLink.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsDeleteIncidentLink(firehydrant, {
+    linkId: "<id>",
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteIncidentLinkRequest](../../models/operations/deleteincidentlinkrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateTranscriptAttribution
+
+Update the attribution of a transcript
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.incidents.updateTranscriptAttribution({
+    incidentId: "<id>",
+    requestBody: {
+      toUserId: "<id>",
     },
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateTranscriptAttribution } from "firehydrant/funcs/incidentsUpdateTranscriptAttribution.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsUpdateTranscriptAttribution(firehydrant, {
+    incidentId: "<id>",
+    requestBody: {
+      toUserId: "<id>",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateTranscriptAttributionRequest](../../models/operations/updatetranscriptattributionrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listTranscriptEntries
+
+Retrieve the transcript for a specific incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listTranscriptEntries({
+    incidentId: "<id>",
   });
 
   // Handle the result
@@ -666,22 +1760,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsSetAlertAsPrimary } from "firehydrant-typescript-sdk/funcs/incidentsSetAlertAsPrimary.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListTranscriptEntries } from "firehydrant/funcs/incidentsListTranscriptEntries.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsSetAlertAsPrimary(firehydrantTypescriptSDK, {
-    incidentAlertId: "<id>",
+  const res = await incidentsListTranscriptEntries(firehydrant, {
     incidentId: "<id>",
-    patchV1IncidentsIncidentIdAlertsIncidentAlertIdPrimary: {
-      primary: true,
-    },
   });
 
   if (!res.ok) {
@@ -701,46 +1791,42 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.SetIncidentAlertAsPrimaryRequest](../../models/operations/setincidentalertasprimaryrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.ListTranscriptEntriesRequest](../../models/operations/listtranscriptentriesrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.IncidentsAlertEntity](../../models/components/incidentsalertentity.md)\>**
+**Promise\<[components.PublicApiv1IncidentsTranscriptEntity](../../models/components/publicapiv1incidentstranscriptentity.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## listAttachments
+## deleteTranscriptEntry
 
-List attachments for an incident
+Delete a transcript from an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.incidents.listAttachments({
+  const result = await firehydrant.incidents.deleteTranscriptEntry({
+    transcriptId: "<id>",
     incidentId: "<id>",
   });
 
-
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -751,17 +1837,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListAttachments } from "firehydrant-typescript-sdk/funcs/incidentsListAttachments.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteTranscriptEntry } from "firehydrant/funcs/incidentsDeleteTranscriptEntry.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsListAttachments(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteTranscriptEntry(firehydrant, {
+    transcriptId: "<id>",
     incidentId: "<id>",
   });
 
@@ -771,7 +1858,316 @@ async function run() {
 
   const { value: result } = res;
 
-  
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteTranscriptEntryRequest](../../models/operations/deletetranscriptentryrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.PublicApiv1IncidentsTranscriptEntity](../../models/components/publicapiv1incidentstranscriptentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listIncidentConferenceBridges
+
+Retrieve all conference bridges for an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listIncidentConferenceBridges({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentConferenceBridges } from "firehydrant/funcs/incidentsListIncidentConferenceBridges.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListIncidentConferenceBridges(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListIncidentConferenceBridgesRequest](../../models/operations/listincidentconferencebridgesrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsConferenceBridgeEntity](../../models/components/incidentsconferencebridgeentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getConferenceBridgeTranslation
+
+Retrieve the translations for a specific conference bridge
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.getConferenceBridgeTranslation({
+    id: "<id>",
+    languageCode: "<value>",
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetConferenceBridgeTranslation } from "firehydrant/funcs/incidentsGetConferenceBridgeTranslation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsGetConferenceBridgeTranslation(firehydrant, {
+    id: "<id>",
+    languageCode: "<value>",
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetConferenceBridgeTranslationRequest](../../models/operations/getconferencebridgetranslationrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsConferenceBridgeEntity](../../models/components/incidentsconferencebridgeentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listSimilarIncidents
+
+Retrieve a list of similar incidents
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listSimilarIncidents({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListSimilarIncidents } from "firehydrant/funcs/incidentsListSimilarIncidents.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListSimilarIncidents(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListSimilarIncidentsRequest](../../models/operations/listsimilarincidentsrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SimilarIncidentEntityPaginated](../../models/components/similarincidententitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listIncidentAttachments
+
+List attachments for an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.listIncidentAttachments({
+    incidentId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentAttachments } from "firehydrant/funcs/incidentsListIncidentAttachments.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListIncidentAttachments(firehydrant, {
+    incidentId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -788,36 +2184,30 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.AttachmentsTypedAttachmentEntityPaginated](../../models/components/attachmentstypedattachmententitypaginated.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## createAttachment
+## createIncidentAttachment
 
 Allows adding image attachments to an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 import { openAsBlob } from "node:fs";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createAttachment({
+  const result = await firehydrant.incidents.createIncidentAttachment({
     incidentId: "<id>",
     requestBody: {
       file: await openAsBlob("example.file"),
@@ -836,18 +2226,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateAttachment } from "firehydrant-typescript-sdk/funcs/incidentsCreateAttachment.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentAttachment } from "firehydrant/funcs/incidentsCreateIncidentAttachment.js";
 import { openAsBlob } from "node:fs";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreateAttachment(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncidentAttachment(firehydrant, {
     incidentId: "<id>",
     requestBody: {
       file: await openAsBlob("example.file"),
@@ -882,195 +2272,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## getChannel
-
-Gives chat channel information for the specified incident
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.getChannel({
-    incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetChannel } from "firehydrant-typescript-sdk/funcs/incidentsGetChannel.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsGetChannel(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIncidentChannelRequest](../../models/operations/getincidentchannelrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsChannelEntity](../../models/components/incidentschannelentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## close
-
-Closes an incident and optionally close all children
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.close({
-    incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsClose } from "firehydrant-typescript-sdk/funcs/incidentsClose.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsClose(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CloseIncidentRequest](../../models/operations/closeincidentrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listEvents
+## listIncidentEvents
 
 List all events for an incident. An event is a timeline entry. This can be filtered with params to retrieve events of a certain type.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listEvents({
+  const result = await firehydrant.incidents.listIncidentEvents({
     incidentId: "<id>",
   });
 
@@ -1086,17 +2306,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListEvents } from "firehydrant-typescript-sdk/funcs/incidentsListEvents.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentEvents } from "firehydrant/funcs/incidentsListIncidentEvents.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsListEvents(firehydrantTypescriptSDK, {
+  const res = await incidentsListIncidentEvents(firehydrant, {
     incidentId: "<id>",
   });
 
@@ -1128,31 +2348,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## getEvent
+## getIncidentEvent
 
 Retrieve a single event for an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.getEvent({
+  const result = await firehydrant.incidents.getIncidentEvent({
     incidentId: "<id>",
     eventId: "<id>",
   });
@@ -1169,17 +2383,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetEvent } from "firehydrant-typescript-sdk/funcs/incidentsGetEvent.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetIncidentEvent } from "firehydrant/funcs/incidentsGetIncidentEvent.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsGetEvent(firehydrantTypescriptSDK, {
+  const res = await incidentsGetIncidentEvent(firehydrant, {
     incidentId: "<id>",
     eventId: "<id>",
   });
@@ -1212,31 +2426,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## deleteEvent
+## deleteIncidentEvent
 
-Delete a single event for an incident
+Delete an event for an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.deleteEvent({
+  const result = await firehydrant.incidents.deleteIncidentEvent({
     incidentId: "<id>",
     eventId: "<id>",
   });
@@ -1253,17 +2461,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteEvent } from "firehydrant-typescript-sdk/funcs/incidentsDeleteEvent.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncidentEvent } from "firehydrant/funcs/incidentsDeleteIncidentEvent.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsDeleteEvent(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteIncidentEvent(firehydrant, {
     incidentId: "<id>",
     eventId: "<id>",
   });
@@ -1296,31 +2504,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## updateEvent
+## updateIncidentEvent
 
 Update a single event for an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateEvent({
+  const result = await firehydrant.incidents.updateIncidentEvent({
     incidentId: "<id>",
     eventId: "<id>",
   });
@@ -1337,17 +2539,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateEvent } from "firehydrant-typescript-sdk/funcs/incidentsUpdateEvent.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentEvent } from "firehydrant/funcs/incidentsUpdateIncidentEvent.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsUpdateEvent(firehydrantTypescriptSDK, {
+  const res = await incidentsUpdateIncidentEvent(firehydrant, {
     incidentId: "<id>",
     eventId: "<id>",
   });
@@ -1380,453 +2582,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateEventVotes
-
-Allows for upvoting or downvoting an event
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateEventVotes({
-    incidentId: "<id>",
-    eventId: "<id>",
-    patchV1IncidentsIncidentIdEventsEventIdVotes: {
-      direction: "up",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateEventVotes } from "firehydrant-typescript-sdk/funcs/incidentsUpdateEventVotes.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsUpdateEventVotes(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    eventId: "<id>",
-    patchV1IncidentsIncidentIdEventsEventIdVotes: {
-      direction: "up",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateIncidentEventVotesRequest](../../models/operations/updateincidenteventvotesrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.VotesEntity](../../models/components/votesentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## getEventVoteStatus
-
-Returns the current vote counts for an object
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.getEventVoteStatus({
-    incidentId: "<id>",
-    eventId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetEventVoteStatus } from "firehydrant-typescript-sdk/funcs/incidentsGetEventVoteStatus.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsGetEventVoteStatus(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    eventId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIncidentEventVoteStatusRequest](../../models/operations/getincidenteventvotestatusrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.VotesEntity](../../models/components/votesentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createGenericChatMessage
-
-Create a new generic chat message on an incident timeline. These are independent of any specific chat provider.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createGenericChatMessage({
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdGenericChatMessages: {
-      body: "<value>",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateGenericChatMessage } from "firehydrant-typescript-sdk/funcs/incidentsCreateGenericChatMessage.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsCreateGenericChatMessage(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdGenericChatMessages: {
-      body: "<value>",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateIncidentGenericChatMessageRequest](../../models/operations/createincidentgenericchatmessagerequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## deleteChatMessage
-
-Delete an existing generic chat message on an incident.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.deleteChatMessage({
-    messageId: "<id>",
-    incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteChatMessage } from "firehydrant-typescript-sdk/funcs/incidentsDeleteChatMessage.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsDeleteChatMessage(firehydrantTypescriptSDK, {
-    messageId: "<id>",
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteIncidentChatMessageRequest](../../models/operations/deleteincidentchatmessagerequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateChatMessage
-
-Update an existing generic chat message on an incident.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateChatMessage({
-    messageId: "<id>",
-    incidentId: "<id>",
-    patchV1IncidentsIncidentIdGenericChatMessagesMessageId: {
-      body: "<value>",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateChatMessage } from "firehydrant-typescript-sdk/funcs/incidentsUpdateChatMessage.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsUpdateChatMessage(firehydrantTypescriptSDK, {
-    messageId: "<id>",
-    incidentId: "<id>",
-    patchV1IncidentsIncidentIdGenericChatMessagesMessageId: {
-      body: "<value>",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateIncidentChatMessageRequest](../../models/operations/updateincidentchatmessagerequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateImpacts
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateIncidentImpactPut
 
 Allows updating an incident's impacted infrastructure, with the option to
 move the incident into a different milestone and provide a note to update
@@ -1840,16 +2600,16 @@ impacts will be added or updated, but no impacts will be removed.
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateImpacts({
+  const result = await firehydrant.incidents.updateIncidentImpactPut({
     incidentId: "<id>",
-    putV1IncidentsIncidentIdImpact: {},
+    updateIncidentImpactPut: {},
   });
 
   // Handle the result
@@ -1864,19 +2624,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateImpacts } from "firehydrant-typescript-sdk/funcs/incidentsUpdateImpacts.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentImpactPut } from "firehydrant/funcs/incidentsUpdateIncidentImpactPut.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsUpdateImpacts(firehydrantTypescriptSDK, {
+  const res = await incidentsUpdateIncidentImpactPut(firehydrant, {
     incidentId: "<id>",
-    putV1IncidentsIncidentIdImpact: {},
+    updateIncidentImpactPut: {},
   });
 
   if (!res.ok) {
@@ -1896,7 +2656,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateIncidentImpactsRequest](../../models/operations/updateincidentimpactsrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateIncidentImpactPutRequest](../../models/operations/updateincidentimpactputrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1907,17 +2667,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## partialUpdateImpacts
+## updateIncidentImpactPatch
 
 Allows updating an incident's impacted infrastructure, with the option to
 move the incident into a different milestone and provide a note to update
@@ -1931,16 +2685,16 @@ impacts will be added or updated, but no impacts will be removed.
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.partialUpdateImpacts({
+  const result = await firehydrant.incidents.updateIncidentImpactPatch({
     incidentId: "<id>",
-    patchV1IncidentsIncidentIdImpact: {},
+    updateIncidentImpactPatch: {},
   });
 
   // Handle the result
@@ -1955,19 +2709,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsPartialUpdateImpacts } from "firehydrant-typescript-sdk/funcs/incidentsPartialUpdateImpacts.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentImpactPatch } from "firehydrant/funcs/incidentsUpdateIncidentImpactPatch.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsPartialUpdateImpacts(firehydrantTypescriptSDK, {
+  const res = await incidentsUpdateIncidentImpactPatch(firehydrant, {
     incidentId: "<id>",
-    patchV1IncidentsIncidentIdImpact: {},
+    updateIncidentImpactPatch: {},
   });
 
   if (!res.ok) {
@@ -1987,7 +2741,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.PartialUpdateIncidentImpactsRequest](../../models/operations/partialupdateincidentimpactsrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateIncidentImpactPatchRequest](../../models/operations/updateincidentimpactpatchrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -1998,31 +2752,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## listImpact
+## listIncidentImpacts
 
 List impacted infrastructure on an incident by specifying type
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listImpact({
+  const result = await firehydrant.incidents.listIncidentImpacts({
     incidentId: "<id>",
     type: "environments",
   });
@@ -2039,17 +2787,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListImpact } from "firehydrant-typescript-sdk/funcs/incidentsListImpact.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentImpacts } from "firehydrant/funcs/incidentsListIncidentImpacts.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsListImpact(firehydrantTypescriptSDK, {
+  const res = await incidentsListIncidentImpacts(firehydrant, {
     incidentId: "<id>",
     type: "environments",
   });
@@ -2071,7 +2819,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListIncidentImpactRequest](../../models/operations/listincidentimpactrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.ListIncidentImpactsRequest](../../models/operations/listincidentimpactsrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -2082,34 +2830,28 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## createImpact
+## createIncidentImpact
 
 Add impacted infrastructure to an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createImpact({
+  const result = await firehydrant.incidents.createIncidentImpact({
     incidentId: "<id>",
-    type: "customers",
-    postV1IncidentsIncidentIdImpactType: {
+    type: "functionalities",
+    createIncidentImpact: {
       id: "<id>",
     },
   });
@@ -2126,20 +2868,20 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateImpact } from "firehydrant-typescript-sdk/funcs/incidentsCreateImpact.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentImpact } from "firehydrant/funcs/incidentsCreateIncidentImpact.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreateImpact(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncidentImpact(firehydrant, {
     incidentId: "<id>",
-    type: "customers",
-    postV1IncidentsIncidentIdImpactType: {
+    type: "functionalities",
+    createIncidentImpact: {
       id: "<id>",
     },
   });
@@ -2172,34 +2914,28 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorEntity           | 400                          | application/json             |
-| errors.Unauthorized          | 401, 403, 407, 511           | application/json             |
-| errors.NotFound              | 404, 501, 505                | application/json             |
-| errors.Timeout               | 408, 504                     | application/json             |
-| errors.BadRequest            | 413, 414, 415, 422, 431, 510 | application/json             |
-| errors.RateLimited           | 429                          | application/json             |
-| errors.InternalServerError   | 500, 502, 503, 506, 507, 508 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| errors.ErrorEntity | 400                | application/json   |
+| errors.APIError    | 4XX, 5XX           | \*/\*              |
 
-## deleteImpact
+## deleteIncidentImpact
 
-Remove impacted infrastructure on an incident
+Remove impacted infrastructure from an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.incidents.deleteImpact({
+  await firehydrant.incidents.deleteIncidentImpact({
     incidentId: "<id>",
-    type: "environments",
+    type: "services",
     id: "<id>",
   });
 
@@ -2214,19 +2950,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteImpact } from "firehydrant-typescript-sdk/funcs/incidentsDeleteImpact.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncidentImpact } from "firehydrant/funcs/incidentsDeleteIncidentImpact.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsDeleteImpact(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteIncidentImpact(firehydrant, {
     incidentId: "<id>",
-    type: "environments",
+    type: "services",
     id: "<id>",
   });
 
@@ -2257,556 +2993,28 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorEntity           | 400                          | application/json             |
-| errors.Unauthorized          | 401, 403, 407, 511           | application/json             |
-| errors.NotFound              | 404, 501, 505                | application/json             |
-| errors.Timeout               | 408, 504                     | application/json             |
-| errors.BadRequest            | 413, 414, 415, 422, 431, 510 | application/json             |
-| errors.RateLimited           | 429                          | application/json             |
-| errors.InternalServerError   | 500, 502, 503, 506, 507, 508 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
-
-## listLinks
-
-List all the editable, external incident links attached to an incident
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listLinks({
-    incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListLinks } from "firehydrant-typescript-sdk/funcs/incidentsListLinks.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsListLinks(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListIncidentLinksRequest](../../models/operations/listincidentlinksrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.AttachmentsLinkEntityPaginated](../../models/components/attachmentslinkentitypaginated.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createLink
-
-Allows adding adhoc links to an incident as an attachment
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createLink({
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdLinks: {
-      href: "<value>",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateLink } from "firehydrant-typescript-sdk/funcs/incidentsCreateLink.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsCreateLink(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdLinks: {
-      href: "<value>",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateIncidentLinkRequest](../../models/operations/createincidentlinkrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.AttachmentsLinkEntity](../../models/components/attachmentslinkentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateLink
-
-Updates the external incident link attributes
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.incidents.updateLink({
-    linkId: "<id>",
-    incidentId: "<id>",
-    putV1IncidentsIncidentIdLinksLinkId: {},
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateLink } from "firehydrant-typescript-sdk/funcs/incidentsUpdateLink.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsUpdateLink(firehydrantTypescriptSDK, {
-    linkId: "<id>",
-    incidentId: "<id>",
-    putV1IncidentsIncidentIdLinksLinkId: {},
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateIncidentLinkRequest](../../models/operations/updateincidentlinkrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## deleteLink
-
-Deletes the external incident link
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.incidents.deleteLink({
-    linkId: "<id>",
-    incidentId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteLink } from "firehydrant-typescript-sdk/funcs/incidentsDeleteLink.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsDeleteLink(firehydrantTypescriptSDK, {
-    linkId: "<id>",
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteIncidentLinkRequest](../../models/operations/deleteincidentlinkrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listMilestones
-
-List times and durations for each milestone on an incident
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listMilestones({
-    incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListMilestones } from "firehydrant-typescript-sdk/funcs/incidentsListMilestones.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsListMilestones(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListIncidentMilestonesRequest](../../models/operations/listincidentmilestonesrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsMilestoneEntityPaginated](../../models/components/incidentsmilestoneentitypaginated.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## updateMilestonesBulk
-
-Update milestone times in bulk for a given incident. All milestone
-times for an incident must occur in chronological order
-corresponding to the configured order of milestones. If the result
-of this request would cause any milestone(s) to appear out of place,
-a 422 response will instead be returned. This includes milestones
-not explicitly submitted or updated in this request.
-
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateMilestonesBulk({
-    incidentId: "<id>",
-    putV1IncidentsIncidentIdMilestonesBulkUpdate: {
-      milestones: [
-        {
-          type: "<value>",
-          occurredAt: new Date("2022-04-23T20:54:26.363Z"),
-        },
-      ],
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateMilestonesBulk } from "firehydrant-typescript-sdk/funcs/incidentsUpdateMilestonesBulk.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsUpdateMilestonesBulk(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    putV1IncidentsIncidentIdMilestonesBulkUpdate: {
-      milestones: [
-        {
-          type: "<value>",
-          occurredAt: new Date("2022-04-23T20:54:26.363Z"),
-        },
-      ],
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateIncidentMilestonesBulkRequest](../../models/operations/updateincidentmilestonesbulkrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsMilestoneEntityPaginated](../../models/components/incidentsmilestoneentitypaginated.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createNote
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| errors.ErrorEntity | 400                | application/json   |
+| errors.APIError    | 4XX, 5XX           | \*/\*              |
+
+## createIncidentNote
 
 Create a new note on for an incident. The visibility field on a note determines where it gets posted.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createNote({
+  const result = await firehydrant.incidents.createIncidentNote({
     incidentId: "<id>",
-    postV1IncidentsIncidentIdNotes: {
+    createIncidentNote: {
       body: "<value>",
     },
   });
@@ -2823,19 +3031,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateNote } from "firehydrant-typescript-sdk/funcs/incidentsCreateNote.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentNote } from "firehydrant/funcs/incidentsCreateIncidentNote.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreateNote(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncidentNote(firehydrant, {
     incidentId: "<id>",
-    postV1IncidentsIncidentIdNotes: {
+    createIncidentNote: {
       body: "<value>",
     },
   });
@@ -2868,34 +3076,28 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## updateNote
+## updateIncidentNote
 
 Updates the body of a note
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateNote({
+  const result = await firehydrant.incidents.updateIncidentNote({
     noteId: "<id>",
     incidentId: "<id>",
-    patchV1IncidentsIncidentIdNotesNoteId: {
+    updateIncidentNote: {
       body: "<value>",
     },
   });
@@ -2912,20 +3114,20 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateNote } from "firehydrant-typescript-sdk/funcs/incidentsUpdateNote.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentNote } from "firehydrant/funcs/incidentsUpdateIncidentNote.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsUpdateNote(firehydrantTypescriptSDK, {
+  const res = await incidentsUpdateIncidentNote(firehydrant, {
     noteId: "<id>",
     incidentId: "<id>",
-    patchV1IncidentsIncidentIdNotesNoteId: {
+    updateIncidentNote: {
       body: "<value>",
     },
   });
@@ -2958,117 +3160,28 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## listRelatedChangeEvents
+## createIncidentChatMessage
 
-List related changes that have been attached to an incident
+Create a new generic chat message on an incident timeline. These are independent of any specific chat provider.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listRelatedChangeEvents({
+  const result = await firehydrant.incidents.createIncidentChatMessage({
     incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListRelatedChangeEvents } from "firehydrant-typescript-sdk/funcs/incidentsListRelatedChangeEvents.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsListRelatedChangeEvents(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListIncidentRelatedChangesRequest](../../models/operations/listincidentrelatedchangesrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsRelatedChangeEventEntityPaginated](../../models/components/incidentsrelatedchangeevententitypaginated.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createRelatedChange
-
-Add a related change to an incident. Changes added to an incident can be causes, fixes, or suspects. To remove a change from an incident, the type field should be set to dismissed.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createRelatedChange({
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdRelatedChangeEvents: {
-      changeEventId: "<id>",
-      type: "dismissed",
+    createIncidentChatMessage: {
+      body: "<value>",
     },
   });
 
@@ -3084,21 +3197,20 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateRelatedChange } from "firehydrant-typescript-sdk/funcs/incidentsCreateRelatedChange.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentChatMessage } from "firehydrant/funcs/incidentsCreateIncidentChatMessage.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreateRelatedChange(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncidentChatMessage(firehydrant, {
     incidentId: "<id>",
-    postV1IncidentsIncidentIdRelatedChangeEvents: {
-      changeEventId: "<id>",
-      type: "dismissed",
+    createIncidentChatMessage: {
+      body: "<value>",
     },
   });
 
@@ -3119,130 +3231,37 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateIncidentRelatedChangeRequest](../../models/operations/createincidentrelatedchangerequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateIncidentChatMessageRequest](../../models/operations/createincidentchatmessagerequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.IncidentsRelatedChangeEventEntity](../../models/components/incidentsrelatedchangeevententity.md)\>**
+**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorEntity           | 400, 409                     | application/json             |
-| errors.Unauthorized          | 401, 403, 407, 511           | application/json             |
-| errors.NotFound              | 404, 501, 505                | application/json             |
-| errors.Timeout               | 408, 504                     | application/json             |
-| errors.BadRequest            | 413, 414, 415, 422, 431, 510 | application/json             |
-| errors.RateLimited           | 429                          | application/json             |
-| errors.InternalServerError   | 500, 502, 503, 506, 507, 508 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## updateRelatedChangeEvent
+## deleteIncidentChatMessage
 
-Update a change attached to an incident
+Delete an existing generic chat message on an incident.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.updateRelatedChangeEvent({
-    relatedChangeEventId: "<id>",
-    incidentId: "<id>",
-    patchV1IncidentsIncidentIdRelatedChangeEventsRelatedChangeEventId: {},
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUpdateRelatedChangeEvent } from "firehydrant-typescript-sdk/funcs/incidentsUpdateRelatedChangeEvent.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsUpdateRelatedChangeEvent(firehydrantTypescriptSDK, {
-    relatedChangeEventId: "<id>",
-    incidentId: "<id>",
-    patchV1IncidentsIncidentIdRelatedChangeEventsRelatedChangeEventId: {},
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateIncidentRelatedChangeEventRequest](../../models/operations/updateincidentrelatedchangeeventrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsRelatedChangeEventEntity](../../models/components/incidentsrelatedchangeevententity.md)\>**
-
-### Errors
-
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorEntity           | 400, 409                     | application/json             |
-| errors.Unauthorized          | 401, 403, 407, 511           | application/json             |
-| errors.NotFound              | 404, 501, 505                | application/json             |
-| errors.Timeout               | 408, 504                     | application/json             |
-| errors.BadRequest            | 413, 414, 415, 422, 431, 510 | application/json             |
-| errors.RateLimited           | 429                          | application/json             |
-| errors.InternalServerError   | 500, 502, 503, 506, 507, 508 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
-
-## getRelationships
-
-List any parent/child relationships for an incident
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.getRelationships({
+  const result = await firehydrant.incidents.deleteIncidentChatMessage({
+    messageId: "<id>",
     incidentId: "<id>",
   });
 
@@ -3258,17 +3277,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetRelationships } from "firehydrant-typescript-sdk/funcs/incidentsGetRelationships.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncidentChatMessage } from "firehydrant/funcs/incidentsDeleteIncidentChatMessage.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsGetRelationships(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteIncidentChatMessage(firehydrant, {
+    messageId: "<id>",
     incidentId: "<id>",
   });
 
@@ -3289,43 +3309,41 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIncidentRelationshipsRequest](../../models/operations/getincidentrelationshipsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DeleteIncidentChatMessageRequest](../../models/operations/deleteincidentchatmessagerequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.IncidentsRelationshipsEntity](../../models/components/incidentsrelationshipsentity.md)\>**
+**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## resolve
+## updateIncidentChatMessage
 
-Resolves a currently active incident
+Update an existing generic chat message on an incident.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.resolve({
+  const result = await firehydrant.incidents.updateIncidentChatMessage({
+    messageId: "<id>",
     incidentId: "<id>",
+    updateIncidentChatMessage: {
+      body: "<value>",
+    },
   });
 
   // Handle the result
@@ -3340,18 +3358,22 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsResolve } from "firehydrant-typescript-sdk/funcs/incidentsResolve.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateIncidentChatMessage } from "firehydrant/funcs/incidentsUpdateIncidentChatMessage.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsResolve(firehydrantTypescriptSDK, {
+  const res = await incidentsUpdateIncidentChatMessage(firehydrant, {
+    messageId: "<id>",
     incidentId: "<id>",
+    updateIncidentChatMessage: {
+      body: "<value>",
+    },
   });
 
   if (!res.ok) {
@@ -3371,42 +3393,36 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ResolveIncidentRequest](../../models/operations/resolveincidentrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateIncidentChatMessageRequest](../../models/operations/updateincidentchatmessagerequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
+**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## listRoleAssignments
+## listIncidentRoleAssignments
 
 Retrieve a list of all of the current role assignments for the incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listRoleAssignments({
+  const result = await firehydrant.incidents.listIncidentRoleAssignments({
     incidentId: "<id>",
   });
 
@@ -3422,17 +3438,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListRoleAssignments } from "firehydrant-typescript-sdk/funcs/incidentsListRoleAssignments.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListIncidentRoleAssignments } from "firehydrant/funcs/incidentsListIncidentRoleAssignments.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsListRoleAssignments(firehydrantTypescriptSDK, {
+  const res = await incidentsListIncidentRoleAssignments(firehydrant, {
     incidentId: "<id>",
   });
 
@@ -3464,33 +3480,27 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## createRoleAssignment
+## createIncidentRoleAssignment
 
 Assign a role to a user for this incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createRoleAssignment({
+  const result = await firehydrant.incidents.createIncidentRoleAssignment({
     incidentId: "<id>",
-    postV1IncidentsIncidentIdRoleAssignments: {
+    createIncidentRoleAssignment: {
       userId: "<id>",
       incidentRoleId: "<id>",
     },
@@ -3508,19 +3518,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateRoleAssignment } from "firehydrant-typescript-sdk/funcs/incidentsCreateRoleAssignment.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentRoleAssignment } from "firehydrant/funcs/incidentsCreateIncidentRoleAssignment.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreateRoleAssignment(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncidentRoleAssignment(firehydrant, {
     incidentId: "<id>",
-    postV1IncidentsIncidentIdRoleAssignments: {
+    createIncidentRoleAssignment: {
       userId: "<id>",
       incidentRoleId: "<id>",
     },
@@ -3554,31 +3564,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## deleteRoleAssignment
+## deleteIncidentRoleAssignment
 
 Unassign a role from a user
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.deleteRoleAssignment({
+  const result = await firehydrant.incidents.deleteIncidentRoleAssignment({
     incidentId: "<id>",
     roleAssignmentId: "<id>",
   });
@@ -3595,17 +3599,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteRoleAssignment } from "firehydrant-typescript-sdk/funcs/incidentsDeleteRoleAssignment.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncidentRoleAssignment } from "firehydrant/funcs/incidentsDeleteIncidentRoleAssignment.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsDeleteRoleAssignment(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteIncidentRoleAssignment(firehydrant, {
     incidentId: "<id>",
     roleAssignmentId: "<id>",
   });
@@ -3638,373 +3642,27 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listSimilar
-
-List similar incidents
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.incidents.listSimilar({
-    incidentId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListSimilar } from "firehydrant-typescript-sdk/funcs/incidentsListSimilar.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsListSimilar(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetSimilarIncidentsRequest](../../models/operations/getsimilarincidentsrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listStatusPages
-
-List status pages that are attached to an incident
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.listStatusPages({
-    incidentId: "<id>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsListStatusPages } from "firehydrant-typescript-sdk/funcs/incidentsListStatusPages.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsListStatusPages(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListIncidentStatusPagesRequest](../../models/operations/listincidentstatuspagesrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsStatusPageEntityPaginated](../../models/components/incidentsstatuspageentitypaginated.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## addStatusPage
-
-Add a status page to an incident.
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.addStatusPage({
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdStatusPages: {
-      integrationSlug: "<value>",
-      integrationId: "<id>",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsAddStatusPage } from "firehydrant-typescript-sdk/funcs/incidentsAddStatusPage.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsAddStatusPage(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdStatusPages: {
-      integrationSlug: "<value>",
-      integrationId: "<id>",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateIncidentStatusPageRequest](../../models/operations/createincidentstatuspagerequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.IncidentsStatusPageEntity](../../models/components/incidentsstatuspageentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createTaskList
-
-Add all tasks from list to incident
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.createTaskList({
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdTaskLists: {
-      taskListId: "<id>",
-    },
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateTaskList } from "firehydrant-typescript-sdk/funcs/incidentsCreateTaskList.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await incidentsCreateTaskList(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
-    postV1IncidentsIncidentIdTaskLists: {
-      taskListId: "<id>",
-    },
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateIncidentTaskListRequest](../../models/operations/createincidenttasklistrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.TaskEntity](../../models/components/taskentity.md)\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## createTeamAssignment
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createIncidentTeamAssignment
 
 Assign a team for this incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.incidents.createTeamAssignment({
+  await firehydrant.incidents.createIncidentTeamAssignment({
     incidentId: "<id>",
-    postV1IncidentsIncidentIdTeamAssignments: {
+    createIncidentTeamAssignment: {
       teamId: "<id>",
     },
   });
@@ -4020,19 +3678,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsCreateTeamAssignment } from "firehydrant-typescript-sdk/funcs/incidentsCreateTeamAssignment.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateIncidentTeamAssignment } from "firehydrant/funcs/incidentsCreateIncidentTeamAssignment.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsCreateTeamAssignment(firehydrantTypescriptSDK, {
+  const res = await incidentsCreateIncidentTeamAssignment(firehydrant, {
     incidentId: "<id>",
-    postV1IncidentsIncidentIdTeamAssignments: {
+    createIncidentTeamAssignment: {
       teamId: "<id>",
     },
   });
@@ -4064,31 +3722,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## deleteTeamAssignment
+## deleteIncidentTeamAssignment
 
 Unassign a team from an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.incidents.deleteTeamAssignment({
+  await firehydrant.incidents.deleteIncidentTeamAssignment({
     incidentId: "<id>",
     teamAssignmentId: "<id>",
   });
@@ -4104,17 +3756,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteTeamAssignment } from "firehydrant-typescript-sdk/funcs/incidentsDeleteTeamAssignment.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteIncidentTeamAssignment } from "firehydrant/funcs/incidentsDeleteIncidentTeamAssignment.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsDeleteTeamAssignment(firehydrantTypescriptSDK, {
+  const res = await incidentsDeleteIncidentTeamAssignment(firehydrant, {
     incidentId: "<id>",
     teamAssignmentId: "<id>",
   });
@@ -4146,31 +3798,103 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## getTranscript
+## getIncidentUser
 
-Retrieve the transcript for a specific incident
+Retrieve a user with current roles for an incident
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.getTranscript({
+  const result = await firehydrant.incidents.getIncidentUser({
+    incidentId: "<id>",
+    userId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetIncidentUser } from "firehydrant/funcs/incidentsGetIncidentUser.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsGetIncidentUser(firehydrant, {
+    incidentId: "<id>",
+    userId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetIncidentUserRequest](../../models/operations/getincidentuserrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsRoleAssignmentEntity](../../models/components/incidentsroleassignmententity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getIncidentRelationships
+
+List any parent/child relationships for an incident
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.getIncidentRelationships({
     incidentId: "<id>",
   });
 
@@ -4186,17 +3910,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetTranscript } from "firehydrant-typescript-sdk/funcs/incidentsGetTranscript.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetIncidentRelationships } from "firehydrant/funcs/incidentsGetIncidentRelationships.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsGetTranscript(firehydrantTypescriptSDK, {
+  const res = await incidentsGetIncidentRelationships(firehydrant, {
     incidentId: "<id>",
   });
 
@@ -4217,44 +3941,266 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIncidentTranscriptRequest](../../models/operations/getincidenttranscriptrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.GetIncidentRelationshipsRequest](../../models/operations/getincidentrelationshipsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.PublicApiv1IncidentsTranscriptEntity](../../models/components/publicapiv1incidentstranscriptentity.md)\>**
+**Promise\<[components.IncidentsRelationshipsEntity](../../models/components/incidentsrelationshipsentity.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## deleteTranscript
+## listScheduledMaintenances
 
-Delete a transcript from an incident
+Lists all scheduled maintenance events
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.incidents.deleteTranscript({
-    transcriptId: "<id>",
-    incidentId: "<id>",
+  const result = await firehydrant.incidents.listScheduledMaintenances({});
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsListScheduledMaintenances } from "firehydrant/funcs/incidentsListScheduledMaintenances.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsListScheduledMaintenances(firehydrant, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListScheduledMaintenancesRequest](../../models/operations/listscheduledmaintenancesrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ScheduledMaintenanceEntity](../../models/components/scheduledmaintenanceentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createScheduledMaintenance
+
+Create a new scheduled maintenance event
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.createScheduledMaintenance({
+    name: "<value>",
+    startsAt: new Date("2024-11-04T00:39:53.690Z"),
+    endsAt: new Date("2023-11-08T19:38:38.616Z"),
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsCreateScheduledMaintenance } from "firehydrant/funcs/incidentsCreateScheduledMaintenance.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsCreateScheduledMaintenance(firehydrant, {
+    name: "<value>",
+    startsAt: new Date("2024-11-04T00:39:53.690Z"),
+    endsAt: new Date("2023-11-08T19:38:38.616Z"),
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.CreateScheduledMaintenance](../../models/components/createscheduledmaintenance.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ScheduledMaintenanceEntity](../../models/components/scheduledmaintenanceentity.md)\>**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| errors.ErrorEntity | 400                | application/json   |
+| errors.APIError    | 4XX, 5XX           | \*/\*              |
+
+## getScheduledMaintenance
+
+Fetch the details of a scheduled maintenance event.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.getScheduledMaintenance({
+    scheduledMaintenanceId: "<id>",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetScheduledMaintenance } from "firehydrant/funcs/incidentsGetScheduledMaintenance.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsGetScheduledMaintenance(firehydrant, {
+    scheduledMaintenanceId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetScheduledMaintenanceRequest](../../models/operations/getscheduledmaintenancerequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ScheduledMaintenanceEntity](../../models/components/scheduledmaintenanceentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteScheduledMaintenance
+
+Delete a scheduled maintenance event, preventing it from taking place.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.incidents.deleteScheduledMaintenance({
+    scheduledMaintenanceId: "<id>",
   });
 
 
@@ -4268,19 +4214,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsDeleteTranscript } from "firehydrant-typescript-sdk/funcs/incidentsDeleteTranscript.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsDeleteScheduledMaintenance } from "firehydrant/funcs/incidentsDeleteScheduledMaintenance.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsDeleteTranscript(firehydrantTypescriptSDK, {
-    transcriptId: "<id>",
-    incidentId: "<id>",
+  const res = await incidentsDeleteScheduledMaintenance(firehydrant, {
+    scheduledMaintenanceId: "<id>",
   });
 
   if (!res.ok) {
@@ -4299,7 +4244,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteIncidentTranscriptRequest](../../models/operations/deleteincidenttranscriptrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DeleteScheduledMaintenanceRequest](../../models/operations/deletescheduledmaintenancerequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -4310,32 +4255,27 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## unarchive
+## updateScheduledMaintenance
 
-Unarchives an incident
+Change the conditions of a scheduled maintenance event, including updating any status page announcements of changes.
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.unarchive({
-    incidentId: "<id>",
+  const result = await firehydrant.incidents.updateScheduledMaintenance({
+    scheduledMaintenanceId: "<id>",
+    updateScheduledMaintenance: {},
   });
 
   // Handle the result
@@ -4350,18 +4290,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsUnarchive } from "firehydrant-typescript-sdk/funcs/incidentsUnarchive.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsUpdateScheduledMaintenance } from "firehydrant/funcs/incidentsUpdateScheduledMaintenance.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsUnarchive(firehydrantTypescriptSDK, {
-    incidentId: "<id>",
+  const res = await incidentsUpdateScheduledMaintenance(firehydrant, {
+    scheduledMaintenanceId: "<id>",
+    updateScheduledMaintenance: {},
   });
 
   if (!res.ok) {
@@ -4381,44 +4322,117 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UnarchiveIncidentRequest](../../models/operations/unarchiveincidentrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.UpdateScheduledMaintenanceRequest](../../models/operations/updatescheduledmaintenancerequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
+**Promise\<[components.ScheduledMaintenanceEntity](../../models/components/scheduledmaintenanceentity.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## getUserRole
+## getAiIncidentSummaryVoteStatus
 
-Retrieve a user with current roles for an incident
+Get the current user's vote status for an AI-generated incident summary
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.incidents.getUserRole({
+  await firehydrant.incidents.getAiIncidentSummaryVoteStatus({
     incidentId: "<id>",
-    userId: "<id>",
+    generatedSummaryId: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsGetAiIncidentSummaryVoteStatus } from "firehydrant/funcs/incidentsGetAiIncidentSummaryVoteStatus.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await incidentsGetAiIncidentSummaryVoteStatus(firehydrant, {
+    incidentId: "<id>",
+    generatedSummaryId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetAiIncidentSummaryVoteStatusRequest](../../models/operations/getaiincidentsummaryvotestatusrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## voteAiIncidentSummary
+
+Vote on an AI-generated incident summary for the current user
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.incidents.voteAiIncidentSummary({
+    incidentId: "<id>",
+    generatedSummaryId: "<id>",
+    requestBody: {
+      direction: "down",
+    },
   });
 
   // Handle the result
@@ -4433,19 +4447,22 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { incidentsGetUserRole } from "firehydrant-typescript-sdk/funcs/incidentsGetUserRole.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { incidentsVoteAiIncidentSummary } from "firehydrant/funcs/incidentsVoteAiIncidentSummary.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await incidentsGetUserRole(firehydrantTypescriptSDK, {
+  const res = await incidentsVoteAiIncidentSummary(firehydrant, {
     incidentId: "<id>",
-    userId: "<id>",
+    generatedSummaryId: "<id>",
+    requestBody: {
+      direction: "down",
+    },
   });
 
   if (!res.ok) {
@@ -4465,23 +4482,17 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIncidentUserRoleRequest](../../models/operations/getincidentuserrolerequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.VoteAiIncidentSummaryRequest](../../models/operations/voteaiincidentsummaryrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.IncidentsRoleAssignmentEntity](../../models/components/incidentsroleassignmententity.md)\>**
+**Promise\<[components.AIEntitiesIncidentSummaryEntity](../../models/components/aientitiesincidentsummaryentity.md)\>**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

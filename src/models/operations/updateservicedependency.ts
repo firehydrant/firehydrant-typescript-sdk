@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateServiceDependencyRequest = {
   serviceDependencyId: string;
-  patchV1ServiceDependenciesServiceDependencyId:
-    components.PatchV1ServiceDependenciesServiceDependencyId;
+  updateServiceDependency: components.UpdateServiceDependency;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdateServiceDependencyRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   service_dependency_id: z.string(),
-  patchV1ServiceDependenciesServiceDependencyId:
-    components.PatchV1ServiceDependenciesServiceDependencyId$inboundSchema,
+  update_service_dependency: z.lazy(() =>
+    components.UpdateServiceDependency$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "service_dependency_id": "serviceDependencyId",
+    "update_service_dependency": "updateServiceDependency",
   });
 });
 
 /** @internal */
 export type UpdateServiceDependencyRequest$Outbound = {
   service_dependency_id: string;
-  patchV1ServiceDependenciesServiceDependencyId:
-    components.PatchV1ServiceDependenciesServiceDependencyId$Outbound;
+  update_service_dependency: components.UpdateServiceDependency$Outbound;
 };
 
 /** @internal */
@@ -44,11 +44,13 @@ export const UpdateServiceDependencyRequest$outboundSchema: z.ZodType<
   UpdateServiceDependencyRequest
 > = z.object({
   serviceDependencyId: z.string(),
-  patchV1ServiceDependenciesServiceDependencyId:
-    components.PatchV1ServiceDependenciesServiceDependencyId$outboundSchema,
+  updateServiceDependency: z.lazy(() =>
+    components.UpdateServiceDependency$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     serviceDependencyId: "service_dependency_id",
+    updateServiceDependency: "update_service_dependency",
   });
 });
 

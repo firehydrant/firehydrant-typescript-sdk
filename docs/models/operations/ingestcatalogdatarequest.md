@@ -3,12 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { IngestCatalogDataRequest } from "firehydrant-typescript-sdk/models/operations";
+import { IngestCatalogDataRequest } from "firehydrant/models/operations";
 
 let value: IngestCatalogDataRequest = {
   catalogId: "<id>",
-  postV1CatalogsCatalogIdIngest: {
-    encoding: "application/json",
+  ingestCatalogData: {
+    encoding: "text/yaml",
     data: "<value>",
   },
 };
@@ -16,7 +16,7 @@ let value: IngestCatalogDataRequest = {
 
 ## Fields
 
-| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `catalogId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `postV1CatalogsCatalogIdIngest`                                                                      | [components.PostV1CatalogsCatalogIdIngest](../../models/components/postv1catalogscatalogidingest.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `catalogId`                                                                  | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `ingestCatalogData`                                                          | [components.IngestCatalogData](../../models/components/ingestcatalogdata.md) | :heavy_check_mark:                                                           | N/A                                                                          |

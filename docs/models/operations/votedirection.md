@@ -3,9 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { VoteDirection } from "firehydrant-typescript-sdk/models/operations";
+import { VoteDirection } from "firehydrant/models/operations";
 
-let value: VoteDirection = "up";
+let value: VoteDirection = "down";
 ```
 
 ## Values

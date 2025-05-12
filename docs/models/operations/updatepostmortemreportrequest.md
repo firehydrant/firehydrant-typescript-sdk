@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdatePostMortemReportRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdatePostMortemReportRequest } from "firehydrant/models/operations";
 
 let value: UpdatePostMortemReportRequest = {
   reportId: "<id>",
-  patchV1PostMortemsReportsReportId: {},
+  updatePostMortemReport: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `reportId`                                                                                                   | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `patchV1PostMortemsReportsReportId`                                                                          | [components.PatchV1PostMortemsReportsReportId](../../models/components/patchv1postmortemsreportsreportid.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `reportId`                                                                             | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `updatePostMortemReport`                                                               | [components.UpdatePostMortemReport](../../models/components/updatepostmortemreport.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |

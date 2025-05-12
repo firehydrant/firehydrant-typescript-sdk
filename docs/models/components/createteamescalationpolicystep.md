@@ -1,0 +1,26 @@
+# CreateTeamEscalationPolicyStep
+
+## Example Usage
+
+```typescript
+import { CreateTeamEscalationPolicyStep } from "firehydrant/models/components";
+
+let value: CreateTeamEscalationPolicyStep = {
+  targets: [
+    {
+      type: "User",
+      id: "<id>",
+    },
+  ],
+  timeout: "<value>",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                         | Type                                                                                                                                                                                                          | Required                                                                                                                                                                                                      | Description                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `targets`                                                                                                                                                                                                     | [components.CreateTeamEscalationPolicyTarget](../../models/components/createteamescalationpolicytarget.md)[]                                                                                                  | :heavy_check_mark:                                                                                                                                                                                            | A list of targets that the step will notify. You can specify up to 15 targets per step.                                                                                                                       |
+| `timeout`                                                                                                                                                                                                     | *string*                                                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                            | An ISO8601 duration string specifying how long to wait before moving on to the next step. For the last step, this value specifies how long to wait before the escalation policy should repeat, if it repeats. |
+| `distributionType`                                                                                                                                                                                            | [components.CreateTeamEscalationPolicyDistributionType](../../models/components/createteamescalationpolicydistributiontype.md)                                                                                | :heavy_minus_sign:                                                                                                                                                                                            | The round robin configuration for the step. One of 'unspecified', 'round_robin_by_alert', or 'round_robin_by_escalation_policy'.                                                                              |
+| `priorities`                                                                                                                                                                                                  | *string*[]                                                                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                                                            | A list of priorities (HIGH, MEDIUM, LOW) to which the step applies when using a dynamic escalation policy.                                                                                                    |

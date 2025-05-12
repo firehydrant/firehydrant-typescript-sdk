@@ -3,12 +3,12 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentChatMessageRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateIncidentChatMessageRequest } from "firehydrant/models/operations";
 
 let value: UpdateIncidentChatMessageRequest = {
   messageId: "<id>",
   incidentId: "<id>",
-  patchV1IncidentsIncidentIdGenericChatMessagesMessageId: {
+  updateIncidentChatMessage: {
     body: "<value>",
   },
 };
@@ -16,8 +16,8 @@ let value: UpdateIncidentChatMessageRequest = {
 
 ## Fields
 
-| Field                                                                                                                                                  | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `messageId`                                                                                                                                            | *string*                                                                                                                                               | :heavy_check_mark:                                                                                                                                     | N/A                                                                                                                                                    |
-| `incidentId`                                                                                                                                           | *string*                                                                                                                                               | :heavy_check_mark:                                                                                                                                     | N/A                                                                                                                                                    |
-| `patchV1IncidentsIncidentIdGenericChatMessagesMessageId`                                                                                               | [components.PatchV1IncidentsIncidentIdGenericChatMessagesMessageId](../../models/components/patchv1incidentsincidentidgenericchatmessagesmessageid.md) | :heavy_check_mark:                                                                                                                                     | N/A                                                                                                                                                    |
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `messageId`                                                                                  | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `incidentId`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `updateIncidentChatMessage`                                                                  | [components.UpdateIncidentChatMessage](../../models/components/updateincidentchatmessage.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |

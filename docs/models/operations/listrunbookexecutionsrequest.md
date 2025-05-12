@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListRunbookExecutionsRequest } from "firehydrant-typescript-sdk/models/operations";
+import { ListRunbookExecutionsRequest } from "firehydrant/models/operations";
 
 let value: ListRunbookExecutionsRequest = {};
 ```

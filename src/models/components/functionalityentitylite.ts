@@ -8,23 +8,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
-import {
   LinksEntity,
   LinksEntity$inboundSchema,
   LinksEntity$Outbound,
   LinksEntity$outboundSchema,
 } from "./linksentity.js";
 import {
-  TeamEntityLite,
-  TeamEntityLite$inboundSchema,
-  TeamEntityLite$Outbound,
-  TeamEntityLite$outboundSchema,
-} from "./teamentitylite.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
+import {
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 
 /**
  * An object of label key and values
@@ -32,28 +32,28 @@ import {
 export type FunctionalityEntityLiteLabels = {};
 
 export type FunctionalityEntityLite = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: FunctionalityEntityLiteLabels | undefined;
+  labels?: FunctionalityEntityLiteLabels | null | undefined;
   /**
    * List of active incident guids
    */
-  activeIncidents?: Array<string> | undefined;
+  activeIncidents?: Array<string> | null | undefined;
   /**
    * List of links attached to this functionality.
    */
-  links?: Array<LinksEntity> | undefined;
-  owner?: TeamEntityLite | undefined;
-  alertOnAdd?: boolean | undefined;
-  autoAddRespondingTeam?: boolean | undefined;
-  updatedBy?: AuthorEntity | undefined;
+  links?: Array<LinksEntity> | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
+  alertOnAdd?: boolean | null | undefined;
+  autoAddRespondingTeam?: boolean | null | undefined;
+  updatedBy?: NullableAuthorEntity | null | undefined;
 };
 
 /** @internal */
@@ -112,21 +112,24 @@ export const FunctionalityEntityLite$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  labels: z.nullable(z.lazy(() => FunctionalityEntityLiteLabels$inboundSchema))
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  labels: z.lazy(() => FunctionalityEntityLiteLabels$inboundSchema).optional(),
-  active_incidents: z.array(z.string()).optional(),
-  links: z.array(LinksEntity$inboundSchema).optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  alert_on_add: z.boolean().optional(),
-  auto_add_responding_team: z.boolean().optional(),
-  updated_by: AuthorEntity$inboundSchema.optional(),
+  active_incidents: z.nullable(z.array(z.string())).optional(),
+  links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  alert_on_add: z.nullable(z.boolean()).optional(),
+  auto_add_responding_team: z.nullable(z.boolean()).optional(),
+  updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -140,19 +143,19 @@ export const FunctionalityEntityLite$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FunctionalityEntityLite$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  labels?: FunctionalityEntityLiteLabels$Outbound | undefined;
-  active_incidents?: Array<string> | undefined;
-  links?: Array<LinksEntity$Outbound> | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  alert_on_add?: boolean | undefined;
-  auto_add_responding_team?: boolean | undefined;
-  updated_by?: AuthorEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  labels?: FunctionalityEntityLiteLabels$Outbound | null | undefined;
+  active_incidents?: Array<string> | null | undefined;
+  links?: Array<LinksEntity$Outbound> | null | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  alert_on_add?: boolean | null | undefined;
+  auto_add_responding_team?: boolean | null | undefined;
+  updated_by?: NullableAuthorEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -161,19 +164,20 @@ export const FunctionalityEntityLite$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FunctionalityEntityLite
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  labels: z.lazy(() => FunctionalityEntityLiteLabels$outboundSchema).optional(),
-  activeIncidents: z.array(z.string()).optional(),
-  links: z.array(LinksEntity$outboundSchema).optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  alertOnAdd: z.boolean().optional(),
-  autoAddRespondingTeam: z.boolean().optional(),
-  updatedBy: AuthorEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  labels: z.nullable(z.lazy(() => FunctionalityEntityLiteLabels$outboundSchema))
+    .optional(),
+  activeIncidents: z.nullable(z.array(z.string())).optional(),
+  links: z.nullable(z.array(LinksEntity$outboundSchema)).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  alertOnAdd: z.nullable(z.boolean()).optional(),
+  autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
+  updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

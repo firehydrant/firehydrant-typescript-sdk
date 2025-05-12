@@ -30,13 +30,14 @@ import {
  * Integrations_Statuspage_ConnectionEntity model
  */
 export type IntegrationsStatuspageConnectionEntity = {
-  id?: string | undefined;
-  pageName?: string | undefined;
-  pageId?: string | undefined;
-  conditions?: Array<IntegrationsStatuspageConditionEntity> | undefined;
-  severities?: Array<IntegrationsStatuspageSeverityEntity> | undefined;
+  id?: string | null | undefined;
+  pageName?: string | null | undefined;
+  pageId?: string | null | undefined;
+  conditions?: Array<IntegrationsStatuspageConditionEntity> | null | undefined;
+  severities?: Array<IntegrationsStatuspageSeverityEntity> | null | undefined;
   milestoneMappings?:
     | Array<IntegrationsStatuspageMilestoneMappingEntity>
+    | null
     | undefined;
 };
 
@@ -46,15 +47,17 @@ export const IntegrationsStatuspageConnectionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  page_name: z.string().optional(),
-  page_id: z.string().optional(),
-  conditions: z.array(IntegrationsStatuspageConditionEntity$inboundSchema)
-    .optional(),
-  severities: z.array(IntegrationsStatuspageSeverityEntity$inboundSchema)
-    .optional(),
-  milestone_mappings: z.array(
-    IntegrationsStatuspageMilestoneMappingEntity$inboundSchema,
+  id: z.nullable(z.string()).optional(),
+  page_name: z.nullable(z.string()).optional(),
+  page_id: z.nullable(z.string()).optional(),
+  conditions: z.nullable(
+    z.array(IntegrationsStatuspageConditionEntity$inboundSchema),
+  ).optional(),
+  severities: z.nullable(
+    z.array(IntegrationsStatuspageSeverityEntity$inboundSchema),
+  ).optional(),
+  milestone_mappings: z.nullable(
+    z.array(IntegrationsStatuspageMilestoneMappingEntity$inboundSchema),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -66,15 +69,20 @@ export const IntegrationsStatuspageConnectionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsStatuspageConnectionEntity$Outbound = {
-  id?: string | undefined;
-  page_name?: string | undefined;
-  page_id?: string | undefined;
+  id?: string | null | undefined;
+  page_name?: string | null | undefined;
+  page_id?: string | null | undefined;
   conditions?:
     | Array<IntegrationsStatuspageConditionEntity$Outbound>
+    | null
     | undefined;
-  severities?: Array<IntegrationsStatuspageSeverityEntity$Outbound> | undefined;
+  severities?:
+    | Array<IntegrationsStatuspageSeverityEntity$Outbound>
+    | null
+    | undefined;
   milestone_mappings?:
     | Array<IntegrationsStatuspageMilestoneMappingEntity$Outbound>
+    | null
     | undefined;
 };
 
@@ -84,15 +92,17 @@ export const IntegrationsStatuspageConnectionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsStatuspageConnectionEntity
 > = z.object({
-  id: z.string().optional(),
-  pageName: z.string().optional(),
-  pageId: z.string().optional(),
-  conditions: z.array(IntegrationsStatuspageConditionEntity$outboundSchema)
-    .optional(),
-  severities: z.array(IntegrationsStatuspageSeverityEntity$outboundSchema)
-    .optional(),
-  milestoneMappings: z.array(
-    IntegrationsStatuspageMilestoneMappingEntity$outboundSchema,
+  id: z.nullable(z.string()).optional(),
+  pageName: z.nullable(z.string()).optional(),
+  pageId: z.nullable(z.string()).optional(),
+  conditions: z.nullable(
+    z.array(IntegrationsStatuspageConditionEntity$outboundSchema),
+  ).optional(),
+  severities: z.nullable(
+    z.array(IntegrationsStatuspageSeverityEntity$outboundSchema),
+  ).optional(),
+  milestoneMappings: z.nullable(
+    z.array(IntegrationsStatuspageMilestoneMappingEntity$outboundSchema),
   ).optional(),
 }).transform((v) => {
   return remap$(v, {

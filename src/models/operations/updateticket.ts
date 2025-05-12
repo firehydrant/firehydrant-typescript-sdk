@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateTicketRequest = {
   ticketId: string;
-  patchV1TicketingTicketsTicketId: components.PatchV1TicketingTicketsTicketId;
+  updateTicket: components.UpdateTicket;
 };
 
 /** @internal */
@@ -21,19 +21,18 @@ export const UpdateTicketRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   ticket_id: z.string(),
-  patchV1TicketingTicketsTicketId:
-    components.PatchV1TicketingTicketsTicketId$inboundSchema,
+  update_ticket: z.lazy(() => components.UpdateTicket$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "ticket_id": "ticketId",
+    "update_ticket": "updateTicket",
   });
 });
 
 /** @internal */
 export type UpdateTicketRequest$Outbound = {
   ticket_id: string;
-  patchV1TicketingTicketsTicketId:
-    components.PatchV1TicketingTicketsTicketId$Outbound;
+  update_ticket: components.UpdateTicket$Outbound;
 };
 
 /** @internal */
@@ -43,11 +42,11 @@ export const UpdateTicketRequest$outboundSchema: z.ZodType<
   UpdateTicketRequest
 > = z.object({
   ticketId: z.string(),
-  patchV1TicketingTicketsTicketId:
-    components.PatchV1TicketingTicketsTicketId$outboundSchema,
+  updateTicket: z.lazy(() => components.UpdateTicket$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     ticketId: "ticket_id",
+    updateTicket: "update_ticket",
   });
 });
 

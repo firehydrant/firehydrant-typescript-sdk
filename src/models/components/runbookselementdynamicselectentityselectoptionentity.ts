@@ -8,8 +8,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RunbooksElementDynamicSelectEntitySelectOptionEntity = {
-  label?: string | undefined;
-  value?: string | undefined;
+  label?: string | null | undefined;
+  value?: string | null | undefined;
 };
 
 /** @internal */
@@ -19,14 +19,14 @@ export const RunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    label: z.string().optional(),
-    value: z.string().optional(),
+    label: z.nullable(z.string()).optional(),
+    value: z.nullable(z.string()).optional(),
   });
 
 /** @internal */
 export type RunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound = {
-  label?: string | undefined;
-  value?: string | undefined;
+  label?: string | null | undefined;
+  value?: string | null | undefined;
 };
 
 /** @internal */
@@ -36,8 +36,8 @@ export const RunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema
     z.ZodTypeDef,
     RunbooksElementDynamicSelectEntitySelectOptionEntity
   > = z.object({
-    label: z.string().optional(),
-    value: z.string().optional(),
+    label: z.nullable(z.string()).optional(),
+    value: z.nullable(z.string()).optional(),
   });
 
 /**

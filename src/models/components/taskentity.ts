@@ -8,25 +8,25 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 /**
  * TaskEntity model
  */
 export type TaskEntity = {
-  id?: string | undefined;
-  title?: string | undefined;
-  description?: string | undefined;
-  state?: string | undefined;
-  assignee?: AuthorEntity | undefined;
-  createdBy?: AuthorEntity | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  dueAt?: Date | undefined;
+  id?: string | null | undefined;
+  title?: string | null | undefined;
+  description?: string | null | undefined;
+  state?: string | null | undefined;
+  assignee?: NullableAuthorEntity | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  dueAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -35,18 +35,21 @@ export const TaskEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  title: z.string().optional(),
-  description: z.string().optional(),
-  state: z.string().optional(),
-  assignee: AuthorEntity$inboundSchema.optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  due_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  title: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  state: z.nullable(z.string()).optional(),
+  assignee: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  due_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_by": "createdBy",
@@ -58,15 +61,15 @@ export const TaskEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TaskEntity$Outbound = {
-  id?: string | undefined;
-  title?: string | undefined;
-  description?: string | undefined;
-  state?: string | undefined;
-  assignee?: AuthorEntity$Outbound | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  due_at?: string | undefined;
+  id?: string | null | undefined;
+  title?: string | null | undefined;
+  description?: string | null | undefined;
+  state?: string | null | undefined;
+  assignee?: NullableAuthorEntity$Outbound | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  due_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -75,15 +78,15 @@ export const TaskEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TaskEntity
 > = z.object({
-  id: z.string().optional(),
-  title: z.string().optional(),
-  description: z.string().optional(),
-  state: z.string().optional(),
-  assignee: AuthorEntity$outboundSchema.optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  dueAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  title: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  state: z.nullable(z.string()).optional(),
+  assignee: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  dueAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdBy: "created_by",

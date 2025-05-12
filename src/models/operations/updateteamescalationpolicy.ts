@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateTeamEscalationPolicyRequest = {
   teamId: string;
   id: string;
-  patchV1TeamsTeamIdEscalationPoliciesId:
-    components.PatchV1TeamsTeamIdEscalationPoliciesId;
+  updateTeamEscalationPolicy: components.UpdateTeamEscalationPolicy;
 };
 
 /** @internal */
@@ -24,11 +23,13 @@ export const UpdateTeamEscalationPolicyRequest$inboundSchema: z.ZodType<
 > = z.object({
   team_id: z.string(),
   id: z.string(),
-  patchV1TeamsTeamIdEscalationPoliciesId:
-    components.PatchV1TeamsTeamIdEscalationPoliciesId$inboundSchema,
+  update_team_escalation_policy: z.lazy(() =>
+    components.UpdateTeamEscalationPolicy$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "update_team_escalation_policy": "updateTeamEscalationPolicy",
   });
 });
 
@@ -36,8 +37,7 @@ export const UpdateTeamEscalationPolicyRequest$inboundSchema: z.ZodType<
 export type UpdateTeamEscalationPolicyRequest$Outbound = {
   team_id: string;
   id: string;
-  patchV1TeamsTeamIdEscalationPoliciesId:
-    components.PatchV1TeamsTeamIdEscalationPoliciesId$Outbound;
+  update_team_escalation_policy: components.UpdateTeamEscalationPolicy$Outbound;
 };
 
 /** @internal */
@@ -48,11 +48,13 @@ export const UpdateTeamEscalationPolicyRequest$outboundSchema: z.ZodType<
 > = z.object({
   teamId: z.string(),
   id: z.string(),
-  patchV1TeamsTeamIdEscalationPoliciesId:
-    components.PatchV1TeamsTeamIdEscalationPoliciesId$outboundSchema,
+  updateTeamEscalationPolicy: z.lazy(() =>
+    components.UpdateTeamEscalationPolicy$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    updateTeamEscalationPolicy: "update_team_escalation_policy",
   });
 });
 

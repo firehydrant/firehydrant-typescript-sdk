@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetPriorityRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetPriorityRequest } from "firehydrant/models/operations";
 
 let value: GetPriorityRequest = {
   prioritySlug: "<value>",

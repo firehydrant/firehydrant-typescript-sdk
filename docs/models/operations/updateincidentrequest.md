@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateIncidentRequest } from "firehydrant/models/operations";
 
 let value: UpdateIncidentRequest = {
   incidentId: "<id>",
-  patchV1IncidentsIncidentId: {},
+  updateIncident: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `incidentId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `patchV1IncidentsIncidentId`                                                                   | [components.PatchV1IncidentsIncidentId](../../models/components/patchv1incidentsincidentid.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `incidentId`                                                           | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `updateIncident`                                                       | [components.UpdateIncident](../../models/components/updateincident.md) | :heavy_check_mark:                                                     | N/A                                                                    |

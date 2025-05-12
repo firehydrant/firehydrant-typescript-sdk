@@ -8,8 +8,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ReportsDataPointEntity = {
-  key?: string | undefined;
-  value?: number | undefined;
+  key?: string | null | undefined;
+  value?: number | null | undefined;
 };
 
 /** @internal */
@@ -18,14 +18,14 @@ export const ReportsDataPointEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  key: z.string().optional(),
-  value: z.number().int().optional(),
+  key: z.nullable(z.string()).optional(),
+  value: z.nullable(z.number().int()).optional(),
 });
 
 /** @internal */
 export type ReportsDataPointEntity$Outbound = {
-  key?: string | undefined;
-  value?: number | undefined;
+  key?: string | null | undefined;
+  value?: number | null | undefined;
 };
 
 /** @internal */
@@ -34,8 +34,8 @@ export const ReportsDataPointEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ReportsDataPointEntity
 > = z.object({
-  key: z.string().optional(),
-  value: z.number().int().optional(),
+  key: z.nullable(z.string()).optional(),
+  value: z.nullable(z.number().int()).optional(),
 });
 
 /**

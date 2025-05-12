@@ -9,17 +9,17 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 import {
-  ChangeEventEntity,
-  ChangeEventEntity$inboundSchema,
-  ChangeEventEntity$Outbound,
-  ChangeEventEntity$outboundSchema,
-} from "./changeevententity.js";
+  NullableChangeEventEntity,
+  NullableChangeEventEntity$inboundSchema,
+  NullableChangeEventEntity$Outbound,
+  NullableChangeEventEntity$outboundSchema,
+} from "./nullablechangeevententity.js";
 
 export const IncidentsRelatedChangeEventEntityType = {
   Caused: "caused",
@@ -35,20 +35,17 @@ export type IncidentsRelatedChangeEventEntityType = ClosedEnum<
  * Incidents_RelatedChangeEventEntity model
  */
 export type IncidentsRelatedChangeEventEntity = {
-  id?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   /**
    * The reason why this change event is related to this incident
    */
-  why?: string | undefined;
-  type?: IncidentsRelatedChangeEventEntityType | undefined;
-  /**
-   * ChangeEventEntity model
-   */
-  changeEvent?: ChangeEventEntity | undefined;
-  incidentId?: string | undefined;
-  createdBy?: AuthorEntity | undefined;
+  why?: string | null | undefined;
+  type?: IncidentsRelatedChangeEventEntityType | null | undefined;
+  changeEvent?: NullableChangeEventEntity | null | undefined;
+  incidentId?: string | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
 };
 
 /** @internal */
@@ -81,16 +78,19 @@ export const IncidentsRelatedChangeEventEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
+  id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  why: z.nullable(z.string()).optional(),
+  type: z.nullable(IncidentsRelatedChangeEventEntityType$inboundSchema)
     .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  why: z.string().optional(),
-  type: IncidentsRelatedChangeEventEntityType$inboundSchema.optional(),
-  change_event: ChangeEventEntity$inboundSchema.optional(),
-  incident_id: z.string().optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
+  change_event: z.nullable(NullableChangeEventEntity$inboundSchema).optional(),
+  incident_id: z.nullable(z.string()).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -103,14 +103,14 @@ export const IncidentsRelatedChangeEventEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentsRelatedChangeEventEntity$Outbound = {
-  id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  why?: string | undefined;
-  type?: string | undefined;
-  change_event?: ChangeEventEntity$Outbound | undefined;
-  incident_id?: string | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
+  id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  why?: string | null | undefined;
+  type?: string | null | undefined;
+  change_event?: NullableChangeEventEntity$Outbound | null | undefined;
+  incident_id?: string | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -119,14 +119,15 @@ export const IncidentsRelatedChangeEventEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsRelatedChangeEventEntity
 > = z.object({
-  id: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  why: z.string().optional(),
-  type: IncidentsRelatedChangeEventEntityType$outboundSchema.optional(),
-  changeEvent: ChangeEventEntity$outboundSchema.optional(),
-  incidentId: z.string().optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
+  id: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  why: z.nullable(z.string()).optional(),
+  type: z.nullable(IncidentsRelatedChangeEventEntityType$outboundSchema)
+    .optional(),
+  changeEvent: z.nullable(NullableChangeEventEntity$outboundSchema).optional(),
+  incidentId: z.nullable(z.string()).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

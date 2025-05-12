@@ -5,7 +5,7 @@ An object of label key and values
 ## Example Usage
 
 ```typescript
-import { ScheduledMaintenanceEntityLabels } from "firehydrant-typescript-sdk/models/components";
+import { ScheduledMaintenanceEntityLabels } from "firehydrant/models/components";
 
 let value: ScheduledMaintenanceEntityLabels = {};
 ```

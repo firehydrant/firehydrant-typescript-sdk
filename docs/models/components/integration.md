@@ -5,7 +5,7 @@ The name of the service
 ## Example Usage
 
 ```typescript
-import { Integration } from "firehydrant-typescript-sdk/models/components";
+import { Integration } from "firehydrant/models/components";
 
 let value: Integration = "opsgenie";
 ```

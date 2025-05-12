@@ -5,7 +5,7 @@ Additional error data
 ## Example Usage
 
 ```typescript
-import { ImportsImportErrorEntityData } from "firehydrant-typescript-sdk/models/components";
+import { ImportsImportErrorEntityData } from "firehydrant/models/components";
 
 let value: ImportsImportErrorEntityData = {};
 ```

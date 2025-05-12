@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateChangeIdentityRequest = {
   changeId: string;
-  postV1ChangesChangeIdIdentities: components.PostV1ChangesChangeIdIdentities;
+  createChangeIdentity: components.CreateChangeIdentity;
 };
 
 /** @internal */
@@ -21,19 +21,20 @@ export const CreateChangeIdentityRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   change_id: z.string(),
-  postV1ChangesChangeIdIdentities:
-    components.PostV1ChangesChangeIdIdentities$inboundSchema,
+  create_change_identity: z.lazy(() =>
+    components.CreateChangeIdentity$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "change_id": "changeId",
+    "create_change_identity": "createChangeIdentity",
   });
 });
 
 /** @internal */
 export type CreateChangeIdentityRequest$Outbound = {
   change_id: string;
-  postV1ChangesChangeIdIdentities:
-    components.PostV1ChangesChangeIdIdentities$Outbound;
+  create_change_identity: components.CreateChangeIdentity$Outbound;
 };
 
 /** @internal */
@@ -43,11 +44,13 @@ export const CreateChangeIdentityRequest$outboundSchema: z.ZodType<
   CreateChangeIdentityRequest
 > = z.object({
   changeId: z.string(),
-  postV1ChangesChangeIdIdentities:
-    components.PostV1ChangesChangeIdIdentities$outboundSchema,
+  createChangeIdentity: z.lazy(() =>
+    components.CreateChangeIdentity$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     changeId: "change_id",
+    createChangeIdentity: "create_change_identity",
   });
 });
 

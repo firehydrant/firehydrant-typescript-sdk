@@ -8,32 +8,32 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  RulesRuleEntity,
-  RulesRuleEntity$inboundSchema,
-  RulesRuleEntity$Outbound,
-  RulesRuleEntity$outboundSchema,
-} from "./rulesruleentity.js";
+  NullableRulesRuleEntity,
+  NullableRulesRuleEntity$inboundSchema,
+  NullableRulesRuleEntity$Outbound,
+  NullableRulesRuleEntity$outboundSchema,
+} from "./nullablerulesruleentity.js";
 import {
-  TeamEntityLite,
-  TeamEntityLite$inboundSchema,
-  TeamEntityLite$Outbound,
-  TeamEntityLite$outboundSchema,
-} from "./teamentitylite.js";
+  NullableTeamEntityLite,
+  NullableTeamEntityLite$inboundSchema,
+  NullableTeamEntityLite$Outbound,
+  NullableTeamEntityLite$outboundSchema,
+} from "./nullableteamentitylite.js";
 
 export type SlimRunbookEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  attachmentRule?: RulesRuleEntity | undefined;
-  owner?: TeamEntityLite | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  attachmentRule?: NullableRulesRuleEntity | null | undefined;
+  owner?: NullableTeamEntityLite | null | undefined;
   /**
    * categories the runbook applies to
    */
-  categories?: string | undefined;
+  categories?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -42,18 +42,20 @@ export const SlimRunbookEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  attachment_rule: RulesRuleEntity$inboundSchema.optional(),
-  owner: TeamEntityLite$inboundSchema.optional(),
-  categories: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  attachment_rule: z.nullable(NullableRulesRuleEntity$inboundSchema).optional(),
+  owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  categories: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -64,16 +66,16 @@ export const SlimRunbookEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SlimRunbookEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  attachment_rule?: RulesRuleEntity$Outbound | undefined;
-  owner?: TeamEntityLite$Outbound | undefined;
-  categories?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  attachment_rule?: NullableRulesRuleEntity$Outbound | null | undefined;
+  owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  categories?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -82,16 +84,16 @@ export const SlimRunbookEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SlimRunbookEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  attachmentRule: RulesRuleEntity$outboundSchema.optional(),
-  owner: TeamEntityLite$outboundSchema.optional(),
-  categories: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  attachmentRule: z.nullable(NullableRulesRuleEntity$outboundSchema).optional(),
+  owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  categories: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

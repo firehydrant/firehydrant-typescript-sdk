@@ -12,11 +12,11 @@ export type IncidentEntityFieldRequirementEntity = {
   /**
    * A unique identifier for the field.
    */
-  fieldId?: string | undefined;
+  fieldId?: string | null | undefined;
   /**
    * The milestone at which this field is required. If null, this field is always required.
    */
-  requiredAtMilestoneId?: string | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
 };
 
 /** @internal */
@@ -25,8 +25,8 @@ export const IncidentEntityFieldRequirementEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  field_id: z.string().optional(),
-  required_at_milestone_id: z.string().optional(),
+  field_id: z.nullable(z.string()).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "field_id": "fieldId",
@@ -36,8 +36,8 @@ export const IncidentEntityFieldRequirementEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentEntityFieldRequirementEntity$Outbound = {
-  field_id?: string | undefined;
-  required_at_milestone_id?: string | undefined;
+  field_id?: string | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -46,8 +46,8 @@ export const IncidentEntityFieldRequirementEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentEntityFieldRequirementEntity
 > = z.object({
-  fieldId: z.string().optional(),
-  requiredAtMilestoneId: z.string().optional(),
+  fieldId: z.nullable(z.string()).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     fieldId: "field_id",

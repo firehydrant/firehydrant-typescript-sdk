@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetMeanTimeReportRequest } from "firehydrant-typescript-sdk/models/operations";
+import { GetMeanTimeReportRequest } from "firehydrant/models/operations";
 
 let value: GetMeanTimeReportRequest = {};
 ```

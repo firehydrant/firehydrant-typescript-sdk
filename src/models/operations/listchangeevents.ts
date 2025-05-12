@@ -9,36 +9,36 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListChangeEventsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * The id of a previously saved search.
    */
-  savedSearchId?: string | undefined;
+  savedSearchId?: string | null | undefined;
   /**
    * A text query for change events
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A comma separated list of label key / values in the format of "key=value,key2=value2". To filter change events that have a key (with no specific value), omit the value
    */
-  labels?: string | undefined;
+  labels?: string | null | undefined;
   /**
    * A comma separated list of environment IDs
    */
-  environments?: string | undefined;
+  environments?: string | null | undefined;
   /**
    * A comma separated list of service IDs
    */
-  services?: string | undefined;
+  services?: string | null | undefined;
   /**
    * The start time to start returning change events from
    */
-  startsAt?: string | undefined;
+  startsAt?: string | null | undefined;
   /**
    * The end time to return change events up to
    */
-  endsAt?: Date | undefined;
+  endsAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -47,16 +47,17 @@ export const ListChangeEventsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  saved_search_id: z.string().optional(),
-  query: z.string().optional(),
-  labels: z.string().optional(),
-  environments: z.string().optional(),
-  services: z.string().optional(),
-  starts_at: z.string().optional(),
-  ends_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  saved_search_id: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  labels: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  starts_at: z.nullable(z.string()).optional(),
+  ends_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -68,15 +69,15 @@ export const ListChangeEventsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListChangeEventsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  saved_search_id?: string | undefined;
-  query?: string | undefined;
-  labels?: string | undefined;
-  environments?: string | undefined;
-  services?: string | undefined;
-  starts_at?: string | undefined;
-  ends_at?: string | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  saved_search_id?: string | null | undefined;
+  query?: string | null | undefined;
+  labels?: string | null | undefined;
+  environments?: string | null | undefined;
+  services?: string | null | undefined;
+  starts_at?: string | null | undefined;
+  ends_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -85,15 +86,15 @@ export const ListChangeEventsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListChangeEventsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  savedSearchId: z.string().optional(),
-  query: z.string().optional(),
-  labels: z.string().optional(),
-  environments: z.string().optional(),
-  services: z.string().optional(),
-  startsAt: z.string().optional(),
-  endsAt: z.date().transform(v => v.toISOString()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  savedSearchId: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  labels: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  startsAt: z.nullable(z.string()).optional(),
+  endsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

@@ -7,28 +7,28 @@ Operations related to Webhooks
 
 ### Available Operations
 
-* [list](#list) - List webhooks
-* [create](#create) - Create a webhook
-* [get](#get) - Get a webhook
-* [delete](#delete) - Delete a webhook
-* [update](#update) - Update a webhook
-* [listDeliveries](#listdeliveries) - List webhook deliveries
+* [listWebhooks](#listwebhooks) - List webhooks
+* [createWebhook](#createwebhook) - Create a webhook
+* [listWebhookDeliveries](#listwebhookdeliveries) - List webhook deliveries
+* [getWebhook](#getwebhook) - Get a webhook
+* [deleteWebhook](#deletewebhook) - Delete a webhook
+* [updateWebhook](#updatewebhook) - Update a webhook
 
-## list
+## listWebhooks
 
 Lists webhooks
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.webhooks.list({});
+  const result = await firehydrant.webhooks.listWebhooks({});
 
   // Handle the result
   console.log(result);
@@ -42,17 +42,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { webhooksList } from "firehydrant-typescript-sdk/funcs/webhooksList.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { webhooksListWebhooks } from "firehydrant/funcs/webhooksListWebhooks.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await webhooksList(firehydrantTypescriptSDK, {});
+  const res = await webhooksListWebhooks(firehydrant, {});
 
   if (!res.ok) {
     throw res.error;
@@ -82,32 +82,26 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## create
+## createWebhook
 
 Create a new webhook
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.webhooks.create({
-    url: "https://probable-heating.com/",
+  const result = await firehydrant.webhooks.createWebhook({
+    url: "https://prime-tooth.biz/",
   });
 
   // Handle the result
@@ -122,18 +116,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { webhooksCreate } from "firehydrant-typescript-sdk/funcs/webhooksCreate.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { webhooksCreateWebhook } from "firehydrant/funcs/webhooksCreateWebhook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await webhooksCreate(firehydrantTypescriptSDK, {
-    url: "https://probable-heating.com/",
+  const res = await webhooksCreateWebhook(firehydrant, {
+    url: "https://prime-tooth.biz/",
   });
 
   if (!res.ok) {
@@ -153,7 +147,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.PostV1Webhooks](../../models/components/postv1webhooks.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CreateWebhook](../../models/components/createwebhook.md)                                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -164,31 +158,99 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## get
+## listWebhookDeliveries
+
+Get webhook deliveries
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.webhooks.listWebhookDeliveries({
+    webhookId: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant/core.js";
+import { webhooksListWebhookDeliveries } from "firehydrant/funcs/webhooksListWebhookDeliveries.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await webhooksListWebhookDeliveries(firehydrant, {
+    webhookId: "<id>",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListWebhookDeliveriesRequest](../../models/operations/listwebhookdeliveriesrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getWebhook
 
 Retrieve a specific webhook
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.webhooks.get({
+  const result = await firehydrant.webhooks.getWebhook({
     webhookId: "<id>",
   });
 
@@ -204,17 +266,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { webhooksGet } from "firehydrant-typescript-sdk/funcs/webhooksGet.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { webhooksGetWebhook } from "firehydrant/funcs/webhooksGetWebhook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await webhooksGet(firehydrantTypescriptSDK, {
+  const res = await webhooksGetWebhook(firehydrant, {
     webhookId: "<id>",
   });
 
@@ -246,31 +308,25 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## delete
+## deleteWebhook
 
 Delete a specific webhook
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrantTypescriptSDK.webhooks.delete({
+  await firehydrant.webhooks.deleteWebhook({
     webhookId: "<id>",
   });
 
@@ -285,17 +341,17 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { webhooksDelete } from "firehydrant-typescript-sdk/funcs/webhooksDelete.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { webhooksDeleteWebhook } from "firehydrant/funcs/webhooksDeleteWebhook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await webhooksDelete(firehydrantTypescriptSDK, {
+  const res = await webhooksDeleteWebhook(firehydrant, {
     webhookId: "<id>",
   });
 
@@ -326,33 +382,27 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
 
-## update
+## updateWebhook
 
 Update a specific webhook
 
 ### Example Usage
 
 ```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
+import { Firehydrant } from "firehydrant";
 
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await firehydrantTypescriptSDK.webhooks.update({
+  const result = await firehydrant.webhooks.updateWebhook({
     webhookId: "<id>",
-    patchV1WebhooksWebhookId: {},
+    updateWebhook: {},
   });
 
   // Handle the result
@@ -367,19 +417,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { webhooksUpdate } from "firehydrant-typescript-sdk/funcs/webhooksUpdate.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { webhooksUpdateWebhook } from "firehydrant/funcs/webhooksUpdateWebhook.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await webhooksUpdate(firehydrantTypescriptSDK, {
+  const res = await webhooksUpdateWebhook(firehydrant, {
     webhookId: "<id>",
-    patchV1WebhooksWebhookId: {},
+    updateWebhook: {},
   });
 
   if (!res.ok) {
@@ -410,92 +460,6 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
-
-## listDeliveries
-
-List webhook deliveries
-
-### Example Usage
-
-```typescript
-import { FirehydrantTypescriptSDK } from "firehydrant-typescript-sdk";
-
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDK({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  await firehydrantTypescriptSDK.webhooks.listDeliveries({
-    webhookId: "<id>",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { webhooksListDeliveries } from "firehydrant-typescript-sdk/funcs/webhooksListDeliveries.js";
-
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await webhooksListDeliveries(firehydrantTypescriptSDK, {
-    webhookId: "<id>",
-  });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListWebhookDeliveriesRequest](../../models/operations/listwebhookdeliveriesrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.BadRequest                 | 400, 413, 414, 415, 422, 431, 510 | application/json                  |
-| errors.Unauthorized               | 401, 403, 407, 511                | application/json                  |
-| errors.NotFound                   | 404, 501, 505                     | application/json                  |
-| errors.Timeout                    | 408, 504                          | application/json                  |
-| errors.RateLimited                | 429                               | application/json                  |
-| errors.InternalServerError        | 500, 502, 503, 506, 507, 508      | application/json                  |
-| errors.APIError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |

@@ -12,17 +12,17 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Organizations_CustomFieldDefinitionEntity model
  */
 export type OrganizationsCustomFieldDefinitionEntity = {
-  displayName?: string | undefined;
-  fieldId?: string | undefined;
-  fieldType?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  required?: boolean | undefined;
+  displayName?: string | null | undefined;
+  fieldId?: string | null | undefined;
+  fieldType?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  required?: boolean | null | undefined;
   /**
    * The milestone at which this field is required, if `required` is set to `true`. When null, a required field is always required.
    */
-  requiredAtMilestoneId?: string | undefined;
-  permissibleValues?: string | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
+  permissibleValues?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -31,14 +31,14 @@ export const OrganizationsCustomFieldDefinitionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  display_name: z.string().optional(),
-  field_id: z.string().optional(),
-  field_type: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  required: z.boolean().optional(),
-  required_at_milestone_id: z.string().optional(),
-  permissible_values: z.string().optional(),
+  display_name: z.nullable(z.string()).optional(),
+  field_id: z.nullable(z.string()).optional(),
+  field_type: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  required: z.nullable(z.boolean()).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
+  permissible_values: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "display_name": "displayName",
@@ -51,14 +51,14 @@ export const OrganizationsCustomFieldDefinitionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type OrganizationsCustomFieldDefinitionEntity$Outbound = {
-  display_name?: string | undefined;
-  field_id?: string | undefined;
-  field_type?: string | undefined;
-  slug?: string | undefined;
-  description?: string | undefined;
-  required?: boolean | undefined;
-  required_at_milestone_id?: string | undefined;
-  permissible_values?: string | undefined;
+  display_name?: string | null | undefined;
+  field_id?: string | null | undefined;
+  field_type?: string | null | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  required?: boolean | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
+  permissible_values?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -67,14 +67,14 @@ export const OrganizationsCustomFieldDefinitionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrganizationsCustomFieldDefinitionEntity
 > = z.object({
-  displayName: z.string().optional(),
-  fieldId: z.string().optional(),
-  fieldType: z.string().optional(),
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  required: z.boolean().optional(),
-  requiredAtMilestoneId: z.string().optional(),
-  permissibleValues: z.string().optional(),
+  displayName: z.nullable(z.string()).optional(),
+  fieldId: z.nullable(z.string()).optional(),
+  fieldType: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  required: z.nullable(z.boolean()).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
+  permissibleValues: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     displayName: "display_name",

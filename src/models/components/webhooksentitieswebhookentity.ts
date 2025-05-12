@@ -8,23 +8,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 /**
  * Webhooks_Entities_WebhookEntity model
  */
 export type WebhooksEntitiesWebhookEntity = {
-  id?: string | undefined;
-  url?: string | undefined;
-  state?: string | undefined;
-  createdBy?: AuthorEntity | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  subscriptions?: string | undefined;
+  id?: string | null | undefined;
+  url?: string | null | undefined;
+  state?: string | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  subscriptions?: string | null | undefined;
 };
 
 /** @internal */
@@ -33,15 +33,17 @@ export const WebhooksEntitiesWebhookEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  url: z.string().optional(),
-  state: z.string().optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  subscriptions: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+  state: z.nullable(z.string()).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  subscriptions: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_by": "createdBy",
@@ -52,13 +54,13 @@ export const WebhooksEntitiesWebhookEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type WebhooksEntitiesWebhookEntity$Outbound = {
-  id?: string | undefined;
-  url?: string | undefined;
-  state?: string | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  subscriptions?: string | undefined;
+  id?: string | null | undefined;
+  url?: string | null | undefined;
+  state?: string | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  subscriptions?: string | null | undefined;
 };
 
 /** @internal */
@@ -67,13 +69,13 @@ export const WebhooksEntitiesWebhookEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhooksEntitiesWebhookEntity
 > = z.object({
-  id: z.string().optional(),
-  url: z.string().optional(),
-  state: z.string().optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  subscriptions: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+  state: z.nullable(z.string()).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  subscriptions: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdBy: "created_by",

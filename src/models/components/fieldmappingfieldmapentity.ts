@@ -14,14 +14,14 @@ export type Body = {};
  * FieldMapping_FieldMapEntity model
  */
 export type FieldMappingFieldMapEntity = {
-  id?: string | undefined;
-  connectionId?: string | undefined;
-  connectionType?: string | undefined;
-  entityId?: string | undefined;
-  entityType?: string | undefined;
-  body?: Body | undefined;
-  availableFieldsUrl?: string | undefined;
-  dataBagUrl?: string | undefined;
+  id?: string | null | undefined;
+  connectionId?: string | null | undefined;
+  connectionType?: string | null | undefined;
+  entityId?: string | null | undefined;
+  entityType?: string | null | undefined;
+  body?: Body | null | undefined;
+  availableFieldsUrl?: string | null | undefined;
+  dataBagUrl?: string | null | undefined;
 };
 
 /** @internal */
@@ -68,14 +68,14 @@ export const FieldMappingFieldMapEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  connection_id: z.string().optional(),
-  connection_type: z.string().optional(),
-  entity_id: z.string().optional(),
-  entity_type: z.string().optional(),
-  body: z.lazy(() => Body$inboundSchema).optional(),
-  available_fields_url: z.string().optional(),
-  data_bag_url: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  connection_id: z.nullable(z.string()).optional(),
+  connection_type: z.nullable(z.string()).optional(),
+  entity_id: z.nullable(z.string()).optional(),
+  entity_type: z.nullable(z.string()).optional(),
+  body: z.nullable(z.lazy(() => Body$inboundSchema)).optional(),
+  available_fields_url: z.nullable(z.string()).optional(),
+  data_bag_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "connection_id": "connectionId",
@@ -89,14 +89,14 @@ export const FieldMappingFieldMapEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FieldMappingFieldMapEntity$Outbound = {
-  id?: string | undefined;
-  connection_id?: string | undefined;
-  connection_type?: string | undefined;
-  entity_id?: string | undefined;
-  entity_type?: string | undefined;
-  body?: Body$Outbound | undefined;
-  available_fields_url?: string | undefined;
-  data_bag_url?: string | undefined;
+  id?: string | null | undefined;
+  connection_id?: string | null | undefined;
+  connection_type?: string | null | undefined;
+  entity_id?: string | null | undefined;
+  entity_type?: string | null | undefined;
+  body?: Body$Outbound | null | undefined;
+  available_fields_url?: string | null | undefined;
+  data_bag_url?: string | null | undefined;
 };
 
 /** @internal */
@@ -105,14 +105,14 @@ export const FieldMappingFieldMapEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldMappingFieldMapEntity
 > = z.object({
-  id: z.string().optional(),
-  connectionId: z.string().optional(),
-  connectionType: z.string().optional(),
-  entityId: z.string().optional(),
-  entityType: z.string().optional(),
-  body: z.lazy(() => Body$outboundSchema).optional(),
-  availableFieldsUrl: z.string().optional(),
-  dataBagUrl: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  connectionId: z.nullable(z.string()).optional(),
+  connectionType: z.nullable(z.string()).optional(),
+  entityId: z.nullable(z.string()).optional(),
+  entityType: z.nullable(z.string()).optional(),
+  body: z.nullable(z.lazy(() => Body$outboundSchema)).optional(),
+  availableFieldsUrl: z.nullable(z.string()).optional(),
+  dataBagUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     connectionId: "connection_id",

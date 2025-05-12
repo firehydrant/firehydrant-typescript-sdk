@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentLinkRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdLinks: components.PostV1IncidentsIncidentIdLinks;
+  createIncidentLink: components.CreateIncidentLink;
 };
 
 /** @internal */
@@ -21,19 +21,20 @@ export const CreateIncidentLinkRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdLinks:
-    components.PostV1IncidentsIncidentIdLinks$inboundSchema,
+  create_incident_link: z.lazy(() =>
+    components.CreateIncidentLink$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_link": "createIncidentLink",
   });
 });
 
 /** @internal */
 export type CreateIncidentLinkRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdLinks:
-    components.PostV1IncidentsIncidentIdLinks$Outbound;
+  create_incident_link: components.CreateIncidentLink$Outbound;
 };
 
 /** @internal */
@@ -43,11 +44,13 @@ export const CreateIncidentLinkRequest$outboundSchema: z.ZodType<
   CreateIncidentLinkRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdLinks:
-    components.PostV1IncidentsIncidentIdLinks$outboundSchema,
+  createIncidentLink: z.lazy(() =>
+    components.CreateIncidentLink$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentLink: "create_incident_link",
   });
 });
 

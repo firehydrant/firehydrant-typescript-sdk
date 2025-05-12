@@ -12,9 +12,9 @@ export type ListIncidentTypesRequest = {
   /**
    * A query to search incident types by their name
    */
-  query?: string | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -23,9 +23,9 @@ export const ListIncidentTypesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -34,9 +34,9 @@ export const ListIncidentTypesRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListIncidentTypesRequest$Outbound = {
-  query?: string | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -45,9 +45,9 @@ export const ListIncidentTypesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListIncidentTypesRequest
 > = z.object({
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

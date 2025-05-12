@@ -5,7 +5,7 @@ AI_Entities_PreferencesEntity model
 ## Example Usage
 
 ```typescript
-import { AIEntitiesPreferencesEntity } from "firehydrant-typescript-sdk/models/components";
+import { AIEntitiesPreferencesEntity } from "firehydrant/models/components";
 
 let value: AIEntitiesPreferencesEntity = {};
 ```

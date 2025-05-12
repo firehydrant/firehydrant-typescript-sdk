@@ -9,7 +9,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const ResourceType = {
+export const ListSavedSearchesResourceType = {
   ChangeEvents: "change_events",
   Incidents: "incidents",
   Services: "services",
@@ -21,39 +21,43 @@ export const ResourceType = {
   Alerts: "alerts",
   IncidentEvents: "incident_events",
 } as const;
-export type ResourceType = ClosedEnum<typeof ResourceType>;
+export type ListSavedSearchesResourceType = ClosedEnum<
+  typeof ListSavedSearchesResourceType
+>;
 
 export type ListSavedSearchesRequest = {
-  resourceType: ResourceType;
+  resourceType: ListSavedSearchesResourceType;
   /**
    * The user ID used to filter saved searches.
    */
-  userId?: string | undefined;
+  userId?: string | null | undefined;
   /**
    * Filter saved searches with a query on their name
    */
-  query?: string | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
-export const ResourceType$inboundSchema: z.ZodNativeEnum<typeof ResourceType> =
-  z.nativeEnum(ResourceType);
+export const ListSavedSearchesResourceType$inboundSchema: z.ZodNativeEnum<
+  typeof ListSavedSearchesResourceType
+> = z.nativeEnum(ListSavedSearchesResourceType);
 
 /** @internal */
-export const ResourceType$outboundSchema: z.ZodNativeEnum<typeof ResourceType> =
-  ResourceType$inboundSchema;
+export const ListSavedSearchesResourceType$outboundSchema: z.ZodNativeEnum<
+  typeof ListSavedSearchesResourceType
+> = ListSavedSearchesResourceType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ResourceType$ {
-  /** @deprecated use `ResourceType$inboundSchema` instead. */
-  export const inboundSchema = ResourceType$inboundSchema;
-  /** @deprecated use `ResourceType$outboundSchema` instead. */
-  export const outboundSchema = ResourceType$outboundSchema;
+export namespace ListSavedSearchesResourceType$ {
+  /** @deprecated use `ListSavedSearchesResourceType$inboundSchema` instead. */
+  export const inboundSchema = ListSavedSearchesResourceType$inboundSchema;
+  /** @deprecated use `ListSavedSearchesResourceType$outboundSchema` instead. */
+  export const outboundSchema = ListSavedSearchesResourceType$outboundSchema;
 }
 
 /** @internal */
@@ -62,11 +66,11 @@ export const ListSavedSearchesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  resource_type: ResourceType$inboundSchema,
-  user_id: z.string().optional(),
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  resource_type: ListSavedSearchesResourceType$inboundSchema,
+  user_id: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "resource_type": "resourceType",
@@ -78,10 +82,10 @@ export const ListSavedSearchesRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListSavedSearchesRequest$Outbound = {
   resource_type: string;
-  user_id?: string | undefined;
-  query?: string | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  user_id?: string | null | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -90,11 +94,11 @@ export const ListSavedSearchesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListSavedSearchesRequest
 > = z.object({
-  resourceType: ResourceType$outboundSchema,
-  userId: z.string().optional(),
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  resourceType: ListSavedSearchesResourceType$outboundSchema,
+  userId: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     resourceType: "resource_type",

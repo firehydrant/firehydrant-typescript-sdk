@@ -10,43 +10,52 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const InfraType = {
+export const ListInfrastructureMetricsInfraType = {
   Environments: "environments",
   Functionalities: "functionalities",
   Services: "services",
   Customers: "customers",
 } as const;
-export type InfraType = ClosedEnum<typeof InfraType>;
+export type ListInfrastructureMetricsInfraType = ClosedEnum<
+  typeof ListInfrastructureMetricsInfraType
+>;
 
 export type ListInfrastructureMetricsRequest = {
-  infraType: InfraType;
+  infraType: ListInfrastructureMetricsInfraType;
+  /**
+   * Component UUID
+   */
+  infraId: string;
   /**
    * The start date to return metrics from; defaults to 30 days ago
    */
-  startDate?: RFCDate | undefined;
+  startDate?: RFCDate | null | undefined;
   /**
    * The end date to return metrics from, defaults to today
    */
-  endDate?: RFCDate | undefined;
+  endDate?: RFCDate | null | undefined;
 };
 
 /** @internal */
-export const InfraType$inboundSchema: z.ZodNativeEnum<typeof InfraType> = z
-  .nativeEnum(InfraType);
+export const ListInfrastructureMetricsInfraType$inboundSchema: z.ZodNativeEnum<
+  typeof ListInfrastructureMetricsInfraType
+> = z.nativeEnum(ListInfrastructureMetricsInfraType);
 
 /** @internal */
-export const InfraType$outboundSchema: z.ZodNativeEnum<typeof InfraType> =
-  InfraType$inboundSchema;
+export const ListInfrastructureMetricsInfraType$outboundSchema: z.ZodNativeEnum<
+  typeof ListInfrastructureMetricsInfraType
+> = ListInfrastructureMetricsInfraType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace InfraType$ {
-  /** @deprecated use `InfraType$inboundSchema` instead. */
-  export const inboundSchema = InfraType$inboundSchema;
-  /** @deprecated use `InfraType$outboundSchema` instead. */
-  export const outboundSchema = InfraType$outboundSchema;
+export namespace ListInfrastructureMetricsInfraType$ {
+  /** @deprecated use `ListInfrastructureMetricsInfraType$inboundSchema` instead. */
+  export const inboundSchema = ListInfrastructureMetricsInfraType$inboundSchema;
+  /** @deprecated use `ListInfrastructureMetricsInfraType$outboundSchema` instead. */
+  export const outboundSchema =
+    ListInfrastructureMetricsInfraType$outboundSchema;
 }
 
 /** @internal */
@@ -55,12 +64,14 @@ export const ListInfrastructureMetricsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  infra_type: InfraType$inboundSchema,
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
+  infra_type: ListInfrastructureMetricsInfraType$inboundSchema,
+  infra_id: z.string(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
 }).transform((v) => {
   return remap$(v, {
     "infra_type": "infraType",
+    "infra_id": "infraId",
     "start_date": "startDate",
     "end_date": "endDate",
   });
@@ -69,8 +80,9 @@ export const ListInfrastructureMetricsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListInfrastructureMetricsRequest$Outbound = {
   infra_type: string;
-  start_date?: string | undefined;
-  end_date?: string | undefined;
+  infra_id: string;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
 };
 
 /** @internal */
@@ -79,12 +91,16 @@ export const ListInfrastructureMetricsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListInfrastructureMetricsRequest
 > = z.object({
-  infraType: InfraType$outboundSchema,
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
+  infraType: ListInfrastructureMetricsInfraType$outboundSchema,
+  infraId: z.string(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     infraType: "infra_type",
+    infraId: "infra_id",
     startDate: "start_date",
     endDate: "end_date",
   });

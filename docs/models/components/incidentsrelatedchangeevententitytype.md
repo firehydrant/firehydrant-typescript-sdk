@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IncidentsRelatedChangeEventEntityType } from "firehydrant-typescript-sdk/models/components";
+import { IncidentsRelatedChangeEventEntityType } from "firehydrant/models/components";
 
 let value: IncidentsRelatedChangeEventEntityType = "caused";
 ```

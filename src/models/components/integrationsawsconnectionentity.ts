@@ -9,50 +9,57 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const ConnectionStatus = {
+export const IntegrationsAwsConnectionEntityConnectionStatus = {
   PendingSetup: "pending_setup",
   RoleAssumed: "role_assumed",
   CantAssumeRole: "cant_assume_role",
   InvalidPermissions: "invalid_permissions",
   Validated: "validated",
 } as const;
-export type ConnectionStatus = ClosedEnum<typeof ConnectionStatus>;
+export type IntegrationsAwsConnectionEntityConnectionStatus = ClosedEnum<
+  typeof IntegrationsAwsConnectionEntityConnectionStatus
+>;
 
 /**
  * Integrations_Aws_ConnectionEntity model
  */
 export type IntegrationsAwsConnectionEntity = {
-  id?: string | undefined;
-  awsAccountId?: string | undefined;
-  targetArn?: string | undefined;
-  externalId?: string | undefined;
-  connectionStatus?: ConnectionStatus | undefined;
-  statusText?: string | undefined;
-  statusDescription?: string | undefined;
-  environmentId?: string | undefined;
-  environmentName?: string | undefined;
-  regions?: Array<string> | undefined;
+  id?: string | null | undefined;
+  awsAccountId?: string | null | undefined;
+  targetArn?: string | null | undefined;
+  externalId?: string | null | undefined;
+  connectionStatus?:
+    | IntegrationsAwsConnectionEntityConnectionStatus
+    | null
+    | undefined;
+  statusText?: string | null | undefined;
+  statusDescription?: string | null | undefined;
+  environmentId?: string | null | undefined;
+  environmentName?: string | null | undefined;
+  regions?: Array<string> | null | undefined;
 };
 
 /** @internal */
-export const ConnectionStatus$inboundSchema: z.ZodNativeEnum<
-  typeof ConnectionStatus
-> = z.nativeEnum(ConnectionStatus);
+export const IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema:
+  z.ZodNativeEnum<typeof IntegrationsAwsConnectionEntityConnectionStatus> = z
+    .nativeEnum(IntegrationsAwsConnectionEntityConnectionStatus);
 
 /** @internal */
-export const ConnectionStatus$outboundSchema: z.ZodNativeEnum<
-  typeof ConnectionStatus
-> = ConnectionStatus$inboundSchema;
+export const IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema:
+  z.ZodNativeEnum<typeof IntegrationsAwsConnectionEntityConnectionStatus> =
+    IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ConnectionStatus$ {
-  /** @deprecated use `ConnectionStatus$inboundSchema` instead. */
-  export const inboundSchema = ConnectionStatus$inboundSchema;
-  /** @deprecated use `ConnectionStatus$outboundSchema` instead. */
-  export const outboundSchema = ConnectionStatus$outboundSchema;
+export namespace IntegrationsAwsConnectionEntityConnectionStatus$ {
+  /** @deprecated use `IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema` instead. */
+  export const inboundSchema =
+    IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema;
+  /** @deprecated use `IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema` instead. */
+  export const outboundSchema =
+    IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema;
 }
 
 /** @internal */
@@ -61,16 +68,18 @@ export const IntegrationsAwsConnectionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  aws_account_id: z.string().optional(),
-  target_arn: z.string().optional(),
-  external_id: z.string().optional(),
-  connection_status: ConnectionStatus$inboundSchema.optional(),
-  status_text: z.string().optional(),
-  status_description: z.string().optional(),
-  environment_id: z.string().optional(),
-  environment_name: z.string().optional(),
-  regions: z.array(z.string()).optional(),
+  id: z.nullable(z.string()).optional(),
+  aws_account_id: z.nullable(z.string()).optional(),
+  target_arn: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
+  connection_status: z.nullable(
+    IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema,
+  ).optional(),
+  status_text: z.nullable(z.string()).optional(),
+  status_description: z.nullable(z.string()).optional(),
+  environment_id: z.nullable(z.string()).optional(),
+  environment_name: z.nullable(z.string()).optional(),
+  regions: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "aws_account_id": "awsAccountId",
@@ -86,16 +95,16 @@ export const IntegrationsAwsConnectionEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IntegrationsAwsConnectionEntity$Outbound = {
-  id?: string | undefined;
-  aws_account_id?: string | undefined;
-  target_arn?: string | undefined;
-  external_id?: string | undefined;
-  connection_status?: string | undefined;
-  status_text?: string | undefined;
-  status_description?: string | undefined;
-  environment_id?: string | undefined;
-  environment_name?: string | undefined;
-  regions?: Array<string> | undefined;
+  id?: string | null | undefined;
+  aws_account_id?: string | null | undefined;
+  target_arn?: string | null | undefined;
+  external_id?: string | null | undefined;
+  connection_status?: string | null | undefined;
+  status_text?: string | null | undefined;
+  status_description?: string | null | undefined;
+  environment_id?: string | null | undefined;
+  environment_name?: string | null | undefined;
+  regions?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -104,16 +113,18 @@ export const IntegrationsAwsConnectionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsAwsConnectionEntity
 > = z.object({
-  id: z.string().optional(),
-  awsAccountId: z.string().optional(),
-  targetArn: z.string().optional(),
-  externalId: z.string().optional(),
-  connectionStatus: ConnectionStatus$outboundSchema.optional(),
-  statusText: z.string().optional(),
-  statusDescription: z.string().optional(),
-  environmentId: z.string().optional(),
-  environmentName: z.string().optional(),
-  regions: z.array(z.string()).optional(),
+  id: z.nullable(z.string()).optional(),
+  awsAccountId: z.nullable(z.string()).optional(),
+  targetArn: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
+  connectionStatus: z.nullable(
+    IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema,
+  ).optional(),
+  statusText: z.nullable(z.string()).optional(),
+  statusDescription: z.nullable(z.string()).optional(),
+  environmentId: z.nullable(z.string()).optional(),
+  environmentName: z.nullable(z.string()).optional(),
+  regions: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     awsAccountId: "aws_account_id",

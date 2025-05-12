@@ -14,19 +14,20 @@ import {
   ConversationsAPIEntitiesReference$outboundSchema,
 } from "./conversationsapientitiesreference.js";
 import {
-  SeverityMatrixConditionEntity,
-  SeverityMatrixConditionEntity$inboundSchema,
-  SeverityMatrixConditionEntity$Outbound,
-  SeverityMatrixConditionEntity$outboundSchema,
-} from "./severitymatrixconditionentity.js";
+  NullableSeverityMatrixConditionEntity,
+  NullableSeverityMatrixConditionEntity$inboundSchema,
+  NullableSeverityMatrixConditionEntity$Outbound,
+  NullableSeverityMatrixConditionEntity$outboundSchema,
+} from "./nullableseveritymatrixconditionentity.js";
 import {
-  SuccinctEntity,
-  SuccinctEntity$inboundSchema,
-  SuccinctEntity$Outbound,
-  SuccinctEntity$outboundSchema,
-} from "./succinctentity.js";
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
 
 export const IncidentsImpactEntityType = {
+  Customer: "customer",
   Environment: "environment",
   Functionality: "functionality",
   Service: "service",
@@ -36,14 +37,11 @@ export type IncidentsImpactEntityType = ClosedEnum<
 >;
 
 export type IncidentsImpactEntity = {
-  id?: string | undefined;
-  type?: IncidentsImpactEntityType | undefined;
-  impact?: SuccinctEntity | undefined;
-  /**
-   * SeverityMatrix_ConditionEntity model
-   */
-  condition?: SeverityMatrixConditionEntity | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference> | undefined;
+  id?: string | null | undefined;
+  type?: IncidentsImpactEntityType | null | undefined;
+  impact?: NullableSuccinctEntity | null | undefined;
+  condition?: NullableSeverityMatrixConditionEntity | null | undefined;
+  conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
 };
 
 /** @internal */
@@ -73,21 +71,26 @@ export const IncidentsImpactEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  type: IncidentsImpactEntityType$inboundSchema.optional(),
-  impact: SuccinctEntity$inboundSchema.optional(),
-  condition: SeverityMatrixConditionEntity$inboundSchema.optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$inboundSchema)
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(IncidentsImpactEntityType$inboundSchema).optional(),
+  impact: z.nullable(NullableSuccinctEntity$inboundSchema).optional(),
+  condition: z.nullable(NullableSeverityMatrixConditionEntity$inboundSchema)
     .optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$inboundSchema),
+  ).optional(),
 });
 
 /** @internal */
 export type IncidentsImpactEntity$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  impact?: SuccinctEntity$Outbound | undefined;
-  condition?: SeverityMatrixConditionEntity$Outbound | undefined;
-  conversations?: Array<ConversationsAPIEntitiesReference$Outbound> | undefined;
+  id?: string | null | undefined;
+  type?: string | null | undefined;
+  impact?: NullableSuccinctEntity$Outbound | null | undefined;
+  condition?: NullableSeverityMatrixConditionEntity$Outbound | null | undefined;
+  conversations?:
+    | Array<ConversationsAPIEntitiesReference$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -96,12 +99,14 @@ export const IncidentsImpactEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentsImpactEntity
 > = z.object({
-  id: z.string().optional(),
-  type: IncidentsImpactEntityType$outboundSchema.optional(),
-  impact: SuccinctEntity$outboundSchema.optional(),
-  condition: SeverityMatrixConditionEntity$outboundSchema.optional(),
-  conversations: z.array(ConversationsAPIEntitiesReference$outboundSchema)
+  id: z.nullable(z.string()).optional(),
+  type: z.nullable(IncidentsImpactEntityType$outboundSchema).optional(),
+  impact: z.nullable(NullableSuccinctEntity$outboundSchema).optional(),
+  condition: z.nullable(NullableSeverityMatrixConditionEntity$outboundSchema)
     .optional(),
+  conversations: z.nullable(
+    z.array(ConversationsAPIEntitiesReference$outboundSchema),
+  ).optional(),
 });
 
 /**

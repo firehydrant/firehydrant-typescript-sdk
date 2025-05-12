@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type CreateServiceChecklistResponseRequest = {
   serviceId: string;
   checklistId: string;
-  postV1ServicesServiceIdChecklistResponseChecklistId:
-    components.PostV1ServicesServiceIdChecklistResponseChecklistId;
+  createServiceChecklistResponse: components.CreateServiceChecklistResponse;
 };
 
 /** @internal */
@@ -24,13 +23,14 @@ export const CreateServiceChecklistResponseRequest$inboundSchema: z.ZodType<
 > = z.object({
   service_id: z.string(),
   checklist_id: z.string(),
-  postV1ServicesServiceIdChecklistResponseChecklistId:
-    components
-      .PostV1ServicesServiceIdChecklistResponseChecklistId$inboundSchema,
+  create_service_checklist_response: z.lazy(() =>
+    components.CreateServiceChecklistResponse$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "service_id": "serviceId",
     "checklist_id": "checklistId",
+    "create_service_checklist_response": "createServiceChecklistResponse",
   });
 });
 
@@ -38,8 +38,8 @@ export const CreateServiceChecklistResponseRequest$inboundSchema: z.ZodType<
 export type CreateServiceChecklistResponseRequest$Outbound = {
   service_id: string;
   checklist_id: string;
-  postV1ServicesServiceIdChecklistResponseChecklistId:
-    components.PostV1ServicesServiceIdChecklistResponseChecklistId$Outbound;
+  create_service_checklist_response:
+    components.CreateServiceChecklistResponse$Outbound;
 };
 
 /** @internal */
@@ -50,13 +50,14 @@ export const CreateServiceChecklistResponseRequest$outboundSchema: z.ZodType<
 > = z.object({
   serviceId: z.string(),
   checklistId: z.string(),
-  postV1ServicesServiceIdChecklistResponseChecklistId:
-    components
-      .PostV1ServicesServiceIdChecklistResponseChecklistId$outboundSchema,
+  createServiceChecklistResponse: z.lazy(() =>
+    components.CreateServiceChecklistResponse$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     serviceId: "service_id",
     checklistId: "checklist_id",
+    createServiceChecklistResponse: "create_service_checklist_response",
   });
 });
 

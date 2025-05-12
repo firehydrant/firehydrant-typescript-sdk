@@ -18,11 +18,11 @@ import {
  * Ticketing_ProjectFieldMapEntity model
  */
 export type TicketingProjectFieldMapEntity = {
-  id?: string | undefined;
-  connectionId?: string | undefined;
-  connectionType?: string | undefined;
-  ticketingProjectId?: string | undefined;
-  body?: Array<TicketingProjectFieldMapBodyEntity> | undefined;
+  id?: string | null | undefined;
+  connectionId?: string | null | undefined;
+  connectionType?: string | null | undefined;
+  ticketingProjectId?: string | null | undefined;
+  body?: Array<TicketingProjectFieldMapBodyEntity> | null | undefined;
 };
 
 /** @internal */
@@ -31,11 +31,12 @@ export const TicketingProjectFieldMapEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  connection_id: z.string().optional(),
-  connection_type: z.string().optional(),
-  ticketing_project_id: z.string().optional(),
-  body: z.array(TicketingProjectFieldMapBodyEntity$inboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  connection_id: z.nullable(z.string()).optional(),
+  connection_type: z.nullable(z.string()).optional(),
+  ticketing_project_id: z.nullable(z.string()).optional(),
+  body: z.nullable(z.array(TicketingProjectFieldMapBodyEntity$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "connection_id": "connectionId",
@@ -46,11 +47,11 @@ export const TicketingProjectFieldMapEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingProjectFieldMapEntity$Outbound = {
-  id?: string | undefined;
-  connection_id?: string | undefined;
-  connection_type?: string | undefined;
-  ticketing_project_id?: string | undefined;
-  body?: Array<TicketingProjectFieldMapBodyEntity$Outbound> | undefined;
+  id?: string | null | undefined;
+  connection_id?: string | null | undefined;
+  connection_type?: string | null | undefined;
+  ticketing_project_id?: string | null | undefined;
+  body?: Array<TicketingProjectFieldMapBodyEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -59,11 +60,12 @@ export const TicketingProjectFieldMapEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectFieldMapEntity
 > = z.object({
-  id: z.string().optional(),
-  connectionId: z.string().optional(),
-  connectionType: z.string().optional(),
-  ticketingProjectId: z.string().optional(),
-  body: z.array(TicketingProjectFieldMapBodyEntity$outboundSchema).optional(),
+  id: z.nullable(z.string()).optional(),
+  connectionId: z.nullable(z.string()).optional(),
+  connectionType: z.nullable(z.string()).optional(),
+  ticketingProjectId: z.nullable(z.string()).optional(),
+  body: z.nullable(z.array(TicketingProjectFieldMapBodyEntity$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     connectionId: "connection_id",

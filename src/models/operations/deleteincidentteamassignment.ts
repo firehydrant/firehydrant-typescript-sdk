@@ -12,7 +12,7 @@ export type DeleteIncidentTeamAssignmentRequestBody = {
   /**
    * Team role assignments to unassign from the incident
    */
-  roleAssignmentIds?: Array<string> | undefined;
+  roleAssignmentIds?: Array<string> | null | undefined;
 };
 
 export type DeleteIncidentTeamAssignmentRequest = {
@@ -27,7 +27,7 @@ export const DeleteIncidentTeamAssignmentRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  role_assignment_ids: z.array(z.string()).optional(),
+  role_assignment_ids: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "role_assignment_ids": "roleAssignmentIds",
@@ -36,7 +36,7 @@ export const DeleteIncidentTeamAssignmentRequestBody$inboundSchema: z.ZodType<
 
 /** @internal */
 export type DeleteIncidentTeamAssignmentRequestBody$Outbound = {
-  role_assignment_ids?: Array<string> | undefined;
+  role_assignment_ids?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -45,7 +45,7 @@ export const DeleteIncidentTeamAssignmentRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DeleteIncidentTeamAssignmentRequestBody
 > = z.object({
-  roleAssignmentIds: z.array(z.string()).optional(),
+  roleAssignmentIds: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     roleAssignmentIds: "role_assignment_ids",

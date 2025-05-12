@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteChecklistTemplateRequest } from "firehydrant-typescript-sdk/models/operations";
+import { DeleteChecklistTemplateRequest } from "firehydrant/models/operations";
 
 let value: DeleteChecklistTemplateRequest = {
   id: "<id>",

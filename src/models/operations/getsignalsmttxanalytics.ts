@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * String that determines how records are grouped
  */
-export const QueryParamGroupBy = {
+export const GetSignalsMttxAnalyticsGroupBy = {
   SignalRules: "signal_rules",
   Teams: "teams",
   Services: "services",
@@ -22,12 +22,14 @@ export const QueryParamGroupBy = {
 /**
  * String that determines how records are grouped
  */
-export type QueryParamGroupBy = ClosedEnum<typeof QueryParamGroupBy>;
+export type GetSignalsMttxAnalyticsGroupBy = ClosedEnum<
+  typeof GetSignalsMttxAnalyticsGroupBy
+>;
 
 /**
  * String that determines how records are sorted
  */
-export const QueryParamSortBy = {
+export const GetSignalsMttxAnalyticsSortBy = {
   TotalOpenedAlerts: "total_opened_alerts",
   TotalAckedAlerts: "total_acked_alerts",
   TotalIncidents: "total_incidents",
@@ -37,132 +39,135 @@ export const QueryParamSortBy = {
 /**
  * String that determines how records are sorted
  */
-export type QueryParamSortBy = ClosedEnum<typeof QueryParamSortBy>;
+export type GetSignalsMttxAnalyticsSortBy = ClosedEnum<
+  typeof GetSignalsMttxAnalyticsSortBy
+>;
 
 /**
  * String that determines how records are sorted
  */
-export const GetSignalsMttxAnalyticsQueryParamSortDirection = {
+export const GetSignalsMttxAnalyticsSortDirection = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 /**
  * String that determines how records are sorted
  */
-export type GetSignalsMttxAnalyticsQueryParamSortDirection = ClosedEnum<
-  typeof GetSignalsMttxAnalyticsQueryParamSortDirection
+export type GetSignalsMttxAnalyticsSortDirection = ClosedEnum<
+  typeof GetSignalsMttxAnalyticsSortDirection
 >;
 
 export type GetSignalsMttxAnalyticsRequest = {
   /**
    * A comma separated list of signal rule IDs
    */
-  signalRules?: string | undefined;
+  signalRules?: string | null | undefined;
   /**
    * A comma separated list of team IDs
    */
-  teams?: string | undefined;
+  teams?: string | null | undefined;
   /**
    * A comma separated list of environment IDs
    */
-  environments?: string | undefined;
+  environments?: string | null | undefined;
   /**
    * A comma separated list of service IDs
    */
-  services?: string | undefined;
+  services?: string | null | undefined;
   /**
    * A comma separated list of tags
    */
-  tags?: string | undefined;
+  tags?: string | null | undefined;
   /**
    * A comma separated list of user IDs
    */
-  users?: string | undefined;
+  users?: string | null | undefined;
   /**
    * String that determines how records are grouped
    */
-  groupBy?: QueryParamGroupBy | undefined;
+  groupBy?: GetSignalsMttxAnalyticsGroupBy | null | undefined;
   /**
    * String that determines how records are sorted
    */
-  sortBy?: QueryParamSortBy | undefined;
+  sortBy?: GetSignalsMttxAnalyticsSortBy | null | undefined;
   /**
    * String that determines how records are sorted
    */
-  sortDirection?: GetSignalsMttxAnalyticsQueryParamSortDirection | undefined;
+  sortDirection?: GetSignalsMttxAnalyticsSortDirection | null | undefined;
   /**
    * The start date to return metrics from
    */
-  startDate?: Date | undefined;
+  startDate?: Date | null | undefined;
   /**
    * The end date to return metrics from
    */
-  endDate?: Date | undefined;
+  endDate?: Date | null | undefined;
 };
 
 /** @internal */
-export const QueryParamGroupBy$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamGroupBy
-> = z.nativeEnum(QueryParamGroupBy);
+export const GetSignalsMttxAnalyticsGroupBy$inboundSchema: z.ZodNativeEnum<
+  typeof GetSignalsMttxAnalyticsGroupBy
+> = z.nativeEnum(GetSignalsMttxAnalyticsGroupBy);
 
 /** @internal */
-export const QueryParamGroupBy$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamGroupBy
-> = QueryParamGroupBy$inboundSchema;
+export const GetSignalsMttxAnalyticsGroupBy$outboundSchema: z.ZodNativeEnum<
+  typeof GetSignalsMttxAnalyticsGroupBy
+> = GetSignalsMttxAnalyticsGroupBy$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamGroupBy$ {
-  /** @deprecated use `QueryParamGroupBy$inboundSchema` instead. */
-  export const inboundSchema = QueryParamGroupBy$inboundSchema;
-  /** @deprecated use `QueryParamGroupBy$outboundSchema` instead. */
-  export const outboundSchema = QueryParamGroupBy$outboundSchema;
+export namespace GetSignalsMttxAnalyticsGroupBy$ {
+  /** @deprecated use `GetSignalsMttxAnalyticsGroupBy$inboundSchema` instead. */
+  export const inboundSchema = GetSignalsMttxAnalyticsGroupBy$inboundSchema;
+  /** @deprecated use `GetSignalsMttxAnalyticsGroupBy$outboundSchema` instead. */
+  export const outboundSchema = GetSignalsMttxAnalyticsGroupBy$outboundSchema;
 }
 
 /** @internal */
-export const QueryParamSortBy$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSortBy
-> = z.nativeEnum(QueryParamSortBy);
+export const GetSignalsMttxAnalyticsSortBy$inboundSchema: z.ZodNativeEnum<
+  typeof GetSignalsMttxAnalyticsSortBy
+> = z.nativeEnum(GetSignalsMttxAnalyticsSortBy);
 
 /** @internal */
-export const QueryParamSortBy$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSortBy
-> = QueryParamSortBy$inboundSchema;
+export const GetSignalsMttxAnalyticsSortBy$outboundSchema: z.ZodNativeEnum<
+  typeof GetSignalsMttxAnalyticsSortBy
+> = GetSignalsMttxAnalyticsSortBy$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamSortBy$ {
-  /** @deprecated use `QueryParamSortBy$inboundSchema` instead. */
-  export const inboundSchema = QueryParamSortBy$inboundSchema;
-  /** @deprecated use `QueryParamSortBy$outboundSchema` instead. */
-  export const outboundSchema = QueryParamSortBy$outboundSchema;
+export namespace GetSignalsMttxAnalyticsSortBy$ {
+  /** @deprecated use `GetSignalsMttxAnalyticsSortBy$inboundSchema` instead. */
+  export const inboundSchema = GetSignalsMttxAnalyticsSortBy$inboundSchema;
+  /** @deprecated use `GetSignalsMttxAnalyticsSortBy$outboundSchema` instead. */
+  export const outboundSchema = GetSignalsMttxAnalyticsSortBy$outboundSchema;
 }
 
 /** @internal */
-export const GetSignalsMttxAnalyticsQueryParamSortDirection$inboundSchema:
-  z.ZodNativeEnum<typeof GetSignalsMttxAnalyticsQueryParamSortDirection> = z
-    .nativeEnum(GetSignalsMttxAnalyticsQueryParamSortDirection);
+export const GetSignalsMttxAnalyticsSortDirection$inboundSchema:
+  z.ZodNativeEnum<typeof GetSignalsMttxAnalyticsSortDirection> = z.nativeEnum(
+    GetSignalsMttxAnalyticsSortDirection,
+  );
 
 /** @internal */
-export const GetSignalsMttxAnalyticsQueryParamSortDirection$outboundSchema:
-  z.ZodNativeEnum<typeof GetSignalsMttxAnalyticsQueryParamSortDirection> =
-    GetSignalsMttxAnalyticsQueryParamSortDirection$inboundSchema;
+export const GetSignalsMttxAnalyticsSortDirection$outboundSchema:
+  z.ZodNativeEnum<typeof GetSignalsMttxAnalyticsSortDirection> =
+    GetSignalsMttxAnalyticsSortDirection$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetSignalsMttxAnalyticsQueryParamSortDirection$ {
-  /** @deprecated use `GetSignalsMttxAnalyticsQueryParamSortDirection$inboundSchema` instead. */
+export namespace GetSignalsMttxAnalyticsSortDirection$ {
+  /** @deprecated use `GetSignalsMttxAnalyticsSortDirection$inboundSchema` instead. */
   export const inboundSchema =
-    GetSignalsMttxAnalyticsQueryParamSortDirection$inboundSchema;
-  /** @deprecated use `GetSignalsMttxAnalyticsQueryParamSortDirection$outboundSchema` instead. */
+    GetSignalsMttxAnalyticsSortDirection$inboundSchema;
+  /** @deprecated use `GetSignalsMttxAnalyticsSortDirection$outboundSchema` instead. */
   export const outboundSchema =
-    GetSignalsMttxAnalyticsQueryParamSortDirection$outboundSchema;
+    GetSignalsMttxAnalyticsSortDirection$outboundSchema;
 }
 
 /** @internal */
@@ -171,20 +176,22 @@ export const GetSignalsMttxAnalyticsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  signal_rules: z.string().optional(),
-  teams: z.string().optional(),
-  environments: z.string().optional(),
-  services: z.string().optional(),
-  tags: z.string().optional(),
-  users: z.string().optional(),
-  group_by: QueryParamGroupBy$inboundSchema.optional(),
-  sort_by: QueryParamSortBy$inboundSchema.optional(),
-  sort_direction: GetSignalsMttxAnalyticsQueryParamSortDirection$inboundSchema
+  signal_rules: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  users: z.nullable(z.string()).optional(),
+  group_by: z.nullable(GetSignalsMttxAnalyticsGroupBy$inboundSchema).optional(),
+  sort_by: z.nullable(GetSignalsMttxAnalyticsSortBy$inboundSchema).optional(),
+  sort_direction: z.nullable(GetSignalsMttxAnalyticsSortDirection$inboundSchema)
     .optional(),
-  start_date: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  end_date: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  start_date: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  end_date: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "signal_rules": "signalRules",
@@ -198,17 +205,17 @@ export const GetSignalsMttxAnalyticsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type GetSignalsMttxAnalyticsRequest$Outbound = {
-  signal_rules?: string | undefined;
-  teams?: string | undefined;
-  environments?: string | undefined;
-  services?: string | undefined;
-  tags?: string | undefined;
-  users?: string | undefined;
-  group_by?: string | undefined;
-  sort_by?: string | undefined;
-  sort_direction?: string | undefined;
-  start_date?: string | undefined;
-  end_date?: string | undefined;
+  signal_rules?: string | null | undefined;
+  teams?: string | null | undefined;
+  environments?: string | null | undefined;
+  services?: string | null | undefined;
+  tags?: string | null | undefined;
+  users?: string | null | undefined;
+  group_by?: string | null | undefined;
+  sort_by?: string | null | undefined;
+  sort_direction?: string | null | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
 };
 
 /** @internal */
@@ -217,18 +224,18 @@ export const GetSignalsMttxAnalyticsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetSignalsMttxAnalyticsRequest
 > = z.object({
-  signalRules: z.string().optional(),
-  teams: z.string().optional(),
-  environments: z.string().optional(),
-  services: z.string().optional(),
-  tags: z.string().optional(),
-  users: z.string().optional(),
-  groupBy: QueryParamGroupBy$outboundSchema.optional(),
-  sortBy: QueryParamSortBy$outboundSchema.optional(),
-  sortDirection: GetSignalsMttxAnalyticsQueryParamSortDirection$outboundSchema
+  signalRules: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.string()).optional(),
+  environments: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  tags: z.nullable(z.string()).optional(),
+  users: z.nullable(z.string()).optional(),
+  groupBy: z.nullable(GetSignalsMttxAnalyticsGroupBy$outboundSchema).optional(),
+  sortBy: z.nullable(GetSignalsMttxAnalyticsSortBy$outboundSchema).optional(),
+  sortDirection: z.nullable(GetSignalsMttxAnalyticsSortDirection$outboundSchema)
     .optional(),
-  startDate: z.date().transform(v => v.toISOString()).optional(),
-  endDate: z.date().transform(v => v.toISOString()).optional(),
+  startDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  endDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     signalRules: "signal_rules",

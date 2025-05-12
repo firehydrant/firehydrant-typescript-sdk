@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SlimRunbookEntity } from "firehydrant-typescript-sdk/models/components";
+import { SlimRunbookEntity } from "firehydrant/models/components";
 
 let value: SlimRunbookEntity = {};
 ```
@@ -19,6 +19,6 @@ let value: SlimRunbookEntity = {};
 | `type`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
-| `attachmentRule`                                                                              | [components.RulesRuleEntity](../../models/components/rulesruleentity.md)                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
-| `owner`                                                                                       | [components.TeamEntityLite](../../models/components/teamentitylite.md)                        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
-| `categories`                                                                                  | *string*                                                                                      | :heavy_minus_sign:                                                                            | categories the runbook applies to                                                             |
+| `attachmentRule`                                                                              | [components.NullableRulesRuleEntity](../../models/components/nullablerulesruleentity.md)      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `owner`                                                                                       | [components.NullableTeamEntityLite](../../models/components/nullableteamentitylite.md)        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `categories`                                                                                  | *string*[]                                                                                    | :heavy_minus_sign:                                                                            | categories the runbook applies to                                                             |

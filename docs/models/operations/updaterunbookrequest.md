@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRunbookRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateRunbookRequest } from "firehydrant/models/operations";
 
 let value: UpdateRunbookRequest = {
   runbookId: "<id>",
-  putV1RunbooksRunbookId: {},
+  updateRunbook: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `runbookId`                                                                            | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
-| `putV1RunbooksRunbookId`                                                               | [components.PutV1RunbooksRunbookId](../../models/components/putv1runbooksrunbookid.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `runbookId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `updateRunbook`                                                      | [components.UpdateRunbook](../../models/components/updaterunbook.md) | :heavy_check_mark:                                                   | N/A                                                                  |

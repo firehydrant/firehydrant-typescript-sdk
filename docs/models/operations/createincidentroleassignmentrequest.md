@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentRoleAssignmentRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateIncidentRoleAssignmentRequest } from "firehydrant/models/operations";
 
 let value: CreateIncidentRoleAssignmentRequest = {
   incidentId: "<id>",
-  postV1IncidentsIncidentIdRoleAssignments: {
+  createIncidentRoleAssignment: {
     userId: "<id>",
     incidentRoleId: "<id>",
   },
@@ -16,7 +16,7 @@ let value: CreateIncidentRoleAssignmentRequest = {
 
 ## Fields
 
-| Field                                                                                                                      | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `incidentId`                                                                                                               | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
-| `postV1IncidentsIncidentIdRoleAssignments`                                                                                 | [components.PostV1IncidentsIncidentIdRoleAssignments](../../models/components/postv1incidentsincidentidroleassignments.md) | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `incidentId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `createIncidentRoleAssignment`                                                                     | [components.CreateIncidentRoleAssignment](../../models/components/createincidentroleassignment.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

@@ -1,0 +1,21 @@
+# UpdateIncidentRetrospectiveRequest
+
+## Example Usage
+
+```typescript
+import { UpdateIncidentRetrospectiveRequest } from "firehydrant/models/operations";
+
+let value: UpdateIncidentRetrospectiveRequest = {
+  retrospectiveId: "<id>",
+  incidentId: "<id>",
+  updateIncidentRetrospective: {},
+};
+```
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `retrospectiveId`                                                                                | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `incidentId`                                                                                     | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `updateIncidentRetrospective`                                                                    | [components.UpdateIncidentRetrospective](../../models/components/updateincidentretrospective.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

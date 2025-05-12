@@ -12,8 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type UpdateIncidentLinkRequest = {
   linkId: string;
   incidentId: string;
-  putV1IncidentsIncidentIdLinksLinkId:
-    components.PutV1IncidentsIncidentIdLinksLinkId;
+  updateIncidentLink: components.UpdateIncidentLink;
 };
 
 /** @internal */
@@ -24,12 +23,14 @@ export const UpdateIncidentLinkRequest$inboundSchema: z.ZodType<
 > = z.object({
   link_id: z.string(),
   incident_id: z.string(),
-  putV1IncidentsIncidentIdLinksLinkId:
-    components.PutV1IncidentsIncidentIdLinksLinkId$inboundSchema,
+  update_incident_link: z.lazy(() =>
+    components.UpdateIncidentLink$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "link_id": "linkId",
     "incident_id": "incidentId",
+    "update_incident_link": "updateIncidentLink",
   });
 });
 
@@ -37,8 +38,7 @@ export const UpdateIncidentLinkRequest$inboundSchema: z.ZodType<
 export type UpdateIncidentLinkRequest$Outbound = {
   link_id: string;
   incident_id: string;
-  putV1IncidentsIncidentIdLinksLinkId:
-    components.PutV1IncidentsIncidentIdLinksLinkId$Outbound;
+  update_incident_link: components.UpdateIncidentLink$Outbound;
 };
 
 /** @internal */
@@ -49,12 +49,14 @@ export const UpdateIncidentLinkRequest$outboundSchema: z.ZodType<
 > = z.object({
   linkId: z.string(),
   incidentId: z.string(),
-  putV1IncidentsIncidentIdLinksLinkId:
-    components.PutV1IncidentsIncidentIdLinksLinkId$outboundSchema,
+  updateIncidentLink: z.lazy(() =>
+    components.UpdateIncidentLink$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     linkId: "link_id",
     incidentId: "incident_id",
+    updateIncidentLink: "update_incident_link",
   });
 });
 

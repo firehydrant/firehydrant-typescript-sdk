@@ -18,15 +18,15 @@ import {
  * CurrentUserEntity model
  */
 export type CurrentUserEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  source?: string | undefined;
-  email?: string | undefined;
-  role?: string | undefined;
-  teams?: Array<SuccinctEntity> | undefined;
-  organizationId?: string | undefined;
-  organizationName?: string | undefined;
-  accountId?: number | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  source?: string | null | undefined;
+  email?: string | null | undefined;
+  role?: string | null | undefined;
+  teams?: Array<SuccinctEntity> | null | undefined;
+  organizationId?: string | null | undefined;
+  organizationName?: string | null | undefined;
+  accountId?: number | null | undefined;
 };
 
 /** @internal */
@@ -35,15 +35,15 @@ export const CurrentUserEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  source: z.string().optional(),
-  email: z.string().optional(),
-  role: z.string().optional(),
-  teams: z.array(SuccinctEntity$inboundSchema).optional(),
-  organization_id: z.string().optional(),
-  organization_name: z.string().optional(),
-  account_id: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  source: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  role: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
+  organization_id: z.nullable(z.string()).optional(),
+  organization_name: z.nullable(z.string()).optional(),
+  account_id: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -54,15 +54,15 @@ export const CurrentUserEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CurrentUserEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  source?: string | undefined;
-  email?: string | undefined;
-  role?: string | undefined;
-  teams?: Array<SuccinctEntity$Outbound> | undefined;
-  organization_id?: string | undefined;
-  organization_name?: string | undefined;
-  account_id?: number | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  source?: string | null | undefined;
+  email?: string | null | undefined;
+  role?: string | null | undefined;
+  teams?: Array<SuccinctEntity$Outbound> | null | undefined;
+  organization_id?: string | null | undefined;
+  organization_name?: string | null | undefined;
+  account_id?: number | null | undefined;
 };
 
 /** @internal */
@@ -71,15 +71,15 @@ export const CurrentUserEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CurrentUserEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  source: z.string().optional(),
-  email: z.string().optional(),
-  role: z.string().optional(),
-  teams: z.array(SuccinctEntity$outboundSchema).optional(),
-  organizationId: z.string().optional(),
-  organizationName: z.string().optional(),
-  accountId: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  source: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  role: z.nullable(z.string()).optional(),
+  teams: z.nullable(z.array(SuccinctEntity$outboundSchema)).optional(),
+  organizationId: z.nullable(z.string()).optional(),
+  organizationName: z.nullable(z.string()).optional(),
+  accountId: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

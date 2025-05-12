@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { UpdateEnvironmentRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateEnvironmentRequest } from "firehydrant/models/operations";
 
 let value: UpdateEnvironmentRequest = {
   environmentId: "<id>",
-  patchV1EnvironmentsEnvironmentId: {
+  updateEnvironment: {
     name: "<value>",
   },
 };
@@ -15,7 +15,7 @@ let value: UpdateEnvironmentRequest = {
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `environmentId`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | Environment UUID                                                                                           |
-| `patchV1EnvironmentsEnvironmentId`                                                                         | [components.PatchV1EnvironmentsEnvironmentId](../../models/components/patchv1environmentsenvironmentid.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `environmentId`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | Environment UUID                                                             |
+| `updateEnvironment`                                                          | [components.UpdateEnvironment](../../models/components/updateenvironment.md) | :heavy_check_mark:                                                           | N/A                                                                          |

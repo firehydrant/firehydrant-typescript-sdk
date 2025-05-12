@@ -3,11 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentTaskRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateIncidentTaskRequest } from "firehydrant/models/operations";
 
 let value: CreateIncidentTaskRequest = {
   incidentId: "<id>",
-  postV1IncidentsIncidentIdTasks: {
+  createIncidentTask: {
     title: "<value>",
   },
 };
@@ -15,7 +15,7 @@ let value: CreateIncidentTaskRequest = {
 
 ## Fields
 
-| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `incidentId`                                                                                           | *string*                                                                                               | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `postV1IncidentsIncidentIdTasks`                                                                       | [components.PostV1IncidentsIncidentIdTasks](../../models/components/postv1incidentsincidentidtasks.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `incidentId`                                                                   | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `createIncidentTask`                                                           | [components.CreateIncidentTask](../../models/components/createincidenttask.md) | :heavy_check_mark:                                                             | N/A                                                                            |

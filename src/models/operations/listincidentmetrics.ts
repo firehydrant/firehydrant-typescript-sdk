@@ -30,7 +30,7 @@ export const By = {
 } as const;
 export type By = ClosedEnum<typeof By>;
 
-export const SortField = {
+export const ListIncidentMetricsSortField = {
   Mttd: "mttd",
   Mtta: "mtta",
   Mttm: "mttm",
@@ -38,29 +38,33 @@ export const SortField = {
   Count: "count",
   TotalTime: "total_time",
 } as const;
-export type SortField = ClosedEnum<typeof SortField>;
+export type ListIncidentMetricsSortField = ClosedEnum<
+  typeof ListIncidentMetricsSortField
+>;
 
-export const SortDirection = {
+export const ListIncidentMetricsSortDirection = {
   Asc: "asc",
   Desc: "desc",
 } as const;
-export type SortDirection = ClosedEnum<typeof SortDirection>;
+export type ListIncidentMetricsSortDirection = ClosedEnum<
+  typeof ListIncidentMetricsSortDirection
+>;
 
 export type ListIncidentMetricsRequest = {
   /**
    * The start date to return metrics from
    */
-  startDate?: RFCDate | undefined;
+  startDate?: RFCDate | null | undefined;
   /**
    * The end date to return metrics from
    */
-  endDate?: RFCDate | undefined;
-  bucketSize?: BucketSize | undefined;
-  by?: By | undefined;
-  sortField?: SortField | undefined;
-  sortDirection?: SortDirection | undefined;
-  sortLimit?: number | undefined;
-  conditions?: string | undefined;
+  endDate?: RFCDate | null | undefined;
+  bucketSize?: BucketSize | null | undefined;
+  by?: By | null | undefined;
+  sortField?: ListIncidentMetricsSortField | null | undefined;
+  sortDirection?: ListIncidentMetricsSortDirection | null | undefined;
+  sortLimit?: number | null | undefined;
+  conditions?: string | null | undefined;
 };
 
 /** @internal */
@@ -100,43 +104,45 @@ export namespace By$ {
 }
 
 /** @internal */
-export const SortField$inboundSchema: z.ZodNativeEnum<typeof SortField> = z
-  .nativeEnum(SortField);
+export const ListIncidentMetricsSortField$inboundSchema: z.ZodNativeEnum<
+  typeof ListIncidentMetricsSortField
+> = z.nativeEnum(ListIncidentMetricsSortField);
 
 /** @internal */
-export const SortField$outboundSchema: z.ZodNativeEnum<typeof SortField> =
-  SortField$inboundSchema;
+export const ListIncidentMetricsSortField$outboundSchema: z.ZodNativeEnum<
+  typeof ListIncidentMetricsSortField
+> = ListIncidentMetricsSortField$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SortField$ {
-  /** @deprecated use `SortField$inboundSchema` instead. */
-  export const inboundSchema = SortField$inboundSchema;
-  /** @deprecated use `SortField$outboundSchema` instead. */
-  export const outboundSchema = SortField$outboundSchema;
+export namespace ListIncidentMetricsSortField$ {
+  /** @deprecated use `ListIncidentMetricsSortField$inboundSchema` instead. */
+  export const inboundSchema = ListIncidentMetricsSortField$inboundSchema;
+  /** @deprecated use `ListIncidentMetricsSortField$outboundSchema` instead. */
+  export const outboundSchema = ListIncidentMetricsSortField$outboundSchema;
 }
 
 /** @internal */
-export const SortDirection$inboundSchema: z.ZodNativeEnum<
-  typeof SortDirection
-> = z.nativeEnum(SortDirection);
+export const ListIncidentMetricsSortDirection$inboundSchema: z.ZodNativeEnum<
+  typeof ListIncidentMetricsSortDirection
+> = z.nativeEnum(ListIncidentMetricsSortDirection);
 
 /** @internal */
-export const SortDirection$outboundSchema: z.ZodNativeEnum<
-  typeof SortDirection
-> = SortDirection$inboundSchema;
+export const ListIncidentMetricsSortDirection$outboundSchema: z.ZodNativeEnum<
+  typeof ListIncidentMetricsSortDirection
+> = ListIncidentMetricsSortDirection$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SortDirection$ {
-  /** @deprecated use `SortDirection$inboundSchema` instead. */
-  export const inboundSchema = SortDirection$inboundSchema;
-  /** @deprecated use `SortDirection$outboundSchema` instead. */
-  export const outboundSchema = SortDirection$outboundSchema;
+export namespace ListIncidentMetricsSortDirection$ {
+  /** @deprecated use `ListIncidentMetricsSortDirection$inboundSchema` instead. */
+  export const inboundSchema = ListIncidentMetricsSortDirection$inboundSchema;
+  /** @deprecated use `ListIncidentMetricsSortDirection$outboundSchema` instead. */
+  export const outboundSchema = ListIncidentMetricsSortDirection$outboundSchema;
 }
 
 /** @internal */
@@ -145,14 +151,15 @@ export const ListIncidentMetricsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  start_date: z.string().transform(v => new RFCDate(v)).optional(),
-  end_date: z.string().transform(v => new RFCDate(v)).optional(),
-  bucket_size: BucketSize$inboundSchema.optional(),
-  by: By$inboundSchema.optional(),
-  sort_field: SortField$inboundSchema.optional(),
-  sort_direction: SortDirection$inboundSchema.optional(),
-  sort_limit: z.number().int().optional(),
-  conditions: z.string().optional(),
+  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  bucket_size: z.nullable(BucketSize$inboundSchema).optional(),
+  by: z.nullable(By$inboundSchema).optional(),
+  sort_field: z.nullable(ListIncidentMetricsSortField$inboundSchema).optional(),
+  sort_direction: z.nullable(ListIncidentMetricsSortDirection$inboundSchema)
+    .optional(),
+  sort_limit: z.nullable(z.number().int()).optional(),
+  conditions: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -166,14 +173,14 @@ export const ListIncidentMetricsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListIncidentMetricsRequest$Outbound = {
-  start_date?: string | undefined;
-  end_date?: string | undefined;
-  bucket_size?: string | undefined;
-  by?: string | undefined;
-  sort_field?: string | undefined;
-  sort_direction?: string | undefined;
-  sort_limit?: number | undefined;
-  conditions?: string | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
+  bucket_size?: string | null | undefined;
+  by?: string | null | undefined;
+  sort_field?: string | null | undefined;
+  sort_direction?: string | null | undefined;
+  sort_limit?: number | null | undefined;
+  conditions?: string | null | undefined;
 };
 
 /** @internal */
@@ -182,14 +189,17 @@ export const ListIncidentMetricsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListIncidentMetricsRequest
 > = z.object({
-  startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
-  bucketSize: BucketSize$outboundSchema.optional(),
-  by: By$outboundSchema.optional(),
-  sortField: SortField$outboundSchema.optional(),
-  sortDirection: SortDirection$outboundSchema.optional(),
-  sortLimit: z.number().int().optional(),
-  conditions: z.string().optional(),
+  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+  bucketSize: z.nullable(BucketSize$outboundSchema).optional(),
+  by: z.nullable(By$outboundSchema).optional(),
+  sortField: z.nullable(ListIncidentMetricsSortField$outboundSchema).optional(),
+  sortDirection: z.nullable(ListIncidentMetricsSortDirection$outboundSchema)
+    .optional(),
+  sortLimit: z.nullable(z.number().int()).optional(),
+  conditions: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",

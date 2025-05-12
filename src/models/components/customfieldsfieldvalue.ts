@@ -9,15 +9,15 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsFieldValue = {
-  name?: string | undefined;
-  valueType?: string | undefined;
-  displayName?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  fieldId?: string | undefined;
-  valueArray?: string | undefined;
-  valueString?: string | undefined;
-  value?: string | undefined;
+  name?: string | null | undefined;
+  valueType?: string | null | undefined;
+  displayName?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  fieldId?: string | null | undefined;
+  valueArray?: Array<string> | null | undefined;
+  valueString?: string | null | undefined;
+  value?: string | null | undefined;
 };
 
 /** @internal */
@@ -26,15 +26,15 @@ export const CustomFieldsFieldValue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  name: z.string().optional(),
-  value_type: z.string().optional(),
-  display_name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  field_id: z.string().optional(),
-  value_array: z.string().optional(),
-  value_string: z.string().optional(),
-  value: z.string().optional(),
+  name: z.nullable(z.string()).optional(),
+  value_type: z.nullable(z.string()).optional(),
+  display_name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  field_id: z.nullable(z.string()).optional(),
+  value_array: z.nullable(z.array(z.string())).optional(),
+  value_string: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "value_type": "valueType",
@@ -47,15 +47,15 @@ export const CustomFieldsFieldValue$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldsFieldValue$Outbound = {
-  name?: string | undefined;
-  value_type?: string | undefined;
-  display_name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  field_id?: string | undefined;
-  value_array?: string | undefined;
-  value_string?: string | undefined;
-  value?: string | undefined;
+  name?: string | null | undefined;
+  value_type?: string | null | undefined;
+  display_name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  field_id?: string | null | undefined;
+  value_array?: Array<string> | null | undefined;
+  value_string?: string | null | undefined;
+  value?: string | null | undefined;
 };
 
 /** @internal */
@@ -64,15 +64,15 @@ export const CustomFieldsFieldValue$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldsFieldValue
 > = z.object({
-  name: z.string().optional(),
-  valueType: z.string().optional(),
-  displayName: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  fieldId: z.string().optional(),
-  valueArray: z.string().optional(),
-  valueString: z.string().optional(),
-  value: z.string().optional(),
+  name: z.nullable(z.string()).optional(),
+  valueType: z.nullable(z.string()).optional(),
+  displayName: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  fieldId: z.nullable(z.string()).optional(),
+  valueArray: z.nullable(z.array(z.string())).optional(),
+  valueString: z.nullable(z.string()).optional(),
+  value: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     valueType: "value_type",

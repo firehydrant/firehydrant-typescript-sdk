@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateTeamSignalRuleRequest = {
   teamId: string;
-  postV1TeamsTeamIdSignalRules: components.PostV1TeamsTeamIdSignalRules;
+  createTeamSignalRule: components.CreateTeamSignalRule;
 };
 
 /** @internal */
@@ -21,19 +21,20 @@ export const CreateTeamSignalRuleRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
-  postV1TeamsTeamIdSignalRules:
-    components.PostV1TeamsTeamIdSignalRules$inboundSchema,
+  create_team_signal_rule: z.lazy(() =>
+    components.CreateTeamSignalRule$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "create_team_signal_rule": "createTeamSignalRule",
   });
 });
 
 /** @internal */
 export type CreateTeamSignalRuleRequest$Outbound = {
   team_id: string;
-  postV1TeamsTeamIdSignalRules:
-    components.PostV1TeamsTeamIdSignalRules$Outbound;
+  create_team_signal_rule: components.CreateTeamSignalRule$Outbound;
 };
 
 /** @internal */
@@ -43,11 +44,13 @@ export const CreateTeamSignalRuleRequest$outboundSchema: z.ZodType<
   CreateTeamSignalRuleRequest
 > = z.object({
   teamId: z.string(),
-  postV1TeamsTeamIdSignalRules:
-    components.PostV1TeamsTeamIdSignalRules$outboundSchema,
+  createTeamSignalRule: z.lazy(() =>
+    components.CreateTeamSignalRule$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    createTeamSignalRule: "create_team_signal_rule",
   });
 });
 

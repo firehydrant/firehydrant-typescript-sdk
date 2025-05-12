@@ -8,22 +8,22 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AuthorEntity,
-  AuthorEntity$inboundSchema,
-  AuthorEntity$Outbound,
-  AuthorEntity$outboundSchema,
-} from "./authorentity.js";
+  NullableAuthorEntity,
+  NullableAuthorEntity$inboundSchema,
+  NullableAuthorEntity$Outbound,
+  NullableAuthorEntity$outboundSchema,
+} from "./nullableauthorentity.js";
 
 export type TeamEntityLite = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  signalsIcalUrl?: string | undefined;
-  createdBy?: AuthorEntity | undefined;
-  inSupportHours?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  signalsIcalUrl?: string | null | undefined;
+  createdBy?: NullableAuthorEntity | null | undefined;
+  inSupportHours?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -32,17 +32,19 @@ export const TeamEntityLite$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  signals_ical_url: z.string().optional(),
-  created_by: AuthorEntity$inboundSchema.optional(),
-  in_support_hours: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  signals_ical_url: z.nullable(z.string()).optional(),
+  created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  in_support_hours: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -55,15 +57,15 @@ export const TeamEntityLite$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TeamEntityLite$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  slug?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  signals_ical_url?: string | undefined;
-  created_by?: AuthorEntity$Outbound | undefined;
-  in_support_hours?: boolean | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  description?: string | null | undefined;
+  slug?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  signals_ical_url?: string | null | undefined;
+  created_by?: NullableAuthorEntity$Outbound | null | undefined;
+  in_support_hours?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -72,15 +74,15 @@ export const TeamEntityLite$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TeamEntityLite
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  slug: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  signalsIcalUrl: z.string().optional(),
-  createdBy: AuthorEntity$outboundSchema.optional(),
-  inSupportHours: z.boolean().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  slug: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  signalsIcalUrl: z.nullable(z.string()).optional(),
+  createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  inSupportHours: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

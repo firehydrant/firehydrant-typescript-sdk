@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateIncidentTeamAssignmentRequest = {
   incidentId: string;
-  postV1IncidentsIncidentIdTeamAssignments:
-    components.PostV1IncidentsIncidentIdTeamAssignments;
+  createIncidentTeamAssignment: components.CreateIncidentTeamAssignment;
 };
 
 /** @internal */
@@ -22,19 +21,21 @@ export const CreateIncidentTeamAssignmentRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   incident_id: z.string(),
-  postV1IncidentsIncidentIdTeamAssignments:
-    components.PostV1IncidentsIncidentIdTeamAssignments$inboundSchema,
+  create_incident_team_assignment: z.lazy(() =>
+    components.CreateIncidentTeamAssignment$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "incident_id": "incidentId",
+    "create_incident_team_assignment": "createIncidentTeamAssignment",
   });
 });
 
 /** @internal */
 export type CreateIncidentTeamAssignmentRequest$Outbound = {
   incident_id: string;
-  postV1IncidentsIncidentIdTeamAssignments:
-    components.PostV1IncidentsIncidentIdTeamAssignments$Outbound;
+  create_incident_team_assignment:
+    components.CreateIncidentTeamAssignment$Outbound;
 };
 
 /** @internal */
@@ -44,11 +45,13 @@ export const CreateIncidentTeamAssignmentRequest$outboundSchema: z.ZodType<
   CreateIncidentTeamAssignmentRequest
 > = z.object({
   incidentId: z.string(),
-  postV1IncidentsIncidentIdTeamAssignments:
-    components.PostV1IncidentsIncidentIdTeamAssignments$outboundSchema,
+  createIncidentTeamAssignment: z.lazy(() =>
+    components.CreateIncidentTeamAssignment$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     incidentId: "incident_id",
+    createIncidentTeamAssignment: "create_incident_team_assignment",
   });
 });
 

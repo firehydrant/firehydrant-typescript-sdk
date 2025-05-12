@@ -12,14 +12,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * AI_Entities_PreferencesEntity model
  */
 export type AIEntitiesPreferencesEntity = {
-  ai?: boolean | undefined;
-  description?: boolean | undefined;
-  followups?: boolean | undefined;
-  impact?: boolean | undefined;
-  retros?: boolean | undefined;
-  similarIncidents?: boolean | undefined;
-  summaries?: boolean | undefined;
-  updates?: boolean | undefined;
+  ai?: boolean | null | undefined;
+  description?: boolean | null | undefined;
+  followups?: boolean | null | undefined;
+  impact?: boolean | null | undefined;
+  retros?: boolean | null | undefined;
+  similarIncidents?: boolean | null | undefined;
+  summaries?: boolean | null | undefined;
+  updates?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -28,14 +28,14 @@ export const AIEntitiesPreferencesEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  ai: z.boolean().optional(),
-  description: z.boolean().optional(),
-  followups: z.boolean().optional(),
-  impact: z.boolean().optional(),
-  retros: z.boolean().optional(),
-  similar_incidents: z.boolean().optional(),
-  summaries: z.boolean().optional(),
-  updates: z.boolean().optional(),
+  ai: z.nullable(z.boolean()).optional(),
+  description: z.nullable(z.boolean()).optional(),
+  followups: z.nullable(z.boolean()).optional(),
+  impact: z.nullable(z.boolean()).optional(),
+  retros: z.nullable(z.boolean()).optional(),
+  similar_incidents: z.nullable(z.boolean()).optional(),
+  summaries: z.nullable(z.boolean()).optional(),
+  updates: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "similar_incidents": "similarIncidents",
@@ -44,14 +44,14 @@ export const AIEntitiesPreferencesEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AIEntitiesPreferencesEntity$Outbound = {
-  ai?: boolean | undefined;
-  description?: boolean | undefined;
-  followups?: boolean | undefined;
-  impact?: boolean | undefined;
-  retros?: boolean | undefined;
-  similar_incidents?: boolean | undefined;
-  summaries?: boolean | undefined;
-  updates?: boolean | undefined;
+  ai?: boolean | null | undefined;
+  description?: boolean | null | undefined;
+  followups?: boolean | null | undefined;
+  impact?: boolean | null | undefined;
+  retros?: boolean | null | undefined;
+  similar_incidents?: boolean | null | undefined;
+  summaries?: boolean | null | undefined;
+  updates?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -60,14 +60,14 @@ export const AIEntitiesPreferencesEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AIEntitiesPreferencesEntity
 > = z.object({
-  ai: z.boolean().optional(),
-  description: z.boolean().optional(),
-  followups: z.boolean().optional(),
-  impact: z.boolean().optional(),
-  retros: z.boolean().optional(),
-  similarIncidents: z.boolean().optional(),
-  summaries: z.boolean().optional(),
-  updates: z.boolean().optional(),
+  ai: z.nullable(z.boolean()).optional(),
+  description: z.nullable(z.boolean()).optional(),
+  followups: z.nullable(z.boolean()).optional(),
+  impact: z.nullable(z.boolean()).optional(),
+  retros: z.nullable(z.boolean()).optional(),
+  similarIncidents: z.nullable(z.boolean()).optional(),
+  summaries: z.nullable(z.boolean()).optional(),
+  updates: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     similarIncidents: "similar_incidents",

@@ -3,9 +3,9 @@
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsCloudtrailBatchEntityStatus } from "firehydrant-typescript-sdk/models/components";
+import { IntegrationsAwsCloudtrailBatchEntityStatus } from "firehydrant/models/components";
 
-let value: IntegrationsAwsCloudtrailBatchEntityStatus = "pending";
+let value: IntegrationsAwsCloudtrailBatchEntityStatus = "failed";
 ```
 
 ## Values

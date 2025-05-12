@@ -3,17 +3,17 @@
 ## Example Usage
 
 ```typescript
-import { UpdateChangeEventRequest } from "firehydrant-typescript-sdk/models/operations";
+import { UpdateChangeEventRequest } from "firehydrant/models/operations";
 
 let value: UpdateChangeEventRequest = {
   changeEventId: "<id>",
-  patchV1ChangesEventsChangeEventId: {},
+  updateChangeEvent: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `changeEventId`                                                                                              | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `patchV1ChangesEventsChangeEventId`                                                                          | [components.PatchV1ChangesEventsChangeEventId](../../models/components/patchv1changeseventschangeeventid.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `changeEventId`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `updateChangeEvent`                                                          | [components.UpdateChangeEvent](../../models/components/updatechangeevent.md) | :heavy_check_mark:                                                           | N/A                                                                          |

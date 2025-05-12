@@ -19,18 +19,18 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { FirehydrantTypescriptSDKCore } from "firehydrant-typescript-sdk/core.js";
-import { accountSettingsGetAiPreferences } from "firehydrant-typescript-sdk/funcs/accountSettingsGetAiPreferences.js";
-import { SDKValidationError } from "firehydrant-typescript-sdk/models/errors/sdkvalidationerror.js";
+import { FirehydrantCore } from "firehydrant/core.js";
+import { accountSettingsPing } from "firehydrant/funcs/accountSettingsPing.js";
+import { SDKValidationError } from "firehydrant/models/errors/sdkvalidationerror.js";
 
-// Use `FirehydrantTypescriptSDKCore` for best tree-shaking performance.
+// Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const firehydrantTypescriptSDK = new FirehydrantTypescriptSDKCore({
-  apiKey: process.env["FIREHYDRANTTYPESCRIPTSDK_API_KEY"] ?? "",
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  const res = await accountSettingsGetAiPreferences(firehydrantTypescriptSDK);
+  const res = await accountSettingsPing(firehydrant);
 
   switch (true) {
     case res.ok:

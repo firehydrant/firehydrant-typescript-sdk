@@ -9,8 +9,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListIncidentTasksRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   incidentId: string;
 };
 
@@ -20,8 +20,8 @@ export const ListIncidentTasksRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
   incident_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -32,8 +32,8 @@ export const ListIncidentTasksRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListIncidentTasksRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
   incident_id: string;
 };
 
@@ -43,8 +43,8 @@ export const ListIncidentTasksRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListIncidentTasksRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
   incidentId: z.string(),
 }).transform((v) => {
   return remap$(v, {

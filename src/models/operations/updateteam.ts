@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateTeamRequest = {
   teamId: string;
-  patchV1TeamsTeamId: components.PatchV1TeamsTeamId;
+  updateTeam: components.UpdateTeam;
 };
 
 /** @internal */
@@ -21,17 +21,18 @@ export const UpdateTeamRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
-  patchV1TeamsTeamId: components.PatchV1TeamsTeamId$inboundSchema,
+  update_team: z.lazy(() => components.UpdateTeam$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "update_team": "updateTeam",
   });
 });
 
 /** @internal */
 export type UpdateTeamRequest$Outbound = {
   team_id: string;
-  patchV1TeamsTeamId: components.PatchV1TeamsTeamId$Outbound;
+  update_team: components.UpdateTeam$Outbound;
 };
 
 /** @internal */
@@ -41,10 +42,11 @@ export const UpdateTeamRequest$outboundSchema: z.ZodType<
   UpdateTeamRequest
 > = z.object({
   teamId: z.string(),
-  patchV1TeamsTeamId: components.PatchV1TeamsTeamId$outboundSchema,
+  updateTeam: z.lazy(() => components.UpdateTeam$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    updateTeam: "update_team",
   });
 });
 

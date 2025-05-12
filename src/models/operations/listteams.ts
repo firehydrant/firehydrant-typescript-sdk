@@ -9,28 +9,28 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListTeamsRequest = {
-  page?: number | undefined;
-  perPage?: number | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * A query to search teams by their name or description
    */
-  query?: string | undefined;
+  query?: string | null | undefined;
   /**
    * A query to search teams by their name
    */
-  name?: string | undefined;
+  name?: string | null | undefined;
   /**
    * A comma separated list of service IDs
    */
-  services?: string | undefined;
+  services?: string | null | undefined;
   /**
    * Filter by teams that have or do not have members with a default incident role asssigned. Value may be 'present', 'blank', or the ID of an incident role.
    */
-  defaultIncidentRole?: string | undefined;
+  defaultIncidentRole?: string | null | undefined;
   /**
    * Boolean to determine whether to return a slimified version of the teams object
    */
-  lite?: boolean | undefined;
+  lite?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -39,13 +39,13 @@ export const ListTeamsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
-  services: z.string().optional(),
-  default_incident_role: z.string().optional(),
-  lite: z.boolean().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  default_incident_role: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -55,13 +55,13 @@ export const ListTeamsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListTeamsRequest$Outbound = {
-  page?: number | undefined;
-  per_page?: number | undefined;
-  query?: string | undefined;
-  name?: string | undefined;
-  services?: string | undefined;
-  default_incident_role?: string | undefined;
-  lite?: boolean | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
+  query?: string | null | undefined;
+  name?: string | null | undefined;
+  services?: string | null | undefined;
+  default_incident_role?: string | null | undefined;
+  lite?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -70,13 +70,13 @@ export const ListTeamsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListTeamsRequest
 > = z.object({
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
-  query: z.string().optional(),
-  name: z.string().optional(),
-  services: z.string().optional(),
-  defaultIncidentRole: z.string().optional(),
-  lite: z.boolean().optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+  query: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  services: z.nullable(z.string()).optional(),
+  defaultIncidentRole: z.nullable(z.string()).optional(),
+  lite: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",

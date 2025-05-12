@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateTeamOnCallScheduleRequest = {
   teamId: string;
-  postV1TeamsTeamIdOnCallSchedules: components.PostV1TeamsTeamIdOnCallSchedules;
+  createTeamOnCallSchedule: components.CreateTeamOnCallSchedule;
 };
 
 /** @internal */
@@ -21,19 +21,20 @@ export const CreateTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
-  postV1TeamsTeamIdOnCallSchedules:
-    components.PostV1TeamsTeamIdOnCallSchedules$inboundSchema,
+  create_team_on_call_schedule: z.lazy(() =>
+    components.CreateTeamOnCallSchedule$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "create_team_on_call_schedule": "createTeamOnCallSchedule",
   });
 });
 
 /** @internal */
 export type CreateTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
-  postV1TeamsTeamIdOnCallSchedules:
-    components.PostV1TeamsTeamIdOnCallSchedules$Outbound;
+  create_team_on_call_schedule: components.CreateTeamOnCallSchedule$Outbound;
 };
 
 /** @internal */
@@ -43,11 +44,13 @@ export const CreateTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
   CreateTeamOnCallScheduleRequest
 > = z.object({
   teamId: z.string(),
-  postV1TeamsTeamIdOnCallSchedules:
-    components.PostV1TeamsTeamIdOnCallSchedules$outboundSchema,
+  createTeamOnCallSchedule: z.lazy(() =>
+    components.CreateTeamOnCallSchedule$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    createTeamOnCallSchedule: "create_team_on_call_schedule",
   });
 });
 

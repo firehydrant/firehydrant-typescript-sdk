@@ -9,13 +9,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListTicketingProjectsRequest = {
-  supportsTicketTypes?: string | undefined;
-  providers?: string | undefined;
-  connectionIds?: string | undefined;
-  configuredProjects?: boolean | undefined;
-  query?: string | undefined;
-  page?: number | undefined;
-  perPage?: number | undefined;
+  supportsTicketTypes?: string | null | undefined;
+  providers?: string | null | undefined;
+  connectionIds?: string | null | undefined;
+  configuredProjects?: boolean | null | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -24,13 +24,13 @@ export const ListTicketingProjectsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  supports_ticket_types: z.string().optional(),
-  providers: z.string().optional(),
-  connection_ids: z.string().optional(),
-  configured_projects: z.boolean().optional(),
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  per_page: z.number().int().optional(),
+  supports_ticket_types: z.nullable(z.string()).optional(),
+  providers: z.nullable(z.string()).optional(),
+  connection_ids: z.nullable(z.string()).optional(),
+  configured_projects: z.nullable(z.boolean()).optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "supports_ticket_types": "supportsTicketTypes",
@@ -42,13 +42,13 @@ export const ListTicketingProjectsRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ListTicketingProjectsRequest$Outbound = {
-  supports_ticket_types?: string | undefined;
-  providers?: string | undefined;
-  connection_ids?: string | undefined;
-  configured_projects?: boolean | undefined;
-  query?: string | undefined;
-  page?: number | undefined;
-  per_page?: number | undefined;
+  supports_ticket_types?: string | null | undefined;
+  providers?: string | null | undefined;
+  connection_ids?: string | null | undefined;
+  configured_projects?: boolean | null | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -57,13 +57,13 @@ export const ListTicketingProjectsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListTicketingProjectsRequest
 > = z.object({
-  supportsTicketTypes: z.string().optional(),
-  providers: z.string().optional(),
-  connectionIds: z.string().optional(),
-  configuredProjects: z.boolean().optional(),
-  query: z.string().optional(),
-  page: z.number().int().optional(),
-  perPage: z.number().int().optional(),
+  supportsTicketTypes: z.nullable(z.string()).optional(),
+  providers: z.nullable(z.string()).optional(),
+  connectionIds: z.nullable(z.string()).optional(),
+  configuredProjects: z.nullable(z.boolean()).optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     supportsTicketTypes: "supports_ticket_types",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteRunbookRequest } from "firehydrant-typescript-sdk/models/operations";
+import { DeleteRunbookRequest } from "firehydrant/models/operations";
 
 let value: DeleteRunbookRequest = {
   runbookId: "<id>",

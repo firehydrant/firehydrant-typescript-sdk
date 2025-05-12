@@ -9,8 +9,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IntegrationsStatuspageMilestoneMappingEntity = {
-  milestoneId?: string | undefined;
-  status?: string | undefined;
+  milestoneId?: string | null | undefined;
+  status?: string | null | undefined;
 };
 
 /** @internal */
@@ -20,8 +20,8 @@ export const IntegrationsStatuspageMilestoneMappingEntity$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    milestone_id: z.string().optional(),
-    status: z.string().optional(),
+    milestone_id: z.nullable(z.string()).optional(),
+    status: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {
       "milestone_id": "milestoneId",
@@ -30,8 +30,8 @@ export const IntegrationsStatuspageMilestoneMappingEntity$inboundSchema:
 
 /** @internal */
 export type IntegrationsStatuspageMilestoneMappingEntity$Outbound = {
-  milestone_id?: string | undefined;
-  status?: string | undefined;
+  milestone_id?: string | null | undefined;
+  status?: string | null | undefined;
 };
 
 /** @internal */
@@ -41,8 +41,8 @@ export const IntegrationsStatuspageMilestoneMappingEntity$outboundSchema:
     z.ZodTypeDef,
     IntegrationsStatuspageMilestoneMappingEntity
   > = z.object({
-    milestoneId: z.string().optional(),
-    status: z.string().optional(),
+    milestoneId: z.nullable(z.string()).optional(),
+    status: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {
       milestoneId: "milestone_id",

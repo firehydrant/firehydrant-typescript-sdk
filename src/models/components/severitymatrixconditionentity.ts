@@ -11,12 +11,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * SeverityMatrix_ConditionEntity model
  */
 export type SeverityMatrixConditionEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
   /**
    * Position is used to determine ordering of conditions in API responses and dropdowns. The condition with the lowest position (typically 0) will be considered the Default Condition
    */
-  position?: number | undefined;
+  position?: number | null | undefined;
 };
 
 /** @internal */
@@ -25,16 +25,16 @@ export const SeverityMatrixConditionEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  position: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
 });
 
 /** @internal */
 export type SeverityMatrixConditionEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  position?: number | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  position?: number | null | undefined;
 };
 
 /** @internal */
@@ -43,9 +43,9 @@ export const SeverityMatrixConditionEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SeverityMatrixConditionEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  position: z.number().int().optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
 });
 
 /**

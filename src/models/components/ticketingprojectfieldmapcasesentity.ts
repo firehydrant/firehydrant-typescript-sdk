@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  TicketingProjectFieldMapExternalValueEntity,
-  TicketingProjectFieldMapExternalValueEntity$inboundSchema,
-  TicketingProjectFieldMapExternalValueEntity$Outbound,
-  TicketingProjectFieldMapExternalValueEntity$outboundSchema,
-} from "./ticketingprojectfieldmapexternalvalueentity.js";
+  NullableTicketingProjectFieldMapExternalValueEntity,
+  NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema,
+  NullableTicketingProjectFieldMapExternalValueEntity$Outbound,
+  NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema,
+} from "./nullableticketingprojectfieldmapexternalvalueentity.js";
 
 /**
  * An unstructured object of key/value pairs describing the logic for applying the rule.
@@ -23,8 +23,11 @@ export type TicketingProjectFieldMapCasesEntity = {
   /**
    * An unstructured object of key/value pairs describing the logic for applying the rule.
    */
-  logic?: TicketingProjectFieldMapCasesEntityLogic | undefined;
-  externalValue?: TicketingProjectFieldMapExternalValueEntity | undefined;
+  logic?: TicketingProjectFieldMapCasesEntityLogic | null | undefined;
+  externalValue?:
+    | NullableTicketingProjectFieldMapExternalValueEntity
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -92,10 +95,12 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  logic: z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$inboundSchema)
-    .optional(),
-  external_value: TicketingProjectFieldMapExternalValueEntity$inboundSchema
-    .optional(),
+  logic: z.nullable(
+    z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$inboundSchema),
+  ).optional(),
+  external_value: z.nullable(
+    NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "external_value": "externalValue",
@@ -104,9 +109,10 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingProjectFieldMapCasesEntity$Outbound = {
-  logic?: TicketingProjectFieldMapCasesEntityLogic$Outbound | undefined;
+  logic?: TicketingProjectFieldMapCasesEntityLogic$Outbound | null | undefined;
   external_value?:
-    | TicketingProjectFieldMapExternalValueEntity$Outbound
+    | NullableTicketingProjectFieldMapExternalValueEntity$Outbound
+    | null
     | undefined;
 };
 
@@ -116,10 +122,12 @@ export const TicketingProjectFieldMapCasesEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectFieldMapCasesEntity
 > = z.object({
-  logic: z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$outboundSchema)
-    .optional(),
-  externalValue: TicketingProjectFieldMapExternalValueEntity$outboundSchema
-    .optional(),
+  logic: z.nullable(
+    z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$outboundSchema),
+  ).optional(),
+  externalValue: z.nullable(
+    NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     externalValue: "external_value",

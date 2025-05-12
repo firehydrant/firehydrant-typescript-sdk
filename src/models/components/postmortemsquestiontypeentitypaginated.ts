@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PaginationEntity,
-  PaginationEntity$inboundSchema,
-  PaginationEntity$Outbound,
-  PaginationEntity$outboundSchema,
-} from "./paginationentity.js";
+  NullablePaginationEntity,
+  NullablePaginationEntity$inboundSchema,
+  NullablePaginationEntity$Outbound,
+  NullablePaginationEntity$outboundSchema,
+} from "./nullablepaginationentity.js";
 import {
   PostMortemsQuestionTypeEntity,
   PostMortemsQuestionTypeEntity$inboundSchema,
@@ -23,8 +23,8 @@ import {
  * PostMortems_QuestionTypeEntityPaginated model
  */
 export type PostMortemsQuestionTypeEntityPaginated = {
-  data?: Array<PostMortemsQuestionTypeEntity> | undefined;
-  pagination?: PaginationEntity | undefined;
+  data?: Array<PostMortemsQuestionTypeEntity> | null | undefined;
+  pagination?: NullablePaginationEntity | null | undefined;
 };
 
 /** @internal */
@@ -33,14 +33,15 @@ export const PostMortemsQuestionTypeEntityPaginated$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(PostMortemsQuestionTypeEntity$inboundSchema).optional(),
-  pagination: PaginationEntity$inboundSchema.optional(),
+  data: z.nullable(z.array(PostMortemsQuestionTypeEntity$inboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
 
 /** @internal */
 export type PostMortemsQuestionTypeEntityPaginated$Outbound = {
-  data?: Array<PostMortemsQuestionTypeEntity$Outbound> | undefined;
-  pagination?: PaginationEntity$Outbound | undefined;
+  data?: Array<PostMortemsQuestionTypeEntity$Outbound> | null | undefined;
+  pagination?: NullablePaginationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -49,8 +50,9 @@ export const PostMortemsQuestionTypeEntityPaginated$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PostMortemsQuestionTypeEntityPaginated
 > = z.object({
-  data: z.array(PostMortemsQuestionTypeEntity$outboundSchema).optional(),
-  pagination: PaginationEntity$outboundSchema.optional(),
+  data: z.nullable(z.array(PostMortemsQuestionTypeEntity$outboundSchema))
+    .optional(),
+  pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
 /**

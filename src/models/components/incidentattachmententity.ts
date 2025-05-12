@@ -26,18 +26,18 @@ export type Versions = {};
  * IncidentAttachmentEntity model
  */
 export type IncidentAttachmentEntity = {
-  fileName?: string | undefined;
-  fileContentType?: string | undefined;
-  signedUrl?: string | undefined;
-  mediaType?: string | undefined;
-  description?: string | undefined;
-  externalId?: string | undefined;
-  fileSize?: number | undefined;
-  status?: IncidentAttachmentEntityStatus | undefined;
+  fileName?: string | null | undefined;
+  fileContentType?: string | null | undefined;
+  signedUrl?: string | null | undefined;
+  mediaType?: string | null | undefined;
+  description?: string | null | undefined;
+  externalId?: string | null | undefined;
+  fileSize?: number | null | undefined;
+  status?: IncidentAttachmentEntityStatus | null | undefined;
   /**
    * An object with keys that designate a specific version or size of the attachment
    */
-  versions?: Versions | undefined;
+  versions?: Versions | null | undefined;
 };
 
 /** @internal */
@@ -111,15 +111,15 @@ export const IncidentAttachmentEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  file_name: z.string().optional(),
-  file_content_type: z.string().optional(),
-  signed_url: z.string().optional(),
-  media_type: z.string().optional(),
-  description: z.string().optional(),
-  external_id: z.string().optional(),
-  file_size: z.number().int().optional(),
-  status: IncidentAttachmentEntityStatus$inboundSchema.optional(),
-  versions: z.lazy(() => Versions$inboundSchema).optional(),
+  file_name: z.nullable(z.string()).optional(),
+  file_content_type: z.nullable(z.string()).optional(),
+  signed_url: z.nullable(z.string()).optional(),
+  media_type: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
+  file_size: z.nullable(z.number().int()).optional(),
+  status: z.nullable(IncidentAttachmentEntityStatus$inboundSchema).optional(),
+  versions: z.nullable(z.lazy(() => Versions$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "file_name": "fileName",
@@ -133,15 +133,15 @@ export const IncidentAttachmentEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type IncidentAttachmentEntity$Outbound = {
-  file_name?: string | undefined;
-  file_content_type?: string | undefined;
-  signed_url?: string | undefined;
-  media_type?: string | undefined;
-  description?: string | undefined;
-  external_id?: string | undefined;
-  file_size?: number | undefined;
-  status?: string | undefined;
-  versions?: Versions$Outbound | undefined;
+  file_name?: string | null | undefined;
+  file_content_type?: string | null | undefined;
+  signed_url?: string | null | undefined;
+  media_type?: string | null | undefined;
+  description?: string | null | undefined;
+  external_id?: string | null | undefined;
+  file_size?: number | null | undefined;
+  status?: string | null | undefined;
+  versions?: Versions$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -150,15 +150,15 @@ export const IncidentAttachmentEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IncidentAttachmentEntity
 > = z.object({
-  fileName: z.string().optional(),
-  fileContentType: z.string().optional(),
-  signedUrl: z.string().optional(),
-  mediaType: z.string().optional(),
-  description: z.string().optional(),
-  externalId: z.string().optional(),
-  fileSize: z.number().int().optional(),
-  status: IncidentAttachmentEntityStatus$outboundSchema.optional(),
-  versions: z.lazy(() => Versions$outboundSchema).optional(),
+  fileName: z.nullable(z.string()).optional(),
+  fileContentType: z.nullable(z.string()).optional(),
+  signedUrl: z.nullable(z.string()).optional(),
+  mediaType: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
+  fileSize: z.nullable(z.number().int()).optional(),
+  status: z.nullable(IncidentAttachmentEntityStatus$outboundSchema).optional(),
+  versions: z.nullable(z.lazy(() => Versions$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     fileName: "file_name",

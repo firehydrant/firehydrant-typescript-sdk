@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ReportsBucketEntity } from "firehydrant-typescript-sdk/models/components";
+import { ReportsBucketEntity } from "firehydrant/models/components";
 
 let value: ReportsBucketEntity = {};
 ```

@@ -3,14 +3,14 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamSignalRuleRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateTeamSignalRuleRequest } from "firehydrant/models/operations";
 
 let value: CreateTeamSignalRuleRequest = {
   teamId: "<id>",
-  postV1TeamsTeamIdSignalRules: {
+  createTeamSignalRule: {
     name: "<value>",
     expression: "<value>",
-    targetType: "User",
+    targetType: "Webhook",
     targetId: "<id>",
   },
 };
@@ -18,7 +18,7 @@ let value: CreateTeamSignalRuleRequest = {
 
 ## Fields
 
-| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `teamId`                                                                                           | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
-| `postV1TeamsTeamIdSignalRules`                                                                     | [components.PostV1TeamsTeamIdSignalRules](../../models/components/postv1teamsteamidsignalrules.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `teamId`                                                                           | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `createTeamSignalRule`                                                             | [components.CreateTeamSignalRule](../../models/components/createteamsignalrule.md) | :heavy_check_mark:                                                                 | N/A                                                                                |

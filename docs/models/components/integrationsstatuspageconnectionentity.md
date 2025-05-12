@@ -5,7 +5,7 @@ Integrations_Statuspage_ConnectionEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsStatuspageConnectionEntity } from "firehydrant-typescript-sdk/models/components";
+import { IntegrationsStatuspageConnectionEntity } from "firehydrant/models/components";
 
 let value: IntegrationsStatuspageConnectionEntity = {};
 ```

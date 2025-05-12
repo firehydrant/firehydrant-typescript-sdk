@@ -9,10 +9,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LinksEntity = {
-  id?: string | undefined;
-  hrefUrl?: string | undefined;
-  iconUrl?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  hrefUrl?: string | null | undefined;
+  iconUrl?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,10 +21,10 @@ export const LinksEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  href_url: z.string().optional(),
-  icon_url: z.string().optional(),
-  name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  href_url: z.nullable(z.string()).optional(),
+  icon_url: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "href_url": "hrefUrl",
@@ -34,10 +34,10 @@ export const LinksEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type LinksEntity$Outbound = {
-  id?: string | undefined;
-  href_url?: string | undefined;
-  icon_url?: string | undefined;
-  name?: string | undefined;
+  id?: string | null | undefined;
+  href_url?: string | null | undefined;
+  icon_url?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -46,10 +46,10 @@ export const LinksEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LinksEntity
 > = z.object({
-  id: z.string().optional(),
-  hrefUrl: z.string().optional(),
-  iconUrl: z.string().optional(),
-  name: z.string().optional(),
+  id: z.nullable(z.string()).optional(),
+  hrefUrl: z.nullable(z.string()).optional(),
+  iconUrl: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     hrefUrl: "href_url",

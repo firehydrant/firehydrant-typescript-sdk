@@ -3,104 +3,72 @@
  */
 
 import { integrationsCreateConnection } from "../funcs/integrationsCreateConnection.js";
-import { integrationsCreateFieldMap } from "../funcs/integrationsCreateFieldMap.js";
-import { integrationsDeleteFieldMap } from "../funcs/integrationsDeleteFieldMap.js";
-import { integrationsDeletePriority } from "../funcs/integrationsDeletePriority.js";
-import { integrationsDeleteProjectConfig } from "../funcs/integrationsDeleteProjectConfig.js";
+import { integrationsCreateSlackEmojiAction } from "../funcs/integrationsCreateSlackEmojiAction.js";
+import { integrationsDeleteSlackEmojiAction } from "../funcs/integrationsDeleteSlackEmojiAction.js";
 import { integrationsDeleteStatuspageConnection } from "../funcs/integrationsDeleteStatuspageConnection.js";
-import { integrationsGet } from "../funcs/integrationsGet.js";
-import { integrationsGetAvailableFields } from "../funcs/integrationsGetAvailableFields.js";
-import { integrationsGetFieldMapAvailableFields } from "../funcs/integrationsGetFieldMapAvailableFields.js";
-import { integrationsGetProjectConfigurationOptions } from "../funcs/integrationsGetProjectConfigurationOptions.js";
-import { integrationsGetProjectFieldOptions } from "../funcs/integrationsGetProjectFieldOptions.js";
-import { integrationsGetStatus } from "../funcs/integrationsGetStatus.js";
+import { integrationsGetAwsCloudtrailBatch } from "../funcs/integrationsGetAwsCloudtrailBatch.js";
+import { integrationsGetAwsConnection } from "../funcs/integrationsGetAwsConnection.js";
+import { integrationsGetIntegration } from "../funcs/integrationsGetIntegration.js";
+import { integrationsGetSlackEmojiAction } from "../funcs/integrationsGetSlackEmojiAction.js";
 import { integrationsGetStatuspageConnection } from "../funcs/integrationsGetStatuspageConnection.js";
-import { integrationsGetTicket } from "../funcs/integrationsGetTicket.js";
-import { integrationsList } from "../funcs/integrationsList.js";
-import { integrationsListCloudtrailBatches } from "../funcs/integrationsListCloudtrailBatches.js";
+import { integrationsGetZendeskCustomerSupportIssue } from "../funcs/integrationsGetZendeskCustomerSupportIssue.js";
+import { integrationsListAuthedProviders } from "../funcs/integrationsListAuthedProviders.js";
+import { integrationsListAwsCloudtrailBatches } from "../funcs/integrationsListAwsCloudtrailBatches.js";
+import { integrationsListAwsCloudtrailBatchEvents } from "../funcs/integrationsListAwsCloudtrailBatchEvents.js";
+import { integrationsListAwsConnections } from "../funcs/integrationsListAwsConnections.js";
 import { integrationsListConnections } from "../funcs/integrationsListConnections.js";
-import { integrationsListEmojiActions } from "../funcs/integrationsListEmojiActions.js";
-import { integrationsListProjects } from "../funcs/integrationsListProjects.js";
+import { integrationsListConnectionStatuses } from "../funcs/integrationsListConnectionStatuses.js";
+import { integrationsListConnectionStatusesBySlug } from "../funcs/integrationsListConnectionStatusesBySlug.js";
+import { integrationsListConnectionStatusesBySlugAndId } from "../funcs/integrationsListConnectionStatusesBySlugAndId.js";
+import { integrationsListFieldMapAvailableFields } from "../funcs/integrationsListFieldMapAvailableFields.js";
+import { integrationsListIntegrations } from "../funcs/integrationsListIntegrations.js";
+import { integrationsListSlackEmojiActions } from "../funcs/integrationsListSlackEmojiActions.js";
+import { integrationsListSlackUsergroups } from "../funcs/integrationsListSlackUsergroups.js";
+import { integrationsListSlackWorkspaces } from "../funcs/integrationsListSlackWorkspaces.js";
+import { integrationsListStatuspageConnectionPages } from "../funcs/integrationsListStatuspageConnectionPages.js";
+import { integrationsListStatuspageConnections } from "../funcs/integrationsListStatuspageConnections.js";
 import { integrationsRefreshConnection } from "../funcs/integrationsRefreshConnection.js";
-import { integrationsUpdateCloudTrailBatch } from "../funcs/integrationsUpdateCloudTrailBatch.js";
+import { integrationsSearchConfluenceSpaces } from "../funcs/integrationsSearchConfluenceSpaces.js";
+import { integrationsSearchZendeskTickets } from "../funcs/integrationsSearchZendeskTickets.js";
+import { integrationsUpdateAuthedProvider } from "../funcs/integrationsUpdateAuthedProvider.js";
+import { integrationsUpdateAwsCloudtrailBatch } from "../funcs/integrationsUpdateAwsCloudtrailBatch.js";
+import { integrationsUpdateAwsConnection } from "../funcs/integrationsUpdateAwsConnection.js";
 import { integrationsUpdateConnection } from "../funcs/integrationsUpdateConnection.js";
 import { integrationsUpdateFieldMap } from "../funcs/integrationsUpdateFieldMap.js";
-import { integrationsUpdatePriority } from "../funcs/integrationsUpdatePriority.js";
-import { integrationsUpdateTicketingFieldMap } from "../funcs/integrationsUpdateTicketingFieldMap.js";
+import { integrationsUpdateSlackEmojiAction } from "../funcs/integrationsUpdateSlackEmojiAction.js";
+import { integrationsUpdateStatuspageConnection } from "../funcs/integrationsUpdateStatuspageConnection.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
-import { Aws } from "./aws.js";
-import { FirehydrantTypescriptSDKSlack } from "./firehydranttypescriptsdkslack.js";
-import { FirehydrantTypescriptSDKStatuspage } from "./firehydranttypescriptsdkstatuspage.js";
-import { FirehydrantTypescriptSDKTicketing } from "./firehydranttypescriptsdkticketing.js";
 
 export class Integrations extends ClientSDK {
-  private _aws?: Aws;
-  get aws(): Aws {
-    return (this._aws ??= new Aws(this._options));
-  }
-
-  private _slack?: FirehydrantTypescriptSDKSlack;
-  get slack(): FirehydrantTypescriptSDKSlack {
-    return (this._slack ??= new FirehydrantTypescriptSDKSlack(this._options));
-  }
-
-  private _statuspage?: FirehydrantTypescriptSDKStatuspage;
-  get statuspage(): FirehydrantTypescriptSDKStatuspage {
-    return (this._statuspage ??= new FirehydrantTypescriptSDKStatuspage(
-      this._options,
-    ));
-  }
-
-  private _ticketing?: FirehydrantTypescriptSDKTicketing;
-  get ticketing(): FirehydrantTypescriptSDKTicketing {
-    return (this._ticketing ??= new FirehydrantTypescriptSDKTicketing(
-      this._options,
-    ));
-  }
-
   /**
-   * List all available integrations
-   */
-  async list(
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsList(
-      this,
-      options,
-    ));
-  }
-
-  /**
-   * List AWS CloudTrail batches
+   * List integrations
    *
    * @remarks
-   * Lists CloudTrail batches for the authenticated organization.
+   * Lists the available and configured integrations
    */
-  async listCloudtrailBatches(
-    request: operations.ListAwsCloudtrailBatchesRequest,
+  async listIntegrations(
     options?: RequestOptions,
-  ): Promise<components.IntegrationsAwsCloudtrailBatchEntityPaginated> {
-    return unwrapAsync(integrationsListCloudtrailBatches(
+  ): Promise<components.IntegrationsIntegrationEntityPaginated> {
+    return unwrapAsync(integrationsListIntegrations(
       this,
-      request,
       options,
     ));
   }
 
   /**
-   * Update an AWS CloudTrail batch
+   * Get an integration
    *
    * @remarks
-   * Update a CloudTrail batch with new information.
+   * Retrieve a single integration
    */
-  async updateCloudTrailBatch(
-    request: operations.UpdateAwsCloudTrailBatchRequest,
+  async getIntegration(
+    request: operations.GetIntegrationRequest,
     options?: RequestOptions,
-  ): Promise<components.IntegrationsAwsCloudtrailBatchEntity> {
-    return unwrapAsync(integrationsUpdateCloudTrailBatch(
+  ): Promise<components.IntegrationsIntegrationEntity> {
+    return unwrapAsync(integrationsGetIntegration(
       this,
       request,
       options,
@@ -108,69 +76,13 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * List integration connections
-   */
-  async listConnections(
-    request: operations.ListIntegrationConnectionsRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsListConnections(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Create a new integration connection
-   */
-  async createConnection(
-    request: operations.CreateIntegrationConnectionRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsCreateConnection(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Update an integration connection
-   */
-  async updateConnection(
-    request: operations.UpdateIntegrationConnectionRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsUpdateConnection(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Refresh an integration connection
-   */
-  async refreshConnection(
-    request: operations.RefreshIntegrationConnectionRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsRefreshConnection(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Update a field mapping configuration
+   * Update field mapping
    *
    * @remarks
-   * Update field map
+   * Update field mapping
    */
   async updateFieldMap(
-    request: operations.UpdateIntegrationFieldMapRequest,
+    request: operations.UpdateFieldMapRequest,
     options?: RequestOptions,
   ): Promise<components.FieldMappingFieldMapEntity> {
     return unwrapAsync(integrationsUpdateFieldMap(
@@ -186,13 +98,332 @@ export class Integrations extends ClientSDK {
    * @remarks
    * Get a description of the fields to which data can be mapped
    */
-  async getFieldMapAvailableFields(
-    request: operations.GetIntegrationFieldMapAvailableFieldsRequest,
+  async listFieldMapAvailableFields(
+    request: operations.ListFieldMapAvailableFieldsRequest,
     options?: RequestOptions,
   ): Promise<components.FieldMappingMappableFieldEntity> {
-    return unwrapAsync(integrationsGetFieldMapAvailableFields(
+    return unwrapAsync(integrationsListFieldMapAvailableFields(
       this,
       request,
+      options,
+    ));
+  }
+
+  /**
+   * Lists the available and configured integrations
+   *
+   * @remarks
+   * Lists the available and configured integrations
+   */
+  async listAuthedProviders(
+    request: operations.ListAuthedProvidersRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAuthedProviderEntityPaginated> {
+    return unwrapAsync(integrationsListAuthedProviders(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get an authed provider
+   *
+   * @remarks
+   * Retrieve a single authed provider
+   */
+  async updateAuthedProvider(
+    request: operations.UpdateAuthedProviderRequest,
+    options?: RequestOptions,
+  ): Promise<components.PublicApiv1IntegrationsAuthedProviderEntity> {
+    return unwrapAsync(integrationsUpdateAuthedProvider(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List integration connections
+   *
+   * @remarks
+   * List available integration connections
+   */
+  async listConnections(
+    request: operations.ListConnectionsRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionEntityPaginated> {
+    return unwrapAsync(integrationsListConnections(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Create a new integration connection
+   *
+   * @remarks
+   * Create a new integration connection
+   */
+  async createConnection(
+    request: operations.CreateConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionEntity> {
+    return unwrapAsync(integrationsCreateConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Refresh an integration connection
+   *
+   * @remarks
+   * Refresh the integration connection with the provided data
+   */
+  async refreshConnection(
+    request: operations.RefreshConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionEntity> {
+    return unwrapAsync(integrationsRefreshConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update an integration connection
+   *
+   * @remarks
+   * Update the integration connection with the provided data
+   */
+  async updateConnection(
+    request: operations.UpdateConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionEntity> {
+    return unwrapAsync(integrationsUpdateConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get integration connection status
+   *
+   * @remarks
+   * Retrieve overall integration connection status
+   */
+  async listConnectionStatuses(
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionStatusEntity> {
+    return unwrapAsync(integrationsListConnectionStatuses(
+      this,
+      options,
+    ));
+  }
+
+  /**
+   * Get an integration connection status
+   *
+   * @remarks
+   * Retrieve a single integration connection status
+   */
+  async listConnectionStatusesBySlug(
+    request: operations.ListConnectionStatusesBySlugRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionStatusEntity> {
+    return unwrapAsync(integrationsListConnectionStatusesBySlug(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get an integration connection status
+   *
+   * @remarks
+   * Retrieve a single integration connection status
+   */
+  async listConnectionStatusesBySlugAndId(
+    request: operations.ListConnectionStatusesBySlugAndIdRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConnectionStatusEntity> {
+    return unwrapAsync(integrationsListConnectionStatusesBySlugAndId(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List AWS connections
+   *
+   * @remarks
+   * Lists the available and configured AWS integration connections for the authenticated organization.
+   */
+  async listAwsConnections(
+    request: operations.ListAwsConnectionsRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAwsConnectionEntityPaginated> {
+    return unwrapAsync(integrationsListAwsConnections(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get an AWS connection
+   *
+   * @remarks
+   * Retrieves the information about the AWS connection.
+   */
+  async getAwsConnection(
+    request: operations.GetAwsConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAwsConnectionEntity> {
+    return unwrapAsync(integrationsGetAwsConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update an AWS connection
+   *
+   * @remarks
+   * Update the AWS connection with the provided data.
+   */
+  async updateAwsConnection(
+    request: operations.UpdateAwsConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAwsConnectionEntity> {
+    return unwrapAsync(integrationsUpdateAwsConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List CloudTrail batches
+   *
+   * @remarks
+   * Lists CloudTrail batches for the authenticated organization.
+   */
+  async listAwsCloudtrailBatches(
+    request: operations.ListAwsCloudtrailBatchesRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAwsCloudtrailBatchEntityPaginated> {
+    return unwrapAsync(integrationsListAwsCloudtrailBatches(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get a CloudTrail batch
+   *
+   * @remarks
+   * Retrieve a single CloudTrail batch.
+   */
+  async getAwsCloudtrailBatch(
+    request: operations.GetAwsCloudtrailBatchRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAwsCloudtrailBatchEntity> {
+    return unwrapAsync(integrationsGetAwsCloudtrailBatch(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a CloudTrail batch
+   *
+   * @remarks
+   * Update a CloudTrail batch with new information.
+   */
+  async updateAwsCloudtrailBatch(
+    request: operations.UpdateAwsCloudtrailBatchRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsAwsCloudtrailBatchEntity> {
+    return unwrapAsync(integrationsUpdateAwsCloudtrailBatch(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List events for an AWS CloudTrail batch
+   *
+   * @remarks
+   * List events for an AWS CloudTrail batch
+   */
+  async listAwsCloudtrailBatchEvents(
+    request: operations.ListAwsCloudtrailBatchEventsRequest,
+    options?: RequestOptions,
+  ): Promise<components.ChangeEventEntity> {
+    return unwrapAsync(integrationsListAwsCloudtrailBatchEvents(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Confluence spaces
+   *
+   * @remarks
+   * Lists available space keys for the Confluence integration connection.
+   */
+  async searchConfluenceSpaces(
+    request: operations.SearchConfluenceSpacesRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsConfluenceCloudSpaceKeyEntity> {
+    return unwrapAsync(integrationsSearchConfluenceSpaces(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Slack workspaces
+   *
+   * @remarks
+   * Lists all Slack workspaces
+   */
+  async listSlackWorkspaces(
+    request: operations.ListSlackWorkspacesRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsSlackWorkspaceEntity> {
+    return unwrapAsync(integrationsListSlackWorkspaces(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Slack user groups
+   *
+   * @remarks
+   * Lists all Slack user groups
+   */
+  async listSlackUsergroups(
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsSlackUsergroupEntity> {
+    return unwrapAsync(integrationsListSlackUsergroups(
+      this,
       options,
     ));
   }
@@ -201,13 +432,13 @@ export class Integrations extends ClientSDK {
    * List Slack emoji actions
    *
    * @remarks
-   * Lists all slack emoji actions
+   * Lists Slack emoji actions
    */
-  async listEmojiActions(
+  async listSlackEmojiActions(
     request: operations.ListSlackEmojiActionsRequest,
     options?: RequestOptions,
   ): Promise<void> {
-    return unwrapAsync(integrationsListEmojiActions(
+    return unwrapAsync(integrationsListSlackEmojiActions(
       this,
       request,
       options,
@@ -215,13 +446,84 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * Get an integration status
+   * Create a new Slack emoji action
+   *
+   * @remarks
+   * Creates a new Slack emoji action
    */
-  async getStatus(
-    request: operations.GetIntegrationStatusRequest,
+  async createSlackEmojiAction(
+    request: operations.CreateSlackEmojiActionRequest,
     options?: RequestOptions,
   ): Promise<void> {
-    return unwrapAsync(integrationsGetStatus(
+    return unwrapAsync(integrationsCreateSlackEmojiAction(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get a Slack emoji action
+   *
+   * @remarks
+   * Retrieves a Slack emoji action
+   */
+  async getSlackEmojiAction(
+    request: operations.GetSlackEmojiActionRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(integrationsGetSlackEmojiAction(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete a Slack emoji action
+   *
+   * @remarks
+   * Deletes a Slack emoji action
+   */
+  async deleteSlackEmojiAction(
+    request: operations.DeleteSlackEmojiActionRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(integrationsDeleteSlackEmojiAction(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a Slack emoji action
+   *
+   * @remarks
+   * Updates a Slack emoji action
+   */
+  async updateSlackEmojiAction(
+    request: operations.UpdateSlackEmojiActionRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(integrationsUpdateSlackEmojiAction(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Statuspage connections
+   *
+   * @remarks
+   * Lists the available and configured Statuspage integrations connections for the authenticated organization.
+   */
+  async listStatuspageConnections(
+    request: operations.ListStatuspageConnectionsRequest,
+    options?: RequestOptions,
+  ): Promise<components.IntegrationsStatuspageConnectionEntityPaginated> {
+    return unwrapAsync(integrationsListStatuspageConnections(
       this,
       request,
       options,
@@ -263,16 +565,16 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * Get an integration
+   * Update a Statuspage connection
    *
    * @remarks
-   * Retrieve a single integration
+   * Update the given Statuspage integration connection.
    */
-  async get(
-    request: operations.GetIntegrationRequest,
+  async updateStatuspageConnection(
+    request: operations.UpdateStatuspageConnectionRequest,
     options?: RequestOptions,
-  ): Promise<components.IntegrationsIntegrationEntity> {
-    return unwrapAsync(integrationsGet(
+  ): Promise<components.IntegrationsStatuspageConnectionEntity> {
+    return unwrapAsync(integrationsUpdateStatuspageConnection(
       this,
       request,
       options,
@@ -280,16 +582,16 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * Delete a ticketing priority
+   * List StatusPage pages for a connection
    *
    * @remarks
-   * Delete a single ticketing priority by ID
+   * Lists available page IDs for the Statuspage integration connection.
    */
-  async deletePriority(
-    request: operations.DeleteTicketingPriorityRequest,
+  async listStatuspageConnectionPages(
+    request: operations.ListStatuspageConnectionPagesRequest,
     options?: RequestOptions,
-  ): Promise<components.TicketingPriorityEntity> {
-    return unwrapAsync(integrationsDeletePriority(
+  ): Promise<components.IntegrationsStatuspagePageEntity> {
+    return unwrapAsync(integrationsListStatuspageConnectionPages(
       this,
       request,
       options,
@@ -297,16 +599,16 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * Update a ticketing priority
+   * Search for Zendesk tickets
    *
    * @remarks
-   * Update a single ticketing priority's attributes
+   * Search for Zendesk tickets
    */
-  async updatePriority(
-    request: operations.UpdateTicketingPriorityRequest,
+  async searchZendeskTickets(
+    request: operations.SearchZendeskTicketsRequest,
     options?: RequestOptions,
-  ): Promise<components.TicketingPriorityEntity> {
-    return unwrapAsync(integrationsUpdatePriority(
+  ): Promise<components.IntegrationsZendeskSearchTicketsPaginatedEntity> {
+    return unwrapAsync(integrationsSearchZendeskTickets(
       this,
       request,
       options,
@@ -314,146 +616,16 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * List ticketing projects
+   * Search for Zendesk tickets
    *
    * @remarks
-   * List all ticketing projects available to the organization
+   * Search for Zendesk tickets
    */
-  async listProjects(
-    request: operations.ListTicketingProjectsRequest,
-    options?: RequestOptions,
-  ): Promise<components.TicketingProjectsProjectListItemEntity> {
-    return unwrapAsync(integrationsListProjects(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * List configuration options for a ticketing project
-   */
-  async getProjectConfigurationOptions(
-    request: operations.GetTicketingProjectConfigurationOptionsRequest,
+  async getZendeskCustomerSupportIssue(
+    request: operations.GetZendeskCustomerSupportIssueRequest,
     options?: RequestOptions,
   ): Promise<void> {
-    return unwrapAsync(integrationsGetProjectConfigurationOptions(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * List configuration options for a ticketing project field
-   */
-  async getProjectFieldOptions(
-    request: operations.GetTicketingProjectFieldOptionsRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsGetProjectFieldOptions(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Create a field mapping for a ticketing project
-   *
-   * @remarks
-   * Creates field map for a ticketing project
-   */
-  async createFieldMap(
-    request: operations.CreateTicketingProjectFieldMapRequest,
-    options?: RequestOptions,
-  ): Promise<components.TicketingProjectFieldMapEntity> {
-    return unwrapAsync(integrationsCreateFieldMap(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * List available fields for ticket field mapping
-   *
-   * @remarks
-   * Returns metadata for the fields that are available for field mapping.
-   */
-  async getAvailableFields(
-    request: operations.GetTicketingProjectAvailableFieldsRequest,
-    options?: RequestOptions,
-  ): Promise<components.TicketingFieldMapsMappableFieldEntity> {
-    return unwrapAsync(integrationsGetAvailableFields(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a field map for a ticketing project
-   *
-   * @remarks
-   * Archive field map for a ticketing project
-   */
-  async deleteFieldMap(
-    request: operations.DeleteTicketingProjectFieldMapRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(integrationsDeleteFieldMap(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Update a field map for a ticketing project
-   *
-   * @remarks
-   * Update field map for a ticketing project
-   */
-  async updateTicketingFieldMap(
-    request: operations.UpdateTicketingProjectFieldMapRequest,
-    options?: RequestOptions,
-  ): Promise<components.TicketingProjectFieldMapEntity> {
-    return unwrapAsync(integrationsUpdateTicketingFieldMap(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a ticketing project configuration
-   *
-   * @remarks
-   * Archive configuration for a ticketing project
-   */
-  async deleteProjectConfig(
-    request: operations.DeleteTicketingProjectConfigRequest,
-    options?: RequestOptions,
-  ): Promise<components.TicketingProjectConfigEntity> {
-    return unwrapAsync(integrationsDeleteProjectConfig(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Get a ticket
-   *
-   * @remarks
-   * Retrieves a single ticket by ID
-   */
-  async getTicket(
-    request: operations.GetTicketRequest,
-    options?: RequestOptions,
-  ): Promise<components.TicketingTicketEntity> {
-    return unwrapAsync(integrationsGetTicket(
+    return unwrapAsync(integrationsGetZendeskCustomerSupportIssue(
       this,
       request,
       options,

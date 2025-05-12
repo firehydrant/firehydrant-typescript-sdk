@@ -12,11 +12,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Ticketing_PriorityEntity model
  */
 export type TicketingPriorityEntity = {
-  id?: string | undefined;
-  name?: string | undefined;
-  position?: number | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  position?: number | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -25,13 +25,15 @@ export const TicketingPriorityEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  position: z.number().int().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -41,11 +43,11 @@ export const TicketingPriorityEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingPriorityEntity$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  position?: number | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  position?: number | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -54,11 +56,11 @@ export const TicketingPriorityEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingPriorityEntity
 > = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  position: z.number().int().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallScheduleRequest } from "firehydrant-typescript-sdk/models/operations";
+import { CreateTeamOnCallScheduleRequest } from "firehydrant/models/operations";
 
 let value: CreateTeamOnCallScheduleRequest = {
   teamId: "<id>",
-  postV1TeamsTeamIdOnCallSchedules: {
+  createTeamOnCallSchedule: {
     name: "<value>",
-    timeZone: "America/Yakutat",
+    timeZone: "Europe/Bratislava",
     strategy: {
       type: "daily",
     },
@@ -19,7 +19,7 @@ let value: CreateTeamOnCallScheduleRequest = {
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `teamId`                                                                                                   | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `postV1TeamsTeamIdOnCallSchedules`                                                                         | [components.PostV1TeamsTeamIdOnCallSchedules](../../models/components/postv1teamsteamidoncallschedules.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `teamId`                                                                                   | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `createTeamOnCallSchedule`                                                                 | [components.CreateTeamOnCallSchedule](../../models/components/createteamoncallschedule.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |

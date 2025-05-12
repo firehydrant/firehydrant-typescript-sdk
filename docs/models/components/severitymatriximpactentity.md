@@ -5,7 +5,7 @@ SeverityMatrix_ImpactEntity model
 ## Example Usage
 
 ```typescript
-import { SeverityMatrixImpactEntity } from "firehydrant-typescript-sdk/models/components";
+import { SeverityMatrixImpactEntity } from "firehydrant/models/components";
 
 let value: SeverityMatrixImpactEntity = {};
 ```

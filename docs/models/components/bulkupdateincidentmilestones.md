@@ -1,0 +1,31 @@
+# BulkUpdateIncidentMilestones
+
+Update milestone times in bulk for a given incident. All milestone
+times for an incident must occur in chronological order
+corresponding to the configured order of milestones. If the result
+of this request would cause any milestone(s) to appear out of place,
+a 422 response will instead be returned. This includes milestones
+not explicitly submitted or updated in this request.
+
+
+## Example Usage
+
+```typescript
+import { BulkUpdateIncidentMilestones } from "firehydrant/models/components";
+
+let value: BulkUpdateIncidentMilestones = {
+  milestones: [
+    {
+      type: "<value>",
+      occurredAt: new Date("2025-09-01T03:01:19.515Z"),
+    },
+  ],
+};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `bulk`                                                                                                                 | [components.Bulk](../../models/components/bulk.md)                                                                     | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `milestones`                                                                                                           | [components.BulkUpdateIncidentMilestonesMilestone](../../models/components/bulkupdateincidentmilestonesmilestone.md)[] | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

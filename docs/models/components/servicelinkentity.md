@@ -5,14 +5,14 @@ ServiceLinkEntity model
 ## Example Usage
 
 ```typescript
-import { ServiceLinkEntity } from "firehydrant-typescript-sdk/models/components";
+import { ServiceLinkEntity } from "firehydrant/models/components";
 
 let value: ServiceLinkEntity = {};
 ```
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `statusCode`                                                         | *number*                                                             | :heavy_minus_sign:                                                   | N/A                                                                  |
-| `service`                                                            | [components.ServiceEntity](../../models/components/serviceentity.md) | :heavy_minus_sign:                                                   | ServiceEntity model                                                  |
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `statusCode`                                                                         | *number*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `service`                                                                            | [components.NullableServiceEntity](../../models/components/nullableserviceentity.md) | :heavy_minus_sign:                                                                   | N/A                                                                                  |

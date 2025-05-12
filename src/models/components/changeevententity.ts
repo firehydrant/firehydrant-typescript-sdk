@@ -38,7 +38,7 @@ import {
   ServiceEntityLite$outboundSchema,
 } from "./serviceentitylite.js";
 
-export type ChangeEventEntityAttachments = {};
+export type ChangeEventEntityAttachment = {};
 
 /**
  * An object of label key and values
@@ -49,78 +49,78 @@ export type ChangeEventEntityLabels = {};
  * ChangeEventEntity model
  */
 export type ChangeEventEntity = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  externalId?: string | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  startsAt?: Date | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  externalId?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  startsAt?: Date | null | undefined;
   endsAt?: Date | null | undefined;
   durationMs?: number | null | undefined;
   durationIso8601?: string | null | undefined;
-  environments?: Array<EnvironmentEntryEntity> | undefined;
-  relatedChanges?: Array<ChangeEntity> | undefined;
-  identities?: Array<ChangeIdentityEntity> | undefined;
-  authors?: Array<AuthorEntity> | undefined;
+  environments?: Array<EnvironmentEntryEntity> | null | undefined;
+  relatedChanges?: Array<ChangeEntity> | null | undefined;
+  identities?: Array<ChangeIdentityEntity> | null | undefined;
+  authors?: Array<AuthorEntity> | null | undefined;
   /**
    * A list of objects attached to this item. Can be one of: LinkEntity, CustomerSupportIssueEntity, or GenericAttachmentEntity
    */
-  attachments?: Array<ChangeEventEntityAttachments> | undefined;
+  attachments?: Array<ChangeEventEntityAttachment> | null | undefined;
   /**
    * An object of label key and values
    */
-  labels?: ChangeEventEntityLabels | undefined;
-  services?: Array<ServiceEntityLite> | undefined;
+  labels?: ChangeEventEntityLabels | null | undefined;
+  services?: Array<ServiceEntityLite> | null | undefined;
 };
 
 /** @internal */
-export const ChangeEventEntityAttachments$inboundSchema: z.ZodType<
-  ChangeEventEntityAttachments,
+export const ChangeEventEntityAttachment$inboundSchema: z.ZodType<
+  ChangeEventEntityAttachment,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type ChangeEventEntityAttachments$Outbound = {};
+export type ChangeEventEntityAttachment$Outbound = {};
 
 /** @internal */
-export const ChangeEventEntityAttachments$outboundSchema: z.ZodType<
-  ChangeEventEntityAttachments$Outbound,
+export const ChangeEventEntityAttachment$outboundSchema: z.ZodType<
+  ChangeEventEntityAttachment$Outbound,
   z.ZodTypeDef,
-  ChangeEventEntityAttachments
+  ChangeEventEntityAttachment
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ChangeEventEntityAttachments$ {
-  /** @deprecated use `ChangeEventEntityAttachments$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventEntityAttachments$inboundSchema;
-  /** @deprecated use `ChangeEventEntityAttachments$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventEntityAttachments$outboundSchema;
-  /** @deprecated use `ChangeEventEntityAttachments$Outbound` instead. */
-  export type Outbound = ChangeEventEntityAttachments$Outbound;
+export namespace ChangeEventEntityAttachment$ {
+  /** @deprecated use `ChangeEventEntityAttachment$inboundSchema` instead. */
+  export const inboundSchema = ChangeEventEntityAttachment$inboundSchema;
+  /** @deprecated use `ChangeEventEntityAttachment$outboundSchema` instead. */
+  export const outboundSchema = ChangeEventEntityAttachment$outboundSchema;
+  /** @deprecated use `ChangeEventEntityAttachment$Outbound` instead. */
+  export type Outbound = ChangeEventEntityAttachment$Outbound;
 }
 
-export function changeEventEntityAttachmentsToJSON(
-  changeEventEntityAttachments: ChangeEventEntityAttachments,
+export function changeEventEntityAttachmentToJSON(
+  changeEventEntityAttachment: ChangeEventEntityAttachment,
 ): string {
   return JSON.stringify(
-    ChangeEventEntityAttachments$outboundSchema.parse(
-      changeEventEntityAttachments,
+    ChangeEventEntityAttachment$outboundSchema.parse(
+      changeEventEntityAttachment,
     ),
   );
 }
 
-export function changeEventEntityAttachmentsFromJSON(
+export function changeEventEntityAttachmentFromJSON(
   jsonString: string,
-): SafeParseResult<ChangeEventEntityAttachments, SDKValidationError> {
+): SafeParseResult<ChangeEventEntityAttachment, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ChangeEventEntityAttachments$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ChangeEventEntityAttachments' from JSON`,
+    (x) => ChangeEventEntityAttachment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ChangeEventEntityAttachment' from JSON`,
   );
 }
 
@@ -178,29 +178,36 @@ export const ChangeEventEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  external_id: z.string().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  starts_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  starts_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   ends_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   duration_ms: z.nullable(z.number().int()).optional(),
   duration_iso8601: z.nullable(z.string()).optional(),
-  environments: z.array(EnvironmentEntryEntity$inboundSchema).optional(),
-  related_changes: z.array(ChangeEntity$inboundSchema).optional(),
-  identities: z.array(ChangeIdentityEntity$inboundSchema).optional(),
-  authors: z.array(AuthorEntity$inboundSchema).optional(),
-  attachments: z.array(z.lazy(() => ChangeEventEntityAttachments$inboundSchema))
+  environments: z.nullable(z.array(EnvironmentEntryEntity$inboundSchema))
     .optional(),
-  labels: z.lazy(() => ChangeEventEntityLabels$inboundSchema).optional(),
-  services: z.array(ServiceEntityLite$inboundSchema).optional(),
+  related_changes: z.nullable(z.array(ChangeEntity$inboundSchema)).optional(),
+  identities: z.nullable(z.array(ChangeIdentityEntity$inboundSchema))
+    .optional(),
+  authors: z.nullable(z.array(AuthorEntity$inboundSchema)).optional(),
+  attachments: z.nullable(
+    z.array(z.lazy(() => ChangeEventEntityAttachment$inboundSchema)),
+  ).optional(),
+  labels: z.nullable(z.lazy(() => ChangeEventEntityLabels$inboundSchema))
+    .optional(),
+  services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "external_id": "externalId",
@@ -216,23 +223,23 @@ export const ChangeEventEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ChangeEventEntity$Outbound = {
-  id?: string | undefined;
-  summary?: string | undefined;
-  description?: string | undefined;
-  external_id?: string | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  starts_at?: string | undefined;
+  id?: string | null | undefined;
+  summary?: string | null | undefined;
+  description?: string | null | undefined;
+  external_id?: string | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  starts_at?: string | null | undefined;
   ends_at?: string | null | undefined;
   duration_ms?: number | null | undefined;
   duration_iso8601?: string | null | undefined;
-  environments?: Array<EnvironmentEntryEntity$Outbound> | undefined;
-  related_changes?: Array<ChangeEntity$Outbound> | undefined;
-  identities?: Array<ChangeIdentityEntity$Outbound> | undefined;
-  authors?: Array<AuthorEntity$Outbound> | undefined;
-  attachments?: Array<ChangeEventEntityAttachments$Outbound> | undefined;
-  labels?: ChangeEventEntityLabels$Outbound | undefined;
-  services?: Array<ServiceEntityLite$Outbound> | undefined;
+  environments?: Array<EnvironmentEntryEntity$Outbound> | null | undefined;
+  related_changes?: Array<ChangeEntity$Outbound> | null | undefined;
+  identities?: Array<ChangeIdentityEntity$Outbound> | null | undefined;
+  authors?: Array<AuthorEntity$Outbound> | null | undefined;
+  attachments?: Array<ChangeEventEntityAttachment$Outbound> | null | undefined;
+  labels?: ChangeEventEntityLabels$Outbound | null | undefined;
+  services?: Array<ServiceEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -241,25 +248,28 @@ export const ChangeEventEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ChangeEventEntity
 > = z.object({
-  id: z.string().optional(),
-  summary: z.string().optional(),
-  description: z.string().optional(),
-  externalId: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  startsAt: z.date().transform(v => v.toISOString()).optional(),
+  id: z.nullable(z.string()).optional(),
+  summary: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   endsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   durationMs: z.nullable(z.number().int()).optional(),
   durationIso8601: z.nullable(z.string()).optional(),
-  environments: z.array(EnvironmentEntryEntity$outboundSchema).optional(),
-  relatedChanges: z.array(ChangeEntity$outboundSchema).optional(),
-  identities: z.array(ChangeIdentityEntity$outboundSchema).optional(),
-  authors: z.array(AuthorEntity$outboundSchema).optional(),
-  attachments: z.array(
-    z.lazy(() => ChangeEventEntityAttachments$outboundSchema),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$outboundSchema))
+    .optional(),
+  relatedChanges: z.nullable(z.array(ChangeEntity$outboundSchema)).optional(),
+  identities: z.nullable(z.array(ChangeIdentityEntity$outboundSchema))
+    .optional(),
+  authors: z.nullable(z.array(AuthorEntity$outboundSchema)).optional(),
+  attachments: z.nullable(
+    z.array(z.lazy(() => ChangeEventEntityAttachment$outboundSchema)),
   ).optional(),
-  labels: z.lazy(() => ChangeEventEntityLabels$outboundSchema).optional(),
-  services: z.array(ServiceEntityLite$outboundSchema).optional(),
+  labels: z.nullable(z.lazy(() => ChangeEventEntityLabels$outboundSchema))
+    .optional(),
+  services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     externalId: "external_id",

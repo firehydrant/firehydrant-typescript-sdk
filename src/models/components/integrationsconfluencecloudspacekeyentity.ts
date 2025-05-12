@@ -11,8 +11,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Integrations_ConfluenceCloud_SpaceKeyEntity model
  */
 export type IntegrationsConfluenceCloudSpaceKeyEntity = {
-  key?: string | undefined;
-  name?: string | undefined;
+  key?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,14 +21,14 @@ export const IntegrationsConfluenceCloudSpaceKeyEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  key: z.string().optional(),
-  name: z.string().optional(),
+  key: z.nullable(z.string()).optional(),
+  name: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type IntegrationsConfluenceCloudSpaceKeyEntity$Outbound = {
-  key?: string | undefined;
-  name?: string | undefined;
+  key?: string | null | undefined;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -38,8 +38,8 @@ export const IntegrationsConfluenceCloudSpaceKeyEntity$outboundSchema:
     z.ZodTypeDef,
     IntegrationsConfluenceCloudSpaceKeyEntity
   > = z.object({
-    key: z.string().optional(),
-    name: z.string().optional(),
+    key: z.nullable(z.string()).optional(),
+    name: z.nullable(z.string()).optional(),
   });
 
 /**

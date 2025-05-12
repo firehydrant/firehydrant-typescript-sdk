@@ -11,8 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateScheduledMaintenanceRequest = {
   scheduledMaintenanceId: string;
-  patchV1ScheduledMaintenancesScheduledMaintenanceId:
-    components.PatchV1ScheduledMaintenancesScheduledMaintenanceId;
+  updateScheduledMaintenance: components.UpdateScheduledMaintenance;
 };
 
 /** @internal */
@@ -22,19 +21,20 @@ export const UpdateScheduledMaintenanceRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   scheduled_maintenance_id: z.string(),
-  patchV1ScheduledMaintenancesScheduledMaintenanceId:
-    components.PatchV1ScheduledMaintenancesScheduledMaintenanceId$inboundSchema,
+  update_scheduled_maintenance: z.lazy(() =>
+    components.UpdateScheduledMaintenance$inboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     "scheduled_maintenance_id": "scheduledMaintenanceId",
+    "update_scheduled_maintenance": "updateScheduledMaintenance",
   });
 });
 
 /** @internal */
 export type UpdateScheduledMaintenanceRequest$Outbound = {
   scheduled_maintenance_id: string;
-  patchV1ScheduledMaintenancesScheduledMaintenanceId:
-    components.PatchV1ScheduledMaintenancesScheduledMaintenanceId$Outbound;
+  update_scheduled_maintenance: components.UpdateScheduledMaintenance$Outbound;
 };
 
 /** @internal */
@@ -44,12 +44,13 @@ export const UpdateScheduledMaintenanceRequest$outboundSchema: z.ZodType<
   UpdateScheduledMaintenanceRequest
 > = z.object({
   scheduledMaintenanceId: z.string(),
-  patchV1ScheduledMaintenancesScheduledMaintenanceId:
-    components
-      .PatchV1ScheduledMaintenancesScheduledMaintenanceId$outboundSchema,
+  updateScheduledMaintenance: z.lazy(() =>
+    components.UpdateScheduledMaintenance$outboundSchema
+  ),
 }).transform((v) => {
   return remap$(v, {
     scheduledMaintenanceId: "scheduled_maintenance_id",
+    updateScheduledMaintenance: "update_scheduled_maintenance",
   });
 });
 

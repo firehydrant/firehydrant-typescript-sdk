@@ -12,14 +12,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * SeverityEntity model
  */
 export type SeverityEntity = {
-  slug?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  position?: number | undefined;
-  createdAt?: Date | undefined;
-  updatedAt?: Date | undefined;
-  systemRecord?: boolean | undefined;
-  color?: string | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  position?: number | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
+  systemRecord?: boolean | null | undefined;
+  color?: string | null | undefined;
 };
 
 /** @internal */
@@ -28,16 +28,18 @@ export const SeverityEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  position: z.number().int().optional(),
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  updated_at: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  system_record: z.boolean().optional(),
-  color: z.string().optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  system_record: z.nullable(z.boolean()).optional(),
+  color: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -48,14 +50,14 @@ export const SeverityEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SeverityEntity$Outbound = {
-  slug?: string | undefined;
-  description?: string | undefined;
-  type?: string | undefined;
-  position?: number | undefined;
-  created_at?: string | undefined;
-  updated_at?: string | undefined;
-  system_record?: boolean | undefined;
-  color?: string | undefined;
+  slug?: string | null | undefined;
+  description?: string | null | undefined;
+  type?: string | null | undefined;
+  position?: number | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
+  system_record?: boolean | null | undefined;
+  color?: string | null | undefined;
 };
 
 /** @internal */
@@ -64,14 +66,14 @@ export const SeverityEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SeverityEntity
 > = z.object({
-  slug: z.string().optional(),
-  description: z.string().optional(),
-  type: z.string().optional(),
-  position: z.number().int().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
-  updatedAt: z.date().transform(v => v.toISOString()).optional(),
-  systemRecord: z.boolean().optional(),
-  color: z.string().optional(),
+  slug: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
+  type: z.nullable(z.string()).optional(),
+  position: z.nullable(z.number().int()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  systemRecord: z.nullable(z.boolean()).optional(),
+  color: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

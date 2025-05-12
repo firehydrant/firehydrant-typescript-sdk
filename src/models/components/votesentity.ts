@@ -14,17 +14,17 @@ export type VotesEntity = {
   /**
    * Whether or not the current actor has voted
    */
-  voted?: boolean | undefined;
+  voted?: boolean | null | undefined;
   /**
    * Whether or not the current actor has voted positively
    */
-  liked?: boolean | undefined;
+  liked?: boolean | null | undefined;
   /**
    * Whether or not the current actor has voted negatively
    */
-  disliked?: boolean | undefined;
-  likes?: number | undefined;
-  dislikes?: number | undefined;
+  disliked?: boolean | null | undefined;
+  likes?: number | null | undefined;
+  dislikes?: number | null | undefined;
 };
 
 /** @internal */
@@ -33,20 +33,20 @@ export const VotesEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  voted: z.boolean().optional(),
-  liked: z.boolean().optional(),
-  disliked: z.boolean().optional(),
-  likes: z.number().int().optional(),
-  dislikes: z.number().int().optional(),
+  voted: z.nullable(z.boolean()).optional(),
+  liked: z.nullable(z.boolean()).optional(),
+  disliked: z.nullable(z.boolean()).optional(),
+  likes: z.nullable(z.number().int()).optional(),
+  dislikes: z.nullable(z.number().int()).optional(),
 });
 
 /** @internal */
 export type VotesEntity$Outbound = {
-  voted?: boolean | undefined;
-  liked?: boolean | undefined;
-  disliked?: boolean | undefined;
-  likes?: number | undefined;
-  dislikes?: number | undefined;
+  voted?: boolean | null | undefined;
+  liked?: boolean | null | undefined;
+  disliked?: boolean | null | undefined;
+  likes?: number | null | undefined;
+  dislikes?: number | null | undefined;
 };
 
 /** @internal */
@@ -55,11 +55,11 @@ export const VotesEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   VotesEntity
 > = z.object({
-  voted: z.boolean().optional(),
-  liked: z.boolean().optional(),
-  disliked: z.boolean().optional(),
-  likes: z.number().int().optional(),
-  dislikes: z.number().int().optional(),
+  voted: z.nullable(z.boolean()).optional(),
+  liked: z.nullable(z.boolean()).optional(),
+  disliked: z.nullable(z.boolean()).optional(),
+  likes: z.nullable(z.number().int()).optional(),
+  dislikes: z.nullable(z.number().int()).optional(),
 });
 
 /**
