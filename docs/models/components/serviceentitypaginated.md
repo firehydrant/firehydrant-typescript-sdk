@@ -5,7 +5,7 @@ ServiceEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { ServiceEntityPaginated } from "firehydrant/models/components";
+import { ServiceEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: ServiceEntityPaginated = {};
 ```

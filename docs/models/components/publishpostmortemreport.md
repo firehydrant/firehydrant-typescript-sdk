@@ -5,7 +5,7 @@ Marks an incident retrospective as published and emails all of the participants 
 ## Example Usage
 
 ```typescript
-import { PublishPostMortemReport } from "firehydrant/models/components";
+import { PublishPostMortemReport } from "firehydrant-typescript-sdk/models/components";
 
 let value: PublishPostMortemReport = {};
 ```

@@ -5,7 +5,7 @@ Creates an environment for the organization
 ## Example Usage
 
 ```typescript
-import { CreateEnvironment } from "firehydrant/models/components";
+import { CreateEnvironment } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateEnvironment = {
   name: "<value>",

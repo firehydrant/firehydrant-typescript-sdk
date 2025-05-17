@@ -5,7 +5,7 @@ Integrations_Aws_ConnectionEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsConnectionEntityPaginated } from "firehydrant/models/components";
+import { IntegrationsAwsConnectionEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAwsConnectionEntityPaginated = {};
 ```

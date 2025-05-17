@@ -18,7 +18,7 @@ Retrieve a list of all users in an organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -39,8 +39,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { usersListUsers } from "firehydrant/funcs/usersListUsers.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { usersListUsers } from "firehydrant-typescript-sdk/funcs/usersListUsers.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -90,7 +90,7 @@ Retrieve a single user by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -113,8 +113,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { usersGetUser } from "firehydrant/funcs/usersGetUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { usersGetUser } from "firehydrant-typescript-sdk/funcs/usersGetUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -166,7 +166,7 @@ Retrieve the current user
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -187,8 +187,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { usersGetCurrentUser } from "firehydrant/funcs/usersGetCurrentUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { usersGetCurrentUser } from "firehydrant-typescript-sdk/funcs/usersGetCurrentUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

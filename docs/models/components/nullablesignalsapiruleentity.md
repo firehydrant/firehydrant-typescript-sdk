@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableSignalsAPIRuleEntity } from "firehydrant/models/components";
+import { NullableSignalsAPIRuleEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableSignalsAPIRuleEntity = {
   deduplicationExpiry: "PT1H",

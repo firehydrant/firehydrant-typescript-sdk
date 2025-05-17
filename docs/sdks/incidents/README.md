@@ -71,7 +71,7 @@ List all of the incidents in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -92,8 +92,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidents } from "firehydrant/funcs/incidentsListIncidents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidents } from "firehydrant-typescript-sdk/funcs/incidentsListIncidents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -143,7 +143,7 @@ Create a new incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -166,8 +166,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncident } from "firehydrant/funcs/incidentsCreateIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncident } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -219,7 +219,7 @@ Gives chat channel information for the specified incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -242,8 +242,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetIncidentChannel } from "firehydrant/funcs/incidentsGetIncidentChannel.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetIncidentChannel } from "firehydrant-typescript-sdk/funcs/incidentsGetIncidentChannel.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -295,7 +295,7 @@ Closes an incident and optionally close all children
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -318,8 +318,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCloseIncident } from "firehydrant/funcs/incidentsCloseIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCloseIncident } from "firehydrant-typescript-sdk/funcs/incidentsCloseIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -371,7 +371,7 @@ Resolves a currently active incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -394,8 +394,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsResolveIncident } from "firehydrant/funcs/incidentsResolveIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsResolveIncident } from "firehydrant-typescript-sdk/funcs/incidentsResolveIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -447,7 +447,7 @@ Retrieve a single incident from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -470,8 +470,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetIncident } from "firehydrant/funcs/incidentsGetIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetIncident } from "firehydrant-typescript-sdk/funcs/incidentsGetIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -523,7 +523,7 @@ Archives an incident which will hide it from lists and metrics
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -546,8 +546,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncident } from "firehydrant/funcs/incidentsDeleteIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncident } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -599,7 +599,7 @@ Updates an incident with provided parameters
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -623,8 +623,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncident } from "firehydrant/funcs/incidentsUpdateIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncident } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -677,7 +677,7 @@ Unarchive an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -700,8 +700,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUnarchiveIncident } from "firehydrant/funcs/incidentsUnarchiveIncident.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUnarchiveIncident } from "firehydrant-typescript-sdk/funcs/incidentsUnarchiveIncident.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -759,7 +759,7 @@ not explicitly submitted or updated in this request.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -772,15 +772,15 @@ async function run() {
       milestones: [
         {
           type: "<value>",
-          occurredAt: new Date("2025-04-19T18:24:04.583Z"),
+          occurredAt: new Date("2025-04-19T10:45:27.739Z"),
         },
         {
           type: "<value>",
-          occurredAt: new Date("2024-09-22T18:15:43.263Z"),
+          occurredAt: new Date("2025-04-19T10:45:27.739Z"),
         },
         {
           type: "<value>",
-          occurredAt: new Date("2023-08-29T06:50:58.826Z"),
+          occurredAt: new Date("2025-04-19T10:45:27.739Z"),
         },
       ],
     },
@@ -798,8 +798,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsBulkUpdateIncidentMilestones } from "firehydrant/funcs/incidentsBulkUpdateIncidentMilestones.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsBulkUpdateIncidentMilestones } from "firehydrant-typescript-sdk/funcs/incidentsBulkUpdateIncidentMilestones.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -814,15 +814,15 @@ async function run() {
       milestones: [
         {
           type: "<value>",
-          occurredAt: new Date("2025-04-19T18:24:04.583Z"),
+          occurredAt: new Date("2025-04-19T10:45:27.739Z"),
         },
         {
           type: "<value>",
-          occurredAt: new Date("2024-09-22T18:15:43.263Z"),
+          occurredAt: new Date("2025-04-19T10:45:27.739Z"),
         },
         {
           type: "<value>",
-          occurredAt: new Date("2023-08-29T06:50:58.826Z"),
+          occurredAt: new Date("2025-04-19T10:45:27.739Z"),
         },
       ],
     },
@@ -867,7 +867,7 @@ List times and durations for each milestone on an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -890,8 +890,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentMilestones } from "firehydrant/funcs/incidentsListIncidentMilestones.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentMilestones } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentMilestones.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -943,7 +943,7 @@ List related changes that have been attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -966,8 +966,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentChangeEvents } from "firehydrant/funcs/incidentsListIncidentChangeEvents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentChangeEvents } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentChangeEvents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1019,7 +1019,7 @@ Add a related change to an incident. Changes added to an incident can be causes,
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1030,7 +1030,7 @@ async function run() {
     incidentId: "<id>",
     createIncidentChangeEvent: {
       changeEventId: "<id>",
-      type: "caused",
+      type: "suspect",
     },
   });
 
@@ -1046,8 +1046,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentChangeEvent } from "firehydrant/funcs/incidentsCreateIncidentChangeEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentChangeEvent } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentChangeEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1060,7 +1060,7 @@ async function run() {
     incidentId: "<id>",
     createIncidentChangeEvent: {
       changeEventId: "<id>",
-      type: "caused",
+      type: "suspect",
     },
   });
 
@@ -1104,7 +1104,7 @@ Update a change attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1129,8 +1129,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentChangeEvent } from "firehydrant/funcs/incidentsUpdateIncidentChangeEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentChangeEvent } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentChangeEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1185,7 +1185,7 @@ List status pages that are attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1208,8 +1208,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentStatusPages } from "firehydrant/funcs/incidentsListIncidentStatusPages.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentStatusPages } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentStatusPages.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1261,7 +1261,7 @@ Add a status page to an incident.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1288,8 +1288,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentStatusPage } from "firehydrant/funcs/incidentsCreateIncidentStatusPage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentStatusPage } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentStatusPage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1345,7 +1345,7 @@ List all the editable, external incident links attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1368,8 +1368,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentLinks } from "firehydrant/funcs/incidentsListIncidentLinks.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentLinks } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentLinks.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1421,7 +1421,7 @@ Allows adding adhoc links to an incident as an attachment
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1447,8 +1447,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentLink } from "firehydrant/funcs/incidentsCreateIncidentLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentLink } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1503,7 +1503,7 @@ Update the external incident link attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1527,8 +1527,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentLink } from "firehydrant/funcs/incidentsUpdateIncidentLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentLink } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1581,7 +1581,7 @@ Remove a link from an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1604,8 +1604,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncidentLink } from "firehydrant/funcs/incidentsDeleteIncidentLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncidentLink } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncidentLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1657,7 +1657,7 @@ Update the attribution of a transcript
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1682,8 +1682,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateTranscriptAttribution } from "firehydrant/funcs/incidentsUpdateTranscriptAttribution.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateTranscriptAttribution } from "firehydrant-typescript-sdk/funcs/incidentsUpdateTranscriptAttribution.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1737,7 +1737,7 @@ Retrieve the transcript for a specific incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1760,8 +1760,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListTranscriptEntries } from "firehydrant/funcs/incidentsListTranscriptEntries.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListTranscriptEntries } from "firehydrant-typescript-sdk/funcs/incidentsListTranscriptEntries.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1813,7 +1813,7 @@ Delete a transcript from an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1837,8 +1837,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteTranscriptEntry } from "firehydrant/funcs/incidentsDeleteTranscriptEntry.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteTranscriptEntry } from "firehydrant-typescript-sdk/funcs/incidentsDeleteTranscriptEntry.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1891,7 +1891,7 @@ Retrieve all conference bridges for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1914,8 +1914,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentConferenceBridges } from "firehydrant/funcs/incidentsListIncidentConferenceBridges.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentConferenceBridges } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentConferenceBridges.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1967,7 +1967,7 @@ Retrieve the translations for a specific conference bridge
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1992,8 +1992,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetConferenceBridgeTranslation } from "firehydrant/funcs/incidentsGetConferenceBridgeTranslation.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetConferenceBridgeTranslation } from "firehydrant-typescript-sdk/funcs/incidentsGetConferenceBridgeTranslation.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2047,7 +2047,7 @@ Retrieve a list of similar incidents
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2070,8 +2070,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListSimilarIncidents } from "firehydrant/funcs/incidentsListSimilarIncidents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListSimilarIncidents } from "firehydrant-typescript-sdk/funcs/incidentsListSimilarIncidents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2123,7 +2123,7 @@ List attachments for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2146,8 +2146,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentAttachments } from "firehydrant/funcs/incidentsListIncidentAttachments.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentAttachments } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentAttachments.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2199,7 +2199,7 @@ Allows adding image attachments to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 import { openAsBlob } from "node:fs";
 
 const firehydrant = new Firehydrant({
@@ -2226,8 +2226,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentAttachment } from "firehydrant/funcs/incidentsCreateIncidentAttachment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentAttachment } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentAttachment.js";
 import { openAsBlob } from "node:fs";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
@@ -2283,7 +2283,7 @@ List all events for an incident. An event is a timeline entry. This can be filte
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2306,8 +2306,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentEvents } from "firehydrant/funcs/incidentsListIncidentEvents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentEvents } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentEvents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2359,7 +2359,7 @@ Retrieve a single event for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2383,8 +2383,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetIncidentEvent } from "firehydrant/funcs/incidentsGetIncidentEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetIncidentEvent } from "firehydrant-typescript-sdk/funcs/incidentsGetIncidentEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2437,7 +2437,7 @@ Delete an event for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2461,8 +2461,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncidentEvent } from "firehydrant/funcs/incidentsDeleteIncidentEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncidentEvent } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncidentEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2515,7 +2515,7 @@ Update a single event for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2539,8 +2539,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentEvent } from "firehydrant/funcs/incidentsUpdateIncidentEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentEvent } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2600,7 +2600,7 @@ impacts will be added or updated, but no impacts will be removed.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2624,8 +2624,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentImpactPut } from "firehydrant/funcs/incidentsUpdateIncidentImpactPut.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentImpactPut } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentImpactPut.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2685,7 +2685,7 @@ impacts will be added or updated, but no impacts will be removed.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2709,8 +2709,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentImpactPatch } from "firehydrant/funcs/incidentsUpdateIncidentImpactPatch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentImpactPatch } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentImpactPatch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2763,7 +2763,7 @@ List impacted infrastructure on an incident by specifying type
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2772,7 +2772,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.incidents.listIncidentImpacts({
     incidentId: "<id>",
-    type: "environments",
+    type: "customers",
   });
 
   // Handle the result
@@ -2787,8 +2787,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentImpacts } from "firehydrant/funcs/incidentsListIncidentImpacts.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentImpacts } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentImpacts.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2799,7 +2799,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await incidentsListIncidentImpacts(firehydrant, {
     incidentId: "<id>",
-    type: "environments",
+    type: "customers",
   });
 
   if (!res.ok) {
@@ -2841,7 +2841,7 @@ Add impacted infrastructure to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2850,7 +2850,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.incidents.createIncidentImpact({
     incidentId: "<id>",
-    type: "functionalities",
+    type: "customers",
     createIncidentImpact: {
       id: "<id>",
     },
@@ -2868,8 +2868,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentImpact } from "firehydrant/funcs/incidentsCreateIncidentImpact.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentImpact } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentImpact.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2880,7 +2880,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await incidentsCreateIncidentImpact(firehydrant, {
     incidentId: "<id>",
-    type: "functionalities",
+    type: "customers",
     createIncidentImpact: {
       id: "<id>",
     },
@@ -2926,7 +2926,7 @@ Remove impacted infrastructure from an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2950,8 +2950,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncidentImpact } from "firehydrant/funcs/incidentsDeleteIncidentImpact.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncidentImpact } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncidentImpact.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3005,7 +3005,7 @@ Create a new note on for an incident. The visibility field on a note determines 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3031,8 +3031,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentNote } from "firehydrant/funcs/incidentsCreateIncidentNote.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentNote } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentNote.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3087,7 +3087,7 @@ Updates the body of a note
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3114,8 +3114,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentNote } from "firehydrant/funcs/incidentsUpdateIncidentNote.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentNote } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentNote.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3171,7 +3171,7 @@ Create a new generic chat message on an incident timeline. These are independent
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3197,8 +3197,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentChatMessage } from "firehydrant/funcs/incidentsCreateIncidentChatMessage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentChatMessage } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentChatMessage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3253,7 +3253,7 @@ Delete an existing generic chat message on an incident.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3277,8 +3277,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncidentChatMessage } from "firehydrant/funcs/incidentsDeleteIncidentChatMessage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncidentChatMessage } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncidentChatMessage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3331,7 +3331,7 @@ Update an existing generic chat message on an incident.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3358,8 +3358,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateIncidentChatMessage } from "firehydrant/funcs/incidentsUpdateIncidentChatMessage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateIncidentChatMessage } from "firehydrant-typescript-sdk/funcs/incidentsUpdateIncidentChatMessage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3415,7 +3415,7 @@ Retrieve a list of all of the current role assignments for the incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3438,8 +3438,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListIncidentRoleAssignments } from "firehydrant/funcs/incidentsListIncidentRoleAssignments.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListIncidentRoleAssignments } from "firehydrant-typescript-sdk/funcs/incidentsListIncidentRoleAssignments.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3491,7 +3491,7 @@ Assign a role to a user for this incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3518,8 +3518,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentRoleAssignment } from "firehydrant/funcs/incidentsCreateIncidentRoleAssignment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentRoleAssignment } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentRoleAssignment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3575,7 +3575,7 @@ Unassign a role from a user
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3599,8 +3599,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncidentRoleAssignment } from "firehydrant/funcs/incidentsDeleteIncidentRoleAssignment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncidentRoleAssignment } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncidentRoleAssignment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3653,7 +3653,7 @@ Assign a team for this incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3678,8 +3678,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateIncidentTeamAssignment } from "firehydrant/funcs/incidentsCreateIncidentTeamAssignment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateIncidentTeamAssignment } from "firehydrant-typescript-sdk/funcs/incidentsCreateIncidentTeamAssignment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3733,7 +3733,7 @@ Unassign a team from an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3756,8 +3756,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteIncidentTeamAssignment } from "firehydrant/funcs/incidentsDeleteIncidentTeamAssignment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteIncidentTeamAssignment } from "firehydrant-typescript-sdk/funcs/incidentsDeleteIncidentTeamAssignment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3809,7 +3809,7 @@ Retrieve a user with current roles for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3833,8 +3833,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetIncidentUser } from "firehydrant/funcs/incidentsGetIncidentUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetIncidentUser } from "firehydrant-typescript-sdk/funcs/incidentsGetIncidentUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3887,7 +3887,7 @@ List any parent/child relationships for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3910,8 +3910,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetIncidentRelationships } from "firehydrant/funcs/incidentsGetIncidentRelationships.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetIncidentRelationships } from "firehydrant-typescript-sdk/funcs/incidentsGetIncidentRelationships.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3963,7 +3963,7 @@ Lists all scheduled maintenance events
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3984,8 +3984,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsListScheduledMaintenances } from "firehydrant/funcs/incidentsListScheduledMaintenances.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsListScheduledMaintenances } from "firehydrant-typescript-sdk/funcs/incidentsListScheduledMaintenances.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4035,7 +4035,7 @@ Create a new scheduled maintenance event
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -4044,8 +4044,8 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.incidents.createScheduledMaintenance({
     name: "<value>",
-    startsAt: new Date("2024-11-04T00:39:53.690Z"),
-    endsAt: new Date("2023-11-08T19:38:38.616Z"),
+    startsAt: new Date("2023-07-05T09:49:56.220Z"),
+    endsAt: new Date("2025-04-17T19:51:25.891Z"),
   });
 
   // Handle the result
@@ -4060,8 +4060,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsCreateScheduledMaintenance } from "firehydrant/funcs/incidentsCreateScheduledMaintenance.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsCreateScheduledMaintenance } from "firehydrant-typescript-sdk/funcs/incidentsCreateScheduledMaintenance.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4072,8 +4072,8 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await incidentsCreateScheduledMaintenance(firehydrant, {
     name: "<value>",
-    startsAt: new Date("2024-11-04T00:39:53.690Z"),
-    endsAt: new Date("2023-11-08T19:38:38.616Z"),
+    startsAt: new Date("2023-07-05T09:49:56.220Z"),
+    endsAt: new Date("2025-04-17T19:51:25.891Z"),
   });
 
   if (!res.ok) {
@@ -4116,7 +4116,7 @@ Fetch the details of a scheduled maintenance event.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -4139,8 +4139,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetScheduledMaintenance } from "firehydrant/funcs/incidentsGetScheduledMaintenance.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetScheduledMaintenance } from "firehydrant-typescript-sdk/funcs/incidentsGetScheduledMaintenance.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4192,7 +4192,7 @@ Delete a scheduled maintenance event, preventing it from taking place.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -4214,8 +4214,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsDeleteScheduledMaintenance } from "firehydrant/funcs/incidentsDeleteScheduledMaintenance.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsDeleteScheduledMaintenance } from "firehydrant-typescript-sdk/funcs/incidentsDeleteScheduledMaintenance.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4266,7 +4266,7 @@ Change the conditions of a scheduled maintenance event, including updating any s
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -4290,8 +4290,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsUpdateScheduledMaintenance } from "firehydrant/funcs/incidentsUpdateScheduledMaintenance.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsUpdateScheduledMaintenance } from "firehydrant-typescript-sdk/funcs/incidentsUpdateScheduledMaintenance.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4344,7 +4344,7 @@ Get the current user's vote status for an AI-generated incident summary
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -4367,8 +4367,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsGetAiIncidentSummaryVoteStatus } from "firehydrant/funcs/incidentsGetAiIncidentSummaryVoteStatus.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsGetAiIncidentSummaryVoteStatus } from "firehydrant-typescript-sdk/funcs/incidentsGetAiIncidentSummaryVoteStatus.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4420,7 +4420,7 @@ Vote on an AI-generated incident summary for the current user
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -4431,7 +4431,7 @@ async function run() {
     incidentId: "<id>",
     generatedSummaryId: "<id>",
     requestBody: {
-      direction: "down",
+      direction: "up",
     },
   });
 
@@ -4447,8 +4447,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentsVoteAiIncidentSummary } from "firehydrant/funcs/incidentsVoteAiIncidentSummary.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentsVoteAiIncidentSummary } from "firehydrant-typescript-sdk/funcs/incidentsVoteAiIncidentSummary.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -4461,7 +4461,7 @@ async function run() {
     incidentId: "<id>",
     generatedSummaryId: "<id>",
     requestBody: {
-      direction: "down",
+      direction: "up",
     },
   });
 

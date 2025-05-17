@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetSavedSearchResourceType } from "firehydrant/models/operations";
+import { GetSavedSearchResourceType } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSavedSearchResourceType = "alerts";
 ```

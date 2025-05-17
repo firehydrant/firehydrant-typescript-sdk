@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SectionsSlug } from "firehydrant/models/operations";
+import { SectionsSlug } from "firehydrant-typescript-sdk/models/operations";
 
 let value: SectionsSlug = "timeline";
 ```

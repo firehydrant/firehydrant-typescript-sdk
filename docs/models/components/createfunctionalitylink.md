@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateFunctionalityLink } from "firehydrant/models/components";
+import { CreateFunctionalityLink } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateFunctionalityLink = {
   name: "<value>",

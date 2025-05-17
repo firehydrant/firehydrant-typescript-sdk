@@ -5,7 +5,7 @@ Assign a team for this incident
 ## Example Usage
 
 ```typescript
-import { CreateIncidentTeamAssignment } from "firehydrant/models/components";
+import { CreateIncidentTeamAssignment } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentTeamAssignment = {
   teamId: "<id>",

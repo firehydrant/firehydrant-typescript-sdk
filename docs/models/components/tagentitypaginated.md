@@ -5,7 +5,7 @@ TagEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { TagEntityPaginated } from "firehydrant/models/components";
+import { TagEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: TagEntityPaginated = {};
 ```

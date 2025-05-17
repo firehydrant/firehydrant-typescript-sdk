@@ -5,7 +5,7 @@ A matching strategy for the tags provided
 ## Example Usage
 
 ```typescript
-import { ListIncidentsTagMatchStrategy } from "firehydrant/models/operations";
+import { ListIncidentsTagMatchStrategy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListIncidentsTagMatchStrategy = "any";
 ```

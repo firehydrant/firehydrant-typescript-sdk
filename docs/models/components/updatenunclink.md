@@ -5,7 +5,7 @@ Update a link to be displayed on a FireHydrant status page
 ## Example Usage
 
 ```typescript
-import { UpdateNuncLink } from "firehydrant/models/components";
+import { UpdateNuncLink } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateNuncLink = {};
 ```
