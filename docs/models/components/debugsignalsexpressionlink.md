@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DebugSignalsExpressionLink } from "firehydrant/models/components";
+import { DebugSignalsExpressionLink } from "firehydrant-typescript-sdk/models/components";
 
 let value: DebugSignalsExpressionLink = {};
 ```

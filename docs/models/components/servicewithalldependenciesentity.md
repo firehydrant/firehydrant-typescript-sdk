@@ -5,7 +5,7 @@ ServiceWithAllDependenciesEntity model
 ## Example Usage
 
 ```typescript
-import { ServiceWithAllDependenciesEntity } from "firehydrant/models/components";
+import { ServiceWithAllDependenciesEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ServiceWithAllDependenciesEntity = {};
 ```

@@ -5,7 +5,7 @@ Create a new severity
 ## Example Usage
 
 ```typescript
-import { CreateSeverity } from "firehydrant/models/components";
+import { CreateSeverity } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSeverity = {
   slug: "<value>",

@@ -5,7 +5,7 @@ Update a retrospective attached to an incident
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentRetrospective } from "firehydrant/models/components";
+import { UpdateIncidentRetrospective } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentRetrospective = {};
 ```

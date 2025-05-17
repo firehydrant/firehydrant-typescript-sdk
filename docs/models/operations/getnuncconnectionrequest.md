@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetNuncConnectionRequest } from "firehydrant/models/operations";
+import { GetNuncConnectionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetNuncConnectionRequest = {
   nuncConnectionId: "<id>",

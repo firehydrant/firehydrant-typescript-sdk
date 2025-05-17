@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TicketType } from "firehydrant/models/components";
+import { TicketType } from "firehydrant-typescript-sdk/models/components";
 
 let value: TicketType = "task";
 ```

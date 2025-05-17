@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteSavedSearchRequest } from "firehydrant/models/operations";
+import { DeleteSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: DeleteSavedSearchRequest = {
   resourceType: "ticket_follow_ups",

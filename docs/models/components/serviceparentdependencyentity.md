@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ServiceParentDependencyEntity } from "firehydrant/models/components";
+import { ServiceParentDependencyEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ServiceParentDependencyEntity = {};
 ```

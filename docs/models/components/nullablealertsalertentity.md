@@ -5,7 +5,7 @@ Alerts_AlertEntity model
 ## Example Usage
 
 ```typescript
-import { NullableAlertsAlertEntity } from "firehydrant/models/components";
+import { NullableAlertsAlertEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableAlertsAlertEntity = {
   signalRule: {

@@ -5,7 +5,7 @@ SCIM endpoint to create a new Team (Colloquial for Group in the SCIM protocol). 
 ## Example Usage
 
 ```typescript
-import { CreateScimGroup } from "firehydrant/models/components";
+import { CreateScimGroup } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateScimGroup = {
   displayName: "Pietro_Dare",

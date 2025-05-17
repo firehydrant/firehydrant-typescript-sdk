@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentTaskRequest } from "firehydrant/models/operations";
+import { CreateIncidentTaskRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateIncidentTaskRequest = {
   incidentId: "<id>",

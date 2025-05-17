@@ -5,7 +5,7 @@ Incidents_RelationshipsEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsRelationshipsEntity } from "firehydrant/models/components";
+import { IncidentsRelationshipsEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRelationshipsEntity = {};
 ```

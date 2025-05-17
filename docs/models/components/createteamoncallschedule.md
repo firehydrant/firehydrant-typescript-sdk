@@ -5,7 +5,7 @@ Create a Signals on-call schedule for a team.
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallSchedule } from "firehydrant/models/components";
+import { CreateTeamOnCallSchedule } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamOnCallSchedule = {
   name: "<value>",

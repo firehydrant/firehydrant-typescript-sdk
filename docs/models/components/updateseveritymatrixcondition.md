@@ -5,7 +5,7 @@ Update a severity matrix condition
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityMatrixCondition } from "firehydrant/models/components";
+import { UpdateSeverityMatrixCondition } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSeverityMatrixCondition = {};
 ```

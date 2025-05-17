@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateWebhookState } from "firehydrant/models/components";
+import { UpdateWebhookState } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateWebhookState = "active";
 ```

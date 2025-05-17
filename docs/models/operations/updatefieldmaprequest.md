@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateFieldMapRequest } from "firehydrant/models/operations";
+import { UpdateFieldMapRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateFieldMapRequest = {
   fieldMapId: "<id>",

@@ -5,7 +5,7 @@ Create a new impact
 ## Example Usage
 
 ```typescript
-import { CreateSeverityMatrixImpact } from "firehydrant/models/components";
+import { CreateSeverityMatrixImpact } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSeverityMatrixImpact = {
   affectsType: "<value>",

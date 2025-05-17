@@ -9,7 +9,7 @@ the target. The `type` field must be one of "escalation_policy", "on_call_schedu
 ## Example Usage
 
 ```typescript
-import { CreateSignalsEmailTargetTarget } from "firehydrant/models/components";
+import { CreateSignalsEmailTargetTarget } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSignalsEmailTargetTarget = {
   type: "Team",

@@ -5,7 +5,7 @@ Creates a service with the appropriate integration for each external service ID 
 ## Example Usage
 
 ```typescript
-import { CreateServiceLinks } from "firehydrant/models/components";
+import { CreateServiceLinks } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateServiceLinks = {
   externalServiceIds: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateSeverityColor } from "firehydrant/models/components";
+import { CreateSeverityColor } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSeverityColor = "orange";
 ```

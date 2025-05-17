@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SearchConfluenceSpacesRequest } from "firehydrant/models/operations";
+import { SearchConfluenceSpacesRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: SearchConfluenceSpacesRequest = {
   id: "<id>",
