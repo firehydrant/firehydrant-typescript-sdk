@@ -5,7 +5,7 @@ An object with additional error metadata
 ## Example Usage
 
 ```typescript
-import { Meta } from "firehydrant/models/errors";
+import { Meta } from "firehydrant-typescript-sdk/models/errors";
 
 let value: Meta = {};
 ```

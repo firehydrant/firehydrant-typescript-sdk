@@ -5,7 +5,7 @@ Debug Signals expressions
 ## Example Usage
 
 ```typescript
-import { DebugSignalsExpression } from "firehydrant/models/components";
+import { DebugSignalsExpression } from "firehydrant-typescript-sdk/models/components";
 
 let value: DebugSignalsExpression = {
   expression: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyHighTargetType } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicyHighTargetType } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicyHighTargetType = "EscalationPolicy";
 ```

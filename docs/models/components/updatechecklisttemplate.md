@@ -5,7 +5,7 @@ Update a checklist templates attributes
 ## Example Usage
 
 ```typescript
-import { UpdateChecklistTemplate } from "firehydrant/models/components";
+import { UpdateChecklistTemplate } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateChecklistTemplate = {};
 ```

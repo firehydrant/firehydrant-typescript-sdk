@@ -5,7 +5,7 @@ ChecklistTemplateEntity model
 ## Example Usage
 
 ```typescript
-import { ChecklistTemplateEntity } from "firehydrant/models/components";
+import { ChecklistTemplateEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChecklistTemplateEntity = {};
 ```

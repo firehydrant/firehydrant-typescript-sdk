@@ -19,9 +19,9 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsPing } from "firehydrant/funcs/accountSettingsPing.js";
-import { SDKValidationError } from "firehydrant/models/errors/sdkvalidationerror.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsPing } from "firehydrant-typescript-sdk/funcs/accountSettingsPing.js";
+import { SDKValidationError } from "firehydrant-typescript-sdk/models/errors/sdkvalidationerror.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

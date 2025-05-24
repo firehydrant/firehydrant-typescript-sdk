@@ -5,7 +5,7 @@ Webhooks_Entities_WebhookEntity model
 ## Example Usage
 
 ```typescript
-import { WebhooksEntitiesWebhookEntity } from "firehydrant/models/components";
+import { WebhooksEntitiesWebhookEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: WebhooksEntitiesWebhookEntity = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteIncidentEventRequest } from "firehydrant/models/operations";
+import { DeleteIncidentEventRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: DeleteIncidentEventRequest = {
   incidentId: "<id>",

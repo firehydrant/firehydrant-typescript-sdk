@@ -11,7 +11,7 @@ not explicitly submitted or updated in this request.
 ## Example Usage
 
 ```typescript
-import { BulkUpdateIncidentMilestones } from "firehydrant/models/components";
+import { BulkUpdateIncidentMilestones } from "firehydrant-typescript-sdk/models/components";
 
 let value: BulkUpdateIncidentMilestones = {
   milestones: [

@@ -5,7 +5,7 @@ Nunc_NuncSubscription model
 ## Example Usage
 
 ```typescript
-import { NuncNuncSubscription } from "firehydrant/models/components";
+import { NuncNuncSubscription } from "firehydrant-typescript-sdk/models/components";
 
 let value: NuncNuncSubscription = {};
 ```

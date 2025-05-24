@@ -5,7 +5,7 @@ FormConfigurationEntity model
 ## Example Usage
 
 ```typescript
-import { FormConfigurationEntity } from "firehydrant/models/components";
+import { FormConfigurationEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: FormConfigurationEntity = {};
 ```

@@ -5,7 +5,7 @@ Key:value pairs to track custom data for the incident
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentLabels } from "firehydrant/models/components";
+import { UpdateIncidentLabels } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentLabels = {};
 ```

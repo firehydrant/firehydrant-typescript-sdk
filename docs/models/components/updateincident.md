@@ -5,7 +5,7 @@ Updates an incident with provided parameters
 ## Example Usage
 
 ```typescript
-import { UpdateIncident } from "firehydrant/models/components";
+import { UpdateIncident } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncident = {};
 ```

@@ -5,7 +5,7 @@ FunctionalityEntity model
 ## Example Usage
 
 ```typescript
-import { FunctionalityEntity } from "firehydrant/models/components";
+import { FunctionalityEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: FunctionalityEntity = {};
 ```

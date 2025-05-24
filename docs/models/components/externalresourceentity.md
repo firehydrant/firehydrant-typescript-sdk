@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ExternalResourceEntity } from "firehydrant/models/components";
+import { ExternalResourceEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ExternalResourceEntity = {};
 ```

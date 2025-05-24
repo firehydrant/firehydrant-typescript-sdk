@@ -7,7 +7,7 @@ Note: You may not remove or add individual label key/value pairs. You must inclu
 ## Example Usage
 
 ```typescript
-import { UpdateService } from "firehydrant/models/components";
+import { UpdateService } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateService = {};
 ```

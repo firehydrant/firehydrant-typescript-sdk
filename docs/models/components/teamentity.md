@@ -5,7 +5,7 @@ TeamEntity model
 ## Example Usage
 
 ```typescript
-import { TeamEntity } from "firehydrant/models/components";
+import { TeamEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TeamEntity = {};
 ```

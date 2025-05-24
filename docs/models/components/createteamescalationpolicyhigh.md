@@ -5,7 +5,7 @@ Settings for HIGH priority alerts
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyHigh } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicyHigh } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicyHigh = {};
 ```

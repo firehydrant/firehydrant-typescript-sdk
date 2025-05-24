@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableIncidentTypeEntityTemplateValuesEntity } from "firehydrant/models/components";
+import { NullableIncidentTypeEntityTemplateValuesEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIncidentTypeEntityTemplateValuesEntity = {};
 ```

@@ -5,7 +5,7 @@ Create a new change entry
 ## Example Usage
 
 ```typescript
-import { CreateChange } from "firehydrant/models/components";
+import { CreateChange } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateChange = {};
 ```

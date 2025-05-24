@@ -49,7 +49,7 @@ List all Signals escalation policies for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -71,8 +71,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListTeamEscalationPolicies } from "firehydrant/funcs/signalsListTeamEscalationPolicies.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListTeamEscalationPolicies } from "firehydrant-typescript-sdk/funcs/signalsListTeamEscalationPolicies.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -123,7 +123,7 @@ Create a Signals escalation policy for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -134,38 +134,7 @@ async function run() {
     teamId: "<id>",
     createTeamEscalationPolicy: {
       name: "<value>",
-      steps: [
-        {
-          targets: [],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "Webhook",
-              id: "<id>",
-            },
-            {
-              type: "OnCallSchedule",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "SlackChannel",
-              id: "<id>",
-            },
-            {
-              type: "EntireTeam",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-      ],
+      steps: [],
     },
   });
 
@@ -180,8 +149,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateTeamEscalationPolicy } from "firehydrant/funcs/signalsCreateTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsCreateTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -194,38 +163,7 @@ async function run() {
     teamId: "<id>",
     createTeamEscalationPolicy: {
       name: "<value>",
-      steps: [
-        {
-          targets: [],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "Webhook",
-              id: "<id>",
-            },
-            {
-              type: "OnCallSchedule",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "SlackChannel",
-              id: "<id>",
-            },
-            {
-              type: "EntireTeam",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-      ],
+      steps: [],
     },
   });
 
@@ -267,7 +205,7 @@ Get a Signals escalation policy by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -290,8 +228,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetTeamEscalationPolicy } from "firehydrant/funcs/signalsGetTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsGetTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -343,7 +281,7 @@ Delete a Signals escalation policy by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -366,8 +304,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteTeamEscalationPolicy } from "firehydrant/funcs/signalsDeleteTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsDeleteTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -419,7 +357,7 @@ Update a Signals escalation policy by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -443,8 +381,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateTeamEscalationPolicy } from "firehydrant/funcs/signalsUpdateTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsUpdateTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -497,7 +435,7 @@ List all Signals on-call schedules for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -519,8 +457,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListTeamOnCallSchedules } from "firehydrant/funcs/signalsListTeamOnCallSchedules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListTeamOnCallSchedules } from "firehydrant-typescript-sdk/funcs/signalsListTeamOnCallSchedules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -571,7 +509,7 @@ Create a Signals on-call schedule for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -582,7 +520,7 @@ async function run() {
     teamId: "<id>",
     createTeamOnCallSchedule: {
       name: "<value>",
-      timeZone: "Antarctica/DumontDUrville",
+      timeZone: "America/Argentina/Buenos_Aires",
       strategy: {
         type: "custom",
       },
@@ -600,8 +538,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateTeamOnCallSchedule } from "firehydrant/funcs/signalsCreateTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsCreateTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -614,7 +552,7 @@ async function run() {
     teamId: "<id>",
     createTeamOnCallSchedule: {
       name: "<value>",
-      timeZone: "Antarctica/DumontDUrville",
+      timeZone: "America/Argentina/Buenos_Aires",
       strategy: {
         type: "custom",
       },
@@ -659,7 +597,7 @@ Get a Signals on-call schedule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -682,8 +620,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetTeamOnCallSchedule } from "firehydrant/funcs/signalsGetTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsGetTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -735,7 +673,7 @@ Delete a Signals on-call schedule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -758,8 +696,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteTeamOnCallSchedule } from "firehydrant/funcs/signalsDeleteTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsDeleteTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -811,7 +749,7 @@ Update a Signals on-call schedule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -835,8 +773,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateTeamOnCallSchedule } from "firehydrant/funcs/signalsUpdateTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsUpdateTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -889,7 +827,7 @@ Create a Signals on-call shift in a schedule.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -916,8 +854,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateOnCallShift } from "firehydrant/funcs/signalsCreateOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsCreateOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -973,7 +911,7 @@ Get a Signals on-call shift by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -997,8 +935,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetOnCallShift } from "firehydrant/funcs/signalsGetOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsGetOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1051,7 +989,7 @@ Delete a Signals on-call shift by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1075,8 +1013,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteOnCallShift } from "firehydrant/funcs/signalsDeleteOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsDeleteOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1129,7 +1067,7 @@ Update a Signals on-call shift by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1154,8 +1092,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateOnCallShift } from "firehydrant/funcs/signalsUpdateOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsUpdateOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1209,7 +1147,7 @@ List all Signals rules for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1231,8 +1169,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListTeamSignalRules } from "firehydrant/funcs/signalsListTeamSignalRules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListTeamSignalRules } from "firehydrant-typescript-sdk/funcs/signalsListTeamSignalRules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1283,7 +1221,7 @@ Create a Signals rule for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1295,7 +1233,7 @@ async function run() {
     createTeamSignalRule: {
       name: "<value>",
       expression: "<value>",
-      targetType: "OnCallSchedule",
+      targetType: "EscalationPolicy",
       targetId: "<id>",
     },
   });
@@ -1311,8 +1249,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateTeamSignalRule } from "firehydrant/funcs/signalsCreateTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsCreateTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1326,7 +1264,7 @@ async function run() {
     createTeamSignalRule: {
       name: "<value>",
       expression: "<value>",
-      targetType: "OnCallSchedule",
+      targetType: "EscalationPolicy",
       targetId: "<id>",
     },
   });
@@ -1369,7 +1307,7 @@ Get a Signals rule by ID.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1392,8 +1330,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetTeamSignalRule } from "firehydrant/funcs/signalsGetTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsGetTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1445,7 +1383,7 @@ Delete a Signals rule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1468,8 +1406,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteTeamSignalRule } from "firehydrant/funcs/signalsDeleteTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsDeleteTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1521,7 +1459,7 @@ Update a Signals rule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1545,8 +1483,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateTeamSignalRule } from "firehydrant/funcs/signalsUpdateTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsUpdateTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1599,7 +1537,7 @@ List all Signals event sources for the authenticated user.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1619,8 +1557,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsEventSources } from "firehydrant/funcs/signalsListSignalsEventSources.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsEventSources } from "firehydrant-typescript-sdk/funcs/signalsListSignalsEventSources.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1669,7 +1607,7 @@ List all Signals email targets for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1689,8 +1627,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsEmailTargets } from "firehydrant/funcs/signalsListSignalsEmailTargets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsEmailTargets } from "firehydrant-typescript-sdk/funcs/signalsListSignalsEmailTargets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1739,7 +1677,7 @@ Create a Signals email target for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1761,8 +1699,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateSignalsEmailTarget } from "firehydrant/funcs/signalsCreateSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1813,7 +1751,7 @@ Get a Signals email target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1835,8 +1773,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetSignalsEmailTarget } from "firehydrant/funcs/signalsGetSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1887,7 +1825,7 @@ Delete a Signals email target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1909,8 +1847,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteSignalsEmailTarget } from "firehydrant/funcs/signalsDeleteSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1961,7 +1899,7 @@ Update a Signals email target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1984,8 +1922,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateSignalsEmailTarget } from "firehydrant/funcs/signalsUpdateSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsUpdateSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2037,7 +1975,7 @@ List all Signals webhook targets.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2057,8 +1995,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsWebhookTargets } from "firehydrant/funcs/signalsListSignalsWebhookTargets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsWebhookTargets } from "firehydrant-typescript-sdk/funcs/signalsListSignalsWebhookTargets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2107,7 +2045,7 @@ Create a Signals webhook target.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2116,7 +2054,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   await firehydrant.signals.createSignalsWebhookTarget({
     name: "<value>",
-    url: "https://our-alligator.net/",
+    url: "https://puny-hydrolyze.net/",
   });
 
 
@@ -2130,8 +2068,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateSignalsWebhookTarget } from "firehydrant/funcs/signalsCreateSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2142,7 +2080,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await signalsCreateSignalsWebhookTarget(firehydrant, {
     name: "<value>",
-    url: "https://our-alligator.net/",
+    url: "https://puny-hydrolyze.net/",
   });
 
   if (!res.ok) {
@@ -2183,7 +2121,7 @@ Get a Signals webhook target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2205,8 +2143,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetSignalsWebhookTarget } from "firehydrant/funcs/signalsGetSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2257,7 +2195,7 @@ Delete a Signals webhook target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2279,8 +2217,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteSignalsWebhookTarget } from "firehydrant/funcs/signalsDeleteSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2331,7 +2269,7 @@ Update a Signals webhook target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2354,8 +2292,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateSignalsWebhookTarget } from "firehydrant/funcs/signalsUpdateSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsUpdateSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2407,7 +2345,7 @@ List all transposers for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2428,8 +2366,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsTransposers } from "firehydrant/funcs/signalsListSignalsTransposers.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsTransposers } from "firehydrant-typescript-sdk/funcs/signalsListSignalsTransposers.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2478,7 +2416,7 @@ Retrieve the url for ingesting signals for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2499,8 +2437,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetSignalsIngestUrl } from "firehydrant/funcs/signalsGetSignalsIngestUrl.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsIngestUrl } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsIngestUrl.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2550,7 +2488,7 @@ Debug Signals expressions
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2559,9 +2497,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   await firehydrant.signals.debugSignalsExpression({
     expression: "<value>",
-    signals: [
-      {},
-    ],
+    signals: [],
   });
 
 
@@ -2575,8 +2511,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDebugSignalsExpression } from "firehydrant/funcs/signalsDebugSignalsExpression.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDebugSignalsExpression } from "firehydrant-typescript-sdk/funcs/signalsDebugSignalsExpression.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2587,9 +2523,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await signalsDebugSignalsExpression(firehydrant, {
     expression: "<value>",
-    signals: [
-      {},
-    ],
+    signals: [],
   });
 
   if (!res.ok) {
@@ -2630,7 +2564,7 @@ List all Signals on-call schedules for the entire organization.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2650,8 +2584,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListOrganizationOnCallSchedules } from "firehydrant/funcs/signalsListOrganizationOnCallSchedules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListOrganizationOnCallSchedules } from "firehydrant-typescript-sdk/funcs/signalsListOrganizationOnCallSchedules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

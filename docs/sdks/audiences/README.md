@@ -26,7 +26,7 @@ List all audiences
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -47,8 +47,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesListAudiences } from "firehydrant/funcs/audiencesListAudiences.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesListAudiences } from "firehydrant-typescript-sdk/funcs/audiencesListAudiences.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -98,7 +98,7 @@ Create a new audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -107,12 +107,12 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.audiences.createAudience({
     name: "<value>",
-    description: "sandy closely closely suddenly whose rear",
-    detailsQuestion: [
-      "<value>",
-    ],
+    description: "simple contractor hmph along amongst thump provision crowded fragrant and",
+    detailsQuestion: [],
     detailsPrompt: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
@@ -128,8 +128,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesCreateAudience } from "firehydrant/funcs/audiencesCreateAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesCreateAudience } from "firehydrant-typescript-sdk/funcs/audiencesCreateAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -140,12 +140,12 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await audiencesCreateAudience(firehydrant, {
     name: "<value>",
-    description: "sandy closely closely suddenly whose rear",
-    detailsQuestion: [
-      "<value>",
-    ],
+    description: "simple contractor hmph along amongst thump provision crowded fragrant and",
+    detailsQuestion: [],
     detailsPrompt: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
@@ -188,7 +188,7 @@ Get audience details
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -211,8 +211,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGetAudience } from "firehydrant/funcs/audiencesGetAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGetAudience } from "firehydrant-typescript-sdk/funcs/audiencesGetAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -264,7 +264,7 @@ Archive an audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -287,8 +287,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesArchiveAudience } from "firehydrant/funcs/audiencesArchiveAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesArchiveAudience } from "firehydrant-typescript-sdk/funcs/audiencesArchiveAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -340,7 +340,7 @@ Update an existing audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -363,8 +363,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesUpdateAudience } from "firehydrant/funcs/audiencesUpdateAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesUpdateAudience } from "firehydrant-typescript-sdk/funcs/audiencesUpdateAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -416,7 +416,7 @@ Restore a previously archived audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -439,8 +439,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesRestoreAudience } from "firehydrant/funcs/audiencesRestoreAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesRestoreAudience } from "firehydrant-typescript-sdk/funcs/audiencesRestoreAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -492,7 +492,7 @@ Get member's default audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -500,7 +500,7 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.audiences.getMemberDefaultAudience({
-    memberId: 518189,
+    memberId: 9319,
   });
 
   // Handle the result
@@ -515,8 +515,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGetMemberDefaultAudience } from "firehydrant/funcs/audiencesGetMemberDefaultAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGetMemberDefaultAudience } from "firehydrant-typescript-sdk/funcs/audiencesGetMemberDefaultAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -526,7 +526,7 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await audiencesGetMemberDefaultAudience(firehydrant, {
-    memberId: 518189,
+    memberId: 9319,
   });
 
   if (!res.ok) {
@@ -568,7 +568,7 @@ Set member's default audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -576,7 +576,7 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.audiences.setMemberDefaultAudience({
-    memberId: 191738,
+    memberId: 411452,
     requestBody: {
       audienceId: "<id>",
     },
@@ -594,8 +594,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesSetMemberDefaultAudience } from "firehydrant/funcs/audiencesSetMemberDefaultAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesSetMemberDefaultAudience } from "firehydrant-typescript-sdk/funcs/audiencesSetMemberDefaultAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -605,7 +605,7 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await audiencesSetMemberDefaultAudience(firehydrant, {
-    memberId: 191738,
+    memberId: 411452,
     requestBody: {
       audienceId: "<id>",
     },
@@ -650,7 +650,7 @@ Get the latest audience-specific summary for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -674,8 +674,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGetAudienceSummary } from "firehydrant/funcs/audiencesGetAudienceSummary.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGetAudienceSummary } from "firehydrant-typescript-sdk/funcs/audiencesGetAudienceSummary.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -728,7 +728,7 @@ Generate a new audience-specific summary for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -752,8 +752,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGenerateAudienceSummary } from "firehydrant/funcs/audiencesGenerateAudienceSummary.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGenerateAudienceSummary } from "firehydrant-typescript-sdk/funcs/audiencesGenerateAudienceSummary.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -806,7 +806,7 @@ List all audience summaries for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -829,8 +829,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesListAudienceSummaries } from "firehydrant/funcs/audiencesListAudienceSummaries.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesListAudienceSummaries } from "firehydrant-typescript-sdk/funcs/audiencesListAudienceSummaries.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

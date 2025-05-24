@@ -5,7 +5,7 @@ Alerts_AlertEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { AlertsAlertEntityPaginated } from "firehydrant/models/components";
+import { AlertsAlertEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsAlertEntityPaginated = {
   data: [

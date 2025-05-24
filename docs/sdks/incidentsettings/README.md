@@ -63,7 +63,7 @@ List all of the incident roles in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -84,8 +84,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListIncidentRoles } from "firehydrant/funcs/incidentSettingsListIncidentRoles.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListIncidentRoles } from "firehydrant-typescript-sdk/funcs/incidentSettingsListIncidentRoles.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -135,7 +135,7 @@ Create a new incident role
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -159,8 +159,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateIncidentRole } from "firehydrant/funcs/incidentSettingsCreateIncidentRole.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateIncidentRole } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateIncidentRole.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -213,7 +213,7 @@ Retrieve a single incident role from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -236,8 +236,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetIncidentRole } from "firehydrant/funcs/incidentSettingsGetIncidentRole.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetIncidentRole } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetIncidentRole.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -289,7 +289,7 @@ Archives an incident role which will hide it from lists and metrics
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -312,8 +312,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteIncidentRole } from "firehydrant/funcs/incidentSettingsDeleteIncidentRole.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteIncidentRole } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteIncidentRole.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -365,7 +365,7 @@ Update a single incident role from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -389,8 +389,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateIncidentRole } from "firehydrant/funcs/incidentSettingsUpdateIncidentRole.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateIncidentRole } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateIncidentRole.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -443,7 +443,7 @@ Validate the format of a list of tags
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -451,9 +451,7 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.incidentSettings.validateIncidentTags([
-    "<value>",
-    "<value>",
-    "<value>",
+    "<value 1>",
   ]);
 
   // Handle the result
@@ -468,8 +466,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsValidateIncidentTags } from "firehydrant/funcs/incidentSettingsValidateIncidentTags.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsValidateIncidentTags } from "firehydrant-typescript-sdk/funcs/incidentSettingsValidateIncidentTags.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -479,9 +477,7 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await incidentSettingsValidateIncidentTags(firehydrant, [
-    "<value>",
-    "<value>",
-    "<value>",
+    "<value 1>",
   ]);
 
   if (!res.ok) {
@@ -523,7 +519,7 @@ List all of the incident tags in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -544,8 +540,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListIncidentTags } from "firehydrant/funcs/incidentSettingsListIncidentTags.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListIncidentTags } from "firehydrant-typescript-sdk/funcs/incidentSettingsListIncidentTags.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -595,7 +591,7 @@ List all of the incident types in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -616,8 +612,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListIncidentTypes } from "firehydrant/funcs/incidentSettingsListIncidentTypes.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListIncidentTypes } from "firehydrant-typescript-sdk/funcs/incidentSettingsListIncidentTypes.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -667,7 +663,7 @@ Create a new incident type
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -691,8 +687,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateIncidentType } from "firehydrant/funcs/incidentSettingsCreateIncidentType.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateIncidentType } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateIncidentType.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -745,7 +741,7 @@ Retrieve a single incident type from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -768,8 +764,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetIncidentType } from "firehydrant/funcs/incidentSettingsGetIncidentType.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetIncidentType } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetIncidentType.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -821,7 +817,7 @@ Archives an incident type which will hide it from lists and metrics
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -844,8 +840,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteIncidentType } from "firehydrant/funcs/incidentSettingsDeleteIncidentType.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteIncidentType } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteIncidentType.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -897,7 +893,7 @@ Update a single incident type from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -924,8 +920,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateIncidentType } from "firehydrant/funcs/incidentSettingsUpdateIncidentType.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateIncidentType } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateIncidentType.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -981,7 +977,7 @@ List all of the measurement definitions in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1001,8 +997,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListLifecycleMeasurementDefinitions } from "firehydrant/funcs/incidentSettingsListLifecycleMeasurementDefinitions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListLifecycleMeasurementDefinitions } from "firehydrant-typescript-sdk/funcs/incidentSettingsListLifecycleMeasurementDefinitions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1051,7 +1047,7 @@ Create a new measurement definition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1075,8 +1071,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateLifecycleMeasurementDefinition } from "firehydrant/funcs/incidentSettingsCreateLifecycleMeasurementDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateLifecycleMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateLifecycleMeasurementDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1129,7 +1125,7 @@ Retrieve a single measurement definition from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1151,8 +1147,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetLifecycleMeasurementDefinition } from "firehydrant/funcs/incidentSettingsGetLifecycleMeasurementDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetLifecycleMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetLifecycleMeasurementDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1203,7 +1199,7 @@ Archives a measurement definition which will hide it from lists and metrics
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1225,8 +1221,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteLifecycleMeasurementDefinition } from "firehydrant/funcs/incidentSettingsDeleteLifecycleMeasurementDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteLifecycleMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteLifecycleMeasurementDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1277,7 +1273,7 @@ Update a single measurement definition from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1299,8 +1295,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateLifecycleMeasurementDefinition } from "firehydrant/funcs/incidentSettingsUpdateLifecycleMeasurementDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateLifecycleMeasurementDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateLifecycleMeasurementDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1351,7 +1347,7 @@ List all of the lifecycle phases and milestones in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1372,8 +1368,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListLifecyclePhases } from "firehydrant/funcs/incidentSettingsListLifecyclePhases.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListLifecyclePhases } from "firehydrant-typescript-sdk/funcs/incidentSettingsListLifecyclePhases.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1422,7 +1418,7 @@ Create a new milestone
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1431,7 +1427,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.incidentSettings.createLifecycleMilestone({
     name: "<value>",
-    description: "serpentine blah into after pendant zowie athletic",
+    description: "militate grass boo hmph treble upset who scornful alarmed",
     phaseId: "<id>",
   });
 
@@ -1447,8 +1443,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateLifecycleMilestone } from "firehydrant/funcs/incidentSettingsCreateLifecycleMilestone.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateLifecycleMilestone } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateLifecycleMilestone.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1459,7 +1455,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await incidentSettingsCreateLifecycleMilestone(firehydrant, {
     name: "<value>",
-    description: "serpentine blah into after pendant zowie athletic",
+    description: "militate grass boo hmph treble upset who scornful alarmed",
     phaseId: "<id>",
   });
 
@@ -1502,7 +1498,7 @@ Delete a milestone
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1525,8 +1521,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteLifecycleMilestone } from "firehydrant/funcs/incidentSettingsDeleteLifecycleMilestone.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteLifecycleMilestone } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteLifecycleMilestone.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1578,7 +1574,7 @@ Update a milestone
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1601,8 +1597,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateLifecycleMilestone } from "firehydrant/funcs/incidentSettingsUpdateLifecycleMilestone.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateLifecycleMilestone } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateLifecycleMilestone.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1654,7 +1650,7 @@ Lists priorities
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1675,8 +1671,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListPriorities } from "firehydrant/funcs/incidentSettingsListPriorities.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListPriorities } from "firehydrant-typescript-sdk/funcs/incidentSettingsListPriorities.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1726,7 +1722,7 @@ Create a new priority
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1749,8 +1745,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreatePriority } from "firehydrant/funcs/incidentSettingsCreatePriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreatePriority } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreatePriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1802,7 +1798,7 @@ Retrieve a specific priority
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1825,8 +1821,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetPriority } from "firehydrant/funcs/incidentSettingsGetPriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetPriority } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetPriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1878,7 +1874,7 @@ Delete a specific priority
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1901,8 +1897,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeletePriority } from "firehydrant/funcs/incidentSettingsDeletePriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeletePriority } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeletePriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1954,7 +1950,7 @@ Update a specific priority
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1978,8 +1974,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdatePriority } from "firehydrant/funcs/incidentSettingsUpdatePriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdatePriority } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdatePriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2032,7 +2028,7 @@ Lists severities
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2053,8 +2049,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListSeverities } from "firehydrant/funcs/incidentSettingsListSeverities.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListSeverities } from "firehydrant-typescript-sdk/funcs/incidentSettingsListSeverities.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2104,7 +2100,7 @@ Create a new severity
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2127,8 +2123,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateSeverity } from "firehydrant/funcs/incidentSettingsCreateSeverity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateSeverity } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateSeverity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2180,7 +2176,7 @@ Retrieve a specific severity
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2203,8 +2199,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetSeverity } from "firehydrant/funcs/incidentSettingsGetSeverity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetSeverity } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetSeverity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2256,7 +2252,7 @@ Delete a specific severity
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2279,8 +2275,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteSeverity } from "firehydrant/funcs/incidentSettingsDeleteSeverity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteSeverity } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteSeverity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2332,7 +2328,7 @@ Update a specific severity
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2356,8 +2352,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateSeverity } from "firehydrant/funcs/incidentSettingsUpdateSeverity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateSeverity } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateSeverity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2410,7 +2406,7 @@ Retrieve the Severity matrix for your organization and its components and config
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2431,8 +2427,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetSeverityMatrix } from "firehydrant/funcs/incidentSettingsGetSeverityMatrix.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetSeverityMatrix } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetSeverityMatrix.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2481,7 +2477,7 @@ Update available severities and impacts in your organization's severity matrix.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2490,16 +2486,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.incidentSettings.updateSeverityMatrix({
     data: [
-      {
-        severity: "<value>",
-        impactId: "<id>",
-        conditionId: "<id>",
-      },
-      {
-        severity: "<value>",
-        impactId: "<id>",
-        conditionId: "<id>",
-      },
       {
         severity: "<value>",
         impactId: "<id>",
@@ -2520,8 +2506,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateSeverityMatrix } from "firehydrant/funcs/incidentSettingsUpdateSeverityMatrix.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateSeverityMatrix } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateSeverityMatrix.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2532,16 +2518,6 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await incidentSettingsUpdateSeverityMatrix(firehydrant, {
     data: [
-      {
-        severity: "<value>",
-        impactId: "<id>",
-        conditionId: "<id>",
-      },
-      {
-        severity: "<value>",
-        impactId: "<id>",
-        conditionId: "<id>",
-      },
       {
         severity: "<value>",
         impactId: "<id>",
@@ -2589,7 +2565,7 @@ Lists conditions
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2610,8 +2586,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListSeverityMatrixConditions } from "firehydrant/funcs/incidentSettingsListSeverityMatrixConditions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListSeverityMatrixConditions } from "firehydrant-typescript-sdk/funcs/incidentSettingsListSeverityMatrixConditions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2661,7 +2637,7 @@ Create a new condition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2684,8 +2660,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateSeverityMatrixCondition } from "firehydrant/funcs/incidentSettingsCreateSeverityMatrixCondition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateSeverityMatrixCondition } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateSeverityMatrixCondition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2737,7 +2713,7 @@ Retrieve a specific condition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2760,8 +2736,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetSeverityMatrixCondition } from "firehydrant/funcs/incidentSettingsGetSeverityMatrixCondition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetSeverityMatrixCondition } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetSeverityMatrixCondition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2813,7 +2789,7 @@ Delete a specific condition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2836,8 +2812,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteSeverityMatrixCondition } from "firehydrant/funcs/incidentSettingsDeleteSeverityMatrixCondition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteSeverityMatrixCondition } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteSeverityMatrixCondition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2889,7 +2865,7 @@ Update a severity matrix condition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2913,8 +2889,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateSeverityMatrixCondition } from "firehydrant/funcs/incidentSettingsUpdateSeverityMatrixCondition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateSeverityMatrixCondition } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateSeverityMatrixCondition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2967,7 +2943,7 @@ Lists impacts
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2988,8 +2964,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListSeverityMatrixImpacts } from "firehydrant/funcs/incidentSettingsListSeverityMatrixImpacts.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListSeverityMatrixImpacts } from "firehydrant-typescript-sdk/funcs/incidentSettingsListSeverityMatrixImpacts.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3039,7 +3015,7 @@ Create a new impact
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3063,8 +3039,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateSeverityMatrixImpact } from "firehydrant/funcs/incidentSettingsCreateSeverityMatrixImpact.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateSeverityMatrixImpact } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateSeverityMatrixImpact.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3117,7 +3093,7 @@ Delete a specific impact
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3140,8 +3116,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteSeverityMatrixImpact } from "firehydrant/funcs/incidentSettingsDeleteSeverityMatrixImpact.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteSeverityMatrixImpact } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteSeverityMatrixImpact.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3193,7 +3169,7 @@ Update a severity matrix impact
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3217,8 +3193,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateSeverityMatrixImpact } from "firehydrant/funcs/incidentSettingsUpdateSeverityMatrixImpact.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateSeverityMatrixImpact } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateSeverityMatrixImpact.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3271,7 +3247,7 @@ Delete a custom field definition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3294,8 +3270,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsDeleteCustomFieldDefinition } from "firehydrant/funcs/incidentSettingsDeleteCustomFieldDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsDeleteCustomFieldDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsDeleteCustomFieldDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3347,7 +3323,7 @@ Update a single custom field definition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3371,8 +3347,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsUpdateCustomFieldDefinition } from "firehydrant/funcs/incidentSettingsUpdateCustomFieldDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsUpdateCustomFieldDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsUpdateCustomFieldDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3425,7 +3401,7 @@ List all custom field definitions
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3446,8 +3422,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListCustomFieldDefinitions } from "firehydrant/funcs/incidentSettingsListCustomFieldDefinitions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListCustomFieldDefinitions } from "firehydrant-typescript-sdk/funcs/incidentSettingsListCustomFieldDefinitions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3496,7 +3472,7 @@ Create a new custom field definition
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3504,9 +3480,9 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.incidentSettings.createCustomFieldDefinition({
-    displayName: "Meredith_Gibson",
+    displayName: "Rasheed_Runolfsson",
     fieldType: "<value>",
-    required: true,
+    required: false,
   });
 
   // Handle the result
@@ -3521,8 +3497,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsCreateCustomFieldDefinition } from "firehydrant/funcs/incidentSettingsCreateCustomFieldDefinition.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsCreateCustomFieldDefinition } from "firehydrant-typescript-sdk/funcs/incidentSettingsCreateCustomFieldDefinition.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3532,9 +3508,9 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await incidentSettingsCreateCustomFieldDefinition(firehydrant, {
-    displayName: "Meredith_Gibson",
+    displayName: "Rasheed_Runolfsson",
     fieldType: "<value>",
-    required: true,
+    required: false,
   });
 
   if (!res.ok) {
@@ -3576,7 +3552,7 @@ Get the permissible values for the a currently active custom select or multi-sel
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3599,8 +3575,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsListCustomFieldSelectOptions } from "firehydrant/funcs/incidentSettingsListCustomFieldSelectOptions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsListCustomFieldSelectOptions } from "firehydrant-typescript-sdk/funcs/incidentSettingsListCustomFieldSelectOptions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -3652,7 +3628,7 @@ Get a form configuration
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -3675,8 +3651,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { incidentSettingsGetFormConfiguration } from "firehydrant/funcs/incidentSettingsGetFormConfiguration.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { incidentSettingsGetFormConfiguration } from "firehydrant-typescript-sdk/funcs/incidentSettingsGetFormConfiguration.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

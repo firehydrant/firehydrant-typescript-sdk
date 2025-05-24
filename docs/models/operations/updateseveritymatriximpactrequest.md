@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityMatrixImpactRequest } from "firehydrant/models/operations";
+import { UpdateSeverityMatrixImpactRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateSeverityMatrixImpactRequest = {
   impactId: "<id>",

@@ -5,7 +5,7 @@ IncidentEventEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentEventEntity } from "firehydrant/models/components";
+import { IncidentEventEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentEventEntity = {};
 ```

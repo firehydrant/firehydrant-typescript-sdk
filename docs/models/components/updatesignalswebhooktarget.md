@@ -5,7 +5,7 @@ Update a Signals webhook target by ID
 ## Example Usage
 
 ```typescript
-import { UpdateSignalsWebhookTarget } from "firehydrant/models/components";
+import { UpdateSignalsWebhookTarget } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSignalsWebhookTarget = {};
 ```

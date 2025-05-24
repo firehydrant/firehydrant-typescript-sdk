@@ -1,6 +1,6 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",

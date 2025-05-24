@@ -5,7 +5,7 @@ Update a Signals on-call schedule by ID
 ## Example Usage
 
 ```typescript
-import { UpdateTeamOnCallSchedule } from "firehydrant/models/components";
+import { UpdateTeamOnCallSchedule } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamOnCallSchedule = {};
 ```

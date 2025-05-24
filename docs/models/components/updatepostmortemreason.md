@@ -5,7 +5,7 @@ Update a contributing factor
 ## Example Usage
 
 ```typescript
-import { UpdatePostMortemReason } from "firehydrant/models/components";
+import { UpdatePostMortemReason } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdatePostMortemReason = {};
 ```

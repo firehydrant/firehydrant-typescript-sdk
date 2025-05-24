@@ -5,7 +5,7 @@ Creates a new task list
 ## Example Usage
 
 ```typescript
-import { CreateTaskList } from "firehydrant/models/components";
+import { CreateTaskList } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTaskList = {
   name: "<value>",

@@ -5,7 +5,7 @@ An object that specifies how the schedule's on-call shifts should be generated.
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallScheduleStrategy } from "firehydrant/models/components";
+import { CreateTeamOnCallScheduleStrategy } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamOnCallScheduleStrategy = {
   type: "custom",

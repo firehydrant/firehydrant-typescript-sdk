@@ -5,7 +5,7 @@ Update available severities and impacts in your organization's severity matrix.
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityMatrix } from "firehydrant/models/components";
+import { UpdateSeverityMatrix } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSeverityMatrix = {
   data: [
