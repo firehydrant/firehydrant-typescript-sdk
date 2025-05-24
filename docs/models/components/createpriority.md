@@ -5,7 +5,7 @@ Create a new priority
 ## Example Usage
 
 ```typescript
-import { CreatePriority } from "firehydrant/models/components";
+import { CreatePriority } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreatePriority = {
   slug: "<value>",

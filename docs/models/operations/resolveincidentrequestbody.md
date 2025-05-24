@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ResolveIncidentRequestBody } from "firehydrant/models/operations";
+import { ResolveIncidentRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ResolveIncidentRequestBody = {};
 ```

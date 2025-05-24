@@ -5,7 +5,7 @@ Incidents_AlertEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsAlertEntity } from "firehydrant/models/components";
+import { IncidentsAlertEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsAlertEntity = {
   alert: {

@@ -5,7 +5,7 @@ ChangeEventSlimEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { ChangeEventSlimEntityPaginated } from "firehydrant/models/components";
+import { ChangeEventSlimEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChangeEventSlimEntityPaginated = {};
 ```

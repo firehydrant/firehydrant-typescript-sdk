@@ -5,7 +5,7 @@ Lifecycles_PhaseEntity model
 ## Example Usage
 
 ```typescript
-import { LifecyclesPhaseEntity } from "firehydrant/models/components";
+import { LifecyclesPhaseEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: LifecyclesPhaseEntity = {};
 ```

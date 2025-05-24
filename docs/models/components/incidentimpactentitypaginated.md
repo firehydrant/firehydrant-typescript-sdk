@@ -5,7 +5,7 @@ IncidentImpactEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IncidentImpactEntityPaginated } from "firehydrant/models/components";
+import { IncidentImpactEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentImpactEntityPaginated = {};
 ```

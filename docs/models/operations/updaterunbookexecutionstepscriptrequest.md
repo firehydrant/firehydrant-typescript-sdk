@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRunbookExecutionStepScriptRequest } from "firehydrant/models/operations";
+import { UpdateRunbookExecutionStepScriptRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateRunbookExecutionStepScriptRequest = {
   executionId: "<id>",

@@ -5,7 +5,7 @@ UserEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { UserEntityPaginated } from "firehydrant/models/components";
+import { UserEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: UserEntityPaginated = {};
 ```

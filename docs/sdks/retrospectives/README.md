@@ -45,7 +45,7 @@ Share incident retrospectives with users or teams
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -56,7 +56,8 @@ async function run() {
     incidentId: "<id>",
     requestBody: {
       retrospectiveIds: [
-        "<value>",
+        "<value 1>",
+        "<value 2>",
       ],
     },
   });
@@ -73,8 +74,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesShareIncidentRetrospectives } from "firehydrant/funcs/retrospectivesShareIncidentRetrospectives.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesShareIncidentRetrospectives } from "firehydrant-typescript-sdk/funcs/retrospectivesShareIncidentRetrospectives.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -87,7 +88,8 @@ async function run() {
     incidentId: "<id>",
     requestBody: {
       retrospectiveIds: [
-        "<value>",
+        "<value 1>",
+        "<value 2>",
       ],
     },
   });
@@ -131,7 +133,7 @@ Export incident's retrospective(s) using their templates
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -141,7 +143,7 @@ async function run() {
   const result = await firehydrant.retrospectives.exportIncidentRetrospectives({
     incidentId: "<id>",
     requestBody: {
-      integrationSlug: "google_docs",
+      integrationSlug: "confluence_cloud",
     },
   });
 
@@ -157,8 +159,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesExportIncidentRetrospectives } from "firehydrant/funcs/retrospectivesExportIncidentRetrospectives.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesExportIncidentRetrospectives } from "firehydrant-typescript-sdk/funcs/retrospectivesExportIncidentRetrospectives.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -170,7 +172,7 @@ async function run() {
   const res = await retrospectivesExportIncidentRetrospectives(firehydrant, {
     incidentId: "<id>",
     requestBody: {
-      integrationSlug: "google_docs",
+      integrationSlug: "confluence_cloud",
     },
   });
 
@@ -213,7 +215,7 @@ Retrieve retrospectives attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -236,8 +238,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesListIncidentRetrospectives } from "firehydrant/funcs/retrospectivesListIncidentRetrospectives.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesListIncidentRetrospectives } from "firehydrant-typescript-sdk/funcs/retrospectivesListIncidentRetrospectives.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -289,7 +291,7 @@ Create a new retrospective for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -315,8 +317,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesCreateIncidentRetrospective } from "firehydrant/funcs/retrospectivesCreateIncidentRetrospective.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesCreateIncidentRetrospective } from "firehydrant-typescript-sdk/funcs/retrospectivesCreateIncidentRetrospective.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -371,7 +373,7 @@ Update a retrospective attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -396,8 +398,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdateIncidentRetrospective } from "firehydrant/funcs/retrospectivesUpdateIncidentRetrospective.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdateIncidentRetrospective } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdateIncidentRetrospective.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -451,7 +453,7 @@ Add a new field to an incident retrospective
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -463,7 +465,7 @@ async function run() {
     incidentId: "<id>",
     requestBody: {
       label: "<value>",
-      type: "dynamic_input_group",
+      type: "datetime",
     },
   });
 
@@ -479,8 +481,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesCreateIncidentRetrospectiveField } from "firehydrant/funcs/retrospectivesCreateIncidentRetrospectiveField.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesCreateIncidentRetrospectiveField } from "firehydrant-typescript-sdk/funcs/retrospectivesCreateIncidentRetrospectiveField.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -494,7 +496,7 @@ async function run() {
     incidentId: "<id>",
     requestBody: {
       label: "<value>",
-      type: "dynamic_input_group",
+      type: "datetime",
     },
   });
 
@@ -537,7 +539,7 @@ Retrieve a field on an incident retrospective
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -562,8 +564,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesGetIncidentRetrospectiveField } from "firehydrant/funcs/retrospectivesGetIncidentRetrospectiveField.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesGetIncidentRetrospectiveField } from "firehydrant-typescript-sdk/funcs/retrospectivesGetIncidentRetrospectiveField.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -617,7 +619,7 @@ Update retrospective field value
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -629,7 +631,7 @@ async function run() {
     fieldId: "<id>",
     incidentId: "<id>",
     updateIncidentRetrospectiveField: {
-      value: 168058,
+      value: 361722,
     },
   });
 
@@ -645,8 +647,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdateIncidentRetrospectiveField } from "firehydrant/funcs/retrospectivesUpdateIncidentRetrospectiveField.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdateIncidentRetrospectiveField } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdateIncidentRetrospectiveField.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -660,7 +662,7 @@ async function run() {
     fieldId: "<id>",
     incidentId: "<id>",
     updateIncidentRetrospectiveField: {
-      value: 168058,
+      value: 361722,
     },
   });
 
@@ -703,7 +705,7 @@ Add a new dynamic input field to a dynamic input group
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -728,8 +730,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesCreateIncidentRetrospectiveDynamicInput } from "firehydrant/funcs/retrospectivesCreateIncidentRetrospectiveDynamicInput.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesCreateIncidentRetrospectiveDynamicInput } from "firehydrant-typescript-sdk/funcs/retrospectivesCreateIncidentRetrospectiveDynamicInput.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -783,7 +785,7 @@ Delete a dynamic input on a dynamic input group
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -809,8 +811,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesDeleteIncidentRetrospectiveDynamicInput } from "firehydrant/funcs/retrospectivesDeleteIncidentRetrospectiveDynamicInput.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesDeleteIncidentRetrospectiveDynamicInput } from "firehydrant-typescript-sdk/funcs/retrospectivesDeleteIncidentRetrospectiveDynamicInput.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -865,7 +867,7 @@ List all retrospective reports
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -886,8 +888,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesListRetrospectives } from "firehydrant/funcs/retrospectivesListRetrospectives.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesListRetrospectives } from "firehydrant-typescript-sdk/funcs/retrospectivesListRetrospectives.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -937,7 +939,7 @@ List all reports
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -958,8 +960,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesListPostMortemReports } from "firehydrant/funcs/retrospectivesListPostMortemReports.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesListPostMortemReports } from "firehydrant-typescript-sdk/funcs/retrospectivesListPostMortemReports.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1009,7 +1011,7 @@ Create a report
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1032,8 +1034,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesCreatePostMortemReport } from "firehydrant/funcs/retrospectivesCreatePostMortemReport.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesCreatePostMortemReport } from "firehydrant-typescript-sdk/funcs/retrospectivesCreatePostMortemReport.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1085,7 +1087,7 @@ Get a report
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1108,8 +1110,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesGetPostMortemReport } from "firehydrant/funcs/retrospectivesGetPostMortemReport.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesGetPostMortemReport } from "firehydrant-typescript-sdk/funcs/retrospectivesGetPostMortemReport.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1161,7 +1163,7 @@ Update a report
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1185,8 +1187,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdatePostMortemReport } from "firehydrant/funcs/retrospectivesUpdatePostMortemReport.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdatePostMortemReport } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdatePostMortemReport.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1239,7 +1241,7 @@ List all contributing factors to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1262,8 +1264,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesListPostMortemReasons } from "firehydrant/funcs/retrospectivesListPostMortemReasons.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesListPostMortemReasons } from "firehydrant-typescript-sdk/funcs/retrospectivesListPostMortemReasons.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1315,7 +1317,7 @@ Add a new contributing factor to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1341,8 +1343,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesCreatePostMortemReason } from "firehydrant/funcs/retrospectivesCreatePostMortemReason.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesCreatePostMortemReason } from "firehydrant-typescript-sdk/funcs/retrospectivesCreatePostMortemReason.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1397,7 +1399,7 @@ Delete a contributing factor
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1421,8 +1423,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesDeletePostMortemReason } from "firehydrant/funcs/retrospectivesDeletePostMortemReason.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesDeletePostMortemReason } from "firehydrant-typescript-sdk/funcs/retrospectivesDeletePostMortemReason.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1475,7 +1477,7 @@ Update a contributing factor
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1500,8 +1502,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdatePostMortemReason } from "firehydrant/funcs/retrospectivesUpdatePostMortemReason.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdatePostMortemReason } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdatePostMortemReason.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1555,7 +1557,7 @@ Update the order of contributing factors in a retrospective report
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1565,8 +1567,8 @@ async function run() {
   const result = await firehydrant.retrospectives.reorderPostMortemReasons({
     reportId: "<id>",
     reorderPostMortemReasons: {
-      oldPosition: 735999,
-      newPosition: 264317,
+      oldPosition: 622113,
+      newPosition: 136342,
     },
   });
 
@@ -1582,8 +1584,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesReorderPostMortemReasons } from "firehydrant/funcs/retrospectivesReorderPostMortemReasons.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesReorderPostMortemReasons } from "firehydrant-typescript-sdk/funcs/retrospectivesReorderPostMortemReasons.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1595,8 +1597,8 @@ async function run() {
   const res = await retrospectivesReorderPostMortemReasons(firehydrant, {
     reportId: "<id>",
     reorderPostMortemReasons: {
-      oldPosition: 735999,
-      newPosition: 264317,
+      oldPosition: 622113,
+      newPosition: 136342,
     },
   });
 
@@ -1639,7 +1641,7 @@ Marks an incident retrospective as published and emails all of the participants 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1663,8 +1665,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesPublishPostMortemReport } from "firehydrant/funcs/retrospectivesPublishPostMortemReport.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesPublishPostMortemReport } from "firehydrant-typescript-sdk/funcs/retrospectivesPublishPostMortemReport.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1718,7 +1720,7 @@ Update a field value on a post mortem report
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1745,8 +1747,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdatePostMortemField } from "firehydrant/funcs/retrospectivesUpdatePostMortemField.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdatePostMortemField } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdatePostMortemField.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1802,7 +1804,7 @@ List the questions configured to be provided and filled out on each retrospectiv
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1823,8 +1825,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesListPostMortemQuestions } from "firehydrant/funcs/retrospectivesListPostMortemQuestions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesListPostMortemQuestions } from "firehydrant-typescript-sdk/funcs/retrospectivesListPostMortemQuestions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1874,7 +1876,7 @@ Update the questions configured to be provided and filled out on future retrospe
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1895,8 +1897,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdatePostMortemQuestions } from "firehydrant/funcs/retrospectivesUpdatePostMortemQuestions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdatePostMortemQuestions } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdatePostMortemQuestions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1946,7 +1948,7 @@ Get an incident retrospective question configured to be provided and filled out 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1968,8 +1970,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesGetPostMortemQuestion } from "firehydrant/funcs/retrospectivesGetPostMortemQuestion.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesGetPostMortemQuestion } from "firehydrant-typescript-sdk/funcs/retrospectivesGetPostMortemQuestion.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2020,7 +2022,7 @@ List all retrospective templates
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2041,8 +2043,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesListRetrospectiveTemplates } from "firehydrant/funcs/retrospectivesListRetrospectiveTemplates.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesListRetrospectiveTemplates } from "firehydrant-typescript-sdk/funcs/retrospectivesListRetrospectiveTemplates.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2092,7 +2094,7 @@ Create a new retrospective template
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2101,21 +2103,21 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.retrospectives.createRetrospectiveTemplate({
     name: "<value>",
-    description: "second-hand ample mid bidet fooey",
+    description: "unnecessarily pfft while gratefully upon er co-producer whoa uh-huh dismal",
     sectionsSlug: [
-      "key_data",
-      "key_data",
-      "key_data",
+      "details",
+      "actions",
+      "timeline",
     ],
     sectionsElements: [
-      "<value>",
-      "<value>",
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
-    fieldsLabel: [],
-    fieldsType: [
-      "multi_select",
+    fieldsLabel: [
+      "<value 1>",
     ],
+    fieldsType: [],
   });
 
   // Handle the result
@@ -2130,8 +2132,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesCreateRetrospectiveTemplate } from "firehydrant/funcs/retrospectivesCreateRetrospectiveTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesCreateRetrospectiveTemplate } from "firehydrant-typescript-sdk/funcs/retrospectivesCreateRetrospectiveTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2142,21 +2144,21 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await retrospectivesCreateRetrospectiveTemplate(firehydrant, {
     name: "<value>",
-    description: "second-hand ample mid bidet fooey",
+    description: "unnecessarily pfft while gratefully upon er co-producer whoa uh-huh dismal",
     sectionsSlug: [
-      "key_data",
-      "key_data",
-      "key_data",
+      "details",
+      "actions",
+      "timeline",
     ],
     sectionsElements: [
-      "<value>",
-      "<value>",
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
-    fieldsLabel: [],
-    fieldsType: [
-      "multi_select",
+    fieldsLabel: [
+      "<value 1>",
     ],
+    fieldsType: [],
   });
 
   if (!res.ok) {
@@ -2198,7 +2200,7 @@ Retrieve a single retrospective template by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2221,8 +2223,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesGetRetrospectiveTemplate } from "firehydrant/funcs/retrospectivesGetRetrospectiveTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesGetRetrospectiveTemplate } from "firehydrant-typescript-sdk/funcs/retrospectivesGetRetrospectiveTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2274,7 +2276,7 @@ Delete a single retrospective template
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2297,8 +2299,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesDeleteRetrospectiveTemplate } from "firehydrant/funcs/retrospectivesDeleteRetrospectiveTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesDeleteRetrospectiveTemplate } from "firehydrant-typescript-sdk/funcs/retrospectivesDeleteRetrospectiveTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2350,7 +2352,7 @@ Update a single retrospective template
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2360,14 +2362,20 @@ async function run() {
   const result = await firehydrant.retrospectives.updateRetrospectiveTemplate({
     retrospectiveTemplateId: "<id>",
     requestBody: {
-      sectionsSlug: [],
-      sectionsElements: [
-        "<value>",
-        "<value>",
-        "<value>",
+      sectionsSlug: [
+        "<value 1>",
       ],
-      fieldsLabel: [],
-      fieldsType: [],
+      sectionsElements: [
+        "<value 1>",
+      ],
+      fieldsLabel: [
+        "<value 1>",
+      ],
+      fieldsType: [
+        "markdown_text",
+        "single_select",
+        "multi_select",
+      ],
     },
   });
 
@@ -2383,8 +2391,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { retrospectivesUpdateRetrospectiveTemplate } from "firehydrant/funcs/retrospectivesUpdateRetrospectiveTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesUpdateRetrospectiveTemplate } from "firehydrant-typescript-sdk/funcs/retrospectivesUpdateRetrospectiveTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2396,14 +2404,20 @@ async function run() {
   const res = await retrospectivesUpdateRetrospectiveTemplate(firehydrant, {
     retrospectiveTemplateId: "<id>",
     requestBody: {
-      sectionsSlug: [],
-      sectionsElements: [
-        "<value>",
-        "<value>",
-        "<value>",
+      sectionsSlug: [
+        "<value 1>",
       ],
-      fieldsLabel: [],
-      fieldsType: [],
+      sectionsElements: [
+        "<value 1>",
+      ],
+      fieldsLabel: [
+        "<value 1>",
+      ],
+      fieldsType: [
+        "markdown_text",
+        "single_select",
+        "multi_select",
+      ],
     },
   });
 

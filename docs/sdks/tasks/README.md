@@ -32,7 +32,7 @@ Add all tasks from list to incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -58,8 +58,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksCreateIncidentTaskList } from "firehydrant/funcs/tasksCreateIncidentTaskList.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksCreateIncidentTaskList } from "firehydrant-typescript-sdk/funcs/tasksCreateIncidentTaskList.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -114,7 +114,7 @@ Retrieve a list of all tasks for a specific incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -137,8 +137,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksListIncidentTasks } from "firehydrant/funcs/tasksListIncidentTasks.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksListIncidentTasks } from "firehydrant-typescript-sdk/funcs/tasksListIncidentTasks.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -190,7 +190,7 @@ Create a task
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -216,8 +216,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksCreateIncidentTask } from "firehydrant/funcs/tasksCreateIncidentTask.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksCreateIncidentTask } from "firehydrant-typescript-sdk/funcs/tasksCreateIncidentTask.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -272,7 +272,7 @@ Retrieve a single task for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -295,8 +295,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksGetIncidentTask } from "firehydrant/funcs/tasksGetIncidentTask.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksGetIncidentTask } from "firehydrant-typescript-sdk/funcs/tasksGetIncidentTask.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -348,7 +348,7 @@ Delete a task
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -371,8 +371,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksDeleteIncidentTask } from "firehydrant/funcs/tasksDeleteIncidentTask.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksDeleteIncidentTask } from "firehydrant-typescript-sdk/funcs/tasksDeleteIncidentTask.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -424,7 +424,7 @@ Update a task's attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -449,8 +449,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksUpdateIncidentTask } from "firehydrant/funcs/tasksUpdateIncidentTask.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksUpdateIncidentTask } from "firehydrant-typescript-sdk/funcs/tasksUpdateIncidentTask.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -504,7 +504,7 @@ Convert a task to a follow-up
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -529,8 +529,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksConvertIncidentTask } from "firehydrant/funcs/tasksConvertIncidentTask.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksConvertIncidentTask } from "firehydrant-typescript-sdk/funcs/tasksConvertIncidentTask.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -584,7 +584,7 @@ Lists all task lists for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -605,8 +605,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksListTaskLists } from "firehydrant/funcs/tasksListTaskLists.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksListTaskLists } from "firehydrant-typescript-sdk/funcs/tasksListTaskLists.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -656,7 +656,7 @@ Creates a new task list
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -666,6 +666,9 @@ async function run() {
   const result = await firehydrant.tasks.createTaskList({
     name: "<value>",
     taskListItems: [
+      {
+        summary: "<value>",
+      },
       {
         summary: "<value>",
       },
@@ -687,8 +690,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksCreateTaskList } from "firehydrant/funcs/tasksCreateTaskList.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksCreateTaskList } from "firehydrant-typescript-sdk/funcs/tasksCreateTaskList.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -700,6 +703,9 @@ async function run() {
   const res = await tasksCreateTaskList(firehydrant, {
     name: "<value>",
     taskListItems: [
+      {
+        summary: "<value>",
+      },
       {
         summary: "<value>",
       },
@@ -748,7 +754,7 @@ Retrieves a single task list by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -771,8 +777,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksGetTaskList } from "firehydrant/funcs/tasksGetTaskList.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksGetTaskList } from "firehydrant-typescript-sdk/funcs/tasksGetTaskList.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -824,7 +830,7 @@ Delete a task list
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -847,8 +853,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksDeleteTaskList } from "firehydrant/funcs/tasksDeleteTaskList.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksDeleteTaskList } from "firehydrant-typescript-sdk/funcs/tasksDeleteTaskList.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -900,7 +906,7 @@ Updates a task list's attributes and task list items
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -924,8 +930,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksUpdateTaskList } from "firehydrant/funcs/tasksUpdateTaskList.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksUpdateTaskList } from "firehydrant-typescript-sdk/funcs/tasksUpdateTaskList.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -978,7 +984,7 @@ List all of the checklist templates that have been added to the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -999,8 +1005,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksListChecklistTemplates } from "firehydrant/funcs/tasksListChecklistTemplates.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksListChecklistTemplates } from "firehydrant-typescript-sdk/funcs/tasksListChecklistTemplates.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1050,7 +1056,7 @@ Creates a checklist template for the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1060,9 +1066,6 @@ async function run() {
   const result = await firehydrant.tasks.createChecklistTemplate({
     name: "<value>",
     checks: [
-      {
-        name: "<value>",
-      },
       {
         name: "<value>",
       },
@@ -1084,8 +1087,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksCreateChecklistTemplate } from "firehydrant/funcs/tasksCreateChecklistTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksCreateChecklistTemplate } from "firehydrant-typescript-sdk/funcs/tasksCreateChecklistTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1097,9 +1100,6 @@ async function run() {
   const res = await tasksCreateChecklistTemplate(firehydrant, {
     name: "<value>",
     checks: [
-      {
-        name: "<value>",
-      },
       {
         name: "<value>",
       },
@@ -1149,7 +1149,7 @@ Retrieves a single checklist template by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1172,8 +1172,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksGetChecklistTemplate } from "firehydrant/funcs/tasksGetChecklistTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksGetChecklistTemplate } from "firehydrant-typescript-sdk/funcs/tasksGetChecklistTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1225,7 +1225,7 @@ Archive a checklist template
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1248,8 +1248,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksDeleteChecklistTemplate } from "firehydrant/funcs/tasksDeleteChecklistTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksDeleteChecklistTemplate } from "firehydrant-typescript-sdk/funcs/tasksDeleteChecklistTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1301,7 +1301,7 @@ Update a checklist templates attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1325,8 +1325,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { tasksUpdateChecklistTemplate } from "firehydrant/funcs/tasksUpdateChecklistTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { tasksUpdateChecklistTemplate } from "firehydrant-typescript-sdk/funcs/tasksUpdateChecklistTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

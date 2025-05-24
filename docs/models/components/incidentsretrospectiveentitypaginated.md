@@ -5,7 +5,7 @@ Incidents_RetrospectiveEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IncidentsRetrospectiveEntityPaginated } from "firehydrant/models/components";
+import { IncidentsRetrospectiveEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRetrospectiveEntityPaginated = {};
 ```

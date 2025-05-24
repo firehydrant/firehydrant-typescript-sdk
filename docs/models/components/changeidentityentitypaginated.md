@@ -5,7 +5,7 @@ ChangeIdentityEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { ChangeIdentityEntityPaginated } from "firehydrant/models/components";
+import { ChangeIdentityEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChangeIdentityEntityPaginated = {};
 ```

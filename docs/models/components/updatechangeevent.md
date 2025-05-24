@@ -5,7 +5,7 @@ Update a change event
 ## Example Usage
 
 ```typescript
-import { UpdateChangeEvent } from "firehydrant/models/components";
+import { UpdateChangeEvent } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateChangeEvent = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateTaskListTaskListItem } from "firehydrant/models/components";
+import { CreateTaskListTaskListItem } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTaskListTaskListItem = {
   summary: "<value>",

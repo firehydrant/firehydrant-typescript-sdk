@@ -5,7 +5,7 @@ Additional unstructured data about the status check.
 ## Example Usage
 
 ```typescript
-import { IntegrationsConnectionStatusEntityData } from "firehydrant/models/components";
+import { IntegrationsConnectionStatusEntityData } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsConnectionStatusEntityData = {};
 ```

@@ -5,7 +5,7 @@ Alerts_AlertEntity model
 ## Example Usage
 
 ```typescript
-import { AlertsAlertEntity } from "firehydrant/models/components";
+import { AlertsAlertEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsAlertEntity = {
   signalRule: {

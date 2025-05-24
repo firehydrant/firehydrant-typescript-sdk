@@ -5,7 +5,7 @@ Create a Signals escalation policy for a team.
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicy } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicy } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicy = {
   name: "<value>",
