@@ -5,7 +5,7 @@ Incidents_RoleAssignmentEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsRoleAssignmentEntity } from "firehydrant/models/components";
+import { IncidentsRoleAssignmentEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRoleAssignmentEntity = {};
 ```

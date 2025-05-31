@@ -29,7 +29,7 @@ List changes for the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -49,8 +49,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesListChanges } from "firehydrant/funcs/changesListChanges.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesListChanges } from "firehydrant-typescript-sdk/funcs/changesListChanges.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -99,7 +99,7 @@ Create a new change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -120,8 +120,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesCreateChange } from "firehydrant/funcs/changesCreateChange.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesCreateChange } from "firehydrant-typescript-sdk/funcs/changesCreateChange.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -172,7 +172,7 @@ Archive a change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -194,8 +194,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesDeleteChange } from "firehydrant/funcs/changesDeleteChange.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesDeleteChange } from "firehydrant-typescript-sdk/funcs/changesDeleteChange.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -246,7 +246,7 @@ Update a change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -270,8 +270,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesUpdateChange } from "firehydrant/funcs/changesUpdateChange.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesUpdateChange } from "firehydrant-typescript-sdk/funcs/changesUpdateChange.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -324,7 +324,7 @@ Retrieve all identities for the change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -347,8 +347,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesListChangeIdentities } from "firehydrant/funcs/changesListChangeIdentities.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesListChangeIdentities } from "firehydrant-typescript-sdk/funcs/changesListChangeIdentities.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -400,7 +400,7 @@ Create an identity for the change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -427,8 +427,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesCreateChangeIdentity } from "firehydrant/funcs/changesCreateChangeIdentity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesCreateChangeIdentity } from "firehydrant-typescript-sdk/funcs/changesCreateChangeIdentity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -485,7 +485,7 @@ Delete an identity from the change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -508,8 +508,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesDeleteChangeIdentity } from "firehydrant/funcs/changesDeleteChangeIdentity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesDeleteChangeIdentity } from "firehydrant-typescript-sdk/funcs/changesDeleteChangeIdentity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -562,7 +562,7 @@ Update an identity for the change entry
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -590,8 +590,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesUpdateChangeIdentity } from "firehydrant/funcs/changesUpdateChangeIdentity.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesUpdateChangeIdentity } from "firehydrant-typescript-sdk/funcs/changesUpdateChangeIdentity.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -649,7 +649,7 @@ List change events for the organization. Note: Not all information is included o
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -670,8 +670,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesListChangeEvents } from "firehydrant/funcs/changesListChangeEvents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesListChangeEvents } from "firehydrant-typescript-sdk/funcs/changesListChangeEvents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -721,7 +721,7 @@ Create a change event
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -744,8 +744,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesCreateChangeEvent } from "firehydrant/funcs/changesCreateChangeEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesCreateChangeEvent } from "firehydrant-typescript-sdk/funcs/changesCreateChangeEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -797,7 +797,7 @@ Retrieve a change event
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -820,8 +820,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesGetChangeEvent } from "firehydrant/funcs/changesGetChangeEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesGetChangeEvent } from "firehydrant-typescript-sdk/funcs/changesGetChangeEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -873,7 +873,7 @@ Delete a change event
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -895,8 +895,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesDeleteChangeEvent } from "firehydrant/funcs/changesDeleteChangeEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesDeleteChangeEvent } from "firehydrant-typescript-sdk/funcs/changesDeleteChangeEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -947,7 +947,7 @@ Update a change event
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -971,8 +971,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesUpdateChangeEvent } from "firehydrant/funcs/changesUpdateChangeEvent.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesUpdateChangeEvent } from "firehydrant-typescript-sdk/funcs/changesUpdateChangeEvent.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1025,7 +1025,7 @@ List change types for the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1046,8 +1046,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { changesListChangeTypes } from "firehydrant/funcs/changesListChangeTypes.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { changesListChangeTypes } from "firehydrant-typescript-sdk/funcs/changesListChangeTypes.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

@@ -107,7 +107,7 @@ async function $do(
     "query": payload.query,
     "resolved_at_or_after": payload.resolved_at_or_after,
     "resolved_at_or_before": payload.resolved_at_or_before,
-    "retrospective_template": payload.retrospective_template,
+    "retrospective_templates": payload.retrospective_templates,
     "saved_search_id": payload.saved_search_id,
     "services": payload.services,
     "severities": payload.severities,
@@ -130,6 +130,7 @@ async function $do(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "list_incidents",
     oAuth2Scopes: [],
@@ -151,6 +152,7 @@ async function $do(
     headers: headers,
     query: query,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {

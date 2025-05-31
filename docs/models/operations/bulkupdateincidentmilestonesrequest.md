@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BulkUpdateIncidentMilestonesRequest } from "firehydrant/models/operations";
+import { BulkUpdateIncidentMilestonesRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: BulkUpdateIncidentMilestonesRequest = {
   incidentId: "<id>",

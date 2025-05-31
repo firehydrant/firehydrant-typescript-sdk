@@ -119,6 +119,7 @@ import { tool$incidentsDeleteIncidentRoleAssignment } from "./tools/incidentsDel
 import { tool$incidentsDeleteIncidentTeamAssignment } from "./tools/incidentsDeleteIncidentTeamAssignment.js";
 import { tool$incidentsDeleteScheduledMaintenance } from "./tools/incidentsDeleteScheduledMaintenance.js";
 import { tool$incidentsDeleteTranscriptEntry } from "./tools/incidentsDeleteTranscriptEntry.js";
+import { tool$incidentSettingsAppendFormDataOnSelectedValueGet } from "./tools/incidentSettingsAppendFormDataOnSelectedValueGet.js";
 import { tool$incidentSettingsCreateCustomFieldDefinition } from "./tools/incidentSettingsCreateCustomFieldDefinition.js";
 import { tool$incidentSettingsCreateIncidentRole } from "./tools/incidentSettingsCreateIncidentRole.js";
 import { tool$incidentSettingsCreateIncidentType } from "./tools/incidentSettingsCreateIncidentType.js";
@@ -432,7 +433,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "0.1.13",
+    version: "1.0.0",
   });
 
   const client = new FirehydrantCore({
@@ -738,6 +739,7 @@ export function createMCPServer(deps: {
   tool(tool$incidentSettingsListCustomFieldDefinitions);
   tool(tool$incidentSettingsCreateCustomFieldDefinition);
   tool(tool$incidentSettingsListCustomFieldSelectOptions);
+  tool(tool$incidentSettingsAppendFormDataOnSelectedValueGet);
   tool(tool$incidentSettingsGetFormConfiguration);
   tool(tool$integrationsListIntegrations);
   tool(tool$integrationsGetIntegration);

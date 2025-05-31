@@ -26,7 +26,7 @@ SCIM endpoint that lists a Team (Colloquial for Group in the SCIM protocol)
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -48,8 +48,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimGetSCIMGroup } from "firehydrant/funcs/scimGetSCIMGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimGetSCIMGroup } from "firehydrant-typescript-sdk/funcs/scimGetSCIMGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -100,7 +100,7 @@ SCIM endpoint to update a Team (Colloquial for Group in the SCIM protocol). Any 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -110,8 +110,11 @@ async function run() {
   await firehydrant.scim.updateScimGroup({
     id: "<id>",
     updateScimGroup: {
-      displayName: "Monte_Schowalter",
+      displayName: "Dejon_Prosacco5",
       members: [
+        {
+          value: "<value>",
+        },
         {
           value: "<value>",
         },
@@ -130,8 +133,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimUpdateSCIMGroup } from "firehydrant/funcs/scimUpdateSCIMGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimUpdateSCIMGroup } from "firehydrant-typescript-sdk/funcs/scimUpdateSCIMGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -143,8 +146,11 @@ async function run() {
   const res = await scimUpdateSCIMGroup(firehydrant, {
     id: "<id>",
     updateScimGroup: {
-      displayName: "Monte_Schowalter",
+      displayName: "Dejon_Prosacco5",
       members: [
+        {
+          value: "<value>",
+        },
         {
           value: "<value>",
         },
@@ -190,7 +196,7 @@ SCIM endpoint to delete a Team (Colloquial for Group in the SCIM protocol).
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -212,8 +218,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimDeleteSCIMGroup } from "firehydrant/funcs/scimDeleteSCIMGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimDeleteSCIMGroup } from "firehydrant-typescript-sdk/funcs/scimDeleteSCIMGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -264,7 +270,7 @@ SCIM endpoint that lists all Teams (Colloquial for Group in the SCIM protocol)
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -284,8 +290,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimListSCIMGroups } from "firehydrant/funcs/scimListSCIMGroups.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimListSCIMGroups } from "firehydrant-typescript-sdk/funcs/scimListSCIMGroups.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -334,7 +340,7 @@ SCIM endpoint to create a new Team (Colloquial for Group in the SCIM protocol). 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -342,11 +348,8 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   await firehydrant.scim.createScimGroup({
-    displayName: "Allie.Schowalter",
+    displayName: "Odessa.Schulist",
     members: [
-      {
-        value: "<value>",
-      },
       {
         value: "<value>",
       },
@@ -367,8 +370,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimCreateSCIMGroup } from "firehydrant/funcs/scimCreateSCIMGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimCreateSCIMGroup } from "firehydrant-typescript-sdk/funcs/scimCreateSCIMGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -378,11 +381,8 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await scimCreateSCIMGroup(firehydrant, {
-    displayName: "Allie.Schowalter",
+    displayName: "Odessa.Schulist",
     members: [
-      {
-        value: "<value>",
-      },
       {
         value: "<value>",
       },
@@ -430,7 +430,7 @@ SCIM endpoint that lists a User
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -452,8 +452,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimGetSCIMUser } from "firehydrant/funcs/scimGetSCIMUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimGetSCIMUser } from "firehydrant-typescript-sdk/funcs/scimGetSCIMUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -504,7 +504,7 @@ PUT SCIM endpoint to update a User. This endpoint is used to replace a resource'
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -527,8 +527,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimUpdateSCIMUser } from "firehydrant/funcs/scimUpdateSCIMUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimUpdateSCIMUser } from "firehydrant-typescript-sdk/funcs/scimUpdateSCIMUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -580,7 +580,7 @@ SCIM endpoint to delete a User. This endpoint will deactivate a confirmed User r
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -602,8 +602,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimDeleteSCIMUser } from "firehydrant/funcs/scimDeleteSCIMUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimDeleteSCIMUser } from "firehydrant-typescript-sdk/funcs/scimDeleteSCIMUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -654,7 +654,7 @@ PATCH SCIM endpoint to update a User. This endpoint is used to update a resource
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -664,20 +664,7 @@ async function run() {
   await firehydrant.scim.patchScimUser({
     id: "<id>",
     patchScimUser: {
-      operations: [
-        {
-          op: "<value>",
-          path: "/System",
-        },
-        {
-          op: "<value>",
-          path: "/lib",
-        },
-        {
-          op: "<value>",
-          path: "/etc/namedb",
-        },
-      ],
+      operations: [],
     },
   });
 
@@ -692,8 +679,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimPatchSCIMUser } from "firehydrant/funcs/scimPatchSCIMUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimPatchSCIMUser } from "firehydrant-typescript-sdk/funcs/scimPatchSCIMUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -705,20 +692,7 @@ async function run() {
   const res = await scimPatchSCIMUser(firehydrant, {
     id: "<id>",
     patchScimUser: {
-      operations: [
-        {
-          op: "<value>",
-          path: "/System",
-        },
-        {
-          op: "<value>",
-          path: "/lib",
-        },
-        {
-          op: "<value>",
-          path: "/etc/namedb",
-        },
-      ],
+      operations: [],
     },
   });
 
@@ -760,7 +734,7 @@ SCIM endpoint that lists users. This endpoint will display a list of Users curre
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -780,8 +754,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimListSCIMUsers } from "firehydrant/funcs/scimListSCIMUsers.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimListSCIMUsers } from "firehydrant-typescript-sdk/funcs/scimListSCIMUsers.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -830,7 +804,7 @@ SCIM endpoint to create and provision a new User. This endpoint will provision t
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -838,25 +812,12 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   await firehydrant.scim.createScimUser({
-    userName: "Angeline72",
+    userName: "Vinnie.Crooks27",
     name: {
       familyName: "<value>",
       givenName: "<value>",
     },
-    emails: [
-      {
-        value: "<value>",
-        primary: false,
-      },
-      {
-        value: "<value>",
-        primary: false,
-      },
-      {
-        value: "<value>",
-        primary: true,
-      },
-    ],
+    emails: [],
   });
 
 
@@ -870,8 +831,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { scimCreateSCIMUser } from "firehydrant/funcs/scimCreateSCIMUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { scimCreateSCIMUser } from "firehydrant-typescript-sdk/funcs/scimCreateSCIMUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -881,25 +842,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await scimCreateSCIMUser(firehydrant, {
-    userName: "Angeline72",
+    userName: "Vinnie.Crooks27",
     name: {
       familyName: "<value>",
       givenName: "<value>",
     },
-    emails: [
-      {
-        value: "<value>",
-        primary: false,
-      },
-      {
-        value: "<value>",
-        primary: false,
-      },
-      {
-        value: "<value>",
-        primary: true,
-      },
-    ],
+    emails: [],
   });
 
   if (!res.ok) {

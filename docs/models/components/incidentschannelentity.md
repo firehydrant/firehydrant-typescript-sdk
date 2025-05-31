@@ -5,7 +5,7 @@ Incidents_ChannelEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsChannelEntity } from "firehydrant/models/components";
+import { IncidentsChannelEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsChannelEntity = {};
 ```

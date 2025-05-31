@@ -5,7 +5,7 @@ Create a new scheduled maintenance event
 ## Example Usage
 
 ```typescript
-import { CreateScheduledMaintenance } from "firehydrant/models/components";
+import { CreateScheduledMaintenance } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateScheduledMaintenance = {
   name: "<value>",

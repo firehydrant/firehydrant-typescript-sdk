@@ -21,7 +21,7 @@ Simple endpoint to verify your API connection is working
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -42,8 +42,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsPing } from "firehydrant/funcs/accountSettingsPing.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsPing } from "firehydrant-typescript-sdk/funcs/accountSettingsPing.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -92,7 +92,7 @@ List the organization's entitlements
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -113,8 +113,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsListEntitlements } from "firehydrant/funcs/accountSettingsListEntitlements.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsListEntitlements } from "firehydrant-typescript-sdk/funcs/accountSettingsListEntitlements.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -164,7 +164,7 @@ Simple endpoint to verify your API connection is working
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -185,8 +185,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsPingNoauth } from "firehydrant/funcs/accountSettingsPingNoauth.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsPingNoauth } from "firehydrant-typescript-sdk/funcs/accountSettingsPingNoauth.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -235,7 +235,7 @@ Get initial application configuration
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -256,8 +256,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsGetBootstrap } from "firehydrant/funcs/accountSettingsGetBootstrap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsGetBootstrap } from "firehydrant-typescript-sdk/funcs/accountSettingsGetBootstrap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -306,7 +306,7 @@ Retrieves the current AI preferences
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -327,8 +327,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsGetAiPreferences } from "firehydrant/funcs/accountSettingsGetAiPreferences.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsGetAiPreferences } from "firehydrant-typescript-sdk/funcs/accountSettingsGetAiPreferences.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -377,7 +377,7 @@ Updates the AI preferences
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -398,8 +398,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsUpdateAiPreferences } from "firehydrant/funcs/accountSettingsUpdateAiPreferences.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsUpdateAiPreferences } from "firehydrant-typescript-sdk/funcs/accountSettingsUpdateAiPreferences.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

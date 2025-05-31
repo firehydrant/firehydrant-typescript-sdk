@@ -5,7 +5,7 @@ Creates a service dependency relationship between two services
 ## Example Usage
 
 ```typescript
-import { CreateServiceDependency } from "firehydrant/models/components";
+import { CreateServiceDependency } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateServiceDependency = {
   serviceId: "<id>",

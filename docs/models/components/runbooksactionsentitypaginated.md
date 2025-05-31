@@ -5,7 +5,7 @@ Runbooks_ActionsEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { RunbooksActionsEntityPaginated } from "firehydrant/models/components";
+import { RunbooksActionsEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: RunbooksActionsEntityPaginated = {};
 ```

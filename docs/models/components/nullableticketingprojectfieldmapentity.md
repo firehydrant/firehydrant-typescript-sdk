@@ -5,7 +5,7 @@ Ticketing_ProjectFieldMapEntity model
 ## Example Usage
 
 ```typescript
-import { NullableTicketingProjectFieldMapEntity } from "firehydrant/models/components";
+import { NullableTicketingProjectFieldMapEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableTicketingProjectFieldMapEntity = {};
 ```

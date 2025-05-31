@@ -97,6 +97,8 @@ async function $do(
     "page": payload.page,
     "per_page": payload.per_page,
     "query": payload.query,
+    "shift_time_window_end": payload.shift_time_window_end,
+    "shift_time_window_start": payload.shift_time_window_start,
   });
 
   const headers = new Headers(compactMap({
@@ -108,6 +110,7 @@ async function $do(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "list_team_on_call_schedules",
     oAuth2Scopes: [],
@@ -129,6 +132,7 @@ async function $do(
     headers: headers,
     query: query,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {

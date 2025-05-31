@@ -28,7 +28,9 @@ import { Result } from "../types/fp.js";
  * Update an on-call schedule for a team
  *
  * @remarks
- * Update a Signals on-call schedule by ID
+ * Update a Signals on-call schedule by ID. For backwards compatibility, all parameters except for
+ * `name` and `description` will be ignored if the schedule has more than one rotation. If the schedule
+ * has only one rotation, you can continue to update that rotation using the rotation-specific parameters.
  */
 export function signalsUpdateTeamOnCallSchedule(
   client: FirehydrantCore,
@@ -111,6 +113,7 @@ async function $do(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "update_team_on_call_schedule",
     oAuth2Scopes: [],
@@ -131,6 +134,7 @@ async function $do(
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {

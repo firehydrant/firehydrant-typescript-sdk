@@ -5,7 +5,7 @@ ChecklistTemplateEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { ChecklistTemplateEntityPaginated } from "firehydrant/models/components";
+import { ChecklistTemplateEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChecklistTemplateEntityPaginated = {};
 ```

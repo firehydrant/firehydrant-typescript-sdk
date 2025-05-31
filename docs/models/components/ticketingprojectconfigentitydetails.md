@@ -5,7 +5,7 @@ A config object containing details about the project config. Can be one of: Tick
 ## Example Usage
 
 ```typescript
-import { TicketingProjectConfigEntityDetails } from "firehydrant/models/components";
+import { TicketingProjectConfigEntityDetails } from "firehydrant-typescript-sdk/models/components";
 
 let value: TicketingProjectConfigEntityDetails = {};
 ```

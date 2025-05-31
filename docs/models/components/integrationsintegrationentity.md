@@ -5,7 +5,7 @@ Integrations_IntegrationEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsIntegrationEntity } from "firehydrant/models/components";
+import { IntegrationsIntegrationEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsIntegrationEntity = {};
 ```

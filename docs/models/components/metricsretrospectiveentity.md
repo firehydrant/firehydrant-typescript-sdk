@@ -5,7 +5,7 @@ Metrics_RetrospectiveEntity model
 ## Example Usage
 
 ```typescript
-import { MetricsRetrospectiveEntity } from "firehydrant/models/components";
+import { MetricsRetrospectiveEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: MetricsRetrospectiveEntity = {};
 ```

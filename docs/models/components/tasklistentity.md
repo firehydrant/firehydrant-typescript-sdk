@@ -5,7 +5,7 @@ TaskListEntity model
 ## Example Usage
 
 ```typescript
-import { TaskListEntity } from "firehydrant/models/components";
+import { TaskListEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TaskListEntity = {};
 ```

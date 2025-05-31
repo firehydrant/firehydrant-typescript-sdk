@@ -25,7 +25,7 @@ Get an object's current vote counts
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -49,8 +49,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsGetVoteStatus } from "firehydrant/funcs/conversationsGetVoteStatus.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsGetVoteStatus } from "firehydrant-typescript-sdk/funcs/conversationsGetVoteStatus.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -103,7 +103,7 @@ Upvote or downvote an object
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -114,7 +114,7 @@ async function run() {
     incidentId: "<id>",
     eventId: "<id>",
     updateVote: {
-      direction: "dig",
+      direction: "up",
     },
   });
 
@@ -130,8 +130,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsUpdateVote } from "firehydrant/funcs/conversationsUpdateVote.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsUpdateVote } from "firehydrant-typescript-sdk/funcs/conversationsUpdateVote.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -144,7 +144,7 @@ async function run() {
     incidentId: "<id>",
     eventId: "<id>",
     updateVote: {
-      direction: "dig",
+      direction: "up",
     },
   });
 
@@ -187,7 +187,7 @@ ALPHA - Archive a reaction
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -211,8 +211,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsDeleteCommentReaction } from "firehydrant/funcs/conversationsDeleteCommentReaction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsDeleteCommentReaction } from "firehydrant-typescript-sdk/funcs/conversationsDeleteCommentReaction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -265,7 +265,7 @@ ALPHA - List all of the reactions that have been added to a comment
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -288,8 +288,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsListCommentReactions } from "firehydrant/funcs/conversationsListCommentReactions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsListCommentReactions } from "firehydrant-typescript-sdk/funcs/conversationsListCommentReactions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -341,7 +341,7 @@ ALPHA - Create a reaction on a comment
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -367,8 +367,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsCreateCommentReaction } from "firehydrant/funcs/conversationsCreateCommentReaction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsCreateCommentReaction } from "firehydrant-typescript-sdk/funcs/conversationsCreateCommentReaction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -423,7 +423,7 @@ ALPHA - Retrieves a single comment by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -446,8 +446,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsGetComment } from "firehydrant/funcs/conversationsGetComment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsGetComment } from "firehydrant-typescript-sdk/funcs/conversationsGetComment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -499,7 +499,7 @@ ALPHA - Archive a comment
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -522,8 +522,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsDeleteComment } from "firehydrant/funcs/conversationsDeleteComment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsDeleteComment } from "firehydrant-typescript-sdk/funcs/conversationsDeleteComment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -575,7 +575,7 @@ ALPHA - Update a comment's attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -599,8 +599,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsUpdateComment } from "firehydrant/funcs/conversationsUpdateComment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsUpdateComment } from "firehydrant-typescript-sdk/funcs/conversationsUpdateComment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -653,7 +653,7 @@ ALPHA - List all of the comments that have been added to the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -675,8 +675,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsListComments } from "firehydrant/funcs/conversationsListComments.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsListComments } from "firehydrant-typescript-sdk/funcs/conversationsListComments.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -727,7 +727,7 @@ ALPHA - Creates a comment for a project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -752,8 +752,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { conversationsCreateComment } from "firehydrant/funcs/conversationsCreateComment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { conversationsCreateComment } from "firehydrant-typescript-sdk/funcs/conversationsCreateComment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

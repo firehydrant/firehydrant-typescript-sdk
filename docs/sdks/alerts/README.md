@@ -22,7 +22,7 @@ List alerts that have been attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -45,8 +45,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsListIncidentAlerts } from "firehydrant/funcs/alertsListIncidentAlerts.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsListIncidentAlerts } from "firehydrant-typescript-sdk/funcs/alertsListIncidentAlerts.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -98,7 +98,7 @@ Add an alert to an incident. FireHydrant needs to have ingested the alert from a
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -108,9 +108,7 @@ async function run() {
   await firehydrant.alerts.createIncidentAlert({
     incidentId: "<id>",
     requestBody: [
-      "<value>",
-      "<value>",
-      "<value>",
+      "<value 1>",
     ],
   });
 
@@ -125,8 +123,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsCreateIncidentAlert } from "firehydrant/funcs/alertsCreateIncidentAlert.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsCreateIncidentAlert } from "firehydrant-typescript-sdk/funcs/alertsCreateIncidentAlert.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -138,9 +136,7 @@ async function run() {
   const res = await alertsCreateIncidentAlert(firehydrant, {
     incidentId: "<id>",
     requestBody: [
-      "<value>",
-      "<value>",
-      "<value>",
+      "<value 1>",
     ],
   });
 
@@ -182,7 +178,7 @@ Setting an alert as primary will overwrite milestone times in the FireHydrant in
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -209,8 +205,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsUpdateIncidentAlertPrimary } from "firehydrant/funcs/alertsUpdateIncidentAlertPrimary.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsUpdateIncidentAlertPrimary } from "firehydrant-typescript-sdk/funcs/alertsUpdateIncidentAlertPrimary.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -266,7 +262,7 @@ Remove an alert from an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -289,8 +285,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsDeleteIncidentAlert } from "firehydrant/funcs/alertsDeleteIncidentAlert.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsDeleteIncidentAlert } from "firehydrant-typescript-sdk/funcs/alertsDeleteIncidentAlert.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -342,7 +338,7 @@ Retrieve all alerts from third parties
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -363,8 +359,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsListAlerts } from "firehydrant/funcs/alertsListAlerts.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsListAlerts } from "firehydrant-typescript-sdk/funcs/alertsListAlerts.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -414,7 +410,7 @@ Retrieve a single alert
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -437,8 +433,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsGetAlert } from "firehydrant/funcs/alertsGetAlert.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsGetAlert } from "firehydrant-typescript-sdk/funcs/alertsGetAlert.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -490,7 +486,7 @@ Processing Log Entries for a specific alert
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -511,8 +507,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { alertsListProcessingLogEntries } from "firehydrant/funcs/alertsListProcessingLogEntries.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { alertsListProcessingLogEntries } from "firehydrant-typescript-sdk/funcs/alertsListProcessingLogEntries.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

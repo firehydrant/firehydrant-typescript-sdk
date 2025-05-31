@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateAwsCloudtrailBatchRequest } from "firehydrant/models/operations";
+import { UpdateAwsCloudtrailBatchRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateAwsCloudtrailBatchRequest = {
   id: "<id>",

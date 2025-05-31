@@ -34,7 +34,7 @@ Remove a status page incident attached to an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -57,8 +57,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteIncidentStatusPage } from "firehydrant/funcs/statusPagesDeleteIncidentStatusPage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteIncidentStatusPage } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteIncidentStatusPage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -110,7 +110,7 @@ Lists the information displayed as part of your FireHydrant hosted status pages.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -131,8 +131,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesListNuncConnections } from "firehydrant/funcs/statusPagesListNuncConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesListNuncConnections } from "firehydrant-typescript-sdk/funcs/statusPagesListNuncConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -181,7 +181,7 @@ Create a new FireHydrant hosted status page for customer facing statuses.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -189,22 +189,16 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.statusPages.createNuncConnection({
-    domain: "pertinent-ribbon.com",
-    conditionsNuncCondition: [
-      "<value>",
-      "<value>",
-    ],
+    domain: "subtle-instance.biz",
+    conditionsNuncCondition: [],
     conditionsConditionId: [
-      "<value>",
+      "<value 1>",
     ],
-    componentsInfrastructureType: [
-      "<value>",
-      "<value>",
-    ],
+    componentsInfrastructureType: [],
     componentsInfrastructureId: [
-      "<value>",
-      "<value>",
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
@@ -220,8 +214,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesCreateNuncConnection } from "firehydrant/funcs/statusPagesCreateNuncConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesCreateNuncConnection } from "firehydrant-typescript-sdk/funcs/statusPagesCreateNuncConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -231,22 +225,16 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await statusPagesCreateNuncConnection(firehydrant, {
-    domain: "pertinent-ribbon.com",
-    conditionsNuncCondition: [
-      "<value>",
-      "<value>",
-    ],
+    domain: "subtle-instance.biz",
+    conditionsNuncCondition: [],
     conditionsConditionId: [
-      "<value>",
+      "<value 1>",
     ],
-    componentsInfrastructureType: [
-      "<value>",
-      "<value>",
-    ],
+    componentsInfrastructureType: [],
     componentsInfrastructureId: [
-      "<value>",
-      "<value>",
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
@@ -289,7 +277,7 @@ Retrieves the list of subscribers for a status page.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -312,8 +300,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesListEmailSubscribers } from "firehydrant/funcs/statusPagesListEmailSubscribers.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesListEmailSubscribers } from "firehydrant-typescript-sdk/funcs/statusPagesListEmailSubscribers.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -365,7 +353,7 @@ Subscribes a comma-separated string of emails to status page updates
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -391,8 +379,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesCreateEmailSubscriber } from "firehydrant/funcs/statusPagesCreateEmailSubscriber.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesCreateEmailSubscriber } from "firehydrant-typescript-sdk/funcs/statusPagesCreateEmailSubscriber.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -447,7 +435,7 @@ Unsubscribes one or more status page subscribers.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -471,8 +459,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteEmailSubscriber } from "firehydrant/funcs/statusPagesDeleteEmailSubscriber.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteEmailSubscriber } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteEmailSubscriber.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -525,7 +513,7 @@ Retrieve the information displayed as part of your FireHydrant hosted status pag
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -548,8 +536,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesGetNuncConnection } from "firehydrant/funcs/statusPagesGetNuncConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesGetNuncConnection } from "firehydrant-typescript-sdk/funcs/statusPagesGetNuncConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -601,7 +589,7 @@ Update your company's information and other components in the specified FireHydr
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -611,17 +599,18 @@ async function run() {
   const result = await firehydrant.statusPages.updateNuncConnection({
     nuncConnectionId: "<id>",
     requestBody: {
-      conditionsNuncCondition: [],
+      conditionsNuncCondition: [
+        "<value 1>",
+      ],
       conditionsConditionId: [
-        "<value>",
-        "<value>",
-        "<value>",
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
       ],
-      componentsInfrastructureType: [
-        "<value>",
-      ],
+      componentsInfrastructureType: [],
       componentsInfrastructureId: [
-        "<value>",
+        "<value 1>",
+        "<value 2>",
       ],
     },
   });
@@ -638,8 +627,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesUpdateNuncConnection } from "firehydrant/funcs/statusPagesUpdateNuncConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesUpdateNuncConnection } from "firehydrant-typescript-sdk/funcs/statusPagesUpdateNuncConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -651,17 +640,18 @@ async function run() {
   const res = await statusPagesUpdateNuncConnection(firehydrant, {
     nuncConnectionId: "<id>",
     requestBody: {
-      conditionsNuncCondition: [],
+      conditionsNuncCondition: [
+        "<value 1>",
+      ],
       conditionsConditionId: [
-        "<value>",
-        "<value>",
-        "<value>",
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
       ],
-      componentsInfrastructureType: [
-        "<value>",
-      ],
+      componentsInfrastructureType: [],
       componentsInfrastructureId: [
-        "<value>",
+        "<value 1>",
+        "<value 2>",
       ],
     },
   });
@@ -705,7 +695,7 @@ Delete a FireHydrant hosted status page, stopping updates of your incidents to i
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -728,8 +718,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteNuncConnection } from "firehydrant/funcs/statusPagesDeleteNuncConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteNuncConnection } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteNuncConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -781,7 +771,7 @@ Delete a component group displayed on a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -804,8 +794,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteNuncComponentGroup } from "firehydrant/funcs/statusPagesDeleteNuncComponentGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteNuncComponentGroup } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteNuncComponentGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -857,7 +847,7 @@ Update a component group to be displayed on a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -880,8 +870,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesUpdateNuncComponentGroup } from "firehydrant/funcs/statusPagesUpdateNuncComponentGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesUpdateNuncComponentGroup } from "firehydrant-typescript-sdk/funcs/statusPagesUpdateNuncComponentGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -933,7 +923,7 @@ Add a component group to be displayed on a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -959,8 +949,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesCreateNuncComponentGroup } from "firehydrant/funcs/statusPagesCreateNuncComponentGroup.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesCreateNuncComponentGroup } from "firehydrant-typescript-sdk/funcs/statusPagesCreateNuncComponentGroup.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1015,7 +1005,7 @@ Delete a link displayed on a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1038,8 +1028,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteNuncLink } from "firehydrant/funcs/statusPagesDeleteNuncLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteNuncLink } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteNuncLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1091,7 +1081,7 @@ Update a link to be displayed on a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1115,8 +1105,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesUpdateNuncLink } from "firehydrant/funcs/statusPagesUpdateNuncLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesUpdateNuncLink } from "firehydrant-typescript-sdk/funcs/statusPagesUpdateNuncLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1169,7 +1159,7 @@ Add a link to be displayed on a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1192,8 +1182,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesCreateNuncLink } from "firehydrant/funcs/statusPagesCreateNuncLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesCreateNuncLink } from "firehydrant-typescript-sdk/funcs/statusPagesCreateNuncLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1245,7 +1235,7 @@ Add or replace an image attached to a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1269,8 +1259,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesUpdateNuncImage } from "firehydrant/funcs/statusPagesUpdateNuncImage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesUpdateNuncImage } from "firehydrant-typescript-sdk/funcs/statusPagesUpdateNuncImage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1323,7 +1313,7 @@ Delete an image attached to a FireHydrant status page
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1347,8 +1337,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteNuncImage } from "firehydrant/funcs/statusPagesDeleteNuncImage.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteNuncImage } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteNuncImage.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1401,7 +1391,7 @@ Unsubscribe from status page updates
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1424,8 +1414,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesDeleteNuncSubscription } from "firehydrant/funcs/statusPagesDeleteNuncSubscription.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesDeleteNuncSubscription } from "firehydrant-typescript-sdk/funcs/statusPagesDeleteNuncSubscription.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1477,7 +1467,7 @@ Subscribe to status page updates
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1485,7 +1475,7 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.statusPages.createNuncSubscription({
-    email: "Arvilla_Funk@gmail.com",
+    email: "Thad_Senger@yahoo.com",
   });
 
   // Handle the result
@@ -1500,8 +1490,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { statusPagesCreateNuncSubscription } from "firehydrant/funcs/statusPagesCreateNuncSubscription.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { statusPagesCreateNuncSubscription } from "firehydrant-typescript-sdk/funcs/statusPagesCreateNuncSubscription.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1511,7 +1501,7 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await statusPagesCreateNuncSubscription(firehydrant, {
-    email: "Arvilla_Funk@gmail.com",
+    email: "Thad_Senger@yahoo.com",
   });
 
   if (!res.ok) {

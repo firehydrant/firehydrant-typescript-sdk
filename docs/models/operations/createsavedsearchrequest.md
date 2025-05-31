@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateSavedSearchRequest } from "firehydrant/models/operations";
+import { CreateSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateSavedSearchRequest = {
   resourceType: "ticket_tasks",

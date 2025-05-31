@@ -5,7 +5,7 @@ Ticketing_ProjectConfigEntity model
 ## Example Usage
 
 ```typescript
-import { NullableTicketingProjectConfigEntity } from "firehydrant/models/components";
+import { NullableTicketingProjectConfigEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableTicketingProjectConfigEntity = {};
 ```

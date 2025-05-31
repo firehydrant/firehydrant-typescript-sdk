@@ -5,7 +5,7 @@ PublicAPI_V1_Integrations_AuthedProviderEntity model
 ## Example Usage
 
 ```typescript
-import { PublicApiv1IntegrationsAuthedProviderEntity } from "firehydrant/models/components";
+import { PublicApiv1IntegrationsAuthedProviderEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PublicApiv1IntegrationsAuthedProviderEntity = {};
 ```

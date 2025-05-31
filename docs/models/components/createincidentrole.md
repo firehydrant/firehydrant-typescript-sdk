@@ -5,7 +5,7 @@ Create a new incident role
 ## Example Usage
 
 ```typescript
-import { CreateIncidentRole } from "firehydrant/models/components";
+import { CreateIncidentRole } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentRole = {
   name: "<value>",

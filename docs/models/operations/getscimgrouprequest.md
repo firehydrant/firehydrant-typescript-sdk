@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetScimGroupRequest } from "firehydrant/models/operations";
+import { GetScimGroupRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetScimGroupRequest = {
   id: "<id>",

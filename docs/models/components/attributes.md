@@ -5,7 +5,7 @@ Can be one of: Attachments::LinkEntity, Integrations::CustomerSupportIssueEntity
 ## Example Usage
 
 ```typescript
-import { Attributes } from "firehydrant/models/components";
+import { Attributes } from "firehydrant-typescript-sdk/models/components";
 
 let value: Attributes = {};
 ```

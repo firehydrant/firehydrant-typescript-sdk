@@ -5,7 +5,7 @@ Attachments_TypedAttachmentEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { AttachmentsTypedAttachmentEntityPaginated } from "firehydrant/models/components";
+import { AttachmentsTypedAttachmentEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: AttachmentsTypedAttachmentEntityPaginated = {};
 ```

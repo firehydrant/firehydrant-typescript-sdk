@@ -5,7 +5,7 @@ Create a new incident type
 ## Example Usage
 
 ```typescript
-import { CreateIncidentType } from "firehydrant/models/components";
+import { CreateIncidentType } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentType = {
   name: "<value>",

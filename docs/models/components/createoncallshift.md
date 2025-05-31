@@ -5,7 +5,7 @@ Create a Signals on-call shift in a schedule.
 ## Example Usage
 
 ```typescript
-import { CreateOnCallShift } from "firehydrant/models/components";
+import { CreateOnCallShift } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateOnCallShift = {
   startTime: "<value>",
