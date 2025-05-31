@@ -146,25 +146,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add firehydrant
+npm add firehydrant-typescript-sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add firehydrant
+pnpm add firehydrant-typescript-sdk
 ```
 
 ### Bun
 
 ```bash
-bun add firehydrant
+bun add firehydrant-typescript-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add firehydrant zod
+yarn add firehydrant-typescript-sdk zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -192,7 +192,7 @@ Add the following server definition to your `claude_desktop_config.json` file:
     "Firehydrant": {
       "command": "npx",
       "args": [
-        "-y", "--package", "firehydrant",
+        "-y", "--package", "firehydrant-typescript-sdk",
         "--",
         "mcp", "start",
         "--api-key", "..."
@@ -215,7 +215,7 @@ Create a `.cursor/mcp.json` file in your project root with the following content
     "Firehydrant": {
       "command": "npx",
       "args": [
-        "-y", "--package", "firehydrant",
+        "-y", "--package", "firehydrant-typescript-sdk",
         "--",
         "mcp", "start",
         "--api-key", "..."
@@ -254,7 +254,7 @@ If the repo is a private repo you must add your Github PAT to download a release
 For a full list of server arguments, run:
 
 ```sh
-npx -y --package firehydrant -- mcp start --help
+npx -y --package firehydrant-typescript-sdk -- mcp start --help
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -270,7 +270,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -301,7 +301,7 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -542,6 +542,7 @@ run();
 * [listCustomFieldDefinitions](docs/sdks/incidentsettings/README.md#listcustomfielddefinitions) - List custom field definitions
 * [createCustomFieldDefinition](docs/sdks/incidentsettings/README.md#createcustomfielddefinition) - Create a custom field definition
 * [listCustomFieldSelectOptions](docs/sdks/incidentsettings/README.md#listcustomfieldselectoptions) - Get available values for a custom field
+* [appendFormDataOnSelectedValueGet](docs/sdks/incidentsettings/README.md#appendformdataonselectedvalueget) - Get data for a form field on select
 * [getFormConfiguration](docs/sdks/incidentsettings/README.md#getformconfiguration) - Get a form configuration
 
 ### [integrations](docs/sdks/integrations/README.md)
@@ -924,6 +925,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`incidentsDeleteIncidentTeamAssignment`](docs/sdks/incidents/README.md#deleteincidentteamassignment) - Unassign a team from an incident
 - [`incidentsDeleteScheduledMaintenance`](docs/sdks/incidents/README.md#deletescheduledmaintenance) - Delete a scheduled maintenance event
 - [`incidentsDeleteTranscriptEntry`](docs/sdks/incidents/README.md#deletetranscriptentry) - Delete a transcript from an incident
+- [`incidentSettingsAppendFormDataOnSelectedValueGet`](docs/sdks/incidentsettings/README.md#appendformdataonselectedvalueget) - Get data for a form field on select
 - [`incidentSettingsCreateCustomFieldDefinition`](docs/sdks/incidentsettings/README.md#createcustomfielddefinition) - Create a custom field definition
 - [`incidentSettingsCreateIncidentRole`](docs/sdks/incidentsettings/README.md#createincidentrole) - Create an incident role
 - [`incidentSettingsCreateIncidentType`](docs/sdks/incidentsettings/README.md#createincidenttype) - Create an incident type
@@ -1245,7 +1247,7 @@ Certain SDK methods accept files as part of a multi-part request. It is possible
 > - **Node.js v18:** A file stream can be created using the `fileFrom` helper from [`fetch-blob/from.js`](https://www.npmjs.com/package/fetch-blob).
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 import { openAsBlob } from "node:fs";
 
 const firehydrant = new Firehydrant({
@@ -1276,7 +1278,7 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1306,7 +1308,7 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   retryConfig: {
@@ -1347,8 +1349,11 @@ Some methods specify known errors which can be thrown. All the known errors are 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
-import { Firehydrant } from "firehydrant";
-import { ErrorEntity, SDKValidationError } from "firehydrant/models/errors";
+import { Firehydrant } from "firehydrant-typescript-sdk";
+import {
+  ErrorEntity,
+  SDKValidationError,
+} from "firehydrant-typescript-sdk/models/errors";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1410,7 +1415,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   serverURL: "https://api.firehydrant.io/",
@@ -1447,8 +1452,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Firehydrant } from "firehydrant";
-import { HTTPClient } from "firehydrant/lib/http";
+import { Firehydrant } from "firehydrant-typescript-sdk";
+import { HTTPClient } from "firehydrant-typescript-sdk/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -1489,7 +1494,7 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const sdk = new Firehydrant({ debugLogger: console });
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableRunbookStepEntity } from "firehydrant/models/components";
+import { NullableRunbookStepEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableRunbookStepEntity = {};
 ```

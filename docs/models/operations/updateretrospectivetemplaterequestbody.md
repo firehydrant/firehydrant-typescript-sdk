@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRetrospectiveTemplateRequestBody } from "firehydrant/models/operations";
+import { UpdateRetrospectiveTemplateRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateRetrospectiveTemplateRequestBody = {
   sectionsSlug: [

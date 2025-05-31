@@ -5,7 +5,7 @@ NuncConnectionEntity model
 ## Example Usage
 
 ```typescript
-import { NuncConnectionEntity } from "firehydrant/models/components";
+import { NuncConnectionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NuncConnectionEntity = {};
 ```

@@ -50,7 +50,7 @@ Lists the available and configured integrations
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -71,8 +71,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListIntegrations } from "firehydrant/funcs/integrationsListIntegrations.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListIntegrations } from "firehydrant-typescript-sdk/funcs/integrationsListIntegrations.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -121,7 +121,7 @@ Retrieve a single integration
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -144,8 +144,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetIntegration } from "firehydrant/funcs/integrationsGetIntegration.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetIntegration } from "firehydrant-typescript-sdk/funcs/integrationsGetIntegration.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -197,7 +197,7 @@ Update field mapping
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -220,8 +220,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateFieldMap } from "firehydrant/funcs/integrationsUpdateFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateFieldMap } from "firehydrant-typescript-sdk/funcs/integrationsUpdateFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -273,7 +273,7 @@ Get a description of the fields to which data can be mapped
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -296,8 +296,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListFieldMapAvailableFields } from "firehydrant/funcs/integrationsListFieldMapAvailableFields.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListFieldMapAvailableFields } from "firehydrant-typescript-sdk/funcs/integrationsListFieldMapAvailableFields.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -349,7 +349,7 @@ Lists the available and configured integrations
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -373,8 +373,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAuthedProviders } from "firehydrant/funcs/integrationsListAuthedProviders.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAuthedProviders } from "firehydrant-typescript-sdk/funcs/integrationsListAuthedProviders.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -427,7 +427,7 @@ Retrieve a single authed provider
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -452,8 +452,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateAuthedProvider } from "firehydrant/funcs/integrationsUpdateAuthedProvider.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateAuthedProvider } from "firehydrant-typescript-sdk/funcs/integrationsUpdateAuthedProvider.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -507,7 +507,7 @@ List available integration connections
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -528,8 +528,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnections } from "firehydrant/funcs/integrationsListConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnections } from "firehydrant-typescript-sdk/funcs/integrationsListConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -579,7 +579,7 @@ Create a new integration connection
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -602,8 +602,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsCreateConnection } from "firehydrant/funcs/integrationsCreateConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsCreateConnection } from "firehydrant-typescript-sdk/funcs/integrationsCreateConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -655,7 +655,7 @@ Refresh the integration connection with the provided data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -679,8 +679,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsRefreshConnection } from "firehydrant/funcs/integrationsRefreshConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsRefreshConnection } from "firehydrant-typescript-sdk/funcs/integrationsRefreshConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -733,7 +733,7 @@ Update the integration connection with the provided data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -757,8 +757,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateConnection } from "firehydrant/funcs/integrationsUpdateConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateConnection } from "firehydrant-typescript-sdk/funcs/integrationsUpdateConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -811,7 +811,7 @@ Retrieve overall integration connection status
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -832,8 +832,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnectionStatuses } from "firehydrant/funcs/integrationsListConnectionStatuses.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnectionStatuses } from "firehydrant-typescript-sdk/funcs/integrationsListConnectionStatuses.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -882,7 +882,7 @@ Retrieve a single integration connection status
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -905,8 +905,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnectionStatusesBySlug } from "firehydrant/funcs/integrationsListConnectionStatusesBySlug.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnectionStatusesBySlug } from "firehydrant-typescript-sdk/funcs/integrationsListConnectionStatusesBySlug.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -958,7 +958,7 @@ Retrieve a single integration connection status
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -982,8 +982,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnectionStatusesBySlugAndId } from "firehydrant/funcs/integrationsListConnectionStatusesBySlugAndId.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnectionStatusesBySlugAndId } from "firehydrant-typescript-sdk/funcs/integrationsListConnectionStatusesBySlugAndId.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1036,7 +1036,7 @@ Lists the available and configured AWS integration connections for the authentic
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1057,8 +1057,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAwsConnections } from "firehydrant/funcs/integrationsListAwsConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAwsConnections } from "firehydrant-typescript-sdk/funcs/integrationsListAwsConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1108,7 +1108,7 @@ Retrieves the information about the AWS connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1131,8 +1131,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetAwsConnection } from "firehydrant/funcs/integrationsGetAwsConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetAwsConnection } from "firehydrant-typescript-sdk/funcs/integrationsGetAwsConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1184,7 +1184,7 @@ Update the AWS connection with the provided data.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1208,8 +1208,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateAwsConnection } from "firehydrant/funcs/integrationsUpdateAwsConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateAwsConnection } from "firehydrant-typescript-sdk/funcs/integrationsUpdateAwsConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1262,7 +1262,7 @@ Lists CloudTrail batches for the authenticated organization.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1283,8 +1283,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAwsCloudtrailBatches } from "firehydrant/funcs/integrationsListAwsCloudtrailBatches.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAwsCloudtrailBatches } from "firehydrant-typescript-sdk/funcs/integrationsListAwsCloudtrailBatches.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1334,7 +1334,7 @@ Retrieve a single CloudTrail batch.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1357,8 +1357,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetAwsCloudtrailBatch } from "firehydrant/funcs/integrationsGetAwsCloudtrailBatch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetAwsCloudtrailBatch } from "firehydrant-typescript-sdk/funcs/integrationsGetAwsCloudtrailBatch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1410,7 +1410,7 @@ Update a CloudTrail batch with new information.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1434,8 +1434,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateAwsCloudtrailBatch } from "firehydrant/funcs/integrationsUpdateAwsCloudtrailBatch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateAwsCloudtrailBatch } from "firehydrant-typescript-sdk/funcs/integrationsUpdateAwsCloudtrailBatch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1488,7 +1488,7 @@ List events for an AWS CloudTrail batch
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1511,8 +1511,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAwsCloudtrailBatchEvents } from "firehydrant/funcs/integrationsListAwsCloudtrailBatchEvents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAwsCloudtrailBatchEvents } from "firehydrant-typescript-sdk/funcs/integrationsListAwsCloudtrailBatchEvents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1564,7 +1564,7 @@ Lists available space keys for the Confluence integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1587,8 +1587,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsSearchConfluenceSpaces } from "firehydrant/funcs/integrationsSearchConfluenceSpaces.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsSearchConfluenceSpaces } from "firehydrant-typescript-sdk/funcs/integrationsSearchConfluenceSpaces.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1640,7 +1640,7 @@ Lists all Slack workspaces
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1663,8 +1663,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListSlackWorkspaces } from "firehydrant/funcs/integrationsListSlackWorkspaces.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListSlackWorkspaces } from "firehydrant-typescript-sdk/funcs/integrationsListSlackWorkspaces.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1716,7 +1716,7 @@ Lists all Slack user groups
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1737,8 +1737,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListSlackUsergroups } from "firehydrant/funcs/integrationsListSlackUsergroups.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListSlackUsergroups } from "firehydrant-typescript-sdk/funcs/integrationsListSlackUsergroups.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1787,7 +1787,7 @@ Lists Slack emoji actions
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1809,8 +1809,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListSlackEmojiActions } from "firehydrant/funcs/integrationsListSlackEmojiActions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListSlackEmojiActions } from "firehydrant-typescript-sdk/funcs/integrationsListSlackEmojiActions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1861,7 +1861,7 @@ Creates a new Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1886,8 +1886,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsCreateSlackEmojiAction } from "firehydrant/funcs/integrationsCreateSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsCreateSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsCreateSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1941,7 +1941,7 @@ Retrieves a Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1964,8 +1964,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetSlackEmojiAction } from "firehydrant/funcs/integrationsGetSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsGetSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2017,7 +2017,7 @@ Deletes a Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2040,8 +2040,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsDeleteSlackEmojiAction } from "firehydrant/funcs/integrationsDeleteSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsDeleteSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsDeleteSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2093,7 +2093,7 @@ Updates a Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2116,8 +2116,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateSlackEmojiAction } from "firehydrant/funcs/integrationsUpdateSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsUpdateSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2169,7 +2169,7 @@ Lists the available and configured Statuspage integrations connections for the a
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2190,8 +2190,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListStatuspageConnections } from "firehydrant/funcs/integrationsListStatuspageConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListStatuspageConnections } from "firehydrant-typescript-sdk/funcs/integrationsListStatuspageConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2241,7 +2241,7 @@ Retrieve the information about the Statuspage connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2264,8 +2264,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetStatuspageConnection } from "firehydrant/funcs/integrationsGetStatuspageConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetStatuspageConnection } from "firehydrant-typescript-sdk/funcs/integrationsGetStatuspageConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2317,7 +2317,7 @@ Deletes the given Statuspage integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2340,8 +2340,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsDeleteStatuspageConnection } from "firehydrant/funcs/integrationsDeleteStatuspageConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsDeleteStatuspageConnection } from "firehydrant-typescript-sdk/funcs/integrationsDeleteStatuspageConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2393,7 +2393,7 @@ Update the given Statuspage integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2417,8 +2417,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateStatuspageConnection } from "firehydrant/funcs/integrationsUpdateStatuspageConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateStatuspageConnection } from "firehydrant-typescript-sdk/funcs/integrationsUpdateStatuspageConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2471,7 +2471,7 @@ Lists available page IDs for the Statuspage integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2494,8 +2494,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListStatuspageConnectionPages } from "firehydrant/funcs/integrationsListStatuspageConnectionPages.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListStatuspageConnectionPages } from "firehydrant-typescript-sdk/funcs/integrationsListStatuspageConnectionPages.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2547,7 +2547,7 @@ Search for Zendesk tickets
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2571,8 +2571,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsSearchZendeskTickets } from "firehydrant/funcs/integrationsSearchZendeskTickets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsSearchZendeskTickets } from "firehydrant-typescript-sdk/funcs/integrationsSearchZendeskTickets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2625,7 +2625,7 @@ Search for Zendesk tickets
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2647,8 +2647,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetZendeskCustomerSupportIssue } from "firehydrant/funcs/integrationsGetZendeskCustomerSupportIssue.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetZendeskCustomerSupportIssue } from "firehydrant-typescript-sdk/funcs/integrationsGetZendeskCustomerSupportIssue.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

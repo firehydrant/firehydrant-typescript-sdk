@@ -4,7 +4,7 @@
 
 import * as z from "zod";
 import { FirehydrantCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -99,6 +99,11 @@ async function $do(
     "/v1/teams/{team_id}/on_call_schedules/{schedule_id}",
   )(pathParams);
 
+  const query = encodeFormQuery({
+    "shift_time_window_end": payload.shift_time_window_end,
+    "shift_time_window_start": payload.shift_time_window_start,
+  });
+
   const headers = new Headers(compactMap({
     Accept: "*/*",
   }));
@@ -108,6 +113,7 @@ async function $do(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "get_team_on_call_schedule",
     oAuth2Scopes: [],
@@ -127,7 +133,9 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {

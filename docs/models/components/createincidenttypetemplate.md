@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentTypeTemplate } from "firehydrant/models/components";
+import { CreateIncidentTypeTemplate } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentTypeTemplate = {};
 ```

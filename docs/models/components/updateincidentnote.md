@@ -5,7 +5,7 @@ Updates the body of a note
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentNote } from "firehydrant/models/components";
+import { UpdateIncidentNote } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentNote = {
   body: "<value>",

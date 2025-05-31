@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Condition } from "firehydrant/models/components";
+import { Condition } from "firehydrant-typescript-sdk/models/components";
 
 let value: Condition = {
   conditionId: "<id>",

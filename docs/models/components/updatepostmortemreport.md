@@ -5,7 +5,7 @@ Update a report
 ## Example Usage
 
 ```typescript
-import { UpdatePostMortemReport } from "firehydrant/models/components";
+import { UpdatePostMortemReport } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdatePostMortemReport = {};
 ```

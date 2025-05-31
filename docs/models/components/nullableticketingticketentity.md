@@ -5,7 +5,7 @@ Ticketing_TicketEntity model
 ## Example Usage
 
 ```typescript
-import { NullableTicketingTicketEntity } from "firehydrant/models/components";
+import { NullableTicketingTicketEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableTicketingTicketEntity = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetRunbookActionFieldOptionsRequest } from "firehydrant/models/operations";
+import { GetRunbookActionFieldOptionsRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetRunbookActionFieldOptionsRequest = {
   integrationSlug: "<value>",

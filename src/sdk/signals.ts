@@ -148,7 +148,7 @@ export class Signals extends ClientSDK {
    * Create an on-call schedule for a team
    *
    * @remarks
-   * Create a Signals on-call schedule for a team.
+   * Create a Signals on-call schedule for a team with a single rotation. More rotations can be created later.
    */
   async createTeamOnCallSchedule(
     request: operations.CreateTeamOnCallScheduleRequest,
@@ -199,7 +199,9 @@ export class Signals extends ClientSDK {
    * Update an on-call schedule for a team
    *
    * @remarks
-   * Update a Signals on-call schedule by ID
+   * Update a Signals on-call schedule by ID. For backwards compatibility, all parameters except for
+   * `name` and `description` will be ignored if the schedule has more than one rotation. If the schedule
+   * has only one rotation, you can continue to update that rotation using the rotation-specific parameters.
    */
   async updateTeamOnCallSchedule(
     request: operations.UpdateTeamOnCallScheduleRequest,

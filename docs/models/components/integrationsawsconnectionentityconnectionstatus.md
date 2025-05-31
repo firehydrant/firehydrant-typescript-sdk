@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsConnectionEntityConnectionStatus } from "firehydrant/models/components";
+import { IntegrationsAwsConnectionEntityConnectionStatus } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAwsConnectionEntityConnectionStatus =
   "invalid_permissions";

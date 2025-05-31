@@ -21,7 +21,7 @@ List all of the teams in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -42,8 +42,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsListTeams } from "firehydrant/funcs/teamsListTeams.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsListTeams } from "firehydrant-typescript-sdk/funcs/teamsListTeams.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -93,7 +93,7 @@ Create a new team
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -116,8 +116,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsCreateTeam } from "firehydrant/funcs/teamsCreateTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsCreateTeam } from "firehydrant-typescript-sdk/funcs/teamsCreateTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -169,7 +169,7 @@ Retrieve a single team from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -192,8 +192,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsGetTeam } from "firehydrant/funcs/teamsGetTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsGetTeam } from "firehydrant-typescript-sdk/funcs/teamsGetTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -245,7 +245,7 @@ Archives an team which will hide it from lists and metrics
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -268,8 +268,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsDeleteTeam } from "firehydrant/funcs/teamsDeleteTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsDeleteTeam } from "firehydrant-typescript-sdk/funcs/teamsDeleteTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -321,7 +321,7 @@ Update a single team from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -345,8 +345,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsUpdateTeam } from "firehydrant/funcs/teamsUpdateTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsUpdateTeam } from "firehydrant-typescript-sdk/funcs/teamsUpdateTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -399,7 +399,7 @@ List all known schedules in FireHydrant as pulled from external sources
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -420,8 +420,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsListSchedules } from "firehydrant/funcs/teamsListSchedules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsListSchedules } from "firehydrant-typescript-sdk/funcs/teamsListSchedules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

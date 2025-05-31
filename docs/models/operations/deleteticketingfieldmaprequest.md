@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteTicketingFieldMapRequest } from "firehydrant/models/operations";
+import { DeleteTicketingFieldMapRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: DeleteTicketingFieldMapRequest = {
   mapId: "<id>",

@@ -5,7 +5,7 @@ Create a new note on for an incident. The visibility field on a note determines 
 ## Example Usage
 
 ```typescript
-import { CreateIncidentNote } from "firehydrant/models/components";
+import { CreateIncidentNote } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentNote = {
   body: "<value>",

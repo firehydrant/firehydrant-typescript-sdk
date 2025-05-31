@@ -5,7 +5,7 @@ UserEntity model
 ## Example Usage
 
 ```typescript
-import { UserEntity } from "firehydrant/models/components";
+import { UserEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: UserEntity = {};
 ```

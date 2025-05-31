@@ -5,7 +5,7 @@ Creates a response for a checklist item
 ## Example Usage
 
 ```typescript
-import { CreateServiceChecklistResponse } from "firehydrant/models/components";
+import { CreateServiceChecklistResponse } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateServiceChecklistResponse = {
   checkId: "<id>",

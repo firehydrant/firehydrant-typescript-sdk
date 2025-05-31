@@ -5,7 +5,7 @@ Change the conditions of a scheduled maintenance event, including updating any s
 ## Example Usage
 
 ```typescript
-import { UpdateScheduledMaintenance } from "firehydrant/models/components";
+import { UpdateScheduledMaintenance } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateScheduledMaintenance = {};
 ```
