@@ -15,6 +15,7 @@ export const CreateSeverityColor = {
   Blue: "blue",
   Teal: "teal",
   Grey: "grey",
+  Green: "green",
 } as const;
 export type CreateSeverityColor = ClosedEnum<typeof CreateSeverityColor>;
 

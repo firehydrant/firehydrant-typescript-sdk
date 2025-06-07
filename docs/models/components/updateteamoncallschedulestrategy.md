@@ -1,11 +1,11 @@
 # UpdateTeamOnCallScheduleStrategy
 
-An object that specifies how the schedule's on-call shifts should be generated.
+An object that specifies how the rotation's on-call shifts should be generated.
 
 ## Example Usage
 
 ```typescript
-import { UpdateTeamOnCallScheduleStrategy } from "firehydrant/models/components";
+import { UpdateTeamOnCallScheduleStrategy } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamOnCallScheduleStrategy = {
   type: "daily",

@@ -3,17 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallScheduleRequest } from "firehydrant/models/operations";
+import { CreateTeamOnCallScheduleRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateTeamOnCallScheduleRequest = {
   teamId: "<id>",
-  createTeamOnCallSchedule: {
-    name: "<value>",
-    timeZone: "Europe/Bratislava",
-    strategy: {
-      type: "daily",
-    },
-  },
 };
 ```
 

@@ -5,7 +5,7 @@ NuncConnectionEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { NuncConnectionEntityPaginated } from "firehydrant/models/components";
+import { NuncConnectionEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: NuncConnectionEntityPaginated = {};
 ```

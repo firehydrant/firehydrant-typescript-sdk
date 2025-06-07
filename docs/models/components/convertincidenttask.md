@@ -5,7 +5,7 @@ Convert a task to a follow-up
 ## Example Usage
 
 ```typescript
-import { ConvertIncidentTask } from "firehydrant/models/components";
+import { ConvertIncidentTask } from "firehydrant-typescript-sdk/models/components";
 
 let value: ConvertIncidentTask = {};
 ```

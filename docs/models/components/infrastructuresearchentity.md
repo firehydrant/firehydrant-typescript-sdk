@@ -5,7 +5,7 @@ InfrastructureSearchEntity model
 ## Example Usage
 
 ```typescript
-import { InfrastructureSearchEntity } from "firehydrant/models/components";
+import { InfrastructureSearchEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: InfrastructureSearchEntity = {};
 ```

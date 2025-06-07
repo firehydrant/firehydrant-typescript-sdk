@@ -32,6 +32,8 @@ Get mean-time-to-acknowledged (MTTA) and mean-time-to-resolved (MTTR) metrics fo
       };
     }
 
-    return formatResult(void 0, apiCall);
+    const value = result.value;
+
+    return formatResult(value, apiCall);
   },
 };

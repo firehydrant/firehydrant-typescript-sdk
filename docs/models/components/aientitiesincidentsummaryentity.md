@@ -5,7 +5,7 @@ AI_Entities_IncidentSummaryEntity model
 ## Example Usage
 
 ```typescript
-import { AIEntitiesIncidentSummaryEntity } from "firehydrant/models/components";
+import { AIEntitiesIncidentSummaryEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: AIEntitiesIncidentSummaryEntity = {};
 ```

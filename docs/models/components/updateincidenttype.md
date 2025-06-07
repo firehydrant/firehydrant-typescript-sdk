@@ -5,7 +5,7 @@ Update a single incident type from its ID
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentType } from "firehydrant/models/components";
+import { UpdateIncidentType } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentType = {
   name: "<value>",

@@ -5,7 +5,7 @@ Attachments_LinkEntity model
 ## Example Usage
 
 ```typescript
-import { NullableAttachmentsLinkEntity } from "firehydrant/models/components";
+import { NullableAttachmentsLinkEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableAttachmentsLinkEntity = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AlertsSirenAlertEntity } from "firehydrant/models/components";
+import { AlertsSirenAlertEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsSirenAlertEntity = {
   signalRule: {

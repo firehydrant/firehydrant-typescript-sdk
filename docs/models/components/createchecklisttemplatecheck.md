@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateChecklistTemplateCheck } from "firehydrant/models/components";
+import { CreateChecklistTemplateCheck } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateChecklistTemplateCheck = {
   name: "<value>",

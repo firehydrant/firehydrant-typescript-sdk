@@ -3,13 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateNuncComponentGroupRequest } from "firehydrant/models/operations";
+import { CreateNuncComponentGroupRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateNuncComponentGroupRequest = {
   nuncConnectionId: "<id>",
-  requestBody: {
-    name: "<value>",
-  },
 };
 ```
 

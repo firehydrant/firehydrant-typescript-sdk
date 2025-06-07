@@ -33,6 +33,8 @@ Generate a timeseries-based report of metrics for Signals alerts`,
       };
     }
 
-    return formatResult(void 0, apiCall);
+    const value = result.value;
+
+    return formatResult(value, apiCall);
   },
 };

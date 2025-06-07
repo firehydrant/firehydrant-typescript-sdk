@@ -5,7 +5,7 @@ TaskEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { TaskEntityPaginated } from "firehydrant/models/components";
+import { TaskEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: TaskEntityPaginated = {};
 ```

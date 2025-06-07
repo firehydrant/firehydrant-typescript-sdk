@@ -50,7 +50,7 @@ Lists the available and configured integrations
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -59,7 +59,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listIntegrations();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -71,8 +70,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListIntegrations } from "firehydrant/funcs/integrationsListIntegrations.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListIntegrations } from "firehydrant-typescript-sdk/funcs/integrationsListIntegrations.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -82,15 +81,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListIntegrations(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListIntegrations failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -121,7 +117,7 @@ Retrieve a single integration
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -132,7 +128,6 @@ async function run() {
     integrationId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -144,8 +139,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetIntegration } from "firehydrant/funcs/integrationsGetIntegration.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetIntegration } from "firehydrant-typescript-sdk/funcs/integrationsGetIntegration.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -157,15 +152,12 @@ async function run() {
   const res = await integrationsGetIntegration(firehydrant, {
     integrationId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsGetIntegration failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -197,7 +189,7 @@ Update field mapping
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -208,7 +200,6 @@ async function run() {
     fieldMapId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -220,8 +211,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateFieldMap } from "firehydrant/funcs/integrationsUpdateFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateFieldMap } from "firehydrant-typescript-sdk/funcs/integrationsUpdateFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -233,15 +224,12 @@ async function run() {
   const res = await integrationsUpdateFieldMap(firehydrant, {
     fieldMapId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsUpdateFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -273,7 +261,7 @@ Get a description of the fields to which data can be mapped
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -284,7 +272,6 @@ async function run() {
     fieldMapId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -296,8 +283,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListFieldMapAvailableFields } from "firehydrant/funcs/integrationsListFieldMapAvailableFields.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListFieldMapAvailableFields } from "firehydrant-typescript-sdk/funcs/integrationsListFieldMapAvailableFields.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -309,15 +296,12 @@ async function run() {
   const res = await integrationsListFieldMapAvailableFields(firehydrant, {
     fieldMapId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListFieldMapAvailableFields failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -349,7 +333,7 @@ Lists the available and configured integrations
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -361,7 +345,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -373,8 +356,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAuthedProviders } from "firehydrant/funcs/integrationsListAuthedProviders.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAuthedProviders } from "firehydrant-typescript-sdk/funcs/integrationsListAuthedProviders.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -387,15 +370,12 @@ async function run() {
     integrationSlug: "<value>",
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListAuthedProviders failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -427,7 +407,7 @@ Retrieve a single authed provider
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -440,7 +420,6 @@ async function run() {
     authedProviderId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -452,8 +431,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateAuthedProvider } from "firehydrant/funcs/integrationsUpdateAuthedProvider.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateAuthedProvider } from "firehydrant-typescript-sdk/funcs/integrationsUpdateAuthedProvider.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -467,15 +446,12 @@ async function run() {
     connectionId: "<id>",
     authedProviderId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsUpdateAuthedProvider failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -507,7 +483,7 @@ List available integration connections
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -516,7 +492,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listConnections({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -528,8 +503,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnections } from "firehydrant/funcs/integrationsListConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnections } from "firehydrant-typescript-sdk/funcs/integrationsListConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -539,15 +514,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListConnections(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListConnections failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -579,7 +551,7 @@ Create a new integration connection
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -590,7 +562,6 @@ async function run() {
     slug: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -602,8 +573,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsCreateConnection } from "firehydrant/funcs/integrationsCreateConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsCreateConnection } from "firehydrant-typescript-sdk/funcs/integrationsCreateConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -615,15 +586,12 @@ async function run() {
   const res = await integrationsCreateConnection(firehydrant, {
     slug: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsCreateConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -655,7 +623,7 @@ Refresh the integration connection with the provided data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -667,7 +635,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -679,8 +646,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsRefreshConnection } from "firehydrant/funcs/integrationsRefreshConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsRefreshConnection } from "firehydrant-typescript-sdk/funcs/integrationsRefreshConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -693,15 +660,12 @@ async function run() {
     slug: "<value>",
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsRefreshConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -733,7 +697,7 @@ Update the integration connection with the provided data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -745,7 +709,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -757,8 +720,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateConnection } from "firehydrant/funcs/integrationsUpdateConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateConnection } from "firehydrant-typescript-sdk/funcs/integrationsUpdateConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -771,15 +734,12 @@ async function run() {
     slug: "<value>",
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsUpdateConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -811,7 +771,7 @@ Retrieve overall integration connection status
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -820,7 +780,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listConnectionStatuses();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -832,8 +791,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnectionStatuses } from "firehydrant/funcs/integrationsListConnectionStatuses.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnectionStatuses } from "firehydrant-typescript-sdk/funcs/integrationsListConnectionStatuses.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -843,15 +802,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListConnectionStatuses(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListConnectionStatuses failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -882,7 +838,7 @@ Retrieve a single integration connection status
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -893,7 +849,6 @@ async function run() {
     slug: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -905,8 +860,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnectionStatusesBySlug } from "firehydrant/funcs/integrationsListConnectionStatusesBySlug.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnectionStatusesBySlug } from "firehydrant-typescript-sdk/funcs/integrationsListConnectionStatusesBySlug.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -918,15 +873,12 @@ async function run() {
   const res = await integrationsListConnectionStatusesBySlug(firehydrant, {
     slug: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListConnectionStatusesBySlug failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -958,7 +910,7 @@ Retrieve a single integration connection status
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -970,7 +922,6 @@ async function run() {
     byConnectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -982,8 +933,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListConnectionStatusesBySlugAndId } from "firehydrant/funcs/integrationsListConnectionStatusesBySlugAndId.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListConnectionStatusesBySlugAndId } from "firehydrant-typescript-sdk/funcs/integrationsListConnectionStatusesBySlugAndId.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -996,15 +947,12 @@ async function run() {
     slug: "<value>",
     byConnectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListConnectionStatusesBySlugAndId failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1036,7 +984,7 @@ Lists the available and configured AWS integration connections for the authentic
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1045,7 +993,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listAwsConnections({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1057,8 +1004,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAwsConnections } from "firehydrant/funcs/integrationsListAwsConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAwsConnections } from "firehydrant-typescript-sdk/funcs/integrationsListAwsConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1068,15 +1015,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListAwsConnections(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListAwsConnections failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1108,7 +1052,7 @@ Retrieves the information about the AWS connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1119,7 +1063,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1131,8 +1074,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetAwsConnection } from "firehydrant/funcs/integrationsGetAwsConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetAwsConnection } from "firehydrant-typescript-sdk/funcs/integrationsGetAwsConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1144,15 +1087,12 @@ async function run() {
   const res = await integrationsGetAwsConnection(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsGetAwsConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1184,7 +1124,7 @@ Update the AWS connection with the provided data.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1196,7 +1136,6 @@ async function run() {
     updateAwsConnection: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1208,8 +1147,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateAwsConnection } from "firehydrant/funcs/integrationsUpdateAwsConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateAwsConnection } from "firehydrant-typescript-sdk/funcs/integrationsUpdateAwsConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1222,15 +1161,12 @@ async function run() {
     id: "<id>",
     updateAwsConnection: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsUpdateAwsConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1262,7 +1198,7 @@ Lists CloudTrail batches for the authenticated organization.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1271,7 +1207,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listAwsCloudtrailBatches({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1283,8 +1218,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAwsCloudtrailBatches } from "firehydrant/funcs/integrationsListAwsCloudtrailBatches.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAwsCloudtrailBatches } from "firehydrant-typescript-sdk/funcs/integrationsListAwsCloudtrailBatches.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1294,15 +1229,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListAwsCloudtrailBatches(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListAwsCloudtrailBatches failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1334,7 +1266,7 @@ Retrieve a single CloudTrail batch.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1345,7 +1277,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1357,8 +1288,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetAwsCloudtrailBatch } from "firehydrant/funcs/integrationsGetAwsCloudtrailBatch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetAwsCloudtrailBatch } from "firehydrant-typescript-sdk/funcs/integrationsGetAwsCloudtrailBatch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1370,15 +1301,12 @@ async function run() {
   const res = await integrationsGetAwsCloudtrailBatch(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsGetAwsCloudtrailBatch failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1410,7 +1338,7 @@ Update a CloudTrail batch with new information.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1422,7 +1350,6 @@ async function run() {
     updateAwsCloudtrailBatch: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1434,8 +1361,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateAwsCloudtrailBatch } from "firehydrant/funcs/integrationsUpdateAwsCloudtrailBatch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateAwsCloudtrailBatch } from "firehydrant-typescript-sdk/funcs/integrationsUpdateAwsCloudtrailBatch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1448,15 +1375,12 @@ async function run() {
     id: "<id>",
     updateAwsCloudtrailBatch: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsUpdateAwsCloudtrailBatch failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1488,7 +1412,7 @@ List events for an AWS CloudTrail batch
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1499,7 +1423,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1511,8 +1434,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListAwsCloudtrailBatchEvents } from "firehydrant/funcs/integrationsListAwsCloudtrailBatchEvents.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListAwsCloudtrailBatchEvents } from "firehydrant-typescript-sdk/funcs/integrationsListAwsCloudtrailBatchEvents.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1524,15 +1447,12 @@ async function run() {
   const res = await integrationsListAwsCloudtrailBatchEvents(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListAwsCloudtrailBatchEvents failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1564,7 +1484,7 @@ Lists available space keys for the Confluence integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1575,7 +1495,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1587,8 +1506,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsSearchConfluenceSpaces } from "firehydrant/funcs/integrationsSearchConfluenceSpaces.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsSearchConfluenceSpaces } from "firehydrant-typescript-sdk/funcs/integrationsSearchConfluenceSpaces.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1600,15 +1519,12 @@ async function run() {
   const res = await integrationsSearchConfluenceSpaces(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsSearchConfluenceSpaces failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1640,7 +1556,7 @@ Lists all Slack workspaces
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1651,7 +1567,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1663,8 +1578,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListSlackWorkspaces } from "firehydrant/funcs/integrationsListSlackWorkspaces.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListSlackWorkspaces } from "firehydrant-typescript-sdk/funcs/integrationsListSlackWorkspaces.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1676,15 +1591,12 @@ async function run() {
   const res = await integrationsListSlackWorkspaces(firehydrant, {
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListSlackWorkspaces failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1716,7 +1628,7 @@ Lists all Slack user groups
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1725,7 +1637,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listSlackUsergroups();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1737,8 +1648,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListSlackUsergroups } from "firehydrant/funcs/integrationsListSlackUsergroups.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListSlackUsergroups } from "firehydrant-typescript-sdk/funcs/integrationsListSlackUsergroups.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1748,15 +1659,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListSlackUsergroups(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListSlackUsergroups failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1787,7 +1695,7 @@ Lists Slack emoji actions
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1809,8 +1717,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListSlackEmojiActions } from "firehydrant/funcs/integrationsListSlackEmojiActions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListSlackEmojiActions } from "firehydrant-typescript-sdk/funcs/integrationsListSlackEmojiActions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1822,14 +1730,12 @@ async function run() {
   const res = await integrationsListSlackEmojiActions(firehydrant, {
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsListSlackEmojiActions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1861,7 +1767,7 @@ Creates a new Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1886,8 +1792,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsCreateSlackEmojiAction } from "firehydrant/funcs/integrationsCreateSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsCreateSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsCreateSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1902,14 +1808,12 @@ async function run() {
       emojiName: "<value>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsCreateSlackEmojiAction failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1941,7 +1845,7 @@ Retrieves a Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1964,8 +1868,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetSlackEmojiAction } from "firehydrant/funcs/integrationsGetSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsGetSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1978,14 +1882,12 @@ async function run() {
     connectionId: "<id>",
     emojiActionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsGetSlackEmojiAction failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2017,7 +1919,7 @@ Deletes a Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2040,8 +1942,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsDeleteSlackEmojiAction } from "firehydrant/funcs/integrationsDeleteSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsDeleteSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsDeleteSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2054,14 +1956,12 @@ async function run() {
     connectionId: "<id>",
     emojiActionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsDeleteSlackEmojiAction failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2093,7 +1993,7 @@ Updates a Slack emoji action
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2116,8 +2016,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateSlackEmojiAction } from "firehydrant/funcs/integrationsUpdateSlackEmojiAction.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateSlackEmojiAction } from "firehydrant-typescript-sdk/funcs/integrationsUpdateSlackEmojiAction.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2130,14 +2030,12 @@ async function run() {
     connectionId: "<id>",
     emojiActionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsUpdateSlackEmojiAction failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2169,7 +2067,7 @@ Lists the available and configured Statuspage integrations connections for the a
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2178,7 +2076,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.integrations.listStatuspageConnections({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2190,8 +2087,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListStatuspageConnections } from "firehydrant/funcs/integrationsListStatuspageConnections.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListStatuspageConnections } from "firehydrant-typescript-sdk/funcs/integrationsListStatuspageConnections.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2201,15 +2098,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await integrationsListStatuspageConnections(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListStatuspageConnections failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2241,7 +2135,7 @@ Retrieve the information about the Statuspage connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2252,7 +2146,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2264,8 +2157,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetStatuspageConnection } from "firehydrant/funcs/integrationsGetStatuspageConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetStatuspageConnection } from "firehydrant-typescript-sdk/funcs/integrationsGetStatuspageConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2277,15 +2170,12 @@ async function run() {
   const res = await integrationsGetStatuspageConnection(firehydrant, {
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsGetStatuspageConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2317,7 +2207,7 @@ Deletes the given Statuspage integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2328,7 +2218,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2340,8 +2229,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsDeleteStatuspageConnection } from "firehydrant/funcs/integrationsDeleteStatuspageConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsDeleteStatuspageConnection } from "firehydrant-typescript-sdk/funcs/integrationsDeleteStatuspageConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2353,15 +2242,12 @@ async function run() {
   const res = await integrationsDeleteStatuspageConnection(firehydrant, {
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsDeleteStatuspageConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2393,7 +2279,7 @@ Update the given Statuspage integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2405,7 +2291,6 @@ async function run() {
     updateStatuspageConnection: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2417,8 +2302,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsUpdateStatuspageConnection } from "firehydrant/funcs/integrationsUpdateStatuspageConnection.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsUpdateStatuspageConnection } from "firehydrant-typescript-sdk/funcs/integrationsUpdateStatuspageConnection.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2431,15 +2316,12 @@ async function run() {
     connectionId: "<id>",
     updateStatuspageConnection: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsUpdateStatuspageConnection failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2471,7 +2353,7 @@ Lists available page IDs for the Statuspage integration connection.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2482,7 +2364,6 @@ async function run() {
     connectionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2494,8 +2375,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsListStatuspageConnectionPages } from "firehydrant/funcs/integrationsListStatuspageConnectionPages.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsListStatuspageConnectionPages } from "firehydrant-typescript-sdk/funcs/integrationsListStatuspageConnectionPages.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2507,15 +2388,12 @@ async function run() {
   const res = await integrationsListStatuspageConnectionPages(firehydrant, {
     connectionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsListStatuspageConnectionPages failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2547,7 +2425,7 @@ Search for Zendesk tickets
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2559,7 +2437,6 @@ async function run() {
     query: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2571,8 +2448,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsSearchZendeskTickets } from "firehydrant/funcs/integrationsSearchZendeskTickets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsSearchZendeskTickets } from "firehydrant-typescript-sdk/funcs/integrationsSearchZendeskTickets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2585,15 +2462,12 @@ async function run() {
     connectionId: "<id>",
     query: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsSearchZendeskTickets failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2625,7 +2499,7 @@ Search for Zendesk tickets
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2647,8 +2521,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { integrationsGetZendeskCustomerSupportIssue } from "firehydrant/funcs/integrationsGetZendeskCustomerSupportIssue.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsGetZendeskCustomerSupportIssue } from "firehydrant-typescript-sdk/funcs/integrationsGetZendeskCustomerSupportIssue.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2660,14 +2534,12 @@ async function run() {
   const res = await integrationsGetZendeskCustomerSupportIssue(firehydrant, {
     ticketId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsGetZendeskCustomerSupportIssue failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();

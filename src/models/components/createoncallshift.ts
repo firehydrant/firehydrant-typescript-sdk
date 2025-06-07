@@ -24,6 +24,10 @@ export type CreateOnCallShift = {
    * The ID of the user who is on-call for the shift. If not provided, the shift will be unassigned.
    */
   userId?: string | null | undefined;
+  /**
+   * The ID of the on-call rotation you want to create the shift in. This parameter is optional for backwards compatibility but must be provided if the schedule has multiple rotations.
+   */
+  rotationId?: string | null | undefined;
 };
 
 /** @internal */
@@ -35,11 +39,13 @@ export const CreateOnCallShift$inboundSchema: z.ZodType<
   start_time: z.string(),
   end_time: z.string(),
   user_id: z.nullable(z.string()).optional(),
+  rotation_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_time": "startTime",
     "end_time": "endTime",
     "user_id": "userId",
+    "rotation_id": "rotationId",
   });
 });
 
@@ -48,6 +54,7 @@ export type CreateOnCallShift$Outbound = {
   start_time: string;
   end_time: string;
   user_id?: string | null | undefined;
+  rotation_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -59,11 +66,13 @@ export const CreateOnCallShift$outboundSchema: z.ZodType<
   startTime: z.string(),
   endTime: z.string(),
   userId: z.nullable(z.string()).optional(),
+  rotationId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startTime: "start_time",
     endTime: "end_time",
     userId: "user_id",
+    rotationId: "rotation_id",
   });
 });
 

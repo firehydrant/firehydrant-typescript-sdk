@@ -5,7 +5,7 @@ Update a CloudTrail batch with new information.
 ## Example Usage
 
 ```typescript
-import { UpdateAwsCloudtrailBatch } from "firehydrant/models/components";
+import { UpdateAwsCloudtrailBatch } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateAwsCloudtrailBatch = {};
 ```

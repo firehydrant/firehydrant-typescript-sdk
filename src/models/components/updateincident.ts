@@ -33,6 +33,10 @@ export type UpdateIncident = {
    * List of tags for the incident
    */
   tagList?: Array<string> | null | undefined;
+  /**
+   * The ID of the incident type. This will copy values from the incident type (if any) unless they are being overridden via parameters in this request.
+   */
+  incidentTypeId?: string | null | undefined;
 };
 
 /** @internal */
@@ -100,12 +104,14 @@ export const UpdateIncident$inboundSchema: z.ZodType<
   severity_condition_id: z.nullable(z.string()).optional(),
   severity_impact_id: z.nullable(z.string()).optional(),
   tag_list: z.nullable(z.array(z.string())).optional(),
+  incident_type_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "customer_impact_summary": "customerImpactSummary",
     "severity_condition_id": "severityConditionId",
     "severity_impact_id": "severityImpactId",
     "tag_list": "tagList",
+    "incident_type_id": "incidentTypeId",
   });
 });
 
@@ -121,6 +127,7 @@ export type UpdateIncident$Outbound = {
   severity_condition_id?: string | null | undefined;
   severity_impact_id?: string | null | undefined;
   tag_list?: Array<string> | null | undefined;
+  incident_type_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -140,12 +147,14 @@ export const UpdateIncident$outboundSchema: z.ZodType<
   severityConditionId: z.nullable(z.string()).optional(),
   severityImpactId: z.nullable(z.string()).optional(),
   tagList: z.nullable(z.array(z.string())).optional(),
+  incidentTypeId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     customerImpactSummary: "customer_impact_summary",
     severityConditionId: "severity_condition_id",
     severityImpactId: "severity_impact_id",
     tagList: "tag_list",
+    incidentTypeId: "incident_type_id",
   });
 });
 

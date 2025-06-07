@@ -5,7 +5,7 @@ Update a severity matrix impact
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityMatrixImpact } from "firehydrant/models/components";
+import { UpdateSeverityMatrixImpact } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSeverityMatrixImpact = {};
 ```

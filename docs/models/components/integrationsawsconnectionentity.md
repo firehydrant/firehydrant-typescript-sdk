@@ -5,7 +5,7 @@ Integrations_Aws_ConnectionEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsConnectionEntity } from "firehydrant/models/components";
+import { IntegrationsAwsConnectionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAwsConnectionEntity = {};
 ```

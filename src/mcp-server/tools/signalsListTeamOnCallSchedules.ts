@@ -31,6 +31,8 @@ List all Signals on-call schedules for a team.`,
         };
       }
 
-      return formatResult(void 0, apiCall);
+      const value = result.value;
+
+      return formatResult(value, apiCall);
     },
   };

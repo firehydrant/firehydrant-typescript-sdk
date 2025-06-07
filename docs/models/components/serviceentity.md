@@ -5,7 +5,7 @@ ServiceEntity model
 ## Example Usage
 
 ```typescript
-import { ServiceEntity } from "firehydrant/models/components";
+import { ServiceEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ServiceEntity = {};
 ```

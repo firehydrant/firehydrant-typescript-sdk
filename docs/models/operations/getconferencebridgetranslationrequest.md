@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetConferenceBridgeTranslationRequest } from "firehydrant/models/operations";
+import { GetConferenceBridgeTranslationRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetConferenceBridgeTranslationRequest = {
   id: "<id>",

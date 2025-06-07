@@ -5,7 +5,7 @@ Metrics_InfrastructureMetricsEntity model
 ## Example Usage
 
 ```typescript
-import { MetricsInfrastructureMetricsEntity } from "firehydrant/models/components";
+import { MetricsInfrastructureMetricsEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: MetricsInfrastructureMetricsEntity = {};
 ```
