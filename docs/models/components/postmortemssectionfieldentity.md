@@ -5,7 +5,7 @@ PostMortems_SectionFieldEntity model
 ## Example Usage
 
 ```typescript
-import { PostMortemsSectionFieldEntity } from "firehydrant/models/components";
+import { PostMortemsSectionFieldEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PostMortemsSectionFieldEntity = {};
 ```

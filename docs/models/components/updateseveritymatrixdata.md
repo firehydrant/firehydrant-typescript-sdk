@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityMatrixData } from "firehydrant/models/components";
+import { UpdateSeverityMatrixData } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSeverityMatrixData = {
   severity: "<value>",

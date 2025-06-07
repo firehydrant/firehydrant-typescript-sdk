@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetOptionsForFieldRequest } from "firehydrant/models/operations";
+import { GetOptionsForFieldRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetOptionsForFieldRequest = {
   fieldId: "<id>",

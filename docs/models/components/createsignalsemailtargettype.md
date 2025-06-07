@@ -5,7 +5,7 @@ The type of target that the inbound email will notify when matched.
 ## Example Usage
 
 ```typescript
-import { CreateSignalsEmailTargetType } from "firehydrant/models/components";
+import { CreateSignalsEmailTargetType } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSignalsEmailTargetType = "Team";
 ```

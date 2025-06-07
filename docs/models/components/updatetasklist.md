@@ -5,7 +5,7 @@ Updates a task list's attributes and task list items
 ## Example Usage
 
 ```typescript
-import { UpdateTaskList } from "firehydrant/models/components";
+import { UpdateTaskList } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTaskList = {};
 ```

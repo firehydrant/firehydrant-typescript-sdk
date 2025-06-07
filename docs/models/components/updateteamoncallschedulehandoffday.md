@@ -5,7 +5,7 @@ The day of the week on which on-call shifts should hand off, as its long-form na
 ## Example Usage
 
 ```typescript
-import { UpdateTeamOnCallScheduleHandoffDay } from "firehydrant/models/components";
+import { UpdateTeamOnCallScheduleHandoffDay } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamOnCallScheduleHandoffDay = "monday";
 ```

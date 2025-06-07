@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRetrospectiveTemplateFieldsType } from "firehydrant/models/operations";
+import { UpdateRetrospectiveTemplateFieldsType } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateRetrospectiveTemplateFieldsType = "markdown";
 ```

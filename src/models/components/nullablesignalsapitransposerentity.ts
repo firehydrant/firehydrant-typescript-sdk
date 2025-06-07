@@ -14,12 +14,18 @@ import {
   NullableAuthorEntity$outboundSchema,
 } from "./nullableauthorentity.js";
 
-export type ExamplePayload = {};
+export type NullableSignalsAPITransposerEntityExamplePayload = {};
 
+/**
+ * Signals_API_TransposerEntity model
+ */
 export type NullableSignalsAPITransposerEntity = {
   name?: string | null | undefined;
   slug?: string | null | undefined;
-  examplePayload?: ExamplePayload | null | undefined;
+  examplePayload?:
+    | NullableSignalsAPITransposerEntityExamplePayload
+    | null
+    | undefined;
   expression?: string | null | undefined;
   expected?: string | null | undefined;
   website?: string | null | undefined;
@@ -32,46 +38,64 @@ export type NullableSignalsAPITransposerEntity = {
 };
 
 /** @internal */
-export const ExamplePayload$inboundSchema: z.ZodType<
-  ExamplePayload,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
+export const NullableSignalsAPITransposerEntityExamplePayload$inboundSchema:
+  z.ZodType<
+    NullableSignalsAPITransposerEntityExamplePayload,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({});
 
 /** @internal */
-export type ExamplePayload$Outbound = {};
+export type NullableSignalsAPITransposerEntityExamplePayload$Outbound = {};
 
 /** @internal */
-export const ExamplePayload$outboundSchema: z.ZodType<
-  ExamplePayload$Outbound,
-  z.ZodTypeDef,
-  ExamplePayload
-> = z.object({});
+export const NullableSignalsAPITransposerEntityExamplePayload$outboundSchema:
+  z.ZodType<
+    NullableSignalsAPITransposerEntityExamplePayload$Outbound,
+    z.ZodTypeDef,
+    NullableSignalsAPITransposerEntityExamplePayload
+  > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ExamplePayload$ {
-  /** @deprecated use `ExamplePayload$inboundSchema` instead. */
-  export const inboundSchema = ExamplePayload$inboundSchema;
-  /** @deprecated use `ExamplePayload$outboundSchema` instead. */
-  export const outboundSchema = ExamplePayload$outboundSchema;
-  /** @deprecated use `ExamplePayload$Outbound` instead. */
-  export type Outbound = ExamplePayload$Outbound;
+export namespace NullableSignalsAPITransposerEntityExamplePayload$ {
+  /** @deprecated use `NullableSignalsAPITransposerEntityExamplePayload$inboundSchema` instead. */
+  export const inboundSchema =
+    NullableSignalsAPITransposerEntityExamplePayload$inboundSchema;
+  /** @deprecated use `NullableSignalsAPITransposerEntityExamplePayload$outboundSchema` instead. */
+  export const outboundSchema =
+    NullableSignalsAPITransposerEntityExamplePayload$outboundSchema;
+  /** @deprecated use `NullableSignalsAPITransposerEntityExamplePayload$Outbound` instead. */
+  export type Outbound =
+    NullableSignalsAPITransposerEntityExamplePayload$Outbound;
 }
 
-export function examplePayloadToJSON(examplePayload: ExamplePayload): string {
-  return JSON.stringify(ExamplePayload$outboundSchema.parse(examplePayload));
+export function nullableSignalsAPITransposerEntityExamplePayloadToJSON(
+  nullableSignalsAPITransposerEntityExamplePayload:
+    NullableSignalsAPITransposerEntityExamplePayload,
+): string {
+  return JSON.stringify(
+    NullableSignalsAPITransposerEntityExamplePayload$outboundSchema.parse(
+      nullableSignalsAPITransposerEntityExamplePayload,
+    ),
+  );
 }
 
-export function examplePayloadFromJSON(
+export function nullableSignalsAPITransposerEntityExamplePayloadFromJSON(
   jsonString: string,
-): SafeParseResult<ExamplePayload, SDKValidationError> {
+): SafeParseResult<
+  NullableSignalsAPITransposerEntityExamplePayload,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => ExamplePayload$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ExamplePayload' from JSON`,
+    (x) =>
+      NullableSignalsAPITransposerEntityExamplePayload$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'NullableSignalsAPITransposerEntityExamplePayload' from JSON`,
   );
 }
 
@@ -83,8 +107,11 @@ export const NullableSignalsAPITransposerEntity$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  example_payload: z.nullable(z.lazy(() => ExamplePayload$inboundSchema))
-    .optional(),
+  example_payload: z.nullable(
+    z.lazy(() =>
+      NullableSignalsAPITransposerEntityExamplePayload$inboundSchema
+    ),
+  ).optional(),
   expression: z.nullable(z.string()).optional(),
   expected: z.nullable(z.string()).optional(),
   website: z.nullable(z.string()).optional(),
@@ -107,7 +134,10 @@ export const NullableSignalsAPITransposerEntity$inboundSchema: z.ZodType<
 export type NullableSignalsAPITransposerEntity$Outbound = {
   name?: string | null | undefined;
   slug?: string | null | undefined;
-  example_payload?: ExamplePayload$Outbound | null | undefined;
+  example_payload?:
+    | NullableSignalsAPITransposerEntityExamplePayload$Outbound
+    | null
+    | undefined;
   expression?: string | null | undefined;
   expected?: string | null | undefined;
   website?: string | null | undefined;
@@ -127,8 +157,11 @@ export const NullableSignalsAPITransposerEntity$outboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  examplePayload: z.nullable(z.lazy(() => ExamplePayload$outboundSchema))
-    .optional(),
+  examplePayload: z.nullable(
+    z.lazy(() =>
+      NullableSignalsAPITransposerEntityExamplePayload$outboundSchema
+    ),
+  ).optional(),
   expression: z.nullable(z.string()).optional(),
   expected: z.nullable(z.string()).optional(),
   website: z.nullable(z.string()).optional(),

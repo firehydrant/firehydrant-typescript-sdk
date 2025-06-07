@@ -31,6 +31,8 @@ List all Signals event sources for the authenticated user.`,
         };
       }
 
-      return formatResult(void 0, apiCall);
+      const value = result.value;
+
+      return formatResult(value, apiCall);
     },
   };

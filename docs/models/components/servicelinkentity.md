@@ -5,7 +5,7 @@ ServiceLinkEntity model
 ## Example Usage
 
 ```typescript
-import { ServiceLinkEntity } from "firehydrant/models/components";
+import { ServiceLinkEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ServiceLinkEntity = {};
 ```

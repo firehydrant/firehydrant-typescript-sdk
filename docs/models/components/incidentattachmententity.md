@@ -5,7 +5,7 @@ IncidentAttachmentEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentAttachmentEntity } from "firehydrant/models/components";
+import { IncidentAttachmentEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentAttachmentEntity = {};
 ```

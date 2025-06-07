@@ -5,7 +5,7 @@ Add all tasks from list to incident
 ## Example Usage
 
 ```typescript
-import { CreateIncidentTaskList } from "firehydrant/models/components";
+import { CreateIncidentTaskList } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentTaskList = {
   taskListId: "<id>",

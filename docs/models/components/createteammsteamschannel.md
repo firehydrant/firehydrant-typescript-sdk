@@ -5,7 +5,7 @@ MS Teams channel identity for channel associated with this team
 ## Example Usage
 
 ```typescript
-import { CreateTeamMsTeamsChannel } from "firehydrant/models/components";
+import { CreateTeamMsTeamsChannel } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamMsTeamsChannel = {
   channelId: "<id>",

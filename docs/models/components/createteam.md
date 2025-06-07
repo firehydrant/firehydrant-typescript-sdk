@@ -5,7 +5,7 @@ Create a new team
 ## Example Usage
 
 ```typescript
-import { CreateTeam } from "firehydrant/models/components";
+import { CreateTeam } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeam = {
   name: "<value>",

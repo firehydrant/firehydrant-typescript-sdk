@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableNuncComponentGroupEntity } from "firehydrant/models/components";
+import { NullableNuncComponentGroupEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableNuncComponentGroupEntity = {};
 ```

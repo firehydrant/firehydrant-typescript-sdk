@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VoteAiIncidentSummaryRequestBody } from "firehydrant/models/operations";
+import { VoteAiIncidentSummaryRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: VoteAiIncidentSummaryRequestBody = {
   direction: "up",

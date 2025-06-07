@@ -5,7 +5,7 @@ Update the external incident link attributes
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentLink } from "firehydrant/models/components";
+import { UpdateIncidentLink } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentLink = {};
 ```

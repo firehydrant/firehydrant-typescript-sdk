@@ -3,11 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { ShareIncidentRetrospectivesRequestBody } from "firehydrant/models/operations";
+import { ShareIncidentRetrospectivesRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ShareIncidentRetrospectivesRequestBody = {
   retrospectiveIds: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
+    "<value 3>",
   ],
 };
 ```
