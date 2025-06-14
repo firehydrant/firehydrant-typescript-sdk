@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateNuncComponentGroupRequestBody } from "firehydrant/models/operations";
+import { UpdateNuncComponentGroupRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateNuncComponentGroupRequestBody = {};
 ```

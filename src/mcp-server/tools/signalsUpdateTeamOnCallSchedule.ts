@@ -15,7 +15,10 @@ export const tool$signalsUpdateTeamOnCallSchedule: ToolDefinition<typeof args> =
     name: "signals-update-team-on-call-schedule",
     description: `Update an on-call schedule for a team
 
-Update a Signals on-call schedule by ID`,
+Update a Signals on-call schedule by ID. For backwards compatibility, all parameters except for
+\`name\` and \`description\` will be ignored if the schedule has more than one rotation. If the schedule
+has only one rotation, you can continue to update that rotation using the rotation-specific parameters.
+`,
     args,
     tool: async (client, args, ctx) => {
       const [result, apiCall] = await signalsUpdateTeamOnCallSchedule(
@@ -31,6 +34,8 @@ Update a Signals on-call schedule by ID`,
         };
       }
 
-      return formatResult(void 0, apiCall);
+      const value = result.value;
+
+      return formatResult(value, apiCall);
     },
   };

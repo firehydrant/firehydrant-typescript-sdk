@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableRunbooksActionsEntityDefaultLogic } from "firehydrant/models/components";
+import { NullableRunbooksActionsEntityDefaultLogic } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableRunbooksActionsEntityDefaultLogic = {};
 ```

@@ -42,6 +42,11 @@ export class Firehydrant extends ClientSDK {
     return (this._teams ??= new Teams(this._options));
   }
 
+  private _callRoutes?: CallRoutes;
+  get callRoutes(): CallRoutes {
+    return (this._callRoutes ??= new CallRoutes(this._options));
+  }
+
   private _signals?: Signals;
   get signals(): Signals {
     return (this._signals ??= new Signals(this._options));
@@ -120,11 +125,6 @@ export class Firehydrant extends ClientSDK {
   private _scim?: Scim;
   get scim(): Scim {
     return (this._scim ??= new Scim(this._options));
-  }
-
-  private _callRoutes?: CallRoutes;
-  get callRoutes(): CallRoutes {
-    return (this._callRoutes ??= new CallRoutes(this._options));
   }
 
   private _webhooks?: Webhooks;

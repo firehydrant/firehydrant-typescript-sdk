@@ -5,13 +5,13 @@ PATCH SCIM endpoint to update a User. This endpoint is used to update a resource
 ## Example Usage
 
 ```typescript
-import { PatchScimUser } from "firehydrant/models/components";
+import { PatchScimUser } from "firehydrant-typescript-sdk/models/components";
 
 let value: PatchScimUser = {
   operations: [
     {
       op: "<value>",
-      path: "/rescue",
+      path: "/usr/obj",
     },
   ],
 };

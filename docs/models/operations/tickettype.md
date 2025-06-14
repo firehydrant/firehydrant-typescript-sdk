@@ -5,7 +5,7 @@ Filter by ticket type. Values: incident, follow_up
 ## Example Usage
 
 ```typescript
-import { TicketType } from "firehydrant/models/operations";
+import { TicketType } from "firehydrant-typescript-sdk/models/operations";
 
 let value: TicketType = "incident";
 ```

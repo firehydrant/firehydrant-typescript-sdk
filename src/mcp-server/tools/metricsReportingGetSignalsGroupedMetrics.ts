@@ -32,6 +32,8 @@ Generate a report of grouped metrics for Signals alerts`,
       };
     }
 
-    return formatResult(void 0, apiCall);
+    const value = result.value;
+
+    return formatResult(value, apiCall);
   },
 };

@@ -21,7 +21,7 @@ Lists webhooks
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -30,7 +30,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.webhooks.listWebhooks({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -42,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { webhooksListWebhooks } from "firehydrant/funcs/webhooksListWebhooks.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { webhooksListWebhooks } from "firehydrant-typescript-sdk/funcs/webhooksListWebhooks.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -53,15 +52,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await webhooksListWebhooks(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("webhooksListWebhooks failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -93,7 +89,7 @@ Create a new webhook
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -101,10 +97,9 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.webhooks.createWebhook({
-    url: "https://prime-tooth.biz/",
+    url: "https://helpful-cafe.biz",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -116,8 +111,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { webhooksCreateWebhook } from "firehydrant/funcs/webhooksCreateWebhook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { webhooksCreateWebhook } from "firehydrant-typescript-sdk/funcs/webhooksCreateWebhook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -127,17 +122,14 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await webhooksCreateWebhook(firehydrant, {
-    url: "https://prime-tooth.biz/",
+    url: "https://helpful-cafe.biz",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("webhooksCreateWebhook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -169,7 +161,7 @@ Get webhook deliveries
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -191,8 +183,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { webhooksListWebhookDeliveries } from "firehydrant/funcs/webhooksListWebhookDeliveries.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { webhooksListWebhookDeliveries } from "firehydrant-typescript-sdk/funcs/webhooksListWebhookDeliveries.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -204,14 +196,12 @@ async function run() {
   const res = await webhooksListWebhookDeliveries(firehydrant, {
     webhookId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("webhooksListWebhookDeliveries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -243,7 +233,7 @@ Retrieve a specific webhook
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -254,7 +244,6 @@ async function run() {
     webhookId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -266,8 +255,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { webhooksGetWebhook } from "firehydrant/funcs/webhooksGetWebhook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { webhooksGetWebhook } from "firehydrant-typescript-sdk/funcs/webhooksGetWebhook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -279,15 +268,12 @@ async function run() {
   const res = await webhooksGetWebhook(firehydrant, {
     webhookId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("webhooksGetWebhook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -319,7 +305,7 @@ Delete a specific webhook
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -341,8 +327,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { webhooksDeleteWebhook } from "firehydrant/funcs/webhooksDeleteWebhook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { webhooksDeleteWebhook } from "firehydrant-typescript-sdk/funcs/webhooksDeleteWebhook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -354,14 +340,12 @@ async function run() {
   const res = await webhooksDeleteWebhook(firehydrant, {
     webhookId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("webhooksDeleteWebhook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -393,7 +377,7 @@ Update a specific webhook
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -405,7 +389,6 @@ async function run() {
     updateWebhook: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -417,8 +400,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { webhooksUpdateWebhook } from "firehydrant/funcs/webhooksUpdateWebhook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { webhooksUpdateWebhook } from "firehydrant-typescript-sdk/funcs/webhooksUpdateWebhook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -431,15 +414,12 @@ async function run() {
     webhookId: "<id>",
     updateWebhook: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("webhooksUpdateWebhook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

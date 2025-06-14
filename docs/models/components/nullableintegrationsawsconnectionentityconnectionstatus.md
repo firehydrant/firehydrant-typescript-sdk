@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableIntegrationsAwsConnectionEntityConnectionStatus } from "firehydrant/models/components";
+import { NullableIntegrationsAwsConnectionEntityConnectionStatus } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIntegrationsAwsConnectionEntityConnectionStatus =
   "invalid_permissions";

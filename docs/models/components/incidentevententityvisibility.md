@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IncidentEventEntityVisibility } from "firehydrant/models/components";
+import { IncidentEventEntityVisibility } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentEventEntityVisibility = "private_to_org";
 ```

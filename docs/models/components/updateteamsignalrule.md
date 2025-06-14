@@ -5,7 +5,7 @@ Update a Signals rule by ID
 ## Example Usage
 
 ```typescript
-import { UpdateTeamSignalRule } from "firehydrant/models/components";
+import { UpdateTeamSignalRule } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamSignalRule = {};
 ```

@@ -3,26 +3,33 @@
  */
 
 import { signalsCreateOnCallShift } from "../funcs/signalsCreateOnCallShift.js";
+import { signalsCreateSignalsAlertGroupingConfiguration } from "../funcs/signalsCreateSignalsAlertGroupingConfiguration.js";
 import { signalsCreateSignalsEmailTarget } from "../funcs/signalsCreateSignalsEmailTarget.js";
+import { signalsCreateSignalsEventSource } from "../funcs/signalsCreateSignalsEventSource.js";
 import { signalsCreateSignalsWebhookTarget } from "../funcs/signalsCreateSignalsWebhookTarget.js";
 import { signalsCreateTeamEscalationPolicy } from "../funcs/signalsCreateTeamEscalationPolicy.js";
 import { signalsCreateTeamOnCallSchedule } from "../funcs/signalsCreateTeamOnCallSchedule.js";
 import { signalsCreateTeamSignalRule } from "../funcs/signalsCreateTeamSignalRule.js";
 import { signalsDebugSignalsExpression } from "../funcs/signalsDebugSignalsExpression.js";
 import { signalsDeleteOnCallShift } from "../funcs/signalsDeleteOnCallShift.js";
+import { signalsDeleteSignalsAlertGroupingConfiguration } from "../funcs/signalsDeleteSignalsAlertGroupingConfiguration.js";
 import { signalsDeleteSignalsEmailTarget } from "../funcs/signalsDeleteSignalsEmailTarget.js";
+import { signalsDeleteSignalsEventSource } from "../funcs/signalsDeleteSignalsEventSource.js";
 import { signalsDeleteSignalsWebhookTarget } from "../funcs/signalsDeleteSignalsWebhookTarget.js";
 import { signalsDeleteTeamEscalationPolicy } from "../funcs/signalsDeleteTeamEscalationPolicy.js";
 import { signalsDeleteTeamOnCallSchedule } from "../funcs/signalsDeleteTeamOnCallSchedule.js";
 import { signalsDeleteTeamSignalRule } from "../funcs/signalsDeleteTeamSignalRule.js";
 import { signalsGetOnCallShift } from "../funcs/signalsGetOnCallShift.js";
+import { signalsGetSignalsAlertGroupingConfiguration } from "../funcs/signalsGetSignalsAlertGroupingConfiguration.js";
 import { signalsGetSignalsEmailTarget } from "../funcs/signalsGetSignalsEmailTarget.js";
+import { signalsGetSignalsEventSource } from "../funcs/signalsGetSignalsEventSource.js";
 import { signalsGetSignalsIngestUrl } from "../funcs/signalsGetSignalsIngestUrl.js";
 import { signalsGetSignalsWebhookTarget } from "../funcs/signalsGetSignalsWebhookTarget.js";
 import { signalsGetTeamEscalationPolicy } from "../funcs/signalsGetTeamEscalationPolicy.js";
 import { signalsGetTeamOnCallSchedule } from "../funcs/signalsGetTeamOnCallSchedule.js";
 import { signalsGetTeamSignalRule } from "../funcs/signalsGetTeamSignalRule.js";
 import { signalsListOrganizationOnCallSchedules } from "../funcs/signalsListOrganizationOnCallSchedules.js";
+import { signalsListSignalsAlertGroupingConfigurations } from "../funcs/signalsListSignalsAlertGroupingConfigurations.js";
 import { signalsListSignalsEmailTargets } from "../funcs/signalsListSignalsEmailTargets.js";
 import { signalsListSignalsEventSources } from "../funcs/signalsListSignalsEventSources.js";
 import { signalsListSignalsTransposers } from "../funcs/signalsListSignalsTransposers.js";
@@ -31,6 +38,7 @@ import { signalsListTeamEscalationPolicies } from "../funcs/signalsListTeamEscal
 import { signalsListTeamOnCallSchedules } from "../funcs/signalsListTeamOnCallSchedules.js";
 import { signalsListTeamSignalRules } from "../funcs/signalsListTeamSignalRules.js";
 import { signalsUpdateOnCallShift } from "../funcs/signalsUpdateOnCallShift.js";
+import { signalsUpdateSignalsAlertGroupingConfiguration } from "../funcs/signalsUpdateSignalsAlertGroupingConfiguration.js";
 import { signalsUpdateSignalsEmailTarget } from "../funcs/signalsUpdateSignalsEmailTarget.js";
 import { signalsUpdateSignalsWebhookTarget } from "../funcs/signalsUpdateSignalsWebhookTarget.js";
 import { signalsUpdateTeamEscalationPolicy } from "../funcs/signalsUpdateTeamEscalationPolicy.js";
@@ -51,7 +59,7 @@ export class Signals extends ClientSDK {
   async listTeamEscalationPolicies(
     request: operations.ListTeamEscalationPoliciesRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEscalationPolicyEntityPaginated> {
     return unwrapAsync(signalsListTeamEscalationPolicies(
       this,
       request,
@@ -68,7 +76,7 @@ export class Signals extends ClientSDK {
   async createTeamEscalationPolicy(
     request: operations.CreateTeamEscalationPolicyRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEscalationPolicyEntity> {
     return unwrapAsync(signalsCreateTeamEscalationPolicy(
       this,
       request,
@@ -85,7 +93,7 @@ export class Signals extends ClientSDK {
   async getTeamEscalationPolicy(
     request: operations.GetTeamEscalationPolicyRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEscalationPolicyEntity> {
     return unwrapAsync(signalsGetTeamEscalationPolicy(
       this,
       request,
@@ -119,7 +127,7 @@ export class Signals extends ClientSDK {
   async updateTeamEscalationPolicy(
     request: operations.UpdateTeamEscalationPolicyRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEscalationPolicyEntity> {
     return unwrapAsync(signalsUpdateTeamEscalationPolicy(
       this,
       request,
@@ -136,7 +144,7 @@ export class Signals extends ClientSDK {
   async listTeamOnCallSchedules(
     request: operations.ListTeamOnCallSchedulesRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallScheduleEntityPaginated> {
     return unwrapAsync(signalsListTeamOnCallSchedules(
       this,
       request,
@@ -148,12 +156,12 @@ export class Signals extends ClientSDK {
    * Create an on-call schedule for a team
    *
    * @remarks
-   * Create a Signals on-call schedule for a team.
+   * Create a Signals on-call schedule for a team with a single rotation. More rotations can be created later.
    */
   async createTeamOnCallSchedule(
     request: operations.CreateTeamOnCallScheduleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallScheduleEntity> {
     return unwrapAsync(signalsCreateTeamOnCallSchedule(
       this,
       request,
@@ -170,7 +178,7 @@ export class Signals extends ClientSDK {
   async getTeamOnCallSchedule(
     request: operations.GetTeamOnCallScheduleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallScheduleEntity> {
     return unwrapAsync(signalsGetTeamOnCallSchedule(
       this,
       request,
@@ -199,12 +207,14 @@ export class Signals extends ClientSDK {
    * Update an on-call schedule for a team
    *
    * @remarks
-   * Update a Signals on-call schedule by ID
+   * Update a Signals on-call schedule by ID. For backwards compatibility, all parameters except for
+   * `name` and `description` will be ignored if the schedule has more than one rotation. If the schedule
+   * has only one rotation, you can continue to update that rotation using the rotation-specific parameters.
    */
   async updateTeamOnCallSchedule(
     request: operations.UpdateTeamOnCallScheduleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallScheduleEntity> {
     return unwrapAsync(signalsUpdateTeamOnCallSchedule(
       this,
       request,
@@ -221,7 +231,7 @@ export class Signals extends ClientSDK {
   async createOnCallShift(
     request: operations.CreateOnCallShiftRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallShiftEntity> {
     return unwrapAsync(signalsCreateOnCallShift(
       this,
       request,
@@ -238,7 +248,7 @@ export class Signals extends ClientSDK {
   async getOnCallShift(
     request: operations.GetOnCallShiftRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallShiftEntity> {
     return unwrapAsync(signalsGetOnCallShift(
       this,
       request,
@@ -272,7 +282,7 @@ export class Signals extends ClientSDK {
   async updateOnCallShift(
     request: operations.UpdateOnCallShiftRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOnCallShiftEntity> {
     return unwrapAsync(signalsUpdateOnCallShift(
       this,
       request,
@@ -289,7 +299,7 @@ export class Signals extends ClientSDK {
   async listTeamSignalRules(
     request: operations.ListTeamSignalRulesRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIRuleEntityPaginated> {
     return unwrapAsync(signalsListTeamSignalRules(
       this,
       request,
@@ -306,7 +316,7 @@ export class Signals extends ClientSDK {
   async createTeamSignalRule(
     request: operations.CreateTeamSignalRuleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIRuleEntity> {
     return unwrapAsync(signalsCreateTeamSignalRule(
       this,
       request,
@@ -323,7 +333,7 @@ export class Signals extends ClientSDK {
   async getTeamSignalRule(
     request: operations.GetTeamSignalRuleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIRuleEntity> {
     return unwrapAsync(signalsGetTeamSignalRule(
       this,
       request,
@@ -357,7 +367,7 @@ export class Signals extends ClientSDK {
   async updateTeamSignalRule(
     request: operations.UpdateTeamSignalRuleRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIRuleEntity> {
     return unwrapAsync(signalsUpdateTeamSignalRule(
       this,
       request,
@@ -374,8 +384,142 @@ export class Signals extends ClientSDK {
   async listSignalsEventSources(
     request: operations.ListSignalsEventSourcesRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPITransposerListEntity> {
     return unwrapAsync(signalsListSignalsEventSources(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Create an event source for Signals
+   *
+   * @remarks
+   * Create a Signals event source for the authenticated user.
+   */
+  async createSignalsEventSource(
+    request: components.CreateSignalsEventSource,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPITransposerEntity> {
+    return unwrapAsync(signalsCreateSignalsEventSource(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get an event source for Signals
+   *
+   * @remarks
+   * Get a Signals event source by slug
+   */
+  async getSignalsEventSource(
+    request: operations.GetSignalsEventSourceRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPITransposerEntity> {
+    return unwrapAsync(signalsGetSignalsEventSource(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete an event source for Signals
+   *
+   * @remarks
+   * Delete a Signals event source by slug
+   */
+  async deleteSignalsEventSource(
+    request: operations.DeleteSignalsEventSourceRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPITransposerEntity> {
+    return unwrapAsync(signalsDeleteSignalsEventSource(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List alert grouping configurations.
+   *
+   * @remarks
+   * List all Signals alert grouping rules for the organization.
+   */
+  async listSignalsAlertGroupingConfigurations(
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIGroupingEntityPaginated> {
+    return unwrapAsync(signalsListSignalsAlertGroupingConfigurations(
+      this,
+      options,
+    ));
+  }
+
+  /**
+   * Create an alert grouping configuration.
+   *
+   * @remarks
+   * Create a Signals alert grouping rule for the organization.
+   */
+  async createSignalsAlertGroupingConfiguration(
+    request: components.CreateSignalsAlertGroupingConfiguration,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIGroupingEntity> {
+    return unwrapAsync(signalsCreateSignalsAlertGroupingConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get an alert grouping configuration.
+   *
+   * @remarks
+   * Get a Signals alert grouping rule by ID.
+   */
+  async getSignalsAlertGroupingConfiguration(
+    request: operations.GetSignalsAlertGroupingConfigurationRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIGroupingEntity> {
+    return unwrapAsync(signalsGetSignalsAlertGroupingConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete an alert grouping configuration.
+   *
+   * @remarks
+   * Delete a Signals alert grouping rule by ID.
+   */
+  async deleteSignalsAlertGroupingConfiguration(
+    request: operations.DeleteSignalsAlertGroupingConfigurationRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIGroupingEntity> {
+    return unwrapAsync(signalsDeleteSignalsAlertGroupingConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update an alert grouping configuration.
+   *
+   * @remarks
+   * Update a Signals alert grouping rule for the organization.
+   */
+  async updateSignalsAlertGroupingConfiguration(
+    request: operations.UpdateSignalsAlertGroupingConfigurationRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIGroupingEntity> {
+    return unwrapAsync(signalsUpdateSignalsAlertGroupingConfiguration(
       this,
       request,
       options,
@@ -391,7 +535,7 @@ export class Signals extends ClientSDK {
   async listSignalsEmailTargets(
     request: operations.ListSignalsEmailTargetsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEmailTargetEntityPaginated> {
     return unwrapAsync(signalsListSignalsEmailTargets(
       this,
       request,
@@ -408,7 +552,7 @@ export class Signals extends ClientSDK {
   async createSignalsEmailTarget(
     request: components.CreateSignalsEmailTarget,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEmailTargetEntity> {
     return unwrapAsync(signalsCreateSignalsEmailTarget(
       this,
       request,
@@ -425,7 +569,7 @@ export class Signals extends ClientSDK {
   async getSignalsEmailTarget(
     request: operations.GetSignalsEmailTargetRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEmailTargetEntity> {
     return unwrapAsync(signalsGetSignalsEmailTarget(
       this,
       request,
@@ -459,7 +603,7 @@ export class Signals extends ClientSDK {
   async updateSignalsEmailTarget(
     request: operations.UpdateSignalsEmailTargetRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIEmailTargetEntity> {
     return unwrapAsync(signalsUpdateSignalsEmailTarget(
       this,
       request,
@@ -476,7 +620,7 @@ export class Signals extends ClientSDK {
   async listSignalsWebhookTargets(
     request: operations.ListSignalsWebhookTargetsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIWebhookTargetEntityPaginated> {
     return unwrapAsync(signalsListSignalsWebhookTargets(
       this,
       request,
@@ -493,7 +637,7 @@ export class Signals extends ClientSDK {
   async createSignalsWebhookTarget(
     request: components.CreateSignalsWebhookTarget,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIWebhookTargetEntity> {
     return unwrapAsync(signalsCreateSignalsWebhookTarget(
       this,
       request,
@@ -510,7 +654,7 @@ export class Signals extends ClientSDK {
   async getSignalsWebhookTarget(
     request: operations.GetSignalsWebhookTargetRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIWebhookTargetEntity> {
     return unwrapAsync(signalsGetSignalsWebhookTarget(
       this,
       request,
@@ -544,7 +688,7 @@ export class Signals extends ClientSDK {
   async updateSignalsWebhookTarget(
     request: operations.UpdateSignalsWebhookTargetRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIWebhookTargetEntity> {
     return unwrapAsync(signalsUpdateSignalsWebhookTarget(
       this,
       request,
@@ -602,15 +746,15 @@ export class Signals extends ClientSDK {
   }
 
   /**
-   * List on-call schedules
+   * List who's on call for the organization
    *
    * @remarks
-   * List all Signals on-call schedules for the entire organization.
+   * List all users who are currently on-call across the entire organization.
    */
   async listOrganizationOnCallSchedules(
     request: operations.ListOrganizationOnCallSchedulesRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIOrganizationOnCallScheduleEntityPaginated> {
     return unwrapAsync(signalsListOrganizationOnCallSchedules(
       this,
       request,

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateRunbookRule } from "firehydrant/models/components";
+import { CreateRunbookRule } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateRunbookRule = {
   logic: "<value>",

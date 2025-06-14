@@ -5,7 +5,7 @@ IncidentRoleEntity model
 ## Example Usage
 
 ```typescript
-import { NullableIncidentRoleEntity } from "firehydrant/models/components";
+import { NullableIncidentRoleEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIncidentRoleEntity = {};
 ```

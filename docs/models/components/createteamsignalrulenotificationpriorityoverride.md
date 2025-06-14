@@ -5,7 +5,7 @@ A notification priority that will be set on the resulting alert (default: HIGH)
 ## Example Usage
 
 ```typescript
-import { CreateTeamSignalRuleNotificationPriorityOverride } from "firehydrant/models/components";
+import { CreateTeamSignalRuleNotificationPriorityOverride } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamSignalRuleNotificationPriorityOverride = "";
 ```

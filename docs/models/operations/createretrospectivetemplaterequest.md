@@ -3,24 +3,16 @@
 ## Example Usage
 
 ```typescript
-import { CreateRetrospectiveTemplateRequest } from "firehydrant/models/operations";
+import { CreateRetrospectiveTemplateRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateRetrospectiveTemplateRequest = {
   name: "<value>",
   description:
     "yowza inside behind yum gift where gloat save reassuringly because",
-  sectionsSlug: [
-    "details",
-  ],
-  sectionsElements: [
-    "<value>",
-  ],
-  fieldsLabel: [
-    "<value>",
-  ],
-  fieldsType: [
-    "text",
-  ],
+  sectionsSlug: [],
+  sectionsElements: [],
+  fieldsLabel: [],
+  fieldsType: [],
 };
 ```
 

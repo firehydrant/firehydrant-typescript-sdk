@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetLifecycleMeasurementDefinitionRequest } from "firehydrant/models/operations";
+import { GetLifecycleMeasurementDefinitionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetLifecycleMeasurementDefinitionRequest = {
   measurementDefinitionId: "<id>",

@@ -5,7 +5,7 @@ Runbooks_ExecutionEntity model
 ## Example Usage
 
 ```typescript
-import { RunbooksExecutionEntity } from "firehydrant/models/components";
+import { RunbooksExecutionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: RunbooksExecutionEntity = {};
 ```

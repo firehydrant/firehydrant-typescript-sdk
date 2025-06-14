@@ -5,7 +5,7 @@ Allows adding adhoc links to an incident as an attachment
 ## Example Usage
 
 ```typescript
-import { CreateIncidentLink } from "firehydrant/models/components";
+import { CreateIncidentLink } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentLink = {
   href: "<value>",

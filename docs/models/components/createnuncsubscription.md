@@ -5,7 +5,7 @@ Subscribe to status page updates
 ## Example Usage
 
 ```typescript
-import { CreateNuncSubscription } from "firehydrant/models/components";
+import { CreateNuncSubscription } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateNuncSubscription = {
   email: "Hadley.Feest67@gmail.com",
