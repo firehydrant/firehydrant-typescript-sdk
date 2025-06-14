@@ -26,7 +26,7 @@ List all audiences
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -35,7 +35,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.audiences.listAudiences({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -47,8 +46,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesListAudiences } from "firehydrant/funcs/audiencesListAudiences.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesListAudiences } from "firehydrant-typescript-sdk/funcs/audiencesListAudiences.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -58,15 +57,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await audiencesListAudiences(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesListAudiences failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -98,7 +94,7 @@ Create a new audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -107,16 +103,15 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.audiences.createAudience({
     name: "<value>",
-    description: "sandy closely closely suddenly whose rear",
-    detailsQuestion: [
-      "<value>",
-    ],
+    description: "simple contractor hmph along amongst thump provision crowded fragrant and",
+    detailsQuestion: [],
     detailsPrompt: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -128,8 +123,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesCreateAudience } from "firehydrant/funcs/audiencesCreateAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesCreateAudience } from "firehydrant-typescript-sdk/funcs/audiencesCreateAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -140,23 +135,20 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await audiencesCreateAudience(firehydrant, {
     name: "<value>",
-    description: "sandy closely closely suddenly whose rear",
-    detailsQuestion: [
-      "<value>",
-    ],
+    description: "simple contractor hmph along amongst thump provision crowded fragrant and",
+    detailsQuestion: [],
     detailsPrompt: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesCreateAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -188,7 +180,7 @@ Get audience details
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -199,7 +191,6 @@ async function run() {
     audienceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -211,8 +202,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGetAudience } from "firehydrant/funcs/audiencesGetAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGetAudience } from "firehydrant-typescript-sdk/funcs/audiencesGetAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -224,15 +215,12 @@ async function run() {
   const res = await audiencesGetAudience(firehydrant, {
     audienceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesGetAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -264,7 +252,7 @@ Archive an audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -275,7 +263,6 @@ async function run() {
     audienceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -287,8 +274,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesArchiveAudience } from "firehydrant/funcs/audiencesArchiveAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesArchiveAudience } from "firehydrant-typescript-sdk/funcs/audiencesArchiveAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -300,15 +287,12 @@ async function run() {
   const res = await audiencesArchiveAudience(firehydrant, {
     audienceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesArchiveAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -340,7 +324,7 @@ Update an existing audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -351,7 +335,6 @@ async function run() {
     audienceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -363,8 +346,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesUpdateAudience } from "firehydrant/funcs/audiencesUpdateAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesUpdateAudience } from "firehydrant-typescript-sdk/funcs/audiencesUpdateAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -376,15 +359,12 @@ async function run() {
   const res = await audiencesUpdateAudience(firehydrant, {
     audienceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesUpdateAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -416,7 +396,7 @@ Restore a previously archived audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -427,7 +407,6 @@ async function run() {
     audienceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -439,8 +418,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesRestoreAudience } from "firehydrant/funcs/audiencesRestoreAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesRestoreAudience } from "firehydrant-typescript-sdk/funcs/audiencesRestoreAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -452,15 +431,12 @@ async function run() {
   const res = await audiencesRestoreAudience(firehydrant, {
     audienceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesRestoreAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -492,7 +468,7 @@ Get member's default audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -500,10 +476,9 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.audiences.getMemberDefaultAudience({
-    memberId: 518189,
+    memberId: 9319,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -515,8 +490,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGetMemberDefaultAudience } from "firehydrant/funcs/audiencesGetMemberDefaultAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGetMemberDefaultAudience } from "firehydrant-typescript-sdk/funcs/audiencesGetMemberDefaultAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -526,17 +501,14 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await audiencesGetMemberDefaultAudience(firehydrant, {
-    memberId: 518189,
+    memberId: 9319,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesGetMemberDefaultAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -568,7 +540,7 @@ Set member's default audience
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -576,13 +548,12 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.audiences.setMemberDefaultAudience({
-    memberId: 191738,
+    memberId: 411452,
     requestBody: {
       audienceId: "<id>",
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -594,8 +565,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesSetMemberDefaultAudience } from "firehydrant/funcs/audiencesSetMemberDefaultAudience.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesSetMemberDefaultAudience } from "firehydrant-typescript-sdk/funcs/audiencesSetMemberDefaultAudience.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -605,20 +576,17 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await audiencesSetMemberDefaultAudience(firehydrant, {
-    memberId: 191738,
+    memberId: 411452,
     requestBody: {
       audienceId: "<id>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesSetMemberDefaultAudience failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -650,7 +618,7 @@ Get the latest audience-specific summary for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -662,7 +630,6 @@ async function run() {
     incidentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -674,8 +641,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGetAudienceSummary } from "firehydrant/funcs/audiencesGetAudienceSummary.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGetAudienceSummary } from "firehydrant-typescript-sdk/funcs/audiencesGetAudienceSummary.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -688,15 +655,12 @@ async function run() {
     audienceId: "<id>",
     incidentId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesGetAudienceSummary failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -728,7 +692,7 @@ Generate a new audience-specific summary for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -740,7 +704,6 @@ async function run() {
     incidentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -752,8 +715,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesGenerateAudienceSummary } from "firehydrant/funcs/audiencesGenerateAudienceSummary.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesGenerateAudienceSummary } from "firehydrant-typescript-sdk/funcs/audiencesGenerateAudienceSummary.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -766,15 +729,12 @@ async function run() {
     audienceId: "<id>",
     incidentId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesGenerateAudienceSummary failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -806,7 +766,7 @@ List all audience summaries for an incident
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -817,7 +777,6 @@ async function run() {
     incidentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -829,8 +788,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { audiencesListAudienceSummaries } from "firehydrant/funcs/audiencesListAudienceSummaries.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { audiencesListAudienceSummaries } from "firehydrant-typescript-sdk/funcs/audiencesListAudienceSummaries.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -842,15 +801,12 @@ async function run() {
   const res = await audiencesListAudienceSummaries(firehydrant, {
     incidentId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("audiencesListAudienceSummaries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

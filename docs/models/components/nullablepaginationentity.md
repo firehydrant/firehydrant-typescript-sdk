@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullablePaginationEntity } from "firehydrant/models/components";
+import { NullablePaginationEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullablePaginationEntity = {};
 ```

@@ -5,7 +5,7 @@ PostMortems_ReasonEntity model
 ## Example Usage
 
 ```typescript
-import { PostMortemsReasonEntity } from "firehydrant/models/components";
+import { PostMortemsReasonEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PostMortemsReasonEntity = {};
 ```

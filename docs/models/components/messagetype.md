@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { MessageType } from "firehydrant/models/components";
+import { MessageType } from "firehydrant-typescript-sdk/models/components";
 
 let value: MessageType = "custom";
 ```

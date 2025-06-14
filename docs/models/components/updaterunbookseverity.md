@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRunbookSeverity } from "firehydrant/models/components";
+import { UpdateRunbookSeverity } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateRunbookSeverity = {};
 ```

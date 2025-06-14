@@ -5,12 +5,10 @@ Alerts_AlertEntity model
 ## Example Usage
 
 ```typescript
-import { AlertsAlertEntity } from "firehydrant/models/components";
+import { AlertsAlertEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsAlertEntity = {
-  signalRule: {
-    deduplicationExpiry: "PT1H",
-  },
+  signalRule: null,
   parentAlerts: [
     {
       signalRule: {
@@ -20,9 +18,7 @@ let value: AlertsAlertEntity = {
   ],
   childAlerts: [
     {
-      signalRule: {
-        deduplicationExpiry: "PT1H",
-      },
+      signalRule: null,
     },
   ],
 };

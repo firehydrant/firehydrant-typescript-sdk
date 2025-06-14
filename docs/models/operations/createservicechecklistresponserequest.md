@@ -3,15 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { CreateServiceChecklistResponseRequest } from "firehydrant/models/operations";
+import { CreateServiceChecklistResponseRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateServiceChecklistResponseRequest = {
   serviceId: "<id>",
   checklistId: "<id>",
-  createServiceChecklistResponse: {
-    checkId: "<id>",
-    status: false,
-  },
 };
 ```
 

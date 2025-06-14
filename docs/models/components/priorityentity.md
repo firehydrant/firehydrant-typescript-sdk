@@ -5,7 +5,7 @@ PriorityEntity model
 ## Example Usage
 
 ```typescript
-import { PriorityEntity } from "firehydrant/models/components";
+import { PriorityEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PriorityEntity = {};
 ```

@@ -7,7 +7,6 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -63,11 +62,11 @@ export type ListIncidentsRequest = {
   /**
    * Filters for incidents that started on or after this date
    */
-  startDate?: RFCDate | null | undefined;
+  startDate?: Date | null | undefined;
   /**
    * Filters for incidents that started on or before this date
    */
-  endDate?: RFCDate | null | undefined;
+  endDate?: Date | null | undefined;
   /**
    * Filters for incidents that were resolved at or after this time. Combine this with the `current_milestones` parameter if you wish to omit incidents that were re-opened and are still active.
    */
@@ -151,7 +150,7 @@ export type ListIncidentsRequest = {
   /**
    * A comma separated list of retrospective template IDs
    */
-  retrospectiveTemplate?: string | null | undefined;
+  retrospectiveTemplates?: string | null | undefined;
 };
 
 /** @internal */
@@ -191,8 +190,12 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
   teams: z.nullable(z.string()).optional(),
   assigned_teams: z.nullable(z.string()).optional(),
   status: z.nullable(z.string()).optional(),
-  start_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
-  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+  start_date: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  end_date: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   resolved_at_or_after: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
@@ -230,7 +233,7 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   incident_type_id: z.nullable(z.string()).optional(),
-  retrospective_template: z.nullable(z.string()).optional(),
+  retrospective_templates: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -252,7 +255,7 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     "updated_after": "updatedAfter",
     "updated_before": "updatedBefore",
     "incident_type_id": "incidentTypeId",
-    "retrospective_template": "retrospectiveTemplate",
+    "retrospective_templates": "retrospectiveTemplates",
   });
 });
 
@@ -290,7 +293,7 @@ export type ListIncidentsRequest$Outbound = {
   updated_after?: string | null | undefined;
   updated_before?: string | null | undefined;
   incident_type_id?: string | null | undefined;
-  retrospective_template?: string | null | undefined;
+  retrospective_templates?: string | null | undefined;
 };
 
 /** @internal */
@@ -309,10 +312,8 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
   teams: z.nullable(z.string()).optional(),
   assignedTeams: z.nullable(z.string()).optional(),
   status: z.nullable(z.string()).optional(),
-  startDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
-    .optional(),
-  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
-    .optional(),
+  startDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  endDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   resolvedAtOrAfter: z.nullable(z.date().transform(v => v.toISOString()))
     .optional(),
   resolvedAtOrBefore: z.nullable(z.date().transform(v => v.toISOString()))
@@ -341,7 +342,7 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
   updatedBefore: z.nullable(z.date().transform(v => v.toISOString()))
     .optional(),
   incidentTypeId: z.nullable(z.string()).optional(),
-  retrospectiveTemplate: z.nullable(z.string()).optional(),
+  retrospectiveTemplates: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",
@@ -363,7 +364,7 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
     updatedAfter: "updated_after",
     updatedBefore: "updated_before",
     incidentTypeId: "incident_type_id",
-    retrospectiveTemplate: "retrospective_template",
+    retrospectiveTemplates: "retrospective_templates",
   });
 });
 

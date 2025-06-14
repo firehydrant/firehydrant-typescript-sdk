@@ -5,7 +5,7 @@ Create a Signals email target for a team.
 ## Example Usage
 
 ```typescript
-import { CreateSignalsEmailTarget } from "firehydrant/models/components";
+import { CreateSignalsEmailTarget } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSignalsEmailTarget = {
   name: "<value>",

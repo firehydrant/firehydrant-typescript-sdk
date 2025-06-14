@@ -5,7 +5,7 @@ Attaches a runbook to an incident and executes it
 ## Example Usage
 
 ```typescript
-import { CreateRunbookExecution } from "firehydrant/models/components";
+import { CreateRunbookExecution } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateRunbookExecution = {
   executeFor: "<value>",

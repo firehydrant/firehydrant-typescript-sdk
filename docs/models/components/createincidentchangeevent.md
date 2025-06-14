@@ -5,7 +5,7 @@ Add a related change to an incident. Changes added to an incident can be causes,
 ## Example Usage
 
 ```typescript
-import { CreateIncidentChangeEvent } from "firehydrant/models/components";
+import { CreateIncidentChangeEvent } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentChangeEvent = {
   changeEventId: "<id>",

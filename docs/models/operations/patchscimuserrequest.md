@@ -3,18 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { PatchScimUserRequest } from "firehydrant/models/operations";
+import { PatchScimUserRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: PatchScimUserRequest = {
   id: "<id>",
-  patchScimUser: {
-    operations: [
-      {
-        op: "<value>",
-        path: "/opt/sbin",
-      },
-    ],
-  },
 };
 ```
 

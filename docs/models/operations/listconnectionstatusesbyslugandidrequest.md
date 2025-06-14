@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListConnectionStatusesBySlugAndIdRequest } from "firehydrant/models/operations";
+import { ListConnectionStatusesBySlugAndIdRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListConnectionStatusesBySlugAndIdRequest = {
   slug: "<value>",

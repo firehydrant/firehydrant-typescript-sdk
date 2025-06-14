@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListFunctionalityServicesRequest } from "firehydrant/models/operations";
+import { ListFunctionalityServicesRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListFunctionalityServicesRequest = {
   functionalityId: "<id>",

@@ -5,13 +5,11 @@ Incidents_AlertEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsAlertEntity } from "firehydrant/models/components";
+import { IncidentsAlertEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsAlertEntity = {
   alert: {
-    signalRule: {
-      deduplicationExpiry: "PT1H",
-    },
+    signalRule: null,
     parentAlerts: [
       {
         signalRule: {
@@ -21,9 +19,7 @@ let value: IncidentsAlertEntity = {
     ],
     childAlerts: [
       {
-        signalRule: {
-          deduplicationExpiry: "PT1H",
-        },
+        signalRule: null,
       },
     ],
   },

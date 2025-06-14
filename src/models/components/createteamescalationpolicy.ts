@@ -16,6 +16,7 @@ export const CreateTeamEscalationPolicyType = {
   OnCallSchedule: "OnCallSchedule",
   User: "User",
   SlackChannel: "SlackChannel",
+  MicrosoftTeamsChannel: "MicrosoftTeamsChannel",
   EntireTeam: "EntireTeam",
   Webhook: "Webhook",
 } as const;

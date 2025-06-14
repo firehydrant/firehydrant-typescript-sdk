@@ -5,7 +5,7 @@ Sort runbooks by their updated date. Accepts 'asc', 'desc'. This parameter is de
 ## Example Usage
 
 ```typescript
-import { ListRunbooksSort } from "firehydrant/models/operations";
+import { ListRunbooksSort } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListRunbooksSort = "desc";
 ```

@@ -5,7 +5,7 @@ The event's payload
 ## Example Usage
 
 ```typescript
-import { AlertsSirenEventEntityData } from "firehydrant/models/components";
+import { AlertsSirenEventEntityData } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsSirenEventEntityData = {};
 ```

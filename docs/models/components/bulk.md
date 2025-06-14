@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Bulk } from "firehydrant/models/components";
+import { Bulk } from "firehydrant-typescript-sdk/models/components";
 
 let value: Bulk = "true";
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Image } from "firehydrant/models/components";
+import { Image } from "firehydrant-typescript-sdk/models/components";
 
 let value: Image = {};
 ```

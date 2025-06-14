@@ -3,22 +3,22 @@
 ## Example Usage
 
 ```typescript
-import { CreateNuncConnectionRequest } from "firehydrant/models/operations";
+import { CreateNuncConnectionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateNuncConnectionRequest = {
   domain: "gloomy-igloo.info",
   conditionsNuncCondition: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
   conditionsConditionId: [
-    "<value>",
+    "<value 1>",
   ],
   componentsInfrastructureType: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
-  componentsInfrastructureId: [
-    "<value>",
-  ],
+  componentsInfrastructureId: [],
 };
 ```
 

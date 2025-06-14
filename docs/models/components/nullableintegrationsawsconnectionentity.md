@@ -5,7 +5,7 @@ Integrations_Aws_ConnectionEntity model
 ## Example Usage
 
 ```typescript
-import { NullableIntegrationsAwsConnectionEntity } from "firehydrant/models/components";
+import { NullableIntegrationsAwsConnectionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIntegrationsAwsConnectionEntity = {};
 ```

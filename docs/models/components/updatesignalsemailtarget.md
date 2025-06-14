@@ -5,7 +5,7 @@ Update a Signals email target by ID
 ## Example Usage
 
 ```typescript
-import { UpdateSignalsEmailTarget } from "firehydrant/models/components";
+import { UpdateSignalsEmailTarget } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSignalsEmailTarget = {};
 ```

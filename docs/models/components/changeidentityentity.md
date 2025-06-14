@@ -5,7 +5,7 @@ ChangeIdentityEntity model
 ## Example Usage
 
 ```typescript
-import { ChangeIdentityEntity } from "firehydrant/models/components";
+import { ChangeIdentityEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChangeIdentityEntity = {};
 ```

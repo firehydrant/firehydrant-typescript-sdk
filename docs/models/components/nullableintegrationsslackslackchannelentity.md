@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableIntegrationsSlackSlackChannelEntity } from "firehydrant/models/components";
+import { NullableIntegrationsSlackSlackChannelEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIntegrationsSlackSlackChannelEntity = {};
 ```

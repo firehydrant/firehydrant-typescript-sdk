@@ -5,7 +5,7 @@ An unstructured object of key/value pairs describing the logic for applying the 
 ## Example Usage
 
 ```typescript
-import { TicketingProjectFieldMapCasesEntityLogic } from "firehydrant/models/components";
+import { TicketingProjectFieldMapCasesEntityLogic } from "firehydrant-typescript-sdk/models/components";
 
 let value: TicketingProjectFieldMapCasesEntityLogic = {};
 ```
