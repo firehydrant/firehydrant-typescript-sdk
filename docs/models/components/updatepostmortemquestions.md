@@ -5,7 +5,7 @@ Update the questions configured to be provided and filled out on future retrospe
 ## Example Usage
 
 ```typescript
-import { UpdatePostMortemQuestions } from "firehydrant/models/components";
+import { UpdatePostMortemQuestions } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdatePostMortemQuestions = {};
 ```

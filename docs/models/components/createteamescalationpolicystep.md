@@ -3,15 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyStep } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicyStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicyStep = {
-  targets: [
-    {
-      type: "User",
-      id: "<id>",
-    },
-  ],
+  targets: [],
   timeout: "<value>",
 };
 ```

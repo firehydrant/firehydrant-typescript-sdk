@@ -30,6 +30,8 @@ Get a Signals on-call shift by ID`,
       };
     }
 
-    return formatResult(void 0, apiCall);
+    const value = result.value;
+
+    return formatResult(value, apiCall);
   },
 };

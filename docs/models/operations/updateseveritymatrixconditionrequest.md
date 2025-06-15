@@ -3,11 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityMatrixConditionRequest } from "firehydrant/models/operations";
+import { UpdateSeverityMatrixConditionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateSeverityMatrixConditionRequest = {
   conditionId: "<id>",
-  updateSeverityMatrixCondition: {},
 };
 ```
 

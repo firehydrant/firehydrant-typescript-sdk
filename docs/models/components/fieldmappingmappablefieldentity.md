@@ -5,7 +5,7 @@ FieldMapping_MappableFieldEntity model
 ## Example Usage
 
 ```typescript
-import { FieldMappingMappableFieldEntity } from "firehydrant/models/components";
+import { FieldMappingMappableFieldEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: FieldMappingMappableFieldEntity = {};
 ```

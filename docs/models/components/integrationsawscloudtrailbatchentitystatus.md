@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsCloudtrailBatchEntityStatus } from "firehydrant/models/components";
+import { IntegrationsAwsCloudtrailBatchEntityStatus } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAwsCloudtrailBatchEntityStatus = "failed";
 ```

@@ -3,12 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentRetrospectiveRequest } from "firehydrant/models/operations";
+import { UpdateIncidentRetrospectiveRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateIncidentRetrospectiveRequest = {
   retrospectiveId: "<id>",
   incidentId: "<id>",
-  updateIncidentRetrospective: {},
 };
 ```
 

@@ -5,7 +5,7 @@ ALPHA - Create a reaction on a comment
 ## Example Usage
 
 ```typescript
-import { CreateCommentReaction } from "firehydrant/models/components";
+import { CreateCommentReaction } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateCommentReaction = {
   reaction: "<value>",

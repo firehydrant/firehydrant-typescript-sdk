@@ -5,7 +5,7 @@ Create a new condition
 ## Example Usage
 
 ```typescript
-import { CreateSeverityMatrixCondition } from "firehydrant/models/components";
+import { CreateSeverityMatrixCondition } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSeverityMatrixCondition = {
   name: "<value>",

@@ -19,9 +19,8 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsPing } from "firehydrant/funcs/accountSettingsPing.js";
-import { SDKValidationError } from "firehydrant/models/errors/sdkvalidationerror.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsPing } from "firehydrant-typescript-sdk/funcs/accountSettingsPing.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -31,28 +30,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsPing(firehydrant);
-
-  switch (true) {
-    case res.ok:
-      // The success case will be handled outside of the switch block
-      break;
-    case res.error instanceof SDKValidationError:
-      // Pretty-print validation errors.
-      return console.log(res.error.pretty());
-    case res.error instanceof Error:
-      return console.log(res.error);
-    default:
-      // TypeScript's type checking will fail on the following line if the above
-      // cases were not exhaustive.
-      res.error satisfies never;
-      throw new Error("Assertion failed: expected error checks to be exhaustive: " + res.error);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsPing failed:", res.error);
   }
-
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

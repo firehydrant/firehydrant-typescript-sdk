@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateServiceLink } from "firehydrant/models/components";
+import { UpdateServiceLink } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateServiceLink = {
   hrefUrl: "https://petty-hawk.org",

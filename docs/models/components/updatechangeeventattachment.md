@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateChangeEventAttachment } from "firehydrant/models/components";
+import { UpdateChangeEventAttachment } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateChangeEventAttachment = {
   type: "link",

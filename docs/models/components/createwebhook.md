@@ -5,7 +5,7 @@ Create a new webhook
 ## Example Usage
 
 ```typescript
-import { CreateWebhook } from "firehydrant/models/components";
+import { CreateWebhook } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateWebhook = {
   url: "https://yearly-strategy.com/",

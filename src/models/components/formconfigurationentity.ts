@@ -13,10 +13,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type FormConfigurationEntity = {
   fields?: string | null | undefined;
-  /**
-   * Whether to show incident types on the declaration form
-   */
-  showIncidentTypes?: boolean | null | undefined;
+  showIncidentTypes?: string | null | undefined;
 };
 
 /** @internal */
@@ -26,7 +23,7 @@ export const FormConfigurationEntity$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   fields: z.nullable(z.string()).optional(),
-  show_incident_types: z.nullable(z.boolean()).optional(),
+  show_incident_types: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "show_incident_types": "showIncidentTypes",
@@ -36,7 +33,7 @@ export const FormConfigurationEntity$inboundSchema: z.ZodType<
 /** @internal */
 export type FormConfigurationEntity$Outbound = {
   fields?: string | null | undefined;
-  show_incident_types?: boolean | null | undefined;
+  show_incident_types?: string | null | undefined;
 };
 
 /** @internal */
@@ -46,7 +43,7 @@ export const FormConfigurationEntity$outboundSchema: z.ZodType<
   FormConfigurationEntity
 > = z.object({
   fields: z.nullable(z.string()).optional(),
-  showIncidentTypes: z.nullable(z.boolean()).optional(),
+  showIncidentTypes: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     showIncidentTypes: "show_incident_types",

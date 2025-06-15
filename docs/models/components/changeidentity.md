@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ChangeIdentity } from "firehydrant/models/components";
+import { ChangeIdentity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChangeIdentity = {
   type: "<value>",

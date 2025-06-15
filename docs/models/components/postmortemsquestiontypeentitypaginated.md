@@ -5,7 +5,7 @@ PostMortems_QuestionTypeEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { PostMortemsQuestionTypeEntityPaginated } from "firehydrant/models/components";
+import { PostMortemsQuestionTypeEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: PostMortemsQuestionTypeEntityPaginated = {};
 ```

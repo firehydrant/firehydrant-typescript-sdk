@@ -5,7 +5,7 @@ TeamEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { TeamEntityPaginated } from "firehydrant/models/components";
+import { TeamEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: TeamEntityPaginated = {};
 ```

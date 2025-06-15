@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Publish } from "firehydrant/models/components";
+import { Publish } from "firehydrant-typescript-sdk/models/components";
 
 let value: Publish = "true";
 ```
