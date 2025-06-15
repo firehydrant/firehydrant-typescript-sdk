@@ -5,12 +5,12 @@ Create a new custom field definition
 ## Example Usage
 
 ```typescript
-import { CreateCustomFieldDefinition } from "firehydrant/models/components";
+import { CreateCustomFieldDefinition } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateCustomFieldDefinition = {
   displayName: "Chelsey_Batz",
   fieldType: "<value>",
-  required: false,
+  required: true,
 };
 ```
 

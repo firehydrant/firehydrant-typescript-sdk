@@ -218,7 +218,7 @@ export class MetricsReporting extends ClientSDK {
   async getSignalsTimeseriesAnalytics(
     request: operations.GetSignalsTimeseriesAnalyticsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIAnalyticsTimeseriesPointEntity> {
     return unwrapAsync(metricsReportingGetSignalsTimeseriesAnalytics(
       this,
       request,
@@ -235,7 +235,7 @@ export class MetricsReporting extends ClientSDK {
   async getSignalsGroupedMetrics(
     request: operations.GetSignalsGroupedMetricsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIAnalyticsGroupedMetricsEntity> {
     return unwrapAsync(metricsReportingGetSignalsGroupedMetrics(
       this,
       request,
@@ -252,7 +252,7 @@ export class MetricsReporting extends ClientSDK {
   async getSignalsMttxAnalytics(
     request: operations.GetSignalsMttxAnalyticsRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.SignalsAPIAnalyticsMttxMetricsEntity> {
     return unwrapAsync(metricsReportingGetSignalsMttxAnalytics(
       this,
       request,

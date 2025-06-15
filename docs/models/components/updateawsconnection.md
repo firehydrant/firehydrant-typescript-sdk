@@ -5,7 +5,7 @@ Update the AWS connection with the provided data.
 ## Example Usage
 
 ```typescript
-import { UpdateAwsConnection } from "firehydrant/models/components";
+import { UpdateAwsConnection } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateAwsConnection = {};
 ```

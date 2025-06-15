@@ -3,13 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateTranscriptAttributionRequest } from "firehydrant/models/operations";
+import { UpdateTranscriptAttributionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateTranscriptAttributionRequest = {
   incidentId: "<id>",
-  requestBody: {
-    toUserId: "<id>",
-  },
 };
 ```
 

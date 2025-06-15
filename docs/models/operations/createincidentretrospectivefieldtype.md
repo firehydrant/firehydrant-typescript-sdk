@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentRetrospectiveFieldType } from "firehydrant/models/operations";
+import { CreateIncidentRetrospectiveFieldType } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateIncidentRetrospectiveFieldType = "text";
 ```

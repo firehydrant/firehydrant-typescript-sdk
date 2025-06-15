@@ -5,7 +5,7 @@ Integrations_ConnectionEntity model
 ## Example Usage
 
 ```typescript
-import { NullableIntegrationsConnectionEntity } from "firehydrant/models/components";
+import { NullableIntegrationsConnectionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIntegrationsConnectionEntity = {};
 ```

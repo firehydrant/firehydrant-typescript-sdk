@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetCommentRequest } from "firehydrant/models/operations";
+import { GetCommentRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetCommentRequest = {
   commentId: "<id>",

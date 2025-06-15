@@ -5,7 +5,7 @@ Update an identity for the change entry
 ## Example Usage
 
 ```typescript
-import { UpdateChangeIdentity } from "firehydrant/models/components";
+import { UpdateChangeIdentity } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateChangeIdentity = {
   type: "<value>",

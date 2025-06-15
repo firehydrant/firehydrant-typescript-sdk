@@ -5,7 +5,7 @@ Integrations_Slack_UsergroupEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsSlackUsergroupEntity } from "firehydrant/models/components";
+import { IntegrationsSlackUsergroupEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsSlackUsergroupEntity = {};
 ```

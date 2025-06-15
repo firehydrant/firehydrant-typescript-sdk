@@ -3,11 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateCustomFieldDefinitionRequest } from "firehydrant/models/operations";
+import { UpdateCustomFieldDefinitionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateCustomFieldDefinitionRequest = {
   fieldId: "<id>",
-  updateCustomFieldDefinition: {},
 };
 ```
 

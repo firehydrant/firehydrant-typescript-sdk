@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentImpactPatchStatusPage } from "firehydrant/models/components";
+import { UpdateIncidentImpactPatchStatusPage } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentImpactPatchStatusPage = {
   id: "<id>",

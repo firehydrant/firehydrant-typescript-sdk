@@ -18,7 +18,7 @@ Retrieve a list of all users in an organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -27,7 +27,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.users.listUsers({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -39,8 +38,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { usersListUsers } from "firehydrant/funcs/usersListUsers.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { usersListUsers } from "firehydrant-typescript-sdk/funcs/usersListUsers.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -50,15 +49,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await usersListUsers(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("usersListUsers failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -90,7 +86,7 @@ Retrieve a single user by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -101,7 +97,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -113,8 +108,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { usersGetUser } from "firehydrant/funcs/usersGetUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { usersGetUser } from "firehydrant-typescript-sdk/funcs/usersGetUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -126,15 +121,12 @@ async function run() {
   const res = await usersGetUser(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("usersGetUser failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -166,7 +158,7 @@ Retrieve the current user
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -175,7 +167,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.users.getCurrentUser();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -187,8 +178,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { usersGetCurrentUser } from "firehydrant/funcs/usersGetCurrentUser.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { usersGetCurrentUser } from "firehydrant-typescript-sdk/funcs/usersGetCurrentUser.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -198,15 +189,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await usersGetCurrentUser(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("usersGetCurrentUser failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

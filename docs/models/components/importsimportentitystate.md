@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ImportsImportEntityState } from "firehydrant/models/components";
+import { ImportsImportEntityState } from "firehydrant-typescript-sdk/models/components";
 
 let value: ImportsImportEntityState = "ready_for_import";
 ```

@@ -5,7 +5,7 @@ SimilarIncidentEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { SimilarIncidentEntityPaginated } from "firehydrant/models/components";
+import { SimilarIncidentEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: SimilarIncidentEntityPaginated = {};
 ```

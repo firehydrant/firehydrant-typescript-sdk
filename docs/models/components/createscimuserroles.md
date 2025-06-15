@@ -5,7 +5,7 @@ Roles for the User. Options are owner, member, collaborator, or viewer. Roles ma
 ## Example Usage
 
 ```typescript
-import { CreateScimUserRoles } from "firehydrant/models/components";
+import { CreateScimUserRoles } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateScimUserRoles = {};
 ```

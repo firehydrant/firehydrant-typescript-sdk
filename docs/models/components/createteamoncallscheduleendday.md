@@ -5,7 +5,7 @@ The day of the week on which the restriction should end, as its long-form name (
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallScheduleEndDay } from "firehydrant/models/components";
+import { CreateTeamOnCallScheduleEndDay } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamOnCallScheduleEndDay = "monday";
 ```

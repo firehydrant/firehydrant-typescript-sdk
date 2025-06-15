@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ExportIncidentRetrospectivesRequestBody } from "firehydrant/models/operations";
+import { ExportIncidentRetrospectivesRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ExportIncidentRetrospectivesRequestBody = {
   integrationSlug: "google_docs",

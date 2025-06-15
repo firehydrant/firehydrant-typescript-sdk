@@ -5,7 +5,7 @@ Alerts_AlertEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { AlertsAlertEntityPaginated } from "firehydrant/models/components";
+import { AlertsAlertEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsAlertEntityPaginated = {
   data: [
@@ -22,9 +22,7 @@ let value: AlertsAlertEntityPaginated = {
       ],
       childAlerts: [
         {
-          signalRule: {
-            deduplicationExpiry: "PT1H",
-          },
+          signalRule: null,
         },
       ],
     },
