@@ -3,10 +3,10 @@ id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
   docChecksum: 32d87b7cda3f8c3fc8eddd7ce59bcb55
   docVersion: 0.0.1
-  speakeasyVersion: 1.564.0
-  generationVersion: 2.630.8
-  releaseVersion: 1.0.0
-  configChecksum: 09055f27904c100f603f2ed2170839ce
+  speakeasyVersion: 1.565.0
+  generationVersion: 2.630.9
+  releaseVersion: 1.0.1
+  configChecksum: e1eb5feac873722c04eafe5d428b16e8
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
