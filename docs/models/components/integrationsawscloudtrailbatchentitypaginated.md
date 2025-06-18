@@ -5,7 +5,7 @@ Integrations_Aws_CloudtrailBatchEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsCloudtrailBatchEntityPaginated } from "firehydrant/models/components";
+import { IntegrationsAwsCloudtrailBatchEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAwsCloudtrailBatchEntityPaginated = {};
 ```

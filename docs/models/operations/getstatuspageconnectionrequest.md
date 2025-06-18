@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetStatuspageConnectionRequest } from "firehydrant/models/operations";
+import { GetStatuspageConnectionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetStatuspageConnectionRequest = {
   connectionId: "<id>",

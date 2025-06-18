@@ -11,13 +11,13 @@ not explicitly submitted or updated in this request.
 ## Example Usage
 
 ```typescript
-import { BulkUpdateIncidentMilestones } from "firehydrant/models/components";
+import { BulkUpdateIncidentMilestones } from "firehydrant-typescript-sdk/models/components";
 
 let value: BulkUpdateIncidentMilestones = {
   milestones: [
     {
       type: "<value>",
-      occurredAt: new Date("2025-09-01T03:01:19.515Z"),
+      occurredAt: new Date("2025-10-01T23:28:44.501Z"),
     },
   ],
 };

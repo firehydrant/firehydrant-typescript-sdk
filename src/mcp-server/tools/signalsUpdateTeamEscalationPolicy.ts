@@ -32,6 +32,8 @@ Update a Signals escalation policy by ID`,
       };
     }
 
-    return formatResult(void 0, apiCall);
+    const value = result.value;
+
+    return formatResult(value, apiCall);
   },
 };

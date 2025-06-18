@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateLifecycleMilestoneRequest } from "firehydrant/models/operations";
+import { CreateLifecycleMilestoneRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateLifecycleMilestoneRequest = {
   name: "<value>",

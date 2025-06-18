@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListCustomFieldSelectOptionsRequest } from "firehydrant/models/operations";
+import { ListCustomFieldSelectOptionsRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListCustomFieldSelectOptionsRequest = {
   fieldId: "<id>",

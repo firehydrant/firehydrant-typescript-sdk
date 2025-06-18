@@ -5,7 +5,7 @@ The components of the user's name
 ## Example Usage
 
 ```typescript
-import { UpdateScimUserName } from "firehydrant/models/components";
+import { UpdateScimUserName } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateScimUserName = {
   givenName: "<value>",

@@ -5,7 +5,7 @@ FunctionalityEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { FunctionalityEntityPaginated } from "firehydrant/models/components";
+import { FunctionalityEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: FunctionalityEntityPaginated = {};
 ```

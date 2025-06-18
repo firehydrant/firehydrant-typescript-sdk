@@ -5,7 +5,7 @@ String that determines how records are sorted
 ## Example Usage
 
 ```typescript
-import { GetSignalsTimeseriesAnalyticsSortBy } from "firehydrant/models/operations";
+import { GetSignalsTimeseriesAnalyticsSortBy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSignalsTimeseriesAnalyticsSortBy = "acked_percentage";
 ```

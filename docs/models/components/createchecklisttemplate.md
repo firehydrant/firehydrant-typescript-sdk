@@ -5,7 +5,7 @@ Creates a checklist template for the organization
 ## Example Usage
 
 ```typescript
-import { CreateChecklistTemplate } from "firehydrant/models/components";
+import { CreateChecklistTemplate } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateChecklistTemplate = {
   name: "<value>",

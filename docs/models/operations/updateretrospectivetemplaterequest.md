@@ -3,24 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRetrospectiveTemplateRequest } from "firehydrant/models/operations";
+import { UpdateRetrospectiveTemplateRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateRetrospectiveTemplateRequest = {
   retrospectiveTemplateId: "<id>",
-  requestBody: {
-    sectionsSlug: [
-      "<value>",
-    ],
-    sectionsElements: [
-      "<value>",
-    ],
-    fieldsLabel: [
-      "<value>",
-    ],
-    fieldsType: [
-      "dynamic_input_group",
-    ],
-  },
 };
 ```
 

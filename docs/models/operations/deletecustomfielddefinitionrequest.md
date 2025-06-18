@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteCustomFieldDefinitionRequest } from "firehydrant/models/operations";
+import { DeleteCustomFieldDefinitionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: DeleteCustomFieldDefinitionRequest = {
   fieldId: "<id>",

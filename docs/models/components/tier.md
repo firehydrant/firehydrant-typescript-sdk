@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Tier } from "firehydrant/models/components";
+import { Tier } from "firehydrant-typescript-sdk/models/components";
 
 let value: Tier = "essentials";
 ```

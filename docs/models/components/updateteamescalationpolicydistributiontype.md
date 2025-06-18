@@ -5,7 +5,7 @@ The round robin configuration for the step. One of 'unspecified', 'round_robin_b
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicyDistributionType } from "firehydrant/models/components";
+import { UpdateTeamEscalationPolicyDistributionType } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamEscalationPolicyDistributionType = "round_robin_by_alert";
 ```

@@ -5,7 +5,7 @@ Setting an alert as primary will overwrite milestone times in the FireHydrant in
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentAlertPrimary } from "firehydrant/models/components";
+import { UpdateIncidentAlertPrimary } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentAlertPrimary = {
   primary: false,

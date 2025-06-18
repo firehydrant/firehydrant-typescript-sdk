@@ -5,7 +5,7 @@ SCIM endpoint to update a Team (Colloquial for Group in the SCIM protocol). Any 
 ## Example Usage
 
 ```typescript
-import { UpdateScimGroup } from "firehydrant/models/components";
+import { UpdateScimGroup } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateScimGroup = {
   displayName: "Eldon.Parisian45",

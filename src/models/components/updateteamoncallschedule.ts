@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateTeamOnCallScheduleMember = {
   /**
-   * The ID of a user who should be added to the schedule's rotation. You can add a user to the schedule
+   * The ID of a user who should be added to the schedule's rotation. You can add a user to the rotation
    *
    * @remarks
    * multiple times to construct more complex rotations, and you can specify a `null` user ID to create
@@ -55,7 +55,7 @@ export type UpdateTeamOnCallScheduleHandoffDay = ClosedEnum<
 >;
 
 /**
- * An object that specifies how the schedule's on-call shifts should be generated.
+ * An object that specifies how the rotation's on-call shifts should be generated.
  */
 export type UpdateTeamOnCallScheduleStrategy = {
   /**
@@ -134,35 +134,51 @@ export type UpdateTeamOnCallScheduleRestriction = {
 };
 
 /**
- * Update a Signals on-call schedule by ID
+ * Update a Signals on-call schedule by ID. For backwards compatibility, all parameters except for
+ *
+ * @remarks
+ * `name` and `description` will be ignored if the schedule has more than one rotation. If the schedule
+ * has only one rotation, you can continue to update that rotation using the rotation-specific parameters.
  */
 export type UpdateTeamOnCallSchedule = {
   /**
-   * The on-call schedule's name.
+   * A new name for the on-call schedule.
    */
   name?: string | null | undefined;
   /**
-   * A detailed description of the on-call schedule.
+   * A new, detailed description for the on-call schedule.
    */
   description?: string | null | undefined;
   /**
-   * The time zone in which the on-call schedule operates. This value must be a valid IANA time zone name.
+   * A new name for the schedule's rotation.
+   */
+  rotationName?: string | null | undefined;
+  /**
+   * A new, detailed description for the schedule's rotation.
+   */
+  rotationDescription?: string | null | undefined;
+  /**
+   * A hex color code that will be used to represent the schedule's rotation in FireHydrant's UI.
+   */
+  color?: string | null | undefined;
+  /**
+   * The time zone in which the on-call schedule's rotation will operate. This value must be a valid IANA time zone name.
    */
   timeZone?: string | null | undefined;
   /**
-   * The ID of a Slack user group for syncing purposes. If provided, we will automatically sync whoever is on call to the user group in Slack.
+   * The ID of a Slack user group to sync the rotation's on-call members to.
    */
   slackUserGroupId?: string | null | undefined;
   /**
-   * An ordered list of objects that specify members of the on-call schedule's rotation.
+   * An ordered list of objects that specify members of the schedule's rotation.
    */
   members?: Array<UpdateTeamOnCallScheduleMember> | null | undefined;
   /**
-   * An object that specifies how the schedule's on-call shifts should be generated.
+   * An object that specifies how the rotation's on-call shifts should be generated.
    */
   strategy?: UpdateTeamOnCallScheduleStrategy | null | undefined;
   /**
-   * A list of objects that restrict the schedule to speccific on-call periods.
+   * A list of objects that restrict the schedule's rotation to specific on-call periods.
    */
   restrictions?: Array<UpdateTeamOnCallScheduleRestriction> | null | undefined;
   /**
@@ -173,10 +189,6 @@ export type UpdateTeamOnCallSchedule = {
    * shifts are generated, such as the time zone, members, strategy, or restrictions.
    */
   effectiveAt?: string | null | undefined;
-  /**
-   * A hex color code that will be used to represent the schedule in the UI and iCal subscriptions.
-   */
-  color?: string | null | undefined;
   /**
    * This parameter is deprecated; use `members` instead.
    */
@@ -501,6 +513,9 @@ export const UpdateTeamOnCallSchedule$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
+  rotation_name: z.nullable(z.string()).optional(),
+  rotation_description: z.nullable(z.string()).optional(),
+  color: z.nullable(z.string()).optional(),
   time_zone: z.nullable(z.string()).optional(),
   slack_user_group_id: z.nullable(z.string()).optional(),
   members: z.nullable(
@@ -513,10 +528,11 @@ export const UpdateTeamOnCallSchedule$inboundSchema: z.ZodType<
     z.array(z.lazy(() => UpdateTeamOnCallScheduleRestriction$inboundSchema)),
   ).optional(),
   effective_at: z.nullable(z.string()).optional(),
-  color: z.nullable(z.string()).optional(),
   member_ids: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "rotation_name": "rotationName",
+    "rotation_description": "rotationDescription",
     "time_zone": "timeZone",
     "slack_user_group_id": "slackUserGroupId",
     "effective_at": "effectiveAt",
@@ -528,6 +544,9 @@ export const UpdateTeamOnCallSchedule$inboundSchema: z.ZodType<
 export type UpdateTeamOnCallSchedule$Outbound = {
   name?: string | null | undefined;
   description?: string | null | undefined;
+  rotation_name?: string | null | undefined;
+  rotation_description?: string | null | undefined;
+  color?: string | null | undefined;
   time_zone?: string | null | undefined;
   slack_user_group_id?: string | null | undefined;
   members?: Array<UpdateTeamOnCallScheduleMember$Outbound> | null | undefined;
@@ -537,7 +556,6 @@ export type UpdateTeamOnCallSchedule$Outbound = {
     | null
     | undefined;
   effective_at?: string | null | undefined;
-  color?: string | null | undefined;
   member_ids?: Array<string> | null | undefined;
 };
 
@@ -549,6 +567,9 @@ export const UpdateTeamOnCallSchedule$outboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
+  rotationName: z.nullable(z.string()).optional(),
+  rotationDescription: z.nullable(z.string()).optional(),
+  color: z.nullable(z.string()).optional(),
   timeZone: z.nullable(z.string()).optional(),
   slackUserGroupId: z.nullable(z.string()).optional(),
   members: z.nullable(
@@ -561,10 +582,11 @@ export const UpdateTeamOnCallSchedule$outboundSchema: z.ZodType<
     z.array(z.lazy(() => UpdateTeamOnCallScheduleRestriction$outboundSchema)),
   ).optional(),
   effectiveAt: z.nullable(z.string()).optional(),
-  color: z.nullable(z.string()).optional(),
   memberIds: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
+    rotationName: "rotation_name",
+    rotationDescription: "rotation_description",
     timeZone: "time_zone",
     slackUserGroupId: "slack_user_group_id",
     effectiveAt: "effective_at",

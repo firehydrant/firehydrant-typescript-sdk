@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IntegrationsStatuspageConditionEntity } from "firehydrant/models/components";
+import { IntegrationsStatuspageConditionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsStatuspageConditionEntity = {};
 ```

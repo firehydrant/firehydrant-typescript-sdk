@@ -3,13 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateCommentRequest } from "firehydrant/models/operations";
+import { CreateCommentRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateCommentRequest = {
   conversationId: "<id>",
-  createComment: {
-    body: "<value>",
-  },
 };
 ```
 

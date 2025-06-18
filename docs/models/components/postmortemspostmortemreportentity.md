@@ -5,7 +5,7 @@ PostMortems_PostMortemReportEntity model
 ## Example Usage
 
 ```typescript
-import { PostMortemsPostMortemReportEntity } from "firehydrant/models/components";
+import { PostMortemsPostMortemReportEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PostMortemsPostMortemReportEntity = {};
 ```

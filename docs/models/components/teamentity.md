@@ -5,7 +5,7 @@ TeamEntity model
 ## Example Usage
 
 ```typescript
-import { TeamEntity } from "firehydrant/models/components";
+import { TeamEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TeamEntity = {};
 ```
@@ -33,3 +33,4 @@ let value: TeamEntity = {};
 | `respondingServices`                                                                                                                         | [components.ServiceEntityLite](../../models/components/serviceentitylite.md)[]                                                               | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          |
 | `services`                                                                                                                                   | [components.ServiceEntityLite](../../models/components/serviceentitylite.md)[]                                                               | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          |
 | `functionalities`                                                                                                                            | [components.FunctionalityEntityLite](../../models/components/functionalityentitylite.md)[]                                                   | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          |
+| `defaultSignalsEscalationPolicy`                                                                                                             | [components.NullableSuccinctEntity](../../models/components/nullablesuccinctentity.md)                                                       | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          |

@@ -5,7 +5,7 @@ Create a report
 ## Example Usage
 
 ```typescript
-import { CreatePostMortemReport } from "firehydrant/models/components";
+import { CreatePostMortemReport } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreatePostMortemReport = {
   incidentId: "<id>",

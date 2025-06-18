@@ -42,6 +42,9 @@ export const NullableSignalsAPIRuleEntityCreateIncidentConditionWhen = {
 export type NullableSignalsAPIRuleEntityCreateIncidentConditionWhen =
   ClosedEnum<typeof NullableSignalsAPIRuleEntityCreateIncidentConditionWhen>;
 
+/**
+ * Signals_API_RuleEntity model
+ */
 export type NullableSignalsAPIRuleEntity = {
   id?: string | null | undefined;
   name?: string | null | undefined;

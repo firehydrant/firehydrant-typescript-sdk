@@ -5,7 +5,7 @@ Retrospectives_TemplateEntity model
 ## Example Usage
 
 ```typescript
-import { RetrospectivesTemplateEntity } from "firehydrant/models/components";
+import { RetrospectivesTemplateEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: RetrospectivesTemplateEntity = {};
 ```

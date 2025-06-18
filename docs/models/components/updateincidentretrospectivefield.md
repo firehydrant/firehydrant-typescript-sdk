@@ -5,7 +5,7 @@ Update retrospective field value
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentRetrospectiveField } from "firehydrant/models/components";
+import { UpdateIncidentRetrospectiveField } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentRetrospectiveField = {
   value: 72658,

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateConnectionRequest } from "firehydrant/models/operations";
+import { CreateConnectionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateConnectionRequest = {
   slug: "<value>",

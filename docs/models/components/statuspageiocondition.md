@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { StatuspageioCondition } from "firehydrant/models/components";
+import { StatuspageioCondition } from "firehydrant-typescript-sdk/models/components";
 
 let value: StatuspageioCondition = "operational";
 ```

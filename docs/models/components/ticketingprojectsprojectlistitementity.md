@@ -5,7 +5,7 @@ Ticketing_Projects_ProjectListItemEntity model
 ## Example Usage
 
 ```typescript
-import { TicketingProjectsProjectListItemEntity } from "firehydrant/models/components";
+import { TicketingProjectsProjectListItemEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TicketingProjectsProjectListItemEntity = {};
 ```

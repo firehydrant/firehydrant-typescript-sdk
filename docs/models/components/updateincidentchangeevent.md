@@ -5,7 +5,7 @@ Update a change attached to an incident
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentChangeEvent } from "firehydrant/models/components";
+import { UpdateIncidentChangeEvent } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentChangeEvent = {};
 ```

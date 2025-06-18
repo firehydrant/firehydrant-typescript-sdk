@@ -5,7 +5,7 @@ EntitlementEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { EntitlementEntityPaginated } from "firehydrant/models/components";
+import { EntitlementEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: EntitlementEntityPaginated = {};
 ```

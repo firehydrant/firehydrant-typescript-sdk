@@ -5,7 +5,7 @@ Update a environments attributes
 ## Example Usage
 
 ```typescript
-import { UpdateEnvironment } from "firehydrant/models/components";
+import { UpdateEnvironment } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateEnvironment = {
   name: "<value>",

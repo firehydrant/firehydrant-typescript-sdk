@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateSlackEmojiActionRequestBody } from "firehydrant/models/operations";
+import { CreateSlackEmojiActionRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateSlackEmojiActionRequestBody = {
   emojiName: "<value>",

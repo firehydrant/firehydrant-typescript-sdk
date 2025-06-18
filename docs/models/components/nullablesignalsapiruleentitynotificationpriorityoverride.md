@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableSignalsAPIRuleEntityNotificationPriorityOverride } from "firehydrant/models/components";
+import { NullableSignalsAPIRuleEntityNotificationPriorityOverride } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableSignalsAPIRuleEntityNotificationPriorityOverride = "HIGH";
 ```

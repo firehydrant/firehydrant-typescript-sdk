@@ -5,7 +5,7 @@ TagEntity model
 ## Example Usage
 
 ```typescript
-import { TagEntity } from "firehydrant/models/components";
+import { TagEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TagEntity = {};
 ```

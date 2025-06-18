@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableTicketingTicketEntityState } from "firehydrant/models/components";
+import { NullableTicketingTicketEntityState } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableTicketingTicketEntityState = "done";
 ```

@@ -5,7 +5,7 @@ Create a Signals rule for a team.
 ## Example Usage
 
 ```typescript
-import { CreateTeamSignalRule } from "firehydrant/models/components";
+import { CreateTeamSignalRule } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamSignalRule = {
   name: "<value>",

@@ -3,11 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateServiceDependencyRequest } from "firehydrant/models/operations";
+import { UpdateServiceDependencyRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateServiceDependencyRequest = {
   serviceDependencyId: "<id>",
-  updateServiceDependency: {},
 };
 ```
 

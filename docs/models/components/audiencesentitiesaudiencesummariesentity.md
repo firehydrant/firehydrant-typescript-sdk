@@ -5,7 +5,7 @@ Audiences_Entities_AudienceSummariesEntity model
 ## Example Usage
 
 ```typescript
-import { AudiencesEntitiesAudienceSummariesEntity } from "firehydrant/models/components";
+import { AudiencesEntitiesAudienceSummariesEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: AudiencesEntitiesAudienceSummariesEntity = {};
 ```

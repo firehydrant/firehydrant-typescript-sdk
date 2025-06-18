@@ -16,7 +16,7 @@ export const tool$conversationsDeleteCommentReaction: ToolDefinition<
   name: "conversations-delete-comment-reaction",
   description: `Delete a reaction from a conversation comment
 
-ALPHA - Archive a reaction`,
+Archive a reaction`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsDeleteCommentReaction(

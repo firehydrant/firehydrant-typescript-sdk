@@ -5,7 +5,7 @@ Arbitrary key:value pairs of labels.
 ## Example Usage
 
 ```typescript
-import { NullableAlertsAlertEntityLabels } from "firehydrant/models/components";
+import { NullableAlertsAlertEntityLabels } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableAlertsAlertEntityLabels = {};
 ```

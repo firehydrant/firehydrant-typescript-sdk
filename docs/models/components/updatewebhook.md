@@ -5,7 +5,7 @@ Update a specific webhook
 ## Example Usage
 
 ```typescript
-import { UpdateWebhook } from "firehydrant/models/components";
+import { UpdateWebhook } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateWebhook = {};
 ```

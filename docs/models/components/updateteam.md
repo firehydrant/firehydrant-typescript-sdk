@@ -5,7 +5,7 @@ Update a single team from its ID
 ## Example Usage
 
 ```typescript
-import { UpdateTeam } from "firehydrant/models/components";
+import { UpdateTeam } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeam = {};
 ```

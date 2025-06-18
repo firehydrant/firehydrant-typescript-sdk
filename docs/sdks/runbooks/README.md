@@ -30,7 +30,7 @@ List all runbook actions available through your connected integrations
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -39,7 +39,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.runbooks.listRunbookActions({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -51,8 +50,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksListRunbookActions } from "firehydrant/funcs/runbooksListRunbookActions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksListRunbookActions } from "firehydrant-typescript-sdk/funcs/runbooksListRunbookActions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -62,15 +61,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await runbooksListRunbookActions(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksListRunbookActions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -102,7 +98,7 @@ List all runbook executions across all runbooks
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -111,7 +107,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.runbooks.listRunbookExecutions({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -123,8 +118,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksListRunbookExecutions } from "firehydrant/funcs/runbooksListRunbookExecutions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksListRunbookExecutions } from "firehydrant-typescript-sdk/funcs/runbooksListRunbookExecutions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -134,15 +129,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await runbooksListRunbookExecutions(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksListRunbookExecutions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -174,7 +166,7 @@ Attaches a runbook to an incident and executes it
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -186,7 +178,6 @@ async function run() {
     runbookId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -198,8 +189,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksCreateRunbookExecution } from "firehydrant/funcs/runbooksCreateRunbookExecution.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksCreateRunbookExecution } from "firehydrant-typescript-sdk/funcs/runbooksCreateRunbookExecution.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -212,15 +203,12 @@ async function run() {
     executeFor: "<value>",
     runbookId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksCreateRunbookExecution failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -252,7 +240,7 @@ Retrieve a runbook execution by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -263,7 +251,6 @@ async function run() {
     executionId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -275,8 +262,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksGetRunbookExecution } from "firehydrant/funcs/runbooksGetRunbookExecution.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksGetRunbookExecution } from "firehydrant-typescript-sdk/funcs/runbooksGetRunbookExecution.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -288,15 +275,12 @@ async function run() {
   const res = await runbooksGetRunbookExecution(firehydrant, {
     executionId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksGetRunbookExecution failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -328,7 +312,7 @@ Terminates a runbook execution, preventing any further steps from being executed
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -351,8 +335,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksDeleteRunbookExecution } from "firehydrant/funcs/runbooksDeleteRunbookExecution.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksDeleteRunbookExecution } from "firehydrant-typescript-sdk/funcs/runbooksDeleteRunbookExecution.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -365,14 +349,12 @@ async function run() {
     executionId: "<id>",
     reason: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("runbooksDeleteRunbookExecution failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -404,7 +386,7 @@ Updates a runbook step execution, especially for changing the state of a step ex
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -415,11 +397,10 @@ async function run() {
     executionId: "<id>",
     stepId: "<id>",
     updateRunbookExecutionStep: {
-      state: "Maine",
+      state: "Kentucky",
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -431,8 +412,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksUpdateRunbookExecutionStep } from "firehydrant/funcs/runbooksUpdateRunbookExecutionStep.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksUpdateRunbookExecutionStep } from "firehydrant-typescript-sdk/funcs/runbooksUpdateRunbookExecutionStep.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -445,18 +426,15 @@ async function run() {
     executionId: "<id>",
     stepId: "<id>",
     updateRunbookExecutionStep: {
-      state: "Maine",
+      state: "Kentucky",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksUpdateRunbookExecutionStep failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -488,7 +466,7 @@ Retrieves the bash script from a "script" step.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -500,7 +478,6 @@ async function run() {
     stepId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -512,8 +489,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksGetRunbookExecutionStepScript } from "firehydrant/funcs/runbooksGetRunbookExecutionStepScript.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksGetRunbookExecutionStepScript } from "firehydrant-typescript-sdk/funcs/runbooksGetRunbookExecutionStepScript.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -526,15 +503,12 @@ async function run() {
     executionId: "<id>",
     stepId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksGetRunbookExecutionStepScript failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -566,7 +540,7 @@ Updates the execution's step.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -576,10 +550,9 @@ async function run() {
   const result = await firehydrant.runbooks.updateRunbookExecutionStepScript({
     executionId: "<id>",
     stepId: "<id>",
-    state: "Tennessee",
+    state: "North Dakota",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -591,8 +564,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksUpdateRunbookExecutionStepScript } from "firehydrant/funcs/runbooksUpdateRunbookExecutionStepScript.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksUpdateRunbookExecutionStepScript } from "firehydrant-typescript-sdk/funcs/runbooksUpdateRunbookExecutionStepScript.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -604,17 +577,14 @@ async function run() {
   const res = await runbooksUpdateRunbookExecutionStepScript(firehydrant, {
     executionId: "<id>",
     stepId: "<id>",
-    state: "Tennessee",
+    state: "North Dakota",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksUpdateRunbookExecutionStepScript failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -646,7 +616,7 @@ List select options for a runbook integration action field
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -670,8 +640,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksGetRunbookActionFieldOptions } from "firehydrant/funcs/runbooksGetRunbookActionFieldOptions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksGetRunbookActionFieldOptions } from "firehydrant-typescript-sdk/funcs/runbooksGetRunbookActionFieldOptions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -685,14 +655,12 @@ async function run() {
     actionSlug: "<value>",
     field: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("runbooksGetRunbookActionFieldOptions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -724,7 +692,7 @@ Lists all available runbooks.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -733,7 +701,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.runbooks.listRunbooks({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -745,8 +712,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksListRunbooks } from "firehydrant/funcs/runbooksListRunbooks.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksListRunbooks } from "firehydrant-typescript-sdk/funcs/runbooksListRunbooks.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -756,15 +723,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await runbooksListRunbooks(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksListRunbooks failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -796,7 +760,7 @@ Create a new runbook for use with incidents.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -805,10 +769,9 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.runbooks.createRunbook({
     name: "<value>",
-    type: "incident_role",
+    type: "infrastructure",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -820,8 +783,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksCreateRunbook } from "firehydrant/funcs/runbooksCreateRunbook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksCreateRunbook } from "firehydrant-typescript-sdk/funcs/runbooksCreateRunbook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -832,17 +795,14 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await runbooksCreateRunbook(firehydrant, {
     name: "<value>",
-    type: "incident_role",
+    type: "infrastructure",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksCreateRunbook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -874,7 +834,7 @@ Get a runbook and all its configuration
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -885,7 +845,6 @@ async function run() {
     runbookId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -897,8 +856,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksGetRunbook } from "firehydrant/funcs/runbooksGetRunbook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksGetRunbook } from "firehydrant-typescript-sdk/funcs/runbooksGetRunbook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -910,15 +869,12 @@ async function run() {
   const res = await runbooksGetRunbook(firehydrant, {
     runbookId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksGetRunbook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -952,7 +908,7 @@ about a runbook, including but not limited to the steps, environments, attachmen
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -964,7 +920,6 @@ async function run() {
     updateRunbook: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -976,8 +931,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksUpdateRunbook } from "firehydrant/funcs/runbooksUpdateRunbook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksUpdateRunbook } from "firehydrant-typescript-sdk/funcs/runbooksUpdateRunbook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -990,15 +945,12 @@ async function run() {
     runbookId: "<id>",
     updateRunbook: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksUpdateRunbook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1030,7 +982,7 @@ Delete a runbook and make it unavailable for any future incidents.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1041,7 +993,6 @@ async function run() {
     runbookId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1053,8 +1004,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksDeleteRunbook } from "firehydrant/funcs/runbooksDeleteRunbook.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksDeleteRunbook } from "firehydrant-typescript-sdk/funcs/runbooksDeleteRunbook.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1066,15 +1017,12 @@ async function run() {
   const res = await runbooksDeleteRunbook(firehydrant, {
     runbookId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("runbooksDeleteRunbook failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1106,7 +1054,7 @@ Please contact support to enable audit logging for your account.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1126,8 +1074,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { runbooksListRunbookAudits } from "firehydrant/funcs/runbooksListRunbookAudits.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { runbooksListRunbookAudits } from "firehydrant-typescript-sdk/funcs/runbooksListRunbookAudits.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1137,14 +1085,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await runbooksListRunbookAudits(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("runbooksListRunbookAudits failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();

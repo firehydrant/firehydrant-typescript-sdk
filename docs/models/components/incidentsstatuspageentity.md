@@ -5,7 +5,7 @@ Incidents_StatusPageEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsStatusPageEntity } from "firehydrant/models/components";
+import { IncidentsStatusPageEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsStatusPageEntity = {};
 ```

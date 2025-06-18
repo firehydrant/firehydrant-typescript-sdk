@@ -5,7 +5,7 @@ Add a status page to an incident.
 ## Example Usage
 
 ```typescript
-import { CreateIncidentStatusPage } from "firehydrant/models/components";
+import { CreateIncidentStatusPage } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentStatusPage = {
   integrationSlug: "<value>",

@@ -3,12 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { ConvertIncidentTaskRequest } from "firehydrant/models/operations";
+import { ConvertIncidentTaskRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ConvertIncidentTaskRequest = {
   taskId: "<id>",
   incidentId: "<id>",
-  convertIncidentTask: {},
 };
 ```
 

@@ -5,7 +5,7 @@ Update an existing generic chat message on an incident.
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentChatMessage } from "firehydrant/models/components";
+import { UpdateIncidentChatMessage } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentChatMessage = {
   body: "<value>",

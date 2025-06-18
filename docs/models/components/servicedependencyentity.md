@@ -5,7 +5,7 @@ ServiceDependencyEntity model
 ## Example Usage
 
 ```typescript
-import { ServiceDependencyEntity } from "firehydrant/models/components";
+import { ServiceDependencyEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ServiceDependencyEntity = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateScimUserEmail } from "firehydrant/models/components";
+import { CreateScimUserEmail } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateScimUserEmail = {
   value: "<value>",

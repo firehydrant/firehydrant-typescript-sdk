@@ -5,7 +5,7 @@ Incidents_ExportRetrospectivesResultEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsExportRetrospectivesResultEntity } from "firehydrant/models/components";
+import { IncidentsExportRetrospectivesResultEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsExportRetrospectivesResultEntity = {};
 ```

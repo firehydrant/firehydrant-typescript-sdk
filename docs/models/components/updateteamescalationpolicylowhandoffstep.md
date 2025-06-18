@@ -5,7 +5,7 @@ Handoff step for LOW priority alerts
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicyLowHandoffStep } from "firehydrant/models/components";
+import { UpdateTeamEscalationPolicyLowHandoffStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamEscalationPolicyLowHandoffStep = {
   targetType: "EscalationPolicy",

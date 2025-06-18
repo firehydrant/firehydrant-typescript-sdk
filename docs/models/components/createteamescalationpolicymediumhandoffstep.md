@@ -5,7 +5,7 @@ Handoff step for MEDIUM priority alerts
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyMediumHandoffStep } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicyMediumHandoffStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicyMediumHandoffStep = {
   targetType: "Team",

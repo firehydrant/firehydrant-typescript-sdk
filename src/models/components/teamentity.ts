@@ -44,6 +44,12 @@ import {
   NullableIntegrationsSlackSlackChannelEntity$outboundSchema,
 } from "./nullableintegrationsslackslackchannelentity.js";
 import {
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
+import {
   ServiceEntityLite,
   ServiceEntityLite$inboundSchema,
   ServiceEntityLite$Outbound,
@@ -82,6 +88,7 @@ export type TeamEntity = {
   respondingServices?: Array<ServiceEntityLite> | null | undefined;
   services?: Array<ServiceEntityLite> | null | undefined;
   functionalities?: Array<FunctionalityEntityLite> | null | undefined;
+  defaultSignalsEscalationPolicy?: NullableSuccinctEntity | null | undefined;
 };
 
 /** @internal */
@@ -125,6 +132,9 @@ export const TeamEntity$inboundSchema: z.ZodType<
   services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
   functionalities: z.nullable(z.array(FunctionalityEntityLite$inboundSchema))
     .optional(),
+  default_signals_escalation_policy: z.nullable(
+    NullableSuccinctEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -139,6 +149,7 @@ export const TeamEntity$inboundSchema: z.ZodType<
     "owned_services": "ownedServices",
     "owned_runbooks": "ownedRunbooks",
     "responding_services": "respondingServices",
+    "default_signals_escalation_policy": "defaultSignalsEscalationPolicy",
   });
 });
 
@@ -175,6 +186,10 @@ export type TeamEntity$Outbound = {
   responding_services?: Array<ServiceEntityLite$Outbound> | null | undefined;
   services?: Array<ServiceEntityLite$Outbound> | null | undefined;
   functionalities?: Array<FunctionalityEntityLite$Outbound> | null | undefined;
+  default_signals_escalation_policy?:
+    | NullableSuccinctEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -214,6 +229,9 @@ export const TeamEntity$outboundSchema: z.ZodType<
   services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
   functionalities: z.nullable(z.array(FunctionalityEntityLite$outboundSchema))
     .optional(),
+  defaultSignalsEscalationPolicy: z.nullable(
+    NullableSuccinctEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -228,6 +246,7 @@ export const TeamEntity$outboundSchema: z.ZodType<
     ownedServices: "owned_services",
     ownedRunbooks: "owned_runbooks",
     respondingServices: "responding_services",
+    defaultSignalsEscalationPolicy: "default_signals_escalation_policy",
   });
 });
 

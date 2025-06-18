@@ -5,7 +5,7 @@ Retrospectives_IndexTemplateEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { RetrospectivesIndexTemplateEntityPaginated } from "firehydrant/models/components";
+import { RetrospectivesIndexTemplateEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: RetrospectivesIndexTemplateEntityPaginated = {};
 ```

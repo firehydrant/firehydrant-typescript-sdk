@@ -5,7 +5,7 @@ A step that defines where an alert should be sent when the policy is exhausted a
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicyHandoffStep } from "firehydrant/models/components";
+import { UpdateTeamEscalationPolicyHandoffStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamEscalationPolicyHandoffStep = {
   targetType: "Team",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NullableRunbooksElementDynamicSelectEntity } from "firehydrant/models/components";
+import { NullableRunbooksElementDynamicSelectEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableRunbooksElementDynamicSelectEntity = {};
 ```

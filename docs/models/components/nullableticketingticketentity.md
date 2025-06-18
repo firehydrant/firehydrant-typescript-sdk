@@ -5,7 +5,7 @@ Ticketing_TicketEntity model
 ## Example Usage
 
 ```typescript
-import { NullableTicketingTicketEntity } from "firehydrant/models/components";
+import { NullableTicketingTicketEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableTicketingTicketEntity = {};
 ```
@@ -31,4 +31,5 @@ let value: NullableTicketingTicketEntity = {};
 | `incidentCurrentMilestone`                                                                                                 | *string*                                                                                                                   | :heavy_minus_sign:                                                                                                         | Milestone of incident that this ticket is related to                                                                       |
 | `taskId`                                                                                                                   | *string*                                                                                                                   | :heavy_minus_sign:                                                                                                         | ID of task that this ticket is related to                                                                                  |
 | `dueAt`                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                              | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |
+| `syncErrorMessage`                                                                                                         | *string*                                                                                                                   | :heavy_minus_sign:                                                                                                         | Error message from syncing this ticket to integrations                                                                     |
 | `link`                                                                                                                     | [components.NullableAttachmentsLinkEntity](../../models/components/nullableattachmentslinkentity.md)                       | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |

@@ -5,7 +5,7 @@ Create a new saved search for a particular resource type
 ## Example Usage
 
 ```typescript
-import { CreateSavedSearch } from "firehydrant/models/components";
+import { CreateSavedSearch } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSavedSearch = {
   name: "<value>",

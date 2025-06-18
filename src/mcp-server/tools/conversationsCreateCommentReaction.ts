@@ -16,7 +16,7 @@ export const tool$conversationsCreateCommentReaction: ToolDefinition<
   name: "conversations-create-comment-reaction",
   description: `Create a reaction for a conversation comment
 
-ALPHA - Create a reaction on a comment`,
+Create a reaction on a comment`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsCreateCommentReaction(

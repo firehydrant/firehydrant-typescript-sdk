@@ -5,7 +5,7 @@ Signals_API_TransposerListEntity model
 ## Example Usage
 
 ```typescript
-import { SignalsAPITransposerListEntity } from "firehydrant/models/components";
+import { SignalsAPITransposerListEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: SignalsAPITransposerListEntity = {};
 ```

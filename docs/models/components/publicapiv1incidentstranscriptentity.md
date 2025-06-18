@@ -5,7 +5,7 @@ PublicAPI_V1_Incidents_TranscriptEntity model
 ## Example Usage
 
 ```typescript
-import { PublicApiv1IncidentsTranscriptEntity } from "firehydrant/models/components";
+import { PublicApiv1IncidentsTranscriptEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PublicApiv1IncidentsTranscriptEntity = {};
 ```

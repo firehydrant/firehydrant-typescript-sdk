@@ -11,6 +11,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type ListTeamOnCallSchedulesRequest = {
   teamId: string;
   /**
+   * An optional ISO8601 timestamp for filtering the shifts listed in each on-call schedule to only include shifts that overlap with the provided time window. If provided, only shifts that end at or after this time will be included.
+   */
+  shiftTimeWindowStart?: string | null | undefined;
+  /**
+   * An optional ISO8601 timestamp for filtering the shifts listed in each on-call schedule to only include shifts that overlap with the provided time window.. If provided, only shifts that start at or before this time will be included.
+   */
+  shiftTimeWindowEnd?: string | null | undefined;
+  /**
    * A query string for searching through the list of on-call schedules.
    */
   query?: string | null | undefined;
@@ -25,12 +33,16 @@ export const ListTeamOnCallSchedulesRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   team_id: z.string(),
+  shift_time_window_start: z.nullable(z.string()).optional(),
+  shift_time_window_end: z.nullable(z.string()).optional(),
   query: z.nullable(z.string()).optional(),
   page: z.nullable(z.number().int()).optional(),
   per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
+    "shift_time_window_start": "shiftTimeWindowStart",
+    "shift_time_window_end": "shiftTimeWindowEnd",
     "per_page": "perPage",
   });
 });
@@ -38,6 +50,8 @@ export const ListTeamOnCallSchedulesRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ListTeamOnCallSchedulesRequest$Outbound = {
   team_id: string;
+  shift_time_window_start?: string | null | undefined;
+  shift_time_window_end?: string | null | undefined;
   query?: string | null | undefined;
   page?: number | null | undefined;
   per_page?: number | null | undefined;
@@ -50,12 +64,16 @@ export const ListTeamOnCallSchedulesRequest$outboundSchema: z.ZodType<
   ListTeamOnCallSchedulesRequest
 > = z.object({
   teamId: z.string(),
+  shiftTimeWindowStart: z.nullable(z.string()).optional(),
+  shiftTimeWindowEnd: z.nullable(z.string()).optional(),
   query: z.nullable(z.string()).optional(),
   page: z.nullable(z.number().int()).optional(),
   perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
+    shiftTimeWindowStart: "shift_time_window_start",
+    shiftTimeWindowEnd: "shift_time_window_end",
     perPage: "per_page",
   });
 });

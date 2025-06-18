@@ -5,7 +5,7 @@ An object of label key and values
 ## Example Usage
 
 ```typescript
-import { NullableChangeEventEntityLabels } from "firehydrant/models/components";
+import { NullableChangeEventEntityLabels } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableChangeEventEntityLabels = {};
 ```

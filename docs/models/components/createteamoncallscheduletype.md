@@ -5,7 +5,7 @@ The type of strategy. Must be one of "daily", "weekly", or "custom".
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallScheduleType } from "firehydrant/models/components";
+import { CreateTeamOnCallScheduleType } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamOnCallScheduleType = "daily";
 ```

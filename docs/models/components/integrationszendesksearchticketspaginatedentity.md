@@ -5,7 +5,7 @@ Integrations_Zendesk_SearchTickets_PaginatedEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsZendeskSearchTicketsPaginatedEntity } from "firehydrant/models/components";
+import { IntegrationsZendeskSearchTicketsPaginatedEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsZendeskSearchTicketsPaginatedEntity = {};
 ```

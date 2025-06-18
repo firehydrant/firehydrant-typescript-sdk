@@ -5,7 +5,7 @@ Returns log entries of all levels equal to the provided level
 ## Example Usage
 
 ```typescript
-import { ExactLevel } from "firehydrant/models/operations";
+import { ExactLevel } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ExactLevel = "error";
 ```

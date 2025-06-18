@@ -5,7 +5,7 @@ String that determines how records are grouped
 ## Example Usage
 
 ```typescript
-import { GetSignalsMttxAnalyticsGroupBy } from "firehydrant/models/operations";
+import { GetSignalsMttxAnalyticsGroupBy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSignalsMttxAnalyticsGroupBy = "services";
 ```

@@ -5,7 +5,7 @@ An object representing a Team that owns the service
 ## Example Usage
 
 ```typescript
-import { UpdateServiceOwner } from "firehydrant/models/components";
+import { UpdateServiceOwner } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateServiceOwner = {
   id: "<id>",

@@ -5,7 +5,7 @@ ChangeEventEntity model
 ## Example Usage
 
 ```typescript
-import { ChangeEventEntity } from "firehydrant/models/components";
+import { ChangeEventEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ChangeEventEntity = {};
 ```

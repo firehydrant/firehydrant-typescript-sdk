@@ -5,7 +5,7 @@ Create a change event
 ## Example Usage
 
 ```typescript
-import { CreateChangeEvent } from "firehydrant/models/components";
+import { CreateChangeEvent } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateChangeEvent = {
   summary: "<value>",

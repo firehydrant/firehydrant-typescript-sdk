@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * ALPHA - Update a comment's attributes
+ * Update a comment's attributes
  */
 export type UpdateComment = {
   /**

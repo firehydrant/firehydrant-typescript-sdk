@@ -5,7 +5,7 @@ Imports_ImportEntity model
 ## Example Usage
 
 ```typescript
-import { ImportsImportEntity } from "firehydrant/models/components";
+import { ImportsImportEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ImportsImportEntity = {};
 ```

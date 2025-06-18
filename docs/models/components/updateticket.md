@@ -5,7 +5,7 @@ Update a ticket's attributes
 ## Example Usage
 
 ```typescript
-import { UpdateTicket } from "firehydrant/models/components";
+import { UpdateTicket } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTicket = {};
 ```

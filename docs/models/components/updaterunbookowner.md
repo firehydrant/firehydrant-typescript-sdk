@@ -5,7 +5,7 @@ An object representing a Team that owns the runbook
 ## Example Usage
 
 ```typescript
-import { UpdateRunbookOwner } from "firehydrant/models/components";
+import { UpdateRunbookOwner } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateRunbookOwner = {};
 ```

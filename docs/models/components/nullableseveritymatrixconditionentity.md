@@ -5,7 +5,7 @@ SeverityMatrix_ConditionEntity model
 ## Example Usage
 
 ```typescript
-import { NullableSeverityMatrixConditionEntity } from "firehydrant/models/components";
+import { NullableSeverityMatrixConditionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableSeverityMatrixConditionEntity = {};
 ```

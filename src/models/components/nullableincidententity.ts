@@ -116,6 +116,12 @@ import {
   NullableSeverityMatrixImpactEntity$outboundSchema,
 } from "./nullableseveritymatriximpactentity.js";
 import {
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
+import {
   NullableTicketingTicketEntity,
   NullableTicketingTicketEntity$inboundSchema,
   NullableTicketingTicketEntity$Outbound,
@@ -182,6 +188,7 @@ export type NullableIncidentEntity = {
   severityImpact?: string | null | undefined;
   severityCondition?: string | null | undefined;
   tagList?: Array<string> | null | undefined;
+  incidentType?: NullableSuccinctEntity | null | undefined;
   severityImpactObject?: NullableSeverityMatrixImpactEntity | null | undefined;
   severityConditionObject?:
     | NullableSeverityMatrixConditionEntity
@@ -374,6 +381,7 @@ export const NullableIncidentEntity$inboundSchema: z.ZodType<
   severity_impact: z.nullable(z.string()).optional(),
   severity_condition: z.nullable(z.string()).optional(),
   tag_list: z.nullable(z.array(z.string())).optional(),
+  incident_type: z.nullable(NullableSuccinctEntity$inboundSchema).optional(),
   severity_impact_object: z.nullable(
     NullableSeverityMatrixImpactEntity$inboundSchema,
   ).optional(),
@@ -452,6 +460,7 @@ export const NullableIncidentEntity$inboundSchema: z.ZodType<
     "severity_impact": "severityImpact",
     "severity_condition": "severityCondition",
     "tag_list": "tagList",
+    "incident_type": "incidentType",
     "severity_impact_object": "severityImpactObject",
     "severity_condition_object": "severityConditionObject",
     "private_id": "privateId",
@@ -503,6 +512,7 @@ export type NullableIncidentEntity$Outbound = {
   severity_impact?: string | null | undefined;
   severity_condition?: string | null | undefined;
   tag_list?: Array<string> | null | undefined;
+  incident_type?: NullableSuccinctEntity$Outbound | null | undefined;
   severity_impact_object?:
     | NullableSeverityMatrixImpactEntity$Outbound
     | null
@@ -600,6 +610,7 @@ export const NullableIncidentEntity$outboundSchema: z.ZodType<
   severityImpact: z.nullable(z.string()).optional(),
   severityCondition: z.nullable(z.string()).optional(),
   tagList: z.nullable(z.array(z.string())).optional(),
+  incidentType: z.nullable(NullableSuccinctEntity$outboundSchema).optional(),
   severityImpactObject: z.nullable(
     NullableSeverityMatrixImpactEntity$outboundSchema,
   ).optional(),
@@ -680,6 +691,7 @@ export const NullableIncidentEntity$outboundSchema: z.ZodType<
     severityImpact: "severity_impact",
     severityCondition: "severity_condition",
     tagList: "tag_list",
+    incidentType: "incident_type",
     severityImpactObject: "severity_impact_object",
     severityConditionObject: "severity_condition_object",
     privateId: "private_id",

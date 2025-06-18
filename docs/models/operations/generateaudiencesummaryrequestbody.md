@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GenerateAudienceSummaryRequestBody } from "firehydrant/models/operations";
+import { GenerateAudienceSummaryRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GenerateAudienceSummaryRequestBody = {};
 ```

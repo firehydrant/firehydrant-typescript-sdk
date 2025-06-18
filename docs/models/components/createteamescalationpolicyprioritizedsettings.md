@@ -5,7 +5,7 @@ Priority-specific settings for dynamic escalation policies
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyPrioritizedSettings } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicyPrioritizedSettings } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicyPrioritizedSettings = {};
 ```

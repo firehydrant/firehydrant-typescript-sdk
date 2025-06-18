@@ -45,7 +45,7 @@ List all of the tickets that have been added to the organiation
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -54,7 +54,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.ticketing.listTickets({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -66,8 +65,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListTickets } from "firehydrant/funcs/ticketingListTickets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListTickets } from "firehydrant-typescript-sdk/funcs/ticketingListTickets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -77,15 +76,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await ticketingListTickets(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListTickets failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -117,7 +113,7 @@ Creates a ticket for a project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -128,7 +124,6 @@ async function run() {
     summary: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -140,8 +135,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingCreateTicket } from "firehydrant/funcs/ticketingCreateTicket.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingCreateTicket } from "firehydrant-typescript-sdk/funcs/ticketingCreateTicket.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -153,15 +148,12 @@ async function run() {
   const res = await ticketingCreateTicket(firehydrant, {
     summary: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingCreateTicket failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -193,7 +185,7 @@ Retrieves a single ticket by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -204,7 +196,6 @@ async function run() {
     ticketId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -216,8 +207,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetTicket } from "firehydrant/funcs/ticketingGetTicket.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetTicket } from "firehydrant-typescript-sdk/funcs/ticketingGetTicket.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -229,15 +220,12 @@ async function run() {
   const res = await ticketingGetTicket(firehydrant, {
     ticketId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetTicket failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -269,7 +257,7 @@ Archive a ticket
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -291,8 +279,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingDeleteTicket } from "firehydrant/funcs/ticketingDeleteTicket.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingDeleteTicket } from "firehydrant-typescript-sdk/funcs/ticketingDeleteTicket.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -304,14 +292,12 @@ async function run() {
   const res = await ticketingDeleteTicket(firehydrant, {
     ticketId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("ticketingDeleteTicket failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -343,7 +329,7 @@ Update a ticket's attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -355,7 +341,6 @@ async function run() {
     updateTicket: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -367,8 +352,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingUpdateTicket } from "firehydrant/funcs/ticketingUpdateTicket.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingUpdateTicket } from "firehydrant-typescript-sdk/funcs/ticketingUpdateTicket.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -381,15 +366,12 @@ async function run() {
     ticketId: "<id>",
     updateTicket: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingUpdateTicket failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -421,7 +403,7 @@ List all ticketing projects available to the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -430,7 +412,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.ticketing.listTicketingProjects({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -442,8 +423,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListTicketingProjects } from "firehydrant/funcs/ticketingListTicketingProjects.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListTicketingProjects } from "firehydrant-typescript-sdk/funcs/ticketingListTicketingProjects.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -453,15 +434,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await ticketingListTicketingProjects(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListTicketingProjects failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -493,7 +471,7 @@ Retrieve a single ticketing project by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -504,7 +482,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -516,8 +493,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetTicketingProject } from "firehydrant/funcs/ticketingGetTicketingProject.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetTicketingProject } from "firehydrant-typescript-sdk/funcs/ticketingGetTicketingProject.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -529,15 +506,12 @@ async function run() {
   const res = await ticketingGetTicketingProject(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetTicketingProject failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -569,7 +543,7 @@ List all configuration options for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -591,8 +565,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetConfigurationOptions } from "firehydrant/funcs/ticketingGetConfigurationOptions.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetConfigurationOptions } from "firehydrant-typescript-sdk/funcs/ticketingGetConfigurationOptions.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -604,14 +578,12 @@ async function run() {
   const res = await ticketingGetConfigurationOptions(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("ticketingGetConfigurationOptions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -643,7 +615,7 @@ List a field's configuration options for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -666,8 +638,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetOptionsForField } from "firehydrant/funcs/ticketingGetOptionsForField.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetOptionsForField } from "firehydrant-typescript-sdk/funcs/ticketingGetOptionsForField.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -680,14 +652,12 @@ async function run() {
     fieldId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("ticketingGetOptionsForField failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -719,7 +689,7 @@ Returns metadata for the fields that are available for field mapping.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -730,7 +700,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -742,8 +711,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListAvailableTicketingFieldMaps } from "firehydrant/funcs/ticketingListAvailableTicketingFieldMaps.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListAvailableTicketingFieldMaps } from "firehydrant-typescript-sdk/funcs/ticketingListAvailableTicketingFieldMaps.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -755,15 +724,12 @@ async function run() {
   const res = await ticketingListAvailableTicketingFieldMaps(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListAvailableTicketingFieldMaps failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -795,7 +761,7 @@ Creates field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -806,7 +772,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -818,8 +783,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingCreateTicketingFieldMap } from "firehydrant/funcs/ticketingCreateTicketingFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingCreateTicketingFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingCreateTicketingFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -831,15 +796,12 @@ async function run() {
   const res = await ticketingCreateTicketingFieldMap(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingCreateTicketingFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -871,7 +833,7 @@ Retrieve field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -883,7 +845,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -895,8 +856,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetTicketingFieldMap } from "firehydrant/funcs/ticketingGetTicketingFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetTicketingFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingGetTicketingFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -909,15 +870,12 @@ async function run() {
     mapId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetTicketingFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -949,7 +907,7 @@ Archive field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -972,8 +930,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingDeleteTicketingFieldMap } from "firehydrant/funcs/ticketingDeleteTicketingFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingDeleteTicketingFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingDeleteTicketingFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -986,14 +944,12 @@ async function run() {
     mapId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("ticketingDeleteTicketingFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1025,7 +981,7 @@ Update field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1037,7 +993,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1049,8 +1004,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingUpdateTicketingFieldMap } from "firehydrant/funcs/ticketingUpdateTicketingFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingUpdateTicketingFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingUpdateTicketingFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1063,15 +1018,12 @@ async function run() {
     mapId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingUpdateTicketingFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1103,7 +1055,7 @@ Returns metadata for the fields that are available for inbound field mapping.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1114,7 +1066,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1126,8 +1077,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListAvailableInboundFieldMaps } from "firehydrant/funcs/ticketingListAvailableInboundFieldMaps.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListAvailableInboundFieldMaps } from "firehydrant-typescript-sdk/funcs/ticketingListAvailableInboundFieldMaps.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1139,15 +1090,12 @@ async function run() {
   const res = await ticketingListAvailableInboundFieldMaps(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListAvailableInboundFieldMaps failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1179,7 +1127,7 @@ List all inbound field maps for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1190,7 +1138,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1202,8 +1149,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListInboundFieldMaps } from "firehydrant/funcs/ticketingListInboundFieldMaps.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListInboundFieldMaps } from "firehydrant-typescript-sdk/funcs/ticketingListInboundFieldMaps.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1215,15 +1162,12 @@ async function run() {
   const res = await ticketingListInboundFieldMaps(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListInboundFieldMaps failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1255,7 +1199,7 @@ Creates inbound field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1266,7 +1210,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1278,8 +1221,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingCreateInboundFieldMap } from "firehydrant/funcs/ticketingCreateInboundFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingCreateInboundFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingCreateInboundFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1291,15 +1234,12 @@ async function run() {
   const res = await ticketingCreateInboundFieldMap(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingCreateInboundFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1331,7 +1271,7 @@ Retrieve inbound field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1343,7 +1283,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1355,8 +1294,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetInboundFieldMap } from "firehydrant/funcs/ticketingGetInboundFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetInboundFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingGetInboundFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1369,15 +1308,12 @@ async function run() {
     mapId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetInboundFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1409,7 +1345,7 @@ Update inbound field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1421,7 +1357,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1433,8 +1368,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingUpdateInboundFieldMap } from "firehydrant/funcs/ticketingUpdateInboundFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingUpdateInboundFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingUpdateInboundFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1447,15 +1382,12 @@ async function run() {
     mapId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingUpdateInboundFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1487,7 +1419,7 @@ Archive inbound field map for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1510,8 +1442,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingDeleteInboundFieldMap } from "firehydrant/funcs/ticketingDeleteInboundFieldMap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingDeleteInboundFieldMap } from "firehydrant-typescript-sdk/funcs/ticketingDeleteInboundFieldMap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1524,14 +1456,12 @@ async function run() {
     mapId: "<id>",
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("ticketingDeleteInboundFieldMap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1563,7 +1493,7 @@ Creates configuration for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1574,7 +1504,6 @@ async function run() {
     ticketingProjectId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1586,8 +1515,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingCreateTicketingProjectConfig } from "firehydrant/funcs/ticketingCreateTicketingProjectConfig.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingCreateTicketingProjectConfig } from "firehydrant-typescript-sdk/funcs/ticketingCreateTicketingProjectConfig.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1599,15 +1528,12 @@ async function run() {
   const res = await ticketingCreateTicketingProjectConfig(firehydrant, {
     ticketingProjectId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingCreateTicketingProjectConfig failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1639,7 +1565,7 @@ Retrieve configuration for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1651,7 +1577,6 @@ async function run() {
     configId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1663,8 +1588,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetTicketingProjectConfig } from "firehydrant/funcs/ticketingGetTicketingProjectConfig.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetTicketingProjectConfig } from "firehydrant-typescript-sdk/funcs/ticketingGetTicketingProjectConfig.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1677,15 +1602,12 @@ async function run() {
     ticketingProjectId: "<id>",
     configId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetTicketingProjectConfig failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1717,7 +1639,7 @@ Archive configuration for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1729,7 +1651,6 @@ async function run() {
     configId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1741,8 +1662,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingDeleteTicketingProjectConfig } from "firehydrant/funcs/ticketingDeleteTicketingProjectConfig.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingDeleteTicketingProjectConfig } from "firehydrant-typescript-sdk/funcs/ticketingDeleteTicketingProjectConfig.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1755,15 +1676,12 @@ async function run() {
     ticketingProjectId: "<id>",
     configId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingDeleteTicketingProjectConfig failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1795,7 +1713,7 @@ Update configuration for a ticketing project
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1807,7 +1725,6 @@ async function run() {
     configId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1819,8 +1736,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingUpdateTicketingProjectConfig } from "firehydrant/funcs/ticketingUpdateTicketingProjectConfig.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingUpdateTicketingProjectConfig } from "firehydrant-typescript-sdk/funcs/ticketingUpdateTicketingProjectConfig.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1833,15 +1750,12 @@ async function run() {
     ticketingProjectId: "<id>",
     configId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingUpdateTicketingProjectConfig failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1873,7 +1787,7 @@ List all ticketing priorities available to the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1882,7 +1796,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.ticketing.listTicketingPriorities();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1894,8 +1807,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListTicketingPriorities } from "firehydrant/funcs/ticketingListTicketingPriorities.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListTicketingPriorities } from "firehydrant-typescript-sdk/funcs/ticketingListTicketingPriorities.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1905,15 +1818,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await ticketingListTicketingPriorities(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListTicketingPriorities failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1944,7 +1854,7 @@ Create a single ticketing priority
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1955,7 +1865,6 @@ async function run() {
     name: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1967,8 +1876,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingCreateTicketingPriority } from "firehydrant/funcs/ticketingCreateTicketingPriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingCreateTicketingPriority } from "firehydrant-typescript-sdk/funcs/ticketingCreateTicketingPriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1980,15 +1889,12 @@ async function run() {
   const res = await ticketingCreateTicketingPriority(firehydrant, {
     name: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingCreateTicketingPriority failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2020,7 +1926,7 @@ Retrieve a single ticketing priority by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2031,7 +1937,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2043,8 +1948,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingGetTicketingPriority } from "firehydrant/funcs/ticketingGetTicketingPriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetTicketingPriority } from "firehydrant-typescript-sdk/funcs/ticketingGetTicketingPriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2056,15 +1961,12 @@ async function run() {
   const res = await ticketingGetTicketingPriority(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetTicketingPriority failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2096,7 +1998,7 @@ Delete a single ticketing priority by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2107,7 +2009,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2119,8 +2020,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingDeleteTicketingPriority } from "firehydrant/funcs/ticketingDeleteTicketingPriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingDeleteTicketingPriority } from "firehydrant-typescript-sdk/funcs/ticketingDeleteTicketingPriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2132,15 +2033,12 @@ async function run() {
   const res = await ticketingDeleteTicketingPriority(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingDeleteTicketingPriority failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2172,7 +2070,7 @@ Update a single ticketing priority's attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2184,7 +2082,6 @@ async function run() {
     updateTicketingPriority: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2196,8 +2093,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingUpdateTicketingPriority } from "firehydrant/funcs/ticketingUpdateTicketingPriority.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingUpdateTicketingPriority } from "firehydrant-typescript-sdk/funcs/ticketingUpdateTicketingPriority.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2210,15 +2107,12 @@ async function run() {
     id: "<id>",
     updateTicketingPriority: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingUpdateTicketingPriority failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2250,7 +2144,7 @@ List all of the ticket tags in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2259,7 +2153,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.ticketing.listTicketTags({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2271,8 +2164,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { ticketingListTicketTags } from "firehydrant/funcs/ticketingListTicketTags.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListTicketTags } from "firehydrant-typescript-sdk/funcs/ticketingListTicketTags.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2282,15 +2175,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await ticketingListTicketTags(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListTicketTags failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

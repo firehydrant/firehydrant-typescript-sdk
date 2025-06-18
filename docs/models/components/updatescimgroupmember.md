@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateScimGroupMember } from "firehydrant/models/components";
+import { UpdateScimGroupMember } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateScimGroupMember = {
   value: "<value>",

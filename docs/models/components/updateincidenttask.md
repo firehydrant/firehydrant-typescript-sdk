@@ -5,7 +5,7 @@ Update a task's attributes
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentTask } from "firehydrant/models/components";
+import { UpdateIncidentTask } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentTask = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamOnCallScheduleRestriction } from "firehydrant/models/components";
+import { CreateTeamOnCallScheduleRestriction } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamOnCallScheduleRestriction = {
   startDay: "wednesday",

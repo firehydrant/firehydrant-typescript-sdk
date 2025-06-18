@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IncidentEntityRetroExport } from "firehydrant/models/components";
+import { IncidentEntityRetroExport } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentEntityRetroExport = {};
 ```

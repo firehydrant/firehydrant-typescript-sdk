@@ -90,6 +90,10 @@ export type TicketingTicketEntity = {
    */
   taskId?: string | null | undefined;
   dueAt?: Date | null | undefined;
+  /**
+   * Error message from syncing this ticket to integrations
+   */
+  syncErrorMessage?: string | null | undefined;
   link?: NullableAttachmentsLinkEntity | null | undefined;
 };
 
@@ -217,6 +221,7 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
   due_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
+  sync_error_message: z.nullable(z.string()).optional(),
   link: z.nullable(NullableAttachmentsLinkEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -229,6 +234,7 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
     "incident_current_milestone": "incidentCurrentMilestone",
     "task_id": "taskId",
     "due_at": "dueAt",
+    "sync_error_message": "syncErrorMessage",
   });
 });
 
@@ -254,6 +260,7 @@ export type TicketingTicketEntity$Outbound = {
   incident_current_milestone?: string | null | undefined;
   task_id?: string | null | undefined;
   due_at?: string | null | undefined;
+  sync_error_message?: string | null | undefined;
   link?: NullableAttachmentsLinkEntity$Outbound | null | undefined;
 };
 
@@ -283,6 +290,7 @@ export const TicketingTicketEntity$outboundSchema: z.ZodType<
   incidentCurrentMilestone: z.nullable(z.string()).optional(),
   taskId: z.nullable(z.string()).optional(),
   dueAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  syncErrorMessage: z.nullable(z.string()).optional(),
   link: z.nullable(NullableAttachmentsLinkEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -295,6 +303,7 @@ export const TicketingTicketEntity$outboundSchema: z.ZodType<
     incidentCurrentMilestone: "incident_current_milestone",
     taskId: "task_id",
     dueAt: "due_at",
+    syncErrorMessage: "sync_error_message",
   });
 });
 

@@ -6,6 +6,7 @@ import { ClientSDK } from "../lib/sdks.js";
 import { AccountSettings } from "./accountsettings.js";
 import { Alerts } from "./alerts.js";
 import { Audiences } from "./audiences.js";
+import { AuditEvents } from "./auditevents.js";
 import { CallRoutes } from "./callroutes.js";
 import { CatalogEntries } from "./catalogentries.js";
 import { Changes } from "./changes.js";
@@ -40,6 +41,11 @@ export class Firehydrant extends ClientSDK {
   private _teams?: Teams;
   get teams(): Teams {
     return (this._teams ??= new Teams(this._options));
+  }
+
+  private _callRoutes?: CallRoutes;
+  get callRoutes(): CallRoutes {
+    return (this._callRoutes ??= new CallRoutes(this._options));
   }
 
   private _signals?: Signals;
@@ -107,6 +113,11 @@ export class Firehydrant extends ClientSDK {
     return (this._runbooks ??= new Runbooks(this._options));
   }
 
+  private _auditEvents?: AuditEvents;
+  get auditEvents(): AuditEvents {
+    return (this._auditEvents ??= new AuditEvents(this._options));
+  }
+
   private _communication?: Communication;
   get communication(): Communication {
     return (this._communication ??= new Communication(this._options));
@@ -120,11 +131,6 @@ export class Firehydrant extends ClientSDK {
   private _scim?: Scim;
   get scim(): Scim {
     return (this._scim ??= new Scim(this._options));
-  }
-
-  private _callRoutes?: CallRoutes;
-  get callRoutes(): CallRoutes {
-    return (this._callRoutes ??= new CallRoutes(this._options));
   }
 
   private _webhooks?: Webhooks;

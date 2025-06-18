@@ -5,7 +5,7 @@ Create a single ticketing priority
 ## Example Usage
 
 ```typescript
-import { CreateTicketingPriority } from "firehydrant/models/components";
+import { CreateTicketingPriority } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTicketingPriority = {
   name: "<value>",

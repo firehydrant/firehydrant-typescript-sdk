@@ -5,7 +5,7 @@ The setting for auto-assigning the milestone's timestamp during incident declara
 ## Example Usage
 
 ```typescript
-import { UpdateLifecycleMilestoneAutoAssignTimestampOnCreate } from "firehydrant/models/operations";
+import { UpdateLifecycleMilestoneAutoAssignTimestampOnCreate } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateLifecycleMilestoneAutoAssignTimestampOnCreate =
   "only_set_on_manual_create";

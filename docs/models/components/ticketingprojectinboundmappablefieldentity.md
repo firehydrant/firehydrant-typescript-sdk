@@ -5,7 +5,7 @@ Ticketing_ProjectInboundMappableFieldEntity model
 ## Example Usage
 
 ```typescript
-import { TicketingProjectInboundMappableFieldEntity } from "firehydrant/models/components";
+import { TicketingProjectInboundMappableFieldEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TicketingProjectInboundMappableFieldEntity = {};
 ```

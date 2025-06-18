@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteIncidentRetrospectiveDynamicInputRequest } from "firehydrant/models/operations";
+import { DeleteIncidentRetrospectiveDynamicInputRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: DeleteIncidentRetrospectiveDynamicInputRequest = {
   retrospectiveId: "<id>",

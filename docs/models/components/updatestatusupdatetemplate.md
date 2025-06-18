@@ -5,7 +5,7 @@ Update a single status update template
 ## Example Usage
 
 ```typescript
-import { UpdateStatusUpdateTemplate } from "firehydrant/models/components";
+import { UpdateStatusUpdateTemplate } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateStatusUpdateTemplate = {};
 ```

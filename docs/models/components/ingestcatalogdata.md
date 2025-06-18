@@ -5,7 +5,7 @@ Accepts catalog data in the configured format and asyncronously processes the da
 ## Example Usage
 
 ```typescript
-import { IngestCatalogData } from "firehydrant/models/components";
+import { IngestCatalogData } from "firehydrant-typescript-sdk/models/components";
 
 let value: IngestCatalogData = {
   encoding: "text/yaml",

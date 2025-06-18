@@ -3,11 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSignalsEmailTargetRequest } from "firehydrant/models/operations";
+import { UpdateSignalsEmailTargetRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateSignalsEmailTargetRequest = {
   id: "<id>",
-  updateSignalsEmailTarget: {},
 };
 ```
 

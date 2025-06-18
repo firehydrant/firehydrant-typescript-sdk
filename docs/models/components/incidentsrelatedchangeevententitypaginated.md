@@ -5,7 +5,7 @@ Incidents_RelatedChangeEventEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IncidentsRelatedChangeEventEntityPaginated } from "firehydrant/models/components";
+import { IncidentsRelatedChangeEventEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRelatedChangeEventEntityPaginated = {};
 ```

@@ -5,7 +5,7 @@ Update a field value on a post mortem report
 ## Example Usage
 
 ```typescript
-import { UpdatePostMortemField } from "firehydrant/models/components";
+import { UpdatePostMortemField } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdatePostMortemField = {
   value: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateRunbookStep } from "firehydrant/models/components";
+import { CreateRunbookStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateRunbookStep = {
   name: "<value>",

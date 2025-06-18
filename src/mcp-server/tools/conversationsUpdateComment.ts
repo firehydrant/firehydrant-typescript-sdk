@@ -14,7 +14,7 @@ export const tool$conversationsUpdateComment: ToolDefinition<typeof args> = {
   name: "conversations-update-comment",
   description: `Update a conversation comment
 
-ALPHA - Update a comment's attributes`,
+Update a comment's attributes`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsUpdateComment(

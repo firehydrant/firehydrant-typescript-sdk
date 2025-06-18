@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BucketSize } from "firehydrant/models/operations";
+import { BucketSize } from "firehydrant-typescript-sdk/models/operations";
 
 let value: BucketSize = "day";
 ```

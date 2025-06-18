@@ -11,6 +11,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type GetTeamOnCallScheduleRequest = {
   teamId: string;
   scheduleId: string;
+  /**
+   * An optional ISO8601 timestamp for filtering the shifts listed in each on-call schedule to only include shifts that overlap with the provided time window. If provided, only shifts that end at or after this time will be included.
+   */
+  shiftTimeWindowStart?: string | null | undefined;
+  /**
+   * An optional ISO8601 timestamp for filtering the shifts listed in each on-call schedule to only include shifts that overlap with the provided time window.. If provided, only shifts that start at or before this time will be included.
+   */
+  shiftTimeWindowEnd?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,10 +29,14 @@ export const GetTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
 > = z.object({
   team_id: z.string(),
   schedule_id: z.string(),
+  shift_time_window_start: z.nullable(z.string()).optional(),
+  shift_time_window_end: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "team_id": "teamId",
     "schedule_id": "scheduleId",
+    "shift_time_window_start": "shiftTimeWindowStart",
+    "shift_time_window_end": "shiftTimeWindowEnd",
   });
 });
 
@@ -32,6 +44,8 @@ export const GetTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
 export type GetTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
   schedule_id: string;
+  shift_time_window_start?: string | null | undefined;
+  shift_time_window_end?: string | null | undefined;
 };
 
 /** @internal */
@@ -42,10 +56,14 @@ export const GetTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
 > = z.object({
   teamId: z.string(),
   scheduleId: z.string(),
+  shiftTimeWindowStart: z.nullable(z.string()).optional(),
+  shiftTimeWindowEnd: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     teamId: "team_id",
     scheduleId: "schedule_id",
+    shiftTimeWindowStart: "shift_time_window_start",
+    shiftTimeWindowEnd: "shift_time_window_end",
   });
 });
 

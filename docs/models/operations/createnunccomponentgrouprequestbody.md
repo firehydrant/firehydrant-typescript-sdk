@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateNuncComponentGroupRequestBody } from "firehydrant/models/operations";
+import { CreateNuncComponentGroupRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateNuncComponentGroupRequestBody = {
   name: "<value>",

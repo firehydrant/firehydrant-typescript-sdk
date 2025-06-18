@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Author } from "firehydrant/models/components";
+import { Author } from "firehydrant-typescript-sdk/models/components";
 
 let value: Author = {
   source: "<value>",

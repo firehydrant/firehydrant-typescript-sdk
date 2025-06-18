@@ -16,7 +16,7 @@ export const tool$conversationsListCommentReactions: ToolDefinition<
   name: "conversations-list-comment-reactions",
   description: `List reactions for a conversation comment
 
-ALPHA - List all of the reactions that have been added to a comment`,
+List all of the reactions that have been added to a comment`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsListCommentReactions(

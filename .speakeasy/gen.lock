@@ -1,20 +1,20 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: ddd45c04e206663a8f26b50c9e278699
+  docChecksum: 32d87b7cda3f8c3fc8eddd7ce59bcb55
   docVersion: 0.0.1
-  speakeasyVersion: 1.543.4
-  generationVersion: 2.598.22
-  releaseVersion: 0.1.13
-  configChecksum: 9c779f3d0d04af83dcd9803366b9f975
+  speakeasyVersion: 1.564.0
+  generationVersion: 2.630.8
+  releaseVersion: 1.0.0
+  configChecksum: 09055f27904c100f603f2ed2170839ce
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.11
-    core: 3.21.7
+    constsAndDefaults: 0.1.12
+    core: 3.21.11
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -27,7 +27,7 @@ features:
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
     uploadStreams: 0.1.0
 generatedFiles:
   - .devcontainer/README.md
@@ -163,15 +163,30 @@ generatedFiles:
   - docs/models/components/createseveritycolor.md
   - docs/models/components/createseveritymatrixcondition.md
   - docs/models/components/createseveritymatriximpact.md
+  - docs/models/components/createsignalsalertgroupingconfiguration.md
+  - docs/models/components/createsignalsalertgroupingconfigurationaction.md
+  - docs/models/components/createsignalsalertgroupingconfigurationfieldname.md
+  - docs/models/components/createsignalsalertgroupingconfigurationfyi.md
+  - docs/models/components/createsignalsalertgroupingconfigurationstrategy.md
+  - docs/models/components/createsignalsalertgroupingconfigurationsubstring.md
   - docs/models/components/createsignalsemailtarget.md
   - docs/models/components/createsignalsemailtargetrulematchingstrategy.md
   - docs/models/components/createsignalsemailtargettarget.md
   - docs/models/components/createsignalsemailtargettype.md
+  - docs/models/components/createsignalseventsource.md
+  - docs/models/components/createsignalseventsourcedata.md
+  - docs/models/components/createsignalseventsourceexamplepayload.md
   - docs/models/components/createsignalswebhooktarget.md
   - docs/models/components/createstatusupdatetemplate.md
   - docs/models/components/createtasklist.md
   - docs/models/components/createtasklisttasklistitem.md
   - docs/models/components/createteam.md
+  - docs/models/components/createteamcallroute.md
+  - docs/models/components/createteamcallrouteconnectmode.md
+  - docs/models/components/createteamcallrouteroutingmode.md
+  - docs/models/components/createteamcallroutestep.md
+  - docs/models/components/createteamcallroutetarget.md
+  - docs/models/components/createteamcallroutetargettype.md
   - docs/models/components/createteamescalationpolicy.md
   - docs/models/components/createteamescalationpolicydistributiontype.md
   - docs/models/components/createteamescalationpolicyhandoffstep.md
@@ -221,7 +236,6 @@ generatedFiles:
   - docs/models/components/environmententryentitypaginated.md
   - docs/models/components/eventgenericchatmessageentity.md
   - docs/models/components/eventnoteentity.md
-  - docs/models/components/examplepayload.md
   - docs/models/components/externalresourceentity.md
   - docs/models/components/fieldmappingfieldmapentity.md
   - docs/models/components/fieldmappingmappablefieldentity.md
@@ -233,6 +247,7 @@ generatedFiles:
   - docs/models/components/functionalityentitylitelabels.md
   - docs/models/components/functionalityentitypaginated.md
   - docs/models/components/functionalitywithallservicesentity.md
+  - docs/models/components/headers.md
   - docs/models/components/image.md
   - docs/models/components/importsimportentity.md
   - docs/models/components/importsimportentitystate.md
@@ -305,6 +320,7 @@ generatedFiles:
   - docs/models/components/integrationsconnectionstatusentitystatus.md
   - docs/models/components/integrationsintegrationentity.md
   - docs/models/components/integrationsintegrationentitypaginated.md
+  - docs/models/components/integrationsslackslackchannelentity.md
   - docs/models/components/integrationsslackusergroupentity.md
   - docs/models/components/integrationsslackworkspaceentity.md
   - docs/models/components/integrationsstatuspageconditionentity.md
@@ -406,11 +422,23 @@ generatedFiles:
   - docs/models/components/nullableserviceentitymanagedbysettings.md
   - docs/models/components/nullableseveritymatrixconditionentity.md
   - docs/models/components/nullableseveritymatriximpactentity.md
+  - docs/models/components/nullablesignalsapianalyticsgroupedmetricsentitymetricentity.md
+  - docs/models/components/nullablesignalsapianalyticsmttxmetricsentitymetricentity.md
+  - docs/models/components/nullablesignalsapianalyticstimeseriespointentitymetricentity.md
+  - docs/models/components/nullablesignalsapicallroutestepentity.md
+  - docs/models/components/nullablesignalsapiescalationpolicyhandoffstepentity.md
+  - docs/models/components/nullablesignalsapigroupingentityactionentity.md
+  - docs/models/components/nullablesignalsapigroupingentityactionentityfyientity.md
+  - docs/models/components/nullablesignalsapigroupingentitystrategyentity.md
+  - docs/models/components/nullablesignalsapigroupingentitystrategyentitysubstringentity.md
+  - docs/models/components/nullablesignalsapioncallshiftentity.md
+  - docs/models/components/nullablesignalsapioncallstrategyentity.md
   - docs/models/components/nullablesignalsapiruleentity.md
   - docs/models/components/nullablesignalsapiruleentitycreateincidentconditionwhen.md
   - docs/models/components/nullablesignalsapiruleentitynotificationpriorityoverride.md
   - docs/models/components/nullablesignalsapitargetentity.md
   - docs/models/components/nullablesignalsapitransposerentity.md
+  - docs/models/components/nullablesignalsapitransposerentityexamplepayload.md
   - docs/models/components/nullableslimrunbookentity.md
   - docs/models/components/nullablesuccinctentity.md
   - docs/models/components/nullabletasklistitementity.md
@@ -445,6 +473,8 @@ generatedFiles:
   - docs/models/components/postmortemssectionfieldentity.md
   - docs/models/components/priorityentity.md
   - docs/models/components/publicapiv1bootstrapentity.md
+  - docs/models/components/publicapiv1formconfigurationsselectedvalueentity.md
+  - docs/models/components/publicapiv1formconfigurationsselectedvalueentitytemplate.md
   - docs/models/components/publicapiv1incidentssuccinctentity.md
   - docs/models/components/publicapiv1incidentstranscriptentity.md
   - docs/models/components/publicapiv1integrationsauthedproviderentity.md
@@ -500,8 +530,41 @@ generatedFiles:
   - docs/models/components/severitymatrixitementity.md
   - docs/models/components/severitymatrixseveritymatrixentity.md
   - docs/models/components/signal.md
+  - docs/models/components/signalsapianalyticsgroupedmetricsentity.md
+  - docs/models/components/signalsapianalyticsmttxmetricsentity.md
+  - docs/models/components/signalsapianalyticstimeseriespointentity.md
+  - docs/models/components/signalsapicallrouteentity.md
+  - docs/models/components/signalsapicallrouteentityconnectmode.md
+  - docs/models/components/signalsapicallrouteentitypaginated.md
+  - docs/models/components/signalsapicallrouteentityroutingmode.md
+  - docs/models/components/signalsapiemailtargetentity.md
+  - docs/models/components/signalsapiemailtargetentitypaginated.md
+  - docs/models/components/signalsapiescalationpolicyentity.md
+  - docs/models/components/signalsapiescalationpolicyentitypaginated.md
+  - docs/models/components/signalsapiescalationpolicystepentity.md
+  - docs/models/components/signalsapiescalationpolicystepentitydistributiontype.md
+  - docs/models/components/signalsapigroupingentity.md
+  - docs/models/components/signalsapigroupingentitypaginated.md
   - docs/models/components/signalsapiingestkeyentity.md
+  - docs/models/components/signalsapinotificationprioritypolicyentity.md
+  - docs/models/components/signalsapioncallrestrictionentity.md
+  - docs/models/components/signalsapioncallrotationentity.md
+  - docs/models/components/signalsapioncallscheduleentity.md
+  - docs/models/components/signalsapioncallscheduleentitypaginated.md
+  - docs/models/components/signalsapioncallshiftentity.md
+  - docs/models/components/signalsapiorganizationoncallrotationentity.md
+  - docs/models/components/signalsapiorganizationoncallscheduleentity.md
+  - docs/models/components/signalsapiorganizationoncallscheduleentitypaginated.md
+  - docs/models/components/signalsapiruleentity.md
+  - docs/models/components/signalsapiruleentitycreateincidentconditionwhen.md
+  - docs/models/components/signalsapiruleentitynotificationpriorityoverride.md
+  - docs/models/components/signalsapiruleentitypaginated.md
+  - docs/models/components/signalsapitargetentity.md
+  - docs/models/components/signalsapitransposerentity.md
+  - docs/models/components/signalsapitransposerentityexamplepayload.md
   - docs/models/components/signalsapitransposerlistentity.md
+  - docs/models/components/signalsapiwebhooktargetentity.md
+  - docs/models/components/signalsapiwebhooktargetentitypaginated.md
   - docs/models/components/similarincidententitypaginated.md
   - docs/models/components/slimrunbookentity.md
   - docs/models/components/statuspageiocondition.md
@@ -535,6 +598,13 @@ generatedFiles:
   - docs/models/components/tier.md
   - docs/models/components/updateawscloudtrailbatch.md
   - docs/models/components/updateawsconnection.md
+  - docs/models/components/updatecallroute.md
+  - docs/models/components/updatecallrouteconnectmode.md
+  - docs/models/components/updatecallrouteroutingmode.md
+  - docs/models/components/updatecallroutestep.md
+  - docs/models/components/updatecallroutetarget.md
+  - docs/models/components/updatecallroutetargettype.md
+  - docs/models/components/updatecallroutetype.md
   - docs/models/components/updatechange.md
   - docs/models/components/updatechangeevent.md
   - docs/models/components/updatechangeeventattachment.md
@@ -614,6 +684,12 @@ generatedFiles:
   - docs/models/components/updateseveritymatrixcondition.md
   - docs/models/components/updateseveritymatrixdata.md
   - docs/models/components/updateseveritymatriximpact.md
+  - docs/models/components/updatesignalsalertgroupingconfiguration.md
+  - docs/models/components/updatesignalsalertgroupingconfigurationaction.md
+  - docs/models/components/updatesignalsalertgroupingconfigurationfieldname.md
+  - docs/models/components/updatesignalsalertgroupingconfigurationfyi.md
+  - docs/models/components/updatesignalsalertgroupingconfigurationstrategy.md
+  - docs/models/components/updatesignalsalertgroupingconfigurationsubstring.md
   - docs/models/components/updatesignalsemailtarget.md
   - docs/models/components/updatesignalsemailtargetrulematchingstrategy.md
   - docs/models/components/updatesignalsemailtargettarget.md
@@ -672,6 +748,7 @@ generatedFiles:
   - docs/models/components/webhooksentitieswebhookentity.md
   - docs/models/errors/errorentity.md
   - docs/models/errors/meta.md
+  - docs/models/operations/appendformdataonselectedvaluegetrequest.md
   - docs/models/operations/archiveaudiencerequest.md
   - docs/models/operations/auditabletype.md
   - docs/models/operations/bucket.md
@@ -725,11 +802,13 @@ generatedFiles:
   - docs/models/operations/createservicechecklistresponserequest.md
   - docs/models/operations/createslackemojiactionrequest.md
   - docs/models/operations/createslackemojiactionrequestbody.md
+  - docs/models/operations/createteamcallrouterequest.md
   - docs/models/operations/createteamescalationpolicyrequest.md
   - docs/models/operations/createteamoncallschedulerequest.md
   - docs/models/operations/createteamsignalrulerequest.md
   - docs/models/operations/createticketingfieldmaprequest.md
   - docs/models/operations/createticketingprojectconfigrequest.md
+  - docs/models/operations/deletecallrouterequest.md
   - docs/models/operations/deletechangeeventrequest.md
   - docs/models/operations/deletechangeidentityrequest.md
   - docs/models/operations/deletechangerequest.md
@@ -780,7 +859,9 @@ generatedFiles:
   - docs/models/operations/deleteseveritymatrixconditionrequest.md
   - docs/models/operations/deleteseveritymatriximpactrequest.md
   - docs/models/operations/deleteseverityrequest.md
+  - docs/models/operations/deletesignalsalertgroupingconfigurationrequest.md
   - docs/models/operations/deletesignalsemailtargetrequest.md
+  - docs/models/operations/deletesignalseventsourcerequest.md
   - docs/models/operations/deletesignalswebhooktargetrequest.md
   - docs/models/operations/deleteslackemojiactionrequest.md
   - docs/models/operations/deletestatuspageconnectionrequest.md
@@ -806,8 +887,10 @@ generatedFiles:
   - docs/models/operations/getalertrequest.md
   - docs/models/operations/getaudiencerequest.md
   - docs/models/operations/getaudiencesummaryrequest.md
+  - docs/models/operations/getauditeventrequest.md
   - docs/models/operations/getawscloudtrailbatchrequest.md
   - docs/models/operations/getawsconnectionrequest.md
+  - docs/models/operations/getcallrouterequest.md
   - docs/models/operations/getchangeeventrequest.md
   - docs/models/operations/getchecklisttemplaterequest.md
   - docs/models/operations/getcommentrequest.md
@@ -851,7 +934,9 @@ generatedFiles:
   - docs/models/operations/getservicerequest.md
   - docs/models/operations/getseveritymatrixconditionrequest.md
   - docs/models/operations/getseverityrequest.md
+  - docs/models/operations/getsignalsalertgroupingconfigurationrequest.md
   - docs/models/operations/getsignalsemailtargetrequest.md
+  - docs/models/operations/getsignalseventsourcerequest.md
   - docs/models/operations/getsignalsgroupedmetricsgroupby.md
   - docs/models/operations/getsignalsgroupedmetricsrequest.md
   - docs/models/operations/getsignalsgroupedmetricssortby.md
@@ -889,6 +974,7 @@ generatedFiles:
   - docs/models/operations/listalertstagmatchstrategy.md
   - docs/models/operations/listaudiencesrequest.md
   - docs/models/operations/listaudiencesummariesrequest.md
+  - docs/models/operations/listauditeventsrequest.md
   - docs/models/operations/listauthedprovidersrequest.md
   - docs/models/operations/listavailableinboundfieldmapsrequest.md
   - docs/models/operations/listavailableticketingfieldmapsrequest.md
@@ -980,6 +1066,7 @@ generatedFiles:
   - docs/models/operations/liststatuspageconnectionsrequest.md
   - docs/models/operations/liststatusupdatetemplatesrequest.md
   - docs/models/operations/listtasklistsrequest.md
+  - docs/models/operations/listteamcallroutesrequest.md
   - docs/models/operations/listteamescalationpoliciesrequest.md
   - docs/models/operations/listteamoncallschedulesrequest.md
   - docs/models/operations/listteamsignalrulesrequest.md
@@ -1026,6 +1113,7 @@ generatedFiles:
   - docs/models/operations/updateauthedproviderrequestbody.md
   - docs/models/operations/updateawscloudtrailbatchrequest.md
   - docs/models/operations/updateawsconnectionrequest.md
+  - docs/models/operations/updatecallrouterequest.md
   - docs/models/operations/updatechangeeventrequest.md
   - docs/models/operations/updatechangeidentityrequest.md
   - docs/models/operations/updatechangerequest.md
@@ -1085,6 +1173,7 @@ generatedFiles:
   - docs/models/operations/updateseveritymatrixconditionrequest.md
   - docs/models/operations/updateseveritymatriximpactrequest.md
   - docs/models/operations/updateseverityrequest.md
+  - docs/models/operations/updatesignalsalertgroupingconfigurationrequest.md
   - docs/models/operations/updatesignalsemailtargetrequest.md
   - docs/models/operations/updatesignalswebhooktargetrequest.md
   - docs/models/operations/updateslackemojiactionrequest.md
@@ -1110,6 +1199,7 @@ generatedFiles:
   - docs/sdks/accountsettings/README.md
   - docs/sdks/alerts/README.md
   - docs/sdks/audiences/README.md
+  - docs/sdks/auditevents/README.md
   - docs/sdks/callroutes/README.md
   - docs/sdks/catalogentries/README.md
   - docs/sdks/changes/README.md
@@ -1159,7 +1249,14 @@ generatedFiles:
   - src/funcs/audiencesRestoreAudience.ts
   - src/funcs/audiencesSetMemberDefaultAudience.ts
   - src/funcs/audiencesUpdateAudience.ts
+  - src/funcs/auditEventsGetAuditEvent.ts
+  - src/funcs/auditEventsListAuditEvents.ts
+  - src/funcs/callRoutesCreateTeamCallRoute.ts
+  - src/funcs/callRoutesDeleteCallRoute.ts
+  - src/funcs/callRoutesGetCallRoute.ts
   - src/funcs/callRoutesListCallRoutes.ts
+  - src/funcs/callRoutesListTeamCallRoutes.ts
+  - src/funcs/callRoutesUpdateCallRoute.ts
   - src/funcs/catalogEntriesCreateEnvironment.ts
   - src/funcs/catalogEntriesCreateFunctionality.ts
   - src/funcs/catalogEntriesCreateService.ts
@@ -1219,6 +1316,7 @@ generatedFiles:
   - src/funcs/conversationsListComments.ts
   - src/funcs/conversationsUpdateComment.ts
   - src/funcs/conversationsUpdateVote.ts
+  - src/funcs/incidentSettingsAppendFormDataOnSelectedValueGet.ts
   - src/funcs/incidentSettingsCreateCustomFieldDefinition.ts
   - src/funcs/incidentSettingsCreateIncidentRole.ts
   - src/funcs/incidentSettingsCreateIncidentType.ts
@@ -1429,26 +1527,33 @@ generatedFiles:
   - src/funcs/scimUpdateSCIMGroup.ts
   - src/funcs/scimUpdateSCIMUser.ts
   - src/funcs/signalsCreateOnCallShift.ts
+  - src/funcs/signalsCreateSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsCreateSignalsEmailTarget.ts
+  - src/funcs/signalsCreateSignalsEventSource.ts
   - src/funcs/signalsCreateSignalsWebhookTarget.ts
   - src/funcs/signalsCreateTeamEscalationPolicy.ts
   - src/funcs/signalsCreateTeamOnCallSchedule.ts
   - src/funcs/signalsCreateTeamSignalRule.ts
   - src/funcs/signalsDebugSignalsExpression.ts
   - src/funcs/signalsDeleteOnCallShift.ts
+  - src/funcs/signalsDeleteSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsDeleteSignalsEmailTarget.ts
+  - src/funcs/signalsDeleteSignalsEventSource.ts
   - src/funcs/signalsDeleteSignalsWebhookTarget.ts
   - src/funcs/signalsDeleteTeamEscalationPolicy.ts
   - src/funcs/signalsDeleteTeamOnCallSchedule.ts
   - src/funcs/signalsDeleteTeamSignalRule.ts
   - src/funcs/signalsGetOnCallShift.ts
+  - src/funcs/signalsGetSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsGetSignalsEmailTarget.ts
+  - src/funcs/signalsGetSignalsEventSource.ts
   - src/funcs/signalsGetSignalsIngestUrl.ts
   - src/funcs/signalsGetSignalsWebhookTarget.ts
   - src/funcs/signalsGetTeamEscalationPolicy.ts
   - src/funcs/signalsGetTeamOnCallSchedule.ts
   - src/funcs/signalsGetTeamSignalRule.ts
   - src/funcs/signalsListOrganizationOnCallSchedules.ts
+  - src/funcs/signalsListSignalsAlertGroupingConfigurations.ts
   - src/funcs/signalsListSignalsEmailTargets.ts
   - src/funcs/signalsListSignalsEventSources.ts
   - src/funcs/signalsListSignalsTransposers.ts
@@ -1457,6 +1562,7 @@ generatedFiles:
   - src/funcs/signalsListTeamOnCallSchedules.ts
   - src/funcs/signalsListTeamSignalRules.ts
   - src/funcs/signalsUpdateOnCallShift.ts
+  - src/funcs/signalsUpdateSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsUpdateSignalsEmailTarget.ts
   - src/funcs/signalsUpdateSignalsWebhookTarget.ts
   - src/funcs/signalsUpdateTeamEscalationPolicy.ts
@@ -1600,7 +1706,14 @@ generatedFiles:
   - src/mcp-server/tools/audiencesRestoreAudience.ts
   - src/mcp-server/tools/audiencesSetMemberDefaultAudience.ts
   - src/mcp-server/tools/audiencesUpdateAudience.ts
+  - src/mcp-server/tools/auditEventsGetAuditEvent.ts
+  - src/mcp-server/tools/auditEventsListAuditEvents.ts
+  - src/mcp-server/tools/callRoutesCreateTeamCallRoute.ts
+  - src/mcp-server/tools/callRoutesDeleteCallRoute.ts
+  - src/mcp-server/tools/callRoutesGetCallRoute.ts
   - src/mcp-server/tools/callRoutesListCallRoutes.ts
+  - src/mcp-server/tools/callRoutesListTeamCallRoutes.ts
+  - src/mcp-server/tools/callRoutesUpdateCallRoute.ts
   - src/mcp-server/tools/catalogEntriesCreateEnvironment.ts
   - src/mcp-server/tools/catalogEntriesCreateFunctionality.ts
   - src/mcp-server/tools/catalogEntriesCreateService.ts
@@ -1660,6 +1773,7 @@ generatedFiles:
   - src/mcp-server/tools/conversationsListComments.ts
   - src/mcp-server/tools/conversationsUpdateComment.ts
   - src/mcp-server/tools/conversationsUpdateVote.ts
+  - src/mcp-server/tools/incidentSettingsAppendFormDataOnSelectedValueGet.ts
   - src/mcp-server/tools/incidentSettingsCreateCustomFieldDefinition.ts
   - src/mcp-server/tools/incidentSettingsCreateIncidentRole.ts
   - src/mcp-server/tools/incidentSettingsCreateIncidentType.ts
@@ -1870,26 +1984,33 @@ generatedFiles:
   - src/mcp-server/tools/scimUpdateSCIMGroup.ts
   - src/mcp-server/tools/scimUpdateSCIMUser.ts
   - src/mcp-server/tools/signalsCreateOnCallShift.ts
+  - src/mcp-server/tools/signalsCreateSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsCreateSignalsEmailTarget.ts
+  - src/mcp-server/tools/signalsCreateSignalsEventSource.ts
   - src/mcp-server/tools/signalsCreateSignalsWebhookTarget.ts
   - src/mcp-server/tools/signalsCreateTeamEscalationPolicy.ts
   - src/mcp-server/tools/signalsCreateTeamOnCallSchedule.ts
   - src/mcp-server/tools/signalsCreateTeamSignalRule.ts
   - src/mcp-server/tools/signalsDebugSignalsExpression.ts
   - src/mcp-server/tools/signalsDeleteOnCallShift.ts
+  - src/mcp-server/tools/signalsDeleteSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsDeleteSignalsEmailTarget.ts
+  - src/mcp-server/tools/signalsDeleteSignalsEventSource.ts
   - src/mcp-server/tools/signalsDeleteSignalsWebhookTarget.ts
   - src/mcp-server/tools/signalsDeleteTeamEscalationPolicy.ts
   - src/mcp-server/tools/signalsDeleteTeamOnCallSchedule.ts
   - src/mcp-server/tools/signalsDeleteTeamSignalRule.ts
   - src/mcp-server/tools/signalsGetOnCallShift.ts
+  - src/mcp-server/tools/signalsGetSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsGetSignalsEmailTarget.ts
+  - src/mcp-server/tools/signalsGetSignalsEventSource.ts
   - src/mcp-server/tools/signalsGetSignalsIngestUrl.ts
   - src/mcp-server/tools/signalsGetSignalsWebhookTarget.ts
   - src/mcp-server/tools/signalsGetTeamEscalationPolicy.ts
   - src/mcp-server/tools/signalsGetTeamOnCallSchedule.ts
   - src/mcp-server/tools/signalsGetTeamSignalRule.ts
   - src/mcp-server/tools/signalsListOrganizationOnCallSchedules.ts
+  - src/mcp-server/tools/signalsListSignalsAlertGroupingConfigurations.ts
   - src/mcp-server/tools/signalsListSignalsEmailTargets.ts
   - src/mcp-server/tools/signalsListSignalsEventSources.ts
   - src/mcp-server/tools/signalsListSignalsTransposers.ts
@@ -1898,6 +2019,7 @@ generatedFiles:
   - src/mcp-server/tools/signalsListTeamOnCallSchedules.ts
   - src/mcp-server/tools/signalsListTeamSignalRules.ts
   - src/mcp-server/tools/signalsUpdateOnCallShift.ts
+  - src/mcp-server/tools/signalsUpdateSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsUpdateSignalsEmailTarget.ts
   - src/mcp-server/tools/signalsUpdateSignalsWebhookTarget.ts
   - src/mcp-server/tools/signalsUpdateTeamEscalationPolicy.ts
@@ -2054,11 +2176,14 @@ generatedFiles:
   - src/models/components/createseverity.ts
   - src/models/components/createseveritymatrixcondition.ts
   - src/models/components/createseveritymatriximpact.ts
+  - src/models/components/createsignalsalertgroupingconfiguration.ts
   - src/models/components/createsignalsemailtarget.ts
+  - src/models/components/createsignalseventsource.ts
   - src/models/components/createsignalswebhooktarget.ts
   - src/models/components/createstatusupdatetemplate.ts
   - src/models/components/createtasklist.ts
   - src/models/components/createteam.ts
+  - src/models/components/createteamcallroute.ts
   - src/models/components/createteamescalationpolicy.ts
   - src/models/components/createteamoncallschedule.ts
   - src/models/components/createteamsignalrule.ts
@@ -2135,6 +2260,7 @@ generatedFiles:
   - src/models/components/integrationsconnectionstatusentity.ts
   - src/models/components/integrationsintegrationentity.ts
   - src/models/components/integrationsintegrationentitypaginated.ts
+  - src/models/components/integrationsslackslackchannelentity.ts
   - src/models/components/integrationsslackusergroupentity.ts
   - src/models/components/integrationsslackworkspaceentity.ts
   - src/models/components/integrationsstatuspageconditionentity.ts
@@ -2209,6 +2335,17 @@ generatedFiles:
   - src/models/components/nullableserviceentity.ts
   - src/models/components/nullableseveritymatrixconditionentity.ts
   - src/models/components/nullableseveritymatriximpactentity.ts
+  - src/models/components/nullablesignalsapianalyticsgroupedmetricsentitymetricentity.ts
+  - src/models/components/nullablesignalsapianalyticsmttxmetricsentitymetricentity.ts
+  - src/models/components/nullablesignalsapianalyticstimeseriespointentitymetricentity.ts
+  - src/models/components/nullablesignalsapicallroutestepentity.ts
+  - src/models/components/nullablesignalsapiescalationpolicyhandoffstepentity.ts
+  - src/models/components/nullablesignalsapigroupingentityactionentity.ts
+  - src/models/components/nullablesignalsapigroupingentityactionentityfyientity.ts
+  - src/models/components/nullablesignalsapigroupingentitystrategyentity.ts
+  - src/models/components/nullablesignalsapigroupingentitystrategyentitysubstringentity.ts
+  - src/models/components/nullablesignalsapioncallshiftentity.ts
+  - src/models/components/nullablesignalsapioncallstrategyentity.ts
   - src/models/components/nullablesignalsapiruleentity.ts
   - src/models/components/nullablesignalsapitargetentity.ts
   - src/models/components/nullablesignalsapitransposerentity.ts
@@ -2240,6 +2377,7 @@ generatedFiles:
   - src/models/components/postmortemssectionfieldentity.ts
   - src/models/components/priorityentity.ts
   - src/models/components/publicapiv1bootstrapentity.ts
+  - src/models/components/publicapiv1formconfigurationsselectedvalueentity.ts
   - src/models/components/publicapiv1incidentssuccinctentity.ts
   - src/models/components/publicapiv1incidentstranscriptentity.ts
   - src/models/components/publicapiv1integrationsauthedproviderentity.ts
@@ -2282,8 +2420,35 @@ generatedFiles:
   - src/models/components/severitymatriximpactentity.ts
   - src/models/components/severitymatrixitementity.ts
   - src/models/components/severitymatrixseveritymatrixentity.ts
+  - src/models/components/signalsapianalyticsgroupedmetricsentity.ts
+  - src/models/components/signalsapianalyticsmttxmetricsentity.ts
+  - src/models/components/signalsapianalyticstimeseriespointentity.ts
+  - src/models/components/signalsapicallrouteentity.ts
+  - src/models/components/signalsapicallrouteentitypaginated.ts
+  - src/models/components/signalsapiemailtargetentity.ts
+  - src/models/components/signalsapiemailtargetentitypaginated.ts
+  - src/models/components/signalsapiescalationpolicyentity.ts
+  - src/models/components/signalsapiescalationpolicyentitypaginated.ts
+  - src/models/components/signalsapiescalationpolicystepentity.ts
+  - src/models/components/signalsapigroupingentity.ts
+  - src/models/components/signalsapigroupingentitypaginated.ts
   - src/models/components/signalsapiingestkeyentity.ts
+  - src/models/components/signalsapinotificationprioritypolicyentity.ts
+  - src/models/components/signalsapioncallrestrictionentity.ts
+  - src/models/components/signalsapioncallrotationentity.ts
+  - src/models/components/signalsapioncallscheduleentity.ts
+  - src/models/components/signalsapioncallscheduleentitypaginated.ts
+  - src/models/components/signalsapioncallshiftentity.ts
+  - src/models/components/signalsapiorganizationoncallrotationentity.ts
+  - src/models/components/signalsapiorganizationoncallscheduleentity.ts
+  - src/models/components/signalsapiorganizationoncallscheduleentitypaginated.ts
+  - src/models/components/signalsapiruleentity.ts
+  - src/models/components/signalsapiruleentitypaginated.ts
+  - src/models/components/signalsapitargetentity.ts
+  - src/models/components/signalsapitransposerentity.ts
   - src/models/components/signalsapitransposerlistentity.ts
+  - src/models/components/signalsapiwebhooktargetentity.ts
+  - src/models/components/signalsapiwebhooktargetentitypaginated.ts
   - src/models/components/similarincidententitypaginated.ts
   - src/models/components/slimrunbookentity.ts
   - src/models/components/statusupdatetemplateentity.ts
@@ -2308,6 +2473,7 @@ generatedFiles:
   - src/models/components/ticketingticketentity.ts
   - src/models/components/updateawscloudtrailbatch.ts
   - src/models/components/updateawsconnection.ts
+  - src/models/components/updatecallroute.ts
   - src/models/components/updatechange.ts
   - src/models/components/updatechangeevent.ts
   - src/models/components/updatechangeidentity.ts
@@ -2348,6 +2514,7 @@ generatedFiles:
   - src/models/components/updateseveritymatrix.ts
   - src/models/components/updateseveritymatrixcondition.ts
   - src/models/components/updateseveritymatriximpact.ts
+  - src/models/components/updatesignalsalertgroupingconfiguration.ts
   - src/models/components/updatesignalsemailtarget.ts
   - src/models/components/updatesignalswebhooktarget.ts
   - src/models/components/updatestatuspageconnection.ts
@@ -2367,9 +2534,12 @@ generatedFiles:
   - src/models/components/webhooksentitieswebhookentity.ts
   - src/models/errors/apierror.ts
   - src/models/errors/errorentity.ts
+  - src/models/errors/firehydranterror.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
+  - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/appendformdataonselectedvalueget.ts
   - src/models/operations/archiveaudience.ts
   - src/models/operations/bulkupdateincidentmilestones.ts
   - src/models/operations/closeincident.ts
@@ -2407,11 +2577,13 @@ generatedFiles:
   - src/models/operations/createsavedsearch.ts
   - src/models/operations/createservicechecklistresponse.ts
   - src/models/operations/createslackemojiaction.ts
+  - src/models/operations/createteamcallroute.ts
   - src/models/operations/createteamescalationpolicy.ts
   - src/models/operations/createteamoncallschedule.ts
   - src/models/operations/createteamsignalrule.ts
   - src/models/operations/createticketingfieldmap.ts
   - src/models/operations/createticketingprojectconfig.ts
+  - src/models/operations/deletecallroute.ts
   - src/models/operations/deletechange.ts
   - src/models/operations/deletechangeevent.ts
   - src/models/operations/deletechangeidentity.ts
@@ -2459,7 +2631,9 @@ generatedFiles:
   - src/models/operations/deleteseverity.ts
   - src/models/operations/deleteseveritymatrixcondition.ts
   - src/models/operations/deleteseveritymatriximpact.ts
+  - src/models/operations/deletesignalsalertgroupingconfiguration.ts
   - src/models/operations/deletesignalsemailtarget.ts
+  - src/models/operations/deletesignalseventsource.ts
   - src/models/operations/deletesignalswebhooktarget.ts
   - src/models/operations/deleteslackemojiaction.ts
   - src/models/operations/deletestatuspageconnection.ts
@@ -2481,8 +2655,10 @@ generatedFiles:
   - src/models/operations/getalert.ts
   - src/models/operations/getaudience.ts
   - src/models/operations/getaudiencesummary.ts
+  - src/models/operations/getauditevent.ts
   - src/models/operations/getawscloudtrailbatch.ts
   - src/models/operations/getawsconnection.ts
+  - src/models/operations/getcallroute.ts
   - src/models/operations/getchangeevent.ts
   - src/models/operations/getchecklisttemplate.ts
   - src/models/operations/getcomment.ts
@@ -2525,7 +2701,9 @@ generatedFiles:
   - src/models/operations/getservicedependency.ts
   - src/models/operations/getseverity.ts
   - src/models/operations/getseveritymatrixcondition.ts
+  - src/models/operations/getsignalsalertgroupingconfiguration.ts
   - src/models/operations/getsignalsemailtarget.ts
+  - src/models/operations/getsignalseventsource.ts
   - src/models/operations/getsignalsgroupedmetrics.ts
   - src/models/operations/getsignalsingesturl.ts
   - src/models/operations/getsignalsmttxanalytics.ts
@@ -2553,6 +2731,7 @@ generatedFiles:
   - src/models/operations/listalerts.ts
   - src/models/operations/listaudiences.ts
   - src/models/operations/listaudiencesummaries.ts
+  - src/models/operations/listauditevents.ts
   - src/models/operations/listauthedproviders.ts
   - src/models/operations/listavailableinboundfieldmaps.ts
   - src/models/operations/listavailableticketingfieldmaps.ts
@@ -2633,6 +2812,7 @@ generatedFiles:
   - src/models/operations/liststatuspageconnections.ts
   - src/models/operations/liststatusupdatetemplates.ts
   - src/models/operations/listtasklists.ts
+  - src/models/operations/listteamcallroutes.ts
   - src/models/operations/listteamescalationpolicies.ts
   - src/models/operations/listteamoncallschedules.ts
   - src/models/operations/listteams.ts
@@ -2663,6 +2843,7 @@ generatedFiles:
   - src/models/operations/updateauthedprovider.ts
   - src/models/operations/updateawscloudtrailbatch.ts
   - src/models/operations/updateawsconnection.ts
+  - src/models/operations/updatecallroute.ts
   - src/models/operations/updatechange.ts
   - src/models/operations/updatechangeevent.ts
   - src/models/operations/updatechangeidentity.ts
@@ -2712,6 +2893,7 @@ generatedFiles:
   - src/models/operations/updateseverity.ts
   - src/models/operations/updateseveritymatrixcondition.ts
   - src/models/operations/updateseveritymatriximpact.ts
+  - src/models/operations/updatesignalsalertgroupingconfiguration.ts
   - src/models/operations/updatesignalsemailtarget.ts
   - src/models/operations/updatesignalswebhooktarget.ts
   - src/models/operations/updateslackemojiaction.ts
@@ -2733,6 +2915,7 @@ generatedFiles:
   - src/sdk/accountsettings.ts
   - src/sdk/alerts.ts
   - src/sdk/audiences.ts
+  - src/sdk/auditevents.ts
   - src/sdk/callroutes.ts
   - src/sdk/catalogentries.ts
   - src/sdk/changes.ts
@@ -2850,10 +3033,10 @@ examples:
   create_service_links:
     speakeasy-default-create-service-links:
       requestBody:
-        application/json: {"external_service_ids": "<value>", "connection_id": "<id>", "integration": "victorops"}
+        application/json: {"external_service_ids": "<value>", "connection_id": "<id>", "integration": "pager_duty"}
       responses:
         "201":
-          application/json: [{}, {}]
+          application/json: [{}]
   get_service:
     speakeasy-default-get-service:
       parameters:
@@ -2885,7 +3068,6 @@ examples:
       parameters:
         path:
           service_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -2918,7 +3100,7 @@ examples:
           service_id: "<id>"
           checklist_id: "<id>"
       requestBody:
-        application/json: {"check_id": "<id>", "status": true}
+        application/json: {"check_id": "<id>", "status": false}
   create_service_dependency:
     speakeasy-default-create-service-dependency:
       requestBody:
@@ -3003,10 +3185,9 @@ examples:
       parameters:
         path:
           id: "<id>"
-        query: {}
       responses:
         "200":
-          application/json: [{}, {}, {}]
+          application/json: [{}]
   list_infrastructures:
     speakeasy-default-list-infrastructures:
       responses:
@@ -3023,7 +3204,7 @@ examples:
         path:
           catalog_id: "<id>"
       requestBody:
-        application/json: {"encoding": "application/x-yaml", "data": "<value>"}
+        application/json: {"encoding": "application/json", "data": "<value>"}
       responses:
         "201":
           application/json: {}
@@ -3044,7 +3225,6 @@ examples:
       parameters:
         path:
           team_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3071,25 +3251,82 @@ examples:
       responses:
         "200":
           application/json: {}
+  list_team_call_routes:
+    speakeasy-default-list-team-call-routes:
+      parameters:
+        path:
+          team_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  create_team_call_route:
+    speakeasy-default-create-team-call-route:
+      parameters:
+        path:
+          team_id: "<id>"
+      requestBody:
+        application/json: {"name": "<value>", "phone_number": "459.729.2163", "routing_mode": "ROUTING_MODE_DIRECT_CONNECT"}
+      responses:
+        "201":
+          application/json: {}
+  list_call_routes:
+    speakeasy-default-list-call-routes:
+      responses:
+        "200":
+          application/json: {}
+  get_call_route:
+    speakeasy-default-get-call-route:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  delete_call_route:
+    speakeasy-default-delete-call-route:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  update_call_route:
+    speakeasy-default-update-call-route:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
   list_team_escalation_policies:
     speakeasy-default-list-team-escalation-policies:
       parameters:
         path:
           team_id: "<id>"
-        query: {}
+      responses:
+        "200":
+          application/json: {}
   create_team_escalation_policy:
     speakeasy-default-create-team-escalation-policy:
       parameters:
         path:
           team_id: "<id>"
       requestBody:
-        application/json: {"name": "<value>", "repetitions": 0, "default": false, "steps": [{"targets": [], "timeout": "<value>"}, {"targets": [{"type": "Webhook", "id": "<id>"}, {"type": "OnCallSchedule", "id": "<id>"}], "timeout": "<value>"}, {"targets": [{"type": "SlackChannel", "id": "<id>"}, {"type": "EntireTeam", "id": "<id>"}], "timeout": "<value>"}]}
+        application/json: {"name": "<value>", "repetitions": 0, "default": false, "steps": []}
+      responses:
+        "201":
+          application/json: {}
   get_team_escalation_policy:
     speakeasy-default-get-team-escalation-policy:
       parameters:
         path:
           team_id: "<id>"
           id: "<id>"
+      responses:
+        "200":
+          application/json: {}
   delete_team_escalation_policy:
     speakeasy-default-delete-team-escalation-policy:
       parameters:
@@ -3104,25 +3341,36 @@ examples:
           id: "<id>"
       requestBody:
         application/json: {"repetitions": 0, "default": false}
+      responses:
+        "200":
+          application/json: {}
   list_team_on_call_schedules:
     speakeasy-default-list-team-on-call-schedules:
       parameters:
         path:
           team_id: "<id>"
-        query: {}
+      responses:
+        "200":
+          application/json: {}
   create_team_on_call_schedule:
     speakeasy-default-create-team-on-call-schedule:
       parameters:
         path:
           team_id: "<id>"
       requestBody:
-        application/json: {"name": "<value>", "time_zone": "Antarctica/DumontDUrville", "strategy": {"type": "custom"}}
+        application/json: {"name": "<value>"}
+      responses:
+        "201":
+          application/json: {}
   get_team_on_call_schedule:
     speakeasy-default-get-team-on-call-schedule:
       parameters:
         path:
           team_id: "<id>"
           schedule_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
   delete_team_on_call_schedule:
     speakeasy-default-delete-team-on-call-schedule:
       parameters:
@@ -3137,6 +3385,9 @@ examples:
           schedule_id: "<id>"
       requestBody:
         application/json: {}
+      responses:
+        "200":
+          application/json: {}
   create_on_call_shift:
     speakeasy-default-create-on-call-shift:
       parameters:
@@ -3145,6 +3396,9 @@ examples:
           schedule_id: "<id>"
       requestBody:
         application/json: {"start_time": "<value>", "end_time": "<value>"}
+      responses:
+        "201":
+          application/json: {}
   get_on_call_shift:
     speakeasy-default-get-on-call-shift:
       parameters:
@@ -3152,6 +3406,9 @@ examples:
           id: "<id>"
           team_id: "<id>"
           schedule_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
   delete_on_call_shift:
     speakeasy-default-delete-on-call-shift:
       parameters:
@@ -3168,12 +3425,17 @@ examples:
           schedule_id: "<id>"
       requestBody:
         application/json: {}
+      responses:
+        "200":
+          application/json: {}
   list_team_signal_rules:
     speakeasy-default-list-team-signal-rules:
       parameters:
         path:
           team_id: "<id>"
-        query: {}
+      responses:
+        "200":
+          application/json: {"data": [{"deduplication_expiry": "PT1H"}]}
   create_team_signal_rule:
     speakeasy-default-create-team-signal-rule:
       parameters:
@@ -3181,12 +3443,18 @@ examples:
           team_id: "<id>"
       requestBody:
         application/json: {"name": "<value>", "expression": "<value>", "target_type": "OnCallSchedule", "target_id": "<id>"}
+      responses:
+        "201":
+          application/json: {"deduplication_expiry": "PT1H"}
   get_team_signal_rule:
     speakeasy-default-get-team-signal-rule:
       parameters:
         path:
           team_id: "<id>"
           id: "<id>"
+      responses:
+        "200":
+          application/json: {"deduplication_expiry": "PT1H"}
   delete_team_signal_rule:
     speakeasy-default-delete-team-signal-rule:
       parameters:
@@ -3201,17 +3469,95 @@ examples:
           id: "<id>"
       requestBody:
         application/json: {}
-  list_signals_event_sources: {}
-  list_signals_email_targets: {}
+      responses:
+        "200":
+          application/json: {"deduplication_expiry": "PT1H"}
+  list_signals_event_sources:
+    speakeasy-default-list-signals-event-sources:
+      responses:
+        "200":
+          application/json: {}
+  create_signals_event_source:
+    speakeasy-default-create-signals-event-source:
+      requestBody:
+        application/json: {"name": "<value>", "slug": "<value>", "example_payload": {}, "javascript": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+  get_signals_event_source:
+    speakeasy-default-get-signals-event-source:
+      parameters:
+        path:
+          transposer_slug: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  delete_signals_event_source:
+    speakeasy-default-delete-signals-event-source:
+      parameters:
+        path:
+          transposer_slug: "<value>"
+      responses:
+        "200":
+          application/json: {}
+  list_signals_alert_grouping_configurations:
+    speakeasy-default-list-signals-alert-grouping-configurations:
+      responses:
+        "200":
+          application/json: {}
+  create_signals_alert_grouping_configuration:
+    speakeasy-default-create-signals-alert-grouping-configuration:
+      requestBody:
+        application/json: {"strategy": {}, "reference_alert_time_period": "<value>"}
+      responses:
+        "201":
+          application/json: {}
+  get_signals_alert_grouping_configuration:
+    speakeasy-default-get-signals-alert-grouping-configuration:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  delete_signals_alert_grouping_configuration:
+    speakeasy-default-delete-signals-alert-grouping-configuration:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  update_signals_alert_grouping_configuration:
+    speakeasy-default-update-signals-alert-grouping-configuration:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+  list_signals_email_targets:
+    speakeasy-default-list-signals-email-targets:
+      responses:
+        "200":
+          application/json: {}
   create_signals_email_target:
     speakeasy-default-create-signals-email-target:
       requestBody:
         application/json: {"name": "<value>"}
+      responses:
+        "201":
+          application/json: {}
   get_signals_email_target:
     speakeasy-default-get-signals-email-target:
       parameters:
         path:
           id: "<id>"
+      responses:
+        "200":
+          application/json: {}
   delete_signals_email_target:
     speakeasy-default-delete-signals-email-target:
       parameters:
@@ -3224,16 +3570,29 @@ examples:
           id: "<id>"
       requestBody:
         application/json: {}
-  list_signals_webhook_targets: {}
+      responses:
+        "200":
+          application/json: {}
+  list_signals_webhook_targets:
+    speakeasy-default-list-signals-webhook-targets:
+      responses:
+        "200":
+          application/json: {}
   create_signals_webhook_target:
     speakeasy-default-create-signals-webhook-target:
       requestBody:
-        application/json: {"name": "<value>", "url": "https://our-alligator.net/"}
+        application/json: {"name": "<value>", "url": "https://puny-hydrolyze.net/"}
+      responses:
+        "201":
+          application/json: {}
   get_signals_webhook_target:
     speakeasy-default-get-signals-webhook-target:
       parameters:
         path:
           id: "<id>"
+      responses:
+        "200":
+          application/json: {}
   delete_signals_webhook_target:
     speakeasy-default-delete-signals-webhook-target:
       parameters:
@@ -3246,6 +3605,9 @@ examples:
           id: "<id>"
       requestBody:
         application/json: {}
+      responses:
+        "200":
+          application/json: {}
   list_signals_transposers:
     speakeasy-default-list-signals-transposers:
       responses:
@@ -3259,8 +3621,12 @@ examples:
   debug_signals_expression:
     speakeasy-default-debug-signals-expression:
       requestBody:
-        application/json: {"expression": "<value>", "signals": [{}]}
-  list_organization_on_call_schedules: {}
+        application/json: {"expression": "<value>", "signals": []}
+  list_organization_on_call_schedules:
+    speakeasy-default-list-organization-on-call-schedules:
+      responses:
+        "200":
+          application/json: {}
   list_changes: {}
   create_change:
     speakeasy-default-create-change:
@@ -3291,7 +3657,6 @@ examples:
       parameters:
         path:
           change_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3377,7 +3742,7 @@ examples:
   create_incident:
     speakeasy-default-create-incident:
       requestBody:
-        application/json: {"name": "<value>"}
+        application/json: {"name": "<value>", "skip_incident_type_values": false}
       responses:
         "201":
           application/json: {}
@@ -3445,7 +3810,7 @@ examples:
         path:
           incident_id: "<id>"
       requestBody:
-        application/json: {"milestones": [{"type": "<value>", "occurred_at": "2025-04-19T18:24:04.583Z"}, {"type": "<value>", "occurred_at": "2024-09-22T18:15:43.263Z"}, {"type": "<value>", "occurred_at": "2023-08-29T06:50:58.826Z"}]}
+        application/json: {"milestones": [{"type": "<value>", "occurred_at": "2025-04-19T10:45:27.739Z"}]}
       responses:
         "200":
           application/json: {}
@@ -3462,7 +3827,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3472,7 +3836,7 @@ examples:
         path:
           incident_id: "<id>"
       requestBody:
-        application/json: {"change_event_id": "<id>", "type": "caused"}
+        application/json: {"change_event_id": "<id>", "type": "suspect"}
       responses:
         "201":
           application/json: {}
@@ -3514,7 +3878,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3602,7 +3965,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3612,7 +3974,7 @@ examples:
         path:
           incident_id: "<id>"
       requestBody:
-        multipart/form-data: {"file": {"": "x-file: example.file"}}
+        multipart/form-data: {"file": "x-file: example.file"}
       responses:
         "201":
           application/json: {}
@@ -3621,7 +3983,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3677,7 +4038,7 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-          type: "environments"
+          type: "customers"
       responses:
         "200":
           application/json: {}
@@ -3686,7 +4047,7 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-          type: "functionalities"
+          type: "customers"
       requestBody:
         application/json: {"id": "<id>"}
       responses:
@@ -3760,7 +4121,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -3821,7 +4181,7 @@ examples:
   create_scheduled_maintenance:
     speakeasy-default-create-scheduled-maintenance:
       requestBody:
-        application/json: {"name": "<value>", "starts_at": "2024-11-04T00:39:53.690Z", "ends_at": "2023-11-08T19:38:38.616Z"}
+        application/json: {"name": "<value>", "starts_at": "2023-07-05T09:49:56.220Z", "ends_at": "2025-04-17T19:51:25.891Z"}
       responses:
         "201":
           application/json: {}
@@ -3863,7 +4223,7 @@ examples:
           incident_id: "<id>"
           generated_summary_id: "<id>"
       requestBody:
-        application/json: {"direction": "down"}
+        application/json: {"direction": "up"}
       responses:
         "200":
           application/json: {}
@@ -3874,14 +4234,14 @@ examples:
           incident_id: "<id>"
       responses:
         "200":
-          application/json: {"data": [{"alert": {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}]}}, {"alert": {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}]}}]}
+          application/json: {"data": [{"alert": {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}]}}]}
   create_incident_alert:
     speakeasy-default-create-incident-alert:
       parameters:
         path:
           incident_id: "<id>"
       requestBody:
-        application/json: ["<value>", "<value>", "<value>"]
+        application/json: ["<value 1>"]
   update_incident_alert_primary:
     speakeasy-default-update-incident-alert-primary:
       parameters:
@@ -3892,7 +4252,7 @@ examples:
         application/json: {"primary": false}
       responses:
         "200":
-          application/json: {"alert": {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}]}}
+          application/json: {"alert": {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}]}}
   delete_incident_alert:
     speakeasy-default-delete-incident-alert:
       parameters:
@@ -3903,7 +4263,7 @@ examples:
     speakeasy-default-list-alerts:
       responses:
         "200":
-          application/json: {"data": [{"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}]}]}
+          application/json: {"data": null}
   get_alert:
     speakeasy-default-get-alert:
       parameters:
@@ -3911,7 +4271,7 @@ examples:
           alert_id: "<id>"
       responses:
         "200":
-          application/json: {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}, {"signal_rule": {"deduplication_expiry": "PT1H"}}]}
+          application/json: {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}]}
   list_processing_log_entries:
     speakeasy-default-list-processing-log-entries:
       responses:
@@ -3931,7 +4291,7 @@ examples:
   create_nunc_connection:
     speakeasy-default-create-nunc-connection:
       requestBody:
-        application/json: {"domain": "pertinent-ribbon.com", "conditions[nunc_condition]": ["<value>", "<value>"], "conditions[condition_id]": ["<value>"], "components[infrastructure_type]": ["<value>", "<value>"], "components[infrastructure_id]": ["<value>", "<value>", "<value>"]}
+        application/json: {"domain": "subtle-instance.biz", "conditions[nunc_condition]": [], "conditions[condition_id]": ["<value 1>"], "components[infrastructure_type]": [], "components[infrastructure_id]": ["<value 1>", "<value 2>", "<value 3>"]}
       responses:
         "201":
           application/json: {}
@@ -3977,7 +4337,7 @@ examples:
         path:
           nunc_connection_id: "<id>"
       requestBody:
-        application/json: {"conditions[nunc_condition]": [], "conditions[condition_id]": ["<value>", "<value>", "<value>"], "components[infrastructure_type]": ["<value>"], "components[infrastructure_id]": ["<value>"]}
+        application/json: {"conditions[nunc_condition]": ["<value 1>"], "conditions[condition_id]": ["<value 1>", "<value 2>", "<value 3>"], "components[infrastructure_type]": [], "components[infrastructure_id]": ["<value 1>", "<value 2>"]}
       responses:
         "200":
           application/json: {}
@@ -4062,7 +4422,7 @@ examples:
   create_nunc_subscription:
     speakeasy-default-create-nunc-subscription:
       requestBody:
-        application/json: {"email": "Arvilla_Funk@gmail.com"}
+        application/json: {"email": "Thad_Senger@yahoo.com"}
       responses:
         "201":
           application/json: {}
@@ -4081,7 +4441,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -4137,7 +4496,7 @@ examples:
   create_task_list:
     speakeasy-default-create-task-list:
       requestBody:
-        application/json: {"name": "<value>", "task_list_items": [{"summary": "<value>"}, {"summary": "<value>"}]}
+        application/json: {"name": "<value>", "task_list_items": [{"summary": "<value>"}]}
       responses:
         "201":
           application/json: {}
@@ -4175,7 +4534,7 @@ examples:
   create_checklist_template:
     speakeasy-default-create-checklist-template:
       requestBody:
-        application/json: {"name": "<value>", "checks": [{"name": "<value>"}, {"name": "<value>"}, {"name": "<value>"}]}
+        application/json: {"name": "<value>", "checks": [{"name": "<value>"}]}
       responses:
         "201":
           application/json: {}
@@ -4223,7 +4582,7 @@ examples:
           incident_id: "<id>"
           event_id: "<id>"
       requestBody:
-        application/json: {"direction": "dig"}
+        application/json: {"direction": "up"}
       responses:
         "200":
           application/json: {}
@@ -4288,7 +4647,7 @@ examples:
         path:
           incident_id: "<id>"
       requestBody:
-        application/json: {"retrospective_ids": ["<value>"]}
+        application/json: {"retrospective_ids": ["<value 1>", "<value 2>"]}
       responses:
         "201":
           application/json: {}
@@ -4298,7 +4657,7 @@ examples:
         path:
           incident_id: "<id>"
       requestBody:
-        application/json: {"integration_slug": "google_docs"}
+        application/json: {"integration_slug": "confluence_cloud"}
       responses:
         "201":
           application/json: {}
@@ -4307,7 +4666,6 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -4339,7 +4697,7 @@ examples:
           retrospective_id: "<id>"
           incident_id: "<id>"
       requestBody:
-        application/json: {"label": "<value>", "type": "dynamic_input_group"}
+        application/json: {"label": "<value>", "type": "datetime"}
       responses:
         "200":
           application/json: {}
@@ -4361,7 +4719,7 @@ examples:
           field_id: "<id>"
           incident_id: "<id>"
       requestBody:
-        application/json: {"value": 168058}
+        application/json: {"value": 361722}
       responses:
         "200":
           application/json: {}
@@ -4427,7 +4785,6 @@ examples:
       parameters:
         path:
           report_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -4467,7 +4824,7 @@ examples:
         path:
           report_id: "<id>"
       requestBody:
-        application/json: {"old_position": 735999, "new_position": 264317}
+        application/json: {"old_position": 622113, "new_position": 136342}
       responses:
         "200":
           application/json: {}
@@ -4519,7 +4876,7 @@ examples:
   create_retrospective_template:
     speakeasy-default-create-retrospective-template:
       requestBody:
-        application/json: {"name": "<value>", "description": "second-hand ample mid bidet fooey", "sections[slug]": ["key_data", "key_data", "key_data"], "sections[elements]": ["<value>", "<value>", "<value>"], "fields[label]": [], "fields[type]": ["multi_select"]}
+        application/json: {"name": "<value>", "description": "unnecessarily pfft while gratefully upon er co-producer whoa uh-huh dismal", "sections[slug]": ["details"], "sections[elements]": ["<value 1>", "<value 2>", "<value 3>"], "fields[label]": [], "fields[type]": ["multi_select"]}
       responses:
         "201":
           application/json: {}
@@ -4545,7 +4902,7 @@ examples:
         path:
           retrospective_template_id: "<id>"
       requestBody:
-        application/json: {"sections[slug]": [], "sections[elements]": ["<value>", "<value>", "<value>"], "fields[label]": [], "fields[type]": []}
+        application/json: {"sections[slug]": ["<value 1>"], "sections[elements]": ["<value 1>"], "fields[label]": ["<value 1>"], "fields[type]": ["markdown_text"]}
       responses:
         "200":
           application/json: {}
@@ -4590,7 +4947,7 @@ examples:
   validate_incident_tags:
     speakeasy-default-validate-incident-tags:
       requestBody:
-        application/json: ["<value>", "<value>", "<value>"]
+        application/json: ["<value 1>"]
       responses:
         "201":
           application/json: {}
@@ -4665,7 +5022,7 @@ examples:
   create_lifecycle_milestone:
     speakeasy-default-create-lifecycle-milestone:
       requestBody:
-        application/json: {"name": "<value>", "description": "serpentine blah into after pendant zowie athletic", "phase_id": "<id>"}
+        application/json: {"name": "<value>", "description": "militate grass boo hmph treble upset who scornful alarmed", "phase_id": "<id>"}
       responses:
         "201":
           application/json: {}
@@ -4769,7 +5126,7 @@ examples:
   update_severity_matrix:
     speakeasy-default-update-severity-matrix:
       requestBody:
-        application/json: {"data": [{"severity": "<value>", "impact_id": "<id>", "condition_id": "<id>"}, {"severity": "<value>", "impact_id": "<id>", "condition_id": "<id>"}, {"severity": "<value>", "impact_id": "<id>", "condition_id": "<id>"}]}
+        application/json: {"data": []}
       responses:
         "200":
           application/json: {}
@@ -4867,7 +5224,7 @@ examples:
   create_custom_field_definition:
     speakeasy-default-create-custom-field-definition:
       requestBody:
-        application/json: {"display_name": "Meredith_Gibson", "field_type": "<value>", "required": true}
+        application/json: {"display_name": "Rasheed_Runolfsson", "field_type": "<value>", "required": false}
       responses:
         "201":
           application/json: {}
@@ -4876,7 +5233,16 @@ examples:
       parameters:
         path:
           field_id: "<id>"
-        query: {}
+      responses:
+        "200":
+          application/json: {}
+  append_form_data_on_selected_value_get:
+    speakeasy-default-append-form-data-on-selected-value-get:
+      parameters:
+        path:
+          slug: "<value>"
+          field_id: "<id>"
+          selected_value: "<value>"
       responses:
         "200":
           application/json: {}
@@ -4923,7 +5289,6 @@ examples:
         path:
           integration_slug: "<value>"
           connection_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -5049,7 +5414,6 @@ examples:
       parameters:
         path:
           id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -5071,7 +5435,6 @@ examples:
       parameters:
         path:
           connection_id: "<id>"
-        query: {}
   create_slack_emoji_action:
     speakeasy-default-create-slack-emoji-action:
       parameters:
@@ -5193,8 +5556,7 @@ examples:
     speakeasy-default-list-infrastructure-type-metrics:
       parameters:
         path:
-          infra_type: "customers"
-        query: {}
+          infra_type: "services"
       responses:
         "200":
           application/json: {}
@@ -5202,9 +5564,8 @@ examples:
     speakeasy-default-list-infrastructure-metrics:
       parameters:
         path:
-          infra_type: "environments"
+          infra_type: "customers"
           infra_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -5212,7 +5573,7 @@ examples:
     speakeasy-default-get-saved-search:
       parameters:
         path:
-          resource_type: "incidents"
+          resource_type: "services"
           saved_search_id: "<id>"
       responses:
         "200":
@@ -5221,7 +5582,7 @@ examples:
     speakeasy-default-delete-saved-search:
       parameters:
         path:
-          resource_type: "scheduled_maintenances"
+          resource_type: "ticket_follow_ups"
           saved_search_id: "<id>"
       responses:
         "200":
@@ -5230,7 +5591,7 @@ examples:
     speakeasy-default-update-saved-search:
       parameters:
         path:
-          resource_type: "incident_events"
+          resource_type: "scheduled_maintenances"
           saved_search_id: "<id>"
       requestBody:
         application/json: {}
@@ -5241,8 +5602,7 @@ examples:
     speakeasy-default-list-saved-searches:
       parameters:
         path:
-          resource_type: "incidents"
-        query: {}
+          resource_type: "scheduled_maintenances"
       responses:
         "200":
           application/json: {}
@@ -5250,15 +5610,27 @@ examples:
     speakeasy-default-create-saved-search:
       parameters:
         path:
-          resource_type: "services"
+          resource_type: "incidents"
       requestBody:
-        application/json: {"name": "<value>", "filter_values": {"key": "<value>", "key1": "<value>", "key2": "<value>"}}
+        application/json: {"name": "<value>", "filter_values": {}}
       responses:
         "201":
           application/json: {}
-  get_signals_timeseries_analytics: {}
-  get_signals_grouped_metrics: {}
-  get_signals_mttx_analytics: {}
+  get_signals_timeseries_analytics:
+    speakeasy-default-get-signals-timeseries-analytics:
+      responses:
+        "200":
+          application/json: {}
+  get_signals_grouped_metrics:
+    speakeasy-default-get-signals-grouped-metrics:
+      responses:
+        "200":
+          application/json: {}
+  get_signals_mttx_analytics:
+    speakeasy-default-get-signals-mttx-analytics:
+      responses:
+        "200":
+          application/json: {}
   list_runbook_actions:
     speakeasy-default-list-runbook-actions:
       responses:
@@ -5298,7 +5670,7 @@ examples:
           execution_id: "<id>"
           step_id: "<id>"
       requestBody:
-        application/json: {"state": "Maine"}
+        application/json: {"state": "Kentucky"}
       responses:
         "200":
           application/json: {}
@@ -5317,7 +5689,7 @@ examples:
         path:
           execution_id: "<id>"
           step_id: "<id>"
-          state: "Tennessee"
+          state: "North Dakota"
       responses:
         "200":
           application/json: {}
@@ -5328,7 +5700,6 @@ examples:
           integration_slug: "<value>"
           action_slug: "<value>"
           field: "<value>"
-        query: {}
   list_runbooks:
     speakeasy-default-list-runbooks:
       responses:
@@ -5337,7 +5708,7 @@ examples:
   create_runbook:
     speakeasy-default-create-runbook:
       requestBody:
-        application/json: {"name": "<value>", "type": "incident_role"}
+        application/json: {"name": "<value>", "type": "infrastructure"}
       responses:
         "201":
           application/json: {}
@@ -5372,6 +5743,16 @@ examples:
       parameters:
         query:
           auditable_type: "Runbooks::Step"
+  list_audit_events:
+    speakeasy-default-list-audit-events:
+      parameters:
+        query:
+          limit: 20
+  get_audit_event:
+    speakeasy-default-get-audit-event:
+      parameters:
+        path:
+          id: "<id>"
   list_status_update_templates:
     speakeasy-default-list-status-update-templates:
       responses:
@@ -5522,7 +5903,6 @@ examples:
       parameters:
         path:
           ticketing_project_id: "<id>"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -5647,7 +6027,7 @@ examples:
         path:
           id: "<id>"
       requestBody:
-        application/scim+json: {"displayName": "Monte_Schowalter", "members": [{"value": "<value>"}]}
+        application/scim+json: {"displayName": "Dejon_Prosacco5", "members": [{"value": "<value>"}]}
   delete_scim_group:
     speakeasy-default-delete-scim-group:
       parameters:
@@ -5657,7 +6037,7 @@ examples:
   create_scim_group:
     speakeasy-default-create-scim-group:
       requestBody:
-        application/scim+json: {"displayName": "Allie.Schowalter", "members": [{"value": "<value>"}, {"value": "<value>"}, {"value": "<value>"}]}
+        application/scim+json: {"displayName": "Odessa.Schulist", "members": [{"value": "<value>"}]}
   get_scim_user:
     speakeasy-default-get-scim-user:
       parameters:
@@ -5681,13 +6061,12 @@ examples:
         path:
           id: "<id>"
       requestBody:
-        application/scim+json: {"Operations": [{"op": "<value>", "path": "/System"}, {"op": "<value>", "path": "/lib"}, {"op": "<value>", "path": "/etc/namedb"}]}
+        application/scim+json: {"Operations": []}
   list_scim_users: {}
   create_scim_user:
     speakeasy-default-create-scim-user:
       requestBody:
-        application/scim+json: {"userName": "Angeline72", "name": {"familyName": "<value>", "givenName": "<value>"}, "emails": [{"value": "<value>", "primary": false}, {"value": "<value>", "primary": false}, {"value": "<value>", "primary": true}]}
-  list_call_routes: {}
+        application/scim+json: {"userName": "Vinnie.Crooks27", "name": {"familyName": "<value>", "givenName": "<value>"}, "emails": []}
   list_webhooks:
     speakeasy-default-list-webhooks:
       responses:
@@ -5696,7 +6075,7 @@ examples:
   create_webhook:
     speakeasy-default-create-webhook:
       requestBody:
-        application/json: {"url": "https://prime-tooth.biz/"}
+        application/json: {"url": "https://helpful-cafe.biz"}
       responses:
         "201":
           application/json: {}
@@ -5739,7 +6118,7 @@ examples:
   create_audience:
     speakeasy-default-create-audience:
       requestBody:
-        application/json: {"name": "<value>", "description": "sandy closely closely suddenly whose rear", "default": false, "details[question]": ["<value>"], "details[prompt]": ["<value>"]}
+        application/json: {"name": "<value>", "description": "simple contractor hmph along amongst thump provision crowded fragrant and", "default": false, "details[question]": [], "details[prompt]": ["<value 1>", "<value 2>", "<value 3>"]}
       responses:
         "201":
           application/json: {}
@@ -5779,7 +6158,7 @@ examples:
     speakeasy-default-get-member-default-audience:
       parameters:
         path:
-          member_id: 518189
+          member_id: 9319
       responses:
         "200":
           application/json: {}
@@ -5787,7 +6166,7 @@ examples:
     speakeasy-default-set-member-default-audience:
       parameters:
         path:
-          member_id: 191738
+          member_id: 411452
       requestBody:
         application/json: {"audience_id": "<id>"}
       responses:
@@ -5819,5 +6198,5 @@ examples:
       responses:
         "200":
           application/json: {}
-examplesVersion: 1.0.1
+examplesVersion: 1.0.2
 generatedTests: {}

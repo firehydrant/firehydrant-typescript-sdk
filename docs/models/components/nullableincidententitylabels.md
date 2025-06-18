@@ -5,7 +5,7 @@ A key/value of labels
 ## Example Usage
 
 ```typescript
-import { NullableIncidentEntityLabels } from "firehydrant/models/components";
+import { NullableIncidentEntityLabels } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIncidentEntityLabels = {};
 ```

@@ -5,7 +5,7 @@ Update a specific severity
 ## Example Usage
 
 ```typescript
-import { UpdateSeverity } from "firehydrant/models/components";
+import { UpdateSeverity } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSeverity = {};
 ```

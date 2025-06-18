@@ -5,7 +5,7 @@ An unstructured object of key/value pairs describing the config settings for the
 ## Example Usage
 
 ```typescript
-import { NullableRunbookStepEntityConfig } from "firehydrant/models/components";
+import { NullableRunbookStepEntityConfig } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableRunbookStepEntityConfig = {};
 ```

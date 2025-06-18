@@ -5,7 +5,7 @@ String that determines how records are sorted
 ## Example Usage
 
 ```typescript
-import { GetSignalsGroupedMetricsSortBy } from "firehydrant/models/operations";
+import { GetSignalsGroupedMetricsSortBy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSignalsGroupedMetricsSortBy = "total_acked_alerts";
 ```

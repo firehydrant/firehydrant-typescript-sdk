@@ -5,7 +5,7 @@ Encoding for submitted data
 ## Example Usage
 
 ```typescript
-import { Encoding } from "firehydrant/models/components";
+import { Encoding } from "firehydrant-typescript-sdk/models/components";
 
 let value: Encoding = "application/x-yaml";
 ```

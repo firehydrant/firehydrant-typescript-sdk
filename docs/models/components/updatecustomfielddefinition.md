@@ -5,7 +5,7 @@ Update a single custom field definition
 ## Example Usage
 
 ```typescript
-import { UpdateCustomFieldDefinition } from "firehydrant/models/components";
+import { UpdateCustomFieldDefinition } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateCustomFieldDefinition = {};
 ```

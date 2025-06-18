@@ -5,7 +5,7 @@ An object representing a Team that owns the functionality
 ## Example Usage
 
 ```typescript
-import { UpdateFunctionalityOwner } from "firehydrant/models/components";
+import { UpdateFunctionalityOwner } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateFunctionalityOwner = {
   id: "<id>",

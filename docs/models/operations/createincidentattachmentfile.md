@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentAttachmentFile } from "firehydrant/models/operations";
+import { CreateIncidentAttachmentFile } from "firehydrant-typescript-sdk/models/operations";
 
 // No examples available for this model
 ```

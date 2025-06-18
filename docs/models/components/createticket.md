@@ -5,7 +5,7 @@ Creates a ticket for a project
 ## Example Usage
 
 ```typescript
-import { CreateTicket } from "firehydrant/models/components";
+import { CreateTicket } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTicket = {
   summary: "<value>",

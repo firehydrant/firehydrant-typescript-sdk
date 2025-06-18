@@ -3,11 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateSeverityRequest } from "firehydrant/models/operations";
+import { UpdateSeverityRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateSeverityRequest = {
   severitySlug: "<value>",
-  updateSeverity: {},
 };
 ```
 

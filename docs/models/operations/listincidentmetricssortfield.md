@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListIncidentMetricsSortField } from "firehydrant/models/operations";
+import { ListIncidentMetricsSortField } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListIncidentMetricsSortField = "mttm";
 ```

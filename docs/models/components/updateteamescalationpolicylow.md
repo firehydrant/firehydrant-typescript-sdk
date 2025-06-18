@@ -5,7 +5,7 @@ Settings for LOW priority alerts
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicyLow } from "firehydrant/models/components";
+import { UpdateTeamEscalationPolicyLow } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamEscalationPolicyLow = {};
 ```

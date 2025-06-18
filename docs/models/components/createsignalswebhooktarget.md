@@ -5,7 +5,7 @@ Create a Signals webhook target.
 ## Example Usage
 
 ```typescript
-import { CreateSignalsWebhookTarget } from "firehydrant/models/components";
+import { CreateSignalsWebhookTarget } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateSignalsWebhookTarget = {
   name: "<value>",

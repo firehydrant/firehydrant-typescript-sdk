@@ -5,7 +5,7 @@ Update a functionalities attributes
 ## Example Usage
 
 ```typescript
-import { UpdateFunctionality } from "firehydrant/models/components";
+import { UpdateFunctionality } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateFunctionality = {};
 ```

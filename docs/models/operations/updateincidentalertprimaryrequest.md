@@ -3,14 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentAlertPrimaryRequest } from "firehydrant/models/operations";
+import { UpdateIncidentAlertPrimaryRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateIncidentAlertPrimaryRequest = {
   incidentAlertId: "<id>",
   incidentId: "<id>",
-  updateIncidentAlertPrimary: {
-    primary: false,
-  },
 };
 ```
 

@@ -15,7 +15,7 @@ export const tool$signalsCreateTeamOnCallSchedule: ToolDefinition<typeof args> =
     name: "signals-create-team-on-call-schedule",
     description: `Create an on-call schedule for a team
 
-Create a Signals on-call schedule for a team.`,
+Create a Signals on-call schedule for a team with a single rotation. More rotations can be created later.`,
     args,
     tool: async (client, args, ctx) => {
       const [result, apiCall] = await signalsCreateTeamOnCallSchedule(
@@ -31,6 +31,8 @@ Create a Signals on-call schedule for a team.`,
         };
       }
 
-      return formatResult(void 0, apiCall);
+      const value = result.value;
+
+      return formatResult(value, apiCall);
     },
   };
