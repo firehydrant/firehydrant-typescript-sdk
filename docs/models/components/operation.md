@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Operation } from "firehydrant/models/components";
+import { Operation } from "firehydrant-typescript-sdk/models/components";
 
 let value: Operation = {
   op: "<value>",

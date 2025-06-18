@@ -5,7 +5,7 @@ ServiceEntity model
 ## Example Usage
 
 ```typescript
-import { NullableServiceEntity } from "firehydrant/models/components";
+import { NullableServiceEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableServiceEntity = {};
 ```

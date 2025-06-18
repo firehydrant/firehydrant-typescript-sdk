@@ -5,7 +5,7 @@ Incidents_RoleAssignmentEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IncidentsRoleAssignmentEntityPaginated } from "firehydrant/models/components";
+import { IncidentsRoleAssignmentEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRoleAssignmentEntityPaginated = {};
 ```

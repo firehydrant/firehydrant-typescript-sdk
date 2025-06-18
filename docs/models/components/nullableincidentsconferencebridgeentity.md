@@ -5,7 +5,7 @@ Incidents_ConferenceBridgeEntity model
 ## Example Usage
 
 ```typescript
-import { NullableIncidentsConferenceBridgeEntity } from "firehydrant/models/components";
+import { NullableIncidentsConferenceBridgeEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIncidentsConferenceBridgeEntity = {};
 ```

@@ -5,7 +5,7 @@ Update the order of contributing factors in a retrospective report
 ## Example Usage
 
 ```typescript
-import { ReorderPostMortemReasons } from "firehydrant/models/components";
+import { ReorderPostMortemReasons } from "firehydrant-typescript-sdk/models/components";
 
 let value: ReorderPostMortemReasons = {
   oldPosition: 381379,

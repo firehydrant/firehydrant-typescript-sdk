@@ -5,7 +5,7 @@ Create a new runbook for use with incidents.
 ## Example Usage
 
 ```typescript
-import { CreateRunbook } from "firehydrant/models/components";
+import { CreateRunbook } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateRunbook = {
   name: "<value>",

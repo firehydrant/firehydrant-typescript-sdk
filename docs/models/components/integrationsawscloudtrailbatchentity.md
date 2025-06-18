@@ -5,7 +5,7 @@ Integrations_Aws_CloudtrailBatchEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsAwsCloudtrailBatchEntity } from "firehydrant/models/components";
+import { IntegrationsAwsCloudtrailBatchEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAwsCloudtrailBatchEntity = {};
 ```

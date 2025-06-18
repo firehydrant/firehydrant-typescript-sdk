@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetSignalsTimeseriesAnalyticsRequest } from "firehydrant/models/operations";
+import { GetSignalsTimeseriesAnalyticsRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSignalsTimeseriesAnalyticsRequest = {};
 ```

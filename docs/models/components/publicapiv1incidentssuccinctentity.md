@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PublicApiv1IncidentsSuccinctEntity } from "firehydrant/models/components";
+import { PublicApiv1IncidentsSuccinctEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PublicApiv1IncidentsSuccinctEntity = {};
 ```

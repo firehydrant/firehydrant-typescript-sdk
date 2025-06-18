@@ -19,6 +19,7 @@ export const UpdateSignalsEmailTargetType = {
   OnCallSchedule: "OnCallSchedule",
   User: "User",
   SlackChannel: "SlackChannel",
+  MicrosoftTeamsChannel: "MicrosoftTeamsChannel",
   Webhook: "Webhook",
 } as const;
 /**

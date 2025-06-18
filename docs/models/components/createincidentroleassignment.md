@@ -5,7 +5,7 @@ Assign a role to a user for this incident
 ## Example Usage
 
 ```typescript
-import { CreateIncidentRoleAssignment } from "firehydrant/models/components";
+import { CreateIncidentRoleAssignment } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentRoleAssignment = {
   userId: "<id>",

@@ -5,7 +5,7 @@ Create a status update template for your organization
 ## Example Usage
 
 ```typescript
-import { CreateStatusUpdateTemplate } from "firehydrant/models/components";
+import { CreateStatusUpdateTemplate } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateStatusUpdateTemplate = {
   name: "<value>",

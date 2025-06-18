@@ -14,9 +14,9 @@ export const tool$signalsListOrganizationOnCallSchedules: ToolDefinition<
   typeof args
 > = {
   name: "signals-list-organization-on-call-schedules",
-  description: `List on-call schedules
+  description: `List who's on call for the organization
 
-List all Signals on-call schedules for the entire organization.`,
+List all users who are currently on-call across the entire organization.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await signalsListOrganizationOnCallSchedules(
@@ -32,6 +32,8 @@ List all Signals on-call schedules for the entire organization.`,
       };
     }
 
-    return formatResult(void 0, apiCall);
+    const value = result.value;
+
+    return formatResult(value, apiCall);
   },
 };

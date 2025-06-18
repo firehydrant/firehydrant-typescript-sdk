@@ -5,7 +5,7 @@ Allows assigning a direction to how the specified `order_by` parameter is sorted
 ## Example Usage
 
 ```typescript
-import { OrderDirection } from "firehydrant/models/operations";
+import { OrderDirection } from "firehydrant-typescript-sdk/models/operations";
 
 let value: OrderDirection = "asc";
 ```

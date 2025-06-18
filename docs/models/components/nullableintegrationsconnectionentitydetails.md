@@ -5,7 +5,7 @@ Integration-specific details of this connection. As identified by the integratio
 ## Example Usage
 
 ```typescript
-import { NullableIntegrationsConnectionEntityDetails } from "firehydrant/models/components";
+import { NullableIntegrationsConnectionEntityDetails } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIntegrationsConnectionEntityDetails = {};
 ```

@@ -5,7 +5,7 @@ Alerts_ProcessingLogEntryEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { AlertsProcessingLogEntryEntityPaginated } from "firehydrant/models/components";
+import { AlertsProcessingLogEntryEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: AlertsProcessingLogEntryEntityPaginated = {};
 ```

@@ -5,7 +5,7 @@ Integrations_AuthedProviderEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { IntegrationsAuthedProviderEntityPaginated } from "firehydrant/models/components";
+import { IntegrationsAuthedProviderEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsAuthedProviderEntityPaginated = {};
 ```

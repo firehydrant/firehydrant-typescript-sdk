@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { RestoreAudienceRequest } from "firehydrant/models/operations";
+import { RestoreAudienceRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: RestoreAudienceRequest = {
   audienceId: "<id>",

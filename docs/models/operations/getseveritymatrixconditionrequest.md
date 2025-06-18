@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetSeverityMatrixConditionRequest } from "firehydrant/models/operations";
+import { GetSeverityMatrixConditionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSeverityMatrixConditionRequest = {
   conditionId: "<id>",

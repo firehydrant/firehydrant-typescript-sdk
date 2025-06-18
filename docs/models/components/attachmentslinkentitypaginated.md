@@ -5,7 +5,7 @@ Attachments_LinkEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { AttachmentsLinkEntityPaginated } from "firehydrant/models/components";
+import { AttachmentsLinkEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: AttachmentsLinkEntityPaginated = {};
 ```

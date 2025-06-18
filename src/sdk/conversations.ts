@@ -56,7 +56,7 @@ export class Conversations extends ClientSDK {
    * Delete a reaction from a conversation comment
    *
    * @remarks
-   * ALPHA - Archive a reaction
+   * Archive a reaction
    */
   async deleteCommentReaction(
     request: operations.DeleteCommentReactionRequest,
@@ -73,7 +73,7 @@ export class Conversations extends ClientSDK {
    * List reactions for a conversation comment
    *
    * @remarks
-   * ALPHA - List all of the reactions that have been added to a comment
+   * List all of the reactions that have been added to a comment
    */
   async listCommentReactions(
     request: operations.ListCommentReactionsRequest,
@@ -90,7 +90,7 @@ export class Conversations extends ClientSDK {
    * Create a reaction for a conversation comment
    *
    * @remarks
-   * ALPHA - Create a reaction on a comment
+   * Create a reaction on a comment
    */
   async createCommentReaction(
     request: operations.CreateCommentReactionRequest,
@@ -107,7 +107,7 @@ export class Conversations extends ClientSDK {
    * Get a conversation comment
    *
    * @remarks
-   * ALPHA - Retrieves a single comment by ID
+   * Retrieves a single comment by ID
    */
   async getComment(
     request: operations.GetCommentRequest,
@@ -124,7 +124,7 @@ export class Conversations extends ClientSDK {
    * Archive a conversation comment
    *
    * @remarks
-   * ALPHA - Archive a comment
+   * Archive a comment
    */
   async deleteComment(
     request: operations.DeleteCommentRequest,
@@ -141,7 +141,7 @@ export class Conversations extends ClientSDK {
    * Update a conversation comment
    *
    * @remarks
-   * ALPHA - Update a comment's attributes
+   * Update a comment's attributes
    */
   async updateComment(
     request: operations.UpdateCommentRequest,
@@ -158,7 +158,7 @@ export class Conversations extends ClientSDK {
    * List comments for a conversation
    *
    * @remarks
-   * ALPHA - List all of the comments that have been added to the organization
+   * List all of the comments that have been added to the organization
    */
   async listComments(
     request: operations.ListCommentsRequest,
@@ -175,7 +175,7 @@ export class Conversations extends ClientSDK {
    * Create a conversation comment
    *
    * @remarks
-   * ALPHA - Creates a comment for a project
+   * Creates a comment for a project
    */
   async createComment(
     request: operations.CreateCommentRequest,

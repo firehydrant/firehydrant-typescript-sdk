@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * ALPHA - Create a reaction on a comment
+ * Create a reaction on a comment
  */
 export type CreateCommentReaction = {
   /**

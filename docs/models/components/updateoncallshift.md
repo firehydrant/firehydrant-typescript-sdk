@@ -5,7 +5,7 @@ Update a Signals on-call shift by ID
 ## Example Usage
 
 ```typescript
-import { UpdateOnCallShift } from "firehydrant/models/components";
+import { UpdateOnCallShift } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateOnCallShift = {};
 ```

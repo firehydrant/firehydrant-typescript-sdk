@@ -3,16 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreateTeamSignalRuleRequest } from "firehydrant/models/operations";
+import { CreateTeamSignalRuleRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateTeamSignalRuleRequest = {
   teamId: "<id>",
-  createTeamSignalRule: {
-    name: "<value>",
-    expression: "<value>",
-    targetType: "Webhook",
-    targetId: "<id>",
-  },
 };
 ```
 

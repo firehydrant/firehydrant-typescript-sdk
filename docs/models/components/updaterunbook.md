@@ -7,7 +7,7 @@ about a runbook, including but not limited to the steps, environments, attachmen
 ## Example Usage
 
 ```typescript
-import { UpdateRunbook } from "firehydrant/models/components";
+import { UpdateRunbook } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateRunbook = {};
 ```

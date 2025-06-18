@@ -5,7 +5,7 @@ EnvironmentEntryEntity model
 ## Example Usage
 
 ```typescript
-import { EnvironmentEntryEntity } from "firehydrant/models/components";
+import { EnvironmentEntryEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: EnvironmentEntryEntity = {};
 ```

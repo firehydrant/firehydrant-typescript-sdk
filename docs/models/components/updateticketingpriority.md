@@ -5,7 +5,7 @@ Update a single ticketing priority's attributes
 ## Example Usage
 
 ```typescript
-import { UpdateTicketingPriority } from "firehydrant/models/components";
+import { UpdateTicketingPriority } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTicketingPriority = {};
 ```

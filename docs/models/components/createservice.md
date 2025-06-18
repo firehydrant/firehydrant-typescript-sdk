@@ -5,7 +5,7 @@ Creates a service for the organization, you may also create or attach functional
 ## Example Usage
 
 ```typescript
-import { CreateService } from "firehydrant/models/components";
+import { CreateService } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateService = {
   name: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomField } from "firehydrant/models/components";
+import { CustomField } from "firehydrant-typescript-sdk/models/components";
 
 let value: CustomField = {
   fieldId: "<id>",

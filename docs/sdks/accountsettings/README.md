@@ -21,7 +21,7 @@ Simple endpoint to verify your API connection is working
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -30,7 +30,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.ping();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -42,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsPing } from "firehydrant/funcs/accountSettingsPing.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsPing } from "firehydrant-typescript-sdk/funcs/accountSettingsPing.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -53,15 +52,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsPing(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsPing failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -92,7 +88,7 @@ List the organization's entitlements
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -101,7 +97,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.listEntitlements({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -113,8 +108,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsListEntitlements } from "firehydrant/funcs/accountSettingsListEntitlements.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsListEntitlements } from "firehydrant-typescript-sdk/funcs/accountSettingsListEntitlements.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -124,15 +119,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsListEntitlements(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsListEntitlements failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -164,7 +156,7 @@ Simple endpoint to verify your API connection is working
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -173,7 +165,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.pingNoauth();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -185,8 +176,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsPingNoauth } from "firehydrant/funcs/accountSettingsPingNoauth.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsPingNoauth } from "firehydrant-typescript-sdk/funcs/accountSettingsPingNoauth.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -196,15 +187,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsPingNoauth(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsPingNoauth failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -235,7 +223,7 @@ Get initial application configuration
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -244,7 +232,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.getBootstrap();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -256,8 +243,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsGetBootstrap } from "firehydrant/funcs/accountSettingsGetBootstrap.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsGetBootstrap } from "firehydrant-typescript-sdk/funcs/accountSettingsGetBootstrap.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -267,15 +254,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsGetBootstrap(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsGetBootstrap failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -306,7 +290,7 @@ Retrieves the current AI preferences
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -315,7 +299,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.getAiPreferences();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -327,8 +310,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsGetAiPreferences } from "firehydrant/funcs/accountSettingsGetAiPreferences.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsGetAiPreferences } from "firehydrant-typescript-sdk/funcs/accountSettingsGetAiPreferences.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -338,15 +321,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsGetAiPreferences(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsGetAiPreferences failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -377,7 +357,7 @@ Updates the AI preferences
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -386,7 +366,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.updateAiPreferences();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -398,8 +377,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { accountSettingsUpdateAiPreferences } from "firehydrant/funcs/accountSettingsUpdateAiPreferences.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { accountSettingsUpdateAiPreferences } from "firehydrant-typescript-sdk/funcs/accountSettingsUpdateAiPreferences.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -409,15 +388,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await accountSettingsUpdateAiPreferences(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountSettingsUpdateAiPreferences failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

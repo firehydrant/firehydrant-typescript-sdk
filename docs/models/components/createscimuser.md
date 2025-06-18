@@ -5,7 +5,7 @@ SCIM endpoint to create and provision a new User. This endpoint will provision t
 ## Example Usage
 
 ```typescript
-import { CreateScimUser } from "firehydrant/models/components";
+import { CreateScimUser } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateScimUser = {
   userName: "Titus20",
@@ -13,12 +13,7 @@ let value: CreateScimUser = {
     familyName: "<value>",
     givenName: "<value>",
   },
-  emails: [
-    {
-      value: "<value>",
-      primary: false,
-    },
-  ],
+  emails: [],
 };
 ```
 

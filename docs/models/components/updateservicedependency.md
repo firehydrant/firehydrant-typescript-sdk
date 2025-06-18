@@ -5,7 +5,7 @@ Update the notes of the service dependency
 ## Example Usage
 
 ```typescript
-import { UpdateServiceDependency } from "firehydrant/models/components";
+import { UpdateServiceDependency } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateServiceDependency = {};
 ```

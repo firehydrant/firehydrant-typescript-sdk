@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateFunctionalityExternalResource } from "firehydrant/models/components";
+import { UpdateFunctionalityExternalResource } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateFunctionalityExternalResource = {
   remoteId: "<id>",

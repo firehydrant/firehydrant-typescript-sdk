@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateNuncImageRequestBody } from "firehydrant/models/operations";
+import { UpdateNuncImageRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 // No examples available for this model
 ```

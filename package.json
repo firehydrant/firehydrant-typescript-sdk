@@ -8,7 +8,7 @@
   },
   "tshy": {
     "sourceDialects": [
-      "firehydrant/source"
+      "firehydrant-typescript-sdk/source"
     ],
     "exports": {
       ".": "./src/index.ts",
@@ -54,13 +54,13 @@
     "tshy": "^2.0.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.22.0",
-    "zod": "^3.23.4"
+    "zod": "^3.25.17"
   },
   "dependencies": {},
   "exports": {
     ".": {
       "import": {
-        "firehydrant/source": "./src/index.ts",
+        "firehydrant-typescript-sdk/source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
@@ -72,7 +72,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "firehydrant/source": "./src/types/index.ts",
+        "firehydrant-typescript-sdk/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -83,7 +83,7 @@
     },
     "./models/errors": {
       "import": {
-        "firehydrant/source": "./src/models/errors/index.ts",
+        "firehydrant-typescript-sdk/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -94,7 +94,7 @@
     },
     "./models/components": {
       "import": {
-        "firehydrant/source": "./src/models/components/index.ts",
+        "firehydrant-typescript-sdk/source": "./src/models/components/index.ts",
         "types": "./dist/esm/models/components/index.d.ts",
         "default": "./dist/esm/models/components/index.js"
       },
@@ -105,7 +105,7 @@
     },
     "./models/operations": {
       "import": {
-        "firehydrant/source": "./src/models/operations/index.ts",
+        "firehydrant-typescript-sdk/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -116,7 +116,7 @@
     },
     "./*.js": {
       "import": {
-        "firehydrant/source": "./src/*.ts",
+        "firehydrant-typescript-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -127,7 +127,7 @@
     },
     "./*": {
       "import": {
-        "firehydrant/source": "./src/*.ts",
+        "firehydrant-typescript-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },

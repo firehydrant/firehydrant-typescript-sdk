@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetOnCallShiftRequest } from "firehydrant/models/operations";
+import { GetOnCallShiftRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetOnCallShiftRequest = {
   id: "<id>",

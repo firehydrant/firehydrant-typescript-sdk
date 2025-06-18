@@ -14,7 +14,7 @@ export const tool$conversationsCreateComment: ToolDefinition<typeof args> = {
   name: "conversations-create-comment",
   description: `Create a conversation comment
 
-ALPHA - Creates a comment for a project`,
+Creates a comment for a project`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsCreateComment(

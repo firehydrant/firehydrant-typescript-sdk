@@ -5,7 +5,7 @@ Create a task
 ## Example Usage
 
 ```typescript
-import { CreateIncidentTask } from "firehydrant/models/components";
+import { CreateIncidentTask } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentTask = {
   title: "<value>",

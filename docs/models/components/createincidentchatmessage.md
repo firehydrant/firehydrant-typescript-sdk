@@ -5,7 +5,7 @@ Create a new generic chat message on an incident timeline. These are independent
 ## Example Usage
 
 ```typescript
-import { CreateIncidentChatMessage } from "firehydrant/models/components";
+import { CreateIncidentChatMessage } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentChatMessage = {
   body: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetAlertRequest } from "firehydrant/models/operations";
+import { GetAlertRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetAlertRequest = {
   alertId: "<id>",

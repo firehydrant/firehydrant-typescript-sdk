@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetEnvironmentRequest } from "firehydrant/models/operations";
+import { GetEnvironmentRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetEnvironmentRequest = {
   environmentId: "<id>",

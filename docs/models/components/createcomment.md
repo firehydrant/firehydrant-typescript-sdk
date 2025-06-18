@@ -1,11 +1,11 @@
 # CreateComment
 
-ALPHA - Creates a comment for a project
+Creates a comment for a project
 
 ## Example Usage
 
 ```typescript
-import { CreateComment } from "firehydrant/models/components";
+import { CreateComment } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateComment = {
   body: "<value>",

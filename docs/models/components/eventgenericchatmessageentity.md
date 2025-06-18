@@ -5,7 +5,7 @@ Event_GenericChatMessageEntity model
 ## Example Usage
 
 ```typescript
-import { EventGenericChatMessageEntity } from "firehydrant/models/components";
+import { EventGenericChatMessageEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: EventGenericChatMessageEntity = {};
 ```

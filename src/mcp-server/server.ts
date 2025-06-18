@@ -37,7 +37,14 @@ import { tool$audiencesListAudienceSummaries } from "./tools/audiencesListAudien
 import { tool$audiencesRestoreAudience } from "./tools/audiencesRestoreAudience.js";
 import { tool$audiencesSetMemberDefaultAudience } from "./tools/audiencesSetMemberDefaultAudience.js";
 import { tool$audiencesUpdateAudience } from "./tools/audiencesUpdateAudience.js";
+import { tool$auditEventsGetAuditEvent } from "./tools/auditEventsGetAuditEvent.js";
+import { tool$auditEventsListAuditEvents } from "./tools/auditEventsListAuditEvents.js";
+import { tool$callRoutesCreateTeamCallRoute } from "./tools/callRoutesCreateTeamCallRoute.js";
+import { tool$callRoutesDeleteCallRoute } from "./tools/callRoutesDeleteCallRoute.js";
+import { tool$callRoutesGetCallRoute } from "./tools/callRoutesGetCallRoute.js";
 import { tool$callRoutesListCallRoutes } from "./tools/callRoutesListCallRoutes.js";
+import { tool$callRoutesListTeamCallRoutes } from "./tools/callRoutesListTeamCallRoutes.js";
+import { tool$callRoutesUpdateCallRoute } from "./tools/callRoutesUpdateCallRoute.js";
 import { tool$catalogEntriesCreateEnvironment } from "./tools/catalogEntriesCreateEnvironment.js";
 import { tool$catalogEntriesCreateFunctionality } from "./tools/catalogEntriesCreateFunctionality.js";
 import { tool$catalogEntriesCreateService } from "./tools/catalogEntriesCreateService.js";
@@ -119,6 +126,7 @@ import { tool$incidentsDeleteIncidentRoleAssignment } from "./tools/incidentsDel
 import { tool$incidentsDeleteIncidentTeamAssignment } from "./tools/incidentsDeleteIncidentTeamAssignment.js";
 import { tool$incidentsDeleteScheduledMaintenance } from "./tools/incidentsDeleteScheduledMaintenance.js";
 import { tool$incidentsDeleteTranscriptEntry } from "./tools/incidentsDeleteTranscriptEntry.js";
+import { tool$incidentSettingsAppendFormDataOnSelectedValueGet } from "./tools/incidentSettingsAppendFormDataOnSelectedValueGet.js";
 import { tool$incidentSettingsCreateCustomFieldDefinition } from "./tools/incidentSettingsCreateCustomFieldDefinition.js";
 import { tool$incidentSettingsCreateIncidentRole } from "./tools/incidentSettingsCreateIncidentRole.js";
 import { tool$incidentSettingsCreateIncidentType } from "./tools/incidentSettingsCreateIncidentType.js";
@@ -307,26 +315,33 @@ import { tool$scimPatchSCIMUser } from "./tools/scimPatchSCIMUser.js";
 import { tool$scimUpdateSCIMGroup } from "./tools/scimUpdateSCIMGroup.js";
 import { tool$scimUpdateSCIMUser } from "./tools/scimUpdateSCIMUser.js";
 import { tool$signalsCreateOnCallShift } from "./tools/signalsCreateOnCallShift.js";
+import { tool$signalsCreateSignalsAlertGroupingConfiguration } from "./tools/signalsCreateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsCreateSignalsEmailTarget } from "./tools/signalsCreateSignalsEmailTarget.js";
+import { tool$signalsCreateSignalsEventSource } from "./tools/signalsCreateSignalsEventSource.js";
 import { tool$signalsCreateSignalsWebhookTarget } from "./tools/signalsCreateSignalsWebhookTarget.js";
 import { tool$signalsCreateTeamEscalationPolicy } from "./tools/signalsCreateTeamEscalationPolicy.js";
 import { tool$signalsCreateTeamOnCallSchedule } from "./tools/signalsCreateTeamOnCallSchedule.js";
 import { tool$signalsCreateTeamSignalRule } from "./tools/signalsCreateTeamSignalRule.js";
 import { tool$signalsDebugSignalsExpression } from "./tools/signalsDebugSignalsExpression.js";
 import { tool$signalsDeleteOnCallShift } from "./tools/signalsDeleteOnCallShift.js";
+import { tool$signalsDeleteSignalsAlertGroupingConfiguration } from "./tools/signalsDeleteSignalsAlertGroupingConfiguration.js";
 import { tool$signalsDeleteSignalsEmailTarget } from "./tools/signalsDeleteSignalsEmailTarget.js";
+import { tool$signalsDeleteSignalsEventSource } from "./tools/signalsDeleteSignalsEventSource.js";
 import { tool$signalsDeleteSignalsWebhookTarget } from "./tools/signalsDeleteSignalsWebhookTarget.js";
 import { tool$signalsDeleteTeamEscalationPolicy } from "./tools/signalsDeleteTeamEscalationPolicy.js";
 import { tool$signalsDeleteTeamOnCallSchedule } from "./tools/signalsDeleteTeamOnCallSchedule.js";
 import { tool$signalsDeleteTeamSignalRule } from "./tools/signalsDeleteTeamSignalRule.js";
 import { tool$signalsGetOnCallShift } from "./tools/signalsGetOnCallShift.js";
+import { tool$signalsGetSignalsAlertGroupingConfiguration } from "./tools/signalsGetSignalsAlertGroupingConfiguration.js";
 import { tool$signalsGetSignalsEmailTarget } from "./tools/signalsGetSignalsEmailTarget.js";
+import { tool$signalsGetSignalsEventSource } from "./tools/signalsGetSignalsEventSource.js";
 import { tool$signalsGetSignalsIngestUrl } from "./tools/signalsGetSignalsIngestUrl.js";
 import { tool$signalsGetSignalsWebhookTarget } from "./tools/signalsGetSignalsWebhookTarget.js";
 import { tool$signalsGetTeamEscalationPolicy } from "./tools/signalsGetTeamEscalationPolicy.js";
 import { tool$signalsGetTeamOnCallSchedule } from "./tools/signalsGetTeamOnCallSchedule.js";
 import { tool$signalsGetTeamSignalRule } from "./tools/signalsGetTeamSignalRule.js";
 import { tool$signalsListOrganizationOnCallSchedules } from "./tools/signalsListOrganizationOnCallSchedules.js";
+import { tool$signalsListSignalsAlertGroupingConfigurations } from "./tools/signalsListSignalsAlertGroupingConfigurations.js";
 import { tool$signalsListSignalsEmailTargets } from "./tools/signalsListSignalsEmailTargets.js";
 import { tool$signalsListSignalsEventSources } from "./tools/signalsListSignalsEventSources.js";
 import { tool$signalsListSignalsTransposers } from "./tools/signalsListSignalsTransposers.js";
@@ -335,6 +350,7 @@ import { tool$signalsListTeamEscalationPolicies } from "./tools/signalsListTeamE
 import { tool$signalsListTeamOnCallSchedules } from "./tools/signalsListTeamOnCallSchedules.js";
 import { tool$signalsListTeamSignalRules } from "./tools/signalsListTeamSignalRules.js";
 import { tool$signalsUpdateOnCallShift } from "./tools/signalsUpdateOnCallShift.js";
+import { tool$signalsUpdateSignalsAlertGroupingConfiguration } from "./tools/signalsUpdateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsUpdateSignalsEmailTarget } from "./tools/signalsUpdateSignalsEmailTarget.js";
 import { tool$signalsUpdateSignalsWebhookTarget } from "./tools/signalsUpdateSignalsWebhookTarget.js";
 import { tool$signalsUpdateTeamEscalationPolicy } from "./tools/signalsUpdateTeamEscalationPolicy.js";
@@ -432,7 +448,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "0.1.13",
+    version: "1.0.0",
   });
 
   const client = new FirehydrantCore({
@@ -504,6 +520,12 @@ export function createMCPServer(deps: {
   tool(tool$teamsDeleteTeam);
   tool(tool$teamsUpdateTeam);
   tool(tool$teamsListSchedules);
+  tool(tool$callRoutesListTeamCallRoutes);
+  tool(tool$callRoutesCreateTeamCallRoute);
+  tool(tool$callRoutesListCallRoutes);
+  tool(tool$callRoutesGetCallRoute);
+  tool(tool$callRoutesDeleteCallRoute);
+  tool(tool$callRoutesUpdateCallRoute);
   tool(tool$signalsListTeamEscalationPolicies);
   tool(tool$signalsCreateTeamEscalationPolicy);
   tool(tool$signalsGetTeamEscalationPolicy);
@@ -524,6 +546,14 @@ export function createMCPServer(deps: {
   tool(tool$signalsDeleteTeamSignalRule);
   tool(tool$signalsUpdateTeamSignalRule);
   tool(tool$signalsListSignalsEventSources);
+  tool(tool$signalsCreateSignalsEventSource);
+  tool(tool$signalsGetSignalsEventSource);
+  tool(tool$signalsDeleteSignalsEventSource);
+  tool(tool$signalsListSignalsAlertGroupingConfigurations);
+  tool(tool$signalsCreateSignalsAlertGroupingConfiguration);
+  tool(tool$signalsGetSignalsAlertGroupingConfiguration);
+  tool(tool$signalsDeleteSignalsAlertGroupingConfiguration);
+  tool(tool$signalsUpdateSignalsAlertGroupingConfiguration);
   tool(tool$signalsListSignalsEmailTargets);
   tool(tool$signalsCreateSignalsEmailTarget);
   tool(tool$signalsGetSignalsEmailTarget);
@@ -738,6 +768,7 @@ export function createMCPServer(deps: {
   tool(tool$incidentSettingsListCustomFieldDefinitions);
   tool(tool$incidentSettingsCreateCustomFieldDefinition);
   tool(tool$incidentSettingsListCustomFieldSelectOptions);
+  tool(tool$incidentSettingsAppendFormDataOnSelectedValueGet);
   tool(tool$incidentSettingsGetFormConfiguration);
   tool(tool$integrationsListIntegrations);
   tool(tool$integrationsGetIntegration);
@@ -806,6 +837,8 @@ export function createMCPServer(deps: {
   tool(tool$runbooksUpdateRunbook);
   tool(tool$runbooksDeleteRunbook);
   tool(tool$runbooksListRunbookAudits);
+  tool(tool$auditEventsListAuditEvents);
+  tool(tool$auditEventsGetAuditEvent);
   tool(tool$communicationListStatusUpdateTemplates);
   tool(tool$communicationCreateStatusUpdateTemplate);
   tool(tool$communicationGetStatusUpdateTemplate);
@@ -852,7 +885,6 @@ export function createMCPServer(deps: {
   tool(tool$scimPatchSCIMUser);
   tool(tool$scimListSCIMUsers);
   tool(tool$scimCreateSCIMUser);
-  tool(tool$callRoutesListCallRoutes);
   tool(tool$webhooksListWebhooks);
   tool(tool$webhooksCreateWebhook);
   tool(tool$webhooksListWebhookDeliveries);

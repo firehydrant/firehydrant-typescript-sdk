@@ -5,7 +5,7 @@ Update the given Statuspage integration connection.
 ## Example Usage
 
 ```typescript
-import { UpdateStatuspageConnection } from "firehydrant/models/components";
+import { UpdateStatuspageConnection } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateStatuspageConnection = {};
 ```

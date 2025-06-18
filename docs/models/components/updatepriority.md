@@ -5,7 +5,7 @@ Update a specific priority
 ## Example Usage
 
 ```typescript
-import { UpdatePriority } from "firehydrant/models/components";
+import { UpdatePriority } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdatePriority = {};
 ```

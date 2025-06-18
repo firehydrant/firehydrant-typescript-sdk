@@ -3,21 +3,22 @@
 ## Example Usage
 
 ```typescript
-import { UpdateNuncConnectionRequestBody } from "firehydrant/models/operations";
+import { UpdateNuncConnectionRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateNuncConnectionRequestBody = {
   conditionsNuncCondition: [
-    "<value>",
+    "<value 1>",
   ],
   conditionsConditionId: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
+    "<value 3>",
   ],
   componentsInfrastructureType: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
-  componentsInfrastructureId: [
-    "<value>",
-  ],
+  componentsInfrastructureId: [],
 };
 ```
 

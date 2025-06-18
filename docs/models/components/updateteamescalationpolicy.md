@@ -5,7 +5,7 @@ Update a Signals escalation policy by ID
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicy } from "firehydrant/models/components";
+import { UpdateTeamEscalationPolicy } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamEscalationPolicy = {};
 ```

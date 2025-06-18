@@ -5,7 +5,7 @@ RunbookEntity model
 ## Example Usage
 
 ```typescript
-import { RunbookEntity } from "firehydrant/models/components";
+import { RunbookEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: RunbookEntity = {};
 ```

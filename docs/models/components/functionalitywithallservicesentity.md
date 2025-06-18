@@ -5,7 +5,7 @@ FunctionalityWithAllServicesEntity model
 ## Example Usage
 
 ```typescript
-import { FunctionalityWithAllServicesEntity } from "firehydrant/models/components";
+import { FunctionalityWithAllServicesEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: FunctionalityWithAllServicesEntity = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateAuthedProviderRequestBody } from "firehydrant/models/operations";
+import { UpdateAuthedProviderRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateAuthedProviderRequestBody = {};
 ```

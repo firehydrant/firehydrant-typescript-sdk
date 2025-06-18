@@ -20,7 +20,7 @@ List all status update templates for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -29,7 +29,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.communication.listStatusUpdateTemplates({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -41,8 +40,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { communicationListStatusUpdateTemplates } from "firehydrant/funcs/communicationListStatusUpdateTemplates.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { communicationListStatusUpdateTemplates } from "firehydrant-typescript-sdk/funcs/communicationListStatusUpdateTemplates.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -52,15 +51,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await communicationListStatusUpdateTemplates(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("communicationListStatusUpdateTemplates failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -92,7 +88,7 @@ Create a status update template for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -104,7 +100,6 @@ async function run() {
     body: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -116,8 +111,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { communicationCreateStatusUpdateTemplate } from "firehydrant/funcs/communicationCreateStatusUpdateTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { communicationCreateStatusUpdateTemplate } from "firehydrant-typescript-sdk/funcs/communicationCreateStatusUpdateTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -130,15 +125,12 @@ async function run() {
     name: "<value>",
     body: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("communicationCreateStatusUpdateTemplate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -170,7 +162,7 @@ Get a single status update template by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -181,7 +173,6 @@ async function run() {
     statusUpdateTemplateId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -193,8 +184,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { communicationGetStatusUpdateTemplate } from "firehydrant/funcs/communicationGetStatusUpdateTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { communicationGetStatusUpdateTemplate } from "firehydrant-typescript-sdk/funcs/communicationGetStatusUpdateTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -206,15 +197,12 @@ async function run() {
   const res = await communicationGetStatusUpdateTemplate(firehydrant, {
     statusUpdateTemplateId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("communicationGetStatusUpdateTemplate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -246,7 +234,7 @@ Delete a single status update template
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -257,7 +245,6 @@ async function run() {
     statusUpdateTemplateId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -269,8 +256,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { communicationDeleteStatusUpdateTemplate } from "firehydrant/funcs/communicationDeleteStatusUpdateTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { communicationDeleteStatusUpdateTemplate } from "firehydrant-typescript-sdk/funcs/communicationDeleteStatusUpdateTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -282,15 +269,12 @@ async function run() {
   const res = await communicationDeleteStatusUpdateTemplate(firehydrant, {
     statusUpdateTemplateId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("communicationDeleteStatusUpdateTemplate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -322,7 +306,7 @@ Update a single status update template
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -334,7 +318,6 @@ async function run() {
     updateStatusUpdateTemplate: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -346,8 +329,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { communicationUpdateStatusUpdateTemplate } from "firehydrant/funcs/communicationUpdateStatusUpdateTemplate.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { communicationUpdateStatusUpdateTemplate } from "firehydrant-typescript-sdk/funcs/communicationUpdateStatusUpdateTemplate.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -360,15 +343,12 @@ async function run() {
     statusUpdateTemplateId: "<id>",
     updateStatusUpdateTemplate: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("communicationUpdateStatusUpdateTemplate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

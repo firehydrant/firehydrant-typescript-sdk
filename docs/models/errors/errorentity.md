@@ -5,7 +5,7 @@ ErrorEntity model
 ## Example Usage
 
 ```typescript
-import { ErrorEntity } from "firehydrant/models/errors";
+import { ErrorEntity } from "firehydrant-typescript-sdk/models/errors";
 
 // No examples available for this model
 ```

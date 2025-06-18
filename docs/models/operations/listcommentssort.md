@@ -5,7 +5,7 @@ Allows sorting comments by the time they were posted, ascending or descending.
 ## Example Usage
 
 ```typescript
-import { ListCommentsSort } from "firehydrant/models/operations";
+import { ListCommentsSort } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListCommentsSort = "asc";
 ```

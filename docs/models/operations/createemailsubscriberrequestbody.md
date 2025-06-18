@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateEmailSubscriberRequestBody } from "firehydrant/models/operations";
+import { CreateEmailSubscriberRequestBody } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateEmailSubscriberRequestBody = {
   emails: "<value>",

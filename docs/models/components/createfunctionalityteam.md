@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateFunctionalityTeam } from "firehydrant/models/components";
+import { CreateFunctionalityTeam } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateFunctionalityTeam = {
   id: "<id>",

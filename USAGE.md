@@ -1,6 +1,6 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -9,7 +9,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.ping();
 
-  // Handle the result
   console.log(result);
 }
 

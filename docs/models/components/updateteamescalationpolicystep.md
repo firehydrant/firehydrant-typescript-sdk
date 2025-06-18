@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateTeamEscalationPolicyStep } from "firehydrant/models/components";
+import { UpdateTeamEscalationPolicyStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateTeamEscalationPolicyStep = {
   timeout: "<value>",

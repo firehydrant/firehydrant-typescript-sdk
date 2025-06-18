@@ -5,7 +5,7 @@ SeverityEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { SeverityEntityPaginated } from "firehydrant/models/components";
+import { SeverityEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: SeverityEntityPaginated = {};
 ```

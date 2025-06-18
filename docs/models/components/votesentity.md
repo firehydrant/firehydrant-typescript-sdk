@@ -5,7 +5,7 @@ VotesEntity model
 ## Example Usage
 
 ```typescript
-import { VotesEntity } from "firehydrant/models/components";
+import { VotesEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: VotesEntity = {};
 ```

@@ -5,7 +5,7 @@ Integer representing service tier
 ## Example Usage
 
 ```typescript
-import { UpdateServiceServiceTier } from "firehydrant/models/components";
+import { UpdateServiceServiceTier } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateServiceServiceTier = 5;
 ```

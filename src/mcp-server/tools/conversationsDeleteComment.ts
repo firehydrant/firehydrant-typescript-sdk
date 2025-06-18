@@ -14,7 +14,7 @@ export const tool$conversationsDeleteComment: ToolDefinition<typeof args> = {
   name: "conversations-delete-comment",
   description: `Archive a conversation comment
 
-ALPHA - Archive a comment`,
+Archive a comment`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsDeleteComment(

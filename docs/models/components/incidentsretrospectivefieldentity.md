@@ -5,7 +5,7 @@ Incidents_RetrospectiveFieldEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsRetrospectiveFieldEntity } from "firehydrant/models/components";
+import { IncidentsRetrospectiveFieldEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRetrospectiveFieldEntity = {};
 ```

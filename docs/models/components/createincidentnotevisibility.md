@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CreateIncidentNoteVisibility } from "firehydrant/models/components";
+import { CreateIncidentNoteVisibility } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentNoteVisibility = "private_to_org";
 ```

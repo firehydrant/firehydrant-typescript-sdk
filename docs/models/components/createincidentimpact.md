@@ -5,7 +5,7 @@ Add impacted infrastructure to an incident
 ## Example Usage
 
 ```typescript
-import { CreateIncidentImpact } from "firehydrant/models/components";
+import { CreateIncidentImpact } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateIncidentImpact = {
   id: "<id>",

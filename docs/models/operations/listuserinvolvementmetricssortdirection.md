@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListUserInvolvementMetricsSortDirection } from "firehydrant/models/operations";
+import { ListUserInvolvementMetricsSortDirection } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListUserInvolvementMetricsSortDirection = "desc";
 ```

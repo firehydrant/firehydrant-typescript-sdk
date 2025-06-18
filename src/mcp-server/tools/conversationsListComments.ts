@@ -14,7 +14,7 @@ export const tool$conversationsListComments: ToolDefinition<typeof args> = {
   name: "conversations-list-comments",
   description: `List comments for a conversation
 
-ALPHA - List all of the comments that have been added to the organization`,
+List all of the comments that have been added to the organization`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsListComments(

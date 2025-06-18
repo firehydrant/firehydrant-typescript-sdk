@@ -27,6 +27,14 @@ Operations related to Signals
 * [deleteTeamSignalRule](#deleteteamsignalrule) - Delete a Signals rule
 * [updateTeamSignalRule](#updateteamsignalrule) - Update a Signals rule
 * [listSignalsEventSources](#listsignalseventsources) - List event sources for Signals
+* [createSignalsEventSource](#createsignalseventsource) - Create an event source for Signals
+* [getSignalsEventSource](#getsignalseventsource) - Get an event source for Signals
+* [deleteSignalsEventSource](#deletesignalseventsource) - Delete an event source for Signals
+* [listSignalsAlertGroupingConfigurations](#listsignalsalertgroupingconfigurations) - List alert grouping configurations.
+* [createSignalsAlertGroupingConfiguration](#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
+* [getSignalsAlertGroupingConfiguration](#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
+* [deleteSignalsAlertGroupingConfiguration](#deletesignalsalertgroupingconfiguration) - Delete an alert grouping configuration.
+* [updateSignalsAlertGroupingConfiguration](#updatesignalsalertgroupingconfiguration) - Update an alert grouping configuration.
 * [listSignalsEmailTargets](#listsignalsemailtargets) - List email targets for signals
 * [createSignalsEmailTarget](#createsignalsemailtarget) - Create an email target for signals
 * [getSignalsEmailTarget](#getsignalsemailtarget) - Get a signal email target
@@ -40,7 +48,7 @@ Operations related to Signals
 * [listSignalsTransposers](#listsignalstransposers) - List signal transposers
 * [getSignalsIngestUrl](#getsignalsingesturl) - Get the signals ingestion URL
 * [debugSignalsExpression](#debugsignalsexpression) - Debug Signals expressions
-* [listOrganizationOnCallSchedules](#listorganizationoncallschedules) - List on-call schedules
+* [listOrganizationOnCallSchedules](#listorganizationoncallschedules) - List who's on call for the organization
 
 ## listTeamEscalationPolicies
 
@@ -49,18 +57,18 @@ List all Signals escalation policies for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listTeamEscalationPolicies({
+  const result = await firehydrant.signals.listTeamEscalationPolicies({
     teamId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -71,8 +79,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListTeamEscalationPolicies } from "firehydrant/funcs/signalsListTeamEscalationPolicies.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListTeamEscalationPolicies } from "firehydrant-typescript-sdk/funcs/signalsListTeamEscalationPolicies.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -84,14 +92,12 @@ async function run() {
   const res = await signalsListTeamEscalationPolicies(firehydrant, {
     teamId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListTeamEscalationPolicies failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -108,7 +114,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEscalationPolicyEntityPaginated](../../models/components/signalsapiescalationpolicyentitypaginated.md)\>**
 
 ### Errors
 
@@ -123,53 +129,22 @@ Create a Signals escalation policy for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.createTeamEscalationPolicy({
+  const result = await firehydrant.signals.createTeamEscalationPolicy({
     teamId: "<id>",
     createTeamEscalationPolicy: {
       name: "<value>",
-      steps: [
-        {
-          targets: [],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "Webhook",
-              id: "<id>",
-            },
-            {
-              type: "OnCallSchedule",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "SlackChannel",
-              id: "<id>",
-            },
-            {
-              type: "EntireTeam",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-      ],
+      steps: [],
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -180,8 +155,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateTeamEscalationPolicy } from "firehydrant/funcs/signalsCreateTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsCreateTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -194,48 +169,15 @@ async function run() {
     teamId: "<id>",
     createTeamEscalationPolicy: {
       name: "<value>",
-      steps: [
-        {
-          targets: [],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "Webhook",
-              id: "<id>",
-            },
-            {
-              type: "OnCallSchedule",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-        {
-          targets: [
-            {
-              type: "SlackChannel",
-              id: "<id>",
-            },
-            {
-              type: "EntireTeam",
-              id: "<id>",
-            },
-          ],
-          timeout: "<value>",
-        },
-      ],
+      steps: [],
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateTeamEscalationPolicy failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -252,7 +194,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEscalationPolicyEntity](../../models/components/signalsapiescalationpolicyentity.md)\>**
 
 ### Errors
 
@@ -267,19 +209,19 @@ Get a Signals escalation policy by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.getTeamEscalationPolicy({
+  const result = await firehydrant.signals.getTeamEscalationPolicy({
     teamId: "<id>",
     id: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -290,8 +232,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetTeamEscalationPolicy } from "firehydrant/funcs/signalsGetTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsGetTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -304,14 +246,12 @@ async function run() {
     teamId: "<id>",
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetTeamEscalationPolicy failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -328,7 +268,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEscalationPolicyEntity](../../models/components/signalsapiescalationpolicyentity.md)\>**
 
 ### Errors
 
@@ -343,7 +283,7 @@ Delete a Signals escalation policy by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -366,8 +306,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteTeamEscalationPolicy } from "firehydrant/funcs/signalsDeleteTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsDeleteTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -380,14 +320,12 @@ async function run() {
     teamId: "<id>",
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteTeamEscalationPolicy failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -419,20 +357,20 @@ Update a Signals escalation policy by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.updateTeamEscalationPolicy({
+  const result = await firehydrant.signals.updateTeamEscalationPolicy({
     teamId: "<id>",
     id: "<id>",
     updateTeamEscalationPolicy: {},
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -443,8 +381,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateTeamEscalationPolicy } from "firehydrant/funcs/signalsUpdateTeamEscalationPolicy.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateTeamEscalationPolicy } from "firehydrant-typescript-sdk/funcs/signalsUpdateTeamEscalationPolicy.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -458,14 +396,12 @@ async function run() {
     id: "<id>",
     updateTeamEscalationPolicy: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateTeamEscalationPolicy failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -482,7 +418,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEscalationPolicyEntity](../../models/components/signalsapiescalationpolicyentity.md)\>**
 
 ### Errors
 
@@ -497,18 +433,18 @@ List all Signals on-call schedules for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listTeamOnCallSchedules({
+  const result = await firehydrant.signals.listTeamOnCallSchedules({
     teamId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -519,8 +455,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListTeamOnCallSchedules } from "firehydrant/funcs/signalsListTeamOnCallSchedules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListTeamOnCallSchedules } from "firehydrant-typescript-sdk/funcs/signalsListTeamOnCallSchedules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -532,14 +468,12 @@ async function run() {
   const res = await signalsListTeamOnCallSchedules(firehydrant, {
     teamId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListTeamOnCallSchedules failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -556,7 +490,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallScheduleEntityPaginated](../../models/components/signalsapioncallscheduleentitypaginated.md)\>**
 
 ### Errors
 
@@ -566,30 +500,26 @@ run();
 
 ## createTeamOnCallSchedule
 
-Create a Signals on-call schedule for a team.
+Create a Signals on-call schedule for a team with a single rotation. More rotations can be created later.
 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.createTeamOnCallSchedule({
+  const result = await firehydrant.signals.createTeamOnCallSchedule({
     teamId: "<id>",
     createTeamOnCallSchedule: {
       name: "<value>",
-      timeZone: "Antarctica/DumontDUrville",
-      strategy: {
-        type: "custom",
-      },
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -600,8 +530,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateTeamOnCallSchedule } from "firehydrant/funcs/signalsCreateTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsCreateTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -614,20 +544,14 @@ async function run() {
     teamId: "<id>",
     createTeamOnCallSchedule: {
       name: "<value>",
-      timeZone: "Antarctica/DumontDUrville",
-      strategy: {
-        type: "custom",
-      },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateTeamOnCallSchedule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -644,7 +568,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallScheduleEntity](../../models/components/signalsapioncallscheduleentity.md)\>**
 
 ### Errors
 
@@ -659,19 +583,19 @@ Get a Signals on-call schedule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.getTeamOnCallSchedule({
+  const result = await firehydrant.signals.getTeamOnCallSchedule({
     teamId: "<id>",
     scheduleId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -682,8 +606,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetTeamOnCallSchedule } from "firehydrant/funcs/signalsGetTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsGetTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -696,14 +620,12 @@ async function run() {
     teamId: "<id>",
     scheduleId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetTeamOnCallSchedule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -720,7 +642,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallScheduleEntity](../../models/components/signalsapioncallscheduleentity.md)\>**
 
 ### Errors
 
@@ -735,7 +657,7 @@ Delete a Signals on-call schedule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -758,8 +680,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteTeamOnCallSchedule } from "firehydrant/funcs/signalsDeleteTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsDeleteTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -772,14 +694,12 @@ async function run() {
     teamId: "<id>",
     scheduleId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteTeamOnCallSchedule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -806,25 +726,28 @@ run();
 
 ## updateTeamOnCallSchedule
 
-Update a Signals on-call schedule by ID
+Update a Signals on-call schedule by ID. For backwards compatibility, all parameters except for
+`name` and `description` will be ignored if the schedule has more than one rotation. If the schedule
+has only one rotation, you can continue to update that rotation using the rotation-specific parameters.
+
 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.updateTeamOnCallSchedule({
+  const result = await firehydrant.signals.updateTeamOnCallSchedule({
     teamId: "<id>",
     scheduleId: "<id>",
     updateTeamOnCallSchedule: {},
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -835,8 +758,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateTeamOnCallSchedule } from "firehydrant/funcs/signalsUpdateTeamOnCallSchedule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsUpdateTeamOnCallSchedule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -850,14 +773,12 @@ async function run() {
     scheduleId: "<id>",
     updateTeamOnCallSchedule: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateTeamOnCallSchedule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -874,7 +795,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallScheduleEntity](../../models/components/signalsapioncallscheduleentity.md)\>**
 
 ### Errors
 
@@ -889,14 +810,14 @@ Create a Signals on-call shift in a schedule.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.createOnCallShift({
+  const result = await firehydrant.signals.createOnCallShift({
     teamId: "<id>",
     scheduleId: "<id>",
     createOnCallShift: {
@@ -905,7 +826,7 @@ async function run() {
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -916,8 +837,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateOnCallShift } from "firehydrant/funcs/signalsCreateOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsCreateOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -934,14 +855,12 @@ async function run() {
       endTime: "<value>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateOnCallShift failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -958,7 +877,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallShiftEntity](../../models/components/signalsapioncallshiftentity.md)\>**
 
 ### Errors
 
@@ -973,20 +892,20 @@ Get a Signals on-call shift by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.getOnCallShift({
+  const result = await firehydrant.signals.getOnCallShift({
     id: "<id>",
     teamId: "<id>",
     scheduleId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -997,8 +916,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetOnCallShift } from "firehydrant/funcs/signalsGetOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsGetOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1012,14 +931,12 @@ async function run() {
     teamId: "<id>",
     scheduleId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetOnCallShift failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1036,7 +953,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallShiftEntity](../../models/components/signalsapioncallshiftentity.md)\>**
 
 ### Errors
 
@@ -1051,7 +968,7 @@ Delete a Signals on-call shift by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1075,8 +992,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteOnCallShift } from "firehydrant/funcs/signalsDeleteOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsDeleteOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1090,14 +1007,12 @@ async function run() {
     teamId: "<id>",
     scheduleId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteOnCallShift failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1129,21 +1044,21 @@ Update a Signals on-call shift by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.updateOnCallShift({
+  const result = await firehydrant.signals.updateOnCallShift({
     id: "<id>",
     teamId: "<id>",
     scheduleId: "<id>",
     updateOnCallShift: {},
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1154,8 +1069,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateOnCallShift } from "firehydrant/funcs/signalsUpdateOnCallShift.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateOnCallShift } from "firehydrant-typescript-sdk/funcs/signalsUpdateOnCallShift.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1170,14 +1085,12 @@ async function run() {
     scheduleId: "<id>",
     updateOnCallShift: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateOnCallShift failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1194,7 +1107,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOnCallShiftEntity](../../models/components/signalsapioncallshiftentity.md)\>**
 
 ### Errors
 
@@ -1209,18 +1122,18 @@ List all Signals rules for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listTeamSignalRules({
+  const result = await firehydrant.signals.listTeamSignalRules({
     teamId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1231,8 +1144,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListTeamSignalRules } from "firehydrant/funcs/signalsListTeamSignalRules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListTeamSignalRules } from "firehydrant-typescript-sdk/funcs/signalsListTeamSignalRules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1244,14 +1157,12 @@ async function run() {
   const res = await signalsListTeamSignalRules(firehydrant, {
     teamId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListTeamSignalRules failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1268,7 +1179,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIRuleEntityPaginated](../../models/components/signalsapiruleentitypaginated.md)\>**
 
 ### Errors
 
@@ -1283,14 +1194,14 @@ Create a Signals rule for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.createTeamSignalRule({
+  const result = await firehydrant.signals.createTeamSignalRule({
     teamId: "<id>",
     createTeamSignalRule: {
       name: "<value>",
@@ -1300,7 +1211,7 @@ async function run() {
     },
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1311,8 +1222,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateTeamSignalRule } from "firehydrant/funcs/signalsCreateTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsCreateTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1330,14 +1241,12 @@ async function run() {
       targetId: "<id>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateTeamSignalRule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1354,7 +1263,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIRuleEntity](../../models/components/signalsapiruleentity.md)\>**
 
 ### Errors
 
@@ -1369,19 +1278,19 @@ Get a Signals rule by ID.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.getTeamSignalRule({
+  const result = await firehydrant.signals.getTeamSignalRule({
     teamId: "<id>",
     id: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1392,8 +1301,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetTeamSignalRule } from "firehydrant/funcs/signalsGetTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsGetTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1406,14 +1315,12 @@ async function run() {
     teamId: "<id>",
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetTeamSignalRule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1430,7 +1337,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIRuleEntity](../../models/components/signalsapiruleentity.md)\>**
 
 ### Errors
 
@@ -1445,7 +1352,7 @@ Delete a Signals rule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1468,8 +1375,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteTeamSignalRule } from "firehydrant/funcs/signalsDeleteTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsDeleteTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1482,14 +1389,12 @@ async function run() {
     teamId: "<id>",
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteTeamSignalRule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1521,20 +1426,20 @@ Update a Signals rule by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.updateTeamSignalRule({
+  const result = await firehydrant.signals.updateTeamSignalRule({
     teamId: "<id>",
     id: "<id>",
     updateTeamSignalRule: {},
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1545,8 +1450,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateTeamSignalRule } from "firehydrant/funcs/signalsUpdateTeamSignalRule.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateTeamSignalRule } from "firehydrant-typescript-sdk/funcs/signalsUpdateTeamSignalRule.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1560,14 +1465,12 @@ async function run() {
     id: "<id>",
     updateTeamSignalRule: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateTeamSignalRule failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1584,7 +1487,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIRuleEntity](../../models/components/signalsapiruleentity.md)\>**
 
 ### Errors
 
@@ -1599,16 +1502,16 @@ List all Signals event sources for the authenticated user.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listSignalsEventSources({});
+  const result = await firehydrant.signals.listSignalsEventSources({});
 
-
+  console.log(result);
 }
 
 run();
@@ -1619,8 +1522,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsEventSources } from "firehydrant/funcs/signalsListSignalsEventSources.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsEventSources } from "firehydrant-typescript-sdk/funcs/signalsListSignalsEventSources.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1630,14 +1533,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await signalsListSignalsEventSources(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListSignalsEventSources failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1654,7 +1555,588 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPITransposerListEntity](../../models/components/signalsapitransposerlistentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createSignalsEventSource
+
+Create a Signals event source for the authenticated user.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.createSignalsEventSource({
+    name: "<value>",
+    slug: "<value>",
+    examplePayload: {},
+    javascript: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsEventSource } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsEventSource.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsCreateSignalsEventSource(firehydrant, {
+    name: "<value>",
+    slug: "<value>",
+    examplePayload: {},
+    javascript: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateSignalsEventSource failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.CreateSignalsEventSource](../../models/components/createsignalseventsource.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPITransposerEntity](../../models/components/signalsapitransposerentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSignalsEventSource
+
+Get a Signals event source by slug
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.getSignalsEventSource({
+    transposerSlug: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsEventSource } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsEventSource.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsGetSignalsEventSource(firehydrant, {
+    transposerSlug: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetSignalsEventSource failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSignalsEventSourceRequest](../../models/operations/getsignalseventsourcerequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPITransposerEntity](../../models/components/signalsapitransposerentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteSignalsEventSource
+
+Delete a Signals event source by slug
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.deleteSignalsEventSource({
+    transposerSlug: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsEventSource } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsEventSource.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsDeleteSignalsEventSource(firehydrant, {
+    transposerSlug: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsDeleteSignalsEventSource failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteSignalsEventSourceRequest](../../models/operations/deletesignalseventsourcerequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPITransposerEntity](../../models/components/signalsapitransposerentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listSignalsAlertGroupingConfigurations
+
+List all Signals alert grouping rules for the organization.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.listSignalsAlertGroupingConfigurations();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsAlertGroupingConfigurations } from "firehydrant-typescript-sdk/funcs/signalsListSignalsAlertGroupingConfigurations.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsListSignalsAlertGroupingConfigurations(firehydrant);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListSignalsAlertGroupingConfigurations failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIGroupingEntityPaginated](../../models/components/signalsapigroupingentitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createSignalsAlertGroupingConfiguration
+
+Create a Signals alert grouping rule for the organization.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.createSignalsAlertGroupingConfiguration({
+    strategy: {},
+    referenceAlertTimePeriod: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsAlertGroupingConfiguration } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsAlertGroupingConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsCreateSignalsAlertGroupingConfiguration(firehydrant, {
+    strategy: {},
+    referenceAlertTimePeriod: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateSignalsAlertGroupingConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.CreateSignalsAlertGroupingConfiguration](../../models/components/createsignalsalertgroupingconfiguration.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIGroupingEntity](../../models/components/signalsapigroupingentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSignalsAlertGroupingConfiguration
+
+Get a Signals alert grouping rule by ID.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.getSignalsAlertGroupingConfiguration({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsAlertGroupingConfiguration } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsAlertGroupingConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsGetSignalsAlertGroupingConfiguration(firehydrant, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetSignalsAlertGroupingConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSignalsAlertGroupingConfigurationRequest](../../models/operations/getsignalsalertgroupingconfigurationrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIGroupingEntity](../../models/components/signalsapigroupingentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteSignalsAlertGroupingConfiguration
+
+Delete a Signals alert grouping rule by ID.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.deleteSignalsAlertGroupingConfiguration({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsAlertGroupingConfiguration } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsAlertGroupingConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsDeleteSignalsAlertGroupingConfiguration(firehydrant, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsDeleteSignalsAlertGroupingConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteSignalsAlertGroupingConfigurationRequest](../../models/operations/deletesignalsalertgroupingconfigurationrequest.md)                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIGroupingEntity](../../models/components/signalsapigroupingentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateSignalsAlertGroupingConfiguration
+
+Update a Signals alert grouping rule for the organization.
+
+### Example Usage
+
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.updateSignalsAlertGroupingConfiguration({
+    id: "<id>",
+    updateSignalsAlertGroupingConfiguration: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateSignalsAlertGroupingConfiguration } from "firehydrant-typescript-sdk/funcs/signalsUpdateSignalsAlertGroupingConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsUpdateSignalsAlertGroupingConfiguration(firehydrant, {
+    id: "<id>",
+    updateSignalsAlertGroupingConfiguration: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateSignalsAlertGroupingConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateSignalsAlertGroupingConfigurationRequest](../../models/operations/updatesignalsalertgroupingconfigurationrequest.md)                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIGroupingEntity](../../models/components/signalsapigroupingentity.md)\>**
 
 ### Errors
 
@@ -1669,16 +2151,16 @@ List all Signals email targets for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listSignalsEmailTargets({});
+  const result = await firehydrant.signals.listSignalsEmailTargets({});
 
-
+  console.log(result);
 }
 
 run();
@@ -1689,8 +2171,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsEmailTargets } from "firehydrant/funcs/signalsListSignalsEmailTargets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsEmailTargets } from "firehydrant-typescript-sdk/funcs/signalsListSignalsEmailTargets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1700,14 +2182,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await signalsListSignalsEmailTargets(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListSignalsEmailTargets failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1724,7 +2204,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEmailTargetEntityPaginated](../../models/components/signalsapiemailtargetentitypaginated.md)\>**
 
 ### Errors
 
@@ -1739,18 +2219,18 @@ Create a Signals email target for a team.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.createSignalsEmailTarget({
+  const result = await firehydrant.signals.createSignalsEmailTarget({
     name: "<value>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1761,8 +2241,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateSignalsEmailTarget } from "firehydrant/funcs/signalsCreateSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1774,14 +2254,12 @@ async function run() {
   const res = await signalsCreateSignalsEmailTarget(firehydrant, {
     name: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateSignalsEmailTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1798,7 +2276,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEmailTargetEntity](../../models/components/signalsapiemailtargetentity.md)\>**
 
 ### Errors
 
@@ -1813,18 +2291,18 @@ Get a Signals email target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.getSignalsEmailTarget({
+  const result = await firehydrant.signals.getSignalsEmailTarget({
     id: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1835,8 +2313,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetSignalsEmailTarget } from "firehydrant/funcs/signalsGetSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1848,14 +2326,12 @@ async function run() {
   const res = await signalsGetSignalsEmailTarget(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetSignalsEmailTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1872,7 +2348,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEmailTargetEntity](../../models/components/signalsapiemailtargetentity.md)\>**
 
 ### Errors
 
@@ -1887,7 +2363,7 @@ Delete a Signals email target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1909,8 +2385,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteSignalsEmailTarget } from "firehydrant/funcs/signalsDeleteSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1922,14 +2398,12 @@ async function run() {
   const res = await signalsDeleteSignalsEmailTarget(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteSignalsEmailTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1961,19 +2435,19 @@ Update a Signals email target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.updateSignalsEmailTarget({
+  const result = await firehydrant.signals.updateSignalsEmailTarget({
     id: "<id>",
     updateSignalsEmailTarget: {},
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -1984,8 +2458,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateSignalsEmailTarget } from "firehydrant/funcs/signalsUpdateSignalsEmailTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateSignalsEmailTarget } from "firehydrant-typescript-sdk/funcs/signalsUpdateSignalsEmailTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1998,14 +2472,12 @@ async function run() {
     id: "<id>",
     updateSignalsEmailTarget: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateSignalsEmailTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2022,7 +2494,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIEmailTargetEntity](../../models/components/signalsapiemailtargetentity.md)\>**
 
 ### Errors
 
@@ -2037,16 +2509,16 @@ List all Signals webhook targets.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listSignalsWebhookTargets({});
+  const result = await firehydrant.signals.listSignalsWebhookTargets({});
 
-
+  console.log(result);
 }
 
 run();
@@ -2057,8 +2529,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsWebhookTargets } from "firehydrant/funcs/signalsListSignalsWebhookTargets.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsWebhookTargets } from "firehydrant-typescript-sdk/funcs/signalsListSignalsWebhookTargets.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2068,14 +2540,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await signalsListSignalsWebhookTargets(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListSignalsWebhookTargets failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2092,7 +2562,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIWebhookTargetEntityPaginated](../../models/components/signalsapiwebhooktargetentitypaginated.md)\>**
 
 ### Errors
 
@@ -2107,19 +2577,19 @@ Create a Signals webhook target.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.createSignalsWebhookTarget({
+  const result = await firehydrant.signals.createSignalsWebhookTarget({
     name: "<value>",
-    url: "https://our-alligator.net/",
+    url: "https://puny-hydrolyze.net/",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -2130,8 +2600,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsCreateSignalsWebhookTarget } from "firehydrant/funcs/signalsCreateSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2142,16 +2612,14 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await signalsCreateSignalsWebhookTarget(firehydrant, {
     name: "<value>",
-    url: "https://our-alligator.net/",
+    url: "https://puny-hydrolyze.net/",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateSignalsWebhookTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2168,7 +2636,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIWebhookTargetEntity](../../models/components/signalsapiwebhooktargetentity.md)\>**
 
 ### Errors
 
@@ -2183,18 +2651,18 @@ Get a Signals webhook target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.getSignalsWebhookTarget({
+  const result = await firehydrant.signals.getSignalsWebhookTarget({
     id: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -2205,8 +2673,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetSignalsWebhookTarget } from "firehydrant/funcs/signalsGetSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2218,14 +2686,12 @@ async function run() {
   const res = await signalsGetSignalsWebhookTarget(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetSignalsWebhookTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2242,7 +2708,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIWebhookTargetEntity](../../models/components/signalsapiwebhooktargetentity.md)\>**
 
 ### Errors
 
@@ -2257,7 +2723,7 @@ Delete a Signals webhook target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2279,8 +2745,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDeleteSignalsWebhookTarget } from "firehydrant/funcs/signalsDeleteSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2292,14 +2758,12 @@ async function run() {
   const res = await signalsDeleteSignalsWebhookTarget(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteSignalsWebhookTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2331,19 +2795,19 @@ Update a Signals webhook target by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.updateSignalsWebhookTarget({
+  const result = await firehydrant.signals.updateSignalsWebhookTarget({
     id: "<id>",
     updateSignalsWebhookTarget: {},
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -2354,8 +2818,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsUpdateSignalsWebhookTarget } from "firehydrant/funcs/signalsUpdateSignalsWebhookTarget.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateSignalsWebhookTarget } from "firehydrant-typescript-sdk/funcs/signalsUpdateSignalsWebhookTarget.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2368,14 +2832,12 @@ async function run() {
     id: "<id>",
     updateSignalsWebhookTarget: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateSignalsWebhookTarget failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2392,7 +2854,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIWebhookTargetEntity](../../models/components/signalsapiwebhooktargetentity.md)\>**
 
 ### Errors
 
@@ -2407,7 +2869,7 @@ List all transposers for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2416,7 +2878,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.signals.listSignalsTransposers();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2428,8 +2889,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListSignalsTransposers } from "firehydrant/funcs/signalsListSignalsTransposers.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsTransposers } from "firehydrant-typescript-sdk/funcs/signalsListSignalsTransposers.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2439,15 +2900,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await signalsListSignalsTransposers(firehydrant);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListSignalsTransposers failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2478,7 +2936,7 @@ Retrieve the url for ingesting signals for your organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2487,7 +2945,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.signals.getSignalsIngestUrl({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2499,8 +2956,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsGetSignalsIngestUrl } from "firehydrant/funcs/signalsGetSignalsIngestUrl.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsIngestUrl } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsIngestUrl.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2510,15 +2967,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await signalsGetSignalsIngestUrl(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetSignalsIngestUrl failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2550,7 +3004,7 @@ Debug Signals expressions
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2559,9 +3013,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   await firehydrant.signals.debugSignalsExpression({
     expression: "<value>",
-    signals: [
-      {},
-    ],
+    signals: [],
   });
 
 
@@ -2575,8 +3027,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsDebugSignalsExpression } from "firehydrant/funcs/signalsDebugSignalsExpression.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDebugSignalsExpression } from "firehydrant-typescript-sdk/funcs/signalsDebugSignalsExpression.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2587,18 +3039,14 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await signalsDebugSignalsExpression(firehydrant, {
     expression: "<value>",
-    signals: [
-      {},
-    ],
+    signals: [],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDebugSignalsExpression failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2625,21 +3073,21 @@ run();
 
 ## listOrganizationOnCallSchedules
 
-List all Signals on-call schedules for the entire organization.
+List all users who are currently on-call across the entire organization.
 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.signals.listOrganizationOnCallSchedules({});
+  const result = await firehydrant.signals.listOrganizationOnCallSchedules({});
 
-
+  console.log(result);
 }
 
 run();
@@ -2650,8 +3098,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { signalsListOrganizationOnCallSchedules } from "firehydrant/funcs/signalsListOrganizationOnCallSchedules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListOrganizationOnCallSchedules } from "firehydrant-typescript-sdk/funcs/signalsListOrganizationOnCallSchedules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2661,14 +3109,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await signalsListOrganizationOnCallSchedules(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListOrganizationOnCallSchedules failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2685,7 +3131,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIOrganizationOnCallScheduleEntityPaginated](../../models/components/signalsapiorganizationoncallscheduleentitypaginated.md)\>**
 
 ### Errors
 

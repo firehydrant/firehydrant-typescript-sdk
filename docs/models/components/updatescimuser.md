@@ -5,7 +5,7 @@ PUT SCIM endpoint to update a User. This endpoint is used to replace a resource'
 ## Example Usage
 
 ```typescript
-import { UpdateScimUser } from "firehydrant/models/components";
+import { UpdateScimUser } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateScimUser = {};
 ```

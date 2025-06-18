@@ -5,7 +5,7 @@ Organizations_CustomFieldDefinitionEntity model
 ## Example Usage
 
 ```typescript
-import { OrganizationsCustomFieldDefinitionEntity } from "firehydrant/models/components";
+import { OrganizationsCustomFieldDefinitionEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: OrganizationsCustomFieldDefinitionEntity = {};
 ```

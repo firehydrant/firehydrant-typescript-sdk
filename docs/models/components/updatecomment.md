@@ -1,11 +1,11 @@
 # UpdateComment
 
-ALPHA - Update a comment's attributes
+Update a comment's attributes
 
 ## Example Usage
 
 ```typescript
-import { UpdateComment } from "firehydrant/models/components";
+import { UpdateComment } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateComment = {};
 ```

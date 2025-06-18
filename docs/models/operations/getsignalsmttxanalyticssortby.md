@@ -5,7 +5,7 @@ String that determines how records are sorted
 ## Example Usage
 
 ```typescript
-import { GetSignalsMttxAnalyticsSortBy } from "firehydrant/models/operations";
+import { GetSignalsMttxAnalyticsSortBy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetSignalsMttxAnalyticsSortBy = "incidents_percentage";
 ```

@@ -29,7 +29,7 @@ Returns a report with time bucketed analytics data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -38,7 +38,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.metricsReporting.getMeanTimeReport({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -50,8 +49,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingGetMeanTimeReport } from "firehydrant/funcs/metricsReportingGetMeanTimeReport.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingGetMeanTimeReport } from "firehydrant-typescript-sdk/funcs/metricsReportingGetMeanTimeReport.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -61,15 +60,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingGetMeanTimeReport(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingGetMeanTimeReport failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -101,7 +97,7 @@ Returns a report with retrospective analytics data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -110,7 +106,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.metricsReporting.listRetrospectiveMetrics({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -122,8 +117,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingListRetrospectiveMetrics } from "firehydrant/funcs/metricsReportingListRetrospectiveMetrics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingListRetrospectiveMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListRetrospectiveMetrics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -133,15 +128,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingListRetrospectiveMetrics(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingListRetrospectiveMetrics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -173,7 +165,7 @@ Returns a report with time bucketed analytics data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -182,7 +174,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.metricsReporting.listUserInvolvementMetrics({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -194,8 +185,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingListUserInvolvementMetrics } from "firehydrant/funcs/metricsReportingListUserInvolvementMetrics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingListUserInvolvementMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListUserInvolvementMetrics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -205,15 +196,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingListUserInvolvementMetrics(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingListUserInvolvementMetrics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -245,7 +233,7 @@ Returns a report with time bucketed analytics data
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -254,7 +242,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.metricsReporting.listIncidentMetrics({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -266,8 +253,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingListIncidentMetrics } from "firehydrant/funcs/metricsReportingListIncidentMetrics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingListIncidentMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListIncidentMetrics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -277,15 +264,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingListIncidentMetrics(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingListIncidentMetrics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -317,7 +301,7 @@ Returns metrics for all components of a given type
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -325,10 +309,9 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.listInfrastructureTypeMetrics({
-    infraType: "customers",
+    infraType: "services",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -340,8 +323,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingListInfrastructureTypeMetrics } from "firehydrant/funcs/metricsReportingListInfrastructureTypeMetrics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingListInfrastructureTypeMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListInfrastructureTypeMetrics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -351,17 +334,14 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingListInfrastructureTypeMetrics(firehydrant, {
-    infraType: "customers",
+    infraType: "services",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingListInfrastructureTypeMetrics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -393,7 +373,7 @@ Return metrics for a specific component
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -401,11 +381,10 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.listInfrastructureMetrics({
-    infraType: "environments",
+    infraType: "customers",
     infraId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -417,8 +396,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingListInfrastructureMetrics } from "firehydrant/funcs/metricsReportingListInfrastructureMetrics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingListInfrastructureMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingListInfrastructureMetrics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -428,18 +407,15 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingListInfrastructureMetrics(firehydrant, {
-    infraType: "environments",
+    infraType: "customers",
     infraId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingListInfrastructureMetrics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -471,7 +447,7 @@ Retrieve a specific save search
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -479,11 +455,10 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.getSavedSearch({
-    resourceType: "incidents",
+    resourceType: "services",
     savedSearchId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -495,8 +470,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingGetSavedSearch } from "firehydrant/funcs/metricsReportingGetSavedSearch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingGetSavedSearch } from "firehydrant-typescript-sdk/funcs/metricsReportingGetSavedSearch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -506,18 +481,15 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingGetSavedSearch(firehydrant, {
-    resourceType: "incidents",
+    resourceType: "services",
     savedSearchId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingGetSavedSearch failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -549,7 +521,7 @@ Delete a specific saved search
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -557,11 +529,10 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.deleteSavedSearch({
-    resourceType: "scheduled_maintenances",
+    resourceType: "ticket_follow_ups",
     savedSearchId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -573,8 +544,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingDeleteSavedSearch } from "firehydrant/funcs/metricsReportingDeleteSavedSearch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingDeleteSavedSearch } from "firehydrant-typescript-sdk/funcs/metricsReportingDeleteSavedSearch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -584,18 +555,15 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingDeleteSavedSearch(firehydrant, {
-    resourceType: "scheduled_maintenances",
+    resourceType: "ticket_follow_ups",
     savedSearchId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingDeleteSavedSearch failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -627,7 +595,7 @@ Update a specific saved search
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -635,12 +603,11 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.updateSavedSearch({
-    resourceType: "incident_events",
+    resourceType: "scheduled_maintenances",
     savedSearchId: "<id>",
     updateSavedSearch: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -652,8 +619,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingUpdateSavedSearch } from "firehydrant/funcs/metricsReportingUpdateSavedSearch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingUpdateSavedSearch } from "firehydrant-typescript-sdk/funcs/metricsReportingUpdateSavedSearch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -663,19 +630,16 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingUpdateSavedSearch(firehydrant, {
-    resourceType: "incident_events",
+    resourceType: "scheduled_maintenances",
     savedSearchId: "<id>",
     updateSavedSearch: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingUpdateSavedSearch failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -707,7 +671,7 @@ Lists saved searches
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -715,10 +679,9 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.listSavedSearches({
-    resourceType: "incidents",
+    resourceType: "scheduled_maintenances",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -730,8 +693,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingListSavedSearches } from "firehydrant/funcs/metricsReportingListSavedSearches.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingListSavedSearches } from "firehydrant-typescript-sdk/funcs/metricsReportingListSavedSearches.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -741,17 +704,14 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingListSavedSearches(firehydrant, {
-    resourceType: "incidents",
+    resourceType: "scheduled_maintenances",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingListSavedSearches failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -783,7 +743,7 @@ Create a new saved search for a particular resource type
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -791,18 +751,15 @@ const firehydrant = new Firehydrant({
 
 async function run() {
   const result = await firehydrant.metricsReporting.createSavedSearch({
-    resourceType: "services",
+    resourceType: "incidents",
     createSavedSearch: {
       name: "<value>",
       filterValues: {
-        "key": "<value>",
-        "key1": "<value>",
-        "key2": "<value>",
+
       },
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -814,8 +771,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingCreateSavedSearch } from "firehydrant/funcs/metricsReportingCreateSavedSearch.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingCreateSavedSearch } from "firehydrant-typescript-sdk/funcs/metricsReportingCreateSavedSearch.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -825,25 +782,20 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingCreateSavedSearch(firehydrant, {
-    resourceType: "services",
+    resourceType: "incidents",
     createSavedSearch: {
       name: "<value>",
       filterValues: {
-        "key": "<value>",
-        "key1": "<value>",
-        "key2": "<value>",
+  
       },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingCreateSavedSearch failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -875,16 +827,16 @@ Generate a timeseries-based report of metrics for Signals alerts
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.metricsReporting.getSignalsTimeseriesAnalytics({});
+  const result = await firehydrant.metricsReporting.getSignalsTimeseriesAnalytics({});
 
-
+  console.log(result);
 }
 
 run();
@@ -895,8 +847,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingGetSignalsTimeseriesAnalytics } from "firehydrant/funcs/metricsReportingGetSignalsTimeseriesAnalytics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingGetSignalsTimeseriesAnalytics } from "firehydrant-typescript-sdk/funcs/metricsReportingGetSignalsTimeseriesAnalytics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -906,14 +858,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingGetSignalsTimeseriesAnalytics(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingGetSignalsTimeseriesAnalytics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -930,7 +880,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIAnalyticsTimeseriesPointEntity](../../models/components/signalsapianalyticstimeseriespointentity.md)\>**
 
 ### Errors
 
@@ -945,16 +895,16 @@ Generate a report of grouped metrics for Signals alerts
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.metricsReporting.getSignalsGroupedMetrics({});
+  const result = await firehydrant.metricsReporting.getSignalsGroupedMetrics({});
 
-
+  console.log(result);
 }
 
 run();
@@ -965,8 +915,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingGetSignalsGroupedMetrics } from "firehydrant/funcs/metricsReportingGetSignalsGroupedMetrics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingGetSignalsGroupedMetrics } from "firehydrant-typescript-sdk/funcs/metricsReportingGetSignalsGroupedMetrics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -976,14 +926,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingGetSignalsGroupedMetrics(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingGetSignalsGroupedMetrics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1000,7 +948,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIAnalyticsGroupedMetricsEntity](../../models/components/signalsapianalyticsgroupedmetricsentity.md)\>**
 
 ### Errors
 
@@ -1015,16 +963,16 @@ Get mean-time-to-acknowledged (MTTA) and mean-time-to-resolved (MTTR) metrics fo
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  await firehydrant.metricsReporting.getSignalsMttxAnalytics({});
+  const result = await firehydrant.metricsReporting.getSignalsMttxAnalytics({});
 
-
+  console.log(result);
 }
 
 run();
@@ -1035,8 +983,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { metricsReportingGetSignalsMttxAnalytics } from "firehydrant/funcs/metricsReportingGetSignalsMttxAnalytics.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingGetSignalsMttxAnalytics } from "firehydrant-typescript-sdk/funcs/metricsReportingGetSignalsMttxAnalytics.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1046,14 +994,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await metricsReportingGetSignalsMttxAnalytics(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsReportingGetSignalsMttxAnalytics failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1070,7 +1016,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.SignalsAPIAnalyticsMttxMetricsEntity](../../models/components/signalsapianalyticsmttxmetricsentity.md)\>**
 
 ### Errors
 

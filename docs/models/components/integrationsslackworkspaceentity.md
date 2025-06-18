@@ -5,7 +5,7 @@ Integrations_Slack_WorkspaceEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsSlackWorkspaceEntity } from "firehydrant/models/components";
+import { IntegrationsSlackWorkspaceEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsSlackWorkspaceEntity = {};
 ```

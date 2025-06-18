@@ -5,7 +5,7 @@ The components of the user's name
 ## Example Usage
 
 ```typescript
-import { CreateScimUserName } from "firehydrant/models/components";
+import { CreateScimUserName } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateScimUserName = {
   familyName: "<value>",

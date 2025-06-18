@@ -5,7 +5,7 @@ Integrations_Statuspage_PageEntity model
 ## Example Usage
 
 ```typescript
-import { IntegrationsStatuspagePageEntity } from "firehydrant/models/components";
+import { IntegrationsStatuspagePageEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IntegrationsStatuspagePageEntity = {};
 ```

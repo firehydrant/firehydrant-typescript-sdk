@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateChecklistTemplateConnectedService } from "firehydrant/models/components";
+import { UpdateChecklistTemplateConnectedService } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateChecklistTemplateConnectedService = {
   id: "<id>",

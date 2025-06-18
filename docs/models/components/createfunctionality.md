@@ -5,7 +5,7 @@ Creates a functionality for the organization
 ## Example Usage
 
 ```typescript
-import { CreateFunctionality } from "firehydrant/models/components";
+import { CreateFunctionality } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateFunctionality = {
   name: "<value>",

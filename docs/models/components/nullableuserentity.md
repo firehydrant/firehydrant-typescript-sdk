@@ -5,7 +5,7 @@ UserEntity model
 ## Example Usage
 
 ```typescript
-import { NullableUserEntity } from "firehydrant/models/components";
+import { NullableUserEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableUserEntity = {};
 ```

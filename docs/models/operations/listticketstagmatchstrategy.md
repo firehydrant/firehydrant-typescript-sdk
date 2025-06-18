@@ -5,7 +5,7 @@ A matching strategy for the tags provided
 ## Example Usage
 
 ```typescript
-import { ListTicketsTagMatchStrategy } from "firehydrant/models/operations";
+import { ListTicketsTagMatchStrategy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListTicketsTagMatchStrategy = "any";
 ```

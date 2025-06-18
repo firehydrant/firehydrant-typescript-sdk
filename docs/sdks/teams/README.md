@@ -21,7 +21,7 @@ List all of the teams in the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -30,7 +30,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.teams.listTeams({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -42,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsListTeams } from "firehydrant/funcs/teamsListTeams.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsListTeams } from "firehydrant-typescript-sdk/funcs/teamsListTeams.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -53,15 +52,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await teamsListTeams(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("teamsListTeams failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -93,7 +89,7 @@ Create a new team
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -104,7 +100,6 @@ async function run() {
     name: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -116,8 +111,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsCreateTeam } from "firehydrant/funcs/teamsCreateTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsCreateTeam } from "firehydrant-typescript-sdk/funcs/teamsCreateTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -129,15 +124,12 @@ async function run() {
   const res = await teamsCreateTeam(firehydrant, {
     name: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("teamsCreateTeam failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -169,7 +161,7 @@ Retrieve a single team from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -180,7 +172,6 @@ async function run() {
     teamId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -192,8 +183,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsGetTeam } from "firehydrant/funcs/teamsGetTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsGetTeam } from "firehydrant-typescript-sdk/funcs/teamsGetTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -205,15 +196,12 @@ async function run() {
   const res = await teamsGetTeam(firehydrant, {
     teamId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("teamsGetTeam failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -245,7 +233,7 @@ Archives an team which will hide it from lists and metrics
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -256,7 +244,6 @@ async function run() {
     teamId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -268,8 +255,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsDeleteTeam } from "firehydrant/funcs/teamsDeleteTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsDeleteTeam } from "firehydrant-typescript-sdk/funcs/teamsDeleteTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -281,15 +268,12 @@ async function run() {
   const res = await teamsDeleteTeam(firehydrant, {
     teamId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("teamsDeleteTeam failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -321,7 +305,7 @@ Update a single team from its ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -333,7 +317,6 @@ async function run() {
     updateTeam: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -345,8 +328,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsUpdateTeam } from "firehydrant/funcs/teamsUpdateTeam.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsUpdateTeam } from "firehydrant-typescript-sdk/funcs/teamsUpdateTeam.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -359,15 +342,12 @@ async function run() {
     teamId: "<id>",
     updateTeam: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("teamsUpdateTeam failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -399,7 +379,7 @@ List all known schedules in FireHydrant as pulled from external sources
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -408,7 +388,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.teams.listSchedules({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -420,8 +399,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { teamsListSchedules } from "firehydrant/funcs/teamsListSchedules.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { teamsListSchedules } from "firehydrant-typescript-sdk/funcs/teamsListSchedules.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -431,15 +410,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await teamsListSchedules(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("teamsListSchedules failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

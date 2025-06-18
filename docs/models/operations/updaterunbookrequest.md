@@ -3,11 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { UpdateRunbookRequest } from "firehydrant/models/operations";
+import { UpdateRunbookRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateRunbookRequest = {
   runbookId: "<id>",
-  updateRunbook: {},
 };
 ```
 

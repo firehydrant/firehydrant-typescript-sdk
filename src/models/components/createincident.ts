@@ -101,9 +101,13 @@ export type CreateIncident = {
   customFields?: Array<CustomField> | null | undefined;
   externalLinks?: string | null | undefined;
   /**
-   * The ID of the incident type to use as a template when creating the incident. This will copy values from the incident type unless they are being overridden via parameters in this request.
+   * The ID of the incident type. This will copy values from the incident type (if any) unless they are being overridden via parameters in this request.
    */
   incidentTypeId?: string | null | undefined;
+  /**
+   * If true, the incident type values will not be copied to the incident. This is useful when creating an incident from an incident type, but you want to set the values manually.
+   */
+  skipIncidentTypeValues?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -388,6 +392,7 @@ export const CreateIncident$inboundSchema: z.ZodType<
     .optional(),
   external_links: z.nullable(z.string()).optional(),
   incident_type_id: z.nullable(z.string()).optional(),
+  skip_incident_type_values: z.nullable(z.boolean().default(false)),
 }).transform((v) => {
   return remap$(v, {
     "customer_impact_summary": "customerImpactSummary",
@@ -400,6 +405,7 @@ export const CreateIncident$inboundSchema: z.ZodType<
     "custom_fields": "customFields",
     "external_links": "externalLinks",
     "incident_type_id": "incidentTypeId",
+    "skip_incident_type_values": "skipIncidentTypeValues",
   });
 });
 
@@ -424,6 +430,7 @@ export type CreateIncident$Outbound = {
   custom_fields?: Array<CustomField$Outbound> | null | undefined;
   external_links?: string | null | undefined;
   incident_type_id?: string | null | undefined;
+  skip_incident_type_values: boolean | null;
 };
 
 /** @internal */
@@ -457,6 +464,7 @@ export const CreateIncident$outboundSchema: z.ZodType<
     .optional(),
   externalLinks: z.nullable(z.string()).optional(),
   incidentTypeId: z.nullable(z.string()).optional(),
+  skipIncidentTypeValues: z.nullable(z.boolean().default(false)),
 }).transform((v) => {
   return remap$(v, {
     customerImpactSummary: "customer_impact_summary",
@@ -469,6 +477,7 @@ export const CreateIncident$outboundSchema: z.ZodType<
     customFields: "custom_fields",
     externalLinks: "external_links",
     incidentTypeId: "incident_type_id",
+    skipIncidentTypeValues: "skip_incident_type_values",
   });
 });
 

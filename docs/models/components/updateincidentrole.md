@@ -5,7 +5,7 @@ Update a single incident role from its ID
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentRole } from "firehydrant/models/components";
+import { UpdateIncidentRole } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentRole = {};
 ```

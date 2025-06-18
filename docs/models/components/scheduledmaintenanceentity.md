@@ -5,7 +5,7 @@ ScheduledMaintenanceEntity model
 ## Example Usage
 
 ```typescript
-import { ScheduledMaintenanceEntity } from "firehydrant/models/components";
+import { ScheduledMaintenanceEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: ScheduledMaintenanceEntity = {};
 ```

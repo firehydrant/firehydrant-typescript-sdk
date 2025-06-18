@@ -5,7 +5,7 @@ PongEntity model
 ## Example Usage
 
 ```typescript
-import { PongEntity } from "firehydrant/models/components";
+import { PongEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PongEntity = {};
 ```

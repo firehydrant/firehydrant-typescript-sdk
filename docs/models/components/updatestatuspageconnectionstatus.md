@@ -5,7 +5,7 @@ Statuspage.io status
 ## Example Usage
 
 ```typescript
-import { UpdateStatuspageConnectionStatus } from "firehydrant/models/components";
+import { UpdateStatuspageConnectionStatus } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateStatuspageConnectionStatus = "investigating";
 ```

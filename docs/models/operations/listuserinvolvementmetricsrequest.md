@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListUserInvolvementMetricsRequest } from "firehydrant/models/operations";
+import { ListUserInvolvementMetricsRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListUserInvolvementMetricsRequest = {};
 ```

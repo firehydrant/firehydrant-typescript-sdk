@@ -5,7 +5,7 @@ Settings for MEDIUM priority alerts
 ## Example Usage
 
 ```typescript
-import { CreateTeamEscalationPolicyMedium } from "firehydrant/models/components";
+import { CreateTeamEscalationPolicyMedium } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateTeamEscalationPolicyMedium = {};
 ```

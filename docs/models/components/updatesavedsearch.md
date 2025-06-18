@@ -5,7 +5,7 @@ Update a specific saved search
 ## Example Usage
 
 ```typescript
-import { UpdateSavedSearch } from "firehydrant/models/components";
+import { UpdateSavedSearch } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateSavedSearch = {};
 ```

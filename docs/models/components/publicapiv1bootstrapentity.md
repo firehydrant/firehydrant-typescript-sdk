@@ -5,7 +5,7 @@ PublicAPI_V1_BootstrapEntity model
 ## Example Usage
 
 ```typescript
-import { PublicApiv1BootstrapEntity } from "firehydrant/models/components";
+import { PublicApiv1BootstrapEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: PublicApiv1BootstrapEntity = {};
 ```

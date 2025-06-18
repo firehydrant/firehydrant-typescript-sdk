@@ -5,7 +5,7 @@ Update a change entry
 ## Example Usage
 
 ```typescript
-import { UpdateChange } from "firehydrant/models/components";
+import { UpdateChange } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateChange = {};
 ```

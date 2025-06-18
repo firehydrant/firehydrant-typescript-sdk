@@ -12,7 +12,7 @@ impacts will be added or updated, but no impacts will be removed.
 ## Example Usage
 
 ```typescript
-import { UpdateIncidentImpactPatch } from "firehydrant/models/components";
+import { UpdateIncidentImpactPatch } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateIncidentImpactPatch = {};
 ```

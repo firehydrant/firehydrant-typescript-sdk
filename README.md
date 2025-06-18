@@ -146,25 +146,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add firehydrant
+npm add firehydrant-typescript-sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add firehydrant
+pnpm add firehydrant-typescript-sdk
 ```
 
 ### Bun
 
 ```bash
-bun add firehydrant
+bun add firehydrant-typescript-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add firehydrant zod
+yarn add firehydrant-typescript-sdk zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -192,7 +192,7 @@ Add the following server definition to your `claude_desktop_config.json` file:
     "Firehydrant": {
       "command": "npx",
       "args": [
-        "-y", "--package", "firehydrant",
+        "-y", "--package", "firehydrant-typescript-sdk",
         "--",
         "mcp", "start",
         "--api-key", "..."
@@ -215,7 +215,7 @@ Create a `.cursor/mcp.json` file in your project root with the following content
     "Firehydrant": {
       "command": "npx",
       "args": [
-        "-y", "--package", "firehydrant",
+        "-y", "--package", "firehydrant-typescript-sdk",
         "--",
         "mcp", "start",
         "--api-key", "..."
@@ -254,7 +254,7 @@ If the repo is a private repo you must add your Github PAT to download a release
 For a full list of server arguments, run:
 
 ```sh
-npx -y --package firehydrant -- mcp start --help
+npx -y --package firehydrant-typescript-sdk -- mcp start --help
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -270,7 +270,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -279,7 +279,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.ping();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -301,7 +300,7 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -310,7 +309,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.ping();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -358,9 +356,19 @@ run();
 * [generateAudienceSummary](docs/sdks/audiences/README.md#generateaudiencesummary) - Generate summary
 * [listAudienceSummaries](docs/sdks/audiences/README.md#listaudiencesummaries) - List audience summaries
 
+### [auditEvents](docs/sdks/auditevents/README.md)
+
+* [listAuditEvents](docs/sdks/auditevents/README.md#listauditevents) - List audit events
+* [getAuditEvent](docs/sdks/auditevents/README.md#getauditevent) - Get a single audit event
+
 ### [callRoutes](docs/sdks/callroutes/README.md)
 
+* [listTeamCallRoutes](docs/sdks/callroutes/README.md#listteamcallroutes) - List call routes for a team
+* [createTeamCallRoute](docs/sdks/callroutes/README.md#createteamcallroute) - Create a call route for a team
 * [listCallRoutes](docs/sdks/callroutes/README.md#listcallroutes) - List call routes
+* [getCallRoute](docs/sdks/callroutes/README.md#getcallroute) - Retrieve a call route
+* [deleteCallRoute](docs/sdks/callroutes/README.md#deletecallroute) - Delete a call route
+* [updateCallRoute](docs/sdks/callroutes/README.md#updatecallroute) - Update a call route
 
 ### [catalogEntries](docs/sdks/catalogentries/README.md)
 
@@ -542,6 +550,7 @@ run();
 * [listCustomFieldDefinitions](docs/sdks/incidentsettings/README.md#listcustomfielddefinitions) - List custom field definitions
 * [createCustomFieldDefinition](docs/sdks/incidentsettings/README.md#createcustomfielddefinition) - Create a custom field definition
 * [listCustomFieldSelectOptions](docs/sdks/incidentsettings/README.md#listcustomfieldselectoptions) - Get available values for a custom field
+* [appendFormDataOnSelectedValueGet](docs/sdks/incidentsettings/README.md#appendformdataonselectedvalueget) - Get data for a form field on select
 * [getFormConfiguration](docs/sdks/incidentsettings/README.md#getformconfiguration) - Get a form configuration
 
 ### [integrations](docs/sdks/integrations/README.md)
@@ -686,6 +695,14 @@ run();
 * [deleteTeamSignalRule](docs/sdks/signals/README.md#deleteteamsignalrule) - Delete a Signals rule
 * [updateTeamSignalRule](docs/sdks/signals/README.md#updateteamsignalrule) - Update a Signals rule
 * [listSignalsEventSources](docs/sdks/signals/README.md#listsignalseventsources) - List event sources for Signals
+* [createSignalsEventSource](docs/sdks/signals/README.md#createsignalseventsource) - Create an event source for Signals
+* [getSignalsEventSource](docs/sdks/signals/README.md#getsignalseventsource) - Get an event source for Signals
+* [deleteSignalsEventSource](docs/sdks/signals/README.md#deletesignalseventsource) - Delete an event source for Signals
+* [listSignalsAlertGroupingConfigurations](docs/sdks/signals/README.md#listsignalsalertgroupingconfigurations) - List alert grouping configurations.
+* [createSignalsAlertGroupingConfiguration](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
+* [getSignalsAlertGroupingConfiguration](docs/sdks/signals/README.md#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
+* [deleteSignalsAlertGroupingConfiguration](docs/sdks/signals/README.md#deletesignalsalertgroupingconfiguration) - Delete an alert grouping configuration.
+* [updateSignalsAlertGroupingConfiguration](docs/sdks/signals/README.md#updatesignalsalertgroupingconfiguration) - Update an alert grouping configuration.
 * [listSignalsEmailTargets](docs/sdks/signals/README.md#listsignalsemailtargets) - List email targets for signals
 * [createSignalsEmailTarget](docs/sdks/signals/README.md#createsignalsemailtarget) - Create an email target for signals
 * [getSignalsEmailTarget](docs/sdks/signals/README.md#getsignalsemailtarget) - Get a signal email target
@@ -699,7 +716,7 @@ run();
 * [listSignalsTransposers](docs/sdks/signals/README.md#listsignalstransposers) - List signal transposers
 * [getSignalsIngestUrl](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 * [debugSignalsExpression](docs/sdks/signals/README.md#debugsignalsexpression) - Debug Signals expressions
-* [listOrganizationOnCallSchedules](docs/sdks/signals/README.md#listorganizationoncallschedules) - List on-call schedules
+* [listOrganizationOnCallSchedules](docs/sdks/signals/README.md#listorganizationoncallschedules) - List who's on call for the organization
 
 ### [statusPages](docs/sdks/statuspages/README.md)
 
@@ -842,7 +859,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`audiencesRestoreAudience`](docs/sdks/audiences/README.md#restoreaudience) - Restore audience
 - [`audiencesSetMemberDefaultAudience`](docs/sdks/audiences/README.md#setmemberdefaultaudience) - Set default audience
 - [`audiencesUpdateAudience`](docs/sdks/audiences/README.md#updateaudience) - Update audience
+- [`auditEventsGetAuditEvent`](docs/sdks/auditevents/README.md#getauditevent) - Get a single audit event
+- [`auditEventsListAuditEvents`](docs/sdks/auditevents/README.md#listauditevents) - List audit events
+- [`callRoutesCreateTeamCallRoute`](docs/sdks/callroutes/README.md#createteamcallroute) - Create a call route for a team
+- [`callRoutesDeleteCallRoute`](docs/sdks/callroutes/README.md#deletecallroute) - Delete a call route
+- [`callRoutesGetCallRoute`](docs/sdks/callroutes/README.md#getcallroute) - Retrieve a call route
 - [`callRoutesListCallRoutes`](docs/sdks/callroutes/README.md#listcallroutes) - List call routes
+- [`callRoutesListTeamCallRoutes`](docs/sdks/callroutes/README.md#listteamcallroutes) - List call routes for a team
+- [`callRoutesUpdateCallRoute`](docs/sdks/callroutes/README.md#updatecallroute) - Update a call route
 - [`catalogEntriesCreateEnvironment`](docs/sdks/catalogentries/README.md#createenvironment) - Create an environment
 - [`catalogEntriesCreateFunctionality`](docs/sdks/catalogentries/README.md#createfunctionality) - Create a functionality
 - [`catalogEntriesCreateService`](docs/sdks/catalogentries/README.md#createservice) - Create a service
@@ -924,6 +948,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`incidentsDeleteIncidentTeamAssignment`](docs/sdks/incidents/README.md#deleteincidentteamassignment) - Unassign a team from an incident
 - [`incidentsDeleteScheduledMaintenance`](docs/sdks/incidents/README.md#deletescheduledmaintenance) - Delete a scheduled maintenance event
 - [`incidentsDeleteTranscriptEntry`](docs/sdks/incidents/README.md#deletetranscriptentry) - Delete a transcript from an incident
+- [`incidentSettingsAppendFormDataOnSelectedValueGet`](docs/sdks/incidentsettings/README.md#appendformdataonselectedvalueget) - Get data for a form field on select
 - [`incidentSettingsCreateCustomFieldDefinition`](docs/sdks/incidentsettings/README.md#createcustomfielddefinition) - Create a custom field definition
 - [`incidentSettingsCreateIncidentRole`](docs/sdks/incidentsettings/README.md#createincidentrole) - Create an incident role
 - [`incidentSettingsCreateIncidentType`](docs/sdks/incidentsettings/README.md#createincidenttype) - Create an incident type
@@ -1112,26 +1137,33 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`scimUpdateSCIMGroup`](docs/sdks/scim/README.md#updatescimgroup) - Update a SCIM group and assign members
 - [`scimUpdateSCIMUser`](docs/sdks/scim/README.md#updatescimuser) - Update a User from SCIM data
 - [`signalsCreateOnCallShift`](docs/sdks/signals/README.md#createoncallshift) - Create a shift for an on-call schedule
+- [`signalsCreateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
 - [`signalsCreateSignalsEmailTarget`](docs/sdks/signals/README.md#createsignalsemailtarget) - Create an email target for signals
+- [`signalsCreateSignalsEventSource`](docs/sdks/signals/README.md#createsignalseventsource) - Create an event source for Signals
 - [`signalsCreateSignalsWebhookTarget`](docs/sdks/signals/README.md#createsignalswebhooktarget) - Create a webhook target
 - [`signalsCreateTeamEscalationPolicy`](docs/sdks/signals/README.md#createteamescalationpolicy) - Create an escalation policy for a team
 - [`signalsCreateTeamOnCallSchedule`](docs/sdks/signals/README.md#createteamoncallschedule) - Create an on-call schedule for a team
 - [`signalsCreateTeamSignalRule`](docs/sdks/signals/README.md#createteamsignalrule) - Create a Signals rule
 - [`signalsDebugSignalsExpression`](docs/sdks/signals/README.md#debugsignalsexpression) - Debug Signals expressions
 - [`signalsDeleteOnCallShift`](docs/sdks/signals/README.md#deleteoncallshift) - Delete an on-call shift from a team schedule
+- [`signalsDeleteSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#deletesignalsalertgroupingconfiguration) - Delete an alert grouping configuration.
 - [`signalsDeleteSignalsEmailTarget`](docs/sdks/signals/README.md#deletesignalsemailtarget) - Delete a signal email target
+- [`signalsDeleteSignalsEventSource`](docs/sdks/signals/README.md#deletesignalseventsource) - Delete an event source for Signals
 - [`signalsDeleteSignalsWebhookTarget`](docs/sdks/signals/README.md#deletesignalswebhooktarget) - Delete a webhook target
 - [`signalsDeleteTeamEscalationPolicy`](docs/sdks/signals/README.md#deleteteamescalationpolicy) - Delete an escalation policy for a team
 - [`signalsDeleteTeamOnCallSchedule`](docs/sdks/signals/README.md#deleteteamoncallschedule) - Delete an on-call schedule for a team
 - [`signalsDeleteTeamSignalRule`](docs/sdks/signals/README.md#deleteteamsignalrule) - Delete a Signals rule
 - [`signalsGetOnCallShift`](docs/sdks/signals/README.md#getoncallshift) - Get an on-call shift for a team schedule
+- [`signalsGetSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
 - [`signalsGetSignalsEmailTarget`](docs/sdks/signals/README.md#getsignalsemailtarget) - Get a signal email target
+- [`signalsGetSignalsEventSource`](docs/sdks/signals/README.md#getsignalseventsource) - Get an event source for Signals
 - [`signalsGetSignalsIngestUrl`](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 - [`signalsGetSignalsWebhookTarget`](docs/sdks/signals/README.md#getsignalswebhooktarget) - Get a webhook target
 - [`signalsGetTeamEscalationPolicy`](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
 - [`signalsGetTeamOnCallSchedule`](docs/sdks/signals/README.md#getteamoncallschedule) - Get an on-call schedule for a team
 - [`signalsGetTeamSignalRule`](docs/sdks/signals/README.md#getteamsignalrule) - Get a Signals rule
-- [`signalsListOrganizationOnCallSchedules`](docs/sdks/signals/README.md#listorganizationoncallschedules) - List on-call schedules
+- [`signalsListOrganizationOnCallSchedules`](docs/sdks/signals/README.md#listorganizationoncallschedules) - List who's on call for the organization
+- [`signalsListSignalsAlertGroupingConfigurations`](docs/sdks/signals/README.md#listsignalsalertgroupingconfigurations) - List alert grouping configurations.
 - [`signalsListSignalsEmailTargets`](docs/sdks/signals/README.md#listsignalsemailtargets) - List email targets for signals
 - [`signalsListSignalsEventSources`](docs/sdks/signals/README.md#listsignalseventsources) - List event sources for Signals
 - [`signalsListSignalsTransposers`](docs/sdks/signals/README.md#listsignalstransposers) - List signal transposers
@@ -1140,6 +1172,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsListTeamOnCallSchedules`](docs/sdks/signals/README.md#listteamoncallschedules) - List on-call schedules for a team
 - [`signalsListTeamSignalRules`](docs/sdks/signals/README.md#listteamsignalrules) - List Signals rules
 - [`signalsUpdateOnCallShift`](docs/sdks/signals/README.md#updateoncallshift) - Update an on-call shift for a team schedule
+- [`signalsUpdateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#updatesignalsalertgroupingconfiguration) - Update an alert grouping configuration.
 - [`signalsUpdateSignalsEmailTarget`](docs/sdks/signals/README.md#updatesignalsemailtarget) - Update an email target
 - [`signalsUpdateSignalsWebhookTarget`](docs/sdks/signals/README.md#updatesignalswebhooktarget) - Update a webhook target
 - [`signalsUpdateTeamEscalationPolicy`](docs/sdks/signals/README.md#updateteamescalationpolicy) - Update an escalation policy for a team
@@ -1245,7 +1278,7 @@ Certain SDK methods accept files as part of a multi-part request. It is possible
 > - **Node.js v18:** A file stream can be created using the `fileFrom` helper from [`fetch-blob/from.js`](https://www.npmjs.com/package/fetch-blob).
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 import { openAsBlob } from "node:fs";
 
 const firehydrant = new Firehydrant({
@@ -1260,7 +1293,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1276,7 +1308,7 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1296,7 +1328,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1306,7 +1337,7 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   retryConfig: {
@@ -1325,7 +1356,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.ping();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1337,50 +1367,47 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `createService` method may throw the following errors:
+[`FirehydrantError`](./src/models/errors/firehydranterror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Error Type         | Status Code | Content Type     |
-| ------------------ | ----------- | ---------------- |
-| errors.ErrorEntity | 400         | application/json |
-| errors.APIError    | 4XX, 5XX    | \*/\*            |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
-
+### Example
 ```typescript
-import { Firehydrant } from "firehydrant";
-import { ErrorEntity, SDKValidationError } from "firehydrant/models/errors";
+import { Firehydrant } from "firehydrant-typescript-sdk";
+import * as errors from "firehydrant-typescript-sdk/models/errors";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
 });
 
 async function run() {
-  let result;
   try {
-    result = await firehydrant.catalogEntries.createService({
+    const result = await firehydrant.catalogEntries.createService({
       name: "<value>",
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof ErrorEntity): {
-        // Handle err.data$: ErrorEntityData
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.FirehydrantError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ErrorEntity) {
+        console.log(error.data$.detail); // string
+        console.log(error.data$.messages); // string[]
+        console.log(error.data$.meta); // errors.Meta
+        console.log(error.data$.code); // string
       }
     }
   }
@@ -1390,17 +1417,29 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+**Primary error:**
+* [`FirehydrantError`](./src/models/errors/firehydranterror.ts): The base class for HTTP error responses.
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
+<details><summary>Less common errors (7)</summary>
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
+* [`ErrorEntity`](docs/models/errors/errorentity.md): ErrorEntity model. Applicable to 12 of 424 methods.*
+* [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -1410,7 +1449,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   serverURL: "https://api.firehydrant.io/",
@@ -1420,7 +1459,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.accountSettings.ping();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1447,8 +1485,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Firehydrant } from "firehydrant";
-import { HTTPClient } from "firehydrant/lib/http";
+import { Firehydrant } from "firehydrant-typescript-sdk";
+import { HTTPClient } from "firehydrant-typescript-sdk/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -1489,7 +1527,7 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const sdk = new Firehydrant({ debugLogger: console });
 ```

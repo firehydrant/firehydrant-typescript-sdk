@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UpdateStatuspageConnectionSeverity } from "firehydrant/models/components";
+import { UpdateStatuspageConnectionSeverity } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateStatuspageConnectionSeverity = {
   severitySlug: "<value>",

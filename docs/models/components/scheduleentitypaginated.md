@@ -5,7 +5,7 @@ ScheduleEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { ScheduleEntityPaginated } from "firehydrant/models/components";
+import { ScheduleEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: ScheduleEntityPaginated = {};
 ```

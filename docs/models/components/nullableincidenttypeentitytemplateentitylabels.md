@@ -5,7 +5,7 @@ Arbitrary key:value pairs of labels for your incidents.
 ## Example Usage
 
 ```typescript
-import { NullableIncidentTypeEntityTemplateEntityLabels } from "firehydrant/models/components";
+import { NullableIncidentTypeEntityTemplateEntityLabels } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableIncidentTypeEntityTemplateEntityLabels = {};
 ```

@@ -14,7 +14,7 @@ export const tool$conversationsGetComment: ToolDefinition<typeof args> = {
   name: "conversations-get-comment",
   description: `Get a conversation comment
 
-ALPHA - Retrieves a single comment by ID`,
+Retrieves a single comment by ID`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await conversationsGetComment(

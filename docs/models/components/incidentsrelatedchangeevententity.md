@@ -5,7 +5,7 @@ Incidents_RelatedChangeEventEntity model
 ## Example Usage
 
 ```typescript
-import { IncidentsRelatedChangeEventEntity } from "firehydrant/models/components";
+import { IncidentsRelatedChangeEventEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: IncidentsRelatedChangeEventEntity = {};
 ```

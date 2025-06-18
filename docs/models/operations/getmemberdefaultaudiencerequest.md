@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetMemberDefaultAudienceRequest } from "firehydrant/models/operations";
+import { GetMemberDefaultAudienceRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetMemberDefaultAudienceRequest = {
   memberId: 206230,

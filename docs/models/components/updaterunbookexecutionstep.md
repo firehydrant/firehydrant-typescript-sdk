@@ -5,7 +5,7 @@ Updates a runbook step execution, especially for changing the state of a step ex
 ## Example Usage
 
 ```typescript
-import { UpdateRunbookExecutionStep } from "firehydrant/models/components";
+import { UpdateRunbookExecutionStep } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateRunbookExecutionStep = {
   state: "Louisiana",

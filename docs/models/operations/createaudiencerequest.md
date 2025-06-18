@@ -3,16 +3,15 @@
 ## Example Usage
 
 ```typescript
-import { CreateAudienceRequest } from "firehydrant/models/operations";
+import { CreateAudienceRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateAudienceRequest = {
   name: "<value>",
   description: "abaft fleck thigh",
-  detailsQuestion: [
-    "<value>",
-  ],
+  detailsQuestion: [],
   detailsPrompt: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
 };
 ```

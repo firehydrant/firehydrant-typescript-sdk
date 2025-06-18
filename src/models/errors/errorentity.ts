@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { FirehydrantError } from "./firehydranterror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 /**
@@ -31,7 +32,7 @@ export type ErrorEntityData = {
 /**
  * ErrorEntity model
  */
-export class ErrorEntity extends Error {
+export class ErrorEntity extends FirehydrantError {
   detail?: string | null | undefined;
   messages?: Array<string> | null | undefined;
   /**
@@ -46,13 +47,15 @@ export class ErrorEntity extends Error {
   /** The original data that was passed to this error instance. */
   data$: ErrorEntityData;
 
-  constructor(err: ErrorEntityData) {
+  constructor(
+    err: ErrorEntityData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     if (err.detail != null) this.detail = err.detail;
     if (err.messages != null) this.messages = err.messages;
     if (err.meta != null) this.meta = err.meta;
@@ -110,9 +113,16 @@ export const ErrorEntity$inboundSchema: z.ZodType<
   messages: z.nullable(z.array(z.string())).optional(),
   meta: z.nullable(z.lazy(() => Meta$inboundSchema)).optional(),
   code: z.nullable(z.string()).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new ErrorEntity(v);
+    return new ErrorEntity(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

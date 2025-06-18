@@ -45,7 +45,7 @@ List all of the environments that have been added to the organiation
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -54,7 +54,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.catalogEntries.listEnvironments({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -66,8 +65,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListEnvironments } from "firehydrant/funcs/catalogEntriesListEnvironments.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListEnvironments } from "firehydrant-typescript-sdk/funcs/catalogEntriesListEnvironments.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -77,15 +76,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await catalogEntriesListEnvironments(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListEnvironments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -117,7 +113,7 @@ Creates an environment for the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -128,7 +124,6 @@ async function run() {
     name: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -140,8 +135,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesCreateEnvironment } from "firehydrant/funcs/catalogEntriesCreateEnvironment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesCreateEnvironment } from "firehydrant-typescript-sdk/funcs/catalogEntriesCreateEnvironment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -153,15 +148,12 @@ async function run() {
   const res = await catalogEntriesCreateEnvironment(firehydrant, {
     name: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesCreateEnvironment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -193,7 +185,7 @@ Retrieves a single environment by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -204,7 +196,6 @@ async function run() {
     environmentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -216,8 +207,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesGetEnvironment } from "firehydrant/funcs/catalogEntriesGetEnvironment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesGetEnvironment } from "firehydrant-typescript-sdk/funcs/catalogEntriesGetEnvironment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -229,15 +220,12 @@ async function run() {
   const res = await catalogEntriesGetEnvironment(firehydrant, {
     environmentId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesGetEnvironment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -269,7 +257,7 @@ Archive an environment
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -280,7 +268,6 @@ async function run() {
     environmentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -292,8 +279,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesDeleteEnvironment } from "firehydrant/funcs/catalogEntriesDeleteEnvironment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesDeleteEnvironment } from "firehydrant-typescript-sdk/funcs/catalogEntriesDeleteEnvironment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -305,15 +292,12 @@ async function run() {
   const res = await catalogEntriesDeleteEnvironment(firehydrant, {
     environmentId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesDeleteEnvironment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -345,7 +329,7 @@ Update a environments attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -359,7 +343,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -371,8 +354,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesUpdateEnvironment } from "firehydrant/funcs/catalogEntriesUpdateEnvironment.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesUpdateEnvironment } from "firehydrant-typescript-sdk/funcs/catalogEntriesUpdateEnvironment.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -387,15 +370,12 @@ async function run() {
       name: "<value>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesUpdateEnvironment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -427,7 +407,7 @@ List all of the services that have been added to the organization.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -436,7 +416,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.catalogEntries.listServices({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -448,8 +427,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListServices } from "firehydrant/funcs/catalogEntriesListServices.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListServices } from "firehydrant-typescript-sdk/funcs/catalogEntriesListServices.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -459,15 +438,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await catalogEntriesListServices(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListServices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -499,7 +475,7 @@ Creates a service for the organization, you may also create or attach functional
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -510,7 +486,6 @@ async function run() {
     name: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -522,8 +497,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesCreateService } from "firehydrant/funcs/catalogEntriesCreateService.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesCreateService } from "firehydrant-typescript-sdk/funcs/catalogEntriesCreateService.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -535,15 +510,12 @@ async function run() {
   const res = await catalogEntriesCreateService(firehydrant, {
     name: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesCreateService failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -576,7 +548,7 @@ Creates a service with the appropriate integration for each external service ID 
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -586,10 +558,9 @@ async function run() {
   const result = await firehydrant.catalogEntries.createServiceLinks({
     externalServiceIds: "<value>",
     connectionId: "<id>",
-    integration: "victorops",
+    integration: "pager_duty",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -601,8 +572,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesCreateServiceLinks } from "firehydrant/funcs/catalogEntriesCreateServiceLinks.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesCreateServiceLinks } from "firehydrant-typescript-sdk/funcs/catalogEntriesCreateServiceLinks.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -614,17 +585,14 @@ async function run() {
   const res = await catalogEntriesCreateServiceLinks(firehydrant, {
     externalServiceIds: "<value>",
     connectionId: "<id>",
-    integration: "victorops",
+    integration: "pager_duty",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesCreateServiceLinks failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -656,7 +624,7 @@ Retrieves a single service by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -667,7 +635,6 @@ async function run() {
     serviceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -679,8 +646,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesGetService } from "firehydrant/funcs/catalogEntriesGetService.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesGetService } from "firehydrant-typescript-sdk/funcs/catalogEntriesGetService.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -692,15 +659,12 @@ async function run() {
   const res = await catalogEntriesGetService(firehydrant, {
     serviceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesGetService failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -732,7 +696,7 @@ Deletes the service from FireHydrant.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -743,7 +707,6 @@ async function run() {
     serviceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -755,8 +718,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesDeleteService } from "firehydrant/funcs/catalogEntriesDeleteService.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesDeleteService } from "firehydrant-typescript-sdk/funcs/catalogEntriesDeleteService.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -768,15 +731,12 @@ async function run() {
   const res = await catalogEntriesDeleteService(firehydrant, {
     serviceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesDeleteService failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -810,7 +770,7 @@ Note: You may not remove or add individual label key/value pairs. You must inclu
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -822,7 +782,6 @@ async function run() {
     updateService: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -834,8 +793,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesUpdateService } from "firehydrant/funcs/catalogEntriesUpdateService.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesUpdateService } from "firehydrant-typescript-sdk/funcs/catalogEntriesUpdateService.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -848,15 +807,12 @@ async function run() {
     serviceId: "<id>",
     updateService: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesUpdateService failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -888,7 +844,7 @@ Retrieves a service's dependencies
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -899,7 +855,6 @@ async function run() {
     serviceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -911,8 +866,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesGetServiceDependencies } from "firehydrant/funcs/catalogEntriesGetServiceDependencies.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesGetServiceDependencies } from "firehydrant-typescript-sdk/funcs/catalogEntriesGetServiceDependencies.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -924,15 +879,12 @@ async function run() {
   const res = await catalogEntriesGetServiceDependencies(firehydrant, {
     serviceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesGetServiceDependencies failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -964,7 +916,7 @@ Retrieves all services that are available to be upstream dependencies
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -975,7 +927,6 @@ async function run() {
     serviceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -987,8 +938,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListServiceAvailableUpstreamDependencies } from "firehydrant/funcs/catalogEntriesListServiceAvailableUpstreamDependencies.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListServiceAvailableUpstreamDependencies } from "firehydrant-typescript-sdk/funcs/catalogEntriesListServiceAvailableUpstreamDependencies.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1000,15 +951,12 @@ async function run() {
   const res = await catalogEntriesListServiceAvailableUpstreamDependencies(firehydrant, {
     serviceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListServiceAvailableUpstreamDependencies failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1040,7 +988,7 @@ Retrieves all services that are available to be downstream dependencies
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1051,7 +999,6 @@ async function run() {
     serviceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1063,8 +1010,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListServiceAvailableDownstreamDependencies } from "firehydrant/funcs/catalogEntriesListServiceAvailableDownstreamDependencies.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListServiceAvailableDownstreamDependencies } from "firehydrant-typescript-sdk/funcs/catalogEntriesListServiceAvailableDownstreamDependencies.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1076,15 +1023,12 @@ async function run() {
   const res = await catalogEntriesListServiceAvailableDownstreamDependencies(firehydrant, {
     serviceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListServiceAvailableDownstreamDependencies failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1116,7 +1060,7 @@ Deletes a service link from FireHydrant.
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1139,8 +1083,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesDeleteServiceLink } from "firehydrant/funcs/catalogEntriesDeleteServiceLink.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesDeleteServiceLink } from "firehydrant-typescript-sdk/funcs/catalogEntriesDeleteServiceLink.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1153,14 +1097,12 @@ async function run() {
     serviceId: "<id>",
     remoteId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("catalogEntriesDeleteServiceLink failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1192,7 +1134,7 @@ Creates a response for a checklist item
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1204,7 +1146,7 @@ async function run() {
     checklistId: "<id>",
     createServiceChecklistResponse: {
       checkId: "<id>",
-      status: true,
+      status: false,
     },
   });
 
@@ -1219,8 +1161,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesCreateServiceChecklistResponse } from "firehydrant/funcs/catalogEntriesCreateServiceChecklistResponse.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesCreateServiceChecklistResponse } from "firehydrant-typescript-sdk/funcs/catalogEntriesCreateServiceChecklistResponse.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1234,17 +1176,15 @@ async function run() {
     checklistId: "<id>",
     createServiceChecklistResponse: {
       checkId: "<id>",
-      status: true,
+      status: false,
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("catalogEntriesCreateServiceChecklistResponse failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -1276,7 +1216,7 @@ Creates a service dependency relationship between two services
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1288,7 +1228,6 @@ async function run() {
     connectedServiceId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1300,8 +1239,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesCreateServiceDependency } from "firehydrant/funcs/catalogEntriesCreateServiceDependency.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesCreateServiceDependency } from "firehydrant-typescript-sdk/funcs/catalogEntriesCreateServiceDependency.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1314,15 +1253,12 @@ async function run() {
     serviceId: "<id>",
     connectedServiceId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesCreateServiceDependency failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1354,7 +1290,7 @@ Retrieves a single service dependency by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1365,7 +1301,6 @@ async function run() {
     serviceDependencyId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1377,8 +1312,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesGetServiceDependency } from "firehydrant/funcs/catalogEntriesGetServiceDependency.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesGetServiceDependency } from "firehydrant-typescript-sdk/funcs/catalogEntriesGetServiceDependency.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1390,15 +1325,12 @@ async function run() {
   const res = await catalogEntriesGetServiceDependency(firehydrant, {
     serviceDependencyId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesGetServiceDependency failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1430,7 +1362,7 @@ Deletes a single service dependency
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1441,7 +1373,6 @@ async function run() {
     serviceDependencyId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1453,8 +1384,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesDeleteServiceDependency } from "firehydrant/funcs/catalogEntriesDeleteServiceDependency.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesDeleteServiceDependency } from "firehydrant-typescript-sdk/funcs/catalogEntriesDeleteServiceDependency.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1466,15 +1397,12 @@ async function run() {
   const res = await catalogEntriesDeleteServiceDependency(firehydrant, {
     serviceDependencyId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesDeleteServiceDependency failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1506,7 +1434,7 @@ Update the notes of the service dependency
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1518,7 +1446,6 @@ async function run() {
     updateServiceDependency: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1530,8 +1457,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesUpdateServiceDependency } from "firehydrant/funcs/catalogEntriesUpdateServiceDependency.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesUpdateServiceDependency } from "firehydrant-typescript-sdk/funcs/catalogEntriesUpdateServiceDependency.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1544,15 +1471,12 @@ async function run() {
     serviceDependencyId: "<id>",
     updateServiceDependency: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesUpdateServiceDependency failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1584,7 +1508,7 @@ List all of the functionalities that have been added to the organiation
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1593,7 +1517,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.catalogEntries.listFunctionalities({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1605,8 +1528,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListFunctionalities } from "firehydrant/funcs/catalogEntriesListFunctionalities.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListFunctionalities } from "firehydrant-typescript-sdk/funcs/catalogEntriesListFunctionalities.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1616,15 +1539,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await catalogEntriesListFunctionalities(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListFunctionalities failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1656,7 +1576,7 @@ Creates a functionality for the organization
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1667,7 +1587,6 @@ async function run() {
     name: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1679,8 +1598,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesCreateFunctionality } from "firehydrant/funcs/catalogEntriesCreateFunctionality.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesCreateFunctionality } from "firehydrant-typescript-sdk/funcs/catalogEntriesCreateFunctionality.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1692,15 +1611,12 @@ async function run() {
   const res = await catalogEntriesCreateFunctionality(firehydrant, {
     name: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesCreateFunctionality failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1732,7 +1648,7 @@ Retrieves a single functionality by ID
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1743,7 +1659,6 @@ async function run() {
     functionalityId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1755,8 +1670,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesGetFunctionality } from "firehydrant/funcs/catalogEntriesGetFunctionality.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesGetFunctionality } from "firehydrant-typescript-sdk/funcs/catalogEntriesGetFunctionality.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1768,15 +1683,12 @@ async function run() {
   const res = await catalogEntriesGetFunctionality(firehydrant, {
     functionalityId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesGetFunctionality failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1808,7 +1720,7 @@ Archive a functionality
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1819,7 +1731,6 @@ async function run() {
     functionalityId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1831,8 +1742,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesDeleteFunctionality } from "firehydrant/funcs/catalogEntriesDeleteFunctionality.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesDeleteFunctionality } from "firehydrant-typescript-sdk/funcs/catalogEntriesDeleteFunctionality.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1844,15 +1755,12 @@ async function run() {
   const res = await catalogEntriesDeleteFunctionality(firehydrant, {
     functionalityId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesDeleteFunctionality failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1884,7 +1792,7 @@ Update a functionalities attributes
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1896,7 +1804,6 @@ async function run() {
     updateFunctionality: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1908,8 +1815,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesUpdateFunctionality } from "firehydrant/funcs/catalogEntriesUpdateFunctionality.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesUpdateFunctionality } from "firehydrant-typescript-sdk/funcs/catalogEntriesUpdateFunctionality.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1922,15 +1829,12 @@ async function run() {
     functionalityId: "<id>",
     updateFunctionality: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesUpdateFunctionality failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -1962,7 +1866,7 @@ List services for a functionality
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -1973,7 +1877,6 @@ async function run() {
     functionalityId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -1985,8 +1888,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListFunctionalityServices } from "firehydrant/funcs/catalogEntriesListFunctionalityServices.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListFunctionalityServices } from "firehydrant-typescript-sdk/funcs/catalogEntriesListFunctionalityServices.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1998,15 +1901,12 @@ async function run() {
   const res = await catalogEntriesListFunctionalityServices(firehydrant, {
     functionalityId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListFunctionalityServices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2038,7 +1938,7 @@ Retrieves a list of services owned by the teams a user is on
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2049,7 +1949,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2061,8 +1960,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListUserOwnedServices } from "firehydrant/funcs/catalogEntriesListUserOwnedServices.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListUserOwnedServices } from "firehydrant-typescript-sdk/funcs/catalogEntriesListUserOwnedServices.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2074,15 +1973,12 @@ async function run() {
   const res = await catalogEntriesListUserOwnedServices(firehydrant, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListUserOwnedServices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2114,7 +2010,7 @@ Lists functionality, service and environment objects
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2123,7 +2019,6 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.catalogEntries.listInfrastructures({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2135,8 +2030,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesListInfrastructures } from "firehydrant/funcs/catalogEntriesListInfrastructures.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListInfrastructures } from "firehydrant-typescript-sdk/funcs/catalogEntriesListInfrastructures.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2146,15 +2041,12 @@ const firehydrant = new FirehydrantCore({
 
 async function run() {
   const res = await catalogEntriesListInfrastructures(firehydrant, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListInfrastructures failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -2186,7 +2078,7 @@ Schedules an async task to re-import catalog info and update catalog data accord
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2208,8 +2100,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesRefreshCatalog } from "firehydrant/funcs/catalogEntriesRefreshCatalog.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesRefreshCatalog } from "firehydrant-typescript-sdk/funcs/catalogEntriesRefreshCatalog.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2221,14 +2113,12 @@ async function run() {
   const res = await catalogEntriesRefreshCatalog(firehydrant, {
     catalogId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("catalogEntriesRefreshCatalog failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -2260,7 +2150,7 @@ Accepts catalog data in the configured format and asyncronously processes the da
 ### Example Usage
 
 ```typescript
-import { Firehydrant } from "firehydrant";
+import { Firehydrant } from "firehydrant-typescript-sdk";
 
 const firehydrant = new Firehydrant({
   apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
@@ -2270,12 +2160,11 @@ async function run() {
   const result = await firehydrant.catalogEntries.ingestCatalogData({
     catalogId: "<id>",
     ingestCatalogData: {
-      encoding: "application/x-yaml",
+      encoding: "application/json",
       data: "<value>",
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -2287,8 +2176,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FirehydrantCore } from "firehydrant/core.js";
-import { catalogEntriesIngestCatalogData } from "firehydrant/funcs/catalogEntriesIngestCatalogData.js";
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesIngestCatalogData } from "firehydrant-typescript-sdk/funcs/catalogEntriesIngestCatalogData.js";
 
 // Use `FirehydrantCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -2300,19 +2189,16 @@ async function run() {
   const res = await catalogEntriesIngestCatalogData(firehydrant, {
     catalogId: "<id>",
     ingestCatalogData: {
-      encoding: "application/x-yaml",
+      encoding: "application/json",
       data: "<value>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesIngestCatalogData failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

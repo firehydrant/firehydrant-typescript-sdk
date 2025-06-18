@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetPostMortemQuestionRequest } from "firehydrant/models/operations";
+import { GetPostMortemQuestionRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: GetPostMortemQuestionRequest = {
   questionId: "<id>",

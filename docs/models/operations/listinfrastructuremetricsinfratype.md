@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ListInfrastructureMetricsInfraType } from "firehydrant/models/operations";
+import { ListInfrastructureMetricsInfraType } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListInfrastructureMetricsInfraType = "environments";
 ```

@@ -3,14 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { IngestCatalogDataRequest } from "firehydrant/models/operations";
+import { IngestCatalogDataRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: IngestCatalogDataRequest = {
   catalogId: "<id>",
-  ingestCatalogData: {
-    encoding: "text/yaml",
-    data: "<value>",
-  },
 };
 ```
 

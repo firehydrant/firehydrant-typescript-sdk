@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { RetrospectivesFieldEntityType } from "firehydrant/models/components";
+import { RetrospectivesFieldEntityType } from "firehydrant-typescript-sdk/models/components";
 
 let value: RetrospectivesFieldEntityType = "datetime";
 ```

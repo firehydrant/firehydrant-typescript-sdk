@@ -3,12 +3,11 @@
 ## Example Usage
 
 ```typescript
-import { UpdateNuncLinkRequest } from "firehydrant/models/operations";
+import { UpdateNuncLinkRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateNuncLinkRequest = {
   nuncConnectionId: "<id>",
   linkId: "<id>",
-  updateNuncLink: {},
 };
 ```
 

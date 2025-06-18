@@ -18,6 +18,7 @@ export const UpdateTeamSignalRuleTargetType = {
   User: "User",
   Webhook: "Webhook",
   SlackChannel: "SlackChannel",
+  MicrosoftTeamsChannel: "MicrosoftTeamsChannel",
 } as const;
 /**
  * The type of target that the rule will notify when matched.

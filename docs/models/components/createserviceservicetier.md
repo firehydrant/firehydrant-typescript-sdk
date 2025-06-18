@@ -5,7 +5,7 @@ Integer representing service tier. Lower values represent higher criticality. If
 ## Example Usage
 
 ```typescript
-import { CreateServiceServiceTier } from "firehydrant/models/components";
+import { CreateServiceServiceTier } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateServiceServiceTier = 4;
 ```

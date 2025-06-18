@@ -5,7 +5,7 @@ Ticketing_ProjectFieldMapEntity model
 ## Example Usage
 
 ```typescript
-import { TicketingProjectFieldMapEntity } from "firehydrant/models/components";
+import { TicketingProjectFieldMapEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: TicketingProjectFieldMapEntity = {};
 ```

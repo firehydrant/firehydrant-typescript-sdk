@@ -5,7 +5,7 @@ Upvote or downvote an object
 ## Example Usage
 
 ```typescript
-import { UpdateVote } from "firehydrant/models/components";
+import { UpdateVote } from "firehydrant-typescript-sdk/models/components";
 
 let value: UpdateVote = {
   direction: "down",

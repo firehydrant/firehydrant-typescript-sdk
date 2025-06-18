@@ -5,7 +5,7 @@ Ticketing_PriorityEntity model
 ## Example Usage
 
 ```typescript
-import { NullableTicketingPriorityEntity } from "firehydrant/models/components";
+import { NullableTicketingPriorityEntity } from "firehydrant-typescript-sdk/models/components";
 
 let value: NullableTicketingPriorityEntity = {};
 ```

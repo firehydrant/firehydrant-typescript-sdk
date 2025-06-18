@@ -3,13 +3,10 @@
 ## Example Usage
 
 ```typescript
-import { CreatePostMortemReasonRequest } from "firehydrant/models/operations";
+import { CreatePostMortemReasonRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreatePostMortemReasonRequest = {
   reportId: "<id>",
-  createPostMortemReason: {
-    summary: "<value>",
-  },
 };
 ```
 

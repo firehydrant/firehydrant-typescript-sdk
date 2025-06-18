@@ -5,7 +5,7 @@ The strategy to match tags. `any` will return alerts that have at least one of t
 ## Example Usage
 
 ```typescript
-import { ListAlertsTagMatchStrategy } from "firehydrant/models/operations";
+import { ListAlertsTagMatchStrategy } from "firehydrant-typescript-sdk/models/operations";
 
 let value: ListAlertsTagMatchStrategy = "any";
 ```

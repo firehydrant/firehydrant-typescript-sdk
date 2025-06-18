@@ -5,7 +5,7 @@ EnvironmentEntryEntityPaginated model
 ## Example Usage
 
 ```typescript
-import { EnvironmentEntryEntityPaginated } from "firehydrant/models/components";
+import { EnvironmentEntryEntityPaginated } from "firehydrant-typescript-sdk/models/components";
 
 let value: EnvironmentEntryEntityPaginated = {};
 ```

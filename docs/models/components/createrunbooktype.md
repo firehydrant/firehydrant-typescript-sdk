@@ -5,7 +5,7 @@ Deprecated, but still required. Please just use 'incident'
 ## Example Usage
 
 ```typescript
-import { CreateRunbookType } from "firehydrant/models/components";
+import { CreateRunbookType } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateRunbookType = "general";
 ```
