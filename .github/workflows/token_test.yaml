@@ -1,0 +1,19 @@
+name: Test Secret Access
+on:
+  workflow_dispatch:
+
+jobs:
+  test-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if secret exists
+        run: |
+          if [ -z "${{ secrets.AUTO_MERGE_TOKEN }}" ]; then
+            echo "❌ AUTO_MERGE_TOKEN is not accessible"
+            exit 1
+          else
+            echo "✅ AUTO_MERGE_TOKEN is accessible"
+            # Test basic API access
+            curl -s -H "Authorization: token ${{ secrets.AUTO_MERGE_TOKEN }}" \
+              https://api.github.com/user | jq -r .login || echo "Token validation failed"
+          fi
