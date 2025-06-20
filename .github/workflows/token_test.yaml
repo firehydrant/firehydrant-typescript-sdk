@@ -1,5 +1,8 @@
 name: Test Secret Access
 on:
+  push:
+    branches: [auto-approve-merge]
+on:
   workflow_dispatch:
 
 jobs:
