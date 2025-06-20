@@ -1,0 +1,57 @@
+name: Test Secret Access
+on:
+  push:
+    branches: [auto-approve-merge]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force test of secret access
+        type: boolean
+        default: false
+
+jobs:
+  test-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if secret exists
+        run: |
+          if [ -z "${{ secrets.AUTO_MERGE_TOKEN }}" ]; then
+            echo "❌ AUTO_MERGE_TOKEN is not accessible"
+            exit 1
+          else
+            echo "✅ AUTO_MERGE_TOKEN is accessible"
+          fi
+          
+      - name: Test with GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+        run: |
+          echo "🔐 Testing authentication..."
+          
+          # Get authenticated user
+          if USER=$(gh api user --jq .login 2>&1); then
+            echo "✅ Authenticated as: $USER"
+          else
+            echo "❌ Authentication failed: $USER"
+            exit 1
+          fi
+          
+          # Test repository access
+          echo "📋 Testing repository access..."
+          if REPO=$(gh api repos/${{ github.repository }} --jq .full_name 2>&1); then
+            echo "✅ Can access repository: $REPO"
+          else
+            echo "❌ Cannot access repository: $REPO"
+            exit 1
+          fi
+          
+          # Test PR operations
+          echo "🔍 Testing PR access..."
+          if PRS=$(gh pr list --repo ${{ github.repository }} --limit 1 2>&1); then
+            echo "✅ Can access pull requests"
+          else
+            echo "❌ Cannot access PRs: $PRS"
+            exit 1
+          fi
+          
+          echo "🎉 All tests passed!"
