@@ -4,10 +4,10 @@ on:
     branches: [auto-approve-merge]
   workflow_dispatch:
     inputs:
-      environment:
-        description: Environment to test secret access
-        required: false
-        default: staging
+      force:
+        description: Force test of secret access
+        type: boolean
+        default: false
 
 jobs:
   test-secret:
