@@ -52,6 +52,10 @@ export type UpdateIncidentTypeTemplate = {
  */
 export type UpdateIncidentType = {
   name: string;
+  /**
+   * A description of the incident type
+   */
+  description?: string | null | undefined;
   template: UpdateIncidentTypeTemplate;
 };
 
@@ -228,12 +232,14 @@ export const UpdateIncidentType$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   name: z.string(),
+  description: z.nullable(z.string()).optional(),
   template: z.lazy(() => UpdateIncidentTypeTemplate$inboundSchema),
 });
 
 /** @internal */
 export type UpdateIncidentType$Outbound = {
   name: string;
+  description?: string | null | undefined;
   template: UpdateIncidentTypeTemplate$Outbound;
 };
 
@@ -244,6 +250,7 @@ export const UpdateIncidentType$outboundSchema: z.ZodType<
   UpdateIncidentType
 > = z.object({
   name: z.string(),
+  description: z.nullable(z.string()).optional(),
   template: z.lazy(() => UpdateIncidentTypeTemplate$outboundSchema),
 });
 
