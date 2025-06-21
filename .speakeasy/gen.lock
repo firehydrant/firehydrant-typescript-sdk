@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: 32d87b7cda3f8c3fc8eddd7ce59bcb55
+  docChecksum: 2df31b43959a3266d215aeefd39d6860
   docVersion: 0.0.1
-  speakeasyVersion: 1.565.0
-  generationVersion: 2.630.9
-  releaseVersion: 1.0.1
-  configChecksum: e1eb5feac873722c04eafe5d428b16e8
+  speakeasyVersion: 1.568.0
+  generationVersion: 2.632.2
+  releaseVersion: 1.0.2
+  configChecksum: 1ab908835e504a1f9f5af21091a21249
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -401,7 +401,6 @@ generatedFiles:
   - docs/models/components/nullablerunbooksactionsentityprerequisites.md
   - docs/models/components/nullablerunbookselementdynamicselectentity.md
   - docs/models/components/nullablerunbookselementdynamicselectentityselectoptionentity.md
-  - docs/models/components/nullablerunbookselemententity.md
   - docs/models/components/nullablerunbookselementinputentity.md
   - docs/models/components/nullablerunbookselementmarkdownentity.md
   - docs/models/components/nullablerunbookselementtextareaentity.md
@@ -412,9 +411,6 @@ generatedFiles:
   - docs/models/components/nullablerunbooksexecutionstepexecutionentity.md
   - docs/models/components/nullablerunbooksexecutionstepexecutionentitydata.md
   - docs/models/components/nullablerunbooksexecutionstepexecutionentitystate.md
-  - docs/models/components/nullablerunbookstepentity.md
-  - docs/models/components/nullablerunbookstepentityconfig.md
-  - docs/models/components/nullablerunbookstepentitystepelement.md
   - docs/models/components/nullablerunbookswebhookdeliveryentity.md
   - docs/models/components/nullablescheduleentity.md
   - docs/models/components/nullableserviceentity.md
@@ -499,8 +495,12 @@ generatedFiles:
   - docs/models/components/runbooksactionsentitypaginated.md
   - docs/models/components/runbooksactionsentityprerequisites.md
   - docs/models/components/runbookselementdynamicselectentityselectoptionentity.md
+  - docs/models/components/runbookselemententity.md
   - docs/models/components/runbooksexecutionentity.md
   - docs/models/components/runbooksexecutionentitypaginated.md
+  - docs/models/components/runbookstepentity.md
+  - docs/models/components/runbookstepentityconfig.md
+  - docs/models/components/runbookstepentitystepelement.md
   - docs/models/components/savedsearchentity.md
   - docs/models/components/scheduledmaintenanceentity.md
   - docs/models/components/scheduledmaintenanceentitylabels.md
@@ -2322,14 +2322,12 @@ generatedFiles:
   - src/models/components/nullablerunbooksactionsentity.ts
   - src/models/components/nullablerunbookselementdynamicselectentity.ts
   - src/models/components/nullablerunbookselementdynamicselectentityselectoptionentity.ts
-  - src/models/components/nullablerunbookselemententity.ts
   - src/models/components/nullablerunbookselementinputentity.ts
   - src/models/components/nullablerunbookselementmarkdownentity.ts
   - src/models/components/nullablerunbookselementtextareaentity.ts
   - src/models/components/nullablerunbooksexecutionentityexecutedforentity.ts
   - src/models/components/nullablerunbooksexecutionstepentity.ts
   - src/models/components/nullablerunbooksexecutionstepexecutionentity.ts
-  - src/models/components/nullablerunbookstepentity.ts
   - src/models/components/nullablerunbookswebhookdeliveryentity.ts
   - src/models/components/nullablescheduleentity.ts
   - src/models/components/nullableserviceentity.ts
@@ -2396,8 +2394,10 @@ generatedFiles:
   - src/models/components/runbooksactionsentity.ts
   - src/models/components/runbooksactionsentitypaginated.ts
   - src/models/components/runbookselementdynamicselectentityselectoptionentity.ts
+  - src/models/components/runbookselemententity.ts
   - src/models/components/runbooksexecutionentity.ts
   - src/models/components/runbooksexecutionentitypaginated.ts
+  - src/models/components/runbookstepentity.ts
   - src/models/components/savedsearchentity.ts
   - src/models/components/scheduledmaintenanceentity.ts
   - src/models/components/scheduledmaintenancesimpactentity.ts

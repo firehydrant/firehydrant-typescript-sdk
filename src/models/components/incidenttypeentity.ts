@@ -26,6 +26,7 @@ import {
 export type IncidentTypeEntity = {
   id?: string | null | undefined;
   name?: string | null | undefined;
+  description?: string | null | undefined;
   template?: NullableIncidentTypeEntityTemplateEntity | null | undefined;
   templateValues?:
     | NullableIncidentTypeEntityTemplateValuesEntity
@@ -43,6 +44,7 @@ export const IncidentTypeEntity$inboundSchema: z.ZodType<
 > = z.object({
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
   template: z.nullable(NullableIncidentTypeEntityTemplateEntity$inboundSchema)
     .optional(),
   template_values: z.nullable(
@@ -66,6 +68,7 @@ export const IncidentTypeEntity$inboundSchema: z.ZodType<
 export type IncidentTypeEntity$Outbound = {
   id?: string | null | undefined;
   name?: string | null | undefined;
+  description?: string | null | undefined;
   template?:
     | NullableIncidentTypeEntityTemplateEntity$Outbound
     | null
@@ -86,6 +89,7 @@ export const IncidentTypeEntity$outboundSchema: z.ZodType<
 > = z.object({
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
+  description: z.nullable(z.string()).optional(),
   template: z.nullable(NullableIncidentTypeEntityTemplateEntity$outboundSchema)
     .optional(),
   templateValues: z.nullable(
