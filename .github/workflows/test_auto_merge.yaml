@@ -6,14 +6,15 @@ on:
         description: 'Branch name for test PR'
         default: 'test-auto-merge'
         required: false
-  push:
-    branches: [auto-approve-merge]
+        type: string
 
 jobs:
   create-test-pr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: auto-approve-merge
       
       - name: Create test file
         run: |
@@ -31,5 +32,7 @@ jobs:
             - Created by: github-actions[bot]
             - Should trigger: auto-approve and merge workflow
             - Can be closed if auto-merge fails
-          branch: automerge-test-${{ github.run_number }}
+          branch: ${{ inputs.branch_name || 'test-auto-merge' }}-${{ github.run_number }}
+          base: auto-approve-merge
           delete-branch: true
+          draft: false
