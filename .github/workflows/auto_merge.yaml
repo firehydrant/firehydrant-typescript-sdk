@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     # Only run for PRs created by github-actions bot
     # Intended to auto-approve and merge PRs created by speakeasy sdk generation
-    if: github.actor == 'github-actions[bot]'
+    if: |
+      github.actor == 'github-actions[bot]' ||
+      github.event.pull_request.user.login == 'github-actions[bot]' ||
+      github.event.pull_request.user.type == 'Bot'
     
     steps:
       - name: Checkout
