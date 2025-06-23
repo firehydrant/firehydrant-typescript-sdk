@@ -1,0 +1,17 @@
+name: Debug PR Actor
+on:
+  pull_request:
+    types: [opened, synchronize]
+  
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Actor Info
+        run: |
+          echo "github.actor: ${{ github.actor }}"
+          echo "github.triggering_actor: ${{ github.triggering_actor }}"
+          echo "PR author: ${{ github.event.pull_request.user.login }}"
+          echo "PR author type: ${{ github.event.pull_request.user.type }}"
+          echo "Sender: ${{ github.event.sender.login }}"
+          echo "Sender type: ${{ github.event.sender.type }}"
