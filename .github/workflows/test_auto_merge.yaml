@@ -6,6 +6,8 @@ on:
         description: 'Branch name for test PR'
         default: 'test-auto-merge'
         required: false
+  push:
+    branches: [auto-approve-merge]
 
 jobs:
   create-test-pr:
