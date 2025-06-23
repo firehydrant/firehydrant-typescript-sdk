@@ -31,5 +31,5 @@ jobs:
             - Created by: github-actions[bot]
             - Should trigger: auto-approve and merge workflow
             - Can be closed if auto-merge fails
-          branch: ${{ inputs.branch_name }}-${{ github.run_number }}
+          branch: automerge-test-${{ github.run_number }}
           delete-branch: true
