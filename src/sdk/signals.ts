@@ -23,6 +23,7 @@ import { signalsGetOnCallShift } from "../funcs/signalsGetOnCallShift.js";
 import { signalsGetSignalsAlertGroupingConfiguration } from "../funcs/signalsGetSignalsAlertGroupingConfiguration.js";
 import { signalsGetSignalsEmailTarget } from "../funcs/signalsGetSignalsEmailTarget.js";
 import { signalsGetSignalsEventSource } from "../funcs/signalsGetSignalsEventSource.js";
+import { signalsGetSignalsHackerMode } from "../funcs/signalsGetSignalsHackerMode.js";
 import { signalsGetSignalsIngestUrl } from "../funcs/signalsGetSignalsIngestUrl.js";
 import { signalsGetSignalsWebhookTarget } from "../funcs/signalsGetSignalsWebhookTarget.js";
 import { signalsGetTeamEscalationPolicy } from "../funcs/signalsGetTeamEscalationPolicy.js";
@@ -439,6 +440,21 @@ export class Signals extends ClientSDK {
     return unwrapAsync(signalsDeleteSignalsEventSource(
       this,
       request,
+      options,
+    ));
+  }
+
+  /**
+   * Get hacker mode status
+   *
+   * @remarks
+   * Get the status of the hacker mode for the current user
+   */
+  async getSignalsHackerMode(
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIHackerModeEntity> {
+    return unwrapAsync(signalsGetSignalsHackerMode(
+      this,
       options,
     ));
   }

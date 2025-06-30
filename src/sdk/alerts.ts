@@ -9,6 +9,7 @@ import { alertsListAlerts } from "../funcs/alertsListAlerts.js";
 import { alertsListIncidentAlerts } from "../funcs/alertsListIncidentAlerts.js";
 import { alertsListProcessingLogEntries } from "../funcs/alertsListProcessingLogEntries.js";
 import { alertsUpdateIncidentAlertPrimary } from "../funcs/alertsUpdateIncidentAlertPrimary.js";
+import { alertsUpdateSignalsAlert } from "../funcs/alertsUpdateSignalsAlert.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
@@ -128,6 +129,23 @@ export class Alerts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.AlertsProcessingLogEntryEntityPaginated> {
     return unwrapAsync(alertsListProcessingLogEntries(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a Signal alert
+   *
+   * @remarks
+   * Update a Signal alert
+   */
+  async updateSignalsAlert(
+    request: operations.UpdateSignalsAlertRequest,
+    options?: RequestOptions,
+  ): Promise<components.AlertsSignalAlertEntity> {
+    return unwrapAsync(alertsUpdateSignalsAlert(
       this,
       request,
       options,
