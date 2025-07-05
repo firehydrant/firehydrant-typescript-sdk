@@ -14,11 +14,11 @@ import {
   NullableAuthorEntity$outboundSchema,
 } from "./nullableauthorentity.js";
 import {
-  NullableTaskListItemEntity,
-  NullableTaskListItemEntity$inboundSchema,
-  NullableTaskListItemEntity$Outbound,
-  NullableTaskListItemEntity$outboundSchema,
-} from "./nullabletasklistitementity.js";
+  TaskListItemEntity,
+  TaskListItemEntity$inboundSchema,
+  TaskListItemEntity$Outbound,
+  TaskListItemEntity$outboundSchema,
+} from "./tasklistitementity.js";
 
 /**
  * TaskListEntity model
@@ -30,7 +30,7 @@ export type TaskListEntity = {
   createdAt?: Date | null | undefined;
   updatedAt?: Date | null | undefined;
   createdBy?: NullableAuthorEntity | null | undefined;
-  taskListItems?: NullableTaskListItemEntity | null | undefined;
+  taskListItems?: Array<TaskListItemEntity> | null | undefined;
 };
 
 /** @internal */
@@ -49,7 +49,7 @@ export const TaskListEntity$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
-  task_list_items: z.nullable(NullableTaskListItemEntity$inboundSchema)
+  task_list_items: z.nullable(z.array(TaskListItemEntity$inboundSchema))
     .optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -68,7 +68,7 @@ export type TaskListEntity$Outbound = {
   created_at?: string | null | undefined;
   updated_at?: string | null | undefined;
   created_by?: NullableAuthorEntity$Outbound | null | undefined;
-  task_list_items?: NullableTaskListItemEntity$Outbound | null | undefined;
+  task_list_items?: Array<TaskListItemEntity$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -83,7 +83,7 @@ export const TaskListEntity$outboundSchema: z.ZodType<
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
-  taskListItems: z.nullable(NullableTaskListItemEntity$outboundSchema)
+  taskListItems: z.nullable(z.array(TaskListItemEntity$outboundSchema))
     .optional(),
 }).transform((v) => {
   return remap$(v, {

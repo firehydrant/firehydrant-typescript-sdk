@@ -7,6 +7,12 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  SignalsAPINotificationPolicyItemComplianceEntity,
+  SignalsAPINotificationPolicyItemComplianceEntity$inboundSchema,
+  SignalsAPINotificationPolicyItemComplianceEntity$Outbound,
+  SignalsAPINotificationPolicyItemComplianceEntity$outboundSchema,
+} from "./signalsapinotificationpolicyitemcomplianceentity.js";
 
 /**
  * UserEntity model
@@ -20,6 +26,10 @@ export type NullableUserEntity = {
   createdAt?: Date | null | undefined;
   updatedAt?: Date | null | undefined;
   signalsEnabledNotificationTypes?: Array<string> | null | undefined;
+  signalsNotificationPolicyCompliance?:
+    | Array<SignalsAPINotificationPolicyItemComplianceEntity>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -41,6 +51,9 @@ export const NullableUserEntity$inboundSchema: z.ZodType<
   ).optional(),
   signals_enabled_notification_types: z.nullable(z.array(z.string()))
     .optional(),
+  signals_notification_policy_compliance: z.nullable(
+    z.array(SignalsAPINotificationPolicyItemComplianceEntity$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "slack_user_id": "slackUserId",
@@ -48,6 +61,8 @@ export const NullableUserEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "updated_at": "updatedAt",
     "signals_enabled_notification_types": "signalsEnabledNotificationTypes",
+    "signals_notification_policy_compliance":
+      "signalsNotificationPolicyCompliance",
   });
 });
 
@@ -61,6 +76,10 @@ export type NullableUserEntity$Outbound = {
   created_at?: string | null | undefined;
   updated_at?: string | null | undefined;
   signals_enabled_notification_types?: Array<string> | null | undefined;
+  signals_notification_policy_compliance?:
+    | Array<SignalsAPINotificationPolicyItemComplianceEntity$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -77,6 +96,9 @@ export const NullableUserEntity$outboundSchema: z.ZodType<
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   signalsEnabledNotificationTypes: z.nullable(z.array(z.string())).optional(),
+  signalsNotificationPolicyCompliance: z.nullable(
+    z.array(SignalsAPINotificationPolicyItemComplianceEntity$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     slackUserId: "slack_user_id",
@@ -84,6 +106,8 @@ export const NullableUserEntity$outboundSchema: z.ZodType<
     createdAt: "created_at",
     updatedAt: "updated_at",
     signalsEnabledNotificationTypes: "signals_enabled_notification_types",
+    signalsNotificationPolicyCompliance:
+      "signals_notification_policy_compliance",
   });
 });
 

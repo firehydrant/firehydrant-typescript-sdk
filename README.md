@@ -341,6 +341,7 @@ run();
 * [listAlerts](docs/sdks/alerts/README.md#listalerts) - List alerts
 * [getAlert](docs/sdks/alerts/README.md#getalert) - Get an alert
 * [listProcessingLogEntries](docs/sdks/alerts/README.md#listprocessinglogentries) - List alert processing log entries
+* [updateSignalsAlert](docs/sdks/alerts/README.md#updatesignalsalert) - Update a Signal alert
 
 ### [audiences](docs/sdks/audiences/README.md)
 
@@ -607,6 +608,7 @@ run();
 * [getSignalsTimeseriesAnalytics](docs/sdks/metricsreporting/README.md#getsignalstimeseriesanalytics) - Generate timeseries alert metrics
 * [getSignalsGroupedMetrics](docs/sdks/metricsreporting/README.md#getsignalsgroupedmetrics) - Generate grouped alert metrics
 * [getSignalsMttxAnalytics](docs/sdks/metricsreporting/README.md#getsignalsmttxanalytics) - Get MTTX analytics for signals
+* [getSignalsNoiseAnalytics](docs/sdks/metricsreporting/README.md#getsignalsnoiseanalytics) - Get noise analytics for signals
 
 ### [retrospectives](docs/sdks/retrospectives/README.md)
 
@@ -698,6 +700,7 @@ run();
 * [createSignalsEventSource](docs/sdks/signals/README.md#createsignalseventsource) - Create an event source for Signals
 * [getSignalsEventSource](docs/sdks/signals/README.md#getsignalseventsource) - Get an event source for Signals
 * [deleteSignalsEventSource](docs/sdks/signals/README.md#deletesignalseventsource) - Delete an event source for Signals
+* [getSignalsHackerMode](docs/sdks/signals/README.md#getsignalshackermode) - Get hacker mode status
 * [listSignalsAlertGroupingConfigurations](docs/sdks/signals/README.md#listsignalsalertgroupingconfigurations) - List alert grouping configurations.
 * [createSignalsAlertGroupingConfiguration](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
 * [getSignalsAlertGroupingConfiguration](docs/sdks/signals/README.md#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
@@ -848,6 +851,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`alertsListIncidentAlerts`](docs/sdks/alerts/README.md#listincidentalerts) - List alerts for an incident
 - [`alertsListProcessingLogEntries`](docs/sdks/alerts/README.md#listprocessinglogentries) - List alert processing log entries
 - [`alertsUpdateIncidentAlertPrimary`](docs/sdks/alerts/README.md#updateincidentalertprimary) - Set an alert as primary for an incident
+- [`alertsUpdateSignalsAlert`](docs/sdks/alerts/README.md#updatesignalsalert) - Update a Signal alert
 - [`audiencesArchiveAudience`](docs/sdks/audiences/README.md#archiveaudience) - Archive audience
 - [`audiencesCreateAudience`](docs/sdks/audiences/README.md#createaudience) - Create audience
 - [`audiencesGenerateAudienceSummary`](docs/sdks/audiences/README.md#generateaudiencesummary) - Generate summary
@@ -1072,6 +1076,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`metricsReportingGetSavedSearch`](docs/sdks/metricsreporting/README.md#getsavedsearch) - Get a saved search
 - [`metricsReportingGetSignalsGroupedMetrics`](docs/sdks/metricsreporting/README.md#getsignalsgroupedmetrics) - Generate grouped alert metrics
 - [`metricsReportingGetSignalsMttxAnalytics`](docs/sdks/metricsreporting/README.md#getsignalsmttxanalytics) - Get MTTX analytics for signals
+- [`metricsReportingGetSignalsNoiseAnalytics`](docs/sdks/metricsreporting/README.md#getsignalsnoiseanalytics) - Get noise analytics for signals
 - [`metricsReportingGetSignalsTimeseriesAnalytics`](docs/sdks/metricsreporting/README.md#getsignalstimeseriesanalytics) - Generate timeseries alert metrics
 - [`metricsReportingListIncidentMetrics`](docs/sdks/metricsreporting/README.md#listincidentmetrics) - List incident metrics and analytics
 - [`metricsReportingListInfrastructureMetrics`](docs/sdks/metricsreporting/README.md#listinfrastructuremetrics) - Get metrics for a component
@@ -1157,6 +1162,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsGetSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
 - [`signalsGetSignalsEmailTarget`](docs/sdks/signals/README.md#getsignalsemailtarget) - Get a signal email target
 - [`signalsGetSignalsEventSource`](docs/sdks/signals/README.md#getsignalseventsource) - Get an event source for Signals
+- [`signalsGetSignalsHackerMode`](docs/sdks/signals/README.md#getsignalshackermode) - Get hacker mode status
 - [`signalsGetSignalsIngestUrl`](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 - [`signalsGetSignalsWebhookTarget`](docs/sdks/signals/README.md#getsignalswebhooktarget) - Get a webhook target
 - [`signalsGetTeamEscalationPolicy`](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
@@ -1434,7 +1440,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](docs/models/errors/errorentity.md): ErrorEntity model. Applicable to 12 of 424 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 427 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

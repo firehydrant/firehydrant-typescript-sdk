@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  NullableIntegrationsConnectionEntity,
-  NullableIntegrationsConnectionEntity$inboundSchema,
-  NullableIntegrationsConnectionEntity$Outbound,
-  NullableIntegrationsConnectionEntity$outboundSchema,
-} from "./nullableintegrationsconnectionentity.js";
+  IntegrationsConnectionEntity,
+  IntegrationsConnectionEntity$inboundSchema,
+  IntegrationsConnectionEntity$Outbound,
+  IntegrationsConnectionEntity$outboundSchema,
+} from "./integrationsconnectionentity.js";
 import {
   NullableIntegrationsIntegrationEntityLogoEntity,
   NullableIntegrationsIntegrationEntityLogoEntity$inboundSchema,
@@ -30,7 +30,7 @@ export type NullableIntegrationsIntegrationEntity = {
   description?: string | null | undefined;
   setupUrl?: string | null | undefined;
   createdAt?: Date | null | undefined;
-  connections?: NullableIntegrationsConnectionEntity | null | undefined;
+  connections?: Array<IntegrationsConnectionEntity> | null | undefined;
   enabled?: boolean | null | undefined;
   installed?: boolean | null | undefined;
   deprecated?: boolean | null | undefined;
@@ -52,7 +52,7 @@ export const NullableIntegrationsIntegrationEntity$inboundSchema: z.ZodType<
   created_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
-  connections: z.nullable(NullableIntegrationsConnectionEntity$inboundSchema)
+  connections: z.nullable(z.array(IntegrationsConnectionEntity$inboundSchema))
     .optional(),
   enabled: z.nullable(z.boolean()).optional(),
   installed: z.nullable(z.boolean()).optional(),
@@ -77,10 +77,7 @@ export type NullableIntegrationsIntegrationEntity$Outbound = {
   description?: string | null | undefined;
   setup_url?: string | null | undefined;
   created_at?: string | null | undefined;
-  connections?:
-    | NullableIntegrationsConnectionEntity$Outbound
-    | null
-    | undefined;
+  connections?: Array<IntegrationsConnectionEntity$Outbound> | null | undefined;
   enabled?: boolean | null | undefined;
   installed?: boolean | null | undefined;
   deprecated?: boolean | null | undefined;
@@ -103,7 +100,7 @@ export const NullableIntegrationsIntegrationEntity$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   setupUrl: z.nullable(z.string()).optional(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  connections: z.nullable(NullableIntegrationsConnectionEntity$outboundSchema)
+  connections: z.nullable(z.array(IntegrationsConnectionEntity$outboundSchema))
     .optional(),
   enabled: z.nullable(z.boolean()).optional(),
   installed: z.nullable(z.boolean()).optional(),
