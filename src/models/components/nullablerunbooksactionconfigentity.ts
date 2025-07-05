@@ -8,14 +8,17 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  NullableRunbooksElementEntity,
-  NullableRunbooksElementEntity$inboundSchema,
-  NullableRunbooksElementEntity$Outbound,
-  NullableRunbooksElementEntity$outboundSchema,
-} from "./nullablerunbookselemententity.js";
+  RunbooksElementEntity,
+  RunbooksElementEntity$inboundSchema,
+  RunbooksElementEntity$Outbound,
+  RunbooksElementEntity$outboundSchema,
+} from "./runbookselemententity.js";
 
 export type NullableRunbooksActionConfigEntity = {
-  elements?: NullableRunbooksElementEntity | null | undefined;
+  /**
+   * A list of elements that can be used in this action configuration
+   */
+  elements?: Array<RunbooksElementEntity> | null | undefined;
   /**
    * Location of documentation for this action
    */
@@ -28,7 +31,7 @@ export const NullableRunbooksActionConfigEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  elements: z.nullable(NullableRunbooksElementEntity$inboundSchema).optional(),
+  elements: z.nullable(z.array(RunbooksElementEntity$inboundSchema)).optional(),
   documentation_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -38,7 +41,7 @@ export const NullableRunbooksActionConfigEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type NullableRunbooksActionConfigEntity$Outbound = {
-  elements?: NullableRunbooksElementEntity$Outbound | null | undefined;
+  elements?: Array<RunbooksElementEntity$Outbound> | null | undefined;
   documentation_url?: string | null | undefined;
 };
 
@@ -48,7 +51,8 @@ export const NullableRunbooksActionConfigEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NullableRunbooksActionConfigEntity
 > = z.object({
-  elements: z.nullable(NullableRunbooksElementEntity$outboundSchema).optional(),
+  elements: z.nullable(z.array(RunbooksElementEntity$outboundSchema))
+    .optional(),
   documentationUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

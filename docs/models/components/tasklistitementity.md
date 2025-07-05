@@ -1,11 +1,11 @@
-# NullableTaskListItemEntity
+# TaskListItemEntity
 
 ## Example Usage
 
 ```typescript
-import { NullableTaskListItemEntity } from "firehydrant-typescript-sdk/models/components";
+import { TaskListItemEntity } from "firehydrant-typescript-sdk/models/components";
 
-let value: NullableTaskListItemEntity = {};
+let value: TaskListItemEntity = {};
 ```
 
 ## Fields
