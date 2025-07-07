@@ -20,7 +20,7 @@ import {
   NullableRunbooksActionConfigEntity$outboundSchema,
 } from "./nullablerunbooksactionconfigentity.js";
 
-export type RunbooksActionsEntityPrerequisites = {};
+export type RunbooksActionsEntityPrerequisite = {};
 
 export type RunbooksActionsEntityDefaultLogic = {};
 
@@ -33,7 +33,7 @@ export type RunbooksActionsEntity = {
   description?: string | null | undefined;
   config?: NullableRunbooksActionConfigEntity | null | undefined;
   category?: string | null | undefined;
-  prerequisites?: RunbooksActionsEntityPrerequisites | null | undefined;
+  prerequisites?: Array<RunbooksActionsEntityPrerequisite> | null | undefined;
   integration?: NullableIntegrationsIntegrationEntity | null | undefined;
   supportedRunbookTypes?: Array<string> | null | undefined;
   createdAt?: Date | null | undefined;
@@ -46,54 +46,53 @@ export type RunbooksActionsEntity = {
 };
 
 /** @internal */
-export const RunbooksActionsEntityPrerequisites$inboundSchema: z.ZodType<
-  RunbooksActionsEntityPrerequisites,
+export const RunbooksActionsEntityPrerequisite$inboundSchema: z.ZodType<
+  RunbooksActionsEntityPrerequisite,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type RunbooksActionsEntityPrerequisites$Outbound = {};
+export type RunbooksActionsEntityPrerequisite$Outbound = {};
 
 /** @internal */
-export const RunbooksActionsEntityPrerequisites$outboundSchema: z.ZodType<
-  RunbooksActionsEntityPrerequisites$Outbound,
+export const RunbooksActionsEntityPrerequisite$outboundSchema: z.ZodType<
+  RunbooksActionsEntityPrerequisite$Outbound,
   z.ZodTypeDef,
-  RunbooksActionsEntityPrerequisites
+  RunbooksActionsEntityPrerequisite
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RunbooksActionsEntityPrerequisites$ {
-  /** @deprecated use `RunbooksActionsEntityPrerequisites$inboundSchema` instead. */
-  export const inboundSchema = RunbooksActionsEntityPrerequisites$inboundSchema;
-  /** @deprecated use `RunbooksActionsEntityPrerequisites$outboundSchema` instead. */
+export namespace RunbooksActionsEntityPrerequisite$ {
+  /** @deprecated use `RunbooksActionsEntityPrerequisite$inboundSchema` instead. */
+  export const inboundSchema = RunbooksActionsEntityPrerequisite$inboundSchema;
+  /** @deprecated use `RunbooksActionsEntityPrerequisite$outboundSchema` instead. */
   export const outboundSchema =
-    RunbooksActionsEntityPrerequisites$outboundSchema;
-  /** @deprecated use `RunbooksActionsEntityPrerequisites$Outbound` instead. */
-  export type Outbound = RunbooksActionsEntityPrerequisites$Outbound;
+    RunbooksActionsEntityPrerequisite$outboundSchema;
+  /** @deprecated use `RunbooksActionsEntityPrerequisite$Outbound` instead. */
+  export type Outbound = RunbooksActionsEntityPrerequisite$Outbound;
 }
 
-export function runbooksActionsEntityPrerequisitesToJSON(
-  runbooksActionsEntityPrerequisites: RunbooksActionsEntityPrerequisites,
+export function runbooksActionsEntityPrerequisiteToJSON(
+  runbooksActionsEntityPrerequisite: RunbooksActionsEntityPrerequisite,
 ): string {
   return JSON.stringify(
-    RunbooksActionsEntityPrerequisites$outboundSchema.parse(
-      runbooksActionsEntityPrerequisites,
+    RunbooksActionsEntityPrerequisite$outboundSchema.parse(
+      runbooksActionsEntityPrerequisite,
     ),
   );
 }
 
-export function runbooksActionsEntityPrerequisitesFromJSON(
+export function runbooksActionsEntityPrerequisiteFromJSON(
   jsonString: string,
-): SafeParseResult<RunbooksActionsEntityPrerequisites, SDKValidationError> {
+): SafeParseResult<RunbooksActionsEntityPrerequisite, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      RunbooksActionsEntityPrerequisites$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RunbooksActionsEntityPrerequisites' from JSON`,
+    (x) => RunbooksActionsEntityPrerequisite$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbooksActionsEntityPrerequisite' from JSON`,
   );
 }
 
@@ -215,7 +214,7 @@ export const RunbooksActionsEntity$inboundSchema: z.ZodType<
     .optional(),
   category: z.nullable(z.string()).optional(),
   prerequisites: z.nullable(
-    z.lazy(() => RunbooksActionsEntityPrerequisites$inboundSchema),
+    z.array(z.lazy(() => RunbooksActionsEntityPrerequisite$inboundSchema)),
   ).optional(),
   integration: z.nullable(NullableIntegrationsIntegrationEntity$inboundSchema)
     .optional(),
@@ -254,7 +253,7 @@ export type RunbooksActionsEntity$Outbound = {
   config?: NullableRunbooksActionConfigEntity$Outbound | null | undefined;
   category?: string | null | undefined;
   prerequisites?:
-    | RunbooksActionsEntityPrerequisites$Outbound
+    | Array<RunbooksActionsEntityPrerequisite$Outbound>
     | null
     | undefined;
   integration?:
@@ -288,7 +287,7 @@ export const RunbooksActionsEntity$outboundSchema: z.ZodType<
     .optional(),
   category: z.nullable(z.string()).optional(),
   prerequisites: z.nullable(
-    z.lazy(() => RunbooksActionsEntityPrerequisites$outboundSchema),
+    z.array(z.lazy(() => RunbooksActionsEntityPrerequisite$outboundSchema)),
   ).optional(),
   integration: z.nullable(NullableIntegrationsIntegrationEntity$outboundSchema)
     .optional(),

@@ -52,6 +52,10 @@ export type CreateIncidentTypeTemplate = {
  */
 export type CreateIncidentType = {
   name: string;
+  /**
+   * A description of the incident type
+   */
+  description?: string | null | undefined;
   template: CreateIncidentTypeTemplate;
 };
 
@@ -228,12 +232,14 @@ export const CreateIncidentType$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   name: z.string(),
+  description: z.nullable(z.string()).optional(),
   template: z.lazy(() => CreateIncidentTypeTemplate$inboundSchema),
 });
 
 /** @internal */
 export type CreateIncidentType$Outbound = {
   name: string;
+  description?: string | null | undefined;
   template: CreateIncidentTypeTemplate$Outbound;
 };
 
@@ -244,6 +250,7 @@ export const CreateIncidentType$outboundSchema: z.ZodType<
   CreateIncidentType
 > = z.object({
   name: z.string(),
+  description: z.nullable(z.string()).optional(),
   template: z.lazy(() => CreateIncidentTypeTemplate$outboundSchema),
 });
 

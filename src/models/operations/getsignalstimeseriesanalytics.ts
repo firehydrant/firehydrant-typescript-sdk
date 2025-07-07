@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * String that determines how records are grouped
  */
-export const Bucket = {
+export const GetSignalsTimeseriesAnalyticsBucket = {
   Month: "month",
   Week: "week",
   Day: "day",
@@ -20,7 +20,9 @@ export const Bucket = {
 /**
  * String that determines how records are grouped
  */
-export type Bucket = ClosedEnum<typeof Bucket>;
+export type GetSignalsTimeseriesAnalyticsBucket = ClosedEnum<
+  typeof GetSignalsTimeseriesAnalyticsBucket
+>;
 
 /**
  * String that determines how records are grouped
@@ -74,7 +76,7 @@ export type GetSignalsTimeseriesAnalyticsRequest = {
   /**
    * String that determines how records are grouped
    */
-  bucket?: Bucket | null | undefined;
+  bucket?: GetSignalsTimeseriesAnalyticsBucket | null | undefined;
   /**
    * A comma separated list of signal rule IDs
    */
@@ -122,22 +124,26 @@ export type GetSignalsTimeseriesAnalyticsRequest = {
 };
 
 /** @internal */
-export const Bucket$inboundSchema: z.ZodNativeEnum<typeof Bucket> = z
-  .nativeEnum(Bucket);
+export const GetSignalsTimeseriesAnalyticsBucket$inboundSchema: z.ZodNativeEnum<
+  typeof GetSignalsTimeseriesAnalyticsBucket
+> = z.nativeEnum(GetSignalsTimeseriesAnalyticsBucket);
 
 /** @internal */
-export const Bucket$outboundSchema: z.ZodNativeEnum<typeof Bucket> =
-  Bucket$inboundSchema;
+export const GetSignalsTimeseriesAnalyticsBucket$outboundSchema:
+  z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsBucket> =
+    GetSignalsTimeseriesAnalyticsBucket$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Bucket$ {
-  /** @deprecated use `Bucket$inboundSchema` instead. */
-  export const inboundSchema = Bucket$inboundSchema;
-  /** @deprecated use `Bucket$outboundSchema` instead. */
-  export const outboundSchema = Bucket$outboundSchema;
+export namespace GetSignalsTimeseriesAnalyticsBucket$ {
+  /** @deprecated use `GetSignalsTimeseriesAnalyticsBucket$inboundSchema` instead. */
+  export const inboundSchema =
+    GetSignalsTimeseriesAnalyticsBucket$inboundSchema;
+  /** @deprecated use `GetSignalsTimeseriesAnalyticsBucket$outboundSchema` instead. */
+  export const outboundSchema =
+    GetSignalsTimeseriesAnalyticsBucket$outboundSchema;
 }
 
 /** @internal */
@@ -216,7 +222,8 @@ export const GetSignalsTimeseriesAnalyticsRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  bucket: z.nullable(Bucket$inboundSchema).optional(),
+  bucket: z.nullable(GetSignalsTimeseriesAnalyticsBucket$inboundSchema)
+    .optional(),
   signal_rules: z.nullable(z.string()).optional(),
   teams: z.nullable(z.string()).optional(),
   environments: z.nullable(z.string()).optional(),
@@ -269,7 +276,8 @@ export const GetSignalsTimeseriesAnalyticsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetSignalsTimeseriesAnalyticsRequest
 > = z.object({
-  bucket: z.nullable(Bucket$outboundSchema).optional(),
+  bucket: z.nullable(GetSignalsTimeseriesAnalyticsBucket$outboundSchema)
+    .optional(),
   signalRules: z.nullable(z.string()).optional(),
   teams: z.nullable(z.string()).optional(),
   environments: z.nullable(z.string()).optional(),

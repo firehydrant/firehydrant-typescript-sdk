@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: 32d87b7cda3f8c3fc8eddd7ce59bcb55
+  docChecksum: a9892ed153266c5a7f383514fa86cec1
   docVersion: 0.0.1
-  speakeasyVersion: 1.565.0
-  generationVersion: 2.630.9
-  releaseVersion: 1.0.1
-  configChecksum: e1eb5feac873722c04eafe5d428b16e8
+  speakeasyVersion: 1.575.5
+  generationVersion: 2.648.7
+  releaseVersion: 1.0.2
+  configChecksum: 1311a802b7cc58d2bdd0e7bb2489d3b7
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.11
+    core: 3.21.13
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -23,7 +23,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
@@ -47,6 +47,7 @@ generatedFiles:
   - docs/models/components/alertsalertentitypaginated.md
   - docs/models/components/alertsprocessinglogentryentity.md
   - docs/models/components/alertsprocessinglogentryentitypaginated.md
+  - docs/models/components/alertssignalalertentity.md
   - docs/models/components/alertssirenalertentity.md
   - docs/models/components/alertssirenalertentitylabels.md
   - docs/models/components/alertssirenevententity.md
@@ -375,8 +376,6 @@ generatedFiles:
   - docs/models/components/nullableintegrationentity.md
   - docs/models/components/nullableintegrationsawsconnectionentity.md
   - docs/models/components/nullableintegrationsawsconnectionentityconnectionstatus.md
-  - docs/models/components/nullableintegrationsconnectionentity.md
-  - docs/models/components/nullableintegrationsconnectionentitydetails.md
   - docs/models/components/nullableintegrationsintegrationentity.md
   - docs/models/components/nullableintegrationsintegrationentitylogoentity.md
   - docs/models/components/nullableintegrationsmicrosoftteamsv2channelentity.md
@@ -398,10 +397,9 @@ generatedFiles:
   - docs/models/components/nullablerunbooksactionsentity.md
   - docs/models/components/nullablerunbooksactionsentitydefaultlogic.md
   - docs/models/components/nullablerunbooksactionsentitydefaultruledata.md
-  - docs/models/components/nullablerunbooksactionsentityprerequisites.md
+  - docs/models/components/nullablerunbooksactionsentityprerequisite.md
   - docs/models/components/nullablerunbookselementdynamicselectentity.md
   - docs/models/components/nullablerunbookselementdynamicselectentityselectoptionentity.md
-  - docs/models/components/nullablerunbookselemententity.md
   - docs/models/components/nullablerunbookselementinputentity.md
   - docs/models/components/nullablerunbookselementmarkdownentity.md
   - docs/models/components/nullablerunbookselementtextareaentity.md
@@ -412,9 +410,6 @@ generatedFiles:
   - docs/models/components/nullablerunbooksexecutionstepexecutionentity.md
   - docs/models/components/nullablerunbooksexecutionstepexecutionentitydata.md
   - docs/models/components/nullablerunbooksexecutionstepexecutionentitystate.md
-  - docs/models/components/nullablerunbookstepentity.md
-  - docs/models/components/nullablerunbookstepentityconfig.md
-  - docs/models/components/nullablerunbookstepentitystepelement.md
   - docs/models/components/nullablerunbookswebhookdeliveryentity.md
   - docs/models/components/nullablescheduleentity.md
   - docs/models/components/nullableserviceentity.md
@@ -424,6 +419,7 @@ generatedFiles:
   - docs/models/components/nullableseveritymatriximpactentity.md
   - docs/models/components/nullablesignalsapianalyticsgroupedmetricsentitymetricentity.md
   - docs/models/components/nullablesignalsapianalyticsmttxmetricsentitymetricentity.md
+  - docs/models/components/nullablesignalsapianalyticsnoisemetricsentitymetricentity.md
   - docs/models/components/nullablesignalsapianalyticstimeseriespointentitymetricentity.md
   - docs/models/components/nullablesignalsapicallroutestepentity.md
   - docs/models/components/nullablesignalsapiescalationpolicyhandoffstepentity.md
@@ -441,7 +437,6 @@ generatedFiles:
   - docs/models/components/nullablesignalsapitransposerentityexamplepayload.md
   - docs/models/components/nullableslimrunbookentity.md
   - docs/models/components/nullablesuccinctentity.md
-  - docs/models/components/nullabletasklistitementity.md
   - docs/models/components/nullableteamentitylite.md
   - docs/models/components/nullableticketingpriorityentity.md
   - docs/models/components/nullableticketingprojectconfigentity.md
@@ -497,10 +492,14 @@ generatedFiles:
   - docs/models/components/runbooksactionsentitydefaultlogic.md
   - docs/models/components/runbooksactionsentitydefaultruledata.md
   - docs/models/components/runbooksactionsentitypaginated.md
-  - docs/models/components/runbooksactionsentityprerequisites.md
+  - docs/models/components/runbooksactionsentityprerequisite.md
   - docs/models/components/runbookselementdynamicselectentityselectoptionentity.md
+  - docs/models/components/runbookselemententity.md
   - docs/models/components/runbooksexecutionentity.md
   - docs/models/components/runbooksexecutionentitypaginated.md
+  - docs/models/components/runbookstepentity.md
+  - docs/models/components/runbookstepentityconfig.md
+  - docs/models/components/runbookstepentitystepelement.md
   - docs/models/components/savedsearchentity.md
   - docs/models/components/scheduledmaintenanceentity.md
   - docs/models/components/scheduledmaintenanceentitylabels.md
@@ -532,6 +531,7 @@ generatedFiles:
   - docs/models/components/signal.md
   - docs/models/components/signalsapianalyticsgroupedmetricsentity.md
   - docs/models/components/signalsapianalyticsmttxmetricsentity.md
+  - docs/models/components/signalsapianalyticsnoisemetricsentity.md
   - docs/models/components/signalsapianalyticstimeseriespointentity.md
   - docs/models/components/signalsapicallrouteentity.md
   - docs/models/components/signalsapicallrouteentityconnectmode.md
@@ -545,7 +545,9 @@ generatedFiles:
   - docs/models/components/signalsapiescalationpolicystepentitydistributiontype.md
   - docs/models/components/signalsapigroupingentity.md
   - docs/models/components/signalsapigroupingentitypaginated.md
+  - docs/models/components/signalsapihackermodeentity.md
   - docs/models/components/signalsapiingestkeyentity.md
+  - docs/models/components/signalsapinotificationpolicyitemcomplianceentity.md
   - docs/models/components/signalsapinotificationprioritypolicyentity.md
   - docs/models/components/signalsapioncallrestrictionentity.md
   - docs/models/components/signalsapioncallrotationentity.md
@@ -576,6 +578,7 @@ generatedFiles:
   - docs/models/components/taskentity.md
   - docs/models/components/taskentitypaginated.md
   - docs/models/components/tasklistentity.md
+  - docs/models/components/tasklistitementity.md
   - docs/models/components/teamentity.md
   - docs/models/components/teamentitylite.md
   - docs/models/components/teamentitypaginated.md
@@ -684,6 +687,7 @@ generatedFiles:
   - docs/models/components/updateseveritymatrixcondition.md
   - docs/models/components/updateseveritymatrixdata.md
   - docs/models/components/updateseveritymatriximpact.md
+  - docs/models/components/updatesignalsalert.md
   - docs/models/components/updatesignalsalertgroupingconfiguration.md
   - docs/models/components/updatesignalsalertgroupingconfigurationaction.md
   - docs/models/components/updatesignalsalertgroupingconfigurationfieldname.md
@@ -751,7 +755,6 @@ generatedFiles:
   - docs/models/operations/appendformdataonselectedvaluegetrequest.md
   - docs/models/operations/archiveaudiencerequest.md
   - docs/models/operations/auditabletype.md
-  - docs/models/operations/bucket.md
   - docs/models/operations/bucketsize.md
   - docs/models/operations/bulkupdateincidentmilestonesrequest.md
   - docs/models/operations/by.md
@@ -946,6 +949,12 @@ generatedFiles:
   - docs/models/operations/getsignalsmttxanalyticsrequest.md
   - docs/models/operations/getsignalsmttxanalyticssortby.md
   - docs/models/operations/getsignalsmttxanalyticssortdirection.md
+  - docs/models/operations/getsignalsnoiseanalyticsbucket.md
+  - docs/models/operations/getsignalsnoiseanalyticsgroupby.md
+  - docs/models/operations/getsignalsnoiseanalyticsrequest.md
+  - docs/models/operations/getsignalsnoiseanalyticssortby.md
+  - docs/models/operations/getsignalsnoiseanalyticssortdirection.md
+  - docs/models/operations/getsignalstimeseriesanalyticsbucket.md
   - docs/models/operations/getsignalstimeseriesanalyticsgroupby.md
   - docs/models/operations/getsignalstimeseriesanalyticsrequest.md
   - docs/models/operations/getsignalstimeseriesanalyticssortby.md
@@ -1174,6 +1183,7 @@ generatedFiles:
   - docs/models/operations/updateseveritymatriximpactrequest.md
   - docs/models/operations/updateseverityrequest.md
   - docs/models/operations/updatesignalsalertgroupingconfigurationrequest.md
+  - docs/models/operations/updatesignalsalertrequest.md
   - docs/models/operations/updatesignalsemailtargetrequest.md
   - docs/models/operations/updatesignalswebhooktargetrequest.md
   - docs/models/operations/updateslackemojiactionrequest.md
@@ -1238,6 +1248,7 @@ generatedFiles:
   - src/funcs/alertsListIncidentAlerts.ts
   - src/funcs/alertsListProcessingLogEntries.ts
   - src/funcs/alertsUpdateIncidentAlertPrimary.ts
+  - src/funcs/alertsUpdateSignalsAlert.ts
   - src/funcs/audiencesArchiveAudience.ts
   - src/funcs/audiencesCreateAudience.ts
   - src/funcs/audiencesGenerateAudienceSummary.ts
@@ -1462,6 +1473,7 @@ generatedFiles:
   - src/funcs/metricsReportingGetSavedSearch.ts
   - src/funcs/metricsReportingGetSignalsGroupedMetrics.ts
   - src/funcs/metricsReportingGetSignalsMttxAnalytics.ts
+  - src/funcs/metricsReportingGetSignalsNoiseAnalytics.ts
   - src/funcs/metricsReportingGetSignalsTimeseriesAnalytics.ts
   - src/funcs/metricsReportingListIncidentMetrics.ts
   - src/funcs/metricsReportingListInfrastructureMetrics.ts
@@ -1547,6 +1559,7 @@ generatedFiles:
   - src/funcs/signalsGetSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsGetSignalsEmailTarget.ts
   - src/funcs/signalsGetSignalsEventSource.ts
+  - src/funcs/signalsGetSignalsHackerMode.ts
   - src/funcs/signalsGetSignalsIngestUrl.ts
   - src/funcs/signalsGetSignalsWebhookTarget.ts
   - src/funcs/signalsGetTeamEscalationPolicy.ts
@@ -1695,6 +1708,7 @@ generatedFiles:
   - src/mcp-server/tools/alertsListIncidentAlerts.ts
   - src/mcp-server/tools/alertsListProcessingLogEntries.ts
   - src/mcp-server/tools/alertsUpdateIncidentAlertPrimary.ts
+  - src/mcp-server/tools/alertsUpdateSignalsAlert.ts
   - src/mcp-server/tools/audiencesArchiveAudience.ts
   - src/mcp-server/tools/audiencesCreateAudience.ts
   - src/mcp-server/tools/audiencesGenerateAudienceSummary.ts
@@ -1919,6 +1933,7 @@ generatedFiles:
   - src/mcp-server/tools/metricsReportingGetSavedSearch.ts
   - src/mcp-server/tools/metricsReportingGetSignalsGroupedMetrics.ts
   - src/mcp-server/tools/metricsReportingGetSignalsMttxAnalytics.ts
+  - src/mcp-server/tools/metricsReportingGetSignalsNoiseAnalytics.ts
   - src/mcp-server/tools/metricsReportingGetSignalsTimeseriesAnalytics.ts
   - src/mcp-server/tools/metricsReportingListIncidentMetrics.ts
   - src/mcp-server/tools/metricsReportingListInfrastructureMetrics.ts
@@ -2004,6 +2019,7 @@ generatedFiles:
   - src/mcp-server/tools/signalsGetSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsGetSignalsEmailTarget.ts
   - src/mcp-server/tools/signalsGetSignalsEventSource.ts
+  - src/mcp-server/tools/signalsGetSignalsHackerMode.ts
   - src/mcp-server/tools/signalsGetSignalsIngestUrl.ts
   - src/mcp-server/tools/signalsGetSignalsWebhookTarget.ts
   - src/mcp-server/tools/signalsGetTeamEscalationPolicy.ts
@@ -2112,6 +2128,7 @@ generatedFiles:
   - src/models/components/alertsalertentitypaginated.ts
   - src/models/components/alertsprocessinglogentryentity.ts
   - src/models/components/alertsprocessinglogentryentitypaginated.ts
+  - src/models/components/alertssignalalertentity.ts
   - src/models/components/alertssirenalertentity.ts
   - src/models/components/alertssirenevententity.ts
   - src/models/components/attachmentslinkentity.ts
@@ -2301,7 +2318,6 @@ generatedFiles:
   - src/models/components/nullableincidenttypeentitytemplatevaluesentity.ts
   - src/models/components/nullableintegrationentity.ts
   - src/models/components/nullableintegrationsawsconnectionentity.ts
-  - src/models/components/nullableintegrationsconnectionentity.ts
   - src/models/components/nullableintegrationsintegrationentity.ts
   - src/models/components/nullableintegrationsintegrationentitylogoentity.ts
   - src/models/components/nullableintegrationsmicrosoftteamsv2channelentity.ts
@@ -2322,14 +2338,12 @@ generatedFiles:
   - src/models/components/nullablerunbooksactionsentity.ts
   - src/models/components/nullablerunbookselementdynamicselectentity.ts
   - src/models/components/nullablerunbookselementdynamicselectentityselectoptionentity.ts
-  - src/models/components/nullablerunbookselemententity.ts
   - src/models/components/nullablerunbookselementinputentity.ts
   - src/models/components/nullablerunbookselementmarkdownentity.ts
   - src/models/components/nullablerunbookselementtextareaentity.ts
   - src/models/components/nullablerunbooksexecutionentityexecutedforentity.ts
   - src/models/components/nullablerunbooksexecutionstepentity.ts
   - src/models/components/nullablerunbooksexecutionstepexecutionentity.ts
-  - src/models/components/nullablerunbookstepentity.ts
   - src/models/components/nullablerunbookswebhookdeliveryentity.ts
   - src/models/components/nullablescheduleentity.ts
   - src/models/components/nullableserviceentity.ts
@@ -2337,6 +2351,7 @@ generatedFiles:
   - src/models/components/nullableseveritymatriximpactentity.ts
   - src/models/components/nullablesignalsapianalyticsgroupedmetricsentitymetricentity.ts
   - src/models/components/nullablesignalsapianalyticsmttxmetricsentitymetricentity.ts
+  - src/models/components/nullablesignalsapianalyticsnoisemetricsentitymetricentity.ts
   - src/models/components/nullablesignalsapianalyticstimeseriespointentitymetricentity.ts
   - src/models/components/nullablesignalsapicallroutestepentity.ts
   - src/models/components/nullablesignalsapiescalationpolicyhandoffstepentity.ts
@@ -2351,7 +2366,6 @@ generatedFiles:
   - src/models/components/nullablesignalsapitransposerentity.ts
   - src/models/components/nullableslimrunbookentity.ts
   - src/models/components/nullablesuccinctentity.ts
-  - src/models/components/nullabletasklistitementity.ts
   - src/models/components/nullableteamentitylite.ts
   - src/models/components/nullableticketingpriorityentity.ts
   - src/models/components/nullableticketingprojectconfigentity.ts
@@ -2396,8 +2410,10 @@ generatedFiles:
   - src/models/components/runbooksactionsentity.ts
   - src/models/components/runbooksactionsentitypaginated.ts
   - src/models/components/runbookselementdynamicselectentityselectoptionentity.ts
+  - src/models/components/runbookselemententity.ts
   - src/models/components/runbooksexecutionentity.ts
   - src/models/components/runbooksexecutionentitypaginated.ts
+  - src/models/components/runbookstepentity.ts
   - src/models/components/savedsearchentity.ts
   - src/models/components/scheduledmaintenanceentity.ts
   - src/models/components/scheduledmaintenancesimpactentity.ts
@@ -2422,6 +2438,7 @@ generatedFiles:
   - src/models/components/severitymatrixseveritymatrixentity.ts
   - src/models/components/signalsapianalyticsgroupedmetricsentity.ts
   - src/models/components/signalsapianalyticsmttxmetricsentity.ts
+  - src/models/components/signalsapianalyticsnoisemetricsentity.ts
   - src/models/components/signalsapianalyticstimeseriespointentity.ts
   - src/models/components/signalsapicallrouteentity.ts
   - src/models/components/signalsapicallrouteentitypaginated.ts
@@ -2432,7 +2449,9 @@ generatedFiles:
   - src/models/components/signalsapiescalationpolicystepentity.ts
   - src/models/components/signalsapigroupingentity.ts
   - src/models/components/signalsapigroupingentitypaginated.ts
+  - src/models/components/signalsapihackermodeentity.ts
   - src/models/components/signalsapiingestkeyentity.ts
+  - src/models/components/signalsapinotificationpolicyitemcomplianceentity.ts
   - src/models/components/signalsapinotificationprioritypolicyentity.ts
   - src/models/components/signalsapioncallrestrictionentity.ts
   - src/models/components/signalsapioncallrotationentity.ts
@@ -2458,6 +2477,7 @@ generatedFiles:
   - src/models/components/taskentity.ts
   - src/models/components/taskentitypaginated.ts
   - src/models/components/tasklistentity.ts
+  - src/models/components/tasklistitementity.ts
   - src/models/components/teamentity.ts
   - src/models/components/teamentitylite.ts
   - src/models/components/teamentitypaginated.ts
@@ -2514,6 +2534,7 @@ generatedFiles:
   - src/models/components/updateseveritymatrix.ts
   - src/models/components/updateseveritymatrixcondition.ts
   - src/models/components/updateseveritymatriximpact.ts
+  - src/models/components/updatesignalsalert.ts
   - src/models/components/updatesignalsalertgroupingconfiguration.ts
   - src/models/components/updatesignalsemailtarget.ts
   - src/models/components/updatesignalswebhooktarget.ts
@@ -2707,6 +2728,7 @@ generatedFiles:
   - src/models/operations/getsignalsgroupedmetrics.ts
   - src/models/operations/getsignalsingesturl.ts
   - src/models/operations/getsignalsmttxanalytics.ts
+  - src/models/operations/getsignalsnoiseanalytics.ts
   - src/models/operations/getsignalstimeseriesanalytics.ts
   - src/models/operations/getsignalswebhooktarget.ts
   - src/models/operations/getslackemojiaction.ts
@@ -2893,6 +2915,7 @@ generatedFiles:
   - src/models/operations/updateseverity.ts
   - src/models/operations/updateseveritymatrixcondition.ts
   - src/models/operations/updateseveritymatriximpact.ts
+  - src/models/operations/updatesignalsalert.ts
   - src/models/operations/updatesignalsalertgroupingconfiguration.ts
   - src/models/operations/updatesignalsemailtarget.ts
   - src/models/operations/updatesignalswebhooktarget.ts
@@ -6195,6 +6218,26 @@ examples:
       parameters:
         path:
           incident_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  get_signals_hacker_mode:
+    speakeasy-default-get-signals-hacker-mode:
+      responses:
+        "200":
+          application/json: {}
+  update_signals_alert:
+    speakeasy-default-update-signals-alert:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"noise": true}
+      responses:
+        "200":
+          application/json: {}
+  get_signals_noise_analytics:
+    speakeasy-default-get-signals-noise-analytics:
       responses:
         "200":
           application/json: {}

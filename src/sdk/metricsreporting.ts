@@ -8,6 +8,7 @@ import { metricsReportingGetMeanTimeReport } from "../funcs/metricsReportingGetM
 import { metricsReportingGetSavedSearch } from "../funcs/metricsReportingGetSavedSearch.js";
 import { metricsReportingGetSignalsGroupedMetrics } from "../funcs/metricsReportingGetSignalsGroupedMetrics.js";
 import { metricsReportingGetSignalsMttxAnalytics } from "../funcs/metricsReportingGetSignalsMttxAnalytics.js";
+import { metricsReportingGetSignalsNoiseAnalytics } from "../funcs/metricsReportingGetSignalsNoiseAnalytics.js";
 import { metricsReportingGetSignalsTimeseriesAnalytics } from "../funcs/metricsReportingGetSignalsTimeseriesAnalytics.js";
 import { metricsReportingListIncidentMetrics } from "../funcs/metricsReportingListIncidentMetrics.js";
 import { metricsReportingListInfrastructureMetrics } from "../funcs/metricsReportingListInfrastructureMetrics.js";
@@ -254,6 +255,23 @@ export class MetricsReporting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.SignalsAPIAnalyticsMttxMetricsEntity> {
     return unwrapAsync(metricsReportingGetSignalsMttxAnalytics(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get noise analytics for signals
+   *
+   * @remarks
+   * Get noise metrics for Signals alerts
+   */
+  async getSignalsNoiseAnalytics(
+    request: operations.GetSignalsNoiseAnalyticsRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIAnalyticsNoiseMetricsEntity> {
+    return unwrapAsync(metricsReportingGetSignalsNoiseAnalytics(
       this,
       request,
       options,
