@@ -88,6 +88,7 @@ export type NullableAlertsAlertEntity = {
   incidents?: Array<PublicApiv1IncidentsSuccinctEntity> | null | undefined;
   events?: Array<AlertsSirenEventEntity> | null | undefined;
   isExpired?: boolean | null | undefined;
+  isNoise?: boolean | null | undefined;
   parentAlerts?: Array<AlertsSirenAlertEntity> | null | undefined;
   childAlerts?: Array<AlertsSirenAlertEntity> | null | undefined;
   conversations?: Array<ConversationsAPIEntitiesReference> | null | undefined;
@@ -185,6 +186,7 @@ export const NullableAlertsAlertEntity$inboundSchema: z.ZodType<
   ).optional(),
   events: z.nullable(z.array(AlertsSirenEventEntity$inboundSchema)).optional(),
   is_expired: z.nullable(z.boolean()).optional(),
+  is_noise: z.nullable(z.boolean()).optional(),
   parent_alerts: z.nullable(z.array(AlertsSirenAlertEntity$inboundSchema))
     .optional(),
   child_alerts: z.nullable(z.array(AlertsSirenAlertEntity$inboundSchema))
@@ -208,6 +210,7 @@ export const NullableAlertsAlertEntity$inboundSchema: z.ZodType<
     "team_name": "teamName",
     "team_id": "teamId",
     "is_expired": "isExpired",
+    "is_noise": "isNoise",
     "parent_alerts": "parentAlerts",
     "child_alerts": "childAlerts",
   });
@@ -244,6 +247,7 @@ export type NullableAlertsAlertEntity$Outbound = {
     | undefined;
   events?: Array<AlertsSirenEventEntity$Outbound> | null | undefined;
   is_expired?: boolean | null | undefined;
+  is_noise?: boolean | null | undefined;
   parent_alerts?: Array<AlertsSirenAlertEntity$Outbound> | null | undefined;
   child_alerts?: Array<AlertsSirenAlertEntity$Outbound> | null | undefined;
   conversations?:
@@ -290,6 +294,7 @@ export const NullableAlertsAlertEntity$outboundSchema: z.ZodType<
   ).optional(),
   events: z.nullable(z.array(AlertsSirenEventEntity$outboundSchema)).optional(),
   isExpired: z.nullable(z.boolean()).optional(),
+  isNoise: z.nullable(z.boolean()).optional(),
   parentAlerts: z.nullable(z.array(AlertsSirenAlertEntity$outboundSchema))
     .optional(),
   childAlerts: z.nullable(z.array(AlertsSirenAlertEntity$outboundSchema))
@@ -313,6 +318,7 @@ export const NullableAlertsAlertEntity$outboundSchema: z.ZodType<
     teamName: "team_name",
     teamId: "team_id",
     isExpired: "is_expired",
+    isNoise: "is_noise",
     parentAlerts: "parent_alerts",
     childAlerts: "child_alerts",
   });

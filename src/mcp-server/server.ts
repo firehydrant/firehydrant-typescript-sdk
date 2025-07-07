@@ -26,6 +26,7 @@ import { tool$alertsListAlerts } from "./tools/alertsListAlerts.js";
 import { tool$alertsListIncidentAlerts } from "./tools/alertsListIncidentAlerts.js";
 import { tool$alertsListProcessingLogEntries } from "./tools/alertsListProcessingLogEntries.js";
 import { tool$alertsUpdateIncidentAlertPrimary } from "./tools/alertsUpdateIncidentAlertPrimary.js";
+import { tool$alertsUpdateSignalsAlert } from "./tools/alertsUpdateSignalsAlert.js";
 import { tool$audiencesArchiveAudience } from "./tools/audiencesArchiveAudience.js";
 import { tool$audiencesCreateAudience } from "./tools/audiencesCreateAudience.js";
 import { tool$audiencesGenerateAudienceSummary } from "./tools/audiencesGenerateAudienceSummary.js";
@@ -250,6 +251,7 @@ import { tool$metricsReportingGetMeanTimeReport } from "./tools/metricsReporting
 import { tool$metricsReportingGetSavedSearch } from "./tools/metricsReportingGetSavedSearch.js";
 import { tool$metricsReportingGetSignalsGroupedMetrics } from "./tools/metricsReportingGetSignalsGroupedMetrics.js";
 import { tool$metricsReportingGetSignalsMttxAnalytics } from "./tools/metricsReportingGetSignalsMttxAnalytics.js";
+import { tool$metricsReportingGetSignalsNoiseAnalytics } from "./tools/metricsReportingGetSignalsNoiseAnalytics.js";
 import { tool$metricsReportingGetSignalsTimeseriesAnalytics } from "./tools/metricsReportingGetSignalsTimeseriesAnalytics.js";
 import { tool$metricsReportingListIncidentMetrics } from "./tools/metricsReportingListIncidentMetrics.js";
 import { tool$metricsReportingListInfrastructureMetrics } from "./tools/metricsReportingListInfrastructureMetrics.js";
@@ -335,6 +337,7 @@ import { tool$signalsGetOnCallShift } from "./tools/signalsGetOnCallShift.js";
 import { tool$signalsGetSignalsAlertGroupingConfiguration } from "./tools/signalsGetSignalsAlertGroupingConfiguration.js";
 import { tool$signalsGetSignalsEmailTarget } from "./tools/signalsGetSignalsEmailTarget.js";
 import { tool$signalsGetSignalsEventSource } from "./tools/signalsGetSignalsEventSource.js";
+import { tool$signalsGetSignalsHackerMode } from "./tools/signalsGetSignalsHackerMode.js";
 import { tool$signalsGetSignalsIngestUrl } from "./tools/signalsGetSignalsIngestUrl.js";
 import { tool$signalsGetSignalsWebhookTarget } from "./tools/signalsGetSignalsWebhookTarget.js";
 import { tool$signalsGetTeamEscalationPolicy } from "./tools/signalsGetTeamEscalationPolicy.js";
@@ -448,7 +451,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.1",
+    version: "1.0.2",
   });
 
   const client = new FirehydrantCore({
@@ -549,6 +552,7 @@ export function createMCPServer(deps: {
   tool(tool$signalsCreateSignalsEventSource);
   tool(tool$signalsGetSignalsEventSource);
   tool(tool$signalsDeleteSignalsEventSource);
+  tool(tool$signalsGetSignalsHackerMode);
   tool(tool$signalsListSignalsAlertGroupingConfigurations);
   tool(tool$signalsCreateSignalsAlertGroupingConfiguration);
   tool(tool$signalsGetSignalsAlertGroupingConfiguration);
@@ -645,6 +649,7 @@ export function createMCPServer(deps: {
   tool(tool$alertsListAlerts);
   tool(tool$alertsGetAlert);
   tool(tool$alertsListProcessingLogEntries);
+  tool(tool$alertsUpdateSignalsAlert);
   tool(tool$statusPagesDeleteIncidentStatusPage);
   tool(tool$statusPagesListNuncConnections);
   tool(tool$statusPagesCreateNuncConnection);
@@ -822,6 +827,7 @@ export function createMCPServer(deps: {
   tool(tool$metricsReportingGetSignalsTimeseriesAnalytics);
   tool(tool$metricsReportingGetSignalsGroupedMetrics);
   tool(tool$metricsReportingGetSignalsMttxAnalytics);
+  tool(tool$metricsReportingGetSignalsNoiseAnalytics);
   tool(tool$runbooksListRunbookActions);
   tool(tool$runbooksListRunbookExecutions);
   tool(tool$runbooksCreateRunbookExecution);

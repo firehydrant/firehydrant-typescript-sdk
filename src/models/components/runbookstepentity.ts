@@ -29,20 +29,20 @@ import {
 /**
  * An unstructured object of key/value pairs describing the config settings for the step.
  */
-export type NullableRunbookStepEntityConfig = {};
+export type RunbookStepEntityConfig = {};
 
 export type ActionElement = {};
 
-export type NullableRunbookStepEntityStepElement = {};
+export type RunbookStepEntityStepElement = {};
 
-export type NullableRunbookStepEntity = {
+export type RunbookStepEntity = {
   name?: string | null | undefined;
   actionId?: string | null | undefined;
   stepId?: string | null | undefined;
   /**
    * An unstructured object of key/value pairs describing the config settings for the step.
    */
-  config?: NullableRunbookStepEntityConfig | null | undefined;
+  config?: RunbookStepEntityConfig | null | undefined;
   /**
    * A list of action elements
    */
@@ -50,7 +50,7 @@ export type NullableRunbookStepEntity = {
   /**
    * A list of step elements
    */
-  stepElements?: Array<NullableRunbookStepEntityStepElement> | null | undefined;
+  stepElements?: Array<RunbookStepEntityStepElement> | null | undefined;
   automatic?: boolean | null | undefined;
   delayDuration?: Date | null | undefined;
   action?: NullableRunbooksActionsEntity | null | undefined;
@@ -62,52 +62,50 @@ export type NullableRunbookStepEntity = {
 };
 
 /** @internal */
-export const NullableRunbookStepEntityConfig$inboundSchema: z.ZodType<
-  NullableRunbookStepEntityConfig,
+export const RunbookStepEntityConfig$inboundSchema: z.ZodType<
+  RunbookStepEntityConfig,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type NullableRunbookStepEntityConfig$Outbound = {};
+export type RunbookStepEntityConfig$Outbound = {};
 
 /** @internal */
-export const NullableRunbookStepEntityConfig$outboundSchema: z.ZodType<
-  NullableRunbookStepEntityConfig$Outbound,
+export const RunbookStepEntityConfig$outboundSchema: z.ZodType<
+  RunbookStepEntityConfig$Outbound,
   z.ZodTypeDef,
-  NullableRunbookStepEntityConfig
+  RunbookStepEntityConfig
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace NullableRunbookStepEntityConfig$ {
-  /** @deprecated use `NullableRunbookStepEntityConfig$inboundSchema` instead. */
-  export const inboundSchema = NullableRunbookStepEntityConfig$inboundSchema;
-  /** @deprecated use `NullableRunbookStepEntityConfig$outboundSchema` instead. */
-  export const outboundSchema = NullableRunbookStepEntityConfig$outboundSchema;
-  /** @deprecated use `NullableRunbookStepEntityConfig$Outbound` instead. */
-  export type Outbound = NullableRunbookStepEntityConfig$Outbound;
+export namespace RunbookStepEntityConfig$ {
+  /** @deprecated use `RunbookStepEntityConfig$inboundSchema` instead. */
+  export const inboundSchema = RunbookStepEntityConfig$inboundSchema;
+  /** @deprecated use `RunbookStepEntityConfig$outboundSchema` instead. */
+  export const outboundSchema = RunbookStepEntityConfig$outboundSchema;
+  /** @deprecated use `RunbookStepEntityConfig$Outbound` instead. */
+  export type Outbound = RunbookStepEntityConfig$Outbound;
 }
 
-export function nullableRunbookStepEntityConfigToJSON(
-  nullableRunbookStepEntityConfig: NullableRunbookStepEntityConfig,
+export function runbookStepEntityConfigToJSON(
+  runbookStepEntityConfig: RunbookStepEntityConfig,
 ): string {
   return JSON.stringify(
-    NullableRunbookStepEntityConfig$outboundSchema.parse(
-      nullableRunbookStepEntityConfig,
-    ),
+    RunbookStepEntityConfig$outboundSchema.parse(runbookStepEntityConfig),
   );
 }
 
-export function nullableRunbookStepEntityConfigFromJSON(
+export function runbookStepEntityConfigFromJSON(
   jsonString: string,
-): SafeParseResult<NullableRunbookStepEntityConfig, SDKValidationError> {
+): SafeParseResult<RunbookStepEntityConfig, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => NullableRunbookStepEntityConfig$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NullableRunbookStepEntityConfig' from JSON`,
+    (x) => RunbookStepEntityConfig$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbookStepEntityConfig' from JSON`,
   );
 }
 
@@ -156,75 +154,71 @@ export function actionElementFromJSON(
 }
 
 /** @internal */
-export const NullableRunbookStepEntityStepElement$inboundSchema: z.ZodType<
-  NullableRunbookStepEntityStepElement,
+export const RunbookStepEntityStepElement$inboundSchema: z.ZodType<
+  RunbookStepEntityStepElement,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 
 /** @internal */
-export type NullableRunbookStepEntityStepElement$Outbound = {};
+export type RunbookStepEntityStepElement$Outbound = {};
 
 /** @internal */
-export const NullableRunbookStepEntityStepElement$outboundSchema: z.ZodType<
-  NullableRunbookStepEntityStepElement$Outbound,
+export const RunbookStepEntityStepElement$outboundSchema: z.ZodType<
+  RunbookStepEntityStepElement$Outbound,
   z.ZodTypeDef,
-  NullableRunbookStepEntityStepElement
+  RunbookStepEntityStepElement
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace NullableRunbookStepEntityStepElement$ {
-  /** @deprecated use `NullableRunbookStepEntityStepElement$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbookStepEntityStepElement$inboundSchema;
-  /** @deprecated use `NullableRunbookStepEntityStepElement$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbookStepEntityStepElement$outboundSchema;
-  /** @deprecated use `NullableRunbookStepEntityStepElement$Outbound` instead. */
-  export type Outbound = NullableRunbookStepEntityStepElement$Outbound;
+export namespace RunbookStepEntityStepElement$ {
+  /** @deprecated use `RunbookStepEntityStepElement$inboundSchema` instead. */
+  export const inboundSchema = RunbookStepEntityStepElement$inboundSchema;
+  /** @deprecated use `RunbookStepEntityStepElement$outboundSchema` instead. */
+  export const outboundSchema = RunbookStepEntityStepElement$outboundSchema;
+  /** @deprecated use `RunbookStepEntityStepElement$Outbound` instead. */
+  export type Outbound = RunbookStepEntityStepElement$Outbound;
 }
 
-export function nullableRunbookStepEntityStepElementToJSON(
-  nullableRunbookStepEntityStepElement: NullableRunbookStepEntityStepElement,
+export function runbookStepEntityStepElementToJSON(
+  runbookStepEntityStepElement: RunbookStepEntityStepElement,
 ): string {
   return JSON.stringify(
-    NullableRunbookStepEntityStepElement$outboundSchema.parse(
-      nullableRunbookStepEntityStepElement,
+    RunbookStepEntityStepElement$outboundSchema.parse(
+      runbookStepEntityStepElement,
     ),
   );
 }
 
-export function nullableRunbookStepEntityStepElementFromJSON(
+export function runbookStepEntityStepElementFromJSON(
   jsonString: string,
-): SafeParseResult<NullableRunbookStepEntityStepElement, SDKValidationError> {
+): SafeParseResult<RunbookStepEntityStepElement, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      NullableRunbookStepEntityStepElement$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NullableRunbookStepEntityStepElement' from JSON`,
+    (x) => RunbookStepEntityStepElement$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbookStepEntityStepElement' from JSON`,
   );
 }
 
 /** @internal */
-export const NullableRunbookStepEntity$inboundSchema: z.ZodType<
-  NullableRunbookStepEntity,
+export const RunbookStepEntity$inboundSchema: z.ZodType<
+  RunbookStepEntity,
   z.ZodTypeDef,
   unknown
 > = z.object({
   name: z.nullable(z.string()).optional(),
   action_id: z.nullable(z.string()).optional(),
   step_id: z.nullable(z.string()).optional(),
-  config: z.nullable(
-    z.lazy(() => NullableRunbookStepEntityConfig$inboundSchema),
-  ).optional(),
+  config: z.nullable(z.lazy(() => RunbookStepEntityConfig$inboundSchema))
+    .optional(),
   action_elements: z.nullable(
     z.array(z.lazy(() => ActionElement$inboundSchema)),
   ).optional(),
   step_elements: z.nullable(
-    z.array(z.lazy(() => NullableRunbookStepEntityStepElement$inboundSchema)),
+    z.array(z.lazy(() => RunbookStepEntityStepElement$inboundSchema)),
   ).optional(),
   automatic: z.nullable(z.boolean()).optional(),
   delay_duration: z.nullable(
@@ -250,14 +244,14 @@ export const NullableRunbookStepEntity$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type NullableRunbookStepEntity$Outbound = {
+export type RunbookStepEntity$Outbound = {
   name?: string | null | undefined;
   action_id?: string | null | undefined;
   step_id?: string | null | undefined;
-  config?: NullableRunbookStepEntityConfig$Outbound | null | undefined;
+  config?: RunbookStepEntityConfig$Outbound | null | undefined;
   action_elements?: Array<ActionElement$Outbound> | null | undefined;
   step_elements?:
-    | Array<NullableRunbookStepEntityStepElement$Outbound>
+    | Array<RunbookStepEntityStepElement$Outbound>
     | null
     | undefined;
   automatic?: boolean | null | undefined;
@@ -271,22 +265,21 @@ export type NullableRunbookStepEntity$Outbound = {
 };
 
 /** @internal */
-export const NullableRunbookStepEntity$outboundSchema: z.ZodType<
-  NullableRunbookStepEntity$Outbound,
+export const RunbookStepEntity$outboundSchema: z.ZodType<
+  RunbookStepEntity$Outbound,
   z.ZodTypeDef,
-  NullableRunbookStepEntity
+  RunbookStepEntity
 > = z.object({
   name: z.nullable(z.string()).optional(),
   actionId: z.nullable(z.string()).optional(),
   stepId: z.nullable(z.string()).optional(),
-  config: z.nullable(
-    z.lazy(() => NullableRunbookStepEntityConfig$outboundSchema),
-  ).optional(),
+  config: z.nullable(z.lazy(() => RunbookStepEntityConfig$outboundSchema))
+    .optional(),
   actionElements: z.nullable(
     z.array(z.lazy(() => ActionElement$outboundSchema)),
   ).optional(),
   stepElements: z.nullable(
-    z.array(z.lazy(() => NullableRunbookStepEntityStepElement$outboundSchema)),
+    z.array(z.lazy(() => RunbookStepEntityStepElement$outboundSchema)),
   ).optional(),
   automatic: z.nullable(z.boolean()).optional(),
   delayDuration: z.nullable(z.date().transform(v => v.toISOString()))
@@ -313,29 +306,29 @@ export const NullableRunbookStepEntity$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace NullableRunbookStepEntity$ {
-  /** @deprecated use `NullableRunbookStepEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableRunbookStepEntity$inboundSchema;
-  /** @deprecated use `NullableRunbookStepEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableRunbookStepEntity$outboundSchema;
-  /** @deprecated use `NullableRunbookStepEntity$Outbound` instead. */
-  export type Outbound = NullableRunbookStepEntity$Outbound;
+export namespace RunbookStepEntity$ {
+  /** @deprecated use `RunbookStepEntity$inboundSchema` instead. */
+  export const inboundSchema = RunbookStepEntity$inboundSchema;
+  /** @deprecated use `RunbookStepEntity$outboundSchema` instead. */
+  export const outboundSchema = RunbookStepEntity$outboundSchema;
+  /** @deprecated use `RunbookStepEntity$Outbound` instead. */
+  export type Outbound = RunbookStepEntity$Outbound;
 }
 
-export function nullableRunbookStepEntityToJSON(
-  nullableRunbookStepEntity: NullableRunbookStepEntity,
+export function runbookStepEntityToJSON(
+  runbookStepEntity: RunbookStepEntity,
 ): string {
   return JSON.stringify(
-    NullableRunbookStepEntity$outboundSchema.parse(nullableRunbookStepEntity),
+    RunbookStepEntity$outboundSchema.parse(runbookStepEntity),
   );
 }
 
-export function nullableRunbookStepEntityFromJSON(
+export function runbookStepEntityFromJSON(
   jsonString: string,
-): SafeParseResult<NullableRunbookStepEntity, SDKValidationError> {
+): SafeParseResult<RunbookStepEntity, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => NullableRunbookStepEntity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NullableRunbookStepEntity' from JSON`,
+    (x) => RunbookStepEntity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbookStepEntity' from JSON`,
   );
 }

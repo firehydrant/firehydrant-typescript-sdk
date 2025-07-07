@@ -1,11 +1,11 @@
-# NullableRunbooksElementEntity
+# RunbooksElementEntity
 
 ## Example Usage
 
 ```typescript
-import { NullableRunbooksElementEntity } from "firehydrant-typescript-sdk/models/components";
+import { RunbooksElementEntity } from "firehydrant-typescript-sdk/models/components";
 
-let value: NullableRunbooksElementEntity = {};
+let value: RunbooksElementEntity = {};
 ```
 
 ## Fields

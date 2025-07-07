@@ -32,7 +32,7 @@ import {
   NullableRunbooksElementTextareaEntity$outboundSchema,
 } from "./nullablerunbookselementtextareaentity.js";
 
-export type NullableRunbooksElementEntity = {
+export type RunbooksElementEntity = {
   id?: string | null | undefined;
   type?: string | null | undefined;
   markdown?: NullableRunbooksElementMarkdownEntity | null | undefined;
@@ -43,8 +43,8 @@ export type NullableRunbooksElementEntity = {
 };
 
 /** @internal */
-export const NullableRunbooksElementEntity$inboundSchema: z.ZodType<
-  NullableRunbooksElementEntity,
+export const RunbooksElementEntity$inboundSchema: z.ZodType<
+  RunbooksElementEntity,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -69,7 +69,7 @@ export const NullableRunbooksElementEntity$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type NullableRunbooksElementEntity$Outbound = {
+export type RunbooksElementEntity$Outbound = {
   id?: string | null | undefined;
   type?: string | null | undefined;
   markdown?: NullableRunbooksElementMarkdownEntity$Outbound | null | undefined;
@@ -86,10 +86,10 @@ export type NullableRunbooksElementEntity$Outbound = {
 };
 
 /** @internal */
-export const NullableRunbooksElementEntity$outboundSchema: z.ZodType<
-  NullableRunbooksElementEntity$Outbound,
+export const RunbooksElementEntity$outboundSchema: z.ZodType<
+  RunbooksElementEntity$Outbound,
   z.ZodTypeDef,
-  NullableRunbooksElementEntity
+  RunbooksElementEntity
 > = z.object({
   id: z.nullable(z.string()).optional(),
   type: z.nullable(z.string()).optional(),
@@ -115,31 +115,29 @@ export const NullableRunbooksElementEntity$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace NullableRunbooksElementEntity$ {
-  /** @deprecated use `NullableRunbooksElementEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableRunbooksElementEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksElementEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableRunbooksElementEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksElementEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksElementEntity$Outbound;
+export namespace RunbooksElementEntity$ {
+  /** @deprecated use `RunbooksElementEntity$inboundSchema` instead. */
+  export const inboundSchema = RunbooksElementEntity$inboundSchema;
+  /** @deprecated use `RunbooksElementEntity$outboundSchema` instead. */
+  export const outboundSchema = RunbooksElementEntity$outboundSchema;
+  /** @deprecated use `RunbooksElementEntity$Outbound` instead. */
+  export type Outbound = RunbooksElementEntity$Outbound;
 }
 
-export function nullableRunbooksElementEntityToJSON(
-  nullableRunbooksElementEntity: NullableRunbooksElementEntity,
+export function runbooksElementEntityToJSON(
+  runbooksElementEntity: RunbooksElementEntity,
 ): string {
   return JSON.stringify(
-    NullableRunbooksElementEntity$outboundSchema.parse(
-      nullableRunbooksElementEntity,
-    ),
+    RunbooksElementEntity$outboundSchema.parse(runbooksElementEntity),
   );
 }
 
-export function nullableRunbooksElementEntityFromJSON(
+export function runbooksElementEntityFromJSON(
   jsonString: string,
-): SafeParseResult<NullableRunbooksElementEntity, SDKValidationError> {
+): SafeParseResult<RunbooksElementEntity, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => NullableRunbooksElementEntity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NullableRunbooksElementEntity' from JSON`,
+    (x) => RunbooksElementEntity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RunbooksElementEntity' from JSON`,
   );
 }
