@@ -7,6 +7,10 @@ import { CreateIncidentChangeEventRequest } from "firehydrant-typescript-sdk/mod
 
 let value: CreateIncidentChangeEventRequest = {
   incidentId: "<id>",
+  createIncidentChangeEvent: {
+    changeEventId: "<id>",
+    type: "dismissed",
+  },
 };
 ```
 

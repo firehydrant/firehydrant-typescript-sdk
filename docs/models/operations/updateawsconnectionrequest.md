@@ -7,6 +7,7 @@ import { UpdateAwsConnectionRequest } from "firehydrant-typescript-sdk/models/op
 
 let value: UpdateAwsConnectionRequest = {
   id: "<id>",
+  updateAwsConnection: {},
 };
 ```
 

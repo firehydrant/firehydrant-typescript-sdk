@@ -8,6 +8,9 @@ import { UpdateIncidentAlertPrimaryRequest } from "firehydrant-typescript-sdk/mo
 let value: UpdateIncidentAlertPrimaryRequest = {
   incidentAlertId: "<id>",
   incidentId: "<id>",
+  updateIncidentAlertPrimary: {
+    primary: false,
+  },
 };
 ```
 

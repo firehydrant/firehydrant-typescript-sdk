@@ -8,6 +8,9 @@ import { UpdatePostMortemFieldRequest } from "firehydrant-typescript-sdk/models/
 let value: UpdatePostMortemFieldRequest = {
   fieldId: "<id>",
   reportId: "<id>",
+  updatePostMortemField: {
+    value: "<value>",
+  },
 };
 ```
 

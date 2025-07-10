@@ -7,6 +7,9 @@ import { CreatePostMortemReasonRequest } from "firehydrant-typescript-sdk/models
 
 let value: CreatePostMortemReasonRequest = {
   reportId: "<id>",
+  createPostMortemReason: {
+    summary: "<value>",
+  },
 };
 ```
 

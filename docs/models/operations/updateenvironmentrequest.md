@@ -7,6 +7,9 @@ import { UpdateEnvironmentRequest } from "firehydrant-typescript-sdk/models/oper
 
 let value: UpdateEnvironmentRequest = {
   environmentId: "<id>",
+  updateEnvironment: {
+    name: "<value>",
+  },
 };
 ```
 

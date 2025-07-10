@@ -7,6 +7,9 @@ import { CreateIncidentNoteRequest } from "firehydrant-typescript-sdk/models/ope
 
 let value: CreateIncidentNoteRequest = {
   incidentId: "<id>",
+  createIncidentNote: {
+    body: "<value>",
+  },
 };
 ```
 

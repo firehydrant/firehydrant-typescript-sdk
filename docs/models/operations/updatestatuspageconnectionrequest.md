@@ -7,6 +7,7 @@ import { UpdateStatuspageConnectionRequest } from "firehydrant-typescript-sdk/mo
 
 let value: UpdateStatuspageConnectionRequest = {
   connectionId: "<id>",
+  updateStatuspageConnection: {},
 };
 ```
 

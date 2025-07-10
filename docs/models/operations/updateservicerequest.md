@@ -7,6 +7,7 @@ import { UpdateServiceRequest } from "firehydrant-typescript-sdk/models/operatio
 
 let value: UpdateServiceRequest = {
   serviceId: "<id>",
+  updateService: {},
 };
 ```
 

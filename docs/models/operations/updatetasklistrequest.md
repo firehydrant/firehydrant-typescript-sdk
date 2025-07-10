@@ -7,6 +7,7 @@ import { UpdateTaskListRequest } from "firehydrant-typescript-sdk/models/operati
 
 let value: UpdateTaskListRequest = {
   taskListId: "<id>",
+  updateTaskList: {},
 };
 ```
 

@@ -7,6 +7,9 @@ import { CreateSlackEmojiActionRequest } from "firehydrant-typescript-sdk/models
 
 let value: CreateSlackEmojiActionRequest = {
   connectionId: "<id>",
+  requestBody: {
+    emojiName: "<value>",
+  },
 };
 ```
 

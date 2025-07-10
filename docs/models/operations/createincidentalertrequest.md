@@ -7,6 +7,11 @@ import { CreateIncidentAlertRequest } from "firehydrant-typescript-sdk/models/op
 
 let value: CreateIncidentAlertRequest = {
   incidentId: "<id>",
+  requestBody: [
+    "<value 1>",
+    "<value 2>",
+    "<value 3>",
+  ],
 };
 ```
 

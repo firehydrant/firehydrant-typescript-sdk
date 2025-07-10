@@ -7,6 +7,7 @@ import { UpdateSeverityMatrixConditionRequest } from "firehydrant-typescript-sdk
 
 let value: UpdateSeverityMatrixConditionRequest = {
   conditionId: "<id>",
+  updateSeverityMatrixCondition: {},
 };
 ```
 

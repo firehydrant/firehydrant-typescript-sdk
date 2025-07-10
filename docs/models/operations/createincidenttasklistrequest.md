@@ -7,6 +7,9 @@ import { CreateIncidentTaskListRequest } from "firehydrant-typescript-sdk/models
 
 let value: CreateIncidentTaskListRequest = {
   incidentId: "<id>",
+  createIncidentTaskList: {
+    taskListId: "<id>",
+  },
 };
 ```
 

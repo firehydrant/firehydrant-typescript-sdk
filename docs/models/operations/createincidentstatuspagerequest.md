@@ -7,6 +7,10 @@ import { CreateIncidentStatusPageRequest } from "firehydrant-typescript-sdk/mode
 
 let value: CreateIncidentStatusPageRequest = {
   incidentId: "<id>",
+  createIncidentStatusPage: {
+    integrationSlug: "<value>",
+    integrationId: "<id>",
+  },
 };
 ```
 

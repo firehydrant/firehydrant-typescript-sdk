@@ -8,6 +8,9 @@ import { CreateIncidentImpactRequest } from "firehydrant-typescript-sdk/models/o
 let value: CreateIncidentImpactRequest = {
   incidentId: "<id>",
   type: "services",
+  createIncidentImpact: {
+    id: "<id>",
+  },
 };
 ```
 

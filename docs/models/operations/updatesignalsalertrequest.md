@@ -7,6 +7,9 @@ import { UpdateSignalsAlertRequest } from "firehydrant-typescript-sdk/models/ope
 
 let value: UpdateSignalsAlertRequest = {
   id: "<id>",
+  updateSignalsAlert: {
+    noise: false,
+  },
 };
 ```
 

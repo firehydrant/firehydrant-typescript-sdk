@@ -7,6 +7,9 @@ import { SetMemberDefaultAudienceRequest } from "firehydrant-typescript-sdk/mode
 
 let value: SetMemberDefaultAudienceRequest = {
   memberId: 697060,
+  requestBody: {
+    audienceId: "<id>",
+  },
 };
 ```
 

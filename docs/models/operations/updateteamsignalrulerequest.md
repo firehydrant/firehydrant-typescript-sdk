@@ -8,6 +8,7 @@ import { UpdateTeamSignalRuleRequest } from "firehydrant-typescript-sdk/models/o
 let value: UpdateTeamSignalRuleRequest = {
   teamId: "<id>",
   id: "<id>",
+  updateTeamSignalRule: {},
 };
 ```
 

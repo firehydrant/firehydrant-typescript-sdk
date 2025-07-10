@@ -7,6 +7,9 @@ import { PatchScimUserRequest } from "firehydrant-typescript-sdk/models/operatio
 
 let value: PatchScimUserRequest = {
   id: "<id>",
+  patchScimUser: {
+    operations: [],
+  },
 };
 ```
 

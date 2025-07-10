@@ -7,6 +7,9 @@ import { CreateTeamOnCallScheduleRequest } from "firehydrant-typescript-sdk/mode
 
 let value: CreateTeamOnCallScheduleRequest = {
   teamId: "<id>",
+  createTeamOnCallSchedule: {
+    name: "<value>",
+  },
 };
 ```
 

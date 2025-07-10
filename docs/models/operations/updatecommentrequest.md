@@ -8,6 +8,7 @@ import { UpdateCommentRequest } from "firehydrant-typescript-sdk/models/operatio
 let value: UpdateCommentRequest = {
   commentId: "<id>",
   conversationId: "<id>",
+  updateComment: {},
 };
 ```
 

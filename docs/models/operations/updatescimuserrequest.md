@@ -7,6 +7,7 @@ import { UpdateScimUserRequest } from "firehydrant-typescript-sdk/models/operati
 
 let value: UpdateScimUserRequest = {
   id: "<id>",
+  updateScimUser: {},
 };
 ```
 

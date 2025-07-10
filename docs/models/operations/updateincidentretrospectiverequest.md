@@ -8,6 +8,7 @@ import { UpdateIncidentRetrospectiveRequest } from "firehydrant-typescript-sdk/m
 let value: UpdateIncidentRetrospectiveRequest = {
   retrospectiveId: "<id>",
   incidentId: "<id>",
+  updateIncidentRetrospective: {},
 };
 ```
 

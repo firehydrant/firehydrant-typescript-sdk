@@ -7,6 +7,7 @@ import { UpdateIncidentImpactPutRequest } from "firehydrant-typescript-sdk/model
 
 let value: UpdateIncidentImpactPutRequest = {
   incidentId: "<id>",
+  updateIncidentImpactPut: {},
 };
 ```
 

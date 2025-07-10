@@ -7,6 +7,7 @@ import { UpdateScheduledMaintenanceRequest } from "firehydrant-typescript-sdk/mo
 
 let value: UpdateScheduledMaintenanceRequest = {
   scheduledMaintenanceId: "<id>",
+  updateScheduledMaintenance: {},
 };
 ```
 

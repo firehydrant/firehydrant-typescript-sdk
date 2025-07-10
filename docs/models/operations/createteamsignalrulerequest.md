@@ -7,6 +7,12 @@ import { CreateTeamSignalRuleRequest } from "firehydrant-typescript-sdk/models/o
 
 let value: CreateTeamSignalRuleRequest = {
   teamId: "<id>",
+  createTeamSignalRule: {
+    name: "<value>",
+    expression: "<value>",
+    targetType: "Webhook",
+    targetId: "<id>",
+  },
 };
 ```
 

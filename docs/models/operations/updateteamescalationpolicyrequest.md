@@ -8,6 +8,7 @@ import { UpdateTeamEscalationPolicyRequest } from "firehydrant-typescript-sdk/mo
 let value: UpdateTeamEscalationPolicyRequest = {
   teamId: "<id>",
   id: "<id>",
+  updateTeamEscalationPolicy: {},
 };
 ```
 

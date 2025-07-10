@@ -7,6 +7,10 @@ import { IngestCatalogDataRequest } from "firehydrant-typescript-sdk/models/oper
 
 let value: IngestCatalogDataRequest = {
   catalogId: "<id>",
+  ingestCatalogData: {
+    encoding: "text/yaml",
+    data: "<value>",
+  },
 };
 ```
 

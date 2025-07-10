@@ -7,6 +7,9 @@ import { CreateIncidentTeamAssignmentRequest } from "firehydrant-typescript-sdk/
 
 let value: CreateIncidentTeamAssignmentRequest = {
   incidentId: "<id>",
+  createIncidentTeamAssignment: {
+    teamId: "<id>",
+  },
 };
 ```
 

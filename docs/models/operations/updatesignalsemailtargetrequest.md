@@ -7,6 +7,7 @@ import { UpdateSignalsEmailTargetRequest } from "firehydrant-typescript-sdk/mode
 
 let value: UpdateSignalsEmailTargetRequest = {
   id: "<id>",
+  updateSignalsEmailTarget: {},
 };
 ```
 

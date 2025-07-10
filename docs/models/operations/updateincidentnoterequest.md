@@ -8,6 +8,9 @@ import { UpdateIncidentNoteRequest } from "firehydrant-typescript-sdk/models/ope
 let value: UpdateIncidentNoteRequest = {
   noteId: "<id>",
   incidentId: "<id>",
+  updateIncidentNote: {
+    body: "<value>",
+  },
 };
 ```
 

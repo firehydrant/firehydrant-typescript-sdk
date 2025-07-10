@@ -7,6 +7,7 @@ import { UpdateTeamRequest } from "firehydrant-typescript-sdk/models/operations"
 
 let value: UpdateTeamRequest = {
   teamId: "<id>",
+  updateTeam: {},
 };
 ```
 

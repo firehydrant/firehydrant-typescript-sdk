@@ -7,6 +7,7 @@ import { UpdateTicketingPriorityRequest } from "firehydrant-typescript-sdk/model
 
 let value: UpdateTicketingPriorityRequest = {
   id: "<id>",
+  updateTicketingPriority: {},
 };
 ```
 

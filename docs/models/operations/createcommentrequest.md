@@ -7,6 +7,9 @@ import { CreateCommentRequest } from "firehydrant-typescript-sdk/models/operatio
 
 let value: CreateCommentRequest = {
   conversationId: "<id>",
+  createComment: {
+    body: "<value>",
+  },
 };
 ```
 

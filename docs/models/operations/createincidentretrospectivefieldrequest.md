@@ -8,6 +8,10 @@ import { CreateIncidentRetrospectiveFieldRequest } from "firehydrant-typescript-
 let value: CreateIncidentRetrospectiveFieldRequest = {
   retrospectiveId: "<id>",
   incidentId: "<id>",
+  requestBody: {
+    label: "<value>",
+    type: "multi_select",
+  },
 };
 ```
 

@@ -12,6 +12,7 @@ export type SignalsAPITargetEntity = {
   id?: string | null | undefined;
   name?: string | null | undefined;
   type?: string | null | undefined;
+  teamId?: string | null | undefined;
   isPageable?: boolean | null | undefined;
 };
 
@@ -24,9 +25,11 @@ export const SignalsAPITargetEntity$inboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   type: z.nullable(z.string()).optional(),
+  team_id: z.nullable(z.string()).optional(),
   is_pageable: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "team_id": "teamId",
     "is_pageable": "isPageable",
   });
 });
@@ -36,6 +39,7 @@ export type SignalsAPITargetEntity$Outbound = {
   id?: string | null | undefined;
   name?: string | null | undefined;
   type?: string | null | undefined;
+  team_id?: string | null | undefined;
   is_pageable?: boolean | null | undefined;
 };
 
@@ -48,9 +52,11 @@ export const SignalsAPITargetEntity$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   type: z.nullable(z.string()).optional(),
+  teamId: z.nullable(z.string()).optional(),
   isPageable: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    teamId: "team_id",
     isPageable: "is_pageable",
   });
 });

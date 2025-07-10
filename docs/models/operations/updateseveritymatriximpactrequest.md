@@ -7,6 +7,7 @@ import { UpdateSeverityMatrixImpactRequest } from "firehydrant-typescript-sdk/mo
 
 let value: UpdateSeverityMatrixImpactRequest = {
   impactId: "<id>",
+  updateSeverityMatrixImpact: {},
 };
 ```
 

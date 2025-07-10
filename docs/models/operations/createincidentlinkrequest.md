@@ -7,6 +7,9 @@ import { CreateIncidentLinkRequest } from "firehydrant-typescript-sdk/models/ope
 
 let value: CreateIncidentLinkRequest = {
   incidentId: "<id>",
+  createIncidentLink: {
+    href: "<value>",
+  },
 };
 ```
 

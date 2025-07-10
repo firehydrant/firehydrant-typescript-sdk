@@ -7,6 +7,7 @@ import { UpdateCustomFieldDefinitionRequest } from "firehydrant-typescript-sdk/m
 
 let value: UpdateCustomFieldDefinitionRequest = {
   fieldId: "<id>",
+  updateCustomFieldDefinition: {},
 };
 ```
 

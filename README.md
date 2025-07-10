@@ -716,6 +716,11 @@ run();
 * [getSignalsWebhookTarget](docs/sdks/signals/README.md#getsignalswebhooktarget) - Get a webhook target
 * [deleteSignalsWebhookTarget](docs/sdks/signals/README.md#deletesignalswebhooktarget) - Delete a webhook target
 * [updateSignalsWebhookTarget](docs/sdks/signals/README.md#updatesignalswebhooktarget) - Update a webhook target
+* [listNotificationPolicySettings](docs/sdks/signals/README.md#listnotificationpolicysettings) - List notification policies
+* [createHandoffNotificationSetting](docs/sdks/signals/README.md#createhandoffnotificationsetting) - Create a notification policy
+* [getNotificationPolicy](docs/sdks/signals/README.md#getnotificationpolicy) - Get a notification policy
+* [deleteNotificationPolicy](docs/sdks/signals/README.md#deletenotificationpolicy) - Delete a notification policy
+* [updateNotificationPolicy](docs/sdks/signals/README.md#updatenotificationpolicy) - Update a notification policy
 * [listSignalsTransposers](docs/sdks/signals/README.md#listsignalstransposers) - List signal transposers
 * [getSignalsIngestUrl](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 * [debugSignalsExpression](docs/sdks/signals/README.md#debugsignalsexpression) - Debug Signals expressions
@@ -1141,6 +1146,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`scimPatchSCIMUser`](docs/sdks/scim/README.md#patchscimuser) - Update a User from SCIM data
 - [`scimUpdateSCIMGroup`](docs/sdks/scim/README.md#updatescimgroup) - Update a SCIM group and assign members
 - [`scimUpdateSCIMUser`](docs/sdks/scim/README.md#updatescimuser) - Update a User from SCIM data
+- [`signalsCreateHandoffNotificationSetting`](docs/sdks/signals/README.md#createhandoffnotificationsetting) - Create a notification policy
 - [`signalsCreateOnCallShift`](docs/sdks/signals/README.md#createoncallshift) - Create a shift for an on-call schedule
 - [`signalsCreateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
 - [`signalsCreateSignalsEmailTarget`](docs/sdks/signals/README.md#createsignalsemailtarget) - Create an email target for signals
@@ -1150,6 +1156,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsCreateTeamOnCallSchedule`](docs/sdks/signals/README.md#createteamoncallschedule) - Create an on-call schedule for a team
 - [`signalsCreateTeamSignalRule`](docs/sdks/signals/README.md#createteamsignalrule) - Create a Signals rule
 - [`signalsDebugSignalsExpression`](docs/sdks/signals/README.md#debugsignalsexpression) - Debug Signals expressions
+- [`signalsDeleteNotificationPolicy`](docs/sdks/signals/README.md#deletenotificationpolicy) - Delete a notification policy
 - [`signalsDeleteOnCallShift`](docs/sdks/signals/README.md#deleteoncallshift) - Delete an on-call shift from a team schedule
 - [`signalsDeleteSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#deletesignalsalertgroupingconfiguration) - Delete an alert grouping configuration.
 - [`signalsDeleteSignalsEmailTarget`](docs/sdks/signals/README.md#deletesignalsemailtarget) - Delete a signal email target
@@ -1158,6 +1165,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsDeleteTeamEscalationPolicy`](docs/sdks/signals/README.md#deleteteamescalationpolicy) - Delete an escalation policy for a team
 - [`signalsDeleteTeamOnCallSchedule`](docs/sdks/signals/README.md#deleteteamoncallschedule) - Delete an on-call schedule for a team
 - [`signalsDeleteTeamSignalRule`](docs/sdks/signals/README.md#deleteteamsignalrule) - Delete a Signals rule
+- [`signalsGetNotificationPolicy`](docs/sdks/signals/README.md#getnotificationpolicy) - Get a notification policy
 - [`signalsGetOnCallShift`](docs/sdks/signals/README.md#getoncallshift) - Get an on-call shift for a team schedule
 - [`signalsGetSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
 - [`signalsGetSignalsEmailTarget`](docs/sdks/signals/README.md#getsignalsemailtarget) - Get a signal email target
@@ -1168,6 +1176,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsGetTeamEscalationPolicy`](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
 - [`signalsGetTeamOnCallSchedule`](docs/sdks/signals/README.md#getteamoncallschedule) - Get an on-call schedule for a team
 - [`signalsGetTeamSignalRule`](docs/sdks/signals/README.md#getteamsignalrule) - Get a Signals rule
+- [`signalsListNotificationPolicySettings`](docs/sdks/signals/README.md#listnotificationpolicysettings) - List notification policies
 - [`signalsListOrganizationOnCallSchedules`](docs/sdks/signals/README.md#listorganizationoncallschedules) - List who's on call for the organization
 - [`signalsListSignalsAlertGroupingConfigurations`](docs/sdks/signals/README.md#listsignalsalertgroupingconfigurations) - List alert grouping configurations.
 - [`signalsListSignalsEmailTargets`](docs/sdks/signals/README.md#listsignalsemailtargets) - List email targets for signals
@@ -1177,6 +1186,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsListTeamEscalationPolicies`](docs/sdks/signals/README.md#listteamescalationpolicies) - List escalation policies for a team
 - [`signalsListTeamOnCallSchedules`](docs/sdks/signals/README.md#listteamoncallschedules) - List on-call schedules for a team
 - [`signalsListTeamSignalRules`](docs/sdks/signals/README.md#listteamsignalrules) - List Signals rules
+- [`signalsUpdateNotificationPolicy`](docs/sdks/signals/README.md#updatenotificationpolicy) - Update a notification policy
 - [`signalsUpdateOnCallShift`](docs/sdks/signals/README.md#updateoncallshift) - Update an on-call shift for a team schedule
 - [`signalsUpdateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#updatesignalsalertgroupingconfiguration) - Update an alert grouping configuration.
 - [`signalsUpdateSignalsEmailTarget`](docs/sdks/signals/README.md#updatesignalsemailtarget) - Update an email target
@@ -1440,7 +1450,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 427 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 432 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

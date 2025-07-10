@@ -7,6 +7,9 @@ import { UpdateTranscriptAttributionRequest } from "firehydrant-typescript-sdk/m
 
 let value: UpdateTranscriptAttributionRequest = {
   incidentId: "<id>",
+  requestBody: {
+    toUserId: "<id>",
+  },
 };
 ```
 

@@ -7,6 +7,10 @@ import { CreateIncidentRoleAssignmentRequest } from "firehydrant-typescript-sdk/
 
 let value: CreateIncidentRoleAssignmentRequest = {
   incidentId: "<id>",
+  createIncidentRoleAssignment: {
+    userId: "<id>",
+    incidentRoleId: "<id>",
+  },
 };
 ```
 

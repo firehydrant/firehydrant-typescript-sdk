@@ -7,6 +7,7 @@ import { UpdateFunctionalityRequest } from "firehydrant-typescript-sdk/models/op
 
 let value: UpdateFunctionalityRequest = {
   functionalityId: "<id>",
+  updateFunctionality: {},
 };
 ```
 

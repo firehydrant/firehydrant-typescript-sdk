@@ -7,6 +7,10 @@ import { CreateChangeIdentityRequest } from "firehydrant-typescript-sdk/models/o
 
 let value: CreateChangeIdentityRequest = {
   changeId: "<id>",
+  createChangeIdentity: {
+    type: "<value>",
+    value: "<value>",
+  },
 };
 ```
 

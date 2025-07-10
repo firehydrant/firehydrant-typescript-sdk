@@ -8,6 +8,10 @@ import { CreateOnCallShiftRequest } from "firehydrant-typescript-sdk/models/oper
 let value: CreateOnCallShiftRequest = {
   teamId: "<id>",
   scheduleId: "<id>",
+  createOnCallShift: {
+    startTime: "<value>",
+    endTime: "<value>",
+  },
 };
 ```
 

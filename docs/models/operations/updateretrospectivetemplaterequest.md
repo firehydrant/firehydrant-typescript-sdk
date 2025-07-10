@@ -7,6 +7,22 @@ import { UpdateRetrospectiveTemplateRequest } from "firehydrant-typescript-sdk/m
 
 let value: UpdateRetrospectiveTemplateRequest = {
   retrospectiveTemplateId: "<id>",
+  requestBody: {
+    sectionsSlug: [
+      "<value 1>",
+      "<value 2>",
+    ],
+    sectionsElements: [
+      "<value 1>",
+    ],
+    fieldsLabel: [
+      "<value 1>",
+      "<value 2>",
+    ],
+    fieldsType: [
+      "single_select",
+    ],
+  },
 };
 ```
 

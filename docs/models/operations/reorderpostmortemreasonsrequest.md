@@ -7,6 +7,10 @@ import { ReorderPostMortemReasonsRequest } from "firehydrant-typescript-sdk/mode
 
 let value: ReorderPostMortemReasonsRequest = {
   reportId: "<id>",
+  reorderPostMortemReasons: {
+    oldPosition: 934086,
+    newPosition: 666715,
+  },
 };
 ```
 

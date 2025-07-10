@@ -7,6 +7,10 @@ import { UpdateIncidentTypeRequest } from "firehydrant-typescript-sdk/models/ope
 
 let value: UpdateIncidentTypeRequest = {
   id: "<id>",
+  updateIncidentType: {
+    name: "<value>",
+    template: {},
+  },
 };
 ```
 
