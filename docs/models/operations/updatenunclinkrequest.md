@@ -8,6 +8,7 @@ import { UpdateNuncLinkRequest } from "firehydrant-typescript-sdk/models/operati
 let value: UpdateNuncLinkRequest = {
   nuncConnectionId: "<id>",
   linkId: "<id>",
+  updateNuncLink: {},
 };
 ```
 

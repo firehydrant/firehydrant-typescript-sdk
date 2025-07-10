@@ -7,6 +7,9 @@ import { CreateNuncComponentGroupRequest } from "firehydrant-typescript-sdk/mode
 
 let value: CreateNuncComponentGroupRequest = {
   nuncConnectionId: "<id>",
+  requestBody: {
+    name: "<value>",
+  },
 };
 ```
 

@@ -7,6 +7,7 @@ import { UpdateCallRouteRequest } from "firehydrant-typescript-sdk/models/operat
 
 let value: UpdateCallRouteRequest = {
   id: "<id>",
+  updateCallRoute: {},
 };
 ```
 

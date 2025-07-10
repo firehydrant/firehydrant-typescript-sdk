@@ -7,6 +7,18 @@ import { UpdateNuncConnectionRequest } from "firehydrant-typescript-sdk/models/o
 
 let value: UpdateNuncConnectionRequest = {
   nuncConnectionId: "<id>",
+  requestBody: {
+    conditionsNuncCondition: [],
+    conditionsConditionId: [
+      "<value 1>",
+      "<value 2>",
+    ],
+    componentsInfrastructureType: [
+      "<value 1>",
+      "<value 2>",
+    ],
+    componentsInfrastructureId: [],
+  },
 };
 ```
 

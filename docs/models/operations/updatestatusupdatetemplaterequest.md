@@ -7,6 +7,7 @@ import { UpdateStatusUpdateTemplateRequest } from "firehydrant-typescript-sdk/mo
 
 let value: UpdateStatusUpdateTemplateRequest = {
   statusUpdateTemplateId: "<id>",
+  updateStatusUpdateTemplate: {},
 };
 ```
 

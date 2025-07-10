@@ -8,6 +8,9 @@ import { UpdateVoteRequest } from "firehydrant-typescript-sdk/models/operations"
 let value: UpdateVoteRequest = {
   incidentId: "<id>",
   eventId: "<id>",
+  updateVote: {
+    direction: "dig",
+  },
 };
 ```
 

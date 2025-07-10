@@ -7,6 +7,10 @@ import { CreateTeamEscalationPolicyRequest } from "firehydrant-typescript-sdk/mo
 
 let value: CreateTeamEscalationPolicyRequest = {
   teamId: "<id>",
+  createTeamEscalationPolicy: {
+    name: "<value>",
+    steps: [],
+  },
 };
 ```
 

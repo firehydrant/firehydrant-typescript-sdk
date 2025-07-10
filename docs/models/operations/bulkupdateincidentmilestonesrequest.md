@@ -7,6 +7,14 @@ import { BulkUpdateIncidentMilestonesRequest } from "firehydrant-typescript-sdk/
 
 let value: BulkUpdateIncidentMilestonesRequest = {
   incidentId: "<id>",
+  bulkUpdateIncidentMilestones: {
+    milestones: [
+      {
+        type: "<value>",
+        occurredAt: new Date("2025-10-01T23:28:44.501Z"),
+      },
+    ],
+  },
 };
 ```
 

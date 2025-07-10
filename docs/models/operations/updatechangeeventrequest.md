@@ -7,6 +7,7 @@ import { UpdateChangeEventRequest } from "firehydrant-typescript-sdk/models/oper
 
 let value: UpdateChangeEventRequest = {
   changeEventId: "<id>",
+  updateChangeEvent: {},
 };
 ```
 

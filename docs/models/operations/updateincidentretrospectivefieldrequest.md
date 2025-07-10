@@ -9,6 +9,9 @@ let value: UpdateIncidentRetrospectiveFieldRequest = {
   retrospectiveId: "<id>",
   fieldId: "<id>",
   incidentId: "<id>",
+  updateIncidentRetrospectiveField: {
+    value: 890734,
+  },
 };
 ```
 

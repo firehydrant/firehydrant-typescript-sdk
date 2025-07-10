@@ -7,6 +7,12 @@ import { CreateSavedSearchRequest } from "firehydrant-typescript-sdk/models/oper
 
 let value: CreateSavedSearchRequest = {
   resourceType: "ticket_tasks",
+  createSavedSearch: {
+    name: "<value>",
+    filterValues: {
+      "key": "<value>",
+    },
+  },
 };
 ```
 

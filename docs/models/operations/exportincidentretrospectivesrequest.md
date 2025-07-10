@@ -7,6 +7,9 @@ import { ExportIncidentRetrospectivesRequest } from "firehydrant-typescript-sdk/
 
 let value: ExportIncidentRetrospectivesRequest = {
   incidentId: "<id>",
+  requestBody: {
+    integrationSlug: "google_docs",
+  },
 };
 ```
 

@@ -7,6 +7,9 @@ import { CreateEmailSubscriberRequest } from "firehydrant-typescript-sdk/models/
 
 let value: CreateEmailSubscriberRequest = {
   nuncConnectionId: "<id>",
+  requestBody: {
+    emails: "<value>",
+  },
 };
 ```
 

@@ -24,7 +24,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 1.0.2
+  version: 1.0.3
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -45,6 +45,7 @@ typescript:
   flattenSpecOptions:
     tags: false
   flatteningOrder: parameters-first
+  generateExamples: true
   imports:
     option: openapi
     paths:

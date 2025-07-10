@@ -7,6 +7,7 @@ import { UpdateChecklistTemplateRequest } from "firehydrant-typescript-sdk/model
 
 let value: UpdateChecklistTemplateRequest = {
   id: "<id>",
+  updateChecklistTemplate: {},
 };
 ```
 

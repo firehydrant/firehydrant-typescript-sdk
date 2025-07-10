@@ -7,6 +7,7 @@ import { UpdateSignalsWebhookTargetRequest } from "firehydrant-typescript-sdk/mo
 
 let value: UpdateSignalsWebhookTargetRequest = {
   id: "<id>",
+  updateSignalsWebhookTarget: {},
 };
 ```
 

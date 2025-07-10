@@ -64,6 +64,10 @@ export type UpdateCallRouteStep = {
    * Timeout in seconds for the step
    */
   timeout: string;
+  /**
+   * The ID of a specific on-call rotation that should be routed to if the `target_type` is `OnCallSchedule`. If not provided, the schedule's first rotation will be used.
+   */
+  onCallRotationId?: string | null | undefined;
 };
 
 /**
@@ -202,10 +206,12 @@ export const UpdateCallRouteStep$inboundSchema: z.ZodType<
   target_type: UpdateCallRouteTargetType$inboundSchema,
   target_id: z.string(),
   timeout: z.string(),
+  on_call_rotation_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "target_type": "targetType",
     "target_id": "targetId",
+    "on_call_rotation_id": "onCallRotationId",
   });
 });
 
@@ -214,6 +220,7 @@ export type UpdateCallRouteStep$Outbound = {
   target_type: string;
   target_id: string;
   timeout: string;
+  on_call_rotation_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -225,10 +232,12 @@ export const UpdateCallRouteStep$outboundSchema: z.ZodType<
   targetType: UpdateCallRouteTargetType$outboundSchema,
   targetId: z.string(),
   timeout: z.string(),
+  onCallRotationId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     targetType: "target_type",
     targetId: "target_id",
+    onCallRotationId: "on_call_rotation_id",
   });
 });
 

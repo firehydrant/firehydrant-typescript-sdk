@@ -7,6 +7,7 @@ import { PublishPostMortemReportRequest } from "firehydrant-typescript-sdk/model
 
 let value: PublishPostMortemReportRequest = {
   reportId: "<id>",
+  publishPostMortemReport: {},
 };
 ```
 

@@ -7,6 +7,7 @@ import { UpdateWebhookRequest } from "firehydrant-typescript-sdk/models/operatio
 
 let value: UpdateWebhookRequest = {
   webhookId: "<id>",
+  updateWebhook: {},
 };
 ```
 

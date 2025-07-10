@@ -8,6 +8,7 @@ import { UpdateTeamOnCallScheduleRequest } from "firehydrant-typescript-sdk/mode
 let value: UpdateTeamOnCallScheduleRequest = {
   teamId: "<id>",
   scheduleId: "<id>",
+  updateTeamOnCallSchedule: {},
 };
 ```
 

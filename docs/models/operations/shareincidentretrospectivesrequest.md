@@ -7,6 +7,13 @@ import { ShareIncidentRetrospectivesRequest } from "firehydrant-typescript-sdk/m
 
 let value: ShareIncidentRetrospectivesRequest = {
   incidentId: "<id>",
+  requestBody: {
+    retrospectiveIds: [
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
+    ],
+  },
 };
 ```
 

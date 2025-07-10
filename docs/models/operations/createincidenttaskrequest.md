@@ -7,6 +7,9 @@ import { CreateIncidentTaskRequest } from "firehydrant-typescript-sdk/models/ope
 
 let value: CreateIncidentTaskRequest = {
   incidentId: "<id>",
+  createIncidentTask: {
+    title: "<value>",
+  },
 };
 ```
 

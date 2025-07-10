@@ -8,6 +8,7 @@ import { UpdateIncidentChangeEventRequest } from "firehydrant-typescript-sdk/mod
 let value: UpdateIncidentChangeEventRequest = {
   relatedChangeEventId: "<id>",
   incidentId: "<id>",
+  updateIncidentChangeEvent: {},
 };
 ```
 

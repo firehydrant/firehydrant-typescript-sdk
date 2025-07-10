@@ -8,6 +8,10 @@ import { CreateServiceChecklistResponseRequest } from "firehydrant-typescript-sd
 let value: CreateServiceChecklistResponseRequest = {
   serviceId: "<id>",
   checklistId: "<id>",
+  createServiceChecklistResponse: {
+    checkId: "<id>",
+    status: false,
+  },
 };
 ```
 

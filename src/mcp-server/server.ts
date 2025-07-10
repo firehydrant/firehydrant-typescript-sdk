@@ -316,6 +316,7 @@ import { tool$scimListSCIMUsers } from "./tools/scimListSCIMUsers.js";
 import { tool$scimPatchSCIMUser } from "./tools/scimPatchSCIMUser.js";
 import { tool$scimUpdateSCIMGroup } from "./tools/scimUpdateSCIMGroup.js";
 import { tool$scimUpdateSCIMUser } from "./tools/scimUpdateSCIMUser.js";
+import { tool$signalsCreateHandoffNotificationSetting } from "./tools/signalsCreateHandoffNotificationSetting.js";
 import { tool$signalsCreateOnCallShift } from "./tools/signalsCreateOnCallShift.js";
 import { tool$signalsCreateSignalsAlertGroupingConfiguration } from "./tools/signalsCreateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsCreateSignalsEmailTarget } from "./tools/signalsCreateSignalsEmailTarget.js";
@@ -325,6 +326,7 @@ import { tool$signalsCreateTeamEscalationPolicy } from "./tools/signalsCreateTea
 import { tool$signalsCreateTeamOnCallSchedule } from "./tools/signalsCreateTeamOnCallSchedule.js";
 import { tool$signalsCreateTeamSignalRule } from "./tools/signalsCreateTeamSignalRule.js";
 import { tool$signalsDebugSignalsExpression } from "./tools/signalsDebugSignalsExpression.js";
+import { tool$signalsDeleteNotificationPolicy } from "./tools/signalsDeleteNotificationPolicy.js";
 import { tool$signalsDeleteOnCallShift } from "./tools/signalsDeleteOnCallShift.js";
 import { tool$signalsDeleteSignalsAlertGroupingConfiguration } from "./tools/signalsDeleteSignalsAlertGroupingConfiguration.js";
 import { tool$signalsDeleteSignalsEmailTarget } from "./tools/signalsDeleteSignalsEmailTarget.js";
@@ -333,6 +335,7 @@ import { tool$signalsDeleteSignalsWebhookTarget } from "./tools/signalsDeleteSig
 import { tool$signalsDeleteTeamEscalationPolicy } from "./tools/signalsDeleteTeamEscalationPolicy.js";
 import { tool$signalsDeleteTeamOnCallSchedule } from "./tools/signalsDeleteTeamOnCallSchedule.js";
 import { tool$signalsDeleteTeamSignalRule } from "./tools/signalsDeleteTeamSignalRule.js";
+import { tool$signalsGetNotificationPolicy } from "./tools/signalsGetNotificationPolicy.js";
 import { tool$signalsGetOnCallShift } from "./tools/signalsGetOnCallShift.js";
 import { tool$signalsGetSignalsAlertGroupingConfiguration } from "./tools/signalsGetSignalsAlertGroupingConfiguration.js";
 import { tool$signalsGetSignalsEmailTarget } from "./tools/signalsGetSignalsEmailTarget.js";
@@ -343,6 +346,7 @@ import { tool$signalsGetSignalsWebhookTarget } from "./tools/signalsGetSignalsWe
 import { tool$signalsGetTeamEscalationPolicy } from "./tools/signalsGetTeamEscalationPolicy.js";
 import { tool$signalsGetTeamOnCallSchedule } from "./tools/signalsGetTeamOnCallSchedule.js";
 import { tool$signalsGetTeamSignalRule } from "./tools/signalsGetTeamSignalRule.js";
+import { tool$signalsListNotificationPolicySettings } from "./tools/signalsListNotificationPolicySettings.js";
 import { tool$signalsListOrganizationOnCallSchedules } from "./tools/signalsListOrganizationOnCallSchedules.js";
 import { tool$signalsListSignalsAlertGroupingConfigurations } from "./tools/signalsListSignalsAlertGroupingConfigurations.js";
 import { tool$signalsListSignalsEmailTargets } from "./tools/signalsListSignalsEmailTargets.js";
@@ -352,6 +356,7 @@ import { tool$signalsListSignalsWebhookTargets } from "./tools/signalsListSignal
 import { tool$signalsListTeamEscalationPolicies } from "./tools/signalsListTeamEscalationPolicies.js";
 import { tool$signalsListTeamOnCallSchedules } from "./tools/signalsListTeamOnCallSchedules.js";
 import { tool$signalsListTeamSignalRules } from "./tools/signalsListTeamSignalRules.js";
+import { tool$signalsUpdateNotificationPolicy } from "./tools/signalsUpdateNotificationPolicy.js";
 import { tool$signalsUpdateOnCallShift } from "./tools/signalsUpdateOnCallShift.js";
 import { tool$signalsUpdateSignalsAlertGroupingConfiguration } from "./tools/signalsUpdateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsUpdateSignalsEmailTarget } from "./tools/signalsUpdateSignalsEmailTarget.js";
@@ -451,7 +456,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.2",
+    version: "1.0.3",
   });
 
   const client = new FirehydrantCore({
@@ -568,6 +573,11 @@ export function createMCPServer(deps: {
   tool(tool$signalsGetSignalsWebhookTarget);
   tool(tool$signalsDeleteSignalsWebhookTarget);
   tool(tool$signalsUpdateSignalsWebhookTarget);
+  tool(tool$signalsListNotificationPolicySettings);
+  tool(tool$signalsCreateHandoffNotificationSetting);
+  tool(tool$signalsGetNotificationPolicy);
+  tool(tool$signalsDeleteNotificationPolicy);
+  tool(tool$signalsUpdateNotificationPolicy);
   tool(tool$signalsListSignalsTransposers);
   tool(tool$signalsGetSignalsIngestUrl);
   tool(tool$signalsDebugSignalsExpression);

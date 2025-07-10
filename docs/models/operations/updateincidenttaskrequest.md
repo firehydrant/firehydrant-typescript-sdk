@@ -8,6 +8,7 @@ import { UpdateIncidentTaskRequest } from "firehydrant-typescript-sdk/models/ope
 let value: UpdateIncidentTaskRequest = {
   taskId: "<id>",
   incidentId: "<id>",
+  updateIncidentTask: {},
 };
 ```
 

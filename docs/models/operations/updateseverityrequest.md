@@ -7,6 +7,7 @@ import { UpdateSeverityRequest } from "firehydrant-typescript-sdk/models/operati
 
 let value: UpdateSeverityRequest = {
   severitySlug: "<value>",
+  updateSeverity: {},
 };
 ```
 

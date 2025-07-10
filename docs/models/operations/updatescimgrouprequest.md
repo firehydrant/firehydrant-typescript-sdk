@@ -7,6 +7,14 @@ import { UpdateScimGroupRequest } from "firehydrant-typescript-sdk/models/operat
 
 let value: UpdateScimGroupRequest = {
   id: "<id>",
+  updateScimGroup: {
+    displayName: "Garrett_Klein",
+    members: [
+      {
+        value: "<value>",
+      },
+    ],
+  },
 };
 ```
 

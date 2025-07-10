@@ -8,6 +8,9 @@ import { CreateCommentReactionRequest } from "firehydrant-typescript-sdk/models/
 let value: CreateCommentReactionRequest = {
   conversationId: "<id>",
   commentId: "<id>",
+  createCommentReaction: {
+    reaction: "<value>",
+  },
 };
 ```
 

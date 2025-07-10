@@ -8,6 +8,9 @@ import { UpdateRunbookExecutionStepRequest } from "firehydrant-typescript-sdk/mo
 let value: UpdateRunbookExecutionStepRequest = {
   executionId: "<id>",
   stepId: "<id>",
+  updateRunbookExecutionStep: {
+    state: "Wisconsin",
+  },
 };
 ```
 

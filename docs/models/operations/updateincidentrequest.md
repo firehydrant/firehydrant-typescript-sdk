@@ -7,6 +7,7 @@ import { UpdateIncidentRequest } from "firehydrant-typescript-sdk/models/operati
 
 let value: UpdateIncidentRequest = {
   incidentId: "<id>",
+  updateIncident: {},
 };
 ```
 

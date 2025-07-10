@@ -8,6 +8,9 @@ import { VoteAiIncidentSummaryRequest } from "firehydrant-typescript-sdk/models/
 let value: VoteAiIncidentSummaryRequest = {
   incidentId: "<id>",
   generatedSummaryId: "<id>",
+  requestBody: {
+    direction: "down",
+  },
 };
 ```
 

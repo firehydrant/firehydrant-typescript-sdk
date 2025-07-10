@@ -7,6 +7,7 @@ import { UpdateRunbookRequest } from "firehydrant-typescript-sdk/models/operatio
 
 let value: UpdateRunbookRequest = {
   runbookId: "<id>",
+  updateRunbook: {},
 };
 ```
 

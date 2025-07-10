@@ -7,6 +7,7 @@ import { UpdateSignalsAlertGroupingConfigurationRequest } from "firehydrant-type
 
 let value: UpdateSignalsAlertGroupingConfigurationRequest = {
   id: "<id>",
+  updateSignalsAlertGroupingConfiguration: {},
 };
 ```
 

@@ -7,6 +7,9 @@ import { CreateIncidentChatMessageRequest } from "firehydrant-typescript-sdk/mod
 
 let value: CreateIncidentChatMessageRequest = {
   incidentId: "<id>",
+  createIncidentChatMessage: {
+    body: "<value>",
+  },
 };
 ```
 

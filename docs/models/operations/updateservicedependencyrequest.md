@@ -7,6 +7,7 @@ import { UpdateServiceDependencyRequest } from "firehydrant-typescript-sdk/model
 
 let value: UpdateServiceDependencyRequest = {
   serviceDependencyId: "<id>",
+  updateServiceDependency: {},
 };
 ```
 

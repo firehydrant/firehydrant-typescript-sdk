@@ -7,6 +7,7 @@ import { UpdateIncidentRoleRequest } from "firehydrant-typescript-sdk/models/ope
 
 let value: UpdateIncidentRoleRequest = {
   incidentRoleId: "<id>",
+  updateIncidentRole: {},
 };
 ```
 

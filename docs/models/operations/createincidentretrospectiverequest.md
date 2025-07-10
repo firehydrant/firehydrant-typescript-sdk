@@ -7,6 +7,9 @@ import { CreateIncidentRetrospectiveRequest } from "firehydrant-typescript-sdk/m
 
 let value: CreateIncidentRetrospectiveRequest = {
   incidentId: "<id>",
+  requestBody: {
+    retrospectiveTemplateId: "<id>",
+  },
 };
 ```
 

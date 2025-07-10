@@ -8,6 +8,7 @@ import { ConvertIncidentTaskRequest } from "firehydrant-typescript-sdk/models/op
 let value: ConvertIncidentTaskRequest = {
   taskId: "<id>",
   incidentId: "<id>",
+  convertIncidentTask: {},
 };
 ```
 

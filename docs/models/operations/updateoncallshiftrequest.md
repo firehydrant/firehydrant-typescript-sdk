@@ -9,6 +9,7 @@ let value: UpdateOnCallShiftRequest = {
   id: "<id>",
   teamId: "<id>",
   scheduleId: "<id>",
+  updateOnCallShift: {},
 };
 ```
 

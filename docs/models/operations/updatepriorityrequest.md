@@ -7,6 +7,7 @@ import { UpdatePriorityRequest } from "firehydrant-typescript-sdk/models/operati
 
 let value: UpdatePriorityRequest = {
   prioritySlug: "<value>",
+  updatePriority: {},
 };
 ```
 

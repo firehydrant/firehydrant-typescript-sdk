@@ -29,6 +29,7 @@ export type IncidentsConferenceBridgeEntity = {
   languageCodes?: Array<string> | null | undefined;
   transcriptionStatus?: string | null | undefined;
   transcriptionSubCode?: string | null | undefined;
+  previousHostAssignment?: string | null | undefined;
 };
 
 /** @internal */
@@ -107,12 +108,14 @@ export const IncidentsConferenceBridgeEntity$inboundSchema: z.ZodType<
   language_codes: z.nullable(z.array(z.string())).optional(),
   transcription_status: z.nullable(z.string()).optional(),
   transcription_sub_code: z.nullable(z.string()).optional(),
+  previous_host_assignment: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "has_translated_transcripts": "hasTranslatedTranscripts",
     "language_codes": "languageCodes",
     "transcription_status": "transcriptionStatus",
     "transcription_sub_code": "transcriptionSubCode",
+    "previous_host_assignment": "previousHostAssignment",
   });
 });
 
@@ -127,6 +130,7 @@ export type IncidentsConferenceBridgeEntity$Outbound = {
   language_codes?: Array<string> | null | undefined;
   transcription_status?: string | null | undefined;
   transcription_sub_code?: string | null | undefined;
+  previous_host_assignment?: string | null | undefined;
 };
 
 /** @internal */
@@ -145,12 +149,14 @@ export const IncidentsConferenceBridgeEntity$outboundSchema: z.ZodType<
   languageCodes: z.nullable(z.array(z.string())).optional(),
   transcriptionStatus: z.nullable(z.string()).optional(),
   transcriptionSubCode: z.nullable(z.string()).optional(),
+  previousHostAssignment: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     hasTranslatedTranscripts: "has_translated_transcripts",
     languageCodes: "language_codes",
     transcriptionStatus: "transcription_status",
     transcriptionSubCode: "transcription_sub_code",
+    previousHostAssignment: "previous_host_assignment",
   });
 });
 

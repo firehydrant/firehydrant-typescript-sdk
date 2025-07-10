@@ -7,6 +7,7 @@ import { UpdateAwsCloudtrailBatchRequest } from "firehydrant-typescript-sdk/mode
 
 let value: UpdateAwsCloudtrailBatchRequest = {
   id: "<id>",
+  updateAwsCloudtrailBatch: {},
 };
 ```
 

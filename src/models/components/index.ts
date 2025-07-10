@@ -331,6 +331,8 @@ export * from "./signalsapigroupingentitypaginated.js";
 export * from "./signalsapihackermodeentity.js";
 export * from "./signalsapiingestkeyentity.js";
 export * from "./signalsapinotificationpolicyitemcomplianceentity.js";
+export * from "./signalsapinotificationpolicyitementity.js";
+export * from "./signalsapinotificationpolicyitementitypaginated.js";
 export * from "./signalsapinotificationprioritypolicyentity.js";
 export * from "./signalsapioncallrestrictionentity.js";
 export * from "./signalsapioncallrotationentity.js";

@@ -7,6 +7,7 @@ import { UpdateIncidentImpactPatchRequest } from "firehydrant-typescript-sdk/mod
 
 let value: UpdateIncidentImpactPatchRequest = {
   incidentId: "<id>",
+  updateIncidentImpactPatch: {},
 };
 ```
 

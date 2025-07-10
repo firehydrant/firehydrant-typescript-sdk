@@ -7,6 +7,7 @@ import { UpdateTicketRequest } from "firehydrant-typescript-sdk/models/operation
 
 let value: UpdateTicketRequest = {
   ticketId: "<id>",
+  updateTicket: {},
 };
 ```
 
