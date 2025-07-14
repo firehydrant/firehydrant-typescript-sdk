@@ -62,7 +62,9 @@ jobs:
           
           echo "Created PR: $PR_URL"
           echo "PR_URL=$PR_URL" >> $GITHUB_ENV
-          
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Verify PR details
         run: |
           # Extract PR number from URL
@@ -73,4 +75,4 @@ jobs:
           gh api repos/${{ github.repository }}/pulls/$PR_NUMBER/commits \
             --jq '.[0].commit.author'
         env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
