@@ -12,6 +12,10 @@ jobs:
       
       - name: Create test PR
         run: |
+          # Configure git identity
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
           # Create branch with test file
           BRANCH_NAME="test-auto-merge-${{ github.run_number }}"
           git checkout -b $BRANCH_NAME
