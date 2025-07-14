@@ -1,6 +1,8 @@
 name: Create Test PR for Auto-Merge
 on:
   workflow_dispatch:
+  push:
+    branches: [auto-approve-merge]
 
 jobs:
   create-test-pr:
