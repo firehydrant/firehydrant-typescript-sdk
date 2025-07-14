@@ -52,11 +52,11 @@ export type RunbookStepEntity = {
    */
   stepElements?: Array<RunbookStepEntityStepElement> | null | undefined;
   automatic?: boolean | null | undefined;
-  delayDuration?: Date | null | undefined;
+  delayDuration?: string | null | undefined;
   action?: NullableRunbooksActionsEntity | null | undefined;
   reruns?: boolean | null | undefined;
   repeats?: boolean | null | undefined;
-  repeatsDuration?: Date | null | undefined;
+  repeatsDuration?: string | null | undefined;
   votes?: NullableVotesEntity | null | undefined;
   rule?: NullableRulesRuleEntity | null | undefined;
 };
@@ -221,15 +221,11 @@ export const RunbookStepEntity$inboundSchema: z.ZodType<
     z.array(z.lazy(() => RunbookStepEntityStepElement$inboundSchema)),
   ).optional(),
   automatic: z.nullable(z.boolean()).optional(),
-  delay_duration: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
+  delay_duration: z.nullable(z.string()).optional(),
   action: z.nullable(NullableRunbooksActionsEntity$inboundSchema).optional(),
   reruns: z.nullable(z.boolean()).optional(),
   repeats: z.nullable(z.boolean()).optional(),
-  repeats_duration: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
+  repeats_duration: z.nullable(z.string()).optional(),
   votes: z.nullable(NullableVotesEntity$inboundSchema).optional(),
   rule: z.nullable(NullableRulesRuleEntity$inboundSchema).optional(),
 }).transform((v) => {
@@ -282,13 +278,11 @@ export const RunbookStepEntity$outboundSchema: z.ZodType<
     z.array(z.lazy(() => RunbookStepEntityStepElement$outboundSchema)),
   ).optional(),
   automatic: z.nullable(z.boolean()).optional(),
-  delayDuration: z.nullable(z.date().transform(v => v.toISOString()))
-    .optional(),
+  delayDuration: z.nullable(z.string()).optional(),
   action: z.nullable(NullableRunbooksActionsEntity$outboundSchema).optional(),
   reruns: z.nullable(z.boolean()).optional(),
   repeats: z.nullable(z.boolean()).optional(),
-  repeatsDuration: z.nullable(z.date().transform(v => v.toISOString()))
-    .optional(),
+  repeatsDuration: z.nullable(z.string()).optional(),
   votes: z.nullable(NullableVotesEntity$outboundSchema).optional(),
   rule: z.nullable(NullableRulesRuleEntity$outboundSchema).optional(),
 }).transform((v) => {
