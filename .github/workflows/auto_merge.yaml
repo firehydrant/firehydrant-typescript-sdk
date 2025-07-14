@@ -2,15 +2,45 @@ name: Auto Approve and Merge
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:  # Add manual trigger for testing
 
 jobs:
+  debug-context:
+    runs-on: ubuntu-latest
+    # Always run this job to see what's happening
+    steps:
+      - name: Debug PR Context
+        run: |
+          echo "Event Name: ${{ github.event_name }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "PR State: ${{ github.event.pull_request.state }}"
+          echo "Is Draft: ${{ github.event.pull_request.draft }}"
+          echo "Base Branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Head Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Contains check: ${{ contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
+
   auto-approve-merge:
     runs-on: ubuntu-latest
+    # TODO: restore condition
     if: contains(github.event.pull_request.title, 'Auto-merge workflow')
-    
+
     steps:
+      - name: Check conditions
+        run: |
+          echo "🔍 Checking if should auto-merge..."
+          echo "PR Title: '${{ github.event.pull_request.title }}'"
+          
+          if [[ "${{ github.event.pull_request.title }}" == *"Auto-merge workflow"* ]]; then
+            echo "✅ Title contains 'Auto-merge workflow' - proceeding"
+          else
+            echo "❌ Title does not contain 'Auto-merge workflow' - would skip"
+            exit 0  # Don't fail, just skip
+          fi
+          
       - name: Auto approve and merge
+        if: contains(github.event.pull_request.title, 'Auto-merge workflow')
         run: |
           echo "Auto-merging PR #${{ github.event.pull_request.number }}"
           
