@@ -8,10 +8,19 @@ jobs:
   create-test-pr:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App Token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        continue-on-error: true
+        
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Use app token if available, otherwise fallback to GITHUB_TOKEN
+          token: ${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}
           ref: auto-approve-merge
       
       - name: Create test branch and file
@@ -27,18 +36,21 @@ jobs:
           echo "Test auto-merge at $(date)" > test-auto-merge.txt
           echo "This file can be deleted after testing" >> test-auto-merge.txt
           
-          # Configure git (as github-actions bot)
+          # Configure git explicitly as github-actions bot
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # Commit and push
+          # Commit with explicit author
           git add test-auto-merge.txt
-          git commit -m "test: auto-merge functionality"
+          git commit -m "test: auto-merge functionality" \
+            --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          
+          # Push with the token that creates the PR
           git push origin $BRANCH_NAME
           
       - name: Create PR using GitHub API
         run: |
-          # Create PR using gh CLI
+          # The PR will be created by whatever token is used here
           PR_URL=$(gh pr create \
             --base auto-approve-merge \
             --head $BRANCH_NAME \
@@ -49,5 +61,16 @@ jobs:
           - Can be closed if auto-merge fails")
           
           echo "Created PR: $PR_URL"
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+          
+      - name: Verify PR details
+        run: |
+          # Extract PR number from URL
+          PR_NUMBER=$(echo $PR_URL | grep -oE '[0-9]+$')
+          
+          # Check the actual commit author
+          echo "Checking commit author on the PR..."
+          gh api repos/${{ github.repository }}/pulls/$PR_NUMBER/commits \
+            --jq '.[0].commit.author'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}
