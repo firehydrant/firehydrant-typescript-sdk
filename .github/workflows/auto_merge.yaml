@@ -7,25 +7,56 @@ on:
 jobs:
   auto-approve-merge:
     runs-on: ubuntu-latest
-    # Only run for PRs created by github-actions bot
-    # Intended to auto-approve and merge PRs created by speakeasy sdk generation
+    # Check commit author or PR title since actor will be the person who triggered
     if: |
-      github.actor == 'github-actions[bot]' ||
-      github.event.pull_request.user.login == 'github-actions[bot]' ||
-      github.event.pull_request.user.type == 'Bot'
+      contains(github.event.pull_request.title, 'Test: Auto-merge workflow') ||
+      github.event.pull_request.head.repo.full_name == github.repository
     
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Auto Approve PR
-        uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.AUTO_MERGE_TOKEN }}
+      - name: Check PR Details
+        id: check-pr
+        run: |
+          echo "Checking if this PR should be auto-merged..."
+          
+          # Get the commit author of the head commit
+          COMMIT_AUTHOR=$(gh api \
+            repos/${{ github.repository }}/commits/${{ github.event.pull_request.head.sha }} \
+            --jq '.commit.author.name')
+          
+          echo "Commit author: $COMMIT_AUTHOR"
+          echo "PR title: ${{ github.event.pull_request.title }}"
+          
+          # Check if this is a bot commit
+          if [[ "$COMMIT_AUTHOR" == "github-actions[bot]" ]] || \
+             [[ "${{ github.event.pull_request.title }}" == "Test: Auto-merge workflow" ]]; then
+            echo "should_proceed=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_proceed=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Approve PR
+        if: steps.check-pr.outputs.should_proceed == 'true'
+        run: |
+          # Create approval review
+          gh pr review ${{ github.event.pull_request.number }} \
+            --approve \
+            --body "Auto-approved by workflow"
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
           
       - name: Enable Auto-merge
+        if: steps.check-pr.outputs.should_proceed == 'true'
         run: |
-          gh pr merge --auto --merge "$PR_URL"
+          # Enable auto-merge
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --auto \
+            --merge \
+            --delete-branch
+            
+          # Check status
+          echo "Auto-merge status:"
+          gh pr view ${{ github.event.pull_request.number }} --json autoMergeRequest
         env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}

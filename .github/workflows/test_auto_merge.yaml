@@ -1,40 +1,51 @@
 name: Create Test PR for Auto-Merge
 on:
   workflow_dispatch:
-    inputs:
-      branch_name:
-        description: 'Branch name for test PR'
-        default: 'test-auto-merge'
-        required: false
-        type: string
-  push:
-    branches: [auto-approve-merge]
 
 jobs:
   create-test-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: auto-approve-merge
       
-      - name: Create test file
+      - name: Create test branch and file
         run: |
+          # Create a unique branch name
+          BRANCH_NAME="test-auto-merge-${{ github.run_number }}"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          
+          # Create and switch to new branch
+          git checkout -b $BRANCH_NAME
+          
+          # Create test file
           echo "Test auto-merge at $(date)" > test-auto-merge.txt
           echo "This file can be deleted after testing" >> test-auto-merge.txt
           
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "test: auto-merge functionality"
-          title: "Test: Auto-merge workflow"
-          body: |
-            This is a test PR to verify auto-merge functionality.
-            - Created by: github-actions[bot]
-            - Should trigger: auto-approve and merge workflow
-            - Can be closed if auto-merge fails
-          branch: ${{ inputs.branch_name || 'test-auto-merge' }}-${{ github.run_number }}
-          base: auto-approve-merge
-          delete-branch: true
-          draft: false
+          # Configure git (as github-actions bot)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Commit and push
+          git add test-auto-merge.txt
+          git commit -m "test: auto-merge functionality"
+          git push origin $BRANCH_NAME
+          
+      - name: Create PR using GitHub API
+        run: |
+          # Create PR using gh CLI
+          PR_URL=$(gh pr create \
+            --base auto-approve-merge \
+            --head $BRANCH_NAME \
+            --title "Test: Auto-merge workflow" \
+            --body "This is a test PR to verify auto-merge functionality.
+          - Created by: github-actions[bot]
+          - Should trigger: auto-approve and merge workflow
+          - Can be closed if auto-merge fails")
+          
+          echo "Created PR: $PR_URL"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
