@@ -1,4 +1,4 @@
-name: Create Test PR for Auto-Merge
+name: Create Test PR
 on:
   workflow_dispatch:
   push:
@@ -8,71 +8,22 @@ jobs:
   create-test-pr:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub App Token
-        id: generate_token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-        continue-on-error: true
-        
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          # Use app token if available, otherwise fallback to GITHUB_TOKEN
-          token: ${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}
-          ref: auto-approve-merge
+      - uses: actions/checkout@v4
       
-      - name: Create test branch and file
+      - name: Create test PR
         run: |
-          # Create a unique branch name
+          # Create branch with test file
           BRANCH_NAME="test-auto-merge-${{ github.run_number }}"
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
-          
-          # Create and switch to new branch
           git checkout -b $BRANCH_NAME
-          
-          # Create test file
-          echo "Test auto-merge at $(date)" > test-auto-merge.txt
-          echo "This file can be deleted after testing" >> test-auto-merge.txt
-          
-          # Configure git explicitly as github-actions bot
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Commit with explicit author
-          git add test-auto-merge.txt
-          git commit -m "test: auto-merge functionality" \
-            --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          
-          # Push with the token that creates the PR
+          echo "Test $(date)" > test.txt
+          git add test.txt
+          git commit -m "test: auto-merge"
           git push origin $BRANCH_NAME
           
-      - name: Create PR using GitHub API
-        run: |
-          # The PR will be created by whatever token is used here
-          PR_URL=$(gh pr create \
+          # Create PR
+          gh pr create \
             --base auto-approve-merge \
-            --head $BRANCH_NAME \
             --title "Test: Auto-merge workflow" \
-            --body "This is a test PR to verify auto-merge functionality.
-          - Created by: github-actions[bot]
-          - Should trigger: auto-approve and merge workflow
-          - Can be closed if auto-merge fails")
-          
-          echo "Created PR: $PR_URL"
-          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Verify PR details
-        run: |
-          # Extract PR number from URL
-          PR_NUMBER=$(echo $PR_URL | grep -oE '[0-9]+$')
-          
-          # Check the actual commit author
-          echo "Checking commit author on the PR..."
-          gh api repos/${{ github.repository }}/pulls/$PR_NUMBER/commits \
-            --jq '.[0].commit.author'
+            --body "Testing auto-merge functionality"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
