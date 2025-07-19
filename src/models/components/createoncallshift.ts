@@ -15,11 +15,11 @@ export type CreateOnCallShift = {
   /**
    * The start time of the shift in ISO8601 format.
    */
-  startTime: string;
+  startTime: Date;
   /**
    * The end time of the shift in ISO8601 format.
    */
-  endTime: string;
+  endTime: Date;
   /**
    * The ID of the user who is on-call for the shift. If not provided, the shift will be unassigned.
    */
@@ -36,8 +36,8 @@ export const CreateOnCallShift$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  start_time: z.string(),
-  end_time: z.string(),
+  start_time: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  end_time: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   user_id: z.nullable(z.string()).optional(),
   rotation_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -63,8 +63,8 @@ export const CreateOnCallShift$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CreateOnCallShift
 > = z.object({
-  startTime: z.string(),
-  endTime: z.string(),
+  startTime: z.date().transform(v => v.toISOString()),
+  endTime: z.date().transform(v => v.toISOString()),
   userId: z.nullable(z.string()).optional(),
   rotationId: z.nullable(z.string()).optional(),
 }).transform((v) => {

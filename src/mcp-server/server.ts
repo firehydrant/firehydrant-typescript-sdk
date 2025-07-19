@@ -456,7 +456,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.4",
+    version: "1.0.5",
   });
 
   const client = new FirehydrantCore({

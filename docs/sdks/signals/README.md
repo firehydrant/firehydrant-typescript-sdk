@@ -827,8 +827,8 @@ async function run() {
     teamId: "<id>",
     scheduleId: "<id>",
     createOnCallShift: {
-      startTime: "<value>",
-      endTime: "<value>",
+      startTime: new Date("<value>"),
+      endTime: new Date("<value>"),
     },
   });
 
@@ -857,8 +857,8 @@ async function run() {
     teamId: "<id>",
     scheduleId: "<id>",
     createOnCallShift: {
-      startTime: "<value>",
-      endTime: "<value>",
+      startTime: new Date("<value>"),
+      endTime: new Date("<value>"),
     },
   });
   if (res.ok) {
