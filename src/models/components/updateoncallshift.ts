@@ -15,11 +15,11 @@ export type UpdateOnCallShift = {
   /**
    * The start time of the shift in ISO8601 format.
    */
-  startTime?: string | null | undefined;
+  startTime?: Date | null | undefined;
   /**
    * The end time of the shift in ISO8601 format.
    */
-  endTime?: string | null | undefined;
+  endTime?: Date | null | undefined;
   /**
    * The ID of the user who is on-call for the shift. If not provided, the shift will be unassigned.
    */
@@ -36,8 +36,12 @@ export const UpdateOnCallShift$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  start_time: z.nullable(z.string()).optional(),
-  end_time: z.nullable(z.string()).optional(),
+  start_time: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  end_time: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   user_id: z.nullable(z.string()).optional(),
   coverage_request: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -63,8 +67,8 @@ export const UpdateOnCallShift$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateOnCallShift
 > = z.object({
-  startTime: z.nullable(z.string()).optional(),
-  endTime: z.nullable(z.string()).optional(),
+  startTime: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  endTime: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   userId: z.nullable(z.string()).optional(),
   coverageRequest: z.nullable(z.string()).optional(),
 }).transform((v) => {

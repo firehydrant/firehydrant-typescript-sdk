@@ -37,6 +37,21 @@ export type CreateScimUserEmail = {
  */
 export type CreateScimUserRoles = {};
 
+export type CreateScimUserPhoneNumber = {
+  /**
+   * String that represents a phone number for the User
+   */
+  value: string;
+  /**
+   * Type of phone number (mobile, work, home, etc.)
+   */
+  type?: string | null | undefined;
+  /**
+   * Boolean which signifies if a phone number is intended as the primary phone for the User
+   */
+  primary?: boolean | null | undefined;
+};
+
 /**
  * SCIM endpoint to create and provision a new User. This endpoint will provision the User, which allows them to accept their account throught their IDP or via the Forgot Password flow.
  */
@@ -61,6 +76,10 @@ export type CreateScimUser = {
    * This attribute is intended to be used as a means to set, replace, or compare (i.e., filter for equality) a password
    */
   password?: string | null | undefined;
+  /**
+   * Phone numbers for the User
+   */
+  phoneNumbers?: Array<CreateScimUserPhoneNumber> | null | undefined;
 };
 
 /** @internal */
@@ -226,6 +245,66 @@ export function createScimUserRolesFromJSON(
 }
 
 /** @internal */
+export const CreateScimUserPhoneNumber$inboundSchema: z.ZodType<
+  CreateScimUserPhoneNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+  type: z.nullable(z.string()).optional(),
+  primary: z.nullable(z.boolean()).optional(),
+});
+
+/** @internal */
+export type CreateScimUserPhoneNumber$Outbound = {
+  value: string;
+  type?: string | null | undefined;
+  primary?: boolean | null | undefined;
+};
+
+/** @internal */
+export const CreateScimUserPhoneNumber$outboundSchema: z.ZodType<
+  CreateScimUserPhoneNumber$Outbound,
+  z.ZodTypeDef,
+  CreateScimUserPhoneNumber
+> = z.object({
+  value: z.string(),
+  type: z.nullable(z.string()).optional(),
+  primary: z.nullable(z.boolean()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateScimUserPhoneNumber$ {
+  /** @deprecated use `CreateScimUserPhoneNumber$inboundSchema` instead. */
+  export const inboundSchema = CreateScimUserPhoneNumber$inboundSchema;
+  /** @deprecated use `CreateScimUserPhoneNumber$outboundSchema` instead. */
+  export const outboundSchema = CreateScimUserPhoneNumber$outboundSchema;
+  /** @deprecated use `CreateScimUserPhoneNumber$Outbound` instead. */
+  export type Outbound = CreateScimUserPhoneNumber$Outbound;
+}
+
+export function createScimUserPhoneNumberToJSON(
+  createScimUserPhoneNumber: CreateScimUserPhoneNumber,
+): string {
+  return JSON.stringify(
+    CreateScimUserPhoneNumber$outboundSchema.parse(createScimUserPhoneNumber),
+  );
+}
+
+export function createScimUserPhoneNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateScimUserPhoneNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateScimUserPhoneNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateScimUserPhoneNumber' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateScimUser$inboundSchema: z.ZodType<
   CreateScimUser,
   z.ZodTypeDef,
@@ -236,6 +315,9 @@ export const CreateScimUser$inboundSchema: z.ZodType<
   emails: z.array(z.lazy(() => CreateScimUserEmail$inboundSchema)),
   roles: z.nullable(z.lazy(() => CreateScimUserRoles$inboundSchema)).optional(),
   password: z.nullable(z.string()).optional(),
+  phoneNumbers: z.nullable(
+    z.array(z.lazy(() => CreateScimUserPhoneNumber$inboundSchema)),
+  ).optional(),
 });
 
 /** @internal */
@@ -245,6 +327,7 @@ export type CreateScimUser$Outbound = {
   emails: Array<CreateScimUserEmail$Outbound>;
   roles?: CreateScimUserRoles$Outbound | null | undefined;
   password?: string | null | undefined;
+  phoneNumbers?: Array<CreateScimUserPhoneNumber$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -259,6 +342,9 @@ export const CreateScimUser$outboundSchema: z.ZodType<
   roles: z.nullable(z.lazy(() => CreateScimUserRoles$outboundSchema))
     .optional(),
   password: z.nullable(z.string()).optional(),
+  phoneNumbers: z.nullable(
+    z.array(z.lazy(() => CreateScimUserPhoneNumber$outboundSchema)),
+  ).optional(),
 });
 
 /**

@@ -17,13 +17,13 @@ import {
 /**
  * An unstructured object of key/value pairs describing the logic for applying the rule.
  */
-export type TicketingProjectFieldMapCasesEntityLogic = {};
+export type Logic = {};
 
 export type TicketingProjectFieldMapCasesEntity = {
   /**
    * An unstructured object of key/value pairs describing the logic for applying the rule.
    */
-  logic?: TicketingProjectFieldMapCasesEntityLogic | null | undefined;
+  logic?: Logic | null | undefined;
   externalValue?:
     | NullableTicketingProjectFieldMapExternalValueEntity
     | null
@@ -31,61 +31,43 @@ export type TicketingProjectFieldMapCasesEntity = {
 };
 
 /** @internal */
-export const TicketingProjectFieldMapCasesEntityLogic$inboundSchema: z.ZodType<
-  TicketingProjectFieldMapCasesEntityLogic,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
+export const Logic$inboundSchema: z.ZodType<Logic, z.ZodTypeDef, unknown> = z
+  .object({});
 
 /** @internal */
-export type TicketingProjectFieldMapCasesEntityLogic$Outbound = {};
+export type Logic$Outbound = {};
 
 /** @internal */
-export const TicketingProjectFieldMapCasesEntityLogic$outboundSchema: z.ZodType<
-  TicketingProjectFieldMapCasesEntityLogic$Outbound,
+export const Logic$outboundSchema: z.ZodType<
+  Logic$Outbound,
   z.ZodTypeDef,
-  TicketingProjectFieldMapCasesEntityLogic
+  Logic
 > = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TicketingProjectFieldMapCasesEntityLogic$ {
-  /** @deprecated use `TicketingProjectFieldMapCasesEntityLogic$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectFieldMapCasesEntityLogic$inboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapCasesEntityLogic$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectFieldMapCasesEntityLogic$outboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapCasesEntityLogic$Outbound` instead. */
-  export type Outbound = TicketingProjectFieldMapCasesEntityLogic$Outbound;
+export namespace Logic$ {
+  /** @deprecated use `Logic$inboundSchema` instead. */
+  export const inboundSchema = Logic$inboundSchema;
+  /** @deprecated use `Logic$outboundSchema` instead. */
+  export const outboundSchema = Logic$outboundSchema;
+  /** @deprecated use `Logic$Outbound` instead. */
+  export type Outbound = Logic$Outbound;
 }
 
-export function ticketingProjectFieldMapCasesEntityLogicToJSON(
-  ticketingProjectFieldMapCasesEntityLogic:
-    TicketingProjectFieldMapCasesEntityLogic,
-): string {
-  return JSON.stringify(
-    TicketingProjectFieldMapCasesEntityLogic$outboundSchema.parse(
-      ticketingProjectFieldMapCasesEntityLogic,
-    ),
-  );
+export function logicToJSON(logic: Logic): string {
+  return JSON.stringify(Logic$outboundSchema.parse(logic));
 }
 
-export function ticketingProjectFieldMapCasesEntityLogicFromJSON(
+export function logicFromJSON(
   jsonString: string,
-): SafeParseResult<
-  TicketingProjectFieldMapCasesEntityLogic,
-  SDKValidationError
-> {
+): SafeParseResult<Logic, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TicketingProjectFieldMapCasesEntityLogic$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TicketingProjectFieldMapCasesEntityLogic' from JSON`,
+    (x) => Logic$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Logic' from JSON`,
   );
 }
 
@@ -95,9 +77,7 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  logic: z.nullable(
-    z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$inboundSchema),
-  ).optional(),
+  logic: z.nullable(z.lazy(() => Logic$inboundSchema)).optional(),
   external_value: z.nullable(
     NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema,
   ).optional(),
@@ -109,7 +89,7 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
 
 /** @internal */
 export type TicketingProjectFieldMapCasesEntity$Outbound = {
-  logic?: TicketingProjectFieldMapCasesEntityLogic$Outbound | null | undefined;
+  logic?: Logic$Outbound | null | undefined;
   external_value?:
     | NullableTicketingProjectFieldMapExternalValueEntity$Outbound
     | null
@@ -122,9 +102,7 @@ export const TicketingProjectFieldMapCasesEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectFieldMapCasesEntity
 > = z.object({
-  logic: z.nullable(
-    z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$outboundSchema),
-  ).optional(),
+  logic: z.nullable(z.lazy(() => Logic$outboundSchema)).optional(),
   externalValue: z.nullable(
     NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema,
   ).optional(),
