@@ -37,6 +37,21 @@ export type UpdateScimUserEmail = {
  */
 export type UpdateScimUserRoles = {};
 
+export type UpdateScimUserPhoneNumber = {
+  /**
+   * String that represents a phone number for the User
+   */
+  value: string;
+  /**
+   * Type of phone number (mobile, work, home, etc.)
+   */
+  type?: string | null | undefined;
+  /**
+   * Boolean which signifies if a phone number is intended as the primary phone for the User
+   */
+  primary?: boolean | null | undefined;
+};
+
 /**
  * PUT SCIM endpoint to update a User. This endpoint is used to replace a resource's attributes.
  */
@@ -61,6 +76,10 @@ export type UpdateScimUser = {
    * Boolean that represents whether user is active
    */
   active?: boolean | null | undefined;
+  /**
+   * Phone numbers for the User
+   */
+  phoneNumbers?: Array<UpdateScimUserPhoneNumber> | null | undefined;
 };
 
 /** @internal */
@@ -226,6 +245,66 @@ export function updateScimUserRolesFromJSON(
 }
 
 /** @internal */
+export const UpdateScimUserPhoneNumber$inboundSchema: z.ZodType<
+  UpdateScimUserPhoneNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+  type: z.nullable(z.string()).optional(),
+  primary: z.nullable(z.boolean()).optional(),
+});
+
+/** @internal */
+export type UpdateScimUserPhoneNumber$Outbound = {
+  value: string;
+  type?: string | null | undefined;
+  primary?: boolean | null | undefined;
+};
+
+/** @internal */
+export const UpdateScimUserPhoneNumber$outboundSchema: z.ZodType<
+  UpdateScimUserPhoneNumber$Outbound,
+  z.ZodTypeDef,
+  UpdateScimUserPhoneNumber
+> = z.object({
+  value: z.string(),
+  type: z.nullable(z.string()).optional(),
+  primary: z.nullable(z.boolean()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UpdateScimUserPhoneNumber$ {
+  /** @deprecated use `UpdateScimUserPhoneNumber$inboundSchema` instead. */
+  export const inboundSchema = UpdateScimUserPhoneNumber$inboundSchema;
+  /** @deprecated use `UpdateScimUserPhoneNumber$outboundSchema` instead. */
+  export const outboundSchema = UpdateScimUserPhoneNumber$outboundSchema;
+  /** @deprecated use `UpdateScimUserPhoneNumber$Outbound` instead. */
+  export type Outbound = UpdateScimUserPhoneNumber$Outbound;
+}
+
+export function updateScimUserPhoneNumberToJSON(
+  updateScimUserPhoneNumber: UpdateScimUserPhoneNumber,
+): string {
+  return JSON.stringify(
+    UpdateScimUserPhoneNumber$outboundSchema.parse(updateScimUserPhoneNumber),
+  );
+}
+
+export function updateScimUserPhoneNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScimUserPhoneNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScimUserPhoneNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScimUserPhoneNumber' from JSON`,
+  );
+}
+
+/** @internal */
 export const UpdateScimUser$inboundSchema: z.ZodType<
   UpdateScimUser,
   z.ZodTypeDef,
@@ -237,6 +316,9 @@ export const UpdateScimUser$inboundSchema: z.ZodType<
     .optional(),
   roles: z.nullable(z.lazy(() => UpdateScimUserRoles$inboundSchema)).optional(),
   active: z.nullable(z.boolean()).optional(),
+  phoneNumbers: z.nullable(
+    z.array(z.lazy(() => UpdateScimUserPhoneNumber$inboundSchema)),
+  ).optional(),
 });
 
 /** @internal */
@@ -246,6 +328,7 @@ export type UpdateScimUser$Outbound = {
   emails?: Array<UpdateScimUserEmail$Outbound> | null | undefined;
   roles?: UpdateScimUserRoles$Outbound | null | undefined;
   active?: boolean | null | undefined;
+  phoneNumbers?: Array<UpdateScimUserPhoneNumber$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -261,6 +344,9 @@ export const UpdateScimUser$outboundSchema: z.ZodType<
   roles: z.nullable(z.lazy(() => UpdateScimUserRoles$outboundSchema))
     .optional(),
   active: z.nullable(z.boolean()).optional(),
+  phoneNumbers: z.nullable(
+    z.array(z.lazy(() => UpdateScimUserPhoneNumber$outboundSchema)),
+  ).optional(),
 });
 
 /**
