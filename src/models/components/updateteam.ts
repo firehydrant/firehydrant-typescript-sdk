@@ -17,8 +17,18 @@ export type UpdateTeamMsTeamsChannel = {
 };
 
 export type UpdateTeamMembership = {
+  /**
+   * The ID of a user to add to the team. This parameter is mutually exclusive with schedule_id and signals_on_call_schedule_id.
+   */
   userId?: string | null | undefined;
+  /**
+   * The ID of a third-party on-call schedule to add to the team, allowing you to specify that whoever is on call for this schedule when the team is assigned to an incident gets added to the incident and optionally assigned to the configured incident role. This parameter is mutually exclusive with user_id and signals_on_call_schedule_id.
+   */
   scheduleId?: string | null | undefined;
+  /**
+   * The ID of a Signals on-call schedule to add to the team, allowing you to specify that whoever is on call for this schedule when the team is assigned to an incident gets added to the incident and optionally assigned to the configured incident role.. This parameter is mutually exclusive with user_id and schedule_id.
+   */
+  signalsOnCallScheduleId?: string | null | undefined;
   /**
    * An incident role ID that this user will automatically assigned if this team is assigned to an incident
    */
@@ -124,11 +134,13 @@ export const UpdateTeamMembership$inboundSchema: z.ZodType<
 > = z.object({
   user_id: z.nullable(z.string()).optional(),
   schedule_id: z.nullable(z.string()).optional(),
+  signals_on_call_schedule_id: z.nullable(z.string()).optional(),
   incident_role_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "user_id": "userId",
     "schedule_id": "scheduleId",
+    "signals_on_call_schedule_id": "signalsOnCallScheduleId",
     "incident_role_id": "incidentRoleId",
   });
 });
@@ -137,6 +149,7 @@ export const UpdateTeamMembership$inboundSchema: z.ZodType<
 export type UpdateTeamMembership$Outbound = {
   user_id?: string | null | undefined;
   schedule_id?: string | null | undefined;
+  signals_on_call_schedule_id?: string | null | undefined;
   incident_role_id?: string | null | undefined;
 };
 
@@ -148,11 +161,13 @@ export const UpdateTeamMembership$outboundSchema: z.ZodType<
 > = z.object({
   userId: z.nullable(z.string()).optional(),
   scheduleId: z.nullable(z.string()).optional(),
+  signalsOnCallScheduleId: z.nullable(z.string()).optional(),
   incidentRoleId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     userId: "user_id",
     scheduleId: "schedule_id",
+    signalsOnCallScheduleId: "signals_on_call_schedule_id",
     incidentRoleId: "incident_role_id",
   });
 });

@@ -1,12 +1,12 @@
-speakeasyVersion: 1.581.0
+speakeasyVersion: 1.583.0
 sources:
     firehydrant-oas:
         sourceNamespace: firehydrant-oas
-        sourceRevisionDigest: sha256:8c12c752b241dc10e331b39cd8ea6c2696786668ca87acf7bf8d26702ade4b1a
-        sourceBlobDigest: sha256:780c8647ad2ad7441e16770f84736db03ce17ac6e96933f180621b48c1224e64
+        sourceRevisionDigest: sha256:fa6c31f30b224a35fe7a012762013c710723e494d22601c441b1a65584ec664a
+        sourceBlobDigest: sha256:484c7f9b6ce19a105a0794931b98d5f1e1b5fe017ca8a43459a51b5a0d23f1b3
         tags:
             - latest
-            - speakeasy-sdk-regen-1752278869
+            - speakeasy-sdk-regen-1752624505
             - 0.0.1
     firehydrant-typescript-sdk-OAS:
         sourceNamespace: firehydrant-typescript-sdk-oas
@@ -19,10 +19,10 @@ targets:
     firehydrant-typescript-sdk:
         source: firehydrant-oas
         sourceNamespace: firehydrant-oas
-        sourceRevisionDigest: sha256:8c12c752b241dc10e331b39cd8ea6c2696786668ca87acf7bf8d26702ade4b1a
-        sourceBlobDigest: sha256:780c8647ad2ad7441e16770f84736db03ce17ac6e96933f180621b48c1224e64
+        sourceRevisionDigest: sha256:fa6c31f30b224a35fe7a012762013c710723e494d22601c441b1a65584ec664a
+        sourceBlobDigest: sha256:484c7f9b6ce19a105a0794931b98d5f1e1b5fe017ca8a43459a51b5a0d23f1b3
         codeSamplesNamespace: firehydrant-typescript-sdk-oas-code-samples
-        codeSamplesRevisionDigest: sha256:94100d783e22f9f19c6f027133d408a1227a49c74022df04db3495c818646609
+        codeSamplesRevisionDigest: sha256:7599981dd6b75c7342fb0287f6d315dd8bde2da554ab5ad02ee857ec4c512394
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
