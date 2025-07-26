@@ -64,7 +64,7 @@ export type ListAlertsRequest = {
    */
   tagMatchStrategy?: ListAlertsTagMatchStrategy | null | undefined;
   /**
-   * A comma separated list of statuses to filter by. Valid statuses are: opened, acknowledged, resolved, ignored, expired, or linked
+   * A comma separated list of statuses to filter by. Valid statuses are: opened, acknowledged, resolved, ignored, expired, linked, or snoozed
    */
   statuses?: string | null | undefined;
 };
