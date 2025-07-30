@@ -70,6 +70,7 @@ List all of the incidents in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incidents" method="get" path="/v1/incidents" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -138,6 +139,7 @@ Create a new incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident" method="post" path="/v1/incidents" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -210,6 +212,7 @@ Gives chat channel information for the specified incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_channel" method="get" path="/v1/incidents/{incident_id}/channel" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -282,6 +285,7 @@ Closes an incident and optionally close all children
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="close_incident" method="put" path="/v1/incidents/{incident_id}/close" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -354,6 +358,7 @@ Resolves a currently active incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="resolve_incident" method="put" path="/v1/incidents/{incident_id}/resolve" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -426,6 +431,7 @@ Retrieve a single incident from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident" method="get" path="/v1/incidents/{incident_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -498,6 +504,7 @@ Archives an incident which will hide it from lists and metrics
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident" method="delete" path="/v1/incidents/{incident_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -570,6 +577,7 @@ Updates an incident with provided parameters
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident" method="patch" path="/v1/incidents/{incident_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -644,6 +652,7 @@ Unarchive an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="unarchive_incident" method="post" path="/v1/incidents/{incident_id}/unarchive" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -722,6 +731,7 @@ not explicitly submitted or updated in this request.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="bulk_update_incident_milestones" method="put" path="/v1/incidents/{incident_id}/milestones/bulk_update" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -810,6 +820,7 @@ List times and durations for each milestone on an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_milestones" method="get" path="/v1/incidents/{incident_id}/milestones" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -882,6 +893,7 @@ List related changes that have been attached to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_change_events" method="get" path="/v1/incidents/{incident_id}/related_change_events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -954,6 +966,7 @@ Add a related change to an incident. Changes added to an incident can be causes,
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_change_event" method="post" path="/v1/incidents/{incident_id}/related_change_events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1035,6 +1048,7 @@ Update a change attached to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_change_event" method="patch" path="/v1/incidents/{incident_id}/related_change_events/{related_change_event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1112,6 +1126,7 @@ List status pages that are attached to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_status_pages" method="get" path="/v1/incidents/{incident_id}/status_pages" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1184,6 +1199,7 @@ Add a status page to an incident.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_status_page" method="post" path="/v1/incidents/{incident_id}/status_pages" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1264,6 +1280,7 @@ List all the editable, external incident links attached to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_links" method="get" path="/v1/incidents/{incident_id}/links" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1336,6 +1353,7 @@ Allows adding adhoc links to an incident as an attachment
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_link" method="post" path="/v1/incidents/{incident_id}/links" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1414,6 +1432,7 @@ Update the external incident link attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_link" method="put" path="/v1/incidents/{incident_id}/links/{link_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1490,6 +1509,7 @@ Remove a link from an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_link" method="delete" path="/v1/incidents/{incident_id}/links/{link_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1564,6 +1584,7 @@ Update the attribution of a transcript
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_transcript_attribution" method="put" path="/v1/incidents/{incident_id}/transcript/attribution" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1642,6 +1663,7 @@ Retrieve the transcript for a specific incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_transcript_entries" method="get" path="/v1/incidents/{incident_id}/transcript" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1714,6 +1736,7 @@ Delete a transcript from an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_transcript_entry" method="delete" path="/v1/incidents/{incident_id}/transcript/{transcript_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1788,6 +1811,7 @@ Retrieve all conference bridges for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_conference_bridges" method="get" path="/v1/incidents/{incident_id}/conference_bridges" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1860,6 +1884,7 @@ Retrieve the translations for a specific conference bridge
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_conference_bridge_translation" method="get" path="/v1/incidents/{incident_id}/conference_bridges/{id}/translations/{language_code}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1936,6 +1961,7 @@ Retrieve a list of similar incidents
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_similar_incidents" method="get" path="/v1/incidents/{incident_id}/similar" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2008,6 +2034,7 @@ List attachments for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_attachments" method="get" path="/v1/incidents/{incident_id}/attachments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2080,6 +2107,7 @@ Allows adding image attachments to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_attachment" method="post" path="/v1/incidents/{incident_id}/attachments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 import { openAsBlob } from "node:fs";
@@ -2160,6 +2188,7 @@ List all events for an incident. An event is a timeline entry. This can be filte
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_events" method="get" path="/v1/incidents/{incident_id}/events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2232,6 +2261,7 @@ Retrieve a single event for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_event" method="get" path="/v1/incidents/{incident_id}/events/{event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2306,6 +2336,7 @@ Delete an event for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_event" method="delete" path="/v1/incidents/{incident_id}/events/{event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2380,6 +2411,7 @@ Update a single event for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_event" method="patch" path="/v1/incidents/{incident_id}/events/{event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2461,6 +2493,7 @@ impacts will be added or updated, but no impacts will be removed.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_impact_put" method="put" path="/v1/incidents/{incident_id}/impact" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2542,6 +2575,7 @@ impacts will be added or updated, but no impacts will be removed.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_impact_patch" method="patch" path="/v1/incidents/{incident_id}/impact" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2616,6 +2650,7 @@ List impacted infrastructure on an incident by specifying type
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_impacts" method="get" path="/v1/incidents/{incident_id}/impact/{type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2690,6 +2725,7 @@ Add impacted infrastructure to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_impact" method="post" path="/v1/incidents/{incident_id}/impact/{type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2771,6 +2807,7 @@ Remove impacted infrastructure from an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_impact" method="delete" path="/v1/incidents/{incident_id}/impact/{type}/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2848,6 +2885,7 @@ Create a new note on for an incident. The visibility field on a note determines 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_note" method="post" path="/v1/incidents/{incident_id}/notes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2926,6 +2964,7 @@ Updates the body of a note
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_note" method="patch" path="/v1/incidents/{incident_id}/notes/{note_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3006,6 +3045,7 @@ Create a new generic chat message on an incident timeline. These are independent
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_chat_message" method="post" path="/v1/incidents/{incident_id}/generic_chat_messages" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3084,6 +3124,7 @@ Delete an existing generic chat message on an incident.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_chat_message" method="delete" path="/v1/incidents/{incident_id}/generic_chat_messages/{message_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3158,6 +3199,7 @@ Update an existing generic chat message on an incident.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_chat_message" method="patch" path="/v1/incidents/{incident_id}/generic_chat_messages/{message_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3238,6 +3280,7 @@ Retrieve a list of all of the current role assignments for the incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_role_assignments" method="get" path="/v1/incidents/{incident_id}/role_assignments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3310,6 +3353,7 @@ Assign a role to a user for this incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_role_assignment" method="post" path="/v1/incidents/{incident_id}/role_assignments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3390,6 +3434,7 @@ Unassign a role from a user
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_role_assignment" method="delete" path="/v1/incidents/{incident_id}/role_assignments/{role_assignment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3464,6 +3509,7 @@ Assign a team for this incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_team_assignment" method="post" path="/v1/incidents/{incident_id}/team_assignments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3542,6 +3588,7 @@ Unassign a team from an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_team_assignment" method="delete" path="/v1/incidents/{incident_id}/team_assignments/{team_assignment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3616,6 +3663,7 @@ Retrieve a user with current roles for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_user" method="get" path="/v1/incidents/{incident_id}/users/{user_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3690,6 +3738,7 @@ List any parent/child relationships for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_relationships" method="get" path="/v1/incidents/{incident_id}/relationships" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3762,6 +3811,7 @@ Lists all scheduled maintenance events
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_scheduled_maintenances" method="get" path="/v1/scheduled_maintenances" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3830,6 +3880,7 @@ Create a new scheduled maintenance event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_scheduled_maintenance" method="post" path="/v1/scheduled_maintenances" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3907,6 +3958,7 @@ Fetch the details of a scheduled maintenance event.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_scheduled_maintenance" method="get" path="/v1/scheduled_maintenances/{scheduled_maintenance_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3979,6 +4031,7 @@ Delete a scheduled maintenance event, preventing it from taking place.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_scheduled_maintenance" method="delete" path="/v1/scheduled_maintenances/{scheduled_maintenance_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -4051,6 +4104,7 @@ Change the conditions of a scheduled maintenance event, including updating any s
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_scheduled_maintenance" method="patch" path="/v1/scheduled_maintenances/{scheduled_maintenance_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -4125,6 +4179,7 @@ Get the current user's vote status for an AI-generated incident summary
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ai_incident_summary_vote_status" method="get" path="/v1/ai/summarize_incident/{incident_id}/{generated_summary_id}/voted" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -4199,6 +4254,7 @@ Vote on an AI-generated incident summary for the current user
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="vote_ai_incident_summary" method="put" path="/v1/ai/summarize_incident/{incident_id}/{generated_summary_id}/vote" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

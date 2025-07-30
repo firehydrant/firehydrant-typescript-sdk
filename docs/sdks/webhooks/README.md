@@ -20,6 +20,7 @@ Lists webhooks
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_webhooks" method="get" path="/v1/webhooks" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -88,6 +89,7 @@ Create a new webhook
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_webhook" method="post" path="/v1/webhooks" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -160,6 +162,7 @@ Get webhook deliveries
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_webhook_deliveries" method="get" path="/v1/webhooks/{webhook_id}/deliveries" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -232,6 +235,7 @@ Retrieve a specific webhook
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_webhook" method="get" path="/v1/webhooks/{webhook_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -304,6 +308,7 @@ Delete a specific webhook
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_webhook" method="delete" path="/v1/webhooks/{webhook_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -376,6 +381,7 @@ Update a specific webhook
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_webhook" method="patch" path="/v1/webhooks/{webhook_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

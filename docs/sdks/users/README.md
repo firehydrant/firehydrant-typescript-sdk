@@ -17,6 +17,7 @@ Retrieve a list of all users in an organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_users" method="get" path="/v1/users" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -85,6 +86,7 @@ Retrieve a single user by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_user" method="get" path="/v1/users/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -157,6 +159,7 @@ Retrieve the current user
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_current_user" method="get" path="/v1/current_user" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

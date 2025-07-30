@@ -25,6 +25,7 @@ List all audiences
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_audiences" method="get" path="/v1/audiences" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -93,6 +94,7 @@ Create a new audience
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_audience" method="post" path="/v1/audiences" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -179,6 +181,7 @@ Get audience details
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_audience" method="get" path="/v1/audiences/{audience_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -251,6 +254,7 @@ Archive an audience
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="archive_audience" method="delete" path="/v1/audiences/{audience_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -323,6 +327,7 @@ Update an existing audience
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_audience" method="patch" path="/v1/audiences/{audience_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -395,6 +400,7 @@ Restore a previously archived audience
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="restore_audience" method="patch" path="/v1/audiences/{audience_id}/restore" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -467,6 +473,7 @@ Get member's default audience
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_member_default_audience" method="get" path="/v1/audiences/member/{member_id}/default" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -539,6 +546,7 @@ Set member's default audience
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="set_member_default_audience" method="put" path="/v1/audiences/member/{member_id}/default" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -617,6 +625,7 @@ Get the latest audience-specific summary for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_audience_summary" method="get" path="/v1/audiences/{audience_id}/summaries/{incident_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -691,6 +700,7 @@ Generate a new audience-specific summary for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="generate_audience_summary" method="post" path="/v1/audiences/{audience_id}/summaries/{incident_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -765,6 +775,7 @@ List all audience summaries for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_audience_summaries" method="get" path="/v1/audiences/summaries/{incident_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

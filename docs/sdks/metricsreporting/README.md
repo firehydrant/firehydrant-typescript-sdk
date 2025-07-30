@@ -29,6 +29,7 @@ Returns a report with time bucketed analytics data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_mean_time_report" method="get" path="/v1/reports/mean_time" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -97,6 +98,7 @@ Returns a report with retrospective analytics data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_retrospective_metrics" method="get" path="/v1/metrics/retrospectives" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -165,6 +167,7 @@ Returns a report with time bucketed analytics data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_user_involvement_metrics" method="get" path="/v1/metrics/user_involvements" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -233,6 +236,7 @@ Returns a report with time bucketed analytics data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_metrics" method="get" path="/v1/metrics/incidents" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -301,6 +305,7 @@ Returns metrics for all components of a given type
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_infrastructure_type_metrics" method="get" path="/v1/metrics/{infra_type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -373,6 +378,7 @@ Return metrics for a specific component
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_infrastructure_metrics" method="get" path="/v1/metrics/{infra_type}/{infra_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -447,6 +453,7 @@ Retrieve a specific save search
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_saved_search" method="get" path="/v1/saved_searches/{resource_type}/{saved_search_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -521,6 +528,7 @@ Delete a specific saved search
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_saved_search" method="delete" path="/v1/saved_searches/{resource_type}/{saved_search_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -595,6 +603,7 @@ Update a specific saved search
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_saved_search" method="patch" path="/v1/saved_searches/{resource_type}/{saved_search_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -671,6 +680,7 @@ Lists saved searches
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_saved_searches" method="get" path="/v1/saved_searches/{resource_type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -743,6 +753,7 @@ Create a new saved search for a particular resource type
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_saved_search" method="post" path="/v1/saved_searches/{resource_type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -827,6 +838,7 @@ Generate a timeseries-based report of metrics for Signals alerts
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_timeseries_analytics" method="get" path="/v1/signals/analytics/timeseries" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -895,6 +907,7 @@ Generate a report of grouped metrics for Signals alerts
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_grouped_metrics" method="get" path="/v1/signals/analytics/grouped_metrics" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -963,6 +976,7 @@ Get mean-time-to-acknowledged (MTTA) and mean-time-to-resolved (MTTR) metrics fo
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_mttx_analytics" method="get" path="/v1/signals/analytics/mttx" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1031,6 +1045,7 @@ Get noise metrics for Signals alerts
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_noise_analytics" method="get" path="/v1/signals/analytics/noise/metrics" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

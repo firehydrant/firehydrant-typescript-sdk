@@ -20,6 +20,7 @@ List all of the teams in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_teams" method="get" path="/v1/teams" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -88,6 +89,7 @@ Create a new team
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_team" method="post" path="/v1/teams" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -160,6 +162,7 @@ Retrieve a single team from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_team" method="get" path="/v1/teams/{team_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -232,6 +235,7 @@ Archives an team which will hide it from lists and metrics
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_team" method="delete" path="/v1/teams/{team_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -304,6 +308,7 @@ Update a single team from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_team" method="patch" path="/v1/teams/{team_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -378,6 +383,7 @@ List all known schedules in FireHydrant as pulled from external sources
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_schedules" method="get" path="/v1/schedules" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

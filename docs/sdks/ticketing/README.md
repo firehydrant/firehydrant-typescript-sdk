@@ -44,6 +44,7 @@ List all of the tickets that have been added to the organiation
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_tickets" method="get" path="/v1/ticketing/tickets" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -112,6 +113,7 @@ Creates a ticket for a project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_ticket" method="post" path="/v1/ticketing/tickets" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -184,6 +186,7 @@ Retrieves a single ticket by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ticket" method="get" path="/v1/ticketing/tickets/{ticket_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -256,6 +259,7 @@ Archive a ticket
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_ticket" method="delete" path="/v1/ticketing/tickets/{ticket_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -328,6 +332,7 @@ Update a ticket's attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_ticket" method="patch" path="/v1/ticketing/tickets/{ticket_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -402,6 +407,7 @@ List all ticketing projects available to the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_ticketing_projects" method="get" path="/v1/ticketing/projects" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -470,6 +476,7 @@ Retrieve a single ticketing project by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ticketing_project" method="get" path="/v1/ticketing/projects/{ticketing_project_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -542,6 +549,7 @@ List all configuration options for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_configuration_options" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/configuration_options" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -614,6 +622,7 @@ List a field's configuration options for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_options_for_field" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/configuration_options/options_for/{field_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -688,6 +697,7 @@ Returns metadata for the fields that are available for field mapping.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_available_ticketing_field_maps" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/field_maps/available_fields" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -760,6 +770,7 @@ Creates field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_ticketing_field_map" method="post" path="/v1/ticketing/projects/{ticketing_project_id}/field_maps" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -832,6 +843,7 @@ Retrieve field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ticketing_field_map" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/field_maps/{map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -906,6 +918,7 @@ Archive field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_ticketing_field_map" method="delete" path="/v1/ticketing/projects/{ticketing_project_id}/field_maps/{map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -980,6 +993,7 @@ Update field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_ticketing_field_map" method="patch" path="/v1/ticketing/projects/{ticketing_project_id}/field_maps/{map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1054,6 +1068,7 @@ Returns metadata for the fields that are available for inbound field mapping.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_available_inbound_field_maps" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/inbound_field_maps/available_fields" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1126,6 +1141,7 @@ List all inbound field maps for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_inbound_field_maps" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/inbound_field_maps" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1198,6 +1214,7 @@ Creates inbound field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_inbound_field_map" method="post" path="/v1/ticketing/projects/{ticketing_project_id}/inbound_field_maps" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1270,6 +1287,7 @@ Retrieve inbound field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_inbound_field_map" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/inbound_field_maps/{map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1344,6 +1362,7 @@ Update inbound field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_inbound_field_map" method="put" path="/v1/ticketing/projects/{ticketing_project_id}/inbound_field_maps/{map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1418,6 +1437,7 @@ Archive inbound field map for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_inbound_field_map" method="delete" path="/v1/ticketing/projects/{ticketing_project_id}/inbound_field_maps/{map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1492,6 +1512,7 @@ Creates configuration for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_ticketing_project_config" method="post" path="/v1/ticketing/projects/{ticketing_project_id}/provider_project_configurations" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1564,6 +1585,7 @@ Retrieve configuration for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ticketing_project_config" method="get" path="/v1/ticketing/projects/{ticketing_project_id}/provider_project_configurations/{config_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1638,6 +1660,7 @@ Archive configuration for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_ticketing_project_config" method="delete" path="/v1/ticketing/projects/{ticketing_project_id}/provider_project_configurations/{config_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1712,6 +1735,7 @@ Update configuration for a ticketing project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_ticketing_project_config" method="patch" path="/v1/ticketing/projects/{ticketing_project_id}/provider_project_configurations/{config_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1786,6 +1810,7 @@ List all ticketing priorities available to the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_ticketing_priorities" method="get" path="/v1/ticketing/priorities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1853,6 +1878,7 @@ Create a single ticketing priority
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_ticketing_priority" method="post" path="/v1/ticketing/priorities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1925,6 +1951,7 @@ Retrieve a single ticketing priority by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ticketing_priority" method="get" path="/v1/ticketing/priorities/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1997,6 +2024,7 @@ Delete a single ticketing priority by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_ticketing_priority" method="delete" path="/v1/ticketing/priorities/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2069,6 +2097,7 @@ Update a single ticketing priority's attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_ticketing_priority" method="patch" path="/v1/ticketing/priorities/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2143,6 +2172,7 @@ List all of the ticket tags in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_ticket_tags" method="get" path="/v1/ticketing/ticket_tags" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

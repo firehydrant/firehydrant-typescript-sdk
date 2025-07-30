@@ -20,6 +20,7 @@ List call routes for a team
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_team_call_routes" method="get" path="/v1/teams/{team_id}/call_routes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -92,6 +93,7 @@ Create a call route for a team
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_team_call_route" method="post" path="/v1/teams/{team_id}/call_routes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -174,6 +176,7 @@ List call routes for the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_call_routes" method="get" path="/v1/signals/call_routes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -242,6 +245,7 @@ Retrieve a call route by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_call_route" method="get" path="/v1/signals/call_routes/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -314,6 +318,7 @@ Delete a call route by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_call_route" method="delete" path="/v1/signals/call_routes/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -386,6 +391,7 @@ Update a call route by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_call_route" method="patch" path="/v1/signals/call_routes/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
