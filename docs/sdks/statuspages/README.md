@@ -33,6 +33,7 @@ Remove a status page incident attached to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_status_page" method="delete" path="/v1/incidents/{incident_id}/status_pages/{status_page_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -107,6 +108,7 @@ Lists the information displayed as part of your FireHydrant hosted status pages.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_nunc_connections" method="get" path="/v1/nunc_connections" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -174,6 +176,7 @@ Create a new FireHydrant hosted status page for customer facing statuses.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_nunc_connection" method="post" path="/v1/nunc_connections" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -266,6 +269,7 @@ Retrieves the list of subscribers for a status page.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_email_subscribers" method="get" path="/v1/nunc_connections/{nunc_connection_id}/subscribers" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -338,6 +342,7 @@ Subscribes a comma-separated string of emails to status page updates
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_email_subscriber" method="post" path="/v1/nunc_connections/{nunc_connection_id}/subscribers" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -416,6 +421,7 @@ Unsubscribes one or more status page subscribers.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_email_subscriber" method="delete" path="/v1/nunc_connections/{nunc_connection_id}/subscribers" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -490,6 +496,7 @@ Retrieve the information displayed as part of your FireHydrant hosted status pag
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_nunc_connection" method="get" path="/v1/nunc_connections/{nunc_connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -562,6 +569,7 @@ Update your company's information and other components in the specified FireHydr
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_nunc_connection" method="put" path="/v1/nunc_connections/{nunc_connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -664,6 +672,7 @@ Delete a FireHydrant hosted status page, stopping updates of your incidents to i
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_nunc_connection" method="delete" path="/v1/nunc_connections/{nunc_connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -736,6 +745,7 @@ Delete a component group displayed on a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_nunc_component_group" method="delete" path="/v1/nunc_connections/{nunc_connection_id}/component_groups/{group_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -810,6 +820,7 @@ Update a component group to be displayed on a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_nunc_component_group" method="patch" path="/v1/nunc_connections/{nunc_connection_id}/component_groups/{group_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -884,6 +895,7 @@ Add a component group to be displayed on a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_nunc_component_group" method="post" path="/v1/nunc_connections/{nunc_connection_id}/component_groups" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -962,6 +974,7 @@ Delete a link displayed on a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_nunc_link" method="delete" path="/v1/nunc_connections/{nunc_connection_id}/links/{link_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1036,6 +1049,7 @@ Update a link to be displayed on a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_nunc_link" method="patch" path="/v1/nunc_connections/{nunc_connection_id}/links/{link_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1112,6 +1126,7 @@ Add a link to be displayed on a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_nunc_link" method="post" path="/v1/nunc_connections/{nunc_connection_id}/links" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1184,6 +1199,7 @@ Add or replace an image attached to a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_nunc_image" method="put" path="/v1/nunc_connections/{nunc_connection_id}/images/{type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1258,6 +1274,7 @@ Delete an image attached to a FireHydrant status page
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_nunc_image" method="delete" path="/v1/nunc_connections/{nunc_connection_id}/images/{type}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1332,6 +1349,7 @@ Unsubscribe from status page updates
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_nunc_subscription" method="delete" path="/v1/nunc/subscriptions/{unsubscribe_token}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1404,6 +1422,7 @@ Subscribe to status page updates
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_nunc_subscription" method="post" path="/v1/nunc/subscriptions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

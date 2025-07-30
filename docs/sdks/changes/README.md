@@ -28,6 +28,7 @@ List changes for the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_changes" method="get" path="/v1/changes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -96,6 +97,7 @@ Create a new change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_change" method="post" path="/v1/changes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -165,6 +167,7 @@ Archive a change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_change" method="delete" path="/v1/changes/{change_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -237,6 +240,7 @@ Update a change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_change" method="patch" path="/v1/changes/{change_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -311,6 +315,7 @@ Retrieve all identities for the change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_change_identities" method="get" path="/v1/changes/{change_id}/identities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -383,6 +388,7 @@ Create an identity for the change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_change_identity" method="post" path="/v1/changes/{change_id}/identities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -464,6 +470,7 @@ Delete an identity from the change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_change_identity" method="delete" path="/v1/changes/{change_id}/identities/{identity_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -539,6 +546,7 @@ Update an identity for the change entry
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_change_identity" method="patch" path="/v1/changes/{change_id}/identities/{identity_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -622,6 +630,7 @@ List change events for the organization. Note: Not all information is included o
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_change_events" method="get" path="/v1/changes/events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -690,6 +699,7 @@ Create a change event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_change_event" method="post" path="/v1/changes/events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -762,6 +772,7 @@ Retrieve a change event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_change_event" method="get" path="/v1/changes/events/{change_event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -834,6 +845,7 @@ Delete a change event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_change_event" method="delete" path="/v1/changes/events/{change_event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -906,6 +918,7 @@ Update a change event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_change_event" method="patch" path="/v1/changes/events/{change_event_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -980,6 +993,7 @@ List change types for the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_change_types" method="get" path="/v1/change_types" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

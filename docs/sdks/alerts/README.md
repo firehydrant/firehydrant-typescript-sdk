@@ -22,6 +22,7 @@ List alerts that have been attached to an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_alerts" method="get" path="/v1/incidents/{incident_id}/alerts" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -94,6 +95,7 @@ Add an alert to an incident. FireHydrant needs to have ingested the alert from a
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_alert" method="post" path="/v1/incidents/{incident_id}/alerts" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -172,6 +174,7 @@ Setting an alert as primary will overwrite milestone times in the FireHydrant in
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_alert_primary" method="patch" path="/v1/incidents/{incident_id}/alerts/{incident_alert_id}/primary" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -252,6 +255,7 @@ Remove an alert from an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_alert" method="delete" path="/v1/incidents/{incident_id}/alerts/{incident_alert_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -326,6 +330,7 @@ Retrieve all alerts from third parties
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_alerts" method="get" path="/v1/alerts" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -394,6 +399,7 @@ Retrieve a single alert
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_alert" method="get" path="/v1/alerts/{alert_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -466,6 +472,7 @@ Processing Log Entries for a specific alert
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_processing_log_entries" method="get" path="/v1/processing_log_entries" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -534,6 +541,7 @@ Update a Signal alert
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_signals_alert" method="patch" path="/v1/signals/alerts/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

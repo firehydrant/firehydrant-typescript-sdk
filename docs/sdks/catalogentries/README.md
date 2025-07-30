@@ -44,6 +44,7 @@ List all of the environments that have been added to the organiation
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_environments" method="get" path="/v1/environments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -112,6 +113,7 @@ Creates an environment for the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_environment" method="post" path="/v1/environments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -184,6 +186,7 @@ Retrieves a single environment by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_environment" method="get" path="/v1/environments/{environment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -256,6 +259,7 @@ Archive an environment
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_environment" method="delete" path="/v1/environments/{environment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -328,6 +332,7 @@ Update a environments attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_environment" method="patch" path="/v1/environments/{environment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -406,6 +411,7 @@ List all of the services that have been added to the organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_services" method="get" path="/v1/services" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -474,6 +480,7 @@ Creates a service for the organization, you may also create or attach functional
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_service" method="post" path="/v1/services" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -547,6 +554,7 @@ Creates a service with the appropriate integration for each external service ID 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_service_links" method="post" path="/v1/services/service_links" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -623,6 +631,7 @@ Retrieves a single service by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_service" method="get" path="/v1/services/{service_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -695,6 +704,7 @@ Deletes the service from FireHydrant.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_service" method="delete" path="/v1/services/{service_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -769,6 +779,7 @@ Note: You may not remove or add individual label key/value pairs. You must inclu
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_service" method="patch" path="/v1/services/{service_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -843,6 +854,7 @@ Retrieves a service's dependencies
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_service_dependencies" method="get" path="/v1/services/{service_id}/dependencies" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -915,6 +927,7 @@ Retrieves all services that are available to be upstream dependencies
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_service_available_upstream_dependencies" method="get" path="/v1/services/{service_id}/available_upstream_dependencies" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -987,6 +1000,7 @@ Retrieves all services that are available to be downstream dependencies
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_service_available_downstream_dependencies" method="get" path="/v1/services/{service_id}/available_downstream_dependencies" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1059,6 +1073,7 @@ Deletes a service link from FireHydrant.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_service_link" method="delete" path="/v1/services/{service_id}/service_links/{remote_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1133,6 +1148,7 @@ Creates a response for a checklist item
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_service_checklist_response" method="post" path="/v1/services/{service_id}/checklist_response/{checklist_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1215,6 +1231,7 @@ Creates a service dependency relationship between two services
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_service_dependency" method="post" path="/v1/service_dependencies" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1289,6 +1306,7 @@ Retrieves a single service dependency by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_service_dependency" method="get" path="/v1/service_dependencies/{service_dependency_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1361,6 +1379,7 @@ Deletes a single service dependency
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_service_dependency" method="delete" path="/v1/service_dependencies/{service_dependency_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1433,6 +1452,7 @@ Update the notes of the service dependency
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_service_dependency" method="patch" path="/v1/service_dependencies/{service_dependency_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1507,6 +1527,7 @@ List all of the functionalities that have been added to the organiation
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_functionalities" method="get" path="/v1/functionalities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1575,6 +1596,7 @@ Creates a functionality for the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_functionality" method="post" path="/v1/functionalities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1647,6 +1669,7 @@ Retrieves a single functionality by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_functionality" method="get" path="/v1/functionalities/{functionality_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1719,6 +1742,7 @@ Archive a functionality
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_functionality" method="delete" path="/v1/functionalities/{functionality_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1791,6 +1815,7 @@ Update a functionalities attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_functionality" method="patch" path="/v1/functionalities/{functionality_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1865,6 +1890,7 @@ List services for a functionality
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_functionality_services" method="get" path="/v1/functionalities/{functionality_id}/services" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1937,6 +1963,7 @@ Retrieves a list of services owned by the teams a user is on
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_user_owned_services" method="get" path="/v1/users/{id}/services" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2009,6 +2036,7 @@ Lists functionality, service and environment objects
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_infrastructures" method="get" path="/v1/infrastructures" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2077,6 +2105,7 @@ Schedules an async task to re-import catalog info and update catalog data accord
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh_catalog" method="get" path="/v1/catalogs/{catalog_id}/refresh" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2149,6 +2178,7 @@ Accepts catalog data in the configured format and asyncronously processes the da
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="ingest_catalog_data" method="post" path="/v1/catalogs/{catalog_id}/ingest" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

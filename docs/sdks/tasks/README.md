@@ -31,6 +31,7 @@ Add all tasks from list to incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_task_list" method="post" path="/v1/incidents/{incident_id}/task_lists" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -109,6 +110,7 @@ Retrieve a list of all tasks for a specific incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_tasks" method="get" path="/v1/incidents/{incident_id}/tasks" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -181,6 +183,7 @@ Create a task
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_task" method="post" path="/v1/incidents/{incident_id}/tasks" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -259,6 +262,7 @@ Retrieve a single task for an incident
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_task" method="get" path="/v1/incidents/{incident_id}/tasks/{task_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -333,6 +337,7 @@ Delete a task
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_task" method="delete" path="/v1/incidents/{incident_id}/tasks/{task_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -407,6 +412,7 @@ Update a task's attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_task" method="patch" path="/v1/incidents/{incident_id}/tasks/{task_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -483,6 +489,7 @@ Convert a task to a follow-up
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="convert_incident_task" method="post" path="/v1/incidents/{incident_id}/tasks/{task_id}/convert" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -559,6 +566,7 @@ Lists all task lists for your organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_task_lists" method="get" path="/v1/task_lists" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -627,6 +635,7 @@ Creates a new task list
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_task_list" method="post" path="/v1/task_lists" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -709,6 +718,7 @@ Retrieves a single task list by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_task_list" method="get" path="/v1/task_lists/{task_list_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -781,6 +791,7 @@ Delete a task list
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_task_list" method="delete" path="/v1/task_lists/{task_list_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -853,6 +864,7 @@ Updates a task list's attributes and task list items
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_task_list" method="patch" path="/v1/task_lists/{task_list_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -927,6 +939,7 @@ List all of the checklist templates that have been added to the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_checklist_templates" method="get" path="/v1/checklist_templates" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -995,6 +1008,7 @@ Creates a checklist template for the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_checklist_template" method="post" path="/v1/checklist_templates" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1078,6 +1092,7 @@ Retrieves a single checklist template by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_checklist_template" method="get" path="/v1/checklist_templates/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1150,6 +1165,7 @@ Archive a checklist template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_checklist_template" method="delete" path="/v1/checklist_templates/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1222,6 +1238,7 @@ Update a checklist templates attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_checklist_template" method="patch" path="/v1/checklist_templates/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

@@ -19,6 +19,7 @@ List all status update templates for your organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_status_update_templates" method="get" path="/v1/status_update_templates" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -87,6 +88,7 @@ Create a status update template for your organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_status_update_template" method="post" path="/v1/status_update_templates" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -161,6 +163,7 @@ Get a single status update template by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_status_update_template" method="get" path="/v1/status_update_templates/{status_update_template_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -233,6 +236,7 @@ Delete a single status update template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_status_update_template" method="delete" path="/v1/status_update_templates/{status_update_template_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -305,6 +309,7 @@ Update a single status update template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_status_update_template" method="patch" path="/v1/status_update_templates/{status_update_template_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

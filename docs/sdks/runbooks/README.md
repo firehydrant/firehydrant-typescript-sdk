@@ -29,6 +29,7 @@ List all runbook actions available through your connected integrations
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_runbook_actions" method="get" path="/v1/runbooks/actions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -97,6 +98,7 @@ List all runbook executions across all runbooks
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_runbook_executions" method="get" path="/v1/runbooks/executions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -165,6 +167,7 @@ Attaches a runbook to an incident and executes it
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_runbook_execution" method="post" path="/v1/runbooks/executions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -239,6 +242,7 @@ Retrieve a runbook execution by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_runbook_execution" method="get" path="/v1/runbooks/executions/{execution_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -311,6 +315,7 @@ Terminates a runbook execution, preventing any further steps from being executed
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_runbook_execution" method="delete" path="/v1/runbooks/executions/{execution_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -385,6 +390,7 @@ Updates a runbook step execution, especially for changing the state of a step ex
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_runbook_execution_step" method="put" path="/v1/runbooks/executions/{execution_id}/steps/{step_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -465,6 +471,7 @@ Retrieves the bash script from a "script" step.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_runbook_execution_step_script" method="get" path="/v1/runbooks/executions/{execution_id}/steps/{step_id}/script" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -539,6 +546,7 @@ Updates the execution's step.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_runbook_execution_step_script" method="put" path="/v1/runbooks/executions/{execution_id}/steps/{step_id}/script/{state}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -615,6 +623,7 @@ List select options for a runbook integration action field
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_runbook_action_field_options" method="get" path="/v1/runbooks/select_options/{integration_slug}/{action_slug}/{field}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -691,6 +700,7 @@ Lists all available runbooks.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_runbooks" method="get" path="/v1/runbooks" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -759,6 +769,7 @@ Create a new runbook for use with incidents.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_runbook" method="post" path="/v1/runbooks" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -833,6 +844,7 @@ Get a runbook and all its configuration
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_runbook" method="get" path="/v1/runbooks/{runbook_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -907,6 +919,7 @@ about a runbook, including but not limited to the steps, environments, attachmen
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_runbook" method="put" path="/v1/runbooks/{runbook_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -981,6 +994,7 @@ Delete a runbook and make it unavailable for any future incidents.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_runbook" method="delete" path="/v1/runbooks/{runbook_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1053,6 +1067,7 @@ Please contact support to enable audit logging for your account.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_runbook_audits" method="get" path="/v1/runbook_audits" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

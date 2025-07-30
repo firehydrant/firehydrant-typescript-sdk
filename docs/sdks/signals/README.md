@@ -62,6 +62,7 @@ List all Signals escalation policies for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_team_escalation_policies" method="get" path="/v1/teams/{team_id}/escalation_policies" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -134,6 +135,7 @@ Create a Signals escalation policy for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_team_escalation_policy" method="post" path="/v1/teams/{team_id}/escalation_policies" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -214,6 +216,7 @@ Get a Signals escalation policy by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_team_escalation_policy" method="get" path="/v1/teams/{team_id}/escalation_policies/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -288,6 +291,7 @@ Delete a Signals escalation policy by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_team_escalation_policy" method="delete" path="/v1/teams/{team_id}/escalation_policies/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -362,6 +366,7 @@ Update a Signals escalation policy by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_team_escalation_policy" method="patch" path="/v1/teams/{team_id}/escalation_policies/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -438,6 +443,7 @@ List all Signals on-call schedules for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_team_on_call_schedules" method="get" path="/v1/teams/{team_id}/on_call_schedules" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -510,6 +516,7 @@ Create a Signals on-call schedule for a team with a single rotation. More rotati
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_team_on_call_schedule" method="post" path="/v1/teams/{team_id}/on_call_schedules" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -588,6 +595,7 @@ Get a Signals on-call schedule by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_team_on_call_schedule" method="get" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -662,6 +670,7 @@ Delete a Signals on-call schedule by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_team_on_call_schedule" method="delete" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -739,6 +748,7 @@ has only one rotation, you can continue to update that rotation using the rotati
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_team_on_call_schedule" method="patch" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -815,6 +825,7 @@ Create a Signals on-call shift in a schedule.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_on_call_shift" method="post" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/shifts" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -897,6 +908,7 @@ Get a Signals on-call shift by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_on_call_shift" method="get" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/shifts/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -973,6 +985,7 @@ Delete a Signals on-call shift by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_on_call_shift" method="delete" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/shifts/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1049,6 +1062,7 @@ Update a Signals on-call shift by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_on_call_shift" method="patch" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/shifts/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1127,6 +1141,7 @@ List all Signals rules for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_team_signal_rules" method="get" path="/v1/teams/{team_id}/signal_rules" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1199,6 +1214,7 @@ Create a Signals rule for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_team_signal_rule" method="post" path="/v1/teams/{team_id}/signal_rules" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1283,6 +1299,7 @@ Get a Signals rule by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_team_signal_rule" method="get" path="/v1/teams/{team_id}/signal_rules/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1357,6 +1374,7 @@ Delete a Signals rule by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_team_signal_rule" method="delete" path="/v1/teams/{team_id}/signal_rules/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1431,6 +1449,7 @@ Update a Signals rule by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_team_signal_rule" method="patch" path="/v1/teams/{team_id}/signal_rules/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1507,6 +1526,7 @@ List all Signals event sources for the authenticated user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_signals_event_sources" method="get" path="/v1/signals/event_sources" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1575,6 +1595,7 @@ Create a Signals event source for the authenticated user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_signals_event_source" method="put" path="/v1/signals/event_sources" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1653,6 +1674,7 @@ Get a Signals event source by slug
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_event_source" method="get" path="/v1/signals/event_sources/{transposer_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1725,6 +1747,7 @@ Delete a Signals event source by slug
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_signals_event_source" method="delete" path="/v1/signals/event_sources/{transposer_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1797,6 +1820,7 @@ Get the status of the hacker mode for the current user
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_hacker_mode" method="get" path="/v1/signals/hacker_mode" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1864,6 +1888,7 @@ List all Signals alert grouping rules for the organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_signals_alert_grouping_configurations" method="get" path="/v1/signals/grouping" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1931,6 +1956,7 @@ Create a Signals alert grouping rule for the organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_signals_alert_grouping_configuration" method="post" path="/v1/signals/grouping" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2005,6 +2031,7 @@ Get a Signals alert grouping rule by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_alert_grouping_configuration" method="get" path="/v1/signals/grouping/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2077,6 +2104,7 @@ Delete a Signals alert grouping rule by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_signals_alert_grouping_configuration" method="delete" path="/v1/signals/grouping/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2149,6 +2177,7 @@ Update a Signals alert grouping rule for the organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_signals_alert_grouping_configuration" method="patch" path="/v1/signals/grouping/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2223,6 +2252,7 @@ List all Signals email targets for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_signals_email_targets" method="get" path="/v1/signals/email_targets" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2291,6 +2321,7 @@ Create a Signals email target for a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_signals_email_target" method="post" path="/v1/signals/email_targets" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2363,6 +2394,7 @@ Get a Signals email target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_email_target" method="get" path="/v1/signals/email_targets/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2435,6 +2467,7 @@ Delete a Signals email target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_signals_email_target" method="delete" path="/v1/signals/email_targets/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2507,6 +2540,7 @@ Update a Signals email target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_signals_email_target" method="patch" path="/v1/signals/email_targets/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2581,6 +2615,7 @@ List all Signals webhook targets.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_signals_webhook_targets" method="get" path="/v1/signals/webhook_targets" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2649,6 +2684,7 @@ Create a Signals webhook target.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_signals_webhook_target" method="post" path="/v1/signals/webhook_targets" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2723,6 +2759,7 @@ Get a Signals webhook target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_webhook_target" method="get" path="/v1/signals/webhook_targets/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2795,6 +2832,7 @@ Delete a Signals webhook target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_signals_webhook_target" method="delete" path="/v1/signals/webhook_targets/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2867,6 +2905,7 @@ Update a Signals webhook target by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_signals_webhook_target" method="patch" path="/v1/signals/webhook_targets/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2941,6 +2980,7 @@ List all Signals notification policies.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_notification_policy_settings" method="get" path="/v1/signals/notification_policy_items" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3009,6 +3049,7 @@ Create a Signals notification policy.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_handoff_notification_setting" method="post" path="/v1/signals/notification_policy_items" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3085,6 +3126,7 @@ Get a Signals notification policy by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_notification_policy" method="get" path="/v1/signals/notification_policy_items/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3157,6 +3199,7 @@ Delete a Signals notification policy by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_notification_policy" method="delete" path="/v1/signals/notification_policy_items/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3229,6 +3272,7 @@ Update a Signals notification policy by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_notification_policy" method="patch" path="/v1/signals/notification_policy_items/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3301,6 +3345,7 @@ List all transposers for your organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_signals_transposers" method="get" path="/v1/signals/transposers" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3368,6 +3413,7 @@ Retrieve the url for ingesting signals for your organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_signals_ingest_url" method="get" path="/v1/signals/ingest_url" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3436,6 +3482,7 @@ Debug Signals expressions
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="debug_signals_expression" method="post" path="/v1/signals/debugger" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3510,6 +3557,7 @@ List all users who are currently on-call across the entire organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_organization_on_call_schedules" method="get" path="/v1/signals_on_call" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

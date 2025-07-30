@@ -25,6 +25,7 @@ SCIM endpoint that lists a Team (Colloquial for Group in the SCIM protocol)
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_scim_group" method="get" path="/v1/scim/v2/Groups/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -97,6 +98,7 @@ SCIM endpoint to update a Team (Colloquial for Group in the SCIM protocol). Any 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_scim_group" method="put" path="/v1/scim/v2/Groups/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -185,6 +187,7 @@ SCIM endpoint to delete a Team (Colloquial for Group in the SCIM protocol).
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_scim_group" method="delete" path="/v1/scim/v2/Groups/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -257,6 +260,7 @@ SCIM endpoint that lists all Teams (Colloquial for Group in the SCIM protocol)
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_scim_groups" method="get" path="/v1/scim/v2/Groups" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -325,6 +329,7 @@ SCIM endpoint to create a new Team (Colloquial for Group in the SCIM protocol). 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_scim_group" method="post" path="/v1/scim/v2/Groups" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -407,6 +412,7 @@ SCIM endpoint that lists a User
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_scim_user" method="get" path="/v1/scim/v2/Users/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -479,6 +485,7 @@ PUT SCIM endpoint to update a User. This endpoint is used to replace a resource'
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_scim_user" method="put" path="/v1/scim/v2/Users/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -553,6 +560,7 @@ SCIM endpoint to delete a User. This endpoint will deactivate a confirmed User r
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_scim_user" method="delete" path="/v1/scim/v2/Users/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -625,6 +633,7 @@ PATCH SCIM endpoint to update a User. This endpoint is used to update a resource
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="patch_scim_user" method="patch" path="/v1/scim/v2/Users/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -703,6 +712,7 @@ SCIM endpoint that lists users. This endpoint will display a list of Users curre
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_scim_users" method="get" path="/v1/scim/v2/Users" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -771,6 +781,7 @@ SCIM endpoint to create and provision a new User. This endpoint will provision t
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_scim_user" method="post" path="/v1/scim/v2/Users" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

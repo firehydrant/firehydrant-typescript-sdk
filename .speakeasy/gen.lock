@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: 5f0ec54777c11a6c24136f52886e9b22
+  docChecksum: a42aa2746a16bea0ef700d5b8dc8a67e
   docVersion: 0.0.1
-  speakeasyVersion: 1.583.0
-  generationVersion: 2.658.3
-  releaseVersion: 1.0.5
-  configChecksum: 233e2a24d390d2d727e55b10845113f4
+  speakeasyVersion: 1.592.1
+  generationVersion: 2.667.0
+  releaseVersion: 1.0.6
+  configChecksum: 02537cc7bbbfa4dd46d15044c8f2b1dc
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.14
+    core: 3.21.16
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0

@@ -24,6 +24,7 @@ Get an object's current vote counts
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_vote_status" method="get" path="/v1/incidents/{incident_id}/events/{event_id}/votes/status" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -98,6 +99,7 @@ Upvote or downvote an object
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_vote" method="patch" path="/v1/incidents/{incident_id}/events/{event_id}/votes" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -178,6 +180,7 @@ Archive a reaction
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_comment_reaction" method="delete" path="/v1/conversations/{conversation_id}/comments/{comment_id}/reactions/{reaction_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -254,6 +257,7 @@ List all of the reactions that have been added to a comment
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_comment_reactions" method="get" path="/v1/conversations/{conversation_id}/comments/{comment_id}/reactions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -328,6 +332,7 @@ Create a reaction on a comment
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_comment_reaction" method="post" path="/v1/conversations/{conversation_id}/comments/{comment_id}/reactions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -408,6 +413,7 @@ Retrieves a single comment by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_comment" method="get" path="/v1/conversations/{conversation_id}/comments/{comment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -482,6 +488,7 @@ Archive a comment
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_comment" method="delete" path="/v1/conversations/{conversation_id}/comments/{comment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -556,6 +563,7 @@ Update a comment's attributes
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_comment" method="patch" path="/v1/conversations/{conversation_id}/comments/{comment_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -632,6 +640,7 @@ List all of the comments that have been added to the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_comments" method="get" path="/v1/conversations/{conversation_id}/comments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -704,6 +713,7 @@ Creates a comment for a project
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_comment" method="post" path="/v1/conversations/{conversation_id}/comments" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

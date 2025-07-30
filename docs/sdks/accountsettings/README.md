@@ -20,6 +20,7 @@ Simple endpoint to verify your API connection is working
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="ping" method="get" path="/v1/ping" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -87,6 +88,7 @@ List the organization's entitlements
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_entitlements" method="get" path="/v1/entitlements" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -155,6 +157,7 @@ Simple endpoint to verify your API connection is working
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="ping_noauth" method="get" path="/v1/noauth/ping" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -222,6 +225,7 @@ Get initial application configuration
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_bootstrap" method="get" path="/v1/bootstrap" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -289,6 +293,7 @@ Retrieves the current AI preferences
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_ai_preferences" method="get" path="/v1/ai/preferences" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -356,6 +361,7 @@ Updates the AI preferences
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_ai_preferences" method="patch" path="/v1/ai/preferences" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

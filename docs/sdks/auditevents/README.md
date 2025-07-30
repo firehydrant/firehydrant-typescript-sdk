@@ -16,6 +16,7 @@ List audit events
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_audit_events" method="get" path="/v1/audit_events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -84,6 +85,7 @@ Get a single audit event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_audit_event" method="get" path="/v1/audit_events/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

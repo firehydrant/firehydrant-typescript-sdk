@@ -63,6 +63,7 @@ List all of the incident roles in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_roles" method="get" path="/v1/incident_roles" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -131,6 +132,7 @@ Create a new incident role
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_role" method="post" path="/v1/incident_roles" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -205,6 +207,7 @@ Retrieve a single incident role from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_role" method="get" path="/v1/incident_roles/{incident_role_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -277,6 +280,7 @@ Archives an incident role which will hide it from lists and metrics
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_role" method="delete" path="/v1/incident_roles/{incident_role_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -349,6 +353,7 @@ Update a single incident role from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_role" method="patch" path="/v1/incident_roles/{incident_role_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -423,6 +428,7 @@ Validate the format of a list of tags
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="validate_incident_tags" method="post" path="/v1/incident_tags/validate" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -495,6 +501,7 @@ List all of the incident tags in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_tags" method="get" path="/v1/incident_tags" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -563,6 +570,7 @@ List all of the incident types in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_incident_types" method="get" path="/v1/incident_types" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -631,6 +639,7 @@ Create a new incident type
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_incident_type" method="post" path="/v1/incident_types" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -705,6 +714,7 @@ Retrieve a single incident type from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_incident_type" method="get" path="/v1/incident_types/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -777,6 +787,7 @@ Archives an incident type which will hide it from lists and metrics
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_incident_type" method="delete" path="/v1/incident_types/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -849,6 +860,7 @@ Update a single incident type from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_incident_type" method="patch" path="/v1/incident_types/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -929,6 +941,7 @@ List all of the measurement definitions in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_lifecycle_measurement_definitions" method="get" path="/v1/lifecycles/measurement_definitions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -997,6 +1010,7 @@ Create a new measurement definition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_lifecycle_measurement_definition" method="post" path="/v1/lifecycles/measurement_definitions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1073,6 +1087,7 @@ Retrieve a single measurement definition from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_lifecycle_measurement_definition" method="get" path="/v1/lifecycles/measurement_definitions/{measurement_definition_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1145,6 +1160,7 @@ Archives a measurement definition which will hide it from lists and metrics
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_lifecycle_measurement_definition" method="delete" path="/v1/lifecycles/measurement_definitions/{measurement_definition_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1217,6 +1233,7 @@ Update a single measurement definition from its ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_lifecycle_measurement_definition" method="patch" path="/v1/lifecycles/measurement_definitions/{measurement_definition_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1289,6 +1306,7 @@ List all of the lifecycle phases and milestones in the organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_lifecycle_phases" method="get" path="/v1/lifecycles/phases" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1356,6 +1374,7 @@ Create a new milestone
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_lifecycle_milestone" method="post" path="/v1/lifecycles/milestones" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1432,6 +1451,7 @@ Delete a milestone
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_lifecycle_milestone" method="delete" path="/v1/lifecycles/milestones/{milestone_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1504,6 +1524,7 @@ Update a milestone
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_lifecycle_milestone" method="patch" path="/v1/lifecycles/milestones/{milestone_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1576,6 +1597,7 @@ Lists priorities
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_priorities" method="get" path="/v1/priorities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1644,6 +1666,7 @@ Create a new priority
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_priority" method="post" path="/v1/priorities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1716,6 +1739,7 @@ Retrieve a specific priority
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_priority" method="get" path="/v1/priorities/{priority_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1788,6 +1812,7 @@ Delete a specific priority
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_priority" method="delete" path="/v1/priorities/{priority_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1860,6 +1885,7 @@ Update a specific priority
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_priority" method="patch" path="/v1/priorities/{priority_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1934,6 +1960,7 @@ Lists severities
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_severities" method="get" path="/v1/severities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2002,6 +2029,7 @@ Create a new severity
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_severity" method="post" path="/v1/severities" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2074,6 +2102,7 @@ Retrieve a specific severity
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_severity" method="get" path="/v1/severities/{severity_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2146,6 +2175,7 @@ Delete a specific severity
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_severity" method="delete" path="/v1/severities/{severity_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2218,6 +2248,7 @@ Update a specific severity
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_severity" method="patch" path="/v1/severities/{severity_slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2292,6 +2323,7 @@ Retrieve the Severity matrix for your organization and its components and config
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_severity_matrix" method="get" path="/v1/severity_matrix" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2359,6 +2391,7 @@ Update available severities and impacts in your organization's severity matrix.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_severity_matrix" method="patch" path="/v1/severity_matrix" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2431,6 +2464,7 @@ Lists conditions
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_severity_matrix_conditions" method="get" path="/v1/severity_matrix/conditions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2499,6 +2533,7 @@ Create a new condition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_severity_matrix_condition" method="post" path="/v1/severity_matrix/conditions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2571,6 +2606,7 @@ Retrieve a specific condition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_severity_matrix_condition" method="get" path="/v1/severity_matrix/conditions/{condition_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2643,6 +2679,7 @@ Delete a specific condition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_severity_matrix_condition" method="delete" path="/v1/severity_matrix/conditions/{condition_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2715,6 +2752,7 @@ Update a severity matrix condition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_severity_matrix_condition" method="patch" path="/v1/severity_matrix/conditions/{condition_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2789,6 +2827,7 @@ Lists impacts
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_severity_matrix_impacts" method="get" path="/v1/severity_matrix/impacts" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2857,6 +2896,7 @@ Create a new impact
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_severity_matrix_impact" method="post" path="/v1/severity_matrix/impacts" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2931,6 +2971,7 @@ Delete a specific impact
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_severity_matrix_impact" method="delete" path="/v1/severity_matrix/impacts/{impact_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3003,6 +3044,7 @@ Update a severity matrix impact
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_severity_matrix_impact" method="patch" path="/v1/severity_matrix/impacts/{impact_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3077,6 +3119,7 @@ Delete a custom field definition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_custom_field_definition" method="delete" path="/v1/custom_fields/definitions/{field_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3149,6 +3192,7 @@ Update a single custom field definition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_custom_field_definition" method="patch" path="/v1/custom_fields/definitions/{field_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3223,6 +3267,7 @@ List all custom field definitions
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_custom_field_definitions" method="get" path="/v1/custom_fields/definitions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3290,6 +3335,7 @@ Create a new custom field definition
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_custom_field_definition" method="post" path="/v1/custom_fields/definitions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3366,6 +3412,7 @@ Get the permissible values for the a currently active custom select or multi-sel
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_custom_field_select_options" method="get" path="/v1/custom_fields/definitions/{field_id}/select_options" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3438,6 +3485,7 @@ Get data for a form field on select that should be appended to a form by using a
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="append_form_data_on_selected_value_get" method="get" path="/v1/form_configurations/{slug}/append_data_on_select/{field_id}/{selected_value}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -3514,6 +3562,7 @@ Get a form configuration
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_form_configuration" method="get" path="/v1/form_configurations/{slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 

@@ -49,6 +49,7 @@ Lists the available and configured integrations
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_integrations" method="get" path="/v1/integrations" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -116,6 +117,7 @@ Retrieve a single integration
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_integration" method="get" path="/v1/integrations/{integration_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -188,6 +190,7 @@ Update field mapping
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_field_map" method="patch" path="/v1/integrations/field_maps/{field_map_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -260,6 +263,7 @@ Get a description of the fields to which data can be mapped
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_field_map_available_fields" method="get" path="/v1/integrations/field_maps/{field_map_id}/available_fields" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -332,6 +336,7 @@ Lists the available and configured integrations
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_authed_providers" method="get" path="/v1/integrations/authed_providers/{integration_slug}/{connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -406,6 +411,7 @@ Retrieve a single authed provider
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_authed_provider" method="patch" path="/v1/integrations/authed_providers/{integration_slug}/{connection_id}/{authed_provider_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -482,6 +488,7 @@ List available integration connections
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_connections" method="get" path="/v1/integrations/connections" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -550,6 +557,7 @@ Create a new integration connection
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_connection" method="post" path="/v1/integrations/connections/{slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -622,6 +630,7 @@ Refresh the integration connection with the provided data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh_connection" method="patch" path="/v1/integrations/connections/{slug}/{connection_id}/refresh" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -696,6 +705,7 @@ Update the integration connection with the provided data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_connection" method="patch" path="/v1/integrations/connections/{slug}/{connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -770,6 +780,7 @@ Retrieve overall integration connection status
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_connection_statuses" method="get" path="/v1/integrations/statuses" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -837,6 +848,7 @@ Retrieve a single integration connection status
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_connection_statuses_by_slug" method="get" path="/v1/integrations/statuses/{slug}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -909,6 +921,7 @@ Retrieve a single integration connection status
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_connection_statuses_by_slug_and_id" method="get" path="/v1/integrations/statuses/{slug}/{by_connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -983,6 +996,7 @@ Lists the available and configured AWS integration connections for the authentic
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_aws_connections" method="get" path="/v1/integrations/aws/connections" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1051,6 +1065,7 @@ Retrieves the information about the AWS connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_aws_connection" method="get" path="/v1/integrations/aws/connections/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1123,6 +1138,7 @@ Update the AWS connection with the provided data.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_aws_connection" method="patch" path="/v1/integrations/aws/connections/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1197,6 +1213,7 @@ Lists CloudTrail batches for the authenticated organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_aws_cloudtrail_batches" method="get" path="/v1/integrations/aws/cloudtrail_batches" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1265,6 +1282,7 @@ Retrieve a single CloudTrail batch.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_aws_cloudtrail_batch" method="get" path="/v1/integrations/aws/cloudtrail_batches/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1337,6 +1355,7 @@ Update a CloudTrail batch with new information.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_aws_cloudtrail_batch" method="patch" path="/v1/integrations/aws/cloudtrail_batches/{id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1411,6 +1430,7 @@ List events for an AWS CloudTrail batch
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_aws_cloudtrail_batch_events" method="get" path="/v1/integrations/aws/cloudtrail_batches/{id}/events" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1483,6 +1503,7 @@ Lists available space keys for the Confluence integration connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="search_confluence_spaces" method="get" path="/v1/integrations/confluence_cloud/connections/{id}/space/search" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1555,6 +1576,7 @@ Lists all Slack workspaces
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_slack_workspaces" method="get" path="/v1/integrations/slack/connections/{connection_id}/workspaces" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1627,6 +1649,7 @@ Lists all Slack user groups
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_slack_usergroups" method="get" path="/v1/integrations/slack/usergroups" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1694,6 +1717,7 @@ Lists Slack emoji actions
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_slack_emoji_actions" method="get" path="/v1/integrations/slack/connections/{connection_id}/emoji_actions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1766,6 +1790,7 @@ Creates a new Slack emoji action
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create_slack_emoji_action" method="post" path="/v1/integrations/slack/connections/{connection_id}/emoji_actions" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1844,6 +1869,7 @@ Retrieves a Slack emoji action
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_slack_emoji_action" method="get" path="/v1/integrations/slack/connections/{connection_id}/emoji_actions/{emoji_action_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1918,6 +1944,7 @@ Deletes a Slack emoji action
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_slack_emoji_action" method="delete" path="/v1/integrations/slack/connections/{connection_id}/emoji_actions/{emoji_action_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -1992,6 +2019,7 @@ Updates a Slack emoji action
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_slack_emoji_action" method="patch" path="/v1/integrations/slack/connections/{connection_id}/emoji_actions/{emoji_action_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2066,6 +2094,7 @@ Lists the available and configured Statuspage integrations connections for the a
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_statuspage_connections" method="get" path="/v1/integrations/statuspage/connections" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2134,6 +2163,7 @@ Retrieve the information about the Statuspage connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_statuspage_connection" method="get" path="/v1/integrations/statuspage/connections/{connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2206,6 +2236,7 @@ Deletes the given Statuspage integration connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete_statuspage_connection" method="delete" path="/v1/integrations/statuspage/connections/{connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2278,6 +2309,7 @@ Update the given Statuspage integration connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update_statuspage_connection" method="patch" path="/v1/integrations/statuspage/connections/{connection_id}" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2352,6 +2384,7 @@ Lists available page IDs for the Statuspage integration connection.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list_statuspage_connection_pages" method="get" path="/v1/integrations/statuspage/connections/{connection_id}/pages" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2424,6 +2457,7 @@ Search for Zendesk tickets
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="search_zendesk_tickets" method="get" path="/v1/integrations/zendesk/{connection_id}/tickets/search" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
@@ -2498,6 +2532,7 @@ Search for Zendesk tickets
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_zendesk_customer_support_issue" method="get" path="/v1/integrations/zendesk/search" -->
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
 
