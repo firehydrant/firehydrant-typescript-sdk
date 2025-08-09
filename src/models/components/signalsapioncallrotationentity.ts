@@ -44,6 +44,9 @@ import {
   SuccinctEntity$outboundSchema,
 } from "./succinctentity.js";
 
+/**
+ * Signals_API_OnCallRotationEntity model
+ */
 export type SignalsAPIOnCallRotationEntity = {
   id?: string | null | undefined;
   name?: string | null | undefined;
@@ -51,6 +54,9 @@ export type SignalsAPIOnCallRotationEntity = {
   timeZone?: string | null | undefined;
   color?: string | null | undefined;
   slackUserGroupId?: string | null | undefined;
+  enableSlackChannelNotifications?: boolean | null | undefined;
+  preventShiftDeletion?: boolean | null | undefined;
+  coverageGapNotificationInterval?: string | null | undefined;
   members?: Array<SuccinctEntity> | null | undefined;
   shifts?: Array<SignalsAPIOnCallShiftEntity> | null | undefined;
   team?: NullableSuccinctEntity | null | undefined;
@@ -73,6 +79,9 @@ export const SignalsAPIOnCallRotationEntity$inboundSchema: z.ZodType<
   time_zone: z.nullable(z.string()).optional(),
   color: z.nullable(z.string()).optional(),
   slack_user_group_id: z.nullable(z.string()).optional(),
+  enable_slack_channel_notifications: z.nullable(z.boolean()).optional(),
+  prevent_shift_deletion: z.nullable(z.boolean()).optional(),
+  coverage_gap_notification_interval: z.nullable(z.string()).optional(),
   members: z.nullable(z.array(SuccinctEntity$inboundSchema)).optional(),
   shifts: z.nullable(z.array(SignalsAPIOnCallShiftEntity$inboundSchema))
     .optional(),
@@ -93,6 +102,9 @@ export const SignalsAPIOnCallRotationEntity$inboundSchema: z.ZodType<
   return remap$(v, {
     "time_zone": "timeZone",
     "slack_user_group_id": "slackUserGroupId",
+    "enable_slack_channel_notifications": "enableSlackChannelNotifications",
+    "prevent_shift_deletion": "preventShiftDeletion",
+    "coverage_gap_notification_interval": "coverageGapNotificationInterval",
     "created_by": "createdBy",
     "created_at": "createdAt",
     "updated_at": "updatedAt",
@@ -107,6 +119,9 @@ export type SignalsAPIOnCallRotationEntity$Outbound = {
   time_zone?: string | null | undefined;
   color?: string | null | undefined;
   slack_user_group_id?: string | null | undefined;
+  enable_slack_channel_notifications?: boolean | null | undefined;
+  prevent_shift_deletion?: boolean | null | undefined;
+  coverage_gap_notification_interval?: string | null | undefined;
   members?: Array<SuccinctEntity$Outbound> | null | undefined;
   shifts?: Array<SignalsAPIOnCallShiftEntity$Outbound> | null | undefined;
   team?: NullableSuccinctEntity$Outbound | null | undefined;
@@ -132,6 +147,9 @@ export const SignalsAPIOnCallRotationEntity$outboundSchema: z.ZodType<
   timeZone: z.nullable(z.string()).optional(),
   color: z.nullable(z.string()).optional(),
   slackUserGroupId: z.nullable(z.string()).optional(),
+  enableSlackChannelNotifications: z.nullable(z.boolean()).optional(),
+  preventShiftDeletion: z.nullable(z.boolean()).optional(),
+  coverageGapNotificationInterval: z.nullable(z.string()).optional(),
   members: z.nullable(z.array(SuccinctEntity$outboundSchema)).optional(),
   shifts: z.nullable(z.array(SignalsAPIOnCallShiftEntity$outboundSchema))
     .optional(),
@@ -148,6 +166,9 @@ export const SignalsAPIOnCallRotationEntity$outboundSchema: z.ZodType<
   return remap$(v, {
     timeZone: "time_zone",
     slackUserGroupId: "slack_user_group_id",
+    enableSlackChannelNotifications: "enable_slack_channel_notifications",
+    preventShiftDeletion: "prevent_shift_deletion",
+    coverageGapNotificationInterval: "coverage_gap_notification_interval",
     createdBy: "created_by",
     createdAt: "created_at",
     updatedAt: "updated_at",

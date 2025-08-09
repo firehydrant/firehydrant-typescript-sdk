@@ -1,0 +1,15 @@
+# UpdateOnCallScheduleRotationMember
+
+## Example Usage
+
+```typescript
+import { UpdateOnCallScheduleRotationMember } from "firehydrant-typescript-sdk/models/components";
+
+let value: UpdateOnCallScheduleRotationMember = {};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                                          | Type                                                                                                                                                                                                                           | Required                                                                                                                                                                                                                       | Description                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `userId`                                                                                                                                                                                                                       | *string*                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                             | The ID of a user who should be added to the rotation. You can add a user to the rotation<br/>multiple times to construct more complex rotations, and you can specify a `null` user ID to create<br/>unassigned slots in the rotation.<br/> |
