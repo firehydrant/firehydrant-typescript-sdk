@@ -1,0 +1,17 @@
+# PreviewTeamOnCallScheduleType
+
+The type of strategy. Must be one of "daily", "weekly", or "custom".
+
+## Example Usage
+
+```typescript
+import { PreviewTeamOnCallScheduleType } from "firehydrant-typescript-sdk/models/components";
+
+let value: PreviewTeamOnCallScheduleType = "daily";
+```
+
+## Values
+
+```typescript
+"daily" | "weekly" | "custom"
+```
