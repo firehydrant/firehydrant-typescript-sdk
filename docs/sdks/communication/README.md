@@ -245,11 +245,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.communication.deleteStatusUpdateTemplate({
+  await firehydrant.communication.deleteStatusUpdateTemplate({
     statusUpdateTemplateId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -275,7 +275,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("communicationDeleteStatusUpdateTemplate failed:", res.error);
   }
@@ -295,7 +295,7 @@ run();
 
 ### Response
 
-**Promise\<[components.StatusUpdateTemplateEntity](../../models/components/statusupdatetemplateentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

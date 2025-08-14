@@ -31,8 +31,6 @@ Delete a transcript from an incident`,
         };
       }
 
-      const value = result.value;
-
-      return formatResult(value, apiCall);
+      return formatResult(void 0, apiCall);
     },
   };

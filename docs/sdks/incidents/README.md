@@ -513,11 +513,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidents.deleteIncident({
+  await firehydrant.incidents.deleteIncident({
     incidentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -543,7 +543,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentsDeleteIncident failed:", res.error);
   }
@@ -563,7 +563,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IncidentEntity](../../models/components/incidententity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1745,12 +1745,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidents.deleteTranscriptEntry({
+  await firehydrant.incidents.deleteTranscriptEntry({
     transcriptId: "<id>",
     incidentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1777,7 +1777,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentsDeleteTranscriptEntry failed:", res.error);
   }
@@ -1797,7 +1797,7 @@ run();
 
 ### Response
 
-**Promise\<[components.PublicApiv1IncidentsTranscriptEntity](../../models/components/publicapiv1incidentstranscriptentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2345,12 +2345,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidents.deleteIncidentEvent({
+  await firehydrant.incidents.deleteIncidentEvent({
     incidentId: "<id>",
     eventId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2377,7 +2377,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentsDeleteIncidentEvent failed:", res.error);
   }
@@ -2397,7 +2397,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IncidentEventEntity](../../models/components/incidentevententity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -3133,12 +3133,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidents.deleteIncidentChatMessage({
+  await firehydrant.incidents.deleteIncidentChatMessage({
     messageId: "<id>",
     incidentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -3165,7 +3165,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentsDeleteIncidentChatMessage failed:", res.error);
   }
@@ -3185,7 +3185,7 @@ run();
 
 ### Response
 
-**Promise\<[components.EventGenericChatMessageEntity](../../models/components/eventgenericchatmessageentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -3443,12 +3443,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidents.deleteIncidentRoleAssignment({
+  await firehydrant.incidents.deleteIncidentRoleAssignment({
     incidentId: "<id>",
     roleAssignmentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -3475,7 +3475,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentsDeleteIncidentRoleAssignment failed:", res.error);
   }
@@ -3495,7 +3495,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IncidentsRoleAssignmentEntity](../../models/components/incidentsroleassignmententity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

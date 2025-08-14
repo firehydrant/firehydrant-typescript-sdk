@@ -682,11 +682,19 @@ run();
 * [getTeamEscalationPolicy](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
 * [deleteTeamEscalationPolicy](docs/sdks/signals/README.md#deleteteamescalationpolicy) - Delete an escalation policy for a team
 * [updateTeamEscalationPolicy](docs/sdks/signals/README.md#updateteamescalationpolicy) - Update an escalation policy for a team
+* [previewTeamOnCallSchedule](docs/sdks/signals/README.md#previewteamoncallschedule) - Preview a new on-call schedule for a team
 * [listTeamOnCallSchedules](docs/sdks/signals/README.md#listteamoncallschedules) - List on-call schedules for a team
 * [createTeamOnCallSchedule](docs/sdks/signals/README.md#createteamoncallschedule) - Create an on-call schedule for a team
 * [getTeamOnCallSchedule](docs/sdks/signals/README.md#getteamoncallschedule) - Get an on-call schedule for a team
 * [deleteTeamOnCallSchedule](docs/sdks/signals/README.md#deleteteamoncallschedule) - Delete an on-call schedule for a team
 * [updateTeamOnCallSchedule](docs/sdks/signals/README.md#updateteamoncallschedule) - Update an on-call schedule for a team
+* [previewOnCallScheduleRotation](docs/sdks/signals/README.md#previewoncallschedulerotation) - Preview an on-call rotation
+* [createOnCallScheduleRotation](docs/sdks/signals/README.md#createoncallschedulerotation) - Create a new on-call rotation
+* [copyOnCallScheduleRotation](docs/sdks/signals/README.md#copyoncallschedulerotation) - Copy an on-call schedule's rotation
+* [getOnCallScheduleRotation](docs/sdks/signals/README.md#getoncallschedulerotation) - Get an on-call rotation
+* [deleteOnCallScheduleRotation](docs/sdks/signals/README.md#deleteoncallschedulerotation) - Delete an on-call schedule's rotation
+* [updateOnCallScheduleRotation](docs/sdks/signals/README.md#updateoncallschedulerotation) - Update an on-call schedule's rotation
+* [overrideOnCallScheduleRotationShifts](docs/sdks/signals/README.md#overrideoncallschedulerotationshifts) - Override one or more shifts in an on-call rotation
 * [createOnCallShift](docs/sdks/signals/README.md#createoncallshift) - Create a shift for an on-call schedule
 * [getOnCallShift](docs/sdks/signals/README.md#getoncallshift) - Get an on-call shift for a team schedule
 * [deleteOnCallShift](docs/sdks/signals/README.md#deleteoncallshift) - Delete an on-call shift from a team schedule
@@ -1146,7 +1154,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`scimPatchSCIMUser`](docs/sdks/scim/README.md#patchscimuser) - Update a User from SCIM data
 - [`scimUpdateSCIMGroup`](docs/sdks/scim/README.md#updatescimgroup) - Update a SCIM group and assign members
 - [`scimUpdateSCIMUser`](docs/sdks/scim/README.md#updatescimuser) - Update a User from SCIM data
+- [`signalsCopyOnCallScheduleRotation`](docs/sdks/signals/README.md#copyoncallschedulerotation) - Copy an on-call schedule's rotation
 - [`signalsCreateHandoffNotificationSetting`](docs/sdks/signals/README.md#createhandoffnotificationsetting) - Create a notification policy
+- [`signalsCreateOnCallScheduleRotation`](docs/sdks/signals/README.md#createoncallschedulerotation) - Create a new on-call rotation
 - [`signalsCreateOnCallShift`](docs/sdks/signals/README.md#createoncallshift) - Create a shift for an on-call schedule
 - [`signalsCreateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
 - [`signalsCreateSignalsEmailTarget`](docs/sdks/signals/README.md#createsignalsemailtarget) - Create an email target for signals
@@ -1157,6 +1167,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsCreateTeamSignalRule`](docs/sdks/signals/README.md#createteamsignalrule) - Create a Signals rule
 - [`signalsDebugSignalsExpression`](docs/sdks/signals/README.md#debugsignalsexpression) - Debug Signals expressions
 - [`signalsDeleteNotificationPolicy`](docs/sdks/signals/README.md#deletenotificationpolicy) - Delete a notification policy
+- [`signalsDeleteOnCallScheduleRotation`](docs/sdks/signals/README.md#deleteoncallschedulerotation) - Delete an on-call schedule's rotation
 - [`signalsDeleteOnCallShift`](docs/sdks/signals/README.md#deleteoncallshift) - Delete an on-call shift from a team schedule
 - [`signalsDeleteSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#deletesignalsalertgroupingconfiguration) - Delete an alert grouping configuration.
 - [`signalsDeleteSignalsEmailTarget`](docs/sdks/signals/README.md#deletesignalsemailtarget) - Delete a signal email target
@@ -1166,6 +1177,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsDeleteTeamOnCallSchedule`](docs/sdks/signals/README.md#deleteteamoncallschedule) - Delete an on-call schedule for a team
 - [`signalsDeleteTeamSignalRule`](docs/sdks/signals/README.md#deleteteamsignalrule) - Delete a Signals rule
 - [`signalsGetNotificationPolicy`](docs/sdks/signals/README.md#getnotificationpolicy) - Get a notification policy
+- [`signalsGetOnCallScheduleRotation`](docs/sdks/signals/README.md#getoncallschedulerotation) - Get an on-call rotation
 - [`signalsGetOnCallShift`](docs/sdks/signals/README.md#getoncallshift) - Get an on-call shift for a team schedule
 - [`signalsGetSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#getsignalsalertgroupingconfiguration) - Get an alert grouping configuration.
 - [`signalsGetSignalsEmailTarget`](docs/sdks/signals/README.md#getsignalsemailtarget) - Get a signal email target
@@ -1186,7 +1198,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsListTeamEscalationPolicies`](docs/sdks/signals/README.md#listteamescalationpolicies) - List escalation policies for a team
 - [`signalsListTeamOnCallSchedules`](docs/sdks/signals/README.md#listteamoncallschedules) - List on-call schedules for a team
 - [`signalsListTeamSignalRules`](docs/sdks/signals/README.md#listteamsignalrules) - List Signals rules
+- [`signalsOverrideOnCallScheduleRotationShifts`](docs/sdks/signals/README.md#overrideoncallschedulerotationshifts) - Override one or more shifts in an on-call rotation
+- [`signalsPreviewOnCallScheduleRotation`](docs/sdks/signals/README.md#previewoncallschedulerotation) - Preview an on-call rotation
+- [`signalsPreviewTeamOnCallSchedule`](docs/sdks/signals/README.md#previewteamoncallschedule) - Preview a new on-call schedule for a team
 - [`signalsUpdateNotificationPolicy`](docs/sdks/signals/README.md#updatenotificationpolicy) - Update a notification policy
+- [`signalsUpdateOnCallScheduleRotation`](docs/sdks/signals/README.md#updateoncallschedulerotation) - Update an on-call schedule's rotation
 - [`signalsUpdateOnCallShift`](docs/sdks/signals/README.md#updateoncallshift) - Update an on-call shift for a team schedule
 - [`signalsUpdateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#updatesignalsalertgroupingconfiguration) - Update an alert grouping configuration.
 - [`signalsUpdateSignalsEmailTarget`](docs/sdks/signals/README.md#updatesignalsemailtarget) - Update an email target
@@ -1450,7 +1466,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 432 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 440 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -12,11 +13,18 @@ import {
   NullableSignalsAPITargetEntity$Outbound,
   NullableSignalsAPITargetEntity$outboundSchema,
 } from "./nullablesignalsapitargetentity.js";
+import {
+  NullableSuccinctEntity,
+  NullableSuccinctEntity$inboundSchema,
+  NullableSuccinctEntity$Outbound,
+  NullableSuccinctEntity$outboundSchema,
+} from "./nullablesuccinctentity.js";
 
 export type NullableSignalsAPICallRouteStepEntity = {
   target?: NullableSignalsAPITargetEntity | null | undefined;
   position?: number | null | undefined;
   timeout?: string | null | undefined;
+  onCallRotation?: NullableSuccinctEntity | null | undefined;
 };
 
 /** @internal */
@@ -28,6 +36,11 @@ export const NullableSignalsAPICallRouteStepEntity$inboundSchema: z.ZodType<
   target: z.nullable(NullableSignalsAPITargetEntity$inboundSchema).optional(),
   position: z.nullable(z.number().int()).optional(),
   timeout: z.nullable(z.string()).optional(),
+  on_call_rotation: z.nullable(NullableSuccinctEntity$inboundSchema).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "on_call_rotation": "onCallRotation",
+  });
 });
 
 /** @internal */
@@ -35,6 +48,7 @@ export type NullableSignalsAPICallRouteStepEntity$Outbound = {
   target?: NullableSignalsAPITargetEntity$Outbound | null | undefined;
   position?: number | null | undefined;
   timeout?: string | null | undefined;
+  on_call_rotation?: NullableSuccinctEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -46,6 +60,11 @@ export const NullableSignalsAPICallRouteStepEntity$outboundSchema: z.ZodType<
   target: z.nullable(NullableSignalsAPITargetEntity$outboundSchema).optional(),
   position: z.nullable(z.number().int()).optional(),
   timeout: z.nullable(z.string()).optional(),
+  onCallRotation: z.nullable(NullableSuccinctEntity$outboundSchema).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    onCallRotation: "on_call_rotation",
+  });
 });
 
 /**

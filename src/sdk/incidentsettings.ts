@@ -117,7 +117,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteIncidentRole(
     request: operations.DeleteIncidentRoleRequest,
     options?: RequestOptions,
-  ): Promise<components.IncidentRoleEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteIncidentRole(
       this,
       request,
@@ -236,7 +236,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteIncidentType(
     request: operations.DeleteIncidentTypeRequest,
     options?: RequestOptions,
-  ): Promise<components.IncidentTypeEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteIncidentType(
       this,
       request,
@@ -387,7 +387,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteLifecycleMilestone(
     request: operations.DeleteLifecycleMilestoneRequest,
     options?: RequestOptions,
-  ): Promise<components.LifecyclesPhaseEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteLifecycleMilestone(
       this,
       request,
@@ -472,7 +472,7 @@ export class IncidentSettings extends ClientSDK {
   async deletePriority(
     request: operations.DeletePriorityRequest,
     options?: RequestOptions,
-  ): Promise<components.PriorityEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeletePriority(
       this,
       request,
@@ -557,7 +557,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteSeverity(
     request: operations.DeleteSeverityRequest,
     options?: RequestOptions,
-  ): Promise<components.SeverityEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteSeverity(
       this,
       request,
@@ -674,7 +674,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteSeverityMatrixCondition(
     request: operations.DeleteSeverityMatrixConditionRequest,
     options?: RequestOptions,
-  ): Promise<components.SeverityMatrixConditionEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteSeverityMatrixCondition(
       this,
       request,
@@ -742,7 +742,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteSeverityMatrixImpact(
     request: operations.DeleteSeverityMatrixImpactRequest,
     options?: RequestOptions,
-  ): Promise<components.SeverityMatrixImpactEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteSeverityMatrixImpact(
       this,
       request,
@@ -776,7 +776,7 @@ export class IncidentSettings extends ClientSDK {
   async deleteCustomFieldDefinition(
     request: operations.DeleteCustomFieldDefinitionRequest,
     options?: RequestOptions,
-  ): Promise<components.OrganizationsCustomFieldDefinitionEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentSettingsDeleteCustomFieldDefinition(
       this,
       request,

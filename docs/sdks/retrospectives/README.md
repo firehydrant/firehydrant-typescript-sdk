@@ -766,14 +766,14 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.retrospectives.deleteIncidentRetrospectiveDynamicInput({
+  await firehydrant.retrospectives.deleteIncidentRetrospectiveDynamicInput({
     retrospectiveId: "<id>",
     fieldId: "<id>",
     dynamicInputFieldId: "<id>",
     incidentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -802,7 +802,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("retrospectivesDeleteIncidentRetrospectiveDynamicInput failed:", res.error);
   }
@@ -822,7 +822,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IncidentsRetrospectiveFieldEntity](../../models/components/incidentsretrospectivefieldentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1356,12 +1356,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.retrospectives.deletePostMortemReason({
+  await firehydrant.retrospectives.deletePostMortemReason({
     reportId: "<id>",
     reasonId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1388,7 +1388,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("retrospectivesDeletePostMortemReason failed:", res.error);
   }
@@ -1408,7 +1408,7 @@ run();
 
 ### Response
 
-**Promise\<[components.PostMortemsReasonEntity](../../models/components/postmortemsreasonentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2198,11 +2198,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.retrospectives.deleteRetrospectiveTemplate({
+  await firehydrant.retrospectives.deleteRetrospectiveTemplate({
     retrospectiveTemplateId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2228,7 +2228,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("retrospectivesDeleteRetrospectiveTemplate failed:", res.error);
   }
@@ -2248,7 +2248,7 @@ run();
 
 ### Response
 
-**Promise\<[components.RetrospectivesTemplateEntity](../../models/components/retrospectivestemplateentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

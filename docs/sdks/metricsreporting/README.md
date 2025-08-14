@@ -537,12 +537,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.metricsReporting.deleteSavedSearch({
+  await firehydrant.metricsReporting.deleteSavedSearch({
     resourceType: "ticket_follow_ups",
     savedSearchId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -569,7 +569,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("metricsReportingDeleteSavedSearch failed:", res.error);
   }
@@ -589,7 +589,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SavedSearchEntity](../../models/components/savedsearchentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

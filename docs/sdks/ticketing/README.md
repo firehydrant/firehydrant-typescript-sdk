@@ -1669,12 +1669,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.ticketing.deleteTicketingProjectConfig({
+  await firehydrant.ticketing.deleteTicketingProjectConfig({
     ticketingProjectId: "<id>",
     configId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1701,7 +1701,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("ticketingDeleteTicketingProjectConfig failed:", res.error);
   }
@@ -1721,7 +1721,7 @@ run();
 
 ### Response
 
-**Promise\<[components.TicketingProjectConfigEntity](../../models/components/ticketingprojectconfigentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2033,11 +2033,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.ticketing.deleteTicketingPriority({
+  await firehydrant.ticketing.deleteTicketingPriority({
     id: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2063,7 +2063,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("ticketingDeleteTicketingPriority failed:", res.error);
   }
@@ -2083,7 +2083,7 @@ run();
 
 ### Response
 
-**Promise\<[components.TicketingPriorityEntity](../../models/components/ticketingpriorityentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

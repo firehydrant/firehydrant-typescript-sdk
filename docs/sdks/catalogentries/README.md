@@ -268,11 +268,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.catalogEntries.deleteEnvironment({
+  await firehydrant.catalogEntries.deleteEnvironment({
     environmentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -298,7 +298,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("catalogEntriesDeleteEnvironment failed:", res.error);
   }
@@ -318,7 +318,7 @@ run();
 
 ### Response
 
-**Promise\<[components.EnvironmentEntryEntity](../../models/components/environmententryentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -713,11 +713,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.catalogEntries.deleteService({
+  await firehydrant.catalogEntries.deleteService({
     serviceId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -743,7 +743,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("catalogEntriesDeleteService failed:", res.error);
   }
@@ -763,7 +763,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ServiceEntity](../../models/components/serviceentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1388,11 +1388,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.catalogEntries.deleteServiceDependency({
+  await firehydrant.catalogEntries.deleteServiceDependency({
     serviceDependencyId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1418,7 +1418,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("catalogEntriesDeleteServiceDependency failed:", res.error);
   }
@@ -1438,7 +1438,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ServiceDependencyEntity](../../models/components/servicedependencyentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1751,11 +1751,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.catalogEntries.deleteFunctionality({
+  await firehydrant.catalogEntries.deleteFunctionality({
     functionalityId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1781,7 +1781,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("catalogEntriesDeleteFunctionality failed:", res.error);
   }
@@ -1801,7 +1801,7 @@ run();
 
 ### Response
 
-**Promise\<[components.FunctionalityEntity](../../models/components/functionalityentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

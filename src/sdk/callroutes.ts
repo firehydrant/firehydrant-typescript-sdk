@@ -91,7 +91,7 @@ export class CallRoutes extends ClientSDK {
   async deleteCallRoute(
     request: operations.DeleteCallRouteRequest,
     options?: RequestOptions,
-  ): Promise<components.SignalsAPICallRouteEntity> {
+  ): Promise<void> {
     return unwrapAsync(callRoutesDeleteCallRoute(
       this,
       request,

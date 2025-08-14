@@ -430,12 +430,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.statusPages.deleteEmailSubscriber({
+  await firehydrant.statusPages.deleteEmailSubscriber({
     nuncConnectionId: "<id>",
     subscriberIds: "<value>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -462,7 +462,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("statusPagesDeleteEmailSubscriber failed:", res.error);
   }
@@ -482,7 +482,7 @@ run();
 
 ### Response
 
-**Promise\<[components.NuncEmailSubscribersEntity](../../models/components/nuncemailsubscribersentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -681,11 +681,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.statusPages.deleteNuncConnection({
+  await firehydrant.statusPages.deleteNuncConnection({
     nuncConnectionId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -711,7 +711,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("statusPagesDeleteNuncConnection failed:", res.error);
   }
@@ -731,7 +731,7 @@ run();
 
 ### Response
 
-**Promise\<[components.NuncConnectionEntity](../../models/components/nuncconnectionentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1283,12 +1283,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.statusPages.deleteNuncImage({
+  await firehydrant.statusPages.deleteNuncImage({
     nuncConnectionId: "<id>",
     type: "<value>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1315,7 +1315,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("statusPagesDeleteNuncImage failed:", res.error);
   }
@@ -1335,7 +1335,7 @@ run();
 
 ### Response
 
-**Promise\<[components.NuncConnectionEntity](../../models/components/nuncconnectionentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1358,11 +1358,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.statusPages.deleteNuncSubscription({
+  await firehydrant.statusPages.deleteNuncSubscription({
     unsubscribeToken: "<value>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1388,7 +1388,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("statusPagesDeleteNuncSubscription failed:", res.error);
   }
@@ -1408,7 +1408,7 @@ run();
 
 ### Response
 
-**Promise\<[components.NuncNuncSubscription](../../models/components/nuncnuncsubscription.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

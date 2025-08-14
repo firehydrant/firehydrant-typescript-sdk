@@ -119,7 +119,7 @@ export class StatusPages extends ClientSDK {
   async deleteEmailSubscriber(
     request: operations.DeleteEmailSubscriberRequest,
     options?: RequestOptions,
-  ): Promise<components.NuncEmailSubscribersEntity> {
+  ): Promise<void> {
     return unwrapAsync(statusPagesDeleteEmailSubscriber(
       this,
       request,
@@ -170,7 +170,7 @@ export class StatusPages extends ClientSDK {
   async deleteNuncConnection(
     request: operations.DeleteNuncConnectionRequest,
     options?: RequestOptions,
-  ): Promise<components.NuncConnectionEntity> {
+  ): Promise<void> {
     return unwrapAsync(statusPagesDeleteNuncConnection(
       this,
       request,
@@ -306,7 +306,7 @@ export class StatusPages extends ClientSDK {
   async deleteNuncImage(
     request: operations.DeleteNuncImageRequest,
     options?: RequestOptions,
-  ): Promise<components.NuncConnectionEntity> {
+  ): Promise<void> {
     return unwrapAsync(statusPagesDeleteNuncImage(
       this,
       request,
@@ -323,7 +323,7 @@ export class StatusPages extends ClientSDK {
   async deleteNuncSubscription(
     request: operations.DeleteNuncSubscriptionRequest,
     options?: RequestOptions,
-  ): Promise<components.NuncNuncSubscription> {
+  ): Promise<void> {
     return unwrapAsync(statusPagesDeleteNuncSubscription(
       this,
       request,

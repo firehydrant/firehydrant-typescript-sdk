@@ -263,11 +263,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.audiences.archiveAudience({
+  await firehydrant.audiences.archiveAudience({
     audienceId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -293,7 +293,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("audiencesArchiveAudience failed:", res.error);
   }
@@ -313,7 +313,7 @@ run();
 
 ### Response
 
-**Promise\<[components.AudiencesEntitiesAudienceEntity](../../models/components/audiencesentitiesaudienceentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

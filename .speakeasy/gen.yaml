@@ -24,7 +24,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 1.0.6
+  version: 1.0.7
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -63,4 +63,5 @@ typescript:
   packageName: firehydrant-typescript-sdk
   responseFormat: flat
   templateVersion: v2
+  usageSDKInitImports: []
   useIndexModules: true

@@ -34,8 +34,6 @@ Delete a dynamic input on a dynamic input group`,
         };
       }
 
-      const value = result.value;
-
-      return formatResult(value, apiCall);
+      return formatResult(void 0, apiCall);
     },
   };

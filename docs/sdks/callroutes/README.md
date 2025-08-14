@@ -327,11 +327,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.callRoutes.deleteCallRoute({
+  await firehydrant.callRoutes.deleteCallRoute({
     id: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -357,7 +357,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("callRoutesDeleteCallRoute failed:", res.error);
   }
@@ -377,7 +377,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SignalsAPICallRouteEntity](../../models/components/signalsapicallrouteentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

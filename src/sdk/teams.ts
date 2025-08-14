@@ -74,7 +74,7 @@ export class Teams extends ClientSDK {
   async deleteTeam(
     request: operations.DeleteTeamRequest,
     options?: RequestOptions,
-  ): Promise<components.TeamEntity> {
+  ): Promise<void> {
     return unwrapAsync(teamsDeleteTeam(
       this,
       request,

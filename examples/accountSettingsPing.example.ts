@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the firehydrant-typescript-sdk SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx accountSettingsPing.ts
+ * npm run build && npx tsx accountSettingsPing.example.ts
  */
 
 import { Firehydrant } from "firehydrant-typescript-sdk";

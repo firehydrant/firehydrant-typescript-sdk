@@ -32,8 +32,6 @@ Delete an existing generic chat message on an incident.`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };
