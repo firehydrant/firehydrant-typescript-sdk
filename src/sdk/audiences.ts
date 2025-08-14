@@ -79,7 +79,7 @@ export class Audiences extends ClientSDK {
   async archiveAudience(
     request: operations.ArchiveAudienceRequest,
     options?: RequestOptions,
-  ): Promise<components.AudiencesEntitiesAudienceEntity> {
+  ): Promise<void> {
     return unwrapAsync(audiencesArchiveAudience(
       this,
       request,

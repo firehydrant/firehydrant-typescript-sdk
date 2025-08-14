@@ -556,7 +556,7 @@ export class Integrations extends ClientSDK {
   async deleteStatuspageConnection(
     request: operations.DeleteStatuspageConnectionRequest,
     options?: RequestOptions,
-  ): Promise<components.IntegrationsStatuspageConnectionEntity> {
+  ): Promise<void> {
     return unwrapAsync(integrationsDeleteStatuspageConnection(
       this,
       request,

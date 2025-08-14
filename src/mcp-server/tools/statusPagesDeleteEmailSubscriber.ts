@@ -32,8 +32,6 @@ Unsubscribes one or more status page subscribers.`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };

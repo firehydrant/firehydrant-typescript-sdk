@@ -289,11 +289,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteIncidentRole({
+  await firehydrant.incidentSettings.deleteIncidentRole({
     incidentRoleId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -319,7 +319,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteIncidentRole failed:", res.error);
   }
@@ -339,7 +339,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IncidentRoleEntity](../../models/components/incidentroleentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -796,11 +796,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteIncidentType({
+  await firehydrant.incidentSettings.deleteIncidentType({
     id: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -826,7 +826,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteIncidentType failed:", res.error);
   }
@@ -846,7 +846,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IncidentTypeEntity](../../models/components/incidenttypeentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1460,11 +1460,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteLifecycleMilestone({
+  await firehydrant.incidentSettings.deleteLifecycleMilestone({
     milestoneId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1490,7 +1490,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteLifecycleMilestone failed:", res.error);
   }
@@ -1510,7 +1510,7 @@ run();
 
 ### Response
 
-**Promise\<[components.LifecyclesPhaseEntity](../../models/components/lifecyclesphaseentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1821,11 +1821,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deletePriority({
+  await firehydrant.incidentSettings.deletePriority({
     prioritySlug: "<value>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1851,7 +1851,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeletePriority failed:", res.error);
   }
@@ -1871,7 +1871,7 @@ run();
 
 ### Response
 
-**Promise\<[components.PriorityEntity](../../models/components/priorityentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2184,11 +2184,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteSeverity({
+  await firehydrant.incidentSettings.deleteSeverity({
     severitySlug: "<value>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2214,7 +2214,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteSeverity failed:", res.error);
   }
@@ -2234,7 +2234,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SeverityEntity](../../models/components/severityentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2688,11 +2688,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteSeverityMatrixCondition({
+  await firehydrant.incidentSettings.deleteSeverityMatrixCondition({
     conditionId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2718,7 +2718,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteSeverityMatrixCondition failed:", res.error);
   }
@@ -2738,7 +2738,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SeverityMatrixConditionEntity](../../models/components/severitymatrixconditionentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2980,11 +2980,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteSeverityMatrixImpact({
+  await firehydrant.incidentSettings.deleteSeverityMatrixImpact({
     impactId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -3010,7 +3010,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteSeverityMatrixImpact failed:", res.error);
   }
@@ -3030,7 +3030,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SeverityMatrixImpactEntity](../../models/components/severitymatriximpactentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -3128,11 +3128,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.incidentSettings.deleteCustomFieldDefinition({
+  await firehydrant.incidentSettings.deleteCustomFieldDefinition({
     fieldId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -3158,7 +3158,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("incidentSettingsDeleteCustomFieldDefinition failed:", res.error);
   }
@@ -3178,7 +3178,7 @@ run();
 
 ### Response
 
-**Promise\<[components.OrganizationsCustomFieldDefinitionEntity](../../models/components/organizationscustomfielddefinitionentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

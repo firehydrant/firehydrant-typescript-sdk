@@ -31,8 +31,6 @@ Delete a FireHydrant hosted status page, stopping updates of your incidents to i
         };
       }
 
-      const value = result.value;
-
-      return formatResult(value, apiCall);
+      return formatResult(void 0, apiCall);
     },
   };

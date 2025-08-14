@@ -75,6 +75,7 @@ export type TeamEntity = {
   signalsIcalUrl?: string | null | undefined;
   createdBy?: NullableAuthorEntity | null | undefined;
   inSupportHours?: boolean | null | undefined;
+  restrictSignalsResourceManagement?: boolean | null | undefined;
   slackChannel?: NullableIntegrationsSlackSlackChannelEntity | null | undefined;
   msTeamsChannel?:
     | NullableIntegrationsMicrosoftTeamsV2ChannelEntity
@@ -110,6 +111,7 @@ export const TeamEntity$inboundSchema: z.ZodType<
   signals_ical_url: z.nullable(z.string()).optional(),
   created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
   in_support_hours: z.nullable(z.boolean()).optional(),
+  restrict_signals_resource_management: z.nullable(z.boolean()).optional(),
   slack_channel: z.nullable(
     NullableIntegrationsSlackSlackChannelEntity$inboundSchema,
   ).optional(),
@@ -142,6 +144,7 @@ export const TeamEntity$inboundSchema: z.ZodType<
     "signals_ical_url": "signalsIcalUrl",
     "created_by": "createdBy",
     "in_support_hours": "inSupportHours",
+    "restrict_signals_resource_management": "restrictSignalsResourceManagement",
     "slack_channel": "slackChannel",
     "ms_teams_channel": "msTeamsChannel",
     "owned_checklist_templates": "ownedChecklistTemplates",
@@ -164,6 +167,7 @@ export type TeamEntity$Outbound = {
   signals_ical_url?: string | null | undefined;
   created_by?: NullableAuthorEntity$Outbound | null | undefined;
   in_support_hours?: boolean | null | undefined;
+  restrict_signals_resource_management?: boolean | null | undefined;
   slack_channel?:
     | NullableIntegrationsSlackSlackChannelEntity$Outbound
     | null
@@ -207,6 +211,7 @@ export const TeamEntity$outboundSchema: z.ZodType<
   signalsIcalUrl: z.nullable(z.string()).optional(),
   createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
   inSupportHours: z.nullable(z.boolean()).optional(),
+  restrictSignalsResourceManagement: z.nullable(z.boolean()).optional(),
   slackChannel: z.nullable(
     NullableIntegrationsSlackSlackChannelEntity$outboundSchema,
   ).optional(),
@@ -239,6 +244,7 @@ export const TeamEntity$outboundSchema: z.ZodType<
     signalsIcalUrl: "signals_ical_url",
     createdBy: "created_by",
     inSupportHours: "in_support_hours",
+    restrictSignalsResourceManagement: "restrict_signals_resource_management",
     slackChannel: "slack_channel",
     msTeamsChannel: "ms_teams_channel",
     ownedChecklistTemplates: "owned_checklist_templates",

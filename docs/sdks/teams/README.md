@@ -244,11 +244,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.teams.deleteTeam({
+  await firehydrant.teams.deleteTeam({
     teamId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -274,7 +274,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("teamsDeleteTeam failed:", res.error);
   }
@@ -294,7 +294,7 @@ run();
 
 ### Response
 
-**Promise\<[components.TeamEntity](../../models/components/teamentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

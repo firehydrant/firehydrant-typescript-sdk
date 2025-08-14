@@ -204,7 +204,7 @@ export class Tasks extends ClientSDK {
   async deleteTaskList(
     request: operations.DeleteTaskListRequest,
     options?: RequestOptions,
-  ): Promise<components.TaskListEntity> {
+  ): Promise<void> {
     return unwrapAsync(tasksDeleteTaskList(
       this,
       request,
@@ -289,7 +289,7 @@ export class Tasks extends ClientSDK {
   async deleteChecklistTemplate(
     request: operations.DeleteChecklistTemplateRequest,
     options?: RequestOptions,
-  ): Promise<components.ChecklistTemplateEntity> {
+  ): Promise<void> {
     return unwrapAsync(tasksDeleteChecklistTemplate(
       this,
       request,

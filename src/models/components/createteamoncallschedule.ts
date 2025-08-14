@@ -9,6 +9,184 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CreateTeamOnCallScheduleRotationMember = {
+  /**
+   * The ID of a user who should be added to the rotation. You can add a user to the rotation
+   *
+   * @remarks
+   * multiple times to construct more complex rotations, and you can specify a `null` user ID to create
+   * unassigned slots in the rotation.
+   */
+  userId?: string | null | undefined;
+};
+
+/**
+ * The type of strategy. Must be one of "daily", "weekly", or "custom".
+ */
+export const CreateTeamOnCallScheduleRotationType = {
+  Daily: "daily",
+  Weekly: "weekly",
+  Custom: "custom",
+} as const;
+/**
+ * The type of strategy. Must be one of "daily", "weekly", or "custom".
+ */
+export type CreateTeamOnCallScheduleRotationType = ClosedEnum<
+  typeof CreateTeamOnCallScheduleRotationType
+>;
+
+/**
+ * The day of the week on which on-call shifts should hand off, as its long-form name (e.g. "monday", "tuesday", etc). This value is only used if the strategy type is "weekly".
+ */
+export const CreateTeamOnCallScheduleRotationHandoffDay = {
+  Monday: "monday",
+  Tuesday: "tuesday",
+  Wednesday: "wednesday",
+  Thursday: "thursday",
+  Friday: "friday",
+  Saturday: "saturday",
+  Sunday: "sunday",
+} as const;
+/**
+ * The day of the week on which on-call shifts should hand off, as its long-form name (e.g. "monday", "tuesday", etc). This value is only used if the strategy type is "weekly".
+ */
+export type CreateTeamOnCallScheduleRotationHandoffDay = ClosedEnum<
+  typeof CreateTeamOnCallScheduleRotationHandoffDay
+>;
+
+/**
+ * An object that specifies how the rotation's on-call shifts should be generated.
+ */
+export type CreateTeamOnCallScheduleRotationStrategy = {
+  /**
+   * The type of strategy. Must be one of "daily", "weekly", or "custom".
+   */
+  type: CreateTeamOnCallScheduleRotationType;
+  /**
+   * An ISO8601 time string specifying when on-call shifts should hand off. This value is only used if the strategy type is "daily" or "weekly".
+   */
+  handoffTime?: string | null | undefined;
+  /**
+   * The day of the week on which on-call shifts should hand off, as its long-form name (e.g. "monday", "tuesday", etc). This value is only used if the strategy type is "weekly".
+   */
+  handoffDay?: CreateTeamOnCallScheduleRotationHandoffDay | null | undefined;
+  /**
+   * An ISO8601 duration string specifying how long each shift should last. This value is only used if the strategy type is "custom".
+   */
+  shiftDuration?: string | null | undefined;
+};
+
+/**
+ * The day of the week on which the restriction should start, as its long-form name (e.g. "monday", "tuesday", etc).
+ */
+export const CreateTeamOnCallScheduleRotationStartDay = {
+  Monday: "monday",
+  Tuesday: "tuesday",
+  Wednesday: "wednesday",
+  Thursday: "thursday",
+  Friday: "friday",
+  Saturday: "saturday",
+  Sunday: "sunday",
+} as const;
+/**
+ * The day of the week on which the restriction should start, as its long-form name (e.g. "monday", "tuesday", etc).
+ */
+export type CreateTeamOnCallScheduleRotationStartDay = ClosedEnum<
+  typeof CreateTeamOnCallScheduleRotationStartDay
+>;
+
+/**
+ * The day of the week on which the restriction should end, as its long-form name (e.g. "monday", "tuesday", etc).
+ */
+export const CreateTeamOnCallScheduleRotationEndDay = {
+  Monday: "monday",
+  Tuesday: "tuesday",
+  Wednesday: "wednesday",
+  Thursday: "thursday",
+  Friday: "friday",
+  Saturday: "saturday",
+  Sunday: "sunday",
+} as const;
+/**
+ * The day of the week on which the restriction should end, as its long-form name (e.g. "monday", "tuesday", etc).
+ */
+export type CreateTeamOnCallScheduleRotationEndDay = ClosedEnum<
+  typeof CreateTeamOnCallScheduleRotationEndDay
+>;
+
+export type CreateTeamOnCallScheduleRotationRestriction = {
+  /**
+   * The day of the week on which the restriction should start, as its long-form name (e.g. "monday", "tuesday", etc).
+   */
+  startDay: CreateTeamOnCallScheduleRotationStartDay;
+  /**
+   * An ISO8601 time string specifying when the restriction should start.
+   */
+  startTime: string;
+  /**
+   * The day of the week on which the restriction should end, as its long-form name (e.g. "monday", "tuesday", etc).
+   */
+  endDay: CreateTeamOnCallScheduleRotationEndDay;
+  /**
+   * An ISO8601 time string specifying when the restriction should end.
+   */
+  endTime: string;
+};
+
+export type CreateTeamOnCallScheduleRotation = {
+  /**
+   * The name of the on-call rotation
+   */
+  name: string;
+  /**
+   * A detailed description of the on-call schedule.
+   */
+  description?: string | null | undefined;
+  /**
+   * The timezone of the on-call rotation as a string
+   */
+  timeZone: string;
+  /**
+   * The Slack Usergroup ID for the on-call rotation
+   */
+  slackUserGroupId?: string | null | undefined;
+  /**
+   * Notify the team's Slack channel when handoffs occur
+   */
+  enableSlackChannelNotifications?: boolean | null | undefined;
+  /**
+   * Prevent shifts from being deleted by users and leading to gaps in coverage.
+   */
+  preventShiftDeletion?: boolean | null | undefined;
+  /**
+   * An ISO8601 duration string specifying that the team should be notified about gaps in coverage for the upcoming interval. Notifications are sent at 9am daily in the rotation's time zone via email and, if enabled, the team's Slack channel.
+   */
+  coverageGapNotificationInterval?: string | null | undefined;
+  /**
+   * A hex color code that will be used to represent the rotation in FireHydrant's UI.
+   */
+  color?: string | null | undefined;
+  /**
+   * An ordered list of objects that specify members of the schedule's rotation.
+   */
+  members?: Array<CreateTeamOnCallScheduleRotationMember> | null | undefined;
+  /**
+   * An object that specifies how the rotation's on-call shifts should be generated.
+   */
+  strategy: CreateTeamOnCallScheduleRotationStrategy;
+  /**
+   * A list of objects that restrict the rotation to specific on-call periods.
+   */
+  restrictions?:
+    | Array<CreateTeamOnCallScheduleRotationRestriction>
+    | null
+    | undefined;
+  /**
+   * An ISO8601 time string specifying when the initial rotation should start. This value is only used if the rotation's strategy type is "custom".
+   */
+  startTime?: string | null | undefined;
+};
+
 export type CreateTeamOnCallScheduleMember = {
   /**
    * The ID of a user who should be added to the schedule's initial rotation. You can add a user to the
@@ -146,6 +324,10 @@ export type CreateTeamOnCallSchedule = {
    */
   description?: string | null | undefined;
   /**
+   * An array of objects that specify rotations for the schedule. If not provided, the deprecated single-rotation parameters can be used instead, with `time_zone` and `strategy` being required.
+   */
+  rotations?: Array<CreateTeamOnCallScheduleRotation> | null | undefined;
+  /**
    * An optional name for the initial rotation. If not provided, the schedule's name will be used.
    */
   rotationName?: string | null | undefined;
@@ -186,6 +368,479 @@ export type CreateTeamOnCallSchedule = {
    */
   memberIds?: Array<string> | null | undefined;
 };
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationMember$inboundSchema: z.ZodType<
+  CreateTeamOnCallScheduleRotationMember,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  user_id: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "user_id": "userId",
+  });
+});
+
+/** @internal */
+export type CreateTeamOnCallScheduleRotationMember$Outbound = {
+  user_id?: string | null | undefined;
+};
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationMember$outboundSchema: z.ZodType<
+  CreateTeamOnCallScheduleRotationMember$Outbound,
+  z.ZodTypeDef,
+  CreateTeamOnCallScheduleRotationMember
+> = z.object({
+  userId: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    userId: "user_id",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationMember$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationMember$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationMember$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationMember$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationMember$outboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationMember$Outbound` instead. */
+  export type Outbound = CreateTeamOnCallScheduleRotationMember$Outbound;
+}
+
+export function createTeamOnCallScheduleRotationMemberToJSON(
+  createTeamOnCallScheduleRotationMember:
+    CreateTeamOnCallScheduleRotationMember,
+): string {
+  return JSON.stringify(
+    CreateTeamOnCallScheduleRotationMember$outboundSchema.parse(
+      createTeamOnCallScheduleRotationMember,
+    ),
+  );
+}
+
+export function createTeamOnCallScheduleRotationMemberFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateTeamOnCallScheduleRotationMember, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateTeamOnCallScheduleRotationMember$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateTeamOnCallScheduleRotationMember' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationType$inboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationType> = z.nativeEnum(
+    CreateTeamOnCallScheduleRotationType,
+  );
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationType$outboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationType> =
+    CreateTeamOnCallScheduleRotationType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationType$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationType$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationType$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationType$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationType$outboundSchema;
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationHandoffDay> = z
+    .nativeEnum(CreateTeamOnCallScheduleRotationHandoffDay);
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationHandoffDay> =
+    CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationHandoffDay$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema;
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationStrategy$inboundSchema: z.ZodType<
+  CreateTeamOnCallScheduleRotationStrategy,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: CreateTeamOnCallScheduleRotationType$inboundSchema,
+  handoff_time: z.nullable(z.string()).optional(),
+  handoff_day: z.nullable(
+    CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema,
+  ).optional(),
+  shift_duration: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "handoff_time": "handoffTime",
+    "handoff_day": "handoffDay",
+    "shift_duration": "shiftDuration",
+  });
+});
+
+/** @internal */
+export type CreateTeamOnCallScheduleRotationStrategy$Outbound = {
+  type: string;
+  handoff_time?: string | null | undefined;
+  handoff_day?: string | null | undefined;
+  shift_duration?: string | null | undefined;
+};
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationStrategy$outboundSchema: z.ZodType<
+  CreateTeamOnCallScheduleRotationStrategy$Outbound,
+  z.ZodTypeDef,
+  CreateTeamOnCallScheduleRotationStrategy
+> = z.object({
+  type: CreateTeamOnCallScheduleRotationType$outboundSchema,
+  handoffTime: z.nullable(z.string()).optional(),
+  handoffDay: z.nullable(
+    CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema,
+  ).optional(),
+  shiftDuration: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    handoffTime: "handoff_time",
+    handoffDay: "handoff_day",
+    shiftDuration: "shift_duration",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationStrategy$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationStrategy$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationStrategy$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationStrategy$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationStrategy$outboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationStrategy$Outbound` instead. */
+  export type Outbound = CreateTeamOnCallScheduleRotationStrategy$Outbound;
+}
+
+export function createTeamOnCallScheduleRotationStrategyToJSON(
+  createTeamOnCallScheduleRotationStrategy:
+    CreateTeamOnCallScheduleRotationStrategy,
+): string {
+  return JSON.stringify(
+    CreateTeamOnCallScheduleRotationStrategy$outboundSchema.parse(
+      createTeamOnCallScheduleRotationStrategy,
+    ),
+  );
+}
+
+export function createTeamOnCallScheduleRotationStrategyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateTeamOnCallScheduleRotationStrategy,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateTeamOnCallScheduleRotationStrategy$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateTeamOnCallScheduleRotationStrategy' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationStartDay$inboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationStartDay> = z
+    .nativeEnum(CreateTeamOnCallScheduleRotationStartDay);
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationStartDay$outboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationStartDay> =
+    CreateTeamOnCallScheduleRotationStartDay$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationStartDay$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationStartDay$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationStartDay$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationStartDay$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationStartDay$outboundSchema;
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationEndDay$inboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationEndDay> = z.nativeEnum(
+    CreateTeamOnCallScheduleRotationEndDay,
+  );
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationEndDay$outboundSchema:
+  z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationEndDay> =
+    CreateTeamOnCallScheduleRotationEndDay$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationEndDay$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationEndDay$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationEndDay$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationEndDay$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationEndDay$outboundSchema;
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationRestriction$inboundSchema:
+  z.ZodType<
+    CreateTeamOnCallScheduleRotationRestriction,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    start_day: CreateTeamOnCallScheduleRotationStartDay$inboundSchema,
+    start_time: z.string(),
+    end_day: CreateTeamOnCallScheduleRotationEndDay$inboundSchema,
+    end_time: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      "start_day": "startDay",
+      "start_time": "startTime",
+      "end_day": "endDay",
+      "end_time": "endTime",
+    });
+  });
+
+/** @internal */
+export type CreateTeamOnCallScheduleRotationRestriction$Outbound = {
+  start_day: string;
+  start_time: string;
+  end_day: string;
+  end_time: string;
+};
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotationRestriction$outboundSchema:
+  z.ZodType<
+    CreateTeamOnCallScheduleRotationRestriction$Outbound,
+    z.ZodTypeDef,
+    CreateTeamOnCallScheduleRotationRestriction
+  > = z.object({
+    startDay: CreateTeamOnCallScheduleRotationStartDay$outboundSchema,
+    startTime: z.string(),
+    endDay: CreateTeamOnCallScheduleRotationEndDay$outboundSchema,
+    endTime: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      startDay: "start_day",
+      startTime: "start_time",
+      endDay: "end_day",
+      endTime: "end_time",
+    });
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotationRestriction$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotationRestriction$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateTeamOnCallScheduleRotationRestriction$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationRestriction$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateTeamOnCallScheduleRotationRestriction$outboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotationRestriction$Outbound` instead. */
+  export type Outbound = CreateTeamOnCallScheduleRotationRestriction$Outbound;
+}
+
+export function createTeamOnCallScheduleRotationRestrictionToJSON(
+  createTeamOnCallScheduleRotationRestriction:
+    CreateTeamOnCallScheduleRotationRestriction,
+): string {
+  return JSON.stringify(
+    CreateTeamOnCallScheduleRotationRestriction$outboundSchema.parse(
+      createTeamOnCallScheduleRotationRestriction,
+    ),
+  );
+}
+
+export function createTeamOnCallScheduleRotationRestrictionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateTeamOnCallScheduleRotationRestriction,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateTeamOnCallScheduleRotationRestriction$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateTeamOnCallScheduleRotationRestriction' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotation$inboundSchema: z.ZodType<
+  CreateTeamOnCallScheduleRotation,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  name: z.string(),
+  description: z.nullable(z.string()).optional(),
+  time_zone: z.string(),
+  slack_user_group_id: z.nullable(z.string()).optional(),
+  enable_slack_channel_notifications: z.nullable(z.boolean()).optional(),
+  prevent_shift_deletion: z.nullable(z.boolean()).optional(),
+  coverage_gap_notification_interval: z.nullable(z.string()).optional(),
+  color: z.nullable(z.string()).optional(),
+  members: z.nullable(
+    z.array(z.lazy(() => CreateTeamOnCallScheduleRotationMember$inboundSchema)),
+  ).optional(),
+  strategy: z.lazy(() =>
+    CreateTeamOnCallScheduleRotationStrategy$inboundSchema
+  ),
+  restrictions: z.nullable(
+    z.array(z.lazy(() =>
+      CreateTeamOnCallScheduleRotationRestriction$inboundSchema
+    )),
+  ).optional(),
+  start_time: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "time_zone": "timeZone",
+    "slack_user_group_id": "slackUserGroupId",
+    "enable_slack_channel_notifications": "enableSlackChannelNotifications",
+    "prevent_shift_deletion": "preventShiftDeletion",
+    "coverage_gap_notification_interval": "coverageGapNotificationInterval",
+    "start_time": "startTime",
+  });
+});
+
+/** @internal */
+export type CreateTeamOnCallScheduleRotation$Outbound = {
+  name: string;
+  description?: string | null | undefined;
+  time_zone: string;
+  slack_user_group_id?: string | null | undefined;
+  enable_slack_channel_notifications?: boolean | null | undefined;
+  prevent_shift_deletion?: boolean | null | undefined;
+  coverage_gap_notification_interval?: string | null | undefined;
+  color?: string | null | undefined;
+  members?:
+    | Array<CreateTeamOnCallScheduleRotationMember$Outbound>
+    | null
+    | undefined;
+  strategy: CreateTeamOnCallScheduleRotationStrategy$Outbound;
+  restrictions?:
+    | Array<CreateTeamOnCallScheduleRotationRestriction$Outbound>
+    | null
+    | undefined;
+  start_time?: string | null | undefined;
+};
+
+/** @internal */
+export const CreateTeamOnCallScheduleRotation$outboundSchema: z.ZodType<
+  CreateTeamOnCallScheduleRotation$Outbound,
+  z.ZodTypeDef,
+  CreateTeamOnCallScheduleRotation
+> = z.object({
+  name: z.string(),
+  description: z.nullable(z.string()).optional(),
+  timeZone: z.string(),
+  slackUserGroupId: z.nullable(z.string()).optional(),
+  enableSlackChannelNotifications: z.nullable(z.boolean()).optional(),
+  preventShiftDeletion: z.nullable(z.boolean()).optional(),
+  coverageGapNotificationInterval: z.nullable(z.string()).optional(),
+  color: z.nullable(z.string()).optional(),
+  members: z.nullable(
+    z.array(
+      z.lazy(() => CreateTeamOnCallScheduleRotationMember$outboundSchema),
+    ),
+  ).optional(),
+  strategy: z.lazy(() =>
+    CreateTeamOnCallScheduleRotationStrategy$outboundSchema
+  ),
+  restrictions: z.nullable(
+    z.array(z.lazy(() =>
+      CreateTeamOnCallScheduleRotationRestriction$outboundSchema
+    )),
+  ).optional(),
+  startTime: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    timeZone: "time_zone",
+    slackUserGroupId: "slack_user_group_id",
+    enableSlackChannelNotifications: "enable_slack_channel_notifications",
+    preventShiftDeletion: "prevent_shift_deletion",
+    coverageGapNotificationInterval: "coverage_gap_notification_interval",
+    startTime: "start_time",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateTeamOnCallScheduleRotation$ {
+  /** @deprecated use `CreateTeamOnCallScheduleRotation$inboundSchema` instead. */
+  export const inboundSchema = CreateTeamOnCallScheduleRotation$inboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotation$outboundSchema` instead. */
+  export const outboundSchema = CreateTeamOnCallScheduleRotation$outboundSchema;
+  /** @deprecated use `CreateTeamOnCallScheduleRotation$Outbound` instead. */
+  export type Outbound = CreateTeamOnCallScheduleRotation$Outbound;
+}
+
+export function createTeamOnCallScheduleRotationToJSON(
+  createTeamOnCallScheduleRotation: CreateTeamOnCallScheduleRotation,
+): string {
+  return JSON.stringify(
+    CreateTeamOnCallScheduleRotation$outboundSchema.parse(
+      createTeamOnCallScheduleRotation,
+    ),
+  );
+}
+
+export function createTeamOnCallScheduleRotationFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateTeamOnCallScheduleRotation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateTeamOnCallScheduleRotation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateTeamOnCallScheduleRotation' from JSON`,
+  );
+}
 
 /** @internal */
 export const CreateTeamOnCallScheduleMember$inboundSchema: z.ZodType<
@@ -505,6 +1160,9 @@ export const CreateTeamOnCallSchedule$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
+  rotations: z.nullable(
+    z.array(z.lazy(() => CreateTeamOnCallScheduleRotation$inboundSchema)),
+  ).optional(),
   rotation_name: z.nullable(z.string()).optional(),
   rotation_description: z.nullable(z.string()).optional(),
   color: z.nullable(z.string()).optional(),
@@ -536,6 +1194,10 @@ export const CreateTeamOnCallSchedule$inboundSchema: z.ZodType<
 export type CreateTeamOnCallSchedule$Outbound = {
   name: string;
   description?: string | null | undefined;
+  rotations?:
+    | Array<CreateTeamOnCallScheduleRotation$Outbound>
+    | null
+    | undefined;
   rotation_name?: string | null | undefined;
   rotation_description?: string | null | undefined;
   color?: string | null | undefined;
@@ -559,6 +1221,9 @@ export const CreateTeamOnCallSchedule$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
+  rotations: z.nullable(
+    z.array(z.lazy(() => CreateTeamOnCallScheduleRotation$outboundSchema)),
+  ).optional(),
   rotationName: z.nullable(z.string()).optional(),
   rotationDescription: z.nullable(z.string()).optional(),
   color: z.nullable(z.string()).optional(),

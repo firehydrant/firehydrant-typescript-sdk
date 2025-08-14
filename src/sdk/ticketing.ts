@@ -421,7 +421,7 @@ export class Ticketing extends ClientSDK {
   async deleteTicketingProjectConfig(
     request: operations.DeleteTicketingProjectConfigRequest,
     options?: RequestOptions,
-  ): Promise<components.TicketingProjectConfigEntity> {
+  ): Promise<void> {
     return unwrapAsync(ticketingDeleteTicketingProjectConfig(
       this,
       request,
@@ -504,7 +504,7 @@ export class Ticketing extends ClientSDK {
   async deleteTicketingPriority(
     request: operations.DeleteTicketingPriorityRequest,
     options?: RequestOptions,
-  ): Promise<components.TicketingPriorityEntity> {
+  ): Promise<void> {
     return unwrapAsync(ticketingDeleteTicketingPriority(
       this,
       request,

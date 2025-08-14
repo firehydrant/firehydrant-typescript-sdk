@@ -200,7 +200,7 @@ export class Retrospectives extends ClientSDK {
   async deleteIncidentRetrospectiveDynamicInput(
     request: operations.DeleteIncidentRetrospectiveDynamicInputRequest,
     options?: RequestOptions,
-  ): Promise<components.IncidentsRetrospectiveFieldEntity> {
+  ): Promise<void> {
     return unwrapAsync(retrospectivesDeleteIncidentRetrospectiveDynamicInput(
       this,
       request,
@@ -336,7 +336,7 @@ export class Retrospectives extends ClientSDK {
   async deletePostMortemReason(
     request: operations.DeletePostMortemReasonRequest,
     options?: RequestOptions,
-  ): Promise<components.PostMortemsReasonEntity> {
+  ): Promise<void> {
     return unwrapAsync(retrospectivesDeletePostMortemReason(
       this,
       request,
@@ -523,7 +523,7 @@ export class Retrospectives extends ClientSDK {
   async deleteRetrospectiveTemplate(
     request: operations.DeleteRetrospectiveTemplateRequest,
     options?: RequestOptions,
-  ): Promise<components.RetrospectivesTemplateEntity> {
+  ): Promise<void> {
     return unwrapAsync(retrospectivesDeleteRetrospectiveTemplate(
       this,
       request,

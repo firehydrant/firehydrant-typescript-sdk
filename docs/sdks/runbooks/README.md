@@ -1003,11 +1003,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.runbooks.deleteRunbook({
+  await firehydrant.runbooks.deleteRunbook({
     runbookId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1033,7 +1033,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("runbooksDeleteRunbook failed:", res.error);
   }
@@ -1053,7 +1053,7 @@ run();
 
 ### Response
 
-**Promise\<[components.RunbookEntity](../../models/components/runbookentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

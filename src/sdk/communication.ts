@@ -73,7 +73,7 @@ export class Communication extends ClientSDK {
   async deleteStatusUpdateTemplate(
     request: operations.DeleteStatusUpdateTemplateRequest,
     options?: RequestOptions,
-  ): Promise<components.StatusUpdateTemplateEntity> {
+  ): Promise<void> {
     return unwrapAsync(communicationDeleteStatusUpdateTemplate(
       this,
       request,

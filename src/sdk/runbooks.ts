@@ -254,7 +254,7 @@ export class Runbooks extends ClientSDK {
   async deleteRunbook(
     request: operations.DeleteRunbookRequest,
     options?: RequestOptions,
-  ): Promise<components.RunbookEntity> {
+  ): Promise<void> {
     return unwrapAsync(runbooksDeleteRunbook(
       this,
       request,

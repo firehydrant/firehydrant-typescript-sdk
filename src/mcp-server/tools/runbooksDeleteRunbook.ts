@@ -30,8 +30,6 @@ Delete a runbook and make it unavailable for any future incidents.`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };

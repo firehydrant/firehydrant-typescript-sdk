@@ -98,7 +98,7 @@ export class CatalogEntries extends ClientSDK {
   async deleteEnvironment(
     request: operations.DeleteEnvironmentRequest,
     options?: RequestOptions,
-  ): Promise<components.EnvironmentEntryEntity> {
+  ): Promise<void> {
     return unwrapAsync(catalogEntriesDeleteEnvironment(
       this,
       request,
@@ -200,7 +200,7 @@ export class CatalogEntries extends ClientSDK {
   async deleteService(
     request: operations.DeleteServiceRequest,
     options?: RequestOptions,
-  ): Promise<components.ServiceEntity> {
+  ): Promise<void> {
     return unwrapAsync(catalogEntriesDeleteService(
       this,
       request,
@@ -354,7 +354,7 @@ export class CatalogEntries extends ClientSDK {
   async deleteServiceDependency(
     request: operations.DeleteServiceDependencyRequest,
     options?: RequestOptions,
-  ): Promise<components.ServiceDependencyEntity> {
+  ): Promise<void> {
     return unwrapAsync(catalogEntriesDeleteServiceDependency(
       this,
       request,
@@ -439,7 +439,7 @@ export class CatalogEntries extends ClientSDK {
   async deleteFunctionality(
     request: operations.DeleteFunctionalityRequest,
     options?: RequestOptions,
-  ): Promise<components.FunctionalityEntity> {
+  ): Promise<void> {
     return unwrapAsync(catalogEntriesDeleteFunctionality(
       this,
       request,

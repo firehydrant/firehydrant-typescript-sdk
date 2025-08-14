@@ -30,8 +30,6 @@ Delete an image attached to a FireHydrant status page`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };

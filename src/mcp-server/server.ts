@@ -316,7 +316,9 @@ import { tool$scimListSCIMUsers } from "./tools/scimListSCIMUsers.js";
 import { tool$scimPatchSCIMUser } from "./tools/scimPatchSCIMUser.js";
 import { tool$scimUpdateSCIMGroup } from "./tools/scimUpdateSCIMGroup.js";
 import { tool$scimUpdateSCIMUser } from "./tools/scimUpdateSCIMUser.js";
+import { tool$signalsCopyOnCallScheduleRotation } from "./tools/signalsCopyOnCallScheduleRotation.js";
 import { tool$signalsCreateHandoffNotificationSetting } from "./tools/signalsCreateHandoffNotificationSetting.js";
+import { tool$signalsCreateOnCallScheduleRotation } from "./tools/signalsCreateOnCallScheduleRotation.js";
 import { tool$signalsCreateOnCallShift } from "./tools/signalsCreateOnCallShift.js";
 import { tool$signalsCreateSignalsAlertGroupingConfiguration } from "./tools/signalsCreateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsCreateSignalsEmailTarget } from "./tools/signalsCreateSignalsEmailTarget.js";
@@ -327,6 +329,7 @@ import { tool$signalsCreateTeamOnCallSchedule } from "./tools/signalsCreateTeamO
 import { tool$signalsCreateTeamSignalRule } from "./tools/signalsCreateTeamSignalRule.js";
 import { tool$signalsDebugSignalsExpression } from "./tools/signalsDebugSignalsExpression.js";
 import { tool$signalsDeleteNotificationPolicy } from "./tools/signalsDeleteNotificationPolicy.js";
+import { tool$signalsDeleteOnCallScheduleRotation } from "./tools/signalsDeleteOnCallScheduleRotation.js";
 import { tool$signalsDeleteOnCallShift } from "./tools/signalsDeleteOnCallShift.js";
 import { tool$signalsDeleteSignalsAlertGroupingConfiguration } from "./tools/signalsDeleteSignalsAlertGroupingConfiguration.js";
 import { tool$signalsDeleteSignalsEmailTarget } from "./tools/signalsDeleteSignalsEmailTarget.js";
@@ -336,6 +339,7 @@ import { tool$signalsDeleteTeamEscalationPolicy } from "./tools/signalsDeleteTea
 import { tool$signalsDeleteTeamOnCallSchedule } from "./tools/signalsDeleteTeamOnCallSchedule.js";
 import { tool$signalsDeleteTeamSignalRule } from "./tools/signalsDeleteTeamSignalRule.js";
 import { tool$signalsGetNotificationPolicy } from "./tools/signalsGetNotificationPolicy.js";
+import { tool$signalsGetOnCallScheduleRotation } from "./tools/signalsGetOnCallScheduleRotation.js";
 import { tool$signalsGetOnCallShift } from "./tools/signalsGetOnCallShift.js";
 import { tool$signalsGetSignalsAlertGroupingConfiguration } from "./tools/signalsGetSignalsAlertGroupingConfiguration.js";
 import { tool$signalsGetSignalsEmailTarget } from "./tools/signalsGetSignalsEmailTarget.js";
@@ -356,7 +360,11 @@ import { tool$signalsListSignalsWebhookTargets } from "./tools/signalsListSignal
 import { tool$signalsListTeamEscalationPolicies } from "./tools/signalsListTeamEscalationPolicies.js";
 import { tool$signalsListTeamOnCallSchedules } from "./tools/signalsListTeamOnCallSchedules.js";
 import { tool$signalsListTeamSignalRules } from "./tools/signalsListTeamSignalRules.js";
+import { tool$signalsOverrideOnCallScheduleRotationShifts } from "./tools/signalsOverrideOnCallScheduleRotationShifts.js";
+import { tool$signalsPreviewOnCallScheduleRotation } from "./tools/signalsPreviewOnCallScheduleRotation.js";
+import { tool$signalsPreviewTeamOnCallSchedule } from "./tools/signalsPreviewTeamOnCallSchedule.js";
 import { tool$signalsUpdateNotificationPolicy } from "./tools/signalsUpdateNotificationPolicy.js";
+import { tool$signalsUpdateOnCallScheduleRotation } from "./tools/signalsUpdateOnCallScheduleRotation.js";
 import { tool$signalsUpdateOnCallShift } from "./tools/signalsUpdateOnCallShift.js";
 import { tool$signalsUpdateSignalsAlertGroupingConfiguration } from "./tools/signalsUpdateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsUpdateSignalsEmailTarget } from "./tools/signalsUpdateSignalsEmailTarget.js";
@@ -456,7 +464,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.6",
+    version: "1.0.7",
   });
 
   const client = new FirehydrantCore({
@@ -539,11 +547,19 @@ export function createMCPServer(deps: {
   tool(tool$signalsGetTeamEscalationPolicy);
   tool(tool$signalsDeleteTeamEscalationPolicy);
   tool(tool$signalsUpdateTeamEscalationPolicy);
+  tool(tool$signalsPreviewTeamOnCallSchedule);
   tool(tool$signalsListTeamOnCallSchedules);
   tool(tool$signalsCreateTeamOnCallSchedule);
   tool(tool$signalsGetTeamOnCallSchedule);
   tool(tool$signalsDeleteTeamOnCallSchedule);
   tool(tool$signalsUpdateTeamOnCallSchedule);
+  tool(tool$signalsPreviewOnCallScheduleRotation);
+  tool(tool$signalsCreateOnCallScheduleRotation);
+  tool(tool$signalsCopyOnCallScheduleRotation);
+  tool(tool$signalsGetOnCallScheduleRotation);
+  tool(tool$signalsDeleteOnCallScheduleRotation);
+  tool(tool$signalsUpdateOnCallScheduleRotation);
+  tool(tool$signalsOverrideOnCallScheduleRotationShifts);
   tool(tool$signalsCreateOnCallShift);
   tool(tool$signalsGetOnCallShift);
   tool(tool$signalsDeleteOnCallShift);

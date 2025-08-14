@@ -175,7 +175,7 @@ export class Incidents extends ClientSDK {
   async deleteIncident(
     request: operations.DeleteIncidentRequest,
     options?: RequestOptions,
-  ): Promise<components.IncidentEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentsDeleteIncident(
       this,
       request,
@@ -452,7 +452,7 @@ export class Incidents extends ClientSDK {
   async deleteTranscriptEntry(
     request: operations.DeleteTranscriptEntryRequest,
     options?: RequestOptions,
-  ): Promise<components.PublicApiv1IncidentsTranscriptEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentsDeleteTranscriptEntry(
       this,
       request,
@@ -588,7 +588,7 @@ export class Incidents extends ClientSDK {
   async deleteIncidentEvent(
     request: operations.DeleteIncidentEventRequest,
     options?: RequestOptions,
-  ): Promise<components.IncidentEventEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentsDeleteIncidentEvent(
       this,
       request,
@@ -770,7 +770,7 @@ export class Incidents extends ClientSDK {
   async deleteIncidentChatMessage(
     request: operations.DeleteIncidentChatMessageRequest,
     options?: RequestOptions,
-  ): Promise<components.EventGenericChatMessageEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentsDeleteIncidentChatMessage(
       this,
       request,
@@ -838,7 +838,7 @@ export class Incidents extends ClientSDK {
   async deleteIncidentRoleAssignment(
     request: operations.DeleteIncidentRoleAssignmentRequest,
     options?: RequestOptions,
-  ): Promise<components.IncidentsRoleAssignmentEntity> {
+  ): Promise<void> {
     return unwrapAsync(incidentsDeleteIncidentRoleAssignment(
       this,
       request,

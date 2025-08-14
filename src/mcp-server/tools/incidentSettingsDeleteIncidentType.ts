@@ -32,8 +32,6 @@ Archives an incident type which will hide it from lists and metrics`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };

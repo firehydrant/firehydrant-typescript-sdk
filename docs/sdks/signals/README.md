@@ -12,11 +12,19 @@ Operations related to Signals
 * [getTeamEscalationPolicy](#getteamescalationpolicy) - Get an escalation policy for a team
 * [deleteTeamEscalationPolicy](#deleteteamescalationpolicy) - Delete an escalation policy for a team
 * [updateTeamEscalationPolicy](#updateteamescalationpolicy) - Update an escalation policy for a team
+* [previewTeamOnCallSchedule](#previewteamoncallschedule) - Preview a new on-call schedule for a team
 * [listTeamOnCallSchedules](#listteamoncallschedules) - List on-call schedules for a team
 * [createTeamOnCallSchedule](#createteamoncallschedule) - Create an on-call schedule for a team
 * [getTeamOnCallSchedule](#getteamoncallschedule) - Get an on-call schedule for a team
 * [deleteTeamOnCallSchedule](#deleteteamoncallschedule) - Delete an on-call schedule for a team
 * [updateTeamOnCallSchedule](#updateteamoncallschedule) - Update an on-call schedule for a team
+* [previewOnCallScheduleRotation](#previewoncallschedulerotation) - Preview an on-call rotation
+* [createOnCallScheduleRotation](#createoncallschedulerotation) - Create a new on-call rotation
+* [copyOnCallScheduleRotation](#copyoncallschedulerotation) - Copy an on-call schedule's rotation
+* [getOnCallScheduleRotation](#getoncallschedulerotation) - Get an on-call rotation
+* [deleteOnCallScheduleRotation](#deleteoncallschedulerotation) - Delete an on-call schedule's rotation
+* [updateOnCallScheduleRotation](#updateoncallschedulerotation) - Update an on-call schedule's rotation
+* [overrideOnCallScheduleRotationShifts](#overrideoncallschedulerotationshifts) - Override one or more shifts in an on-call rotation
 * [createOnCallShift](#createoncallshift) - Create a shift for an on-call schedule
 * [getOnCallShift](#getoncallshift) - Get an on-call shift for a team schedule
 * [deleteOnCallShift](#deleteoncallshift) - Delete an on-call shift from a team schedule
@@ -437,6 +445,103 @@ run();
 | --------------- | --------------- | --------------- |
 | errors.APIError | 4XX, 5XX        | \*/\*           |
 
+## previewTeamOnCallSchedule
+
+Preview a new on-call schedule based on the provided rotations, allowing you to see how the schedule will look before saving it.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="preview_team_on_call_schedule" method="post" path="/v1/teams/{team_id}/on_call_schedules/preview" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.previewTeamOnCallSchedule({
+    teamId: "<id>",
+    previewTeamOnCallSchedule: {
+      name: "<value>",
+      rotations: [
+        {
+          name: "<value>",
+          timeZone: "Europe/Prague",
+          strategy: {
+            type: "custom",
+          },
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsPreviewTeamOnCallSchedule } from "firehydrant-typescript-sdk/funcs/signalsPreviewTeamOnCallSchedule.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsPreviewTeamOnCallSchedule(firehydrant, {
+    teamId: "<id>",
+    previewTeamOnCallSchedule: {
+      name: "<value>",
+      rotations: [
+        {
+          name: "<value>",
+          timeZone: "Europe/Prague",
+          strategy: {
+            type: "custom",
+          },
+        },
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsPreviewTeamOnCallSchedule failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PreviewTeamOnCallScheduleRequest](../../models/operations/previewteamoncallschedulerequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallSchedulePreviewEntity](../../models/components/signalsapioncallschedulepreviewentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
 ## listTeamOnCallSchedules
 
 List all Signals on-call schedules for a team.
@@ -812,6 +917,573 @@ run();
 ### Response
 
 **Promise\<[components.SignalsAPIOnCallScheduleEntity](../../models/components/signalsapioncallscheduleentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## previewOnCallScheduleRotation
+
+Preview a new on-call rotation orchanges to an existing on-call rotation
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="preview_on_call_schedule_rotation" method="post" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations/preview" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.previewOnCallScheduleRotation({
+    teamId: "<id>",
+    scheduleId: "<id>",
+    previewOnCallScheduleRotation: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsPreviewOnCallScheduleRotation } from "firehydrant-typescript-sdk/funcs/signalsPreviewOnCallScheduleRotation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsPreviewOnCallScheduleRotation(firehydrant, {
+    teamId: "<id>",
+    scheduleId: "<id>",
+    previewOnCallScheduleRotation: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsPreviewOnCallScheduleRotation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PreviewOnCallScheduleRotationRequest](../../models/operations/previewoncallschedulerotationrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity](../../models/components/signalsapioncallschedulepreviewentityrotationpreviewentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createOnCallScheduleRotation
+
+Add a new rotation to an existing on-call schedule
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="create_on_call_schedule_rotation" method="post" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.createOnCallScheduleRotation({
+    teamId: "<id>",
+    scheduleId: "<id>",
+    createOnCallScheduleRotation: {
+      name: "<value>",
+      timeZone: "Antarctica/DumontDUrville",
+      strategy: {
+        type: "weekly",
+      },
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateOnCallScheduleRotation } from "firehydrant-typescript-sdk/funcs/signalsCreateOnCallScheduleRotation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsCreateOnCallScheduleRotation(firehydrant, {
+    teamId: "<id>",
+    scheduleId: "<id>",
+    createOnCallScheduleRotation: {
+      name: "<value>",
+      timeZone: "Antarctica/DumontDUrville",
+      strategy: {
+        type: "weekly",
+      },
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCreateOnCallScheduleRotation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateOnCallScheduleRotationRequest](../../models/operations/createoncallschedulerotationrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallRotationEntity](../../models/components/signalsapioncallrotationentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## copyOnCallScheduleRotation
+
+Copy an on-call rotation into a different schedule, allowing you to merge them together safely.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="copy_on_call_schedule_rotation" method="post" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations/{rotation_id}/copy" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.copyOnCallScheduleRotation({
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+    copyOnCallScheduleRotation: {
+      targetScheduleId: "<id>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCopyOnCallScheduleRotation } from "firehydrant-typescript-sdk/funcs/signalsCopyOnCallScheduleRotation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsCopyOnCallScheduleRotation(firehydrant, {
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+    copyOnCallScheduleRotation: {
+      targetScheduleId: "<id>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsCopyOnCallScheduleRotation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CopyOnCallScheduleRotationRequest](../../models/operations/copyoncallschedulerotationrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallRotationEntity](../../models/components/signalsapioncallrotationentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getOnCallScheduleRotation
+
+Get an on-call rotation by ID
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get_on_call_schedule_rotation" method="get" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations/{rotation_id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.getOnCallScheduleRotation({
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetOnCallScheduleRotation } from "firehydrant-typescript-sdk/funcs/signalsGetOnCallScheduleRotation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsGetOnCallScheduleRotation(firehydrant, {
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsGetOnCallScheduleRotation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetOnCallScheduleRotationRequest](../../models/operations/getoncallschedulerotationrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallRotationEntity](../../models/components/signalsapioncallrotationentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteOnCallScheduleRotation
+
+Delete an on-call schedule's rotation by ID
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="delete_on_call_schedule_rotation" method="delete" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations/{rotation_id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.signals.deleteOnCallScheduleRotation({
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteOnCallScheduleRotation } from "firehydrant-typescript-sdk/funcs/signalsDeleteOnCallScheduleRotation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsDeleteOnCallScheduleRotation(firehydrant, {
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteOnCallScheduleRotation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteOnCallScheduleRotationRequest](../../models/operations/deleteoncallschedulerotationrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateOnCallScheduleRotation
+
+Update an on-call schedule's rotation by ID
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update_on_call_schedule_rotation" method="patch" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations/{rotation_id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.updateOnCallScheduleRotation({
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+    updateOnCallScheduleRotation: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateOnCallScheduleRotation } from "firehydrant-typescript-sdk/funcs/signalsUpdateOnCallScheduleRotation.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsUpdateOnCallScheduleRotation(firehydrant, {
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+    updateOnCallScheduleRotation: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsUpdateOnCallScheduleRotation failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateOnCallScheduleRotationRequest](../../models/operations/updateoncallschedulerotationrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallRotationEntity](../../models/components/signalsapioncallrotationentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## overrideOnCallScheduleRotationShifts
+
+Create an override covering a specific time period in an on-call rotation, re-assigning that period to a specific user.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="override_on_call_schedule_rotation_shifts" method="post" path="/v1/teams/{team_id}/on_call_schedules/{schedule_id}/rotations/{rotation_id}/overrides" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.overrideOnCallScheduleRotationShifts({
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+    overrideOnCallScheduleRotationShifts: {
+      startTime: "<value>",
+      endTime: "<value>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsOverrideOnCallScheduleRotationShifts } from "firehydrant-typescript-sdk/funcs/signalsOverrideOnCallScheduleRotationShifts.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsOverrideOnCallScheduleRotationShifts(firehydrant, {
+    rotationId: "<id>",
+    teamId: "<id>",
+    scheduleId: "<id>",
+    overrideOnCallScheduleRotationShifts: {
+      startTime: "<value>",
+      endTime: "<value>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsOverrideOnCallScheduleRotationShifts failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.OverrideOnCallScheduleRotationShiftsRequest](../../models/operations/overrideoncallschedulerotationshiftsrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIOnCallShiftEntity](../../models/components/signalsapioncallshiftentity.md)\>**
 
 ### Errors
 
@@ -1756,11 +2428,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.signals.deleteSignalsEventSource({
+  await firehydrant.signals.deleteSignalsEventSource({
     transposerSlug: "<value>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1786,7 +2458,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("signalsDeleteSignalsEventSource failed:", res.error);
   }
@@ -1806,7 +2478,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SignalsAPITransposerEntity](../../models/components/signalsapitransposerentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -2113,11 +2785,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.signals.deleteSignalsAlertGroupingConfiguration({
+  await firehydrant.signals.deleteSignalsAlertGroupingConfiguration({
     id: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2143,7 +2815,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("signalsDeleteSignalsAlertGroupingConfiguration failed:", res.error);
   }
@@ -2163,7 +2835,7 @@ run();
 
 ### Response
 
-**Promise\<[components.SignalsAPIGroupingEntity](../../models/components/signalsapigroupingentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

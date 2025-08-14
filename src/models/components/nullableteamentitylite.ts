@@ -24,6 +24,7 @@ export type NullableTeamEntityLite = {
   signalsIcalUrl?: string | null | undefined;
   createdBy?: NullableAuthorEntity | null | undefined;
   inSupportHours?: boolean | null | undefined;
+  restrictSignalsResourceManagement?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -45,6 +46,7 @@ export const NullableTeamEntityLite$inboundSchema: z.ZodType<
   signals_ical_url: z.nullable(z.string()).optional(),
   created_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
   in_support_hours: z.nullable(z.boolean()).optional(),
+  restrict_signals_resource_management: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -52,6 +54,7 @@ export const NullableTeamEntityLite$inboundSchema: z.ZodType<
     "signals_ical_url": "signalsIcalUrl",
     "created_by": "createdBy",
     "in_support_hours": "inSupportHours",
+    "restrict_signals_resource_management": "restrictSignalsResourceManagement",
   });
 });
 
@@ -66,6 +69,7 @@ export type NullableTeamEntityLite$Outbound = {
   signals_ical_url?: string | null | undefined;
   created_by?: NullableAuthorEntity$Outbound | null | undefined;
   in_support_hours?: boolean | null | undefined;
+  restrict_signals_resource_management?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -83,6 +87,7 @@ export const NullableTeamEntityLite$outboundSchema: z.ZodType<
   signalsIcalUrl: z.nullable(z.string()).optional(),
   createdBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
   inSupportHours: z.nullable(z.boolean()).optional(),
+  restrictSignalsResourceManagement: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -90,6 +95,7 @@ export const NullableTeamEntityLite$outboundSchema: z.ZodType<
     signalsIcalUrl: "signals_ical_url",
     createdBy: "created_by",
     inSupportHours: "in_support_hours",
+    restrictSignalsResourceManagement: "restrict_signals_resource_management",
   });
 });
 

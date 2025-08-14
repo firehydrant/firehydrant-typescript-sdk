@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: a42aa2746a16bea0ef700d5b8dc8a67e
+  docChecksum: 6d3a0f06f0c5518145562d427808ec63
   docVersion: 0.0.1
-  speakeasyVersion: 1.592.1
-  generationVersion: 2.667.0
-  releaseVersion: 1.0.6
-  configChecksum: 02537cc7bbbfa4dd46d15044c8f2b1dc
+  speakeasyVersion: 1.603.2
+  generationVersion: 2.681.8
+  releaseVersion: 1.0.7
+  configChecksum: 9aeaa75c847375a1a5bd0990ac6b7a6f
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.16
+    core: 3.21.20
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -89,6 +89,7 @@ generatedFiles:
   - docs/models/components/context.md
   - docs/models/components/conversationsapientitiesreference.md
   - docs/models/components/convertincidenttask.md
+  - docs/models/components/copyoncallschedulerotation.md
   - docs/models/components/createchange.md
   - docs/models/components/createchangeevent.md
   - docs/models/components/createchangeeventattachment.md
@@ -129,6 +130,14 @@ generatedFiles:
   - docs/models/components/createincidenttypeimpact.md
   - docs/models/components/createincidenttypetemplate.md
   - docs/models/components/createnuncsubscription.md
+  - docs/models/components/createoncallschedulerotation.md
+  - docs/models/components/createoncallschedulerotationendday.md
+  - docs/models/components/createoncallschedulerotationhandoffday.md
+  - docs/models/components/createoncallschedulerotationmember.md
+  - docs/models/components/createoncallschedulerotationrestriction.md
+  - docs/models/components/createoncallschedulerotationstartday.md
+  - docs/models/components/createoncallschedulerotationstrategy.md
+  - docs/models/components/createoncallschedulerotationtype.md
   - docs/models/components/createoncallshift.md
   - docs/models/components/createpostmortemreason.md
   - docs/models/components/createpostmortemreport.md
@@ -213,6 +222,14 @@ generatedFiles:
   - docs/models/components/createteamoncallschedulehandoffday.md
   - docs/models/components/createteamoncallschedulemember.md
   - docs/models/components/createteamoncallschedulerestriction.md
+  - docs/models/components/createteamoncallschedulerotation.md
+  - docs/models/components/createteamoncallschedulerotationendday.md
+  - docs/models/components/createteamoncallschedulerotationhandoffday.md
+  - docs/models/components/createteamoncallschedulerotationmember.md
+  - docs/models/components/createteamoncallschedulerotationrestriction.md
+  - docs/models/components/createteamoncallschedulerotationstartday.md
+  - docs/models/components/createteamoncallschedulerotationstrategy.md
+  - docs/models/components/createteamoncallschedulerotationtype.md
   - docs/models/components/createteamoncallschedulestartday.md
   - docs/models/components/createteamoncallschedulestrategy.md
   - docs/models/components/createteamoncallscheduletype.md
@@ -459,6 +476,7 @@ generatedFiles:
   - docs/models/components/nuncnuncsubscription.md
   - docs/models/components/operation.md
   - docs/models/components/organizationscustomfielddefinitionentity.md
+  - docs/models/components/overrideoncallschedulerotationshifts.md
   - docs/models/components/patchscimuser.md
   - docs/models/components/pongentity.md
   - docs/models/components/postmortemspostmortemreportentity.md
@@ -468,6 +486,23 @@ generatedFiles:
   - docs/models/components/postmortemsreasonentity.md
   - docs/models/components/postmortemsreasonentitypaginated.md
   - docs/models/components/postmortemssectionfieldentity.md
+  - docs/models/components/previewoncallschedulerotation.md
+  - docs/models/components/previewoncallschedulerotationendday.md
+  - docs/models/components/previewoncallschedulerotationhandoffday.md
+  - docs/models/components/previewoncallschedulerotationmember.md
+  - docs/models/components/previewoncallschedulerotationrestriction.md
+  - docs/models/components/previewoncallschedulerotationstartday.md
+  - docs/models/components/previewoncallschedulerotationstrategy.md
+  - docs/models/components/previewoncallschedulerotationtype.md
+  - docs/models/components/previewteamoncallschedule.md
+  - docs/models/components/previewteamoncallscheduleendday.md
+  - docs/models/components/previewteamoncallschedulehandoffday.md
+  - docs/models/components/previewteamoncallschedulemember.md
+  - docs/models/components/previewteamoncallschedulerestriction.md
+  - docs/models/components/previewteamoncallschedulerotation.md
+  - docs/models/components/previewteamoncallschedulestartday.md
+  - docs/models/components/previewteamoncallschedulestrategy.md
+  - docs/models/components/previewteamoncallscheduletype.md
   - docs/models/components/priority.md
   - docs/models/components/priorityentity.md
   - docs/models/components/publicapiv1bootstrapentity.md
@@ -558,6 +593,9 @@ generatedFiles:
   - docs/models/components/signalsapioncallrotationentity.md
   - docs/models/components/signalsapioncallscheduleentity.md
   - docs/models/components/signalsapioncallscheduleentitypaginated.md
+  - docs/models/components/signalsapioncallschedulepreviewentity.md
+  - docs/models/components/signalsapioncallschedulepreviewentityrotationpreviewentity.md
+  - docs/models/components/signalsapioncallschedulepreviewentityshiftpreviewentity.md
   - docs/models/components/signalsapioncallshiftentity.md
   - docs/models/components/signalsapiorganizationoncallrotationentity.md
   - docs/models/components/signalsapiorganizationoncallscheduleentity.md
@@ -651,6 +689,14 @@ generatedFiles:
   - docs/models/components/updateincidenttypeimpact.md
   - docs/models/components/updateincidenttypetemplate.md
   - docs/models/components/updatenunclink.md
+  - docs/models/components/updateoncallschedulerotation.md
+  - docs/models/components/updateoncallschedulerotationendday.md
+  - docs/models/components/updateoncallschedulerotationhandoffday.md
+  - docs/models/components/updateoncallschedulerotationmember.md
+  - docs/models/components/updateoncallschedulerotationrestriction.md
+  - docs/models/components/updateoncallschedulerotationstartday.md
+  - docs/models/components/updateoncallschedulerotationstrategy.md
+  - docs/models/components/updateoncallschedulerotationtype.md
   - docs/models/components/updateoncallshift.md
   - docs/models/components/updatepostmortemfield.md
   - docs/models/components/updatepostmortemquestions.md
@@ -765,6 +811,7 @@ generatedFiles:
   - docs/models/operations/by.md
   - docs/models/operations/closeincidentrequest.md
   - docs/models/operations/convertincidenttaskrequest.md
+  - docs/models/operations/copyoncallschedulerotationrequest.md
   - docs/models/operations/createaudiencerequest.md
   - docs/models/operations/createchangeidentityrequest.md
   - docs/models/operations/createcommentreactionrequest.md
@@ -804,6 +851,7 @@ generatedFiles:
   - docs/models/operations/createnunccomponentgrouprequestbody.md
   - docs/models/operations/createnuncconnectionrequest.md
   - docs/models/operations/createnunclinkrequest.md
+  - docs/models/operations/createoncallschedulerotationrequest.md
   - docs/models/operations/createoncallshiftrequest.md
   - docs/models/operations/createpostmortemreasonrequest.md
   - docs/models/operations/createretrospectivetemplatefieldstype.md
@@ -854,6 +902,7 @@ generatedFiles:
   - docs/models/operations/deletenuncimagerequest.md
   - docs/models/operations/deletenunclinkrequest.md
   - docs/models/operations/deletenuncsubscriptionrequest.md
+  - docs/models/operations/deleteoncallschedulerotationrequest.md
   - docs/models/operations/deleteoncallshiftrequest.md
   - docs/models/operations/deletepostmortemreasonrequest.md
   - docs/models/operations/deletepriorityrequest.md
@@ -927,6 +976,7 @@ generatedFiles:
   - docs/models/operations/getmemberdefaultaudiencerequest.md
   - docs/models/operations/getnotificationpolicyrequest.md
   - docs/models/operations/getnuncconnectionrequest.md
+  - docs/models/operations/getoncallschedulerotationrequest.md
   - docs/models/operations/getoncallshiftrequest.md
   - docs/models/operations/getoptionsforfieldrequest.md
   - docs/models/operations/getpostmortemquestionrequest.md
@@ -1107,7 +1157,10 @@ generatedFiles:
   - docs/models/operations/oflevel.md
   - docs/models/operations/orderby.md
   - docs/models/operations/orderdirection.md
+  - docs/models/operations/overrideoncallschedulerotationshiftsrequest.md
   - docs/models/operations/patchscimuserrequest.md
+  - docs/models/operations/previewoncallschedulerotationrequest.md
+  - docs/models/operations/previewteamoncallschedulerequest.md
   - docs/models/operations/publishpostmortemreportrequest.md
   - docs/models/operations/refreshcatalogrequest.md
   - docs/models/operations/refreshconnectionrequest.md
@@ -1176,6 +1229,7 @@ generatedFiles:
   - docs/models/operations/updatenuncimagerequest.md
   - docs/models/operations/updatenuncimagerequestbody.md
   - docs/models/operations/updatenunclinkrequest.md
+  - docs/models/operations/updateoncallschedulerotationrequest.md
   - docs/models/operations/updateoncallshiftrequest.md
   - docs/models/operations/updatepostmortemfieldrequest.md
   - docs/models/operations/updatepostmortemreasonrequest.md
@@ -1557,7 +1611,9 @@ generatedFiles:
   - src/funcs/scimPatchSCIMUser.ts
   - src/funcs/scimUpdateSCIMGroup.ts
   - src/funcs/scimUpdateSCIMUser.ts
+  - src/funcs/signalsCopyOnCallScheduleRotation.ts
   - src/funcs/signalsCreateHandoffNotificationSetting.ts
+  - src/funcs/signalsCreateOnCallScheduleRotation.ts
   - src/funcs/signalsCreateOnCallShift.ts
   - src/funcs/signalsCreateSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsCreateSignalsEmailTarget.ts
@@ -1568,6 +1624,7 @@ generatedFiles:
   - src/funcs/signalsCreateTeamSignalRule.ts
   - src/funcs/signalsDebugSignalsExpression.ts
   - src/funcs/signalsDeleteNotificationPolicy.ts
+  - src/funcs/signalsDeleteOnCallScheduleRotation.ts
   - src/funcs/signalsDeleteOnCallShift.ts
   - src/funcs/signalsDeleteSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsDeleteSignalsEmailTarget.ts
@@ -1577,6 +1634,7 @@ generatedFiles:
   - src/funcs/signalsDeleteTeamOnCallSchedule.ts
   - src/funcs/signalsDeleteTeamSignalRule.ts
   - src/funcs/signalsGetNotificationPolicy.ts
+  - src/funcs/signalsGetOnCallScheduleRotation.ts
   - src/funcs/signalsGetOnCallShift.ts
   - src/funcs/signalsGetSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsGetSignalsEmailTarget.ts
@@ -1597,7 +1655,11 @@ generatedFiles:
   - src/funcs/signalsListTeamEscalationPolicies.ts
   - src/funcs/signalsListTeamOnCallSchedules.ts
   - src/funcs/signalsListTeamSignalRules.ts
+  - src/funcs/signalsOverrideOnCallScheduleRotationShifts.ts
+  - src/funcs/signalsPreviewOnCallScheduleRotation.ts
+  - src/funcs/signalsPreviewTeamOnCallSchedule.ts
   - src/funcs/signalsUpdateNotificationPolicy.ts
+  - src/funcs/signalsUpdateOnCallScheduleRotation.ts
   - src/funcs/signalsUpdateOnCallShift.ts
   - src/funcs/signalsUpdateSignalsAlertGroupingConfiguration.ts
   - src/funcs/signalsUpdateSignalsEmailTarget.ts
@@ -2022,7 +2084,9 @@ generatedFiles:
   - src/mcp-server/tools/scimPatchSCIMUser.ts
   - src/mcp-server/tools/scimUpdateSCIMGroup.ts
   - src/mcp-server/tools/scimUpdateSCIMUser.ts
+  - src/mcp-server/tools/signalsCopyOnCallScheduleRotation.ts
   - src/mcp-server/tools/signalsCreateHandoffNotificationSetting.ts
+  - src/mcp-server/tools/signalsCreateOnCallScheduleRotation.ts
   - src/mcp-server/tools/signalsCreateOnCallShift.ts
   - src/mcp-server/tools/signalsCreateSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsCreateSignalsEmailTarget.ts
@@ -2033,6 +2097,7 @@ generatedFiles:
   - src/mcp-server/tools/signalsCreateTeamSignalRule.ts
   - src/mcp-server/tools/signalsDebugSignalsExpression.ts
   - src/mcp-server/tools/signalsDeleteNotificationPolicy.ts
+  - src/mcp-server/tools/signalsDeleteOnCallScheduleRotation.ts
   - src/mcp-server/tools/signalsDeleteOnCallShift.ts
   - src/mcp-server/tools/signalsDeleteSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsDeleteSignalsEmailTarget.ts
@@ -2042,6 +2107,7 @@ generatedFiles:
   - src/mcp-server/tools/signalsDeleteTeamOnCallSchedule.ts
   - src/mcp-server/tools/signalsDeleteTeamSignalRule.ts
   - src/mcp-server/tools/signalsGetNotificationPolicy.ts
+  - src/mcp-server/tools/signalsGetOnCallScheduleRotation.ts
   - src/mcp-server/tools/signalsGetOnCallShift.ts
   - src/mcp-server/tools/signalsGetSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsGetSignalsEmailTarget.ts
@@ -2062,7 +2128,11 @@ generatedFiles:
   - src/mcp-server/tools/signalsListTeamEscalationPolicies.ts
   - src/mcp-server/tools/signalsListTeamOnCallSchedules.ts
   - src/mcp-server/tools/signalsListTeamSignalRules.ts
+  - src/mcp-server/tools/signalsOverrideOnCallScheduleRotationShifts.ts
+  - src/mcp-server/tools/signalsPreviewOnCallScheduleRotation.ts
+  - src/mcp-server/tools/signalsPreviewTeamOnCallSchedule.ts
   - src/mcp-server/tools/signalsUpdateNotificationPolicy.ts
+  - src/mcp-server/tools/signalsUpdateOnCallScheduleRotation.ts
   - src/mcp-server/tools/signalsUpdateOnCallShift.ts
   - src/mcp-server/tools/signalsUpdateSignalsAlertGroupingConfiguration.ts
   - src/mcp-server/tools/signalsUpdateSignalsEmailTarget.ts
@@ -2182,6 +2252,7 @@ generatedFiles:
   - src/models/components/checklisttemplateentitypaginated.ts
   - src/models/components/conversationsapientitiesreference.ts
   - src/models/components/convertincidenttask.ts
+  - src/models/components/copyoncallschedulerotation.ts
   - src/models/components/createchange.ts
   - src/models/components/createchangeevent.ts
   - src/models/components/createchangeidentity.ts
@@ -2205,6 +2276,7 @@ generatedFiles:
   - src/models/components/createincidentteamassignment.ts
   - src/models/components/createincidenttype.ts
   - src/models/components/createnuncsubscription.ts
+  - src/models/components/createoncallschedulerotation.ts
   - src/models/components/createoncallshift.ts
   - src/models/components/createpostmortemreason.ts
   - src/models/components/createpostmortemreport.ts
@@ -2409,6 +2481,7 @@ generatedFiles:
   - src/models/components/nuncemailsubscribersentity.ts
   - src/models/components/nuncnuncsubscription.ts
   - src/models/components/organizationscustomfielddefinitionentity.ts
+  - src/models/components/overrideoncallschedulerotationshifts.ts
   - src/models/components/patchscimuser.ts
   - src/models/components/pongentity.ts
   - src/models/components/postmortemspostmortemreportentity.ts
@@ -2418,6 +2491,8 @@ generatedFiles:
   - src/models/components/postmortemsreasonentity.ts
   - src/models/components/postmortemsreasonentitypaginated.ts
   - src/models/components/postmortemssectionfieldentity.ts
+  - src/models/components/previewoncallschedulerotation.ts
+  - src/models/components/previewteamoncallschedule.ts
   - src/models/components/priorityentity.ts
   - src/models/components/publicapiv1bootstrapentity.ts
   - src/models/components/publicapiv1formconfigurationsselectedvalueentity.ts
@@ -2488,6 +2563,9 @@ generatedFiles:
   - src/models/components/signalsapioncallrotationentity.ts
   - src/models/components/signalsapioncallscheduleentity.ts
   - src/models/components/signalsapioncallscheduleentitypaginated.ts
+  - src/models/components/signalsapioncallschedulepreviewentity.ts
+  - src/models/components/signalsapioncallschedulepreviewentityrotationpreviewentity.ts
+  - src/models/components/signalsapioncallschedulepreviewentityshiftpreviewentity.ts
   - src/models/components/signalsapioncallshiftentity.ts
   - src/models/components/signalsapiorganizationoncallrotationentity.ts
   - src/models/components/signalsapiorganizationoncallscheduleentity.ts
@@ -2547,6 +2625,7 @@ generatedFiles:
   - src/models/components/updateincidenttask.ts
   - src/models/components/updateincidenttype.ts
   - src/models/components/updatenunclink.ts
+  - src/models/components/updateoncallschedulerotation.ts
   - src/models/components/updateoncallshift.ts
   - src/models/components/updatepostmortemfield.ts
   - src/models/components/updatepostmortemquestions.ts
@@ -2596,6 +2675,7 @@ generatedFiles:
   - src/models/operations/bulkupdateincidentmilestones.ts
   - src/models/operations/closeincident.ts
   - src/models/operations/convertincidenttask.ts
+  - src/models/operations/copyoncallschedulerotation.ts
   - src/models/operations/createaudience.ts
   - src/models/operations/createchangeidentity.ts
   - src/models/operations/createcomment.ts
@@ -2624,6 +2704,7 @@ generatedFiles:
   - src/models/operations/createnunccomponentgroup.ts
   - src/models/operations/createnuncconnection.ts
   - src/models/operations/createnunclink.ts
+  - src/models/operations/createoncallschedulerotation.ts
   - src/models/operations/createoncallshift.ts
   - src/models/operations/createpostmortemreason.ts
   - src/models/operations/createretrospectivetemplate.ts
@@ -2669,6 +2750,7 @@ generatedFiles:
   - src/models/operations/deletenuncimage.ts
   - src/models/operations/deletenunclink.ts
   - src/models/operations/deletenuncsubscription.ts
+  - src/models/operations/deleteoncallschedulerotation.ts
   - src/models/operations/deleteoncallshift.ts
   - src/models/operations/deletepostmortemreason.ts
   - src/models/operations/deletepriority.ts
@@ -2737,6 +2819,7 @@ generatedFiles:
   - src/models/operations/getmemberdefaultaudience.ts
   - src/models/operations/getnotificationpolicy.ts
   - src/models/operations/getnuncconnection.ts
+  - src/models/operations/getoncallschedulerotation.ts
   - src/models/operations/getoncallshift.ts
   - src/models/operations/getoptionsforfield.ts
   - src/models/operations/getpostmortemquestion.ts
@@ -2883,7 +2966,10 @@ generatedFiles:
   - src/models/operations/listusers.ts
   - src/models/operations/listwebhookdeliveries.ts
   - src/models/operations/listwebhooks.ts
+  - src/models/operations/overrideoncallschedulerotationshifts.ts
   - src/models/operations/patchscimuser.ts
+  - src/models/operations/previewoncallschedulerotation.ts
+  - src/models/operations/previewteamoncallschedule.ts
   - src/models/operations/publishpostmortemreport.ts
   - src/models/operations/refreshcatalog.ts
   - src/models/operations/refreshconnection.ts
@@ -2933,6 +3019,7 @@ generatedFiles:
   - src/models/operations/updatenuncconnection.ts
   - src/models/operations/updatenuncimage.ts
   - src/models/operations/updatenunclink.ts
+  - src/models/operations/updateoncallschedulerotation.ts
   - src/models/operations/updateoncallshift.ts
   - src/models/operations/updatepostmortemfield.ts
   - src/models/operations/updatepostmortemreason.ts
@@ -6307,5 +6394,90 @@ examples:
       parameters:
         path:
           id: "<id>"
+  preview_team_on_call_schedule:
+    speakeasy-default-preview-team-on-call-schedule:
+      parameters:
+        path:
+          team_id: "<id>"
+      requestBody:
+        application/json: {"name": "<value>", "rotations": [{"name": "<value>", "time_zone": "Europe/Prague", "strategy": {"type": "custom"}}]}
+      responses:
+        "201":
+          application/json: {}
+  preview_on_call_schedule_rotation:
+    speakeasy-default-preview-on-call-schedule-rotation:
+      parameters:
+        path:
+          team_id: "<id>"
+          schedule_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "201":
+          application/json: {}
+  create_on_call_schedule_rotation:
+    speakeasy-default-create-on-call-schedule-rotation:
+      parameters:
+        path:
+          team_id: "<id>"
+          schedule_id: "<id>"
+      requestBody:
+        application/json: {"name": "<value>", "time_zone": "Antarctica/DumontDUrville", "strategy": {"type": "weekly"}}
+      responses:
+        "201":
+          application/json: {}
+  copy_on_call_schedule_rotation:
+    speakeasy-default-copy-on-call-schedule-rotation:
+      parameters:
+        path:
+          rotation_id: "<id>"
+          team_id: "<id>"
+          schedule_id: "<id>"
+      requestBody:
+        application/json: {"target_schedule_id": "<id>"}
+      responses:
+        "201":
+          application/json: {}
+  get_on_call_schedule_rotation:
+    speakeasy-default-get-on-call-schedule-rotation:
+      parameters:
+        path:
+          rotation_id: "<id>"
+          team_id: "<id>"
+          schedule_id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  delete_on_call_schedule_rotation:
+    speakeasy-default-delete-on-call-schedule-rotation:
+      parameters:
+        path:
+          rotation_id: "<id>"
+          team_id: "<id>"
+          schedule_id: "<id>"
+  update_on_call_schedule_rotation:
+    speakeasy-default-update-on-call-schedule-rotation:
+      parameters:
+        path:
+          rotation_id: "<id>"
+          team_id: "<id>"
+          schedule_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+  override_on_call_schedule_rotation_shifts:
+    speakeasy-default-override-on-call-schedule-rotation-shifts:
+      parameters:
+        path:
+          rotation_id: "<id>"
+          team_id: "<id>"
+          schedule_id: "<id>"
+      requestBody:
+        application/json: {"start_time": "<value>", "end_time": "<value>"}
+      responses:
+        "201":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

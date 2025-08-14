@@ -2245,11 +2245,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.integrations.deleteStatuspageConnection({
+  await firehydrant.integrations.deleteStatuspageConnection({
     connectionId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -2275,7 +2275,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("integrationsDeleteStatuspageConnection failed:", res.error);
   }
@@ -2295,7 +2295,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IntegrationsStatuspageConnectionEntity](../../models/components/integrationsstatuspageconnectionentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

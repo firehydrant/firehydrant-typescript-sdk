@@ -800,11 +800,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.tasks.deleteTaskList({
+  await firehydrant.tasks.deleteTaskList({
     taskListId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -830,7 +830,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("tasksDeleteTaskList failed:", res.error);
   }
@@ -850,7 +850,7 @@ run();
 
 ### Response
 
-**Promise\<[components.TaskListEntity](../../models/components/tasklistentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
@@ -1174,11 +1174,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.tasks.deleteChecklistTemplate({
+  await firehydrant.tasks.deleteChecklistTemplate({
     id: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -1204,7 +1204,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("tasksDeleteChecklistTemplate failed:", res.error);
   }
@@ -1224,7 +1224,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ChecklistTemplateEntity](../../models/components/checklisttemplateentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

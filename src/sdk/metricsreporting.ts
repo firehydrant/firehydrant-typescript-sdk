@@ -151,7 +151,7 @@ export class MetricsReporting extends ClientSDK {
   async deleteSavedSearch(
     request: operations.DeleteSavedSearchRequest,
     options?: RequestOptions,
-  ): Promise<components.SavedSearchEntity> {
+  ): Promise<void> {
     return unwrapAsync(metricsReportingDeleteSavedSearch(
       this,
       request,
