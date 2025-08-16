@@ -35,6 +35,7 @@ export type IncidentsRetrospectiveFieldEntity = {
   isRequired?: boolean | null | undefined;
   value?: string | null | undefined;
   schema?: Array<string> | null | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
 };
 
 /** @internal */
@@ -76,11 +77,13 @@ export const IncidentsRetrospectiveFieldEntity$inboundSchema: z.ZodType<
   is_required: z.nullable(z.boolean()).optional(),
   value: z.nullable(z.string()).optional(),
   schema: z.nullable(z.array(z.string())).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "help_text": "helpText",
     "permissible_values": "permissibleValues",
     "is_required": "isRequired",
+    "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
 
@@ -94,6 +97,7 @@ export type IncidentsRetrospectiveFieldEntity$Outbound = {
   is_required?: boolean | null | undefined;
   value?: string | null | undefined;
   schema?: Array<string> | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -111,11 +115,13 @@ export const IncidentsRetrospectiveFieldEntity$outboundSchema: z.ZodType<
   isRequired: z.nullable(z.boolean()).optional(),
   value: z.nullable(z.string()).optional(),
   schema: z.nullable(z.array(z.string())).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     helpText: "help_text",
     permissibleValues: "permissible_values",
     isRequired: "is_required",
+    requiredAtMilestoneId: "required_at_milestone_id",
   });
 });
 

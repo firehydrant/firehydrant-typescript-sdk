@@ -43,6 +43,7 @@ export type CreateRetrospectiveTemplateRequest = {
   fieldsHelpText?: Array<string> | null | undefined;
   fieldsPermissibleValues?: Array<string> | null | undefined;
   fieldsIsRequired?: Array<boolean> | null | undefined;
+  fieldsRequiredAtMilestoneId?: Array<string> | null | undefined;
   fieldsSchema?: Array<string> | null | undefined;
 };
 
@@ -105,6 +106,8 @@ export const CreateRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
   "fields[help_text]": z.nullable(z.array(z.string())).optional(),
   "fields[permissible_values]": z.nullable(z.array(z.string())).optional(),
   "fields[is_required]": z.nullable(z.array(z.boolean())).optional(),
+  "fields[required_at_milestone_id]": z.nullable(z.array(z.string()))
+    .optional(),
   "fields[schema]": z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -116,6 +119,7 @@ export const CreateRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
     "fields[help_text]": "fieldsHelpText",
     "fields[permissible_values]": "fieldsPermissibleValues",
     "fields[is_required]": "fieldsIsRequired",
+    "fields[required_at_milestone_id]": "fieldsRequiredAtMilestoneId",
     "fields[schema]": "fieldsSchema",
   });
 });
@@ -132,6 +136,7 @@ export type CreateRetrospectiveTemplateRequest$Outbound = {
   "fields[help_text]"?: Array<string> | null | undefined;
   "fields[permissible_values]"?: Array<string> | null | undefined;
   "fields[is_required]"?: Array<boolean> | null | undefined;
+  "fields[required_at_milestone_id]"?: Array<string> | null | undefined;
   "fields[schema]"?: Array<string> | null | undefined;
 };
 
@@ -151,6 +156,7 @@ export const CreateRetrospectiveTemplateRequest$outboundSchema: z.ZodType<
   fieldsHelpText: z.nullable(z.array(z.string())).optional(),
   fieldsPermissibleValues: z.nullable(z.array(z.string())).optional(),
   fieldsIsRequired: z.nullable(z.array(z.boolean())).optional(),
+  fieldsRequiredAtMilestoneId: z.nullable(z.array(z.string())).optional(),
   fieldsSchema: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -162,6 +168,7 @@ export const CreateRetrospectiveTemplateRequest$outboundSchema: z.ZodType<
     fieldsHelpText: "fields[help_text]",
     fieldsPermissibleValues: "fields[permissible_values]",
     fieldsIsRequired: "fields[is_required]",
+    fieldsRequiredAtMilestoneId: "fields[required_at_milestone_id]",
     fieldsSchema: "fields[schema]",
   });
 });
