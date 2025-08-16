@@ -30,6 +30,7 @@ export type RetrospectivesFieldEntity = {
   helpText?: string | null | undefined;
   permissibleValues?: Array<string> | null | undefined;
   isRequired?: boolean | null | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
   schema?: Array<string> | null | undefined;
 };
 
@@ -66,12 +67,14 @@ export const RetrospectivesFieldEntity$inboundSchema: z.ZodType<
   help_text: z.nullable(z.string()).optional(),
   permissible_values: z.nullable(z.array(z.string())).optional(),
   is_required: z.nullable(z.boolean()).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
   schema: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     "help_text": "helpText",
     "permissible_values": "permissibleValues",
     "is_required": "isRequired",
+    "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
 
@@ -83,6 +86,7 @@ export type RetrospectivesFieldEntity$Outbound = {
   help_text?: string | null | undefined;
   permissible_values?: Array<string> | null | undefined;
   is_required?: boolean | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
   schema?: Array<string> | null | undefined;
 };
 
@@ -98,12 +102,14 @@ export const RetrospectivesFieldEntity$outboundSchema: z.ZodType<
   helpText: z.nullable(z.string()).optional(),
   permissibleValues: z.nullable(z.array(z.string())).optional(),
   isRequired: z.nullable(z.boolean()).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
   schema: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     helpText: "help_text",
     permissibleValues: "permissible_values",
     isRequired: "is_required",
+    requiredAtMilestoneId: "required_at_milestone_id",
   });
 });
 

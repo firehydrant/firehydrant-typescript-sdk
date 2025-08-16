@@ -42,6 +42,7 @@ export * from "./createpostmortemreason.js";
 export * from "./createretrospectivetemplate.js";
 export * from "./createsavedsearch.js";
 export * from "./createservicechecklistresponse.js";
+export * from "./createsignalspage.js";
 export * from "./createslackemojiaction.js";
 export * from "./createteamcallroute.js";
 export * from "./createteamescalationpolicy.js";
