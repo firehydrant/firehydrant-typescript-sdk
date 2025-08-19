@@ -14,6 +14,12 @@ import {
   NullableAuthorEntity$outboundSchema,
 } from "./nullableauthorentity.js";
 import {
+  NullablePublicApiv1IncidentsSuccinctEntity,
+  NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema,
+  NullablePublicApiv1IncidentsSuccinctEntity$Outbound,
+  NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema,
+} from "./nullablepublicapiv1incidentssuccinctentity.js";
+import {
   NullableRulesRuleEntity,
   NullableRulesRuleEntity$inboundSchema,
   NullableRulesRuleEntity$Outbound,
@@ -63,6 +69,14 @@ export type RunbookEntity = {
   categories?: Array<string> | null | undefined;
   autoAttachToRestrictedIncidents?: boolean | null | undefined;
   tutorial?: boolean | null | undefined;
+  /**
+   * The timestamp when this runbook was last executed
+   */
+  lastExecutedAt?: Date | null | undefined;
+  lastExecutedForIncident?:
+    | NullablePublicApiv1IncidentsSuccinctEntity
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -93,6 +107,12 @@ export const RunbookEntity$inboundSchema: z.ZodType<
   categories: z.nullable(z.array(z.string())).optional(),
   auto_attach_to_restricted_incidents: z.nullable(z.boolean()).optional(),
   tutorial: z.nullable(z.boolean()).optional(),
+  last_executed_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  last_executed_for_incident: z.nullable(
+    NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "runbook_template_id": "runbookTemplateId",
@@ -103,6 +123,8 @@ export const RunbookEntity$inboundSchema: z.ZodType<
     "attachment_rule": "attachmentRule",
     "is_editable": "isEditable",
     "auto_attach_to_restricted_incidents": "autoAttachToRestrictedIncidents",
+    "last_executed_at": "lastExecutedAt",
+    "last_executed_for_incident": "lastExecutedForIncident",
   });
 });
 
@@ -126,6 +148,11 @@ export type RunbookEntity$Outbound = {
   categories?: Array<string> | null | undefined;
   auto_attach_to_restricted_incidents?: boolean | null | undefined;
   tutorial?: boolean | null | undefined;
+  last_executed_at?: string | null | undefined;
+  last_executed_for_incident?:
+    | NullablePublicApiv1IncidentsSuccinctEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -152,6 +179,11 @@ export const RunbookEntity$outboundSchema: z.ZodType<
   categories: z.nullable(z.array(z.string())).optional(),
   autoAttachToRestrictedIncidents: z.nullable(z.boolean()).optional(),
   tutorial: z.nullable(z.boolean()).optional(),
+  lastExecutedAt: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  lastExecutedForIncident: z.nullable(
+    NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     runbookTemplateId: "runbook_template_id",
@@ -162,6 +194,8 @@ export const RunbookEntity$outboundSchema: z.ZodType<
     attachmentRule: "attachment_rule",
     isEditable: "is_editable",
     autoAttachToRestrictedIncidents: "auto_attach_to_restricted_incidents",
+    lastExecutedAt: "last_executed_at",
+    lastExecutedForIncident: "last_executed_for_incident",
   });
 });
 

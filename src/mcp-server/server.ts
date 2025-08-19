@@ -260,6 +260,7 @@ import { tool$metricsReportingListRetrospectiveMetrics } from "./tools/metricsRe
 import { tool$metricsReportingListSavedSearches } from "./tools/metricsReportingListSavedSearches.js";
 import { tool$metricsReportingListUserInvolvementMetrics } from "./tools/metricsReportingListUserInvolvementMetrics.js";
 import { tool$metricsReportingUpdateSavedSearch } from "./tools/metricsReportingUpdateSavedSearch.js";
+import { tool$pagesCreateSignalsPage } from "./tools/pagesCreateSignalsPage.js";
 import { tool$retrospectivesCreateIncidentRetrospective } from "./tools/retrospectivesCreateIncidentRetrospective.js";
 import { tool$retrospectivesCreateIncidentRetrospectiveDynamicInput } from "./tools/retrospectivesCreateIncidentRetrospectiveDynamicInput.js";
 import { tool$retrospectivesCreateIncidentRetrospectiveField } from "./tools/retrospectivesCreateIncidentRetrospectiveField.js";
@@ -464,7 +465,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.7",
+    version: "1.0.8",
   });
 
   const client = new FirehydrantCore({
@@ -876,6 +877,7 @@ export function createMCPServer(deps: {
   tool(tool$communicationGetStatusUpdateTemplate);
   tool(tool$communicationDeleteStatusUpdateTemplate);
   tool(tool$communicationUpdateStatusUpdateTemplate);
+  tool(tool$pagesCreateSignalsPage);
   tool(tool$ticketingListTickets);
   tool(tool$ticketingCreateTicket);
   tool(tool$ticketingGetTicket);
