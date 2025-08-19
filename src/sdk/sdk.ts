@@ -16,6 +16,7 @@ import { Incidents } from "./incidents.js";
 import { IncidentSettings } from "./incidentsettings.js";
 import { Integrations } from "./integrations.js";
 import { MetricsReporting } from "./metricsreporting.js";
+import { Pages } from "./pages.js";
 import { Retrospectives } from "./retrospectives.js";
 import { Runbooks } from "./runbooks.js";
 import { Scim } from "./scim.js";
@@ -121,6 +122,11 @@ export class Firehydrant extends ClientSDK {
   private _communication?: Communication;
   get communication(): Communication {
     return (this._communication ??= new Communication(this._options));
+  }
+
+  private _pages?: Pages;
+  get pages(): Pages {
+    return (this._pages ??= new Pages(this._options));
   }
 
   private _ticketing?: Ticketing;

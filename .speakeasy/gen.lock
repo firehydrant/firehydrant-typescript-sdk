@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: 6d3a0f06f0c5518145562d427808ec63
+  docChecksum: b1439308dee4a5686928d6f46f89a732
   docVersion: 0.0.1
-  speakeasyVersion: 1.603.2
-  generationVersion: 2.681.8
-  releaseVersion: 1.0.7
-  configChecksum: 9aeaa75c847375a1a5bd0990ac6b7a6f
+  speakeasyVersion: 1.606.0
+  generationVersion: 2.686.7
+  releaseVersion: 1.0.8
+  configChecksum: a11238a42f57f5086f4674cd043d68a4
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -545,6 +545,7 @@ generatedFiles:
   - docs/models/components/scheduledmaintenancesstatuspageentity.md
   - docs/models/components/scheduleentity.md
   - docs/models/components/scheduleentitypaginated.md
+  - docs/models/components/schema.md
   - docs/models/components/security.md
   - docs/models/components/servicechilddependencyentity.md
   - docs/models/components/servicedependency.md
@@ -859,6 +860,7 @@ generatedFiles:
   - docs/models/operations/createsavedsearchrequest.md
   - docs/models/operations/createsavedsearchresourcetype.md
   - docs/models/operations/createservicechecklistresponserequest.md
+  - docs/models/operations/createsignalspagerequest.md
   - docs/models/operations/createslackemojiactionrequest.md
   - docs/models/operations/createslackemojiactionrequestbody.md
   - docs/models/operations/createteamcallrouterequest.md
@@ -1289,6 +1291,7 @@ generatedFiles:
   - docs/sdks/incidentsettings/README.md
   - docs/sdks/integrations/README.md
   - docs/sdks/metricsreporting/README.md
+  - docs/sdks/pages/README.md
   - docs/sdks/retrospectives/README.md
   - docs/sdks/runbooks/README.md
   - docs/sdks/scim/README.md
@@ -1555,6 +1558,7 @@ generatedFiles:
   - src/funcs/metricsReportingListSavedSearches.ts
   - src/funcs/metricsReportingListUserInvolvementMetrics.ts
   - src/funcs/metricsReportingUpdateSavedSearch.ts
+  - src/funcs/pagesCreateSignalsPage.ts
   - src/funcs/retrospectivesCreateIncidentRetrospective.ts
   - src/funcs/retrospectivesCreateIncidentRetrospectiveDynamicInput.ts
   - src/funcs/retrospectivesCreateIncidentRetrospectiveField.ts
@@ -2028,6 +2032,7 @@ generatedFiles:
   - src/mcp-server/tools/metricsReportingListSavedSearches.ts
   - src/mcp-server/tools/metricsReportingListUserInvolvementMetrics.ts
   - src/mcp-server/tools/metricsReportingUpdateSavedSearch.ts
+  - src/mcp-server/tools/pagesCreateSignalsPage.ts
   - src/mcp-server/tools/retrospectivesCreateIncidentRetrospective.ts
   - src/mcp-server/tools/retrospectivesCreateIncidentRetrospectiveDynamicInput.ts
   - src/mcp-server/tools/retrospectivesCreateIncidentRetrospectiveField.ts
@@ -2710,6 +2715,7 @@ generatedFiles:
   - src/models/operations/createretrospectivetemplate.ts
   - src/models/operations/createsavedsearch.ts
   - src/models/operations/createservicechecklistresponse.ts
+  - src/models/operations/createsignalspage.ts
   - src/models/operations/createslackemojiaction.ts
   - src/models/operations/createteamcallroute.ts
   - src/models/operations/createteamescalationpolicy.ts
@@ -3072,6 +3078,7 @@ generatedFiles:
   - src/sdk/index.ts
   - src/sdk/integrations.ts
   - src/sdk/metricsreporting.ts
+  - src/sdk/pages.ts
   - src/sdk/retrospectives.ts
   - src/sdk/runbooks.ts
   - src/sdk/scim.ts
@@ -6479,5 +6486,12 @@ examples:
       responses:
         "201":
           application/json: {}
+  create_signals_page:
+    speakeasy-default-create-signals-page:
+      requestBody:
+        application/json: {"summary": "<value>", "target_type": "<value>", "target_id": "<id>"}
+      responses:
+        "201":
+          application/json: {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}]}
 examplesVersion: 1.0.2
 generatedTests: {}

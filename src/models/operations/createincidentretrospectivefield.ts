@@ -30,6 +30,7 @@ export type CreateIncidentRetrospectiveFieldRequestBody = {
   permissibleValues?: Array<string> | null | undefined;
   isRequired?: boolean | null | undefined;
   schema?: Array<string> | null | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
 };
 
 export type CreateIncidentRetrospectiveFieldRequest = {
@@ -75,11 +76,13 @@ export const CreateIncidentRetrospectiveFieldRequestBody$inboundSchema:
     permissible_values: z.nullable(z.array(z.string())).optional(),
     is_required: z.nullable(z.boolean()).optional(),
     schema: z.nullable(z.array(z.string())).optional(),
+    required_at_milestone_id: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {
       "help_text": "helpText",
       "permissible_values": "permissibleValues",
       "is_required": "isRequired",
+      "required_at_milestone_id": "requiredAtMilestoneId",
     });
   });
 
@@ -91,6 +94,7 @@ export type CreateIncidentRetrospectiveFieldRequestBody$Outbound = {
   permissible_values?: Array<string> | null | undefined;
   is_required?: boolean | null | undefined;
   schema?: Array<string> | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -106,11 +110,13 @@ export const CreateIncidentRetrospectiveFieldRequestBody$outboundSchema:
     permissibleValues: z.nullable(z.array(z.string())).optional(),
     isRequired: z.nullable(z.boolean()).optional(),
     schema: z.nullable(z.array(z.string())).optional(),
+    requiredAtMilestoneId: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {
       helpText: "help_text",
       permissibleValues: "permissible_values",
       isRequired: "is_required",
+      requiredAtMilestoneId: "required_at_milestone_id",
     });
   });
 

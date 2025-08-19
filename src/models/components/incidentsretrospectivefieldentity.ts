@@ -23,6 +23,8 @@ export type IncidentsRetrospectiveFieldEntityType = ClosedEnum<
   typeof IncidentsRetrospectiveFieldEntityType
 >;
 
+export type Schema = {};
+
 /**
  * Incidents_RetrospectiveFieldEntity model
  */
@@ -34,7 +36,8 @@ export type IncidentsRetrospectiveFieldEntity = {
   permissibleValues?: Array<string> | null | undefined;
   isRequired?: boolean | null | undefined;
   value?: string | null | undefined;
-  schema?: Array<string> | null | undefined;
+  schema?: Array<Schema> | null | undefined;
+  requiredAtMilestoneId?: string | null | undefined;
 };
 
 /** @internal */
@@ -62,6 +65,47 @@ export namespace IncidentsRetrospectiveFieldEntityType$ {
 }
 
 /** @internal */
+export const Schema$inboundSchema: z.ZodType<Schema, z.ZodTypeDef, unknown> = z
+  .object({});
+
+/** @internal */
+export type Schema$Outbound = {};
+
+/** @internal */
+export const Schema$outboundSchema: z.ZodType<
+  Schema$Outbound,
+  z.ZodTypeDef,
+  Schema
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Schema$ {
+  /** @deprecated use `Schema$inboundSchema` instead. */
+  export const inboundSchema = Schema$inboundSchema;
+  /** @deprecated use `Schema$outboundSchema` instead. */
+  export const outboundSchema = Schema$outboundSchema;
+  /** @deprecated use `Schema$Outbound` instead. */
+  export type Outbound = Schema$Outbound;
+}
+
+export function schemaToJSON(schema: Schema): string {
+  return JSON.stringify(Schema$outboundSchema.parse(schema));
+}
+
+export function schemaFromJSON(
+  jsonString: string,
+): SafeParseResult<Schema, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Schema$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Schema' from JSON`,
+  );
+}
+
+/** @internal */
 export const IncidentsRetrospectiveFieldEntity$inboundSchema: z.ZodType<
   IncidentsRetrospectiveFieldEntity,
   z.ZodTypeDef,
@@ -75,12 +119,14 @@ export const IncidentsRetrospectiveFieldEntity$inboundSchema: z.ZodType<
   permissible_values: z.nullable(z.array(z.string())).optional(),
   is_required: z.nullable(z.boolean()).optional(),
   value: z.nullable(z.string()).optional(),
-  schema: z.nullable(z.array(z.string())).optional(),
+  schema: z.nullable(z.array(z.lazy(() => Schema$inboundSchema))).optional(),
+  required_at_milestone_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "help_text": "helpText",
     "permissible_values": "permissibleValues",
     "is_required": "isRequired",
+    "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
 
@@ -93,7 +139,8 @@ export type IncidentsRetrospectiveFieldEntity$Outbound = {
   permissible_values?: Array<string> | null | undefined;
   is_required?: boolean | null | undefined;
   value?: string | null | undefined;
-  schema?: Array<string> | null | undefined;
+  schema?: Array<Schema$Outbound> | null | undefined;
+  required_at_milestone_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -110,12 +157,14 @@ export const IncidentsRetrospectiveFieldEntity$outboundSchema: z.ZodType<
   permissibleValues: z.nullable(z.array(z.string())).optional(),
   isRequired: z.nullable(z.boolean()).optional(),
   value: z.nullable(z.string()).optional(),
-  schema: z.nullable(z.array(z.string())).optional(),
+  schema: z.nullable(z.array(z.lazy(() => Schema$outboundSchema))).optional(),
+  requiredAtMilestoneId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     helpText: "help_text",
     permissibleValues: "permissible_values",
     isRequired: "is_required",
+    requiredAtMilestoneId: "required_at_milestone_id",
   });
 });
 

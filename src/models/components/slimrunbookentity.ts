@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  NullablePublicApiv1IncidentsSuccinctEntity,
+  NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema,
+  NullablePublicApiv1IncidentsSuccinctEntity$Outbound,
+  NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema,
+} from "./nullablepublicapiv1incidentssuccinctentity.js";
+import {
   NullableRulesRuleEntity,
   NullableRulesRuleEntity$inboundSchema,
   NullableRulesRuleEntity$Outbound,
@@ -34,6 +40,14 @@ export type SlimRunbookEntity = {
    * categories the runbook applies to
    */
   categories?: Array<string> | null | undefined;
+  /**
+   * The timestamp when this runbook was last executed
+   */
+  lastExecutedAt?: Date | null | undefined;
+  lastExecutedForIncident?:
+    | NullablePublicApiv1IncidentsSuccinctEntity
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -56,11 +70,19 @@ export const SlimRunbookEntity$inboundSchema: z.ZodType<
   attachment_rule: z.nullable(NullableRulesRuleEntity$inboundSchema).optional(),
   owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
   categories: z.nullable(z.array(z.string())).optional(),
+  last_executed_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  last_executed_for_incident: z.nullable(
+    NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "updated_at": "updatedAt",
     "attachment_rule": "attachmentRule",
+    "last_executed_at": "lastExecutedAt",
+    "last_executed_for_incident": "lastExecutedForIncident",
   });
 });
 
@@ -76,6 +98,11 @@ export type SlimRunbookEntity$Outbound = {
   attachment_rule?: NullableRulesRuleEntity$Outbound | null | undefined;
   owner?: NullableTeamEntityLite$Outbound | null | undefined;
   categories?: Array<string> | null | undefined;
+  last_executed_at?: string | null | undefined;
+  last_executed_for_incident?:
+    | NullablePublicApiv1IncidentsSuccinctEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -94,11 +121,18 @@ export const SlimRunbookEntity$outboundSchema: z.ZodType<
   attachmentRule: z.nullable(NullableRulesRuleEntity$outboundSchema).optional(),
   owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
   categories: z.nullable(z.array(z.string())).optional(),
+  lastExecutedAt: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  lastExecutedForIncident: z.nullable(
+    NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     updatedAt: "updated_at",
     attachmentRule: "attachment_rule",
+    lastExecutedAt: "last_executed_at",
+    lastExecutedForIncident: "last_executed_for_incident",
   });
 });
 

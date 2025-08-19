@@ -610,6 +610,10 @@ run();
 * [getSignalsMttxAnalytics](docs/sdks/metricsreporting/README.md#getsignalsmttxanalytics) - Get MTTX analytics for signals
 * [getSignalsNoiseAnalytics](docs/sdks/metricsreporting/README.md#getsignalsnoiseanalytics) - Get noise analytics for signals
 
+### [pages](docs/sdks/pages/README.md)
+
+* [createSignalsPage](docs/sdks/pages/README.md#createsignalspage) - Pages a target
+
 ### [retrospectives](docs/sdks/retrospectives/README.md)
 
 * [shareIncidentRetrospectives](docs/sdks/retrospectives/README.md#shareincidentretrospectives) - Share an incident's retrospective
@@ -1098,6 +1102,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`metricsReportingListSavedSearches`](docs/sdks/metricsreporting/README.md#listsavedsearches) - List saved searches
 - [`metricsReportingListUserInvolvementMetrics`](docs/sdks/metricsreporting/README.md#listuserinvolvementmetrics) - List user metrics
 - [`metricsReportingUpdateSavedSearch`](docs/sdks/metricsreporting/README.md#updatesavedsearch) - Update a saved search
+- [`pagesCreateSignalsPage`](docs/sdks/pages/README.md#createsignalspage) - Pages a target
 - [`retrospectivesCreateIncidentRetrospective`](docs/sdks/retrospectives/README.md#createincidentretrospective) - Create a new retrospective on the incident using the template
 - [`retrospectivesCreateIncidentRetrospectiveDynamicInput`](docs/sdks/retrospectives/README.md#createincidentretrospectivedynamicinput) - Add a new dynamic input field to a retrospective's dynamic input group field
 - [`retrospectivesCreateIncidentRetrospectiveField`](docs/sdks/retrospectives/README.md#createincidentretrospectivefield) - Appends a new incident retrospective field to an incident retrospective
@@ -1466,7 +1471,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 440 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 441 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
