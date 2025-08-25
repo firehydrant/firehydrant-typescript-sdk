@@ -22,15 +22,17 @@ export const ListRunbooksSort = {
 export type ListRunbooksSort = ClosedEnum<typeof ListRunbooksSort>;
 
 /**
- * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', and 'created_at'.
+ * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', 'owner', 'last_executed_at', and 'created_at'.
  */
 export const OrderBy = {
   UpdatedAt: "updated_at",
   Name: "name",
   CreatedAt: "created_at",
+  LastExecutedAt: "last_executed_at",
+  Owner: "owner",
 } as const;
 /**
- * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', and 'created_at'.
+ * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', 'owner', 'last_executed_at', and 'created_at'.
  */
 export type OrderBy = ClosedEnum<typeof OrderBy>;
 
@@ -62,7 +64,7 @@ export type ListRunbooksRequest = {
    */
   sort?: ListRunbooksSort | null | undefined;
   /**
-   * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', and 'created_at'.
+   * Sort runbooks by their updated date or name. Accepts 'updated_at', 'name', 'owner', 'last_executed_at', and 'created_at'.
    */
   orderBy?: OrderBy | null | undefined;
   /**
