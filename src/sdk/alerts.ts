@@ -88,7 +88,7 @@ export class Alerts extends ClientSDK {
    * List alerts
    *
    * @remarks
-   * Retrieve all alerts from third parties
+   * Retrieve all alerts, including Signals alerts and third-party
    */
   async listAlerts(
     request: operations.ListAlertsRequest,
