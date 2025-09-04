@@ -6,7 +6,7 @@ permissions:
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    branches: [auto-approve-merge]  # Only trigger for PRs targeting this branch
+    branches: [main, auto-approve-merge]  # Only trigger for PRs targeting this branch
   workflow_dispatch:  # Add manual trigger for testing
     inputs:
       pr_number:
