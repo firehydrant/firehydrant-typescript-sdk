@@ -261,6 +261,9 @@ import { tool$metricsReportingListSavedSearches } from "./tools/metricsReporting
 import { tool$metricsReportingListUserInvolvementMetrics } from "./tools/metricsReportingListUserInvolvementMetrics.js";
 import { tool$metricsReportingUpdateSavedSearch } from "./tools/metricsReportingUpdateSavedSearch.js";
 import { tool$pagesCreateSignalsPage } from "./tools/pagesCreateSignalsPage.js";
+import { tool$permissionsListCurrentUserPermissions } from "./tools/permissionsListCurrentUserPermissions.js";
+import { tool$permissionsListPermissions } from "./tools/permissionsListPermissions.js";
+import { tool$permissionsListTeamPermissions } from "./tools/permissionsListTeamPermissions.js";
 import { tool$retrospectivesCreateIncidentRetrospective } from "./tools/retrospectivesCreateIncidentRetrospective.js";
 import { tool$retrospectivesCreateIncidentRetrospectiveDynamicInput } from "./tools/retrospectivesCreateIncidentRetrospectiveDynamicInput.js";
 import { tool$retrospectivesCreateIncidentRetrospectiveField } from "./tools/retrospectivesCreateIncidentRetrospectiveField.js";
@@ -291,6 +294,11 @@ import { tool$retrospectivesUpdatePostMortemQuestions } from "./tools/retrospect
 import { tool$retrospectivesUpdatePostMortemReason } from "./tools/retrospectivesUpdatePostMortemReason.js";
 import { tool$retrospectivesUpdatePostMortemReport } from "./tools/retrospectivesUpdatePostMortemReport.js";
 import { tool$retrospectivesUpdateRetrospectiveTemplate } from "./tools/retrospectivesUpdateRetrospectiveTemplate.js";
+import { tool$rolesCreateRole } from "./tools/rolesCreateRole.js";
+import { tool$rolesDeleteRole } from "./tools/rolesDeleteRole.js";
+import { tool$rolesGetRole } from "./tools/rolesGetRole.js";
+import { tool$rolesListRoles } from "./tools/rolesListRoles.js";
+import { tool$rolesUpdateRole } from "./tools/rolesUpdateRole.js";
 import { tool$runbooksCreateRunbook } from "./tools/runbooksCreateRunbook.js";
 import { tool$runbooksCreateRunbookExecution } from "./tools/runbooksCreateRunbookExecution.js";
 import { tool$runbooksDeleteRunbook } from "./tools/runbooksDeleteRunbook.js";
@@ -465,7 +473,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.10",
+    version: "1.0.11",
   });
 
   const client = new FirehydrantCore({
@@ -840,6 +848,9 @@ export function createMCPServer(deps: {
   tool(tool$usersListUsers);
   tool(tool$usersGetUser);
   tool(tool$usersGetCurrentUser);
+  tool(tool$permissionsListPermissions);
+  tool(tool$permissionsListCurrentUserPermissions);
+  tool(tool$permissionsListTeamPermissions);
   tool(tool$metricsReportingGetMeanTimeReport);
   tool(tool$metricsReportingListRetrospectiveMetrics);
   tool(tool$metricsReportingListUserInvolvementMetrics);
@@ -855,6 +866,11 @@ export function createMCPServer(deps: {
   tool(tool$metricsReportingGetSignalsGroupedMetrics);
   tool(tool$metricsReportingGetSignalsMttxAnalytics);
   tool(tool$metricsReportingGetSignalsNoiseAnalytics);
+  tool(tool$rolesListRoles);
+  tool(tool$rolesCreateRole);
+  tool(tool$rolesGetRole);
+  tool(tool$rolesDeleteRole);
+  tool(tool$rolesUpdateRole);
   tool(tool$runbooksListRunbookActions);
   tool(tool$runbooksListRunbookExecutions);
   tool(tool$runbooksCreateRunbookExecution);

@@ -29,7 +29,7 @@ import { Result } from "../types/fp.js";
  * List runbook audits
  *
  * @remarks
- * Please contact support to enable audit logging for your account.
+ * This endpoint is deprecated.
  */
 export function runbooksListRunbookAudits(
   client: FirehydrantCore,

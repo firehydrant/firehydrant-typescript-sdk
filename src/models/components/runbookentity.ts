@@ -14,6 +14,12 @@ import {
   NullableAuthorEntity$outboundSchema,
 } from "./nullableauthorentity.js";
 import {
+  NullableEmptyVotesEntity,
+  NullableEmptyVotesEntity$inboundSchema,
+  NullableEmptyVotesEntity$Outbound,
+  NullableEmptyVotesEntity$outboundSchema,
+} from "./nullableemptyvotesentity.js";
+import {
   NullablePublicApiv1IncidentsSuccinctEntity,
   NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema,
   NullablePublicApiv1IncidentsSuccinctEntity$Outbound,
@@ -31,12 +37,6 @@ import {
   NullableTeamEntityLite$Outbound,
   NullableTeamEntityLite$outboundSchema,
 } from "./nullableteamentitylite.js";
-import {
-  NullableVotesEntity,
-  NullableVotesEntity$inboundSchema,
-  NullableVotesEntity$Outbound,
-  NullableVotesEntity$outboundSchema,
-} from "./nullablevotesentity.js";
 import {
   RunbookStepEntity,
   RunbookStepEntity$inboundSchema,
@@ -60,7 +60,7 @@ export type RunbookEntity = {
   updatedBy?: NullableAuthorEntity | null | undefined;
   steps?: Array<RunbookStepEntity> | null | undefined;
   attachmentRule?: NullableRulesRuleEntity | null | undefined;
-  votes?: NullableVotesEntity | null | undefined;
+  votes?: NullableEmptyVotesEntity | null | undefined;
   isEditable?: boolean | null | undefined;
   owner?: NullableTeamEntityLite | null | undefined;
   /**
@@ -101,7 +101,7 @@ export const RunbookEntity$inboundSchema: z.ZodType<
   updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
   steps: z.nullable(z.array(RunbookStepEntity$inboundSchema)).optional(),
   attachment_rule: z.nullable(NullableRulesRuleEntity$inboundSchema).optional(),
-  votes: z.nullable(NullableVotesEntity$inboundSchema).optional(),
+  votes: z.nullable(NullableEmptyVotesEntity$inboundSchema).optional(),
   is_editable: z.nullable(z.boolean()).optional(),
   owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
   categories: z.nullable(z.array(z.string())).optional(),
@@ -142,7 +142,7 @@ export type RunbookEntity$Outbound = {
   updated_by?: NullableAuthorEntity$Outbound | null | undefined;
   steps?: Array<RunbookStepEntity$Outbound> | null | undefined;
   attachment_rule?: NullableRulesRuleEntity$Outbound | null | undefined;
-  votes?: NullableVotesEntity$Outbound | null | undefined;
+  votes?: NullableEmptyVotesEntity$Outbound | null | undefined;
   is_editable?: boolean | null | undefined;
   owner?: NullableTeamEntityLite$Outbound | null | undefined;
   categories?: Array<string> | null | undefined;
@@ -173,7 +173,7 @@ export const RunbookEntity$outboundSchema: z.ZodType<
   updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
   steps: z.nullable(z.array(RunbookStepEntity$outboundSchema)).optional(),
   attachmentRule: z.nullable(NullableRulesRuleEntity$outboundSchema).optional(),
-  votes: z.nullable(NullableVotesEntity$outboundSchema).optional(),
+  votes: z.nullable(NullableEmptyVotesEntity$outboundSchema).optional(),
   isEditable: z.nullable(z.boolean()).optional(),
   owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
   categories: z.nullable(z.array(z.string())).optional(),

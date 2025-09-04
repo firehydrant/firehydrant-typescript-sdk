@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: e344d3248cac62f007bfc04f1e1ff9f0
+  docChecksum: 1cf21ef1e0362daa534ba0a0c24a7cf8
   docVersion: 0.0.1
-  speakeasyVersion: 1.606.10
-  generationVersion: 2.687.13
-  releaseVersion: 1.0.10
-  configChecksum: 7ac90f65253453196448728b01dfc3d8
+  speakeasyVersion: 1.609.0
+  generationVersion: 2.692.0
+  releaseVersion: 1.0.11
+  configChecksum: 5266f713dc28311d477d2368626e6306
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.20
+    core: 3.21.22
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -142,6 +142,8 @@ generatedFiles:
   - docs/models/components/createpostmortemreason.md
   - docs/models/components/createpostmortemreport.md
   - docs/models/components/createpriority.md
+  - docs/models/components/createrole.md
+  - docs/models/components/createrolepermission.md
   - docs/models/components/createrunbook.md
   - docs/models/components/createrunbookattachmentrule.md
   - docs/models/components/createrunbookexecution.md
@@ -377,6 +379,7 @@ generatedFiles:
   - docs/models/components/nullablechangeevententityattachment.md
   - docs/models/components/nullablechangeevententitylabels.md
   - docs/models/components/nullableconversationsapientitieschannel.md
+  - docs/models/components/nullableemptyvotesentity.md
   - docs/models/components/nullableeventnoteentity.md
   - docs/models/components/nullableexternalresourceentity.md
   - docs/models/components/nullablefhtypesgenericentity.md
@@ -478,6 +481,7 @@ generatedFiles:
   - docs/models/components/organizationscustomfielddefinitionentity.md
   - docs/models/components/overrideoncallschedulerotationshifts.md
   - docs/models/components/patchscimuser.md
+  - docs/models/components/permissionentitylist.md
   - docs/models/components/pongentity.md
   - docs/models/components/postmortemspostmortemreportentity.md
   - docs/models/components/postmortemspostmortemreportentitypaginated.md
@@ -511,6 +515,8 @@ generatedFiles:
   - docs/models/components/publicapiv1incidentssuccinctentity.md
   - docs/models/components/publicapiv1incidentstranscriptentity.md
   - docs/models/components/publicapiv1integrationsauthedproviderentity.md
+  - docs/models/components/publicapiv1permissionentity.md
+  - docs/models/components/publicapiv1roleentity.md
   - docs/models/components/publicapiv1similarincidententity.md
   - docs/models/components/publish.md
   - docs/models/components/publishpostmortemreport.md
@@ -524,6 +530,7 @@ generatedFiles:
   - docs/models/components/retrospectivesindextemplateentitypaginated.md
   - docs/models/components/retrospectivestemplateentity.md
   - docs/models/components/retrospectivestemplateentityincidentsectionentity.md
+  - docs/models/components/roleentitypaginated.md
   - docs/models/components/runbookentity.md
   - docs/models/components/runbooks.md
   - docs/models/components/runbooksactionsentity.md
@@ -706,6 +713,8 @@ generatedFiles:
   - docs/models/components/updatepostmortemreport.md
   - docs/models/components/updatepostmortemreportquestion.md
   - docs/models/components/updatepriority.md
+  - docs/models/components/updaterole.md
+  - docs/models/components/updaterolepermission.md
   - docs/models/components/updaterunbook.md
   - docs/models/components/updaterunbookattachmentrule.md
   - docs/models/components/updaterunbookexecutionstep.md
@@ -909,6 +918,7 @@ generatedFiles:
   - docs/models/operations/deletepostmortemreasonrequest.md
   - docs/models/operations/deletepriorityrequest.md
   - docs/models/operations/deleteretrospectivetemplaterequest.md
+  - docs/models/operations/deleterolerequest.md
   - docs/models/operations/deleterunbookexecutionrequest.md
   - docs/models/operations/deleterunbookrequest.md
   - docs/models/operations/deletesavedsearchrequest.md
@@ -985,6 +995,7 @@ generatedFiles:
   - docs/models/operations/getpostmortemreportrequest.md
   - docs/models/operations/getpriorityrequest.md
   - docs/models/operations/getretrospectivetemplaterequest.md
+  - docs/models/operations/getrolerequest.md
   - docs/models/operations/getrunbookactionfieldoptionsrequest.md
   - docs/models/operations/getrunbookexecutionrequest.md
   - docs/models/operations/getrunbookexecutionstepscriptrequest.md
@@ -1111,6 +1122,7 @@ generatedFiles:
   - docs/models/operations/listretrospectivemetricsrequest.md
   - docs/models/operations/listretrospectivesrequest.md
   - docs/models/operations/listretrospectivetemplatesrequest.md
+  - docs/models/operations/listrolesrequest.md
   - docs/models/operations/listrunbookactionsrequest.md
   - docs/models/operations/listrunbookauditsrequest.md
   - docs/models/operations/listrunbookexecutionsrequest.md
@@ -1240,6 +1252,7 @@ generatedFiles:
   - docs/models/operations/updateretrospectivetemplatefieldstype.md
   - docs/models/operations/updateretrospectivetemplaterequest.md
   - docs/models/operations/updateretrospectivetemplaterequestbody.md
+  - docs/models/operations/updaterolerequest.md
   - docs/models/operations/updaterunbookexecutionsteprequest.md
   - docs/models/operations/updaterunbookexecutionstepscriptrequest.md
   - docs/models/operations/updaterunbookrequest.md
@@ -1292,7 +1305,9 @@ generatedFiles:
   - docs/sdks/integrations/README.md
   - docs/sdks/metricsreporting/README.md
   - docs/sdks/pages/README.md
+  - docs/sdks/permissions/README.md
   - docs/sdks/retrospectives/README.md
+  - docs/sdks/roles/README.md
   - docs/sdks/runbooks/README.md
   - docs/sdks/scim/README.md
   - docs/sdks/signals/README.md
@@ -1559,6 +1574,9 @@ generatedFiles:
   - src/funcs/metricsReportingListUserInvolvementMetrics.ts
   - src/funcs/metricsReportingUpdateSavedSearch.ts
   - src/funcs/pagesCreateSignalsPage.ts
+  - src/funcs/permissionsListCurrentUserPermissions.ts
+  - src/funcs/permissionsListPermissions.ts
+  - src/funcs/permissionsListTeamPermissions.ts
   - src/funcs/retrospectivesCreateIncidentRetrospective.ts
   - src/funcs/retrospectivesCreateIncidentRetrospectiveDynamicInput.ts
   - src/funcs/retrospectivesCreateIncidentRetrospectiveField.ts
@@ -1589,6 +1607,11 @@ generatedFiles:
   - src/funcs/retrospectivesUpdatePostMortemReason.ts
   - src/funcs/retrospectivesUpdatePostMortemReport.ts
   - src/funcs/retrospectivesUpdateRetrospectiveTemplate.ts
+  - src/funcs/rolesCreateRole.ts
+  - src/funcs/rolesDeleteRole.ts
+  - src/funcs/rolesGetRole.ts
+  - src/funcs/rolesListRoles.ts
+  - src/funcs/rolesUpdateRole.ts
   - src/funcs/runbooksCreateRunbook.ts
   - src/funcs/runbooksCreateRunbookExecution.ts
   - src/funcs/runbooksDeleteRunbook.ts
@@ -2033,6 +2056,9 @@ generatedFiles:
   - src/mcp-server/tools/metricsReportingListUserInvolvementMetrics.ts
   - src/mcp-server/tools/metricsReportingUpdateSavedSearch.ts
   - src/mcp-server/tools/pagesCreateSignalsPage.ts
+  - src/mcp-server/tools/permissionsListCurrentUserPermissions.ts
+  - src/mcp-server/tools/permissionsListPermissions.ts
+  - src/mcp-server/tools/permissionsListTeamPermissions.ts
   - src/mcp-server/tools/retrospectivesCreateIncidentRetrospective.ts
   - src/mcp-server/tools/retrospectivesCreateIncidentRetrospectiveDynamicInput.ts
   - src/mcp-server/tools/retrospectivesCreateIncidentRetrospectiveField.ts
@@ -2063,6 +2089,11 @@ generatedFiles:
   - src/mcp-server/tools/retrospectivesUpdatePostMortemReason.ts
   - src/mcp-server/tools/retrospectivesUpdatePostMortemReport.ts
   - src/mcp-server/tools/retrospectivesUpdateRetrospectiveTemplate.ts
+  - src/mcp-server/tools/rolesCreateRole.ts
+  - src/mcp-server/tools/rolesDeleteRole.ts
+  - src/mcp-server/tools/rolesGetRole.ts
+  - src/mcp-server/tools/rolesListRoles.ts
+  - src/mcp-server/tools/rolesUpdateRole.ts
   - src/mcp-server/tools/runbooksCreateRunbook.ts
   - src/mcp-server/tools/runbooksCreateRunbookExecution.ts
   - src/mcp-server/tools/runbooksDeleteRunbook.ts
@@ -2286,6 +2317,7 @@ generatedFiles:
   - src/models/components/createpostmortemreason.ts
   - src/models/components/createpostmortemreport.ts
   - src/models/components/createpriority.ts
+  - src/models/components/createrole.ts
   - src/models/components/createrunbook.ts
   - src/models/components/createrunbookexecution.ts
   - src/models/components/createsavedsearch.ts
@@ -2411,6 +2443,7 @@ generatedFiles:
   - src/models/components/nullablecalendarsevententity.ts
   - src/models/components/nullablechangeevententity.ts
   - src/models/components/nullableconversationsapientitieschannel.ts
+  - src/models/components/nullableemptyvotesentity.ts
   - src/models/components/nullableeventnoteentity.ts
   - src/models/components/nullableexternalresourceentity.ts
   - src/models/components/nullablefhtypesgenericentity.ts
@@ -2488,6 +2521,7 @@ generatedFiles:
   - src/models/components/organizationscustomfielddefinitionentity.ts
   - src/models/components/overrideoncallschedulerotationshifts.ts
   - src/models/components/patchscimuser.ts
+  - src/models/components/permissionentitylist.ts
   - src/models/components/pongentity.ts
   - src/models/components/postmortemspostmortemreportentity.ts
   - src/models/components/postmortemspostmortemreportentitypaginated.ts
@@ -2504,6 +2538,8 @@ generatedFiles:
   - src/models/components/publicapiv1incidentssuccinctentity.ts
   - src/models/components/publicapiv1incidentstranscriptentity.ts
   - src/models/components/publicapiv1integrationsauthedproviderentity.ts
+  - src/models/components/publicapiv1permissionentity.ts
+  - src/models/components/publicapiv1roleentity.ts
   - src/models/components/publicapiv1similarincidententity.ts
   - src/models/components/publishpostmortemreport.ts
   - src/models/components/reorderpostmortemreasons.ts
@@ -2515,6 +2551,7 @@ generatedFiles:
   - src/models/components/retrospectivesindextemplateentitypaginated.ts
   - src/models/components/retrospectivestemplateentity.ts
   - src/models/components/retrospectivestemplateentityincidentsectionentity.ts
+  - src/models/components/roleentitypaginated.ts
   - src/models/components/runbookentity.ts
   - src/models/components/runbooksactionsentity.ts
   - src/models/components/runbooksactionsentitypaginated.ts
@@ -2637,6 +2674,7 @@ generatedFiles:
   - src/models/components/updatepostmortemreason.ts
   - src/models/components/updatepostmortemreport.ts
   - src/models/components/updatepriority.ts
+  - src/models/components/updaterole.ts
   - src/models/components/updaterunbook.ts
   - src/models/components/updaterunbookexecutionstep.ts
   - src/models/components/updatesavedsearch.ts
@@ -2761,6 +2799,7 @@ generatedFiles:
   - src/models/operations/deletepostmortemreason.ts
   - src/models/operations/deletepriority.ts
   - src/models/operations/deleteretrospectivetemplate.ts
+  - src/models/operations/deleterole.ts
   - src/models/operations/deleterunbook.ts
   - src/models/operations/deleterunbookexecution.ts
   - src/models/operations/deletesavedsearch.ts
@@ -2832,6 +2871,7 @@ generatedFiles:
   - src/models/operations/getpostmortemreport.ts
   - src/models/operations/getpriority.ts
   - src/models/operations/getretrospectivetemplate.ts
+  - src/models/operations/getrole.ts
   - src/models/operations/getrunbook.ts
   - src/models/operations/getrunbookactionfieldoptions.ts
   - src/models/operations/getrunbookexecution.ts
@@ -2933,6 +2973,7 @@ generatedFiles:
   - src/models/operations/listretrospectivemetrics.ts
   - src/models/operations/listretrospectives.ts
   - src/models/operations/listretrospectivetemplates.ts
+  - src/models/operations/listroles.ts
   - src/models/operations/listrunbookactions.ts
   - src/models/operations/listrunbookaudits.ts
   - src/models/operations/listrunbookexecutions.ts
@@ -3032,6 +3073,7 @@ generatedFiles:
   - src/models/operations/updatepostmortemreport.ts
   - src/models/operations/updatepriority.ts
   - src/models/operations/updateretrospectivetemplate.ts
+  - src/models/operations/updaterole.ts
   - src/models/operations/updaterunbook.ts
   - src/models/operations/updaterunbookexecutionstep.ts
   - src/models/operations/updaterunbookexecutionstepscript.ts
@@ -3079,7 +3121,9 @@ generatedFiles:
   - src/sdk/integrations.ts
   - src/sdk/metricsreporting.ts
   - src/sdk/pages.ts
+  - src/sdk/permissions.ts
   - src/sdk/retrospectives.ts
+  - src/sdk/roles.ts
   - src/sdk/runbooks.ts
   - src/sdk/scim.ts
   - src/sdk/sdk.ts
@@ -6493,5 +6537,55 @@ examples:
       responses:
         "201":
           application/json: {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}]}
+  list_permissions:
+    speakeasy-default-list-permissions:
+      responses:
+        "200":
+          application/json: {}
+  list_current_user_permissions:
+    speakeasy-default-list-current-user-permissions:
+      responses:
+        "200":
+          application/json: {}
+  list_team_permissions:
+    speakeasy-default-list-team-permissions:
+      responses:
+        "200":
+          application/json: {}
+  list_roles:
+    speakeasy-default-list-roles:
+      responses:
+        "200":
+          application/json: {}
+  create_role:
+    speakeasy-default-create-role:
+      requestBody:
+        application/json: {"name": "<value>"}
+      responses:
+        "201":
+          application/json: {}
+  get_role:
+    speakeasy-default-get-role:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {}
+  delete_role:
+    speakeasy-default-delete-role:
+      parameters:
+        path:
+          id: "<id>"
+  update_role:
+    speakeasy-default-update-role:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"name": "<value>"}
+      responses:
+        "200":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  NullableEmptyVotesEntity,
+  NullableEmptyVotesEntity$inboundSchema,
+  NullableEmptyVotesEntity$Outbound,
+  NullableEmptyVotesEntity$outboundSchema,
+} from "./nullableemptyvotesentity.js";
+import {
   NullableRulesRuleEntity,
   NullableRulesRuleEntity$inboundSchema,
   NullableRulesRuleEntity$Outbound,
@@ -19,12 +25,6 @@ import {
   NullableRunbooksActionsEntity$Outbound,
   NullableRunbooksActionsEntity$outboundSchema,
 } from "./nullablerunbooksactionsentity.js";
-import {
-  NullableVotesEntity,
-  NullableVotesEntity$inboundSchema,
-  NullableVotesEntity$Outbound,
-  NullableVotesEntity$outboundSchema,
-} from "./nullablevotesentity.js";
 
 /**
  * An unstructured object of key/value pairs describing the config settings for the step.
@@ -57,7 +57,7 @@ export type RunbookStepEntity = {
   reruns?: boolean | null | undefined;
   repeats?: boolean | null | undefined;
   repeatsDuration?: string | null | undefined;
-  votes?: NullableVotesEntity | null | undefined;
+  votes?: NullableEmptyVotesEntity | null | undefined;
   rule?: NullableRulesRuleEntity | null | undefined;
 };
 
@@ -226,7 +226,7 @@ export const RunbookStepEntity$inboundSchema: z.ZodType<
   reruns: z.nullable(z.boolean()).optional(),
   repeats: z.nullable(z.boolean()).optional(),
   repeats_duration: z.nullable(z.string()).optional(),
-  votes: z.nullable(NullableVotesEntity$inboundSchema).optional(),
+  votes: z.nullable(NullableEmptyVotesEntity$inboundSchema).optional(),
   rule: z.nullable(NullableRulesRuleEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -256,7 +256,7 @@ export type RunbookStepEntity$Outbound = {
   reruns?: boolean | null | undefined;
   repeats?: boolean | null | undefined;
   repeats_duration?: string | null | undefined;
-  votes?: NullableVotesEntity$Outbound | null | undefined;
+  votes?: NullableEmptyVotesEntity$Outbound | null | undefined;
   rule?: NullableRulesRuleEntity$Outbound | null | undefined;
 };
 
@@ -283,7 +283,7 @@ export const RunbookStepEntity$outboundSchema: z.ZodType<
   reruns: z.nullable(z.boolean()).optional(),
   repeats: z.nullable(z.boolean()).optional(),
   repeatsDuration: z.nullable(z.string()).optional(),
-  votes: z.nullable(NullableVotesEntity$outboundSchema).optional(),
+  votes: z.nullable(NullableEmptyVotesEntity$outboundSchema).optional(),
   rule: z.nullable(NullableRulesRuleEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {

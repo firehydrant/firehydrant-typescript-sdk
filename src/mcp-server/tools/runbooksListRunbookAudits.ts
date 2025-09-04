@@ -14,7 +14,7 @@ export const tool$runbooksListRunbookAudits: ToolDefinition<typeof args> = {
   name: "runbooks-list-runbook-audits",
   description: `List runbook audits
 
-Please contact support to enable audit logging for your account.`,
+This endpoint is deprecated.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await runbooksListRunbookAudits(

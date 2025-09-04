@@ -614,6 +614,12 @@ run();
 
 * [createSignalsPage](docs/sdks/pages/README.md#createsignalspage) - Pages a target
 
+### [permissions](docs/sdks/permissions/README.md)
+
+* [listPermissions](docs/sdks/permissions/README.md#listpermissions) - List permissions
+* [listCurrentUserPermissions](docs/sdks/permissions/README.md#listcurrentuserpermissions) - Get all permissions for the current user
+* [listTeamPermissions](docs/sdks/permissions/README.md#listteampermissions) - Get all permissions for a team
+
 ### [retrospectives](docs/sdks/retrospectives/README.md)
 
 * [shareIncidentRetrospectives](docs/sdks/retrospectives/README.md#shareincidentretrospectives) - Share an incident's retrospective
@@ -646,6 +652,14 @@ run();
 * [getRetrospectiveTemplate](docs/sdks/retrospectives/README.md#getretrospectivetemplate) - Get a retrospective template
 * [deleteRetrospectiveTemplate](docs/sdks/retrospectives/README.md#deleteretrospectivetemplate) - Delete a retrospective template
 * [updateRetrospectiveTemplate](docs/sdks/retrospectives/README.md#updateretrospectivetemplate) - Update a retrospective template
+
+### [roles](docs/sdks/roles/README.md)
+
+* [listRoles](docs/sdks/roles/README.md#listroles) - Get all roles
+* [createRole](docs/sdks/roles/README.md#createrole) - Create a role
+* [getRole](docs/sdks/roles/README.md#getrole) - Get a role
+* [deleteRole](docs/sdks/roles/README.md#deleterole) - Delete a role
+* [updateRole](docs/sdks/roles/README.md#updaterole) - Update a role
 
 ### [runbooks](docs/sdks/runbooks/README.md)
 
@@ -1103,6 +1117,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`metricsReportingListUserInvolvementMetrics`](docs/sdks/metricsreporting/README.md#listuserinvolvementmetrics) - List user metrics
 - [`metricsReportingUpdateSavedSearch`](docs/sdks/metricsreporting/README.md#updatesavedsearch) - Update a saved search
 - [`pagesCreateSignalsPage`](docs/sdks/pages/README.md#createsignalspage) - Pages a target
+- [`permissionsListCurrentUserPermissions`](docs/sdks/permissions/README.md#listcurrentuserpermissions) - Get all permissions for the current user
+- [`permissionsListPermissions`](docs/sdks/permissions/README.md#listpermissions) - List permissions
+- [`permissionsListTeamPermissions`](docs/sdks/permissions/README.md#listteampermissions) - Get all permissions for a team
 - [`retrospectivesCreateIncidentRetrospective`](docs/sdks/retrospectives/README.md#createincidentretrospective) - Create a new retrospective on the incident using the template
 - [`retrospectivesCreateIncidentRetrospectiveDynamicInput`](docs/sdks/retrospectives/README.md#createincidentretrospectivedynamicinput) - Add a new dynamic input field to a retrospective's dynamic input group field
 - [`retrospectivesCreateIncidentRetrospectiveField`](docs/sdks/retrospectives/README.md#createincidentretrospectivefield) - Appends a new incident retrospective field to an incident retrospective
@@ -1133,6 +1150,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`retrospectivesUpdatePostMortemReason`](docs/sdks/retrospectives/README.md#updatepostmortemreason) - Update a contributing factor in a retrospective report
 - [`retrospectivesUpdatePostMortemReport`](docs/sdks/retrospectives/README.md#updatepostmortemreport) - Update a retrospective report
 - [`retrospectivesUpdateRetrospectiveTemplate`](docs/sdks/retrospectives/README.md#updateretrospectivetemplate) - Update a retrospective template
+- [`rolesCreateRole`](docs/sdks/roles/README.md#createrole) - Create a role
+- [`rolesDeleteRole`](docs/sdks/roles/README.md#deleterole) - Delete a role
+- [`rolesGetRole`](docs/sdks/roles/README.md#getrole) - Get a role
+- [`rolesListRoles`](docs/sdks/roles/README.md#listroles) - Get all roles
+- [`rolesUpdateRole`](docs/sdks/roles/README.md#updaterole) - Update a role
 - [`runbooksCreateRunbook`](docs/sdks/runbooks/README.md#createrunbook) - Create a runbook
 - [`runbooksCreateRunbookExecution`](docs/sdks/runbooks/README.md#createrunbookexecution) - Create a runbook execution
 - [`runbooksDeleteRunbook`](docs/sdks/runbooks/README.md#deleterunbook) - Delete a runbook
@@ -1471,7 +1493,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 441 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 449 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
