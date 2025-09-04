@@ -1,5 +1,8 @@
 name: Auto Approve and Merge
-
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
