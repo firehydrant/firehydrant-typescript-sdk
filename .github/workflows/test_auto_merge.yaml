@@ -1,0 +1,33 @@
+name: Create Test PR
+on:
+  workflow_dispatch:
+  push:
+    branches: [auto-approve-merge]
+
+jobs:
+  create-test-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create test PR
+        run: |
+          # Configure git identity
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Create branch with test file
+          BRANCH_NAME="test-auto-merge-${{ github.run_number }}"
+          git checkout -b $BRANCH_NAME
+          echo "Test $(date)" > test.txt
+          git add test.txt
+          git commit -m "test: auto-merge"
+          git push origin $BRANCH_NAME
+          
+          # Create PR
+          gh pr create \
+            --base auto-approve-merge \
+            --title "Test: Auto-merge workflow" \
+            --body "Testing auto-merge functionality"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
