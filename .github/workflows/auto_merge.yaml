@@ -41,8 +41,8 @@ jobs:
           echo ""
           echo "=== CONDITION CHECKS ==="
           echo "Title contains 'Auto-merge workflow': ${{ contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
-          echo "Title contains 'Test:': ${{ contains(github.event.pull_request.title, 'Test:') }}"
           echo "Author is github-actions: ${{ github.event.pull_request.user.login == 'app/github-actions' }}"
+          echo "Both conditions met: ${{ github.event.pull_request.user.login == 'app/github-actions' && contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
           echo ""
           echo "=== TOKEN DEBUG ==="
           echo "AUTO_MERGE_TOKEN exists: ${{ secrets.AUTO_MERGE_TOKEN != '' }}"
@@ -50,20 +50,27 @@ jobs:
 
   auto-approve-merge:
     runs-on: ubuntu-latest
-    # TODO: restore condition
-    if: contains(github.event.pull_request.title, 'Auto-merge workflow')
+    # Only auto-merge PRs created by github-actions[bot] with the test title
+    if: |
+      github.event.pull_request.user.login == 'app/github-actions' && 
+      contains(github.event.pull_request.title, 'Auto-merge workflow')
 
     steps:
       - name: Check conditions
         run: |
           echo "🔍 Checking if should auto-merge..."
           echo "PR Title: '${{ github.event.pull_request.title }}'"
-          echo "Condition result: ${{ contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
+          echo "PR Author: '${{ github.event.pull_request.user.login }}'"
+          echo "Title condition: ${{ contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
+          echo "Author condition: ${{ github.event.pull_request.user.login == 'app/github-actions' }}"
+          echo "Both conditions: ${{ github.event.pull_request.user.login == 'app/github-actions' && contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
           
-          if [[ "${{ github.event.pull_request.title }}" == *"Auto-merge workflow"* ]]; then
-            echo "✅ Title contains 'Auto-merge workflow' - proceeding"
+          if [[ "${{ github.event.pull_request.user.login }}" == "app/github-actions" && "${{ github.event.pull_request.title }}" == *"Auto-merge workflow"* ]]; then
+            echo "✅ Both conditions met - proceeding with auto-merge"
           else
-            echo "❌ Title does not contain 'Auto-merge workflow' - would skip"
+            echo "❌ Conditions not met - would skip"
+            echo "  - Author is github-actions: ${{ github.event.pull_request.user.login == 'app/github-actions' }}"
+            echo "  - Title contains 'Auto-merge workflow': ${{ contains(github.event.pull_request.title, 'Auto-merge workflow') }}"
             exit 0  # Don't fail, just skip
           fi
           
@@ -81,7 +88,9 @@ jobs:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
           
       - name: Auto approve and merge
-        if: contains(github.event.pull_request.title, 'Auto-merge workflow')
+        if: |
+          github.event.pull_request.user.login == 'app/github-actions' && 
+          contains(github.event.pull_request.title, 'Auto-merge workflow')
         run: |
           echo "=== STARTING AUTO-MERGE PROCESS ==="
           echo "PR Number: ${{ github.event.pull_request.number }}"
