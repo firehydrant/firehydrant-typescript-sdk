@@ -17,7 +17,9 @@ import { IncidentSettings } from "./incidentsettings.js";
 import { Integrations } from "./integrations.js";
 import { MetricsReporting } from "./metricsreporting.js";
 import { Pages } from "./pages.js";
+import { Permissions } from "./permissions.js";
 import { Retrospectives } from "./retrospectives.js";
+import { Roles } from "./roles.js";
 import { Runbooks } from "./runbooks.js";
 import { Scim } from "./scim.js";
 import { Signals } from "./signals.js";
@@ -104,9 +106,19 @@ export class Firehydrant extends ClientSDK {
     return (this._users ??= new Users(this._options));
   }
 
+  private _permissions?: Permissions;
+  get permissions(): Permissions {
+    return (this._permissions ??= new Permissions(this._options));
+  }
+
   private _metricsReporting?: MetricsReporting;
   get metricsReporting(): MetricsReporting {
     return (this._metricsReporting ??= new MetricsReporting(this._options));
+  }
+
+  private _roles?: Roles;
+  get roles(): Roles {
+    return (this._roles ??= new Roles(this._options));
   }
 
   private _runbooks?: Runbooks;

@@ -266,7 +266,7 @@ export class Runbooks extends ClientSDK {
    * List runbook audits
    *
    * @remarks
-   * Please contact support to enable audit logging for your account.
+   * This endpoint is deprecated.
    */
   async listRunbookAudits(
     request: operations.ListRunbookAuditsRequest,
