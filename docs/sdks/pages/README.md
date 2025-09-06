@@ -7,11 +7,11 @@ Operations about Pages
 
 ### Available Operations
 
-* [createSignalsPage](#createsignalspage) - Pages a target
+* [createSignalsPage](#createsignalspage) - Page a user, team, on-call schedule, or escalation policy
 
 ## createSignalsPage
 
-Pages a target
+Used for paging an on-call target within FireHydrant's signals product. This can be used for paging users, teams, on-call schedules, and escalation policies.
 
 ### Example Usage
 
@@ -26,7 +26,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.pages.createSignalsPage({
     summary: "<value>",
-    targetType: "<value>",
+    targetType: "Team",
     targetId: "<id>",
   });
 
@@ -53,7 +53,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await pagesCreateSignalsPage(firehydrant, {
     summary: "<value>",
-    targetType: "<value>",
+    targetType: "Team",
     targetId: "<id>",
   });
   if (res.ok) {
@@ -71,7 +71,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateSignalsPageRequest](../../models/operations/createsignalspagerequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CreateSignalsPage](../../models/components/createsignalspage.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

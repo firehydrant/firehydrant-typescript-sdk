@@ -21,19 +21,18 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Pages a target
+ * Page a user, team, on-call schedule, or escalation policy
  *
  * @remarks
- * Pages a target
+ * Used for paging an on-call target within FireHydrant's signals product. This can be used for paging users, teams, on-call schedules, and escalation policies.
  */
 export function pagesCreateSignalsPage(
   client: FirehydrantCore,
-  request: operations.CreateSignalsPageRequest,
+  request: components.CreateSignalsPage,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -57,7 +56,7 @@ export function pagesCreateSignalsPage(
 
 async function $do(
   client: FirehydrantCore,
-  request: operations.CreateSignalsPageRequest,
+  request: components.CreateSignalsPage,
   options?: RequestOptions,
 ): Promise<
   [
@@ -77,7 +76,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CreateSignalsPageRequest$outboundSchema.parse(value),
+    (value) => components.CreateSignalsPage$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
