@@ -3,18 +3,18 @@
  */
 
 import { pagesCreateSignalsPage } from "../../funcs/pagesCreateSignalsPage.js";
-import * as operations from "../../models/operations/index.js";
+import * as components from "../../models/components/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.CreateSignalsPageRequest$inboundSchema,
+  request: components.CreateSignalsPage$inboundSchema,
 };
 
 export const tool$pagesCreateSignalsPage: ToolDefinition<typeof args> = {
   name: "pages-create-signals-page",
-  description: `Pages a target
+  description: `Page a user, team, on-call schedule, or escalation policy
 
-Pages a target`,
+Used for paging an on-call target within FireHydrant's signals product. This can be used for paging users, teams, on-call schedules, and escalation policies.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await pagesCreateSignalsPage(
