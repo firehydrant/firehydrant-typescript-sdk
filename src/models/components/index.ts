@@ -79,6 +79,7 @@ export * from "./createseveritymatriximpact.js";
 export * from "./createsignalsalertgroupingconfiguration.js";
 export * from "./createsignalsemailtarget.js";
 export * from "./createsignalseventsource.js";
+export * from "./createsignalspage.js";
 export * from "./createsignalswebhooktarget.js";
 export * from "./createstatusupdatetemplate.js";
 export * from "./createtasklist.js";
