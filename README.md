@@ -612,7 +612,7 @@ run();
 
 ### [pages](docs/sdks/pages/README.md)
 
-* [createSignalsPage](docs/sdks/pages/README.md#createsignalspage) - Pages a target
+* [createSignalsPage](docs/sdks/pages/README.md#createsignalspage) - Page a user, team, on-call schedule, or escalation policy
 
 ### [permissions](docs/sdks/permissions/README.md)
 
@@ -1116,7 +1116,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`metricsReportingListSavedSearches`](docs/sdks/metricsreporting/README.md#listsavedsearches) - List saved searches
 - [`metricsReportingListUserInvolvementMetrics`](docs/sdks/metricsreporting/README.md#listuserinvolvementmetrics) - List user metrics
 - [`metricsReportingUpdateSavedSearch`](docs/sdks/metricsreporting/README.md#updatesavedsearch) - Update a saved search
-- [`pagesCreateSignalsPage`](docs/sdks/pages/README.md#createsignalspage) - Pages a target
+- [`pagesCreateSignalsPage`](docs/sdks/pages/README.md#createsignalspage) - Page a user, team, on-call schedule, or escalation policy
 - [`permissionsListCurrentUserPermissions`](docs/sdks/permissions/README.md#listcurrentuserpermissions) - Get all permissions for the current user
 - [`permissionsListPermissions`](docs/sdks/permissions/README.md#listpermissions) - List permissions
 - [`permissionsListTeamPermissions`](docs/sdks/permissions/README.md#listteampermissions) - Get all permissions for a team

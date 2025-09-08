@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: 1cf21ef1e0362daa534ba0a0c24a7cf8
+  docChecksum: d98f0589e147bdaa0eed5cc27427a177
   docVersion: 0.0.1
-  speakeasyVersion: 1.609.0
-  generationVersion: 2.692.0
-  releaseVersion: 1.0.11
-  configChecksum: 5266f713dc28311d477d2368626e6306
+  speakeasyVersion: 1.611.1
+  generationVersion: 2.694.1
+  releaseVersion: 1.0.12
+  configChecksum: 0138ba3c317d3adf0bd1edce3e2ced75
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -189,6 +189,8 @@ generatedFiles:
   - docs/models/components/createsignalseventsource.md
   - docs/models/components/createsignalseventsourcedata.md
   - docs/models/components/createsignalseventsourceexamplepayload.md
+  - docs/models/components/createsignalspage.md
+  - docs/models/components/createsignalspagetargettype.md
   - docs/models/components/createsignalswebhooktarget.md
   - docs/models/components/createstatusupdatetemplate.md
   - docs/models/components/createtasklist.md
@@ -869,7 +871,6 @@ generatedFiles:
   - docs/models/operations/createsavedsearchrequest.md
   - docs/models/operations/createsavedsearchresourcetype.md
   - docs/models/operations/createservicechecklistresponserequest.md
-  - docs/models/operations/createsignalspagerequest.md
   - docs/models/operations/createslackemojiactionrequest.md
   - docs/models/operations/createslackemojiactionrequestbody.md
   - docs/models/operations/createteamcallrouterequest.md
@@ -2334,6 +2335,7 @@ generatedFiles:
   - src/models/components/createsignalsalertgroupingconfiguration.ts
   - src/models/components/createsignalsemailtarget.ts
   - src/models/components/createsignalseventsource.ts
+  - src/models/components/createsignalspage.ts
   - src/models/components/createsignalswebhooktarget.ts
   - src/models/components/createstatusupdatetemplate.ts
   - src/models/components/createtasklist.ts
@@ -2753,7 +2755,6 @@ generatedFiles:
   - src/models/operations/createretrospectivetemplate.ts
   - src/models/operations/createsavedsearch.ts
   - src/models/operations/createservicechecklistresponse.ts
-  - src/models/operations/createsignalspage.ts
   - src/models/operations/createslackemojiaction.ts
   - src/models/operations/createteamcallroute.ts
   - src/models/operations/createteamescalationpolicy.ts
@@ -6533,7 +6534,7 @@ examples:
   create_signals_page:
     speakeasy-default-create-signals-page:
       requestBody:
-        application/json: {"summary": "<value>", "target_type": "<value>", "target_id": "<id>"}
+        application/json: {"summary": "<value>", "target_type": "Team", "target_id": "<id>"}
       responses:
         "201":
           application/json: {"signal_rule": {"deduplication_expiry": "PT1H"}, "parent_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}], "child_alerts": [{"signal_rule": {"deduplication_expiry": "PT1H"}}]}

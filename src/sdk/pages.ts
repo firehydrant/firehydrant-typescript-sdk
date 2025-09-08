@@ -5,18 +5,17 @@
 import { pagesCreateSignalsPage } from "../funcs/pagesCreateSignalsPage.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Pages extends ClientSDK {
   /**
-   * Pages a target
+   * Page a user, team, on-call schedule, or escalation policy
    *
    * @remarks
-   * Pages a target
+   * Used for paging an on-call target within FireHydrant's signals product. This can be used for paging users, teams, on-call schedules, and escalation policies.
    */
   async createSignalsPage(
-    request: operations.CreateSignalsPageRequest,
+    request: components.CreateSignalsPage,
     options?: RequestOptions,
   ): Promise<components.AlertsAlertEntity> {
     return unwrapAsync(pagesCreateSignalsPage(
