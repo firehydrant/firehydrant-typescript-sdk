@@ -16,6 +16,9 @@ export type CreateCustomFieldDefinition = {
   description?: string | null | undefined;
   fieldType: string;
   permissibleValues?: Array<string> | null | undefined;
+  /**
+   * Whether this field should be required for all incidents.
+   */
   required: boolean;
   /**
    * An optional milestone ID to specify when the field should become required, if `required` is set to `true`. If not provided, required fields are always required.
