@@ -18,7 +18,7 @@ const firehydrant = new Firehydrant({
 });
 
 async function main() {
-  const result = await firehydrant.ping();
+  const result = await firehydrant.accountSettings.ping();
 
   console.log(result);
 }

@@ -1,6 +1,6 @@
 {
   "name": "firehydrant-typescript-sdk",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "author": "Firehydrant",
   "type": "module",
   "bin": {

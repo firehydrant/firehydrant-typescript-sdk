@@ -17,6 +17,9 @@ export type OrganizationsCustomFieldDefinitionEntity = {
   fieldType?: string | null | undefined;
   slug?: string | null | undefined;
   description?: string | null | undefined;
+  /**
+   * Whether this field is required for all incidents.
+   */
   required?: boolean | null | undefined;
   /**
    * The milestone at which this field is required, if `required` is set to `true`. When null, a required field is always required.
