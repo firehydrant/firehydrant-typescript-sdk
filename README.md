@@ -743,7 +743,7 @@ run();
 * [deleteSignalsWebhookTarget](docs/sdks/signals/README.md#deletesignalswebhooktarget) - Delete a webhook target
 * [updateSignalsWebhookTarget](docs/sdks/signals/README.md#updatesignalswebhooktarget) - Update a webhook target
 * [listNotificationPolicySettings](docs/sdks/signals/README.md#listnotificationpolicysettings) - List notification policies
-* [createHandoffNotificationSetting](docs/sdks/signals/README.md#createhandoffnotificationsetting) - Create a notification policy
+* [createNotificationPolicy](docs/sdks/signals/README.md#createnotificationpolicy) - Create a notification policy
 * [getNotificationPolicy](docs/sdks/signals/README.md#getnotificationpolicy) - Get a notification policy
 * [deleteNotificationPolicy](docs/sdks/signals/README.md#deletenotificationpolicy) - Delete a notification policy
 * [updateNotificationPolicy](docs/sdks/signals/README.md#updatenotificationpolicy) - Update a notification policy
@@ -1182,7 +1182,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`scimUpdateSCIMGroup`](docs/sdks/scim/README.md#updatescimgroup) - Update a SCIM group and assign members
 - [`scimUpdateSCIMUser`](docs/sdks/scim/README.md#updatescimuser) - Update a User from SCIM data
 - [`signalsCopyOnCallScheduleRotation`](docs/sdks/signals/README.md#copyoncallschedulerotation) - Copy an on-call schedule's rotation
-- [`signalsCreateHandoffNotificationSetting`](docs/sdks/signals/README.md#createhandoffnotificationsetting) - Create a notification policy
+- [`signalsCreateNotificationPolicy`](docs/sdks/signals/README.md#createnotificationpolicy) - Create a notification policy
 - [`signalsCreateOnCallScheduleRotation`](docs/sdks/signals/README.md#createoncallschedulerotation) - Create a new on-call rotation
 - [`signalsCreateOnCallShift`](docs/sdks/signals/README.md#createoncallshift) - Create a shift for an on-call schedule
 - [`signalsCreateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
@@ -1571,7 +1571,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new Firehydrant({ httpClient });
+const sdk = new Firehydrant({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
