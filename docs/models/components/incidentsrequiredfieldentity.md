@@ -1,0 +1,16 @@
+# IncidentsRequiredFieldEntity
+
+## Example Usage
+
+```typescript
+import { IncidentsRequiredFieldEntity } from "firehydrant-typescript-sdk/models/components";
+
+let value: IncidentsRequiredFieldEntity = {};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                           | Type                                                                                                                                                                                            | Required                                                                                                                                                                                        | Description                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                                                            | *string*                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                              | A unique identifier for the field. For built-in fields, this will be human-readable. For custom fields or milestone timestamps, it will be a prefixed version of the field or milestone's UUID. |
+| `requiredAtMilestoneId`                                                                                                                                                                         | *string*                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                              | The milestone at which this field is required. If null, this field is always required.                                                                                                          |

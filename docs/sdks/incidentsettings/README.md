@@ -3347,7 +3347,6 @@ async function run() {
   const result = await firehydrant.incidentSettings.createCustomFieldDefinition({
     displayName: "Rasheed_Runolfsson",
     fieldType: "<value>",
-    required: false,
   });
 
   console.log(result);
@@ -3374,7 +3373,6 @@ async function run() {
   const res = await incidentSettingsCreateCustomFieldDefinition(firehydrant, {
     displayName: "Rasheed_Runolfsson",
     fieldType: "<value>",
-    required: false,
   });
   if (res.ok) {
     const { value: result } = res;

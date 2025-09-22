@@ -31,9 +31,9 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Create a Signals notification policy.
  */
-export function signalsCreateHandoffNotificationSetting(
+export function signalsCreateNotificationPolicy(
   client: FirehydrantCore,
-  request: operations.CreateHandoffNotificationSettingRequest,
+  request: operations.CreateNotificationPolicyRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -57,7 +57,7 @@ export function signalsCreateHandoffNotificationSetting(
 
 async function $do(
   client: FirehydrantCore,
-  request: operations.CreateHandoffNotificationSettingRequest,
+  request: operations.CreateNotificationPolicyRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -78,9 +78,7 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.CreateHandoffNotificationSettingRequest$outboundSchema.parse(
-        value,
-      ),
+      operations.CreateNotificationPolicyRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -103,7 +101,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "create_handoff_notification_setting",
+    operationID: "create_notification_policy",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,

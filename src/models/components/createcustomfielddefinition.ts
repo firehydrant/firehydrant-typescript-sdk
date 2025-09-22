@@ -19,7 +19,7 @@ export type CreateCustomFieldDefinition = {
   /**
    * Whether this field should be required for all incidents.
    */
-  required: boolean;
+  required?: boolean | null | undefined;
   /**
    * An optional milestone ID to specify when the field should become required, if `required` is set to `true`. If not provided, required fields are always required.
    */
@@ -36,7 +36,7 @@ export const CreateCustomFieldDefinition$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   field_type: z.string(),
   permissible_values: z.nullable(z.array(z.string())).optional(),
-  required: z.boolean(),
+  required: z.nullable(z.boolean()).optional(),
   required_at_milestone_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -53,7 +53,7 @@ export type CreateCustomFieldDefinition$Outbound = {
   description?: string | null | undefined;
   field_type: string;
   permissible_values?: Array<string> | null | undefined;
-  required: boolean;
+  required?: boolean | null | undefined;
   required_at_milestone_id?: string | null | undefined;
 };
 
@@ -67,7 +67,7 @@ export const CreateCustomFieldDefinition$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   fieldType: z.string(),
   permissibleValues: z.nullable(z.array(z.string())).optional(),
-  required: z.boolean(),
+  required: z.nullable(z.boolean()).optional(),
   requiredAtMilestoneId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

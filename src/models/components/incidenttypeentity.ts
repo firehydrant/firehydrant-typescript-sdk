@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  IncidentsRequiredFieldEntity,
+  IncidentsRequiredFieldEntity$inboundSchema,
+  IncidentsRequiredFieldEntity$Outbound,
+  IncidentsRequiredFieldEntity$outboundSchema,
+} from "./incidentsrequiredfieldentity.js";
+import {
   NullableIncidentTypeEntityTemplateEntity,
   NullableIncidentTypeEntityTemplateEntity$inboundSchema,
   NullableIncidentTypeEntityTemplateEntity$Outbound,
@@ -32,6 +38,10 @@ export type IncidentTypeEntity = {
     | NullableIncidentTypeEntityTemplateValuesEntity
     | null
     | undefined;
+  /**
+   * A list of fields that are required on incidents of this type.
+   */
+  requiredFields?: Array<IncidentsRequiredFieldEntity> | null | undefined;
   createdAt?: Date | null | undefined;
   updatedAt?: Date | null | undefined;
 };
@@ -50,6 +60,9 @@ export const IncidentTypeEntity$inboundSchema: z.ZodType<
   template_values: z.nullable(
     NullableIncidentTypeEntityTemplateValuesEntity$inboundSchema,
   ).optional(),
+  required_fields: z.nullable(
+    z.array(IncidentsRequiredFieldEntity$inboundSchema),
+  ).optional(),
   created_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
@@ -59,6 +72,7 @@ export const IncidentTypeEntity$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "template_values": "templateValues",
+    "required_fields": "requiredFields",
     "created_at": "createdAt",
     "updated_at": "updatedAt",
   });
@@ -75,6 +89,10 @@ export type IncidentTypeEntity$Outbound = {
     | undefined;
   template_values?:
     | NullableIncidentTypeEntityTemplateValuesEntity$Outbound
+    | null
+    | undefined;
+  required_fields?:
+    | Array<IncidentsRequiredFieldEntity$Outbound>
     | null
     | undefined;
   created_at?: string | null | undefined;
@@ -95,11 +113,15 @@ export const IncidentTypeEntity$outboundSchema: z.ZodType<
   templateValues: z.nullable(
     NullableIncidentTypeEntityTemplateValuesEntity$outboundSchema,
   ).optional(),
+  requiredFields: z.nullable(
+    z.array(IncidentsRequiredFieldEntity$outboundSchema),
+  ).optional(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     templateValues: "template_values",
+    requiredFields: "required_fields",
     createdAt: "created_at",
     updatedAt: "updated_at",
   });

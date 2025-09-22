@@ -326,7 +326,7 @@ import { tool$scimPatchSCIMUser } from "./tools/scimPatchSCIMUser.js";
 import { tool$scimUpdateSCIMGroup } from "./tools/scimUpdateSCIMGroup.js";
 import { tool$scimUpdateSCIMUser } from "./tools/scimUpdateSCIMUser.js";
 import { tool$signalsCopyOnCallScheduleRotation } from "./tools/signalsCopyOnCallScheduleRotation.js";
-import { tool$signalsCreateHandoffNotificationSetting } from "./tools/signalsCreateHandoffNotificationSetting.js";
+import { tool$signalsCreateNotificationPolicy } from "./tools/signalsCreateNotificationPolicy.js";
 import { tool$signalsCreateOnCallScheduleRotation } from "./tools/signalsCreateOnCallScheduleRotation.js";
 import { tool$signalsCreateOnCallShift } from "./tools/signalsCreateOnCallShift.js";
 import { tool$signalsCreateSignalsAlertGroupingConfiguration } from "./tools/signalsCreateSignalsAlertGroupingConfiguration.js";
@@ -473,7 +473,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.13",
+    version: "1.0.14",
   });
 
   const client = new FirehydrantCore({
@@ -599,7 +599,7 @@ export function createMCPServer(deps: {
   tool(tool$signalsDeleteSignalsWebhookTarget);
   tool(tool$signalsUpdateSignalsWebhookTarget);
   tool(tool$signalsListNotificationPolicySettings);
-  tool(tool$signalsCreateHandoffNotificationSetting);
+  tool(tool$signalsCreateNotificationPolicy);
   tool(tool$signalsGetNotificationPolicy);
   tool(tool$signalsDeleteNotificationPolicy);
   tool(tool$signalsUpdateNotificationPolicy);

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: b8b618f16eb1b3d67211013052bd6fdb
+  docChecksum: b64c9fecb8c502275eece775e517c520
   docVersion: 0.0.1
-  speakeasyVersion: 1.615.2
-  generationVersion: 2.698.4
-  releaseVersion: 1.0.13
-  configChecksum: b888958edd1b2bb9a612dc13a97c996b
+  speakeasyVersion: 1.622.1
+  generationVersion: 2.709.0
+  releaseVersion: 1.0.14
+  configChecksum: c40696518835b89b6d86f835b9a87fde
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,9 +14,9 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.22
+    core: 3.21.23
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
+    devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.14
@@ -308,6 +308,7 @@ generatedFiles:
   - docs/models/components/incidentsrelatedchangeevententitypaginated.md
   - docs/models/components/incidentsrelatedchangeevententitytype.md
   - docs/models/components/incidentsrelationshipsentity.md
+  - docs/models/components/incidentsrequiredfieldentity.md
   - docs/models/components/incidentsretrospectiveentity.md
   - docs/models/components/incidentsretrospectiveentitypaginated.md
   - docs/models/components/incidentsretrospectiveentitysectionentity.md
@@ -831,9 +832,6 @@ generatedFiles:
   - docs/models/operations/createconnectionrequest.md
   - docs/models/operations/createemailsubscriberrequest.md
   - docs/models/operations/createemailsubscriberrequestbody.md
-  - docs/models/operations/createhandoffnotificationsettingnotificationgroupmethod.md
-  - docs/models/operations/createhandoffnotificationsettingpriority.md
-  - docs/models/operations/createhandoffnotificationsettingrequest.md
   - docs/models/operations/createinboundfieldmaprequest.md
   - docs/models/operations/createincidentalertrequest.md
   - docs/models/operations/createincidentattachmentfile.md
@@ -859,6 +857,9 @@ generatedFiles:
   - docs/models/operations/createlifecyclemeasurementdefinitionrequest.md
   - docs/models/operations/createlifecyclemilestoneautoassigntimestamponcreate.md
   - docs/models/operations/createlifecyclemilestonerequest.md
+  - docs/models/operations/createnotificationpolicynotificationgroupmethod.md
+  - docs/models/operations/createnotificationpolicypriority.md
+  - docs/models/operations/createnotificationpolicyrequest.md
   - docs/models/operations/createnunccomponentgrouprequest.md
   - docs/models/operations/createnunccomponentgrouprequestbody.md
   - docs/models/operations/createnuncconnectionrequest.md
@@ -1640,7 +1641,7 @@ generatedFiles:
   - src/funcs/scimUpdateSCIMGroup.ts
   - src/funcs/scimUpdateSCIMUser.ts
   - src/funcs/signalsCopyOnCallScheduleRotation.ts
-  - src/funcs/signalsCreateHandoffNotificationSetting.ts
+  - src/funcs/signalsCreateNotificationPolicy.ts
   - src/funcs/signalsCreateOnCallScheduleRotation.ts
   - src/funcs/signalsCreateOnCallShift.ts
   - src/funcs/signalsCreateSignalsAlertGroupingConfiguration.ts
@@ -2122,7 +2123,7 @@ generatedFiles:
   - src/mcp-server/tools/scimUpdateSCIMGroup.ts
   - src/mcp-server/tools/scimUpdateSCIMUser.ts
   - src/mcp-server/tools/signalsCopyOnCallScheduleRotation.ts
-  - src/mcp-server/tools/signalsCreateHandoffNotificationSetting.ts
+  - src/mcp-server/tools/signalsCreateNotificationPolicy.ts
   - src/mcp-server/tools/signalsCreateOnCallScheduleRotation.ts
   - src/mcp-server/tools/signalsCreateOnCallShift.ts
   - src/mcp-server/tools/signalsCreateSignalsAlertGroupingConfiguration.ts
@@ -2390,6 +2391,7 @@ generatedFiles:
   - src/models/components/incidentsrelatedchangeevententity.ts
   - src/models/components/incidentsrelatedchangeevententitypaginated.ts
   - src/models/components/incidentsrelationshipsentity.ts
+  - src/models/components/incidentsrequiredfieldentity.ts
   - src/models/components/incidentsretrospectiveentity.ts
   - src/models/components/incidentsretrospectiveentitypaginated.ts
   - src/models/components/incidentsretrospectiveentitysectionentity.ts
@@ -2727,7 +2729,6 @@ generatedFiles:
   - src/models/operations/createcommentreaction.ts
   - src/models/operations/createconnection.ts
   - src/models/operations/createemailsubscriber.ts
-  - src/models/operations/createhandoffnotificationsetting.ts
   - src/models/operations/createinboundfieldmap.ts
   - src/models/operations/createincidentalert.ts
   - src/models/operations/createincidentattachment.ts
@@ -2746,6 +2747,7 @@ generatedFiles:
   - src/models/operations/createincidentteamassignment.ts
   - src/models/operations/createlifecyclemeasurementdefinition.ts
   - src/models/operations/createlifecyclemilestone.ts
+  - src/models/operations/createnotificationpolicy.ts
   - src/models/operations/createnunccomponentgroup.ts
   - src/models/operations/createnuncconnection.ts
   - src/models/operations/createnunclink.ts
@@ -5422,7 +5424,7 @@ examples:
   create_custom_field_definition:
     speakeasy-default-create-custom-field-definition:
       requestBody:
-        application/json: {"display_name": "Rasheed_Runolfsson", "field_type": "<value>", "required": false}
+        application/json: {"display_name": "Rasheed_Runolfsson", "field_type": "<value>"}
       responses:
         "201":
           application/json: {}
@@ -6587,6 +6589,13 @@ examples:
         application/json: {"name": "<value>"}
       responses:
         "200":
+          application/json: {}
+  create_notification_policy:
+    speakeasy-default-create-notification-policy:
+      requestBody:
+        application/json: {"notification_group_method": "chat", "max_delay": "<value>", "priority": "LOW"}
+      responses:
+        "201":
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

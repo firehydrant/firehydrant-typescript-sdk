@@ -3,7 +3,7 @@
  */
 
 import { signalsCopyOnCallScheduleRotation } from "../funcs/signalsCopyOnCallScheduleRotation.js";
-import { signalsCreateHandoffNotificationSetting } from "../funcs/signalsCreateHandoffNotificationSetting.js";
+import { signalsCreateNotificationPolicy } from "../funcs/signalsCreateNotificationPolicy.js";
 import { signalsCreateOnCallScheduleRotation } from "../funcs/signalsCreateOnCallScheduleRotation.js";
 import { signalsCreateOnCallShift } from "../funcs/signalsCreateOnCallShift.js";
 import { signalsCreateSignalsAlertGroupingConfiguration } from "../funcs/signalsCreateSignalsAlertGroupingConfiguration.js";
@@ -886,11 +886,11 @@ export class Signals extends ClientSDK {
    * @remarks
    * Create a Signals notification policy.
    */
-  async createHandoffNotificationSetting(
-    request: operations.CreateHandoffNotificationSettingRequest,
+  async createNotificationPolicy(
+    request: operations.CreateNotificationPolicyRequest,
     options?: RequestOptions,
   ): Promise<components.SignalsAPINotificationPolicyItemEntity> {
-    return unwrapAsync(signalsCreateHandoffNotificationSetting(
+    return unwrapAsync(signalsCreateNotificationPolicy(
       this,
       request,
       options,

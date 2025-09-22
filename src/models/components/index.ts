@@ -134,6 +134,7 @@ export * from "./incidentsmilestoneentitypaginated.js";
 export * from "./incidentsrelatedchangeevententity.js";
 export * from "./incidentsrelatedchangeevententitypaginated.js";
 export * from "./incidentsrelationshipsentity.js";
+export * from "./incidentsrequiredfieldentity.js";
 export * from "./incidentsretrospectiveentity.js";
 export * from "./incidentsretrospectiveentitypaginated.js";
 export * from "./incidentsretrospectiveentitysectionentity.js";
