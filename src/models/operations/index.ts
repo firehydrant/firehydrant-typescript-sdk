@@ -301,6 +301,7 @@ export * from "./listusers.js";
 export * from "./listwebhookdeliveries.js";
 export * from "./listwebhooks.js";
 export * from "./overrideoncallschedulerotationshifts.js";
+export * from "./patchscimgroup.js";
 export * from "./patchscimuser.js";
 export * from "./previewoncallschedulerotation.js";
 export * from "./previewteamoncallschedule.js";
