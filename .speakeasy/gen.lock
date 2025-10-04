@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: b64c9fecb8c502275eece775e517c520
+  docChecksum: 6bf353565c975f86b348510a236184cb
   docVersion: 0.0.1
-  speakeasyVersion: 1.622.1
-  generationVersion: 2.709.0
-  releaseVersion: 1.0.14
-  configChecksum: c40696518835b89b6d86f835b9a87fde
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 1.0.15
+  configChecksum: 9f59d6a437f92fe88d2e4b04b8e142cb
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.23
+    core: 3.21.26
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -480,10 +480,12 @@ generatedFiles:
   - docs/models/components/nuncconnectionentitypaginated.md
   - docs/models/components/nuncemailsubscribersentity.md
   - docs/models/components/nuncnuncsubscription.md
-  - docs/models/components/operation.md
   - docs/models/components/organizationscustomfielddefinitionentity.md
   - docs/models/components/overrideoncallschedulerotationshifts.md
+  - docs/models/components/patchscimgroup.md
+  - docs/models/components/patchscimgroupoperation.md
   - docs/models/components/patchscimuser.md
+  - docs/models/components/patchscimuseroperation.md
   - docs/models/components/permissionentitylist.md
   - docs/models/components/pongentity.md
   - docs/models/components/postmortemspostmortemreportentity.md
@@ -1174,6 +1176,7 @@ generatedFiles:
   - docs/models/operations/orderby.md
   - docs/models/operations/orderdirection.md
   - docs/models/operations/overrideoncallschedulerotationshiftsrequest.md
+  - docs/models/operations/patchscimgrouprequest.md
   - docs/models/operations/patchscimuserrequest.md
   - docs/models/operations/previewoncallschedulerotationrequest.md
   - docs/models/operations/previewteamoncallschedulerequest.md
@@ -1637,6 +1640,7 @@ generatedFiles:
   - src/funcs/scimGetSCIMUser.ts
   - src/funcs/scimListSCIMGroups.ts
   - src/funcs/scimListSCIMUsers.ts
+  - src/funcs/scimPatchSCIMGroup.ts
   - src/funcs/scimPatchSCIMUser.ts
   - src/funcs/scimUpdateSCIMGroup.ts
   - src/funcs/scimUpdateSCIMUser.ts
@@ -2119,6 +2123,7 @@ generatedFiles:
   - src/mcp-server/tools/scimGetSCIMUser.ts
   - src/mcp-server/tools/scimListSCIMGroups.ts
   - src/mcp-server/tools/scimListSCIMUsers.ts
+  - src/mcp-server/tools/scimPatchSCIMGroup.ts
   - src/mcp-server/tools/scimPatchSCIMUser.ts
   - src/mcp-server/tools/scimUpdateSCIMGroup.ts
   - src/mcp-server/tools/scimUpdateSCIMUser.ts
@@ -2524,6 +2529,7 @@ generatedFiles:
   - src/models/components/nuncnuncsubscription.ts
   - src/models/components/organizationscustomfielddefinitionentity.ts
   - src/models/components/overrideoncallschedulerotationshifts.ts
+  - src/models/components/patchscimgroup.ts
   - src/models/components/patchscimuser.ts
   - src/models/components/permissionentitylist.ts
   - src/models/components/pongentity.ts
@@ -3017,6 +3023,7 @@ generatedFiles:
   - src/models/operations/listwebhookdeliveries.ts
   - src/models/operations/listwebhooks.ts
   - src/models/operations/overrideoncallschedulerotationshifts.ts
+  - src/models/operations/patchscimgroup.ts
   - src/models/operations/patchscimuser.ts
   - src/models/operations/previewoncallschedulerotation.ts
   - src/models/operations/previewteamoncallschedule.ts
@@ -6597,5 +6604,12 @@ examples:
       responses:
         "201":
           application/json: {}
+  patch_scim_group:
+    speakeasy-default-patch-scim-group:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/scim+json: {"Operations": [{"op": "<value>", "path": "/var/tmp"}]}
 examplesVersion: 1.0.2
 generatedTests: {}

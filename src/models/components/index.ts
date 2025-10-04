@@ -266,6 +266,7 @@ export * from "./nuncemailsubscribersentity.js";
 export * from "./nuncnuncsubscription.js";
 export * from "./organizationscustomfielddefinitionentity.js";
 export * from "./overrideoncallschedulerotationshifts.js";
+export * from "./patchscimgroup.js";
 export * from "./patchscimuser.js";
 export * from "./permissionentitylist.js";
 export * from "./pongentity.js";
