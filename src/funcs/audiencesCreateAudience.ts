@@ -21,7 +21,6 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -33,7 +32,7 @@ import { Result } from "../types/fp.js";
  */
 export function audiencesCreateAudience(
   client: FirehydrantCore,
-  request: operations.CreateAudienceRequest,
+  request: components.CreateAudience,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -57,7 +56,7 @@ export function audiencesCreateAudience(
 
 async function $do(
   client: FirehydrantCore,
-  request: operations.CreateAudienceRequest,
+  request: components.CreateAudience,
   options?: RequestOptions,
 ): Promise<
   [
@@ -77,7 +76,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CreateAudienceRequest$outboundSchema.parse(value),
+    (value) => components.CreateAudience$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -101,7 +100,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "create_audience",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

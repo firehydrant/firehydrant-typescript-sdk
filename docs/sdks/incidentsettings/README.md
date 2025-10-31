@@ -1437,7 +1437,7 @@ run();
 
 ### Response
 
-**Promise\<[components.LifecyclesPhaseEntityList](../../models/components/lifecyclesphaseentitylist.md)\>**
+**Promise\<[components.LifecyclesMilestoneEntity](../../models/components/lifecyclesmilestoneentity.md)\>**
 
 ### Errors
 
@@ -1583,7 +1583,7 @@ run();
 
 ### Response
 
-**Promise\<[components.LifecyclesPhaseEntity](../../models/components/lifecyclesphaseentity.md)\>**
+**Promise\<[components.LifecyclesMilestoneEntity](../../models/components/lifecyclesmilestoneentity.md)\>**
 
 ### Errors
 

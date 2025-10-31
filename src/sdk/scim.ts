@@ -10,6 +10,7 @@ import { scimGetSCIMGroup } from "../funcs/scimGetSCIMGroup.js";
 import { scimGetSCIMUser } from "../funcs/scimGetSCIMUser.js";
 import { scimListSCIMGroups } from "../funcs/scimListSCIMGroups.js";
 import { scimListSCIMUsers } from "../funcs/scimListSCIMUsers.js";
+import { scimPatchSCIMGroup } from "../funcs/scimPatchSCIMGroup.js";
 import { scimPatchSCIMUser } from "../funcs/scimPatchSCIMUser.js";
 import { scimUpdateSCIMGroup } from "../funcs/scimUpdateSCIMGroup.js";
 import { scimUpdateSCIMUser } from "../funcs/scimUpdateSCIMUser.js";
@@ -64,6 +65,23 @@ export class Scim extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(scimDeleteSCIMGroup(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Partially update a SCIM group
+   *
+   * @remarks
+   * SCIM endpoint to partially update a Team (Colloquial for Group in the SCIM protocol). Supports adding, removing, or replacing members using SCIM PATCH operations.
+   */
+  async patchScimGroup(
+    request: operations.PatchScimGroupRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(scimPatchSCIMGroup(
       this,
       request,
       options,

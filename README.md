@@ -164,10 +164,7 @@ bun add firehydrant-typescript-sdk
 ### Yarn
 
 ```bash
-yarn add firehydrant-typescript-sdk zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add firehydrant-typescript-sdk
 ```
 
 > [!NOTE]
@@ -442,7 +439,6 @@ run();
 * [listComments](docs/sdks/conversations/README.md#listcomments) - List comments for a conversation
 * [createComment](docs/sdks/conversations/README.md#createcomment) - Create a conversation comment
 
-
 ### [incidents](docs/sdks/incidents/README.md)
 
 * [listIncidents](docs/sdks/incidents/README.md#listincidents) - List incidents
@@ -684,6 +680,7 @@ run();
 * [getScimGroup](docs/sdks/scim/README.md#getscimgroup) - Get a SCIM group
 * [updateScimGroup](docs/sdks/scim/README.md#updatescimgroup) - Update a SCIM group and assign members
 * [deleteScimGroup](docs/sdks/scim/README.md#deletescimgroup) - Delete a SCIM group
+* [patchScimGroup](docs/sdks/scim/README.md#patchscimgroup) - Partially update a SCIM group
 * [listScimGroups](docs/sdks/scim/README.md#listscimgroups) - List SCIM groups
 * [createScimGroup](docs/sdks/scim/README.md#createscimgroup) - Create a SCIM group and assign members
 * [getScimUser](docs/sdks/scim/README.md#getscimuser) - Get a SCIM user
@@ -1178,6 +1175,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`scimGetSCIMUser`](docs/sdks/scim/README.md#getscimuser) - Get a SCIM user
 - [`scimListSCIMGroups`](docs/sdks/scim/README.md#listscimgroups) - List SCIM groups
 - [`scimListSCIMUsers`](docs/sdks/scim/README.md#listscimusers) - List SCIM users
+- [`scimPatchSCIMGroup`](docs/sdks/scim/README.md#patchscimgroup) - Partially update a SCIM group
 - [`scimPatchSCIMUser`](docs/sdks/scim/README.md#patchscimuser) - Update a User from SCIM data
 - [`scimUpdateSCIMGroup`](docs/sdks/scim/README.md#updatescimgroup) - Update a SCIM group and assign members
 - [`scimUpdateSCIMUser`](docs/sdks/scim/README.md#updatescimuser) - Update a User from SCIM data
@@ -1493,7 +1491,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 449 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 450 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
