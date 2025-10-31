@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a2d7b70-1321-499a-8677-a99a42c2e4b6
 management:
-  docChecksum: b64c9fecb8c502275eece775e517c520
+  docChecksum: 20cefa7c38c9f6254b5d9cfd7d8672ea
   docVersion: 0.0.1
-  speakeasyVersion: 1.622.1
-  generationVersion: 2.709.0
-  releaseVersion: 1.0.14
-  configChecksum: c40696518835b89b6d86f835b9a87fde
+  speakeasyVersion: 1.643.3
+  generationVersion: 2.731.9
+  releaseVersion: 1.1.0
+  configChecksum: a7e2389b2eb92461f431c14b79a66500
   repoURL: https://github.com/firehydrant/firehydrant-typescript-sdk.git
   installationURL: https://github.com/firehydrant/firehydrant-typescript-sdk
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.23
+    core: 3.24.2
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -90,6 +90,7 @@ generatedFiles:
   - docs/models/components/conversationsapientitiesreference.md
   - docs/models/components/convertincidenttask.md
   - docs/models/components/copyoncallschedulerotation.md
+  - docs/models/components/createaudience.md
   - docs/models/components/createchange.md
   - docs/models/components/createchangeevent.md
   - docs/models/components/createchangeeventattachment.md
@@ -249,6 +250,7 @@ generatedFiles:
   - docs/models/components/customfieldsfieldvalue.md
   - docs/models/components/debugsignalsexpression.md
   - docs/models/components/debugsignalsexpressionlink.md
+  - docs/models/components/detail.md
   - docs/models/components/direction.md
   - docs/models/components/displayinformation.md
   - docs/models/components/encoding.md
@@ -262,15 +264,13 @@ generatedFiles:
   - docs/models/components/externalresourceentity.md
   - docs/models/components/fieldmappingfieldmapentity.md
   - docs/models/components/fieldmappingmappablefieldentity.md
-  - docs/models/components/filtervalues.md
   - docs/models/components/formconfigurationentity.md
   - docs/models/components/functionalityentity.md
-  - docs/models/components/functionalityentitylabels.md
   - docs/models/components/functionalityentitylite.md
-  - docs/models/components/functionalityentitylitelabels.md
   - docs/models/components/functionalityentitypaginated.md
   - docs/models/components/functionalitywithallservicesentity.md
   - docs/models/components/headers.md
+  - docs/models/components/highvalueevents.md
   - docs/models/components/image.md
   - docs/models/components/importsimportentity.md
   - docs/models/components/importsimportentitystate.md
@@ -362,6 +362,7 @@ generatedFiles:
   - docs/models/components/lifecyclesphaseentitylist.md
   - docs/models/components/linksentity.md
   - docs/models/components/logic.md
+  - docs/models/components/mediumvalueevents.md
   - docs/models/components/membershipentity.md
   - docs/models/components/messagetype.md
   - docs/models/components/metricsinfrastructurelistentity.md
@@ -397,7 +398,6 @@ generatedFiles:
   - docs/models/components/nullableincidentsconferencebridgeentityattachment.md
   - docs/models/components/nullableincidentscontextobjectentity.md
   - docs/models/components/nullableincidenttypeentitytemplateentity.md
-  - docs/models/components/nullableincidenttypeentitytemplateentitylabels.md
   - docs/models/components/nullableincidenttypeentitytemplatevaluesentity.md
   - docs/models/components/nullableintegrationentity.md
   - docs/models/components/nullableintegrationsawsconnectionentity.md
@@ -438,7 +438,6 @@ generatedFiles:
   - docs/models/components/nullablerunbookswebhookdeliveryentity.md
   - docs/models/components/nullablescheduleentity.md
   - docs/models/components/nullableserviceentity.md
-  - docs/models/components/nullableserviceentitylabels.md
   - docs/models/components/nullableserviceentitymanagedbysettings.md
   - docs/models/components/nullableseveritymatrixconditionentity.md
   - docs/models/components/nullableseveritymatriximpactentity.md
@@ -480,10 +479,12 @@ generatedFiles:
   - docs/models/components/nuncconnectionentitypaginated.md
   - docs/models/components/nuncemailsubscribersentity.md
   - docs/models/components/nuncnuncsubscription.md
-  - docs/models/components/operation.md
   - docs/models/components/organizationscustomfielddefinitionentity.md
   - docs/models/components/overrideoncallschedulerotationshifts.md
+  - docs/models/components/patchscimgroup.md
+  - docs/models/components/patchscimgroupoperation.md
   - docs/models/components/patchscimuser.md
+  - docs/models/components/patchscimuseroperation.md
   - docs/models/components/permissionentitylist.md
   - docs/models/components/pongentity.md
   - docs/models/components/postmortemspostmortemreportentity.md
@@ -562,15 +563,13 @@ generatedFiles:
   - docs/models/components/servicedependencyentity.md
   - docs/models/components/serviceentity.md
   - docs/models/components/serviceentitychecklist.md
-  - docs/models/components/serviceentitychecklistlabels.md
-  - docs/models/components/serviceentitylabels.md
   - docs/models/components/serviceentitylite.md
-  - docs/models/components/serviceentitylitelabels.md
   - docs/models/components/serviceentitymanagedbysettings.md
   - docs/models/components/serviceentitypaginated.md
   - docs/models/components/servicelinkentity.md
   - docs/models/components/serviceparentdependencyentity.md
   - docs/models/components/servicewithalldependenciesentity.md
+  - docs/models/components/settings.md
   - docs/models/components/severityentity.md
   - docs/models/components/severityentitypaginated.md
   - docs/models/components/severitymatrixconditionentity.md
@@ -825,7 +824,6 @@ generatedFiles:
   - docs/models/operations/closeincidentrequest.md
   - docs/models/operations/convertincidenttaskrequest.md
   - docs/models/operations/copyoncallschedulerotationrequest.md
-  - docs/models/operations/createaudiencerequest.md
   - docs/models/operations/createchangeidentityrequest.md
   - docs/models/operations/createcommentreactionrequest.md
   - docs/models/operations/createcommentrequest.md
@@ -1174,6 +1172,7 @@ generatedFiles:
   - docs/models/operations/orderby.md
   - docs/models/operations/orderdirection.md
   - docs/models/operations/overrideoncallschedulerotationshiftsrequest.md
+  - docs/models/operations/patchscimgrouprequest.md
   - docs/models/operations/patchscimuserrequest.md
   - docs/models/operations/previewoncallschedulerotationrequest.md
   - docs/models/operations/previewteamoncallschedulerequest.md
@@ -1301,7 +1300,6 @@ generatedFiles:
   - docs/sdks/changes/README.md
   - docs/sdks/communication/README.md
   - docs/sdks/conversations/README.md
-  - docs/sdks/firehydrant/README.md
   - docs/sdks/incidents/README.md
   - docs/sdks/incidentsettings/README.md
   - docs/sdks/integrations/README.md
@@ -1637,6 +1635,7 @@ generatedFiles:
   - src/funcs/scimGetSCIMUser.ts
   - src/funcs/scimListSCIMGroups.ts
   - src/funcs/scimListSCIMUsers.ts
+  - src/funcs/scimPatchSCIMGroup.ts
   - src/funcs/scimPatchSCIMUser.ts
   - src/funcs/scimUpdateSCIMGroup.ts
   - src/funcs/scimUpdateSCIMUser.ts
@@ -2119,6 +2118,7 @@ generatedFiles:
   - src/mcp-server/tools/scimGetSCIMUser.ts
   - src/mcp-server/tools/scimListSCIMGroups.ts
   - src/mcp-server/tools/scimListSCIMUsers.ts
+  - src/mcp-server/tools/scimPatchSCIMGroup.ts
   - src/mcp-server/tools/scimPatchSCIMUser.ts
   - src/mcp-server/tools/scimUpdateSCIMGroup.ts
   - src/mcp-server/tools/scimUpdateSCIMUser.ts
@@ -2291,6 +2291,7 @@ generatedFiles:
   - src/models/components/conversationsapientitiesreference.ts
   - src/models/components/convertincidenttask.ts
   - src/models/components/copyoncallschedulerotation.ts
+  - src/models/components/createaudience.ts
   - src/models/components/createchange.ts
   - src/models/components/createchangeevent.ts
   - src/models/components/createchangeidentity.ts
@@ -2524,6 +2525,7 @@ generatedFiles:
   - src/models/components/nuncnuncsubscription.ts
   - src/models/components/organizationscustomfielddefinitionentity.ts
   - src/models/components/overrideoncallschedulerotationshifts.ts
+  - src/models/components/patchscimgroup.ts
   - src/models/components/patchscimuser.ts
   - src/models/components/permissionentitylist.ts
   - src/models/components/pongentity.ts
@@ -2723,7 +2725,6 @@ generatedFiles:
   - src/models/operations/closeincident.ts
   - src/models/operations/convertincidenttask.ts
   - src/models/operations/copyoncallschedulerotation.ts
-  - src/models/operations/createaudience.ts
   - src/models/operations/createchangeidentity.ts
   - src/models/operations/createcomment.ts
   - src/models/operations/createcommentreaction.ts
@@ -3017,6 +3018,7 @@ generatedFiles:
   - src/models/operations/listwebhookdeliveries.ts
   - src/models/operations/listwebhooks.ts
   - src/models/operations/overrideoncallschedulerotationshifts.ts
+  - src/models/operations/patchscimgroup.ts
   - src/models/operations/patchscimuser.ts
   - src/models/operations/previewoncallschedulerotation.ts
   - src/models/operations/previewteamoncallschedule.ts
@@ -6318,7 +6320,7 @@ examples:
   create_audience:
     speakeasy-default-create-audience:
       requestBody:
-        application/json: {"name": "<value>", "description": "simple contractor hmph along amongst thump provision crowded fragrant and", "default": false, "details[question]": [], "details[prompt]": ["<value 1>", "<value 2>", "<value 3>"]}
+        application/json: {"name": "<value>", "description": "simple contractor hmph along amongst thump provision crowded fragrant and", "default": false}
       responses:
         "201":
           application/json: {}
@@ -6597,5 +6599,12 @@ examples:
       responses:
         "201":
           application/json: {}
+  patch_scim_group:
+    speakeasy-default-patch-scim-group:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/scim+json: {"Operations": [{"op": "<value>", "path": "/var/tmp"}]}
 examplesVersion: 1.0.2
 generatedTests: {}

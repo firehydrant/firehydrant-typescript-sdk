@@ -3,11 +3,11 @@
  */
 
 import { audiencesCreateAudience } from "../../funcs/audiencesCreateAudience.js";
-import * as operations from "../../models/operations/index.js";
+import * as components from "../../models/components/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.CreateAudienceRequest$inboundSchema,
+  request: components.CreateAudience$inboundSchema,
 };
 
 export const tool$audiencesCreateAudience: ToolDefinition<typeof args> = {

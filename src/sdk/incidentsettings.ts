@@ -370,7 +370,7 @@ export class IncidentSettings extends ClientSDK {
   async createLifecycleMilestone(
     request: operations.CreateLifecycleMilestoneRequest,
     options?: RequestOptions,
-  ): Promise<components.LifecyclesPhaseEntityList> {
+  ): Promise<components.LifecyclesMilestoneEntity> {
     return unwrapAsync(incidentSettingsCreateLifecycleMilestone(
       this,
       request,
@@ -404,7 +404,7 @@ export class IncidentSettings extends ClientSDK {
   async updateLifecycleMilestone(
     request: operations.UpdateLifecycleMilestoneRequest,
     options?: RequestOptions,
-  ): Promise<components.LifecyclesPhaseEntity> {
+  ): Promise<components.LifecyclesMilestoneEntity> {
     return unwrapAsync(incidentSettingsUpdateLifecycleMilestone(
       this,
       request,

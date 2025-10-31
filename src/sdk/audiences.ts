@@ -43,7 +43,7 @@ export class Audiences extends ClientSDK {
    * Create a new audience
    */
   async createAudience(
-    request: operations.CreateAudienceRequest,
+    request: components.CreateAudience,
     options?: RequestOptions,
   ): Promise<components.AudiencesEntitiesAudienceEntity> {
     return unwrapAsync(audiencesCreateAudience(

@@ -106,12 +106,6 @@ async function run() {
   const result = await firehydrant.audiences.createAudience({
     name: "<value>",
     description: "simple contractor hmph along amongst thump provision crowded fragrant and",
-    detailsQuestion: [],
-    detailsPrompt: [
-      "<value 1>",
-      "<value 2>",
-      "<value 3>",
-    ],
   });
 
   console.log(result);
@@ -138,12 +132,6 @@ async function run() {
   const res = await audiencesCreateAudience(firehydrant, {
     name: "<value>",
     description: "simple contractor hmph along amongst thump provision crowded fragrant and",
-    detailsQuestion: [],
-    detailsPrompt: [
-      "<value 1>",
-      "<value 2>",
-      "<value 3>",
-    ],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -160,7 +148,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateAudienceRequest](../../models/operations/createaudiencerequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CreateAudience](../../models/components/createaudience.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

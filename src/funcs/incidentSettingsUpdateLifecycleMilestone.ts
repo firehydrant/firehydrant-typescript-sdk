@@ -37,7 +37,7 @@ export function incidentSettingsUpdateLifecycleMilestone(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.LifecyclesPhaseEntity,
+    components.LifecyclesMilestoneEntity,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.LifecyclesPhaseEntity,
+      components.LifecyclesMilestoneEntity,
       | FirehydrantError
       | ResponseValidationError
       | ConnectionError
@@ -111,7 +111,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "update_lifecycle_milestone",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 
@@ -149,7 +149,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.LifecyclesPhaseEntity,
+    components.LifecyclesMilestoneEntity,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.LifecyclesPhaseEntity$inboundSchema),
+    M.json(200, components.LifecyclesMilestoneEntity$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

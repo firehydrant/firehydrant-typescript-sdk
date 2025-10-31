@@ -322,6 +322,7 @@ import { tool$scimGetSCIMGroup } from "./tools/scimGetSCIMGroup.js";
 import { tool$scimGetSCIMUser } from "./tools/scimGetSCIMUser.js";
 import { tool$scimListSCIMGroups } from "./tools/scimListSCIMGroups.js";
 import { tool$scimListSCIMUsers } from "./tools/scimListSCIMUsers.js";
+import { tool$scimPatchSCIMGroup } from "./tools/scimPatchSCIMGroup.js";
 import { tool$scimPatchSCIMUser } from "./tools/scimPatchSCIMUser.js";
 import { tool$scimUpdateSCIMGroup } from "./tools/scimUpdateSCIMGroup.js";
 import { tool$scimUpdateSCIMUser } from "./tools/scimUpdateSCIMUser.js";
@@ -473,7 +474,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.0.14",
+    version: "1.1.0",
   });
 
   const client = new FirehydrantCore({
@@ -927,6 +928,7 @@ export function createMCPServer(deps: {
   tool(tool$scimGetSCIMGroup);
   tool(tool$scimUpdateSCIMGroup);
   tool(tool$scimDeleteSCIMGroup);
+  tool(tool$scimPatchSCIMGroup);
   tool(tool$scimListSCIMGroups);
   tool(tool$scimCreateSCIMGroup);
   tool(tool$scimGetSCIMUser);
