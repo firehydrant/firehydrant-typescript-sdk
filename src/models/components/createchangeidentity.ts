@@ -24,7 +24,6 @@ export const CreateChangeIdentity$inboundSchema: z.ZodType<
   type: z.string(),
   value: z.string(),
 });
-
 /** @internal */
 export type CreateChangeIdentity$Outbound = {
   type: string;
@@ -41,19 +40,6 @@ export const CreateChangeIdentity$outboundSchema: z.ZodType<
   value: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChangeIdentity$ {
-  /** @deprecated use `CreateChangeIdentity$inboundSchema` instead. */
-  export const inboundSchema = CreateChangeIdentity$inboundSchema;
-  /** @deprecated use `CreateChangeIdentity$outboundSchema` instead. */
-  export const outboundSchema = CreateChangeIdentity$outboundSchema;
-  /** @deprecated use `CreateChangeIdentity$Outbound` instead. */
-  export type Outbound = CreateChangeIdentity$Outbound;
-}
-
 export function createChangeIdentityToJSON(
   createChangeIdentity: CreateChangeIdentity,
 ): string {
@@ -61,7 +47,6 @@ export function createChangeIdentityToJSON(
     CreateChangeIdentity$outboundSchema.parse(createChangeIdentity),
   );
 }
-
 export function createChangeIdentityFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChangeIdentity, SDKValidationError> {

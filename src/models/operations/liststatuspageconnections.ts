@@ -26,7 +26,6 @@ export const ListStatuspageConnectionsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListStatuspageConnectionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListStatuspageConnectionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListStatuspageConnectionsRequest$ {
-  /** @deprecated use `ListStatuspageConnectionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListStatuspageConnectionsRequest$inboundSchema;
-  /** @deprecated use `ListStatuspageConnectionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListStatuspageConnectionsRequest$outboundSchema;
-  /** @deprecated use `ListStatuspageConnectionsRequest$Outbound` instead. */
-  export type Outbound = ListStatuspageConnectionsRequest$Outbound;
-}
-
 export function listStatuspageConnectionsRequestToJSON(
   listStatuspageConnectionsRequest: ListStatuspageConnectionsRequest,
 ): string {
@@ -69,7 +55,6 @@ export function listStatuspageConnectionsRequestToJSON(
     ),
   );
 }
-
 export function listStatuspageConnectionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListStatuspageConnectionsRequest, SDKValidationError> {

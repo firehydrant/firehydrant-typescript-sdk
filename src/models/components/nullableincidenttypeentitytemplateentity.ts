@@ -65,7 +65,6 @@ export const NullableIncidentTypeEntityTemplateEntity$inboundSchema: z.ZodType<
     "custom_fields": "customFields",
   });
 });
-
 /** @internal */
 export type NullableIncidentTypeEntityTemplateEntity$Outbound = {
   incident_name?: string | null | undefined;
@@ -119,21 +118,6 @@ export const NullableIncidentTypeEntityTemplateEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentTypeEntityTemplateEntity$ {
-  /** @deprecated use `NullableIncidentTypeEntityTemplateEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIncidentTypeEntityTemplateEntity$inboundSchema;
-  /** @deprecated use `NullableIncidentTypeEntityTemplateEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIncidentTypeEntityTemplateEntity$outboundSchema;
-  /** @deprecated use `NullableIncidentTypeEntityTemplateEntity$Outbound` instead. */
-  export type Outbound = NullableIncidentTypeEntityTemplateEntity$Outbound;
-}
-
 export function nullableIncidentTypeEntityTemplateEntityToJSON(
   nullableIncidentTypeEntityTemplateEntity:
     NullableIncidentTypeEntityTemplateEntity,
@@ -144,7 +128,6 @@ export function nullableIncidentTypeEntityTemplateEntityToJSON(
     ),
   );
 }
-
 export function nullableIncidentTypeEntityTemplateEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -7,7 +7,6 @@ import { PatchScimGroupOperation } from "firehydrant-typescript-sdk/models/compo
 
 let value: PatchScimGroupOperation = {
   op: "<value>",
-  path: "/lib",
 };
 ```
 
@@ -16,4 +15,4 @@ let value: PatchScimGroupOperation = {
 | Field                                                      | Type                                                       | Required                                                   | Description                                                |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | `op`                                                       | *string*                                                   | :heavy_check_mark:                                         | The operation to perform. Options are add, remove, replace |
-| `path`                                                     | *string*                                                   | :heavy_check_mark:                                         | The path to the attribute to be modified                   |
+| `path`                                                     | *string*                                                   | :heavy_minus_sign:                                         | The path to the attribute to be modified                   |

@@ -30,22 +30,10 @@ export type CreateIncidentImpactRequest = {
 export const CreateIncidentImpactType$inboundSchema: z.ZodNativeEnum<
   typeof CreateIncidentImpactType
 > = z.nativeEnum(CreateIncidentImpactType);
-
 /** @internal */
 export const CreateIncidentImpactType$outboundSchema: z.ZodNativeEnum<
   typeof CreateIncidentImpactType
 > = CreateIncidentImpactType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentImpactType$ {
-  /** @deprecated use `CreateIncidentImpactType$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentImpactType$inboundSchema;
-  /** @deprecated use `CreateIncidentImpactType$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentImpactType$outboundSchema;
-}
 
 /** @internal */
 export const CreateIncidentImpactRequest$inboundSchema: z.ZodType<
@@ -64,7 +52,6 @@ export const CreateIncidentImpactRequest$inboundSchema: z.ZodType<
     "create_incident_impact": "createIncidentImpact",
   });
 });
-
 /** @internal */
 export type CreateIncidentImpactRequest$Outbound = {
   incident_id: string;
@@ -90,19 +77,6 @@ export const CreateIncidentImpactRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentImpactRequest$ {
-  /** @deprecated use `CreateIncidentImpactRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentImpactRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentImpactRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentImpactRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentImpactRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentImpactRequest$Outbound;
-}
-
 export function createIncidentImpactRequestToJSON(
   createIncidentImpactRequest: CreateIncidentImpactRequest,
 ): string {
@@ -112,7 +86,6 @@ export function createIncidentImpactRequestToJSON(
     ),
   );
 }
-
 export function createIncidentImpactRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentImpactRequest, SDKValidationError> {

@@ -30,7 +30,6 @@ export const CreateIncidentRoleAssignmentRequest$inboundSchema: z.ZodType<
     "create_incident_role_assignment": "createIncidentRoleAssignment",
   });
 });
-
 /** @internal */
 export type CreateIncidentRoleAssignmentRequest$Outbound = {
   incident_id: string;
@@ -55,21 +54,6 @@ export const CreateIncidentRoleAssignmentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentRoleAssignmentRequest$ {
-  /** @deprecated use `CreateIncidentRoleAssignmentRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateIncidentRoleAssignmentRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentRoleAssignmentRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentRoleAssignmentRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentRoleAssignmentRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentRoleAssignmentRequest$Outbound;
-}
-
 export function createIncidentRoleAssignmentRequestToJSON(
   createIncidentRoleAssignmentRequest: CreateIncidentRoleAssignmentRequest,
 ): string {
@@ -79,7 +63,6 @@ export function createIncidentRoleAssignmentRequestToJSON(
     ),
   );
 }
-
 export function createIncidentRoleAssignmentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentRoleAssignmentRequest, SDKValidationError> {

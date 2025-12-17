@@ -100,7 +100,6 @@ export const NullableAlertsAlertEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableAlertsAlertEntityLabels$Outbound = {};
 
@@ -111,19 +110,6 @@ export const NullableAlertsAlertEntityLabels$outboundSchema: z.ZodType<
   NullableAlertsAlertEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableAlertsAlertEntityLabels$ {
-  /** @deprecated use `NullableAlertsAlertEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = NullableAlertsAlertEntityLabels$inboundSchema;
-  /** @deprecated use `NullableAlertsAlertEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = NullableAlertsAlertEntityLabels$outboundSchema;
-  /** @deprecated use `NullableAlertsAlertEntityLabels$Outbound` instead. */
-  export type Outbound = NullableAlertsAlertEntityLabels$Outbound;
-}
-
 export function nullableAlertsAlertEntityLabelsToJSON(
   nullableAlertsAlertEntityLabels: NullableAlertsAlertEntityLabels,
 ): string {
@@ -133,7 +119,6 @@ export function nullableAlertsAlertEntityLabelsToJSON(
     ),
   );
 }
-
 export function nullableAlertsAlertEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableAlertsAlertEntityLabels, SDKValidationError> {
@@ -215,7 +200,6 @@ export const NullableAlertsAlertEntity$inboundSchema: z.ZodType<
     "child_alerts": "childAlerts",
   });
 });
-
 /** @internal */
 export type NullableAlertsAlertEntity$Outbound = {
   id?: string | null | undefined;
@@ -324,19 +308,6 @@ export const NullableAlertsAlertEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableAlertsAlertEntity$ {
-  /** @deprecated use `NullableAlertsAlertEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableAlertsAlertEntity$inboundSchema;
-  /** @deprecated use `NullableAlertsAlertEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableAlertsAlertEntity$outboundSchema;
-  /** @deprecated use `NullableAlertsAlertEntity$Outbound` instead. */
-  export type Outbound = NullableAlertsAlertEntity$Outbound;
-}
-
 export function nullableAlertsAlertEntityToJSON(
   nullableAlertsAlertEntity: NullableAlertsAlertEntity,
 ): string {
@@ -344,7 +315,6 @@ export function nullableAlertsAlertEntityToJSON(
     NullableAlertsAlertEntity$outboundSchema.parse(nullableAlertsAlertEntity),
   );
 }
-
 export function nullableAlertsAlertEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableAlertsAlertEntity, SDKValidationError> {

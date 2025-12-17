@@ -35,7 +35,6 @@ export const PostMortemsPostMortemReportEntityPaginated$inboundSchema:
         .optional(),
       pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
     });
-
 /** @internal */
 export type PostMortemsPostMortemReportEntityPaginated$Outbound = {
   data?: Array<PostMortemsPostMortemReportEntity$Outbound> | null | undefined;
@@ -54,21 +53,6 @@ export const PostMortemsPostMortemReportEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PostMortemsPostMortemReportEntityPaginated$ {
-  /** @deprecated use `PostMortemsPostMortemReportEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    PostMortemsPostMortemReportEntityPaginated$inboundSchema;
-  /** @deprecated use `PostMortemsPostMortemReportEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    PostMortemsPostMortemReportEntityPaginated$outboundSchema;
-  /** @deprecated use `PostMortemsPostMortemReportEntityPaginated$Outbound` instead. */
-  export type Outbound = PostMortemsPostMortemReportEntityPaginated$Outbound;
-}
-
 export function postMortemsPostMortemReportEntityPaginatedToJSON(
   postMortemsPostMortemReportEntityPaginated:
     PostMortemsPostMortemReportEntityPaginated,
@@ -79,7 +63,6 @@ export function postMortemsPostMortemReportEntityPaginatedToJSON(
     ),
   );
 }
-
 export function postMortemsPostMortemReportEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

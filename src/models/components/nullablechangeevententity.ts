@@ -80,7 +80,6 @@ export const NullableChangeEventEntityAttachment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableChangeEventEntityAttachment$Outbound = {};
 
@@ -91,21 +90,6 @@ export const NullableChangeEventEntityAttachment$outboundSchema: z.ZodType<
   NullableChangeEventEntityAttachment
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableChangeEventEntityAttachment$ {
-  /** @deprecated use `NullableChangeEventEntityAttachment$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableChangeEventEntityAttachment$inboundSchema;
-  /** @deprecated use `NullableChangeEventEntityAttachment$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableChangeEventEntityAttachment$outboundSchema;
-  /** @deprecated use `NullableChangeEventEntityAttachment$Outbound` instead. */
-  export type Outbound = NullableChangeEventEntityAttachment$Outbound;
-}
-
 export function nullableChangeEventEntityAttachmentToJSON(
   nullableChangeEventEntityAttachment: NullableChangeEventEntityAttachment,
 ): string {
@@ -115,7 +99,6 @@ export function nullableChangeEventEntityAttachmentToJSON(
     ),
   );
 }
-
 export function nullableChangeEventEntityAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableChangeEventEntityAttachment, SDKValidationError> {
@@ -133,7 +116,6 @@ export const NullableChangeEventEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableChangeEventEntityLabels$Outbound = {};
 
@@ -144,19 +126,6 @@ export const NullableChangeEventEntityLabels$outboundSchema: z.ZodType<
   NullableChangeEventEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableChangeEventEntityLabels$ {
-  /** @deprecated use `NullableChangeEventEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = NullableChangeEventEntityLabels$inboundSchema;
-  /** @deprecated use `NullableChangeEventEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = NullableChangeEventEntityLabels$outboundSchema;
-  /** @deprecated use `NullableChangeEventEntityLabels$Outbound` instead. */
-  export type Outbound = NullableChangeEventEntityLabels$Outbound;
-}
-
 export function nullableChangeEventEntityLabelsToJSON(
   nullableChangeEventEntityLabels: NullableChangeEventEntityLabels,
 ): string {
@@ -166,7 +135,6 @@ export function nullableChangeEventEntityLabelsToJSON(
     ),
   );
 }
-
 export function nullableChangeEventEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableChangeEventEntityLabels, SDKValidationError> {
@@ -226,7 +194,6 @@ export const NullableChangeEventEntity$inboundSchema: z.ZodType<
     "related_changes": "relatedChanges",
   });
 });
-
 /** @internal */
 export type NullableChangeEventEntity$Outbound = {
   id?: string | null | undefined;
@@ -293,19 +260,6 @@ export const NullableChangeEventEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableChangeEventEntity$ {
-  /** @deprecated use `NullableChangeEventEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableChangeEventEntity$inboundSchema;
-  /** @deprecated use `NullableChangeEventEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableChangeEventEntity$outboundSchema;
-  /** @deprecated use `NullableChangeEventEntity$Outbound` instead. */
-  export type Outbound = NullableChangeEventEntity$Outbound;
-}
-
 export function nullableChangeEventEntityToJSON(
   nullableChangeEventEntity: NullableChangeEventEntity,
 ): string {
@@ -313,7 +267,6 @@ export function nullableChangeEventEntityToJSON(
     NullableChangeEventEntity$outboundSchema.parse(nullableChangeEventEntity),
   );
 }
-
 export function nullableChangeEventEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableChangeEventEntity, SDKValidationError> {

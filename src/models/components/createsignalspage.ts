@@ -36,22 +36,10 @@ export type CreateSignalsPage = {
 export const CreateSignalsPageTargetType$inboundSchema: z.ZodNativeEnum<
   typeof CreateSignalsPageTargetType
 > = z.nativeEnum(CreateSignalsPageTargetType);
-
 /** @internal */
 export const CreateSignalsPageTargetType$outboundSchema: z.ZodNativeEnum<
   typeof CreateSignalsPageTargetType
 > = CreateSignalsPageTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsPageTargetType$ {
-  /** @deprecated use `CreateSignalsPageTargetType$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsPageTargetType$inboundSchema;
-  /** @deprecated use `CreateSignalsPageTargetType$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsPageTargetType$outboundSchema;
-}
 
 /** @internal */
 export const CreateSignalsPage$inboundSchema: z.ZodType<
@@ -69,7 +57,6 @@ export const CreateSignalsPage$inboundSchema: z.ZodType<
     "target_id": "targetId",
   });
 });
-
 /** @internal */
 export type CreateSignalsPage$Outbound = {
   summary: string;
@@ -95,19 +82,6 @@ export const CreateSignalsPage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsPage$ {
-  /** @deprecated use `CreateSignalsPage$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsPage$inboundSchema;
-  /** @deprecated use `CreateSignalsPage$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsPage$outboundSchema;
-  /** @deprecated use `CreateSignalsPage$Outbound` instead. */
-  export type Outbound = CreateSignalsPage$Outbound;
-}
-
 export function createSignalsPageToJSON(
   createSignalsPage: CreateSignalsPage,
 ): string {
@@ -115,7 +89,6 @@ export function createSignalsPageToJSON(
     CreateSignalsPage$outboundSchema.parse(createSignalsPage),
   );
 }
-
 export function createSignalsPageFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSignalsPage, SDKValidationError> {

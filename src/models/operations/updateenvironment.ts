@@ -31,7 +31,6 @@ export const UpdateEnvironmentRequest$inboundSchema: z.ZodType<
     "update_environment": "updateEnvironment",
   });
 });
-
 /** @internal */
 export type UpdateEnvironmentRequest$Outbound = {
   environment_id: string;
@@ -53,19 +52,6 @@ export const UpdateEnvironmentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateEnvironmentRequest$ {
-  /** @deprecated use `UpdateEnvironmentRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateEnvironmentRequest$inboundSchema;
-  /** @deprecated use `UpdateEnvironmentRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateEnvironmentRequest$outboundSchema;
-  /** @deprecated use `UpdateEnvironmentRequest$Outbound` instead. */
-  export type Outbound = UpdateEnvironmentRequest$Outbound;
-}
-
 export function updateEnvironmentRequestToJSON(
   updateEnvironmentRequest: UpdateEnvironmentRequest,
 ): string {
@@ -73,7 +59,6 @@ export function updateEnvironmentRequestToJSON(
     UpdateEnvironmentRequest$outboundSchema.parse(updateEnvironmentRequest),
   );
 }
-
 export function updateEnvironmentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateEnvironmentRequest, SDKValidationError> {

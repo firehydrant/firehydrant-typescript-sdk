@@ -34,7 +34,6 @@ export const DeleteServiceLinkRequest$inboundSchema: z.ZodType<
     "remote_id": "remoteId",
   });
 });
-
 /** @internal */
 export type DeleteServiceLinkRequest$Outbound = {
   service_id: string;
@@ -56,19 +55,6 @@ export const DeleteServiceLinkRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteServiceLinkRequest$ {
-  /** @deprecated use `DeleteServiceLinkRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteServiceLinkRequest$inboundSchema;
-  /** @deprecated use `DeleteServiceLinkRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteServiceLinkRequest$outboundSchema;
-  /** @deprecated use `DeleteServiceLinkRequest$Outbound` instead. */
-  export type Outbound = DeleteServiceLinkRequest$Outbound;
-}
-
 export function deleteServiceLinkRequestToJSON(
   deleteServiceLinkRequest: DeleteServiceLinkRequest,
 ): string {
@@ -76,7 +62,6 @@ export function deleteServiceLinkRequestToJSON(
     DeleteServiceLinkRequest$outboundSchema.parse(deleteServiceLinkRequest),
   );
 }
-
 export function deleteServiceLinkRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteServiceLinkRequest, SDKValidationError> {

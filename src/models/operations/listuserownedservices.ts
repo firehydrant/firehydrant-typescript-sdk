@@ -28,7 +28,6 @@ export const ListUserOwnedServicesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListUserOwnedServicesRequest$Outbound = {
   id: string;
@@ -51,19 +50,6 @@ export const ListUserOwnedServicesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListUserOwnedServicesRequest$ {
-  /** @deprecated use `ListUserOwnedServicesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListUserOwnedServicesRequest$inboundSchema;
-  /** @deprecated use `ListUserOwnedServicesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListUserOwnedServicesRequest$outboundSchema;
-  /** @deprecated use `ListUserOwnedServicesRequest$Outbound` instead. */
-  export type Outbound = ListUserOwnedServicesRequest$Outbound;
-}
-
 export function listUserOwnedServicesRequestToJSON(
   listUserOwnedServicesRequest: ListUserOwnedServicesRequest,
 ): string {
@@ -73,7 +59,6 @@ export function listUserOwnedServicesRequestToJSON(
     ),
   );
 }
-
 export function listUserOwnedServicesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListUserOwnedServicesRequest, SDKValidationError> {

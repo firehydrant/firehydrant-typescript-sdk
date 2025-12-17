@@ -29,7 +29,6 @@ export const NullableIntegrationsSlackSlackChannelEntity$inboundSchema:
       "slack_channel_id": "slackChannelId",
     });
   });
-
 /** @internal */
 export type NullableIntegrationsSlackSlackChannelEntity$Outbound = {
   id?: string | null | undefined;
@@ -53,21 +52,6 @@ export const NullableIntegrationsSlackSlackChannelEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIntegrationsSlackSlackChannelEntity$ {
-  /** @deprecated use `NullableIntegrationsSlackSlackChannelEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIntegrationsSlackSlackChannelEntity$inboundSchema;
-  /** @deprecated use `NullableIntegrationsSlackSlackChannelEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIntegrationsSlackSlackChannelEntity$outboundSchema;
-  /** @deprecated use `NullableIntegrationsSlackSlackChannelEntity$Outbound` instead. */
-  export type Outbound = NullableIntegrationsSlackSlackChannelEntity$Outbound;
-}
-
 export function nullableIntegrationsSlackSlackChannelEntityToJSON(
   nullableIntegrationsSlackSlackChannelEntity:
     NullableIntegrationsSlackSlackChannelEntity,
@@ -78,7 +62,6 @@ export function nullableIntegrationsSlackSlackChannelEntityToJSON(
     ),
   );
 }
-
 export function nullableIntegrationsSlackSlackChannelEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -51,7 +51,6 @@ export const UpdateIncidentTask$inboundSchema: z.ZodType<
     "due_at": "dueAt",
   });
 });
-
 /** @internal */
 export type UpdateIncidentTask$Outbound = {
   title?: string | null | undefined;
@@ -79,19 +78,6 @@ export const UpdateIncidentTask$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentTask$ {
-  /** @deprecated use `UpdateIncidentTask$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentTask$inboundSchema;
-  /** @deprecated use `UpdateIncidentTask$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentTask$outboundSchema;
-  /** @deprecated use `UpdateIncidentTask$Outbound` instead. */
-  export type Outbound = UpdateIncidentTask$Outbound;
-}
-
 export function updateIncidentTaskToJSON(
   updateIncidentTask: UpdateIncidentTask,
 ): string {
@@ -99,7 +85,6 @@ export function updateIncidentTaskToJSON(
     UpdateIncidentTask$outboundSchema.parse(updateIncidentTask),
   );
 }
-
 export function updateIncidentTaskFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentTask, SDKValidationError> {

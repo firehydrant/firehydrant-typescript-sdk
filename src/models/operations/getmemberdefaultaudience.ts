@@ -24,7 +24,6 @@ export const GetMemberDefaultAudienceRequest$inboundSchema: z.ZodType<
     "member_id": "memberId",
   });
 });
-
 /** @internal */
 export type GetMemberDefaultAudienceRequest$Outbound = {
   member_id: number;
@@ -43,19 +42,6 @@ export const GetMemberDefaultAudienceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetMemberDefaultAudienceRequest$ {
-  /** @deprecated use `GetMemberDefaultAudienceRequest$inboundSchema` instead. */
-  export const inboundSchema = GetMemberDefaultAudienceRequest$inboundSchema;
-  /** @deprecated use `GetMemberDefaultAudienceRequest$outboundSchema` instead. */
-  export const outboundSchema = GetMemberDefaultAudienceRequest$outboundSchema;
-  /** @deprecated use `GetMemberDefaultAudienceRequest$Outbound` instead. */
-  export type Outbound = GetMemberDefaultAudienceRequest$Outbound;
-}
-
 export function getMemberDefaultAudienceRequestToJSON(
   getMemberDefaultAudienceRequest: GetMemberDefaultAudienceRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getMemberDefaultAudienceRequestToJSON(
     ),
   );
 }
-
 export function getMemberDefaultAudienceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetMemberDefaultAudienceRequest, SDKValidationError> {

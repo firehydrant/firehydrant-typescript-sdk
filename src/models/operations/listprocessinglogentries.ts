@@ -65,40 +65,16 @@ export type ListProcessingLogEntriesRequest = {
 /** @internal */
 export const OfLevel$inboundSchema: z.ZodNativeEnum<typeof OfLevel> = z
   .nativeEnum(OfLevel);
-
 /** @internal */
 export const OfLevel$outboundSchema: z.ZodNativeEnum<typeof OfLevel> =
   OfLevel$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OfLevel$ {
-  /** @deprecated use `OfLevel$inboundSchema` instead. */
-  export const inboundSchema = OfLevel$inboundSchema;
-  /** @deprecated use `OfLevel$outboundSchema` instead. */
-  export const outboundSchema = OfLevel$outboundSchema;
-}
-
 /** @internal */
 export const ExactLevel$inboundSchema: z.ZodNativeEnum<typeof ExactLevel> = z
   .nativeEnum(ExactLevel);
-
 /** @internal */
 export const ExactLevel$outboundSchema: z.ZodNativeEnum<typeof ExactLevel> =
   ExactLevel$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExactLevel$ {
-  /** @deprecated use `ExactLevel$inboundSchema` instead. */
-  export const inboundSchema = ExactLevel$inboundSchema;
-  /** @deprecated use `ExactLevel$outboundSchema` instead. */
-  export const outboundSchema = ExactLevel$outboundSchema;
-}
 
 /** @internal */
 export const ListProcessingLogEntriesRequest$inboundSchema: z.ZodType<
@@ -121,7 +97,6 @@ export const ListProcessingLogEntriesRequest$inboundSchema: z.ZodType<
     "exact_level": "exactLevel",
   });
 });
-
 /** @internal */
 export type ListProcessingLogEntriesRequest$Outbound = {
   page?: number | null | undefined;
@@ -154,19 +129,6 @@ export const ListProcessingLogEntriesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListProcessingLogEntriesRequest$ {
-  /** @deprecated use `ListProcessingLogEntriesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListProcessingLogEntriesRequest$inboundSchema;
-  /** @deprecated use `ListProcessingLogEntriesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListProcessingLogEntriesRequest$outboundSchema;
-  /** @deprecated use `ListProcessingLogEntriesRequest$Outbound` instead. */
-  export type Outbound = ListProcessingLogEntriesRequest$Outbound;
-}
-
 export function listProcessingLogEntriesRequestToJSON(
   listProcessingLogEntriesRequest: ListProcessingLogEntriesRequest,
 ): string {
@@ -176,7 +138,6 @@ export function listProcessingLogEntriesRequestToJSON(
     ),
   );
 }
-
 export function listProcessingLogEntriesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListProcessingLogEntriesRequest, SDKValidationError> {

@@ -24,7 +24,6 @@ export const DeleteWebhookRequest$inboundSchema: z.ZodType<
     "webhook_id": "webhookId",
   });
 });
-
 /** @internal */
 export type DeleteWebhookRequest$Outbound = {
   webhook_id: string;
@@ -43,19 +42,6 @@ export const DeleteWebhookRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteWebhookRequest$ {
-  /** @deprecated use `DeleteWebhookRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteWebhookRequest$inboundSchema;
-  /** @deprecated use `DeleteWebhookRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteWebhookRequest$outboundSchema;
-  /** @deprecated use `DeleteWebhookRequest$Outbound` instead. */
-  export type Outbound = DeleteWebhookRequest$Outbound;
-}
-
 export function deleteWebhookRequestToJSON(
   deleteWebhookRequest: DeleteWebhookRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteWebhookRequestToJSON(
     DeleteWebhookRequest$outboundSchema.parse(deleteWebhookRequest),
   );
 }
-
 export function deleteWebhookRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteWebhookRequest, SDKValidationError> {

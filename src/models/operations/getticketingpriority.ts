@@ -19,7 +19,6 @@ export const GetTicketingPriorityRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetTicketingPriorityRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetTicketingPriorityRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetTicketingPriorityRequest$ {
-  /** @deprecated use `GetTicketingPriorityRequest$inboundSchema` instead. */
-  export const inboundSchema = GetTicketingPriorityRequest$inboundSchema;
-  /** @deprecated use `GetTicketingPriorityRequest$outboundSchema` instead. */
-  export const outboundSchema = GetTicketingPriorityRequest$outboundSchema;
-  /** @deprecated use `GetTicketingPriorityRequest$Outbound` instead. */
-  export type Outbound = GetTicketingPriorityRequest$Outbound;
-}
-
 export function getTicketingPriorityRequestToJSON(
   getTicketingPriorityRequest: GetTicketingPriorityRequest,
 ): string {
@@ -56,7 +42,6 @@ export function getTicketingPriorityRequestToJSON(
     ),
   );
 }
-
 export function getTicketingPriorityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetTicketingPriorityRequest, SDKValidationError> {

@@ -51,7 +51,6 @@ export const OrganizationsCustomFieldDefinitionEntity$inboundSchema: z.ZodType<
     "permissible_values": "permissibleValues",
   });
 });
-
 /** @internal */
 export type OrganizationsCustomFieldDefinitionEntity$Outbound = {
   display_name?: string | null | undefined;
@@ -88,21 +87,6 @@ export const OrganizationsCustomFieldDefinitionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationsCustomFieldDefinitionEntity$ {
-  /** @deprecated use `OrganizationsCustomFieldDefinitionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    OrganizationsCustomFieldDefinitionEntity$inboundSchema;
-  /** @deprecated use `OrganizationsCustomFieldDefinitionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    OrganizationsCustomFieldDefinitionEntity$outboundSchema;
-  /** @deprecated use `OrganizationsCustomFieldDefinitionEntity$Outbound` instead. */
-  export type Outbound = OrganizationsCustomFieldDefinitionEntity$Outbound;
-}
-
 export function organizationsCustomFieldDefinitionEntityToJSON(
   organizationsCustomFieldDefinitionEntity:
     OrganizationsCustomFieldDefinitionEntity,
@@ -113,7 +97,6 @@ export function organizationsCustomFieldDefinitionEntityToJSON(
     ),
   );
 }
-
 export function organizationsCustomFieldDefinitionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

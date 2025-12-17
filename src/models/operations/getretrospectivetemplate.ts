@@ -24,7 +24,6 @@ export const GetRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
     "retrospective_template_id": "retrospectiveTemplateId",
   });
 });
-
 /** @internal */
 export type GetRetrospectiveTemplateRequest$Outbound = {
   retrospective_template_id: string;
@@ -43,19 +42,6 @@ export const GetRetrospectiveTemplateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetRetrospectiveTemplateRequest$ {
-  /** @deprecated use `GetRetrospectiveTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = GetRetrospectiveTemplateRequest$inboundSchema;
-  /** @deprecated use `GetRetrospectiveTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema = GetRetrospectiveTemplateRequest$outboundSchema;
-  /** @deprecated use `GetRetrospectiveTemplateRequest$Outbound` instead. */
-  export type Outbound = GetRetrospectiveTemplateRequest$Outbound;
-}
-
 export function getRetrospectiveTemplateRequestToJSON(
   getRetrospectiveTemplateRequest: GetRetrospectiveTemplateRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getRetrospectiveTemplateRequestToJSON(
     ),
   );
 }
-
 export function getRetrospectiveTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetRetrospectiveTemplateRequest, SDKValidationError> {

@@ -27,7 +27,6 @@ export const GetInboundFieldMapRequest$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type GetInboundFieldMapRequest$Outbound = {
   map_id: string;
@@ -49,19 +48,6 @@ export const GetInboundFieldMapRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetInboundFieldMapRequest$ {
-  /** @deprecated use `GetInboundFieldMapRequest$inboundSchema` instead. */
-  export const inboundSchema = GetInboundFieldMapRequest$inboundSchema;
-  /** @deprecated use `GetInboundFieldMapRequest$outboundSchema` instead. */
-  export const outboundSchema = GetInboundFieldMapRequest$outboundSchema;
-  /** @deprecated use `GetInboundFieldMapRequest$Outbound` instead. */
-  export type Outbound = GetInboundFieldMapRequest$Outbound;
-}
-
 export function getInboundFieldMapRequestToJSON(
   getInboundFieldMapRequest: GetInboundFieldMapRequest,
 ): string {
@@ -69,7 +55,6 @@ export function getInboundFieldMapRequestToJSON(
     GetInboundFieldMapRequest$outboundSchema.parse(getInboundFieldMapRequest),
   );
 }
-
 export function getInboundFieldMapRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetInboundFieldMapRequest, SDKValidationError> {

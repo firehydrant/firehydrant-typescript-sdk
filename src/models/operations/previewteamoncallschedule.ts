@@ -30,7 +30,6 @@ export const PreviewTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
     "preview_team_on_call_schedule": "previewTeamOnCallSchedule",
   });
 });
-
 /** @internal */
 export type PreviewTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
@@ -54,19 +53,6 @@ export const PreviewTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleRequest$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleRequest$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleRequest$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleRequest$outboundSchema` instead. */
-  export const outboundSchema = PreviewTeamOnCallScheduleRequest$outboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleRequest$Outbound` instead. */
-  export type Outbound = PreviewTeamOnCallScheduleRequest$Outbound;
-}
-
 export function previewTeamOnCallScheduleRequestToJSON(
   previewTeamOnCallScheduleRequest: PreviewTeamOnCallScheduleRequest,
 ): string {
@@ -76,7 +62,6 @@ export function previewTeamOnCallScheduleRequestToJSON(
     ),
   );
 }
-
 export function previewTeamOnCallScheduleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewTeamOnCallScheduleRequest, SDKValidationError> {

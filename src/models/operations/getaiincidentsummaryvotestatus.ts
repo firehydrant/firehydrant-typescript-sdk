@@ -27,7 +27,6 @@ export const GetAiIncidentSummaryVoteStatusRequest$inboundSchema: z.ZodType<
     "generated_summary_id": "generatedSummaryId",
   });
 });
-
 /** @internal */
 export type GetAiIncidentSummaryVoteStatusRequest$Outbound = {
   incident_id: string;
@@ -49,21 +48,6 @@ export const GetAiIncidentSummaryVoteStatusRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAiIncidentSummaryVoteStatusRequest$ {
-  /** @deprecated use `GetAiIncidentSummaryVoteStatusRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetAiIncidentSummaryVoteStatusRequest$inboundSchema;
-  /** @deprecated use `GetAiIncidentSummaryVoteStatusRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetAiIncidentSummaryVoteStatusRequest$outboundSchema;
-  /** @deprecated use `GetAiIncidentSummaryVoteStatusRequest$Outbound` instead. */
-  export type Outbound = GetAiIncidentSummaryVoteStatusRequest$Outbound;
-}
-
 export function getAiIncidentSummaryVoteStatusRequestToJSON(
   getAiIncidentSummaryVoteStatusRequest: GetAiIncidentSummaryVoteStatusRequest,
 ): string {
@@ -73,7 +57,6 @@ export function getAiIncidentSummaryVoteStatusRequestToJSON(
     ),
   );
 }
-
 export function getAiIncidentSummaryVoteStatusRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetAiIncidentSummaryVoteStatusRequest, SDKValidationError> {

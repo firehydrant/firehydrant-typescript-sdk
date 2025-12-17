@@ -31,7 +31,6 @@ export const SignalsAPIHackerModeEntity$inboundSchema: z.ZodType<
     "url_key": "urlKey",
   });
 });
-
 /** @internal */
 export type SignalsAPIHackerModeEntity$Outbound = {
   enabled?: boolean | null | undefined;
@@ -54,19 +53,6 @@ export const SignalsAPIHackerModeEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIHackerModeEntity$ {
-  /** @deprecated use `SignalsAPIHackerModeEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIHackerModeEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIHackerModeEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIHackerModeEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIHackerModeEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIHackerModeEntity$Outbound;
-}
-
 export function signalsAPIHackerModeEntityToJSON(
   signalsAPIHackerModeEntity: SignalsAPIHackerModeEntity,
 ): string {
@@ -74,7 +60,6 @@ export function signalsAPIHackerModeEntityToJSON(
     SignalsAPIHackerModeEntity$outboundSchema.parse(signalsAPIHackerModeEntity),
   );
 }
-
 export function signalsAPIHackerModeEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIHackerModeEntity, SDKValidationError> {

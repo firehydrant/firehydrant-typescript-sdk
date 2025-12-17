@@ -29,7 +29,6 @@ export const UpdateChecklistTemplateRequest$inboundSchema: z.ZodType<
     "update_checklist_template": "updateChecklistTemplate",
   });
 });
-
 /** @internal */
 export type UpdateChecklistTemplateRequest$Outbound = {
   id: string;
@@ -52,19 +51,6 @@ export const UpdateChecklistTemplateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChecklistTemplateRequest$ {
-  /** @deprecated use `UpdateChecklistTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateChecklistTemplateRequest$inboundSchema;
-  /** @deprecated use `UpdateChecklistTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateChecklistTemplateRequest$outboundSchema;
-  /** @deprecated use `UpdateChecklistTemplateRequest$Outbound` instead. */
-  export type Outbound = UpdateChecklistTemplateRequest$Outbound;
-}
-
 export function updateChecklistTemplateRequestToJSON(
   updateChecklistTemplateRequest: UpdateChecklistTemplateRequest,
 ): string {
@@ -74,7 +60,6 @@ export function updateChecklistTemplateRequestToJSON(
     ),
   );
 }
-
 export function updateChecklistTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChecklistTemplateRequest, SDKValidationError> {

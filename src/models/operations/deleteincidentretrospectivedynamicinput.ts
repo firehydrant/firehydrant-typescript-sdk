@@ -37,7 +37,6 @@ export const DeleteIncidentRetrospectiveDynamicInputRequest$inboundSchema:
       "incident_id": "incidentId",
     });
   });
-
 /** @internal */
 export type DeleteIncidentRetrospectiveDynamicInputRequest$Outbound = {
   retrospective_id: string;
@@ -66,22 +65,6 @@ export const DeleteIncidentRetrospectiveDynamicInputRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentRetrospectiveDynamicInputRequest$ {
-  /** @deprecated use `DeleteIncidentRetrospectiveDynamicInputRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteIncidentRetrospectiveDynamicInputRequest$inboundSchema;
-  /** @deprecated use `DeleteIncidentRetrospectiveDynamicInputRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteIncidentRetrospectiveDynamicInputRequest$outboundSchema;
-  /** @deprecated use `DeleteIncidentRetrospectiveDynamicInputRequest$Outbound` instead. */
-  export type Outbound =
-    DeleteIncidentRetrospectiveDynamicInputRequest$Outbound;
-}
-
 export function deleteIncidentRetrospectiveDynamicInputRequestToJSON(
   deleteIncidentRetrospectiveDynamicInputRequest:
     DeleteIncidentRetrospectiveDynamicInputRequest,
@@ -92,7 +75,6 @@ export function deleteIncidentRetrospectiveDynamicInputRequestToJSON(
     ),
   );
 }
-
 export function deleteIncidentRetrospectiveDynamicInputRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

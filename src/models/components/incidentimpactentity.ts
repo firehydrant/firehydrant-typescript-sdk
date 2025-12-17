@@ -32,7 +32,6 @@ export const IncidentImpactEntity$inboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   infrastructure: z.nullable(NullableSuccinctEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IncidentImpactEntity$Outbound = {
   id?: string | null | undefined;
@@ -51,19 +50,6 @@ export const IncidentImpactEntity$outboundSchema: z.ZodType<
   infrastructure: z.nullable(NullableSuccinctEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentImpactEntity$ {
-  /** @deprecated use `IncidentImpactEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentImpactEntity$inboundSchema;
-  /** @deprecated use `IncidentImpactEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentImpactEntity$outboundSchema;
-  /** @deprecated use `IncidentImpactEntity$Outbound` instead. */
-  export type Outbound = IncidentImpactEntity$Outbound;
-}
-
 export function incidentImpactEntityToJSON(
   incidentImpactEntity: IncidentImpactEntity,
 ): string {
@@ -71,7 +57,6 @@ export function incidentImpactEntityToJSON(
     IncidentImpactEntity$outboundSchema.parse(incidentImpactEntity),
   );
 }
-
 export function incidentImpactEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentImpactEntity, SDKValidationError> {

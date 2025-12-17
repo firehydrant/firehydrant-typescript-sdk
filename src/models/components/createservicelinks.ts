@@ -43,21 +43,9 @@ export type CreateServiceLinks = {
 /** @internal */
 export const Integration$inboundSchema: z.ZodNativeEnum<typeof Integration> = z
   .nativeEnum(Integration);
-
 /** @internal */
 export const Integration$outboundSchema: z.ZodNativeEnum<typeof Integration> =
   Integration$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Integration$ {
-  /** @deprecated use `Integration$inboundSchema` instead. */
-  export const inboundSchema = Integration$inboundSchema;
-  /** @deprecated use `Integration$outboundSchema` instead. */
-  export const outboundSchema = Integration$outboundSchema;
-}
 
 /** @internal */
 export const CreateServiceLinks$inboundSchema: z.ZodType<
@@ -74,7 +62,6 @@ export const CreateServiceLinks$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type CreateServiceLinks$Outbound = {
   external_service_ids: string;
@@ -98,19 +85,6 @@ export const CreateServiceLinks$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceLinks$ {
-  /** @deprecated use `CreateServiceLinks$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceLinks$inboundSchema;
-  /** @deprecated use `CreateServiceLinks$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceLinks$outboundSchema;
-  /** @deprecated use `CreateServiceLinks$Outbound` instead. */
-  export type Outbound = CreateServiceLinks$Outbound;
-}
-
 export function createServiceLinksToJSON(
   createServiceLinks: CreateServiceLinks,
 ): string {
@@ -118,7 +92,6 @@ export function createServiceLinksToJSON(
     CreateServiceLinks$outboundSchema.parse(createServiceLinks),
   );
 }
-
 export function createServiceLinksFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceLinks, SDKValidationError> {

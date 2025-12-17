@@ -36,7 +36,6 @@ export const IncidentsAlertEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(IncidentsAlertEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IncidentsAlertEntityPaginated$Outbound = {
   data?: Array<IncidentsAlertEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const IncidentsAlertEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsAlertEntityPaginated$ {
-  /** @deprecated use `IncidentsAlertEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = IncidentsAlertEntityPaginated$inboundSchema;
-  /** @deprecated use `IncidentsAlertEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = IncidentsAlertEntityPaginated$outboundSchema;
-  /** @deprecated use `IncidentsAlertEntityPaginated$Outbound` instead. */
-  export type Outbound = IncidentsAlertEntityPaginated$Outbound;
-}
-
 export function incidentsAlertEntityPaginatedToJSON(
   incidentsAlertEntityPaginated: IncidentsAlertEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function incidentsAlertEntityPaginatedToJSON(
     ),
   );
 }
-
 export function incidentsAlertEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsAlertEntityPaginated, SDKValidationError> {

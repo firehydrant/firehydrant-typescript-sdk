@@ -38,22 +38,10 @@ export type RetrospectivesFieldEntity = {
 export const RetrospectivesFieldEntityType$inboundSchema: z.ZodNativeEnum<
   typeof RetrospectivesFieldEntityType
 > = z.nativeEnum(RetrospectivesFieldEntityType);
-
 /** @internal */
 export const RetrospectivesFieldEntityType$outboundSchema: z.ZodNativeEnum<
   typeof RetrospectivesFieldEntityType
 > = RetrospectivesFieldEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RetrospectivesFieldEntityType$ {
-  /** @deprecated use `RetrospectivesFieldEntityType$inboundSchema` instead. */
-  export const inboundSchema = RetrospectivesFieldEntityType$inboundSchema;
-  /** @deprecated use `RetrospectivesFieldEntityType$outboundSchema` instead. */
-  export const outboundSchema = RetrospectivesFieldEntityType$outboundSchema;
-}
 
 /** @internal */
 export const RetrospectivesFieldEntity$inboundSchema: z.ZodType<
@@ -77,7 +65,6 @@ export const RetrospectivesFieldEntity$inboundSchema: z.ZodType<
     "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
-
 /** @internal */
 export type RetrospectivesFieldEntity$Outbound = {
   id?: string | null | undefined;
@@ -113,19 +100,6 @@ export const RetrospectivesFieldEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RetrospectivesFieldEntity$ {
-  /** @deprecated use `RetrospectivesFieldEntity$inboundSchema` instead. */
-  export const inboundSchema = RetrospectivesFieldEntity$inboundSchema;
-  /** @deprecated use `RetrospectivesFieldEntity$outboundSchema` instead. */
-  export const outboundSchema = RetrospectivesFieldEntity$outboundSchema;
-  /** @deprecated use `RetrospectivesFieldEntity$Outbound` instead. */
-  export type Outbound = RetrospectivesFieldEntity$Outbound;
-}
-
 export function retrospectivesFieldEntityToJSON(
   retrospectivesFieldEntity: RetrospectivesFieldEntity,
 ): string {
@@ -133,7 +107,6 @@ export function retrospectivesFieldEntityToJSON(
     RetrospectivesFieldEntity$outboundSchema.parse(retrospectivesFieldEntity),
   );
 }
-
 export function retrospectivesFieldEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RetrospectivesFieldEntity, SDKValidationError> {

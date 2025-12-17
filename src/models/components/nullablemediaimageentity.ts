@@ -27,7 +27,6 @@ export const VersionsUrls$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type VersionsUrls$Outbound = {};
 
@@ -38,23 +37,9 @@ export const VersionsUrls$outboundSchema: z.ZodType<
   VersionsUrls
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VersionsUrls$ {
-  /** @deprecated use `VersionsUrls$inboundSchema` instead. */
-  export const inboundSchema = VersionsUrls$inboundSchema;
-  /** @deprecated use `VersionsUrls$outboundSchema` instead. */
-  export const outboundSchema = VersionsUrls$outboundSchema;
-  /** @deprecated use `VersionsUrls$Outbound` instead. */
-  export type Outbound = VersionsUrls$Outbound;
-}
-
 export function versionsUrlsToJSON(versionsUrls: VersionsUrls): string {
   return JSON.stringify(VersionsUrls$outboundSchema.parse(versionsUrls));
 }
-
 export function versionsUrlsFromJSON(
   jsonString: string,
 ): SafeParseResult<VersionsUrls, SDKValidationError> {
@@ -80,7 +65,6 @@ export const NullableMediaImageEntity$inboundSchema: z.ZodType<
     "versions_urls": "versionsUrls",
   });
 });
-
 /** @internal */
 export type NullableMediaImageEntity$Outbound = {
   original_url?: string | null | undefined;
@@ -103,19 +87,6 @@ export const NullableMediaImageEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableMediaImageEntity$ {
-  /** @deprecated use `NullableMediaImageEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableMediaImageEntity$inboundSchema;
-  /** @deprecated use `NullableMediaImageEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableMediaImageEntity$outboundSchema;
-  /** @deprecated use `NullableMediaImageEntity$Outbound` instead. */
-  export type Outbound = NullableMediaImageEntity$Outbound;
-}
-
 export function nullableMediaImageEntityToJSON(
   nullableMediaImageEntity: NullableMediaImageEntity,
 ): string {
@@ -123,7 +94,6 @@ export function nullableMediaImageEntityToJSON(
     NullableMediaImageEntity$outboundSchema.parse(nullableMediaImageEntity),
   );
 }
-
 export function nullableMediaImageEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableMediaImageEntity, SDKValidationError> {

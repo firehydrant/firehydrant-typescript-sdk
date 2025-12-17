@@ -22,7 +22,6 @@ export const RetrospectivesTemplateEntityIncidentSectionEntity$inboundSchema:
     slug: z.nullable(z.string()).optional(),
     elements: z.nullable(z.array(z.string())).optional(),
   });
-
 /** @internal */
 export type RetrospectivesTemplateEntityIncidentSectionEntity$Outbound = {
   slug?: string | null | undefined;
@@ -40,22 +39,6 @@ export const RetrospectivesTemplateEntityIncidentSectionEntity$outboundSchema:
     elements: z.nullable(z.array(z.string())).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RetrospectivesTemplateEntityIncidentSectionEntity$ {
-  /** @deprecated use `RetrospectivesTemplateEntityIncidentSectionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    RetrospectivesTemplateEntityIncidentSectionEntity$inboundSchema;
-  /** @deprecated use `RetrospectivesTemplateEntityIncidentSectionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    RetrospectivesTemplateEntityIncidentSectionEntity$outboundSchema;
-  /** @deprecated use `RetrospectivesTemplateEntityIncidentSectionEntity$Outbound` instead. */
-  export type Outbound =
-    RetrospectivesTemplateEntityIncidentSectionEntity$Outbound;
-}
-
 export function retrospectivesTemplateEntityIncidentSectionEntityToJSON(
   retrospectivesTemplateEntityIncidentSectionEntity:
     RetrospectivesTemplateEntityIncidentSectionEntity,
@@ -66,7 +49,6 @@ export function retrospectivesTemplateEntityIncidentSectionEntityToJSON(
     ),
   );
 }
-
 export function retrospectivesTemplateEntityIncidentSectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

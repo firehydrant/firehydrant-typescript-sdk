@@ -59,7 +59,6 @@ export const ServiceEntityLite$inboundSchema: z.ZodType<
     "auto_add_responding_team": "autoAddRespondingTeam",
   });
 });
-
 /** @internal */
 export type ServiceEntityLite$Outbound = {
   id?: string | null | undefined;
@@ -103,19 +102,6 @@ export const ServiceEntityLite$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceEntityLite$ {
-  /** @deprecated use `ServiceEntityLite$inboundSchema` instead. */
-  export const inboundSchema = ServiceEntityLite$inboundSchema;
-  /** @deprecated use `ServiceEntityLite$outboundSchema` instead. */
-  export const outboundSchema = ServiceEntityLite$outboundSchema;
-  /** @deprecated use `ServiceEntityLite$Outbound` instead. */
-  export type Outbound = ServiceEntityLite$Outbound;
-}
-
 export function serviceEntityLiteToJSON(
   serviceEntityLite: ServiceEntityLite,
 ): string {
@@ -123,7 +109,6 @@ export function serviceEntityLiteToJSON(
     ServiceEntityLite$outboundSchema.parse(serviceEntityLite),
   );
 }
-
 export function serviceEntityLiteFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceEntityLite, SDKValidationError> {

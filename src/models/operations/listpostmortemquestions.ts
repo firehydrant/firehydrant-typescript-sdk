@@ -26,7 +26,6 @@ export const ListPostMortemQuestionsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListPostMortemQuestionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListPostMortemQuestionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListPostMortemQuestionsRequest$ {
-  /** @deprecated use `ListPostMortemQuestionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListPostMortemQuestionsRequest$inboundSchema;
-  /** @deprecated use `ListPostMortemQuestionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListPostMortemQuestionsRequest$outboundSchema;
-  /** @deprecated use `ListPostMortemQuestionsRequest$Outbound` instead. */
-  export type Outbound = ListPostMortemQuestionsRequest$Outbound;
-}
-
 export function listPostMortemQuestionsRequestToJSON(
   listPostMortemQuestionsRequest: ListPostMortemQuestionsRequest,
 ): string {
@@ -69,7 +55,6 @@ export function listPostMortemQuestionsRequestToJSON(
     ),
   );
 }
-
 export function listPostMortemQuestionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListPostMortemQuestionsRequest, SDKValidationError> {

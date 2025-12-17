@@ -19,7 +19,6 @@ export const ListIncidentTagsRequest$inboundSchema: z.ZodType<
 > = z.object({
   prefix: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type ListIncidentTagsRequest$Outbound = {
   prefix?: string | null | undefined;
@@ -34,19 +33,6 @@ export const ListIncidentTagsRequest$outboundSchema: z.ZodType<
   prefix: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentTagsRequest$ {
-  /** @deprecated use `ListIncidentTagsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentTagsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentTagsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentTagsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentTagsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentTagsRequest$Outbound;
-}
-
 export function listIncidentTagsRequestToJSON(
   listIncidentTagsRequest: ListIncidentTagsRequest,
 ): string {
@@ -54,7 +40,6 @@ export function listIncidentTagsRequestToJSON(
     ListIncidentTagsRequest$outboundSchema.parse(listIncidentTagsRequest),
   );
 }
-
 export function listIncidentTagsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentTagsRequest, SDKValidationError> {

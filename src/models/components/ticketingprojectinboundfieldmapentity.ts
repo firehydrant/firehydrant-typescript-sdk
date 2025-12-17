@@ -32,21 +32,9 @@ export type TicketingProjectInboundFieldMapEntity = {
 /** @internal */
 export const TicketType$inboundSchema: z.ZodNativeEnum<typeof TicketType> = z
   .nativeEnum(TicketType);
-
 /** @internal */
 export const TicketType$outboundSchema: z.ZodNativeEnum<typeof TicketType> =
   TicketType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketType$ {
-  /** @deprecated use `TicketType$inboundSchema` instead. */
-  export const inboundSchema = TicketType$inboundSchema;
-  /** @deprecated use `TicketType$outboundSchema` instead. */
-  export const outboundSchema = TicketType$outboundSchema;
-}
 
 /** @internal */
 export const TicketingProjectInboundFieldMapEntity$inboundSchema: z.ZodType<
@@ -71,7 +59,6 @@ export const TicketingProjectInboundFieldMapEntity$inboundSchema: z.ZodType<
     "ticket_type": "ticketType",
   });
 });
-
 /** @internal */
 export type TicketingProjectInboundFieldMapEntity$Outbound = {
   id?: string | null | undefined;
@@ -107,21 +94,6 @@ export const TicketingProjectInboundFieldMapEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectInboundFieldMapEntity$ {
-  /** @deprecated use `TicketingProjectInboundFieldMapEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectInboundFieldMapEntity$inboundSchema;
-  /** @deprecated use `TicketingProjectInboundFieldMapEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectInboundFieldMapEntity$outboundSchema;
-  /** @deprecated use `TicketingProjectInboundFieldMapEntity$Outbound` instead. */
-  export type Outbound = TicketingProjectInboundFieldMapEntity$Outbound;
-}
-
 export function ticketingProjectInboundFieldMapEntityToJSON(
   ticketingProjectInboundFieldMapEntity: TicketingProjectInboundFieldMapEntity,
 ): string {
@@ -131,7 +103,6 @@ export function ticketingProjectInboundFieldMapEntityToJSON(
     ),
   );
 }
-
 export function ticketingProjectInboundFieldMapEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingProjectInboundFieldMapEntity, SDKValidationError> {

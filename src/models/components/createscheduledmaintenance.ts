@@ -77,7 +77,6 @@ export const CreateScheduledMaintenanceStatusPage$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type CreateScheduledMaintenanceStatusPage$Outbound = {
   integration_slug?: string | null | undefined;
@@ -99,21 +98,6 @@ export const CreateScheduledMaintenanceStatusPage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScheduledMaintenanceStatusPage$ {
-  /** @deprecated use `CreateScheduledMaintenanceStatusPage$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateScheduledMaintenanceStatusPage$inboundSchema;
-  /** @deprecated use `CreateScheduledMaintenanceStatusPage$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateScheduledMaintenanceStatusPage$outboundSchema;
-  /** @deprecated use `CreateScheduledMaintenanceStatusPage$Outbound` instead. */
-  export type Outbound = CreateScheduledMaintenanceStatusPage$Outbound;
-}
-
 export function createScheduledMaintenanceStatusPageToJSON(
   createScheduledMaintenanceStatusPage: CreateScheduledMaintenanceStatusPage,
 ): string {
@@ -123,7 +107,6 @@ export function createScheduledMaintenanceStatusPageToJSON(
     ),
   );
 }
-
 export function createScheduledMaintenanceStatusPageFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScheduledMaintenanceStatusPage, SDKValidationError> {
@@ -149,7 +132,6 @@ export const CreateScheduledMaintenanceImpact$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type CreateScheduledMaintenanceImpact$Outbound = {
   type: string;
@@ -172,19 +154,6 @@ export const CreateScheduledMaintenanceImpact$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScheduledMaintenanceImpact$ {
-  /** @deprecated use `CreateScheduledMaintenanceImpact$inboundSchema` instead. */
-  export const inboundSchema = CreateScheduledMaintenanceImpact$inboundSchema;
-  /** @deprecated use `CreateScheduledMaintenanceImpact$outboundSchema` instead. */
-  export const outboundSchema = CreateScheduledMaintenanceImpact$outboundSchema;
-  /** @deprecated use `CreateScheduledMaintenanceImpact$Outbound` instead. */
-  export type Outbound = CreateScheduledMaintenanceImpact$Outbound;
-}
-
 export function createScheduledMaintenanceImpactToJSON(
   createScheduledMaintenanceImpact: CreateScheduledMaintenanceImpact,
 ): string {
@@ -194,7 +163,6 @@ export function createScheduledMaintenanceImpactToJSON(
     ),
   );
 }
-
 export function createScheduledMaintenanceImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScheduledMaintenanceImpact, SDKValidationError> {
@@ -230,7 +198,6 @@ export const CreateScheduledMaintenance$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type CreateScheduledMaintenance$Outbound = {
   name: string;
@@ -272,19 +239,6 @@ export const CreateScheduledMaintenance$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScheduledMaintenance$ {
-  /** @deprecated use `CreateScheduledMaintenance$inboundSchema` instead. */
-  export const inboundSchema = CreateScheduledMaintenance$inboundSchema;
-  /** @deprecated use `CreateScheduledMaintenance$outboundSchema` instead. */
-  export const outboundSchema = CreateScheduledMaintenance$outboundSchema;
-  /** @deprecated use `CreateScheduledMaintenance$Outbound` instead. */
-  export type Outbound = CreateScheduledMaintenance$Outbound;
-}
-
 export function createScheduledMaintenanceToJSON(
   createScheduledMaintenance: CreateScheduledMaintenance,
 ): string {
@@ -292,7 +246,6 @@ export function createScheduledMaintenanceToJSON(
     CreateScheduledMaintenance$outboundSchema.parse(createScheduledMaintenance),
   );
 }
-
 export function createScheduledMaintenanceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScheduledMaintenance, SDKValidationError> {

@@ -28,7 +28,6 @@ export const UpdateChangeEventRequest$inboundSchema: z.ZodType<
     "update_change_event": "updateChangeEvent",
   });
 });
-
 /** @internal */
 export type UpdateChangeEventRequest$Outbound = {
   change_event_id: string;
@@ -50,19 +49,6 @@ export const UpdateChangeEventRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChangeEventRequest$ {
-  /** @deprecated use `UpdateChangeEventRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateChangeEventRequest$inboundSchema;
-  /** @deprecated use `UpdateChangeEventRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateChangeEventRequest$outboundSchema;
-  /** @deprecated use `UpdateChangeEventRequest$Outbound` instead. */
-  export type Outbound = UpdateChangeEventRequest$Outbound;
-}
-
 export function updateChangeEventRequestToJSON(
   updateChangeEventRequest: UpdateChangeEventRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updateChangeEventRequestToJSON(
     UpdateChangeEventRequest$outboundSchema.parse(updateChangeEventRequest),
   );
 }
-
 export function updateChangeEventRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChangeEventRequest, SDKValidationError> {

@@ -57,7 +57,6 @@ export const SignalsAPINotificationPriorityPolicyEntity$inboundSchema:
         "handoff_step": "handoffStep",
       });
     });
-
 /** @internal */
 export type SignalsAPINotificationPriorityPolicyEntity$Outbound = {
   notification_priority?: string | null | undefined;
@@ -94,21 +93,6 @@ export const SignalsAPINotificationPriorityPolicyEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPINotificationPriorityPolicyEntity$ {
-  /** @deprecated use `SignalsAPINotificationPriorityPolicyEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPINotificationPriorityPolicyEntity$inboundSchema;
-  /** @deprecated use `SignalsAPINotificationPriorityPolicyEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPINotificationPriorityPolicyEntity$outboundSchema;
-  /** @deprecated use `SignalsAPINotificationPriorityPolicyEntity$Outbound` instead. */
-  export type Outbound = SignalsAPINotificationPriorityPolicyEntity$Outbound;
-}
-
 export function signalsAPINotificationPriorityPolicyEntityToJSON(
   signalsAPINotificationPriorityPolicyEntity:
     SignalsAPINotificationPriorityPolicyEntity,
@@ -119,7 +103,6 @@ export function signalsAPINotificationPriorityPolicyEntityToJSON(
     ),
   );
 }
-
 export function signalsAPINotificationPriorityPolicyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

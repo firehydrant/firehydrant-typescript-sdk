@@ -32,7 +32,6 @@ export const SetMemberDefaultAudienceRequestBody$inboundSchema: z.ZodType<
     "audience_id": "audienceId",
   });
 });
-
 /** @internal */
 export type SetMemberDefaultAudienceRequestBody$Outbound = {
   audience_id: string;
@@ -51,21 +50,6 @@ export const SetMemberDefaultAudienceRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SetMemberDefaultAudienceRequestBody$ {
-  /** @deprecated use `SetMemberDefaultAudienceRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    SetMemberDefaultAudienceRequestBody$inboundSchema;
-  /** @deprecated use `SetMemberDefaultAudienceRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    SetMemberDefaultAudienceRequestBody$outboundSchema;
-  /** @deprecated use `SetMemberDefaultAudienceRequestBody$Outbound` instead. */
-  export type Outbound = SetMemberDefaultAudienceRequestBody$Outbound;
-}
-
 export function setMemberDefaultAudienceRequestBodyToJSON(
   setMemberDefaultAudienceRequestBody: SetMemberDefaultAudienceRequestBody,
 ): string {
@@ -75,7 +59,6 @@ export function setMemberDefaultAudienceRequestBodyToJSON(
     ),
   );
 }
-
 export function setMemberDefaultAudienceRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<SetMemberDefaultAudienceRequestBody, SDKValidationError> {
@@ -101,7 +84,6 @@ export const SetMemberDefaultAudienceRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type SetMemberDefaultAudienceRequest$Outbound = {
   member_id: number;
@@ -123,19 +105,6 @@ export const SetMemberDefaultAudienceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SetMemberDefaultAudienceRequest$ {
-  /** @deprecated use `SetMemberDefaultAudienceRequest$inboundSchema` instead. */
-  export const inboundSchema = SetMemberDefaultAudienceRequest$inboundSchema;
-  /** @deprecated use `SetMemberDefaultAudienceRequest$outboundSchema` instead. */
-  export const outboundSchema = SetMemberDefaultAudienceRequest$outboundSchema;
-  /** @deprecated use `SetMemberDefaultAudienceRequest$Outbound` instead. */
-  export type Outbound = SetMemberDefaultAudienceRequest$Outbound;
-}
-
 export function setMemberDefaultAudienceRequestToJSON(
   setMemberDefaultAudienceRequest: SetMemberDefaultAudienceRequest,
 ): string {
@@ -145,7 +114,6 @@ export function setMemberDefaultAudienceRequestToJSON(
     ),
   );
 }
-
 export function setMemberDefaultAudienceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<SetMemberDefaultAudienceRequest, SDKValidationError> {

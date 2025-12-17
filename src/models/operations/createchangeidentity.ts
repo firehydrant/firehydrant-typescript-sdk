@@ -30,7 +30,6 @@ export const CreateChangeIdentityRequest$inboundSchema: z.ZodType<
     "create_change_identity": "createChangeIdentity",
   });
 });
-
 /** @internal */
 export type CreateChangeIdentityRequest$Outbound = {
   change_id: string;
@@ -54,19 +53,6 @@ export const CreateChangeIdentityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChangeIdentityRequest$ {
-  /** @deprecated use `CreateChangeIdentityRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateChangeIdentityRequest$inboundSchema;
-  /** @deprecated use `CreateChangeIdentityRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateChangeIdentityRequest$outboundSchema;
-  /** @deprecated use `CreateChangeIdentityRequest$Outbound` instead. */
-  export type Outbound = CreateChangeIdentityRequest$Outbound;
-}
-
 export function createChangeIdentityRequestToJSON(
   createChangeIdentityRequest: CreateChangeIdentityRequest,
 ): string {
@@ -76,7 +62,6 @@ export function createChangeIdentityRequestToJSON(
     ),
   );
 }
-
 export function createChangeIdentityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChangeIdentityRequest, SDKValidationError> {

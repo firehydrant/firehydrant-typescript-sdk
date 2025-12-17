@@ -29,7 +29,6 @@ export const AppendFormDataOnSelectedValueGetRequest$inboundSchema: z.ZodType<
     "selected_value": "selectedValue",
   });
 });
-
 /** @internal */
 export type AppendFormDataOnSelectedValueGetRequest$Outbound = {
   slug: string;
@@ -53,21 +52,6 @@ export const AppendFormDataOnSelectedValueGetRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AppendFormDataOnSelectedValueGetRequest$ {
-  /** @deprecated use `AppendFormDataOnSelectedValueGetRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    AppendFormDataOnSelectedValueGetRequest$inboundSchema;
-  /** @deprecated use `AppendFormDataOnSelectedValueGetRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    AppendFormDataOnSelectedValueGetRequest$outboundSchema;
-  /** @deprecated use `AppendFormDataOnSelectedValueGetRequest$Outbound` instead. */
-  export type Outbound = AppendFormDataOnSelectedValueGetRequest$Outbound;
-}
-
 export function appendFormDataOnSelectedValueGetRequestToJSON(
   appendFormDataOnSelectedValueGetRequest:
     AppendFormDataOnSelectedValueGetRequest,
@@ -78,7 +62,6 @@ export function appendFormDataOnSelectedValueGetRequestToJSON(
     ),
   );
 }
-
 export function appendFormDataOnSelectedValueGetRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

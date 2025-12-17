@@ -1,5 +1,4 @@
 # AuditEvents
-(*auditEvents*)
 
 ## Overview
 

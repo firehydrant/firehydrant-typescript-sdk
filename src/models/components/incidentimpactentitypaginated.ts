@@ -36,7 +36,6 @@ export const IncidentImpactEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(IncidentImpactEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IncidentImpactEntityPaginated$Outbound = {
   data?: Array<IncidentImpactEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const IncidentImpactEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentImpactEntityPaginated$ {
-  /** @deprecated use `IncidentImpactEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = IncidentImpactEntityPaginated$inboundSchema;
-  /** @deprecated use `IncidentImpactEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = IncidentImpactEntityPaginated$outboundSchema;
-  /** @deprecated use `IncidentImpactEntityPaginated$Outbound` instead. */
-  export type Outbound = IncidentImpactEntityPaginated$Outbound;
-}
-
 export function incidentImpactEntityPaginatedToJSON(
   incidentImpactEntityPaginated: IncidentImpactEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function incidentImpactEntityPaginatedToJSON(
     ),
   );
 }
-
 export function incidentImpactEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentImpactEntityPaginated, SDKValidationError> {

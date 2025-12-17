@@ -32,7 +32,6 @@ export const ListAwsCloudtrailBatchesRequest$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type ListAwsCloudtrailBatchesRequest$Outbound = {
   page?: number | null | undefined;
@@ -56,19 +55,6 @@ export const ListAwsCloudtrailBatchesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAwsCloudtrailBatchesRequest$ {
-  /** @deprecated use `ListAwsCloudtrailBatchesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAwsCloudtrailBatchesRequest$inboundSchema;
-  /** @deprecated use `ListAwsCloudtrailBatchesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAwsCloudtrailBatchesRequest$outboundSchema;
-  /** @deprecated use `ListAwsCloudtrailBatchesRequest$Outbound` instead. */
-  export type Outbound = ListAwsCloudtrailBatchesRequest$Outbound;
-}
-
 export function listAwsCloudtrailBatchesRequestToJSON(
   listAwsCloudtrailBatchesRequest: ListAwsCloudtrailBatchesRequest,
 ): string {
@@ -78,7 +64,6 @@ export function listAwsCloudtrailBatchesRequestToJSON(
     ),
   );
 }
-
 export function listAwsCloudtrailBatchesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAwsCloudtrailBatchesRequest, SDKValidationError> {

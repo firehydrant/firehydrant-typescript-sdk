@@ -31,7 +31,6 @@ export const UpdateCommentRequest$inboundSchema: z.ZodType<
     "update_comment": "updateComment",
   });
 });
-
 /** @internal */
 export type UpdateCommentRequest$Outbound = {
   comment_id: string;
@@ -56,19 +55,6 @@ export const UpdateCommentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCommentRequest$ {
-  /** @deprecated use `UpdateCommentRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateCommentRequest$inboundSchema;
-  /** @deprecated use `UpdateCommentRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateCommentRequest$outboundSchema;
-  /** @deprecated use `UpdateCommentRequest$Outbound` instead. */
-  export type Outbound = UpdateCommentRequest$Outbound;
-}
-
 export function updateCommentRequestToJSON(
   updateCommentRequest: UpdateCommentRequest,
 ): string {
@@ -76,7 +62,6 @@ export function updateCommentRequestToJSON(
     UpdateCommentRequest$outboundSchema.parse(updateCommentRequest),
   );
 }
-
 export function updateCommentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCommentRequest, SDKValidationError> {

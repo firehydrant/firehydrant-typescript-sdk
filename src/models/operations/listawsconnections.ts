@@ -44,7 +44,6 @@ export const ListAwsConnectionsRequest$inboundSchema: z.ZodType<
     "external_id": "externalId",
   });
 });
-
 /** @internal */
 export type ListAwsConnectionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -74,19 +73,6 @@ export const ListAwsConnectionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAwsConnectionsRequest$ {
-  /** @deprecated use `ListAwsConnectionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAwsConnectionsRequest$inboundSchema;
-  /** @deprecated use `ListAwsConnectionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAwsConnectionsRequest$outboundSchema;
-  /** @deprecated use `ListAwsConnectionsRequest$Outbound` instead. */
-  export type Outbound = ListAwsConnectionsRequest$Outbound;
-}
-
 export function listAwsConnectionsRequestToJSON(
   listAwsConnectionsRequest: ListAwsConnectionsRequest,
 ): string {
@@ -94,7 +80,6 @@ export function listAwsConnectionsRequestToJSON(
     ListAwsConnectionsRequest$outboundSchema.parse(listAwsConnectionsRequest),
   );
 }
-
 export function listAwsConnectionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAwsConnectionsRequest, SDKValidationError> {

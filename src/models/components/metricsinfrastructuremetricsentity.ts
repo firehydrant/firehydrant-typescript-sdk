@@ -65,7 +65,6 @@ export const MetricsInfrastructureMetricsEntity$inboundSchema: z.ZodType<
     "total_time": "totalTime",
   });
 });
-
 /** @internal */
 export type MetricsInfrastructureMetricsEntity$Outbound = {
   id?: string | null | undefined;
@@ -98,20 +97,6 @@ export const MetricsInfrastructureMetricsEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsInfrastructureMetricsEntity$ {
-  /** @deprecated use `MetricsInfrastructureMetricsEntity$inboundSchema` instead. */
-  export const inboundSchema = MetricsInfrastructureMetricsEntity$inboundSchema;
-  /** @deprecated use `MetricsInfrastructureMetricsEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsInfrastructureMetricsEntity$outboundSchema;
-  /** @deprecated use `MetricsInfrastructureMetricsEntity$Outbound` instead. */
-  export type Outbound = MetricsInfrastructureMetricsEntity$Outbound;
-}
-
 export function metricsInfrastructureMetricsEntityToJSON(
   metricsInfrastructureMetricsEntity: MetricsInfrastructureMetricsEntity,
 ): string {
@@ -121,7 +106,6 @@ export function metricsInfrastructureMetricsEntityToJSON(
     ),
   );
 }
-
 export function metricsInfrastructureMetricsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsInfrastructureMetricsEntity, SDKValidationError> {

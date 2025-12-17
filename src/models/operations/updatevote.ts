@@ -31,7 +31,6 @@ export const UpdateVoteRequest$inboundSchema: z.ZodType<
     "update_vote": "updateVote",
   });
 });
-
 /** @internal */
 export type UpdateVoteRequest$Outbound = {
   incident_id: string;
@@ -56,19 +55,6 @@ export const UpdateVoteRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateVoteRequest$ {
-  /** @deprecated use `UpdateVoteRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateVoteRequest$inboundSchema;
-  /** @deprecated use `UpdateVoteRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateVoteRequest$outboundSchema;
-  /** @deprecated use `UpdateVoteRequest$Outbound` instead. */
-  export type Outbound = UpdateVoteRequest$Outbound;
-}
-
 export function updateVoteRequestToJSON(
   updateVoteRequest: UpdateVoteRequest,
 ): string {
@@ -76,7 +62,6 @@ export function updateVoteRequestToJSON(
     UpdateVoteRequest$outboundSchema.parse(updateVoteRequest),
   );
 }
-
 export function updateVoteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateVoteRequest, SDKValidationError> {

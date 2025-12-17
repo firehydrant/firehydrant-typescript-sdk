@@ -19,7 +19,6 @@ export const GetSignalsWebhookTargetRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetSignalsWebhookTargetRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetSignalsWebhookTargetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsWebhookTargetRequest$ {
-  /** @deprecated use `GetSignalsWebhookTargetRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsWebhookTargetRequest$inboundSchema;
-  /** @deprecated use `GetSignalsWebhookTargetRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsWebhookTargetRequest$outboundSchema;
-  /** @deprecated use `GetSignalsWebhookTargetRequest$Outbound` instead. */
-  export type Outbound = GetSignalsWebhookTargetRequest$Outbound;
-}
-
 export function getSignalsWebhookTargetRequestToJSON(
   getSignalsWebhookTargetRequest: GetSignalsWebhookTargetRequest,
 ): string {
@@ -56,7 +42,6 @@ export function getSignalsWebhookTargetRequestToJSON(
     ),
   );
 }
-
 export function getSignalsWebhookTargetRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsWebhookTargetRequest, SDKValidationError> {

@@ -43,7 +43,6 @@ export const ConversationsAPIEntitiesReference$inboundSchema: z.ZodType<
     "comments_url": "commentsUrl",
   });
 });
-
 /** @internal */
 export type ConversationsAPIEntitiesReference$Outbound = {
   id?: string | null | undefined;
@@ -75,20 +74,6 @@ export const ConversationsAPIEntitiesReference$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ConversationsAPIEntitiesReference$ {
-  /** @deprecated use `ConversationsAPIEntitiesReference$inboundSchema` instead. */
-  export const inboundSchema = ConversationsAPIEntitiesReference$inboundSchema;
-  /** @deprecated use `ConversationsAPIEntitiesReference$outboundSchema` instead. */
-  export const outboundSchema =
-    ConversationsAPIEntitiesReference$outboundSchema;
-  /** @deprecated use `ConversationsAPIEntitiesReference$Outbound` instead. */
-  export type Outbound = ConversationsAPIEntitiesReference$Outbound;
-}
-
 export function conversationsAPIEntitiesReferenceToJSON(
   conversationsAPIEntitiesReference: ConversationsAPIEntitiesReference,
 ): string {
@@ -98,7 +83,6 @@ export function conversationsAPIEntitiesReferenceToJSON(
     ),
   );
 }
-
 export function conversationsAPIEntitiesReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<ConversationsAPIEntitiesReference, SDKValidationError> {

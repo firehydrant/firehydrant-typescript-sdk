@@ -24,7 +24,6 @@ export const DeleteServiceRequest$inboundSchema: z.ZodType<
     "service_id": "serviceId",
   });
 });
-
 /** @internal */
 export type DeleteServiceRequest$Outbound = {
   service_id: string;
@@ -43,19 +42,6 @@ export const DeleteServiceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteServiceRequest$ {
-  /** @deprecated use `DeleteServiceRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteServiceRequest$inboundSchema;
-  /** @deprecated use `DeleteServiceRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteServiceRequest$outboundSchema;
-  /** @deprecated use `DeleteServiceRequest$Outbound` instead. */
-  export type Outbound = DeleteServiceRequest$Outbound;
-}
-
 export function deleteServiceRequestToJSON(
   deleteServiceRequest: DeleteServiceRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteServiceRequestToJSON(
     DeleteServiceRequest$outboundSchema.parse(deleteServiceRequest),
   );
 }
-
 export function deleteServiceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteServiceRequest, SDKValidationError> {

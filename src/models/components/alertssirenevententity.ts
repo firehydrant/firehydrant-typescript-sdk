@@ -29,7 +29,6 @@ export const AlertsSirenEventEntityData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type AlertsSirenEventEntityData$Outbound = {};
 
@@ -40,19 +39,6 @@ export const AlertsSirenEventEntityData$outboundSchema: z.ZodType<
   AlertsSirenEventEntityData
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsSirenEventEntityData$ {
-  /** @deprecated use `AlertsSirenEventEntityData$inboundSchema` instead. */
-  export const inboundSchema = AlertsSirenEventEntityData$inboundSchema;
-  /** @deprecated use `AlertsSirenEventEntityData$outboundSchema` instead. */
-  export const outboundSchema = AlertsSirenEventEntityData$outboundSchema;
-  /** @deprecated use `AlertsSirenEventEntityData$Outbound` instead. */
-  export type Outbound = AlertsSirenEventEntityData$Outbound;
-}
-
 export function alertsSirenEventEntityDataToJSON(
   alertsSirenEventEntityData: AlertsSirenEventEntityData,
 ): string {
@@ -60,7 +46,6 @@ export function alertsSirenEventEntityDataToJSON(
     AlertsSirenEventEntityData$outboundSchema.parse(alertsSirenEventEntityData),
   );
 }
-
 export function alertsSirenEventEntityDataFromJSON(
   jsonString: string,
 ): SafeParseResult<AlertsSirenEventEntityData, SDKValidationError> {
@@ -89,7 +74,6 @@ export const AlertsSirenEventEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
   });
 });
-
 /** @internal */
 export type AlertsSirenEventEntity$Outbound = {
   id?: string | null | undefined;
@@ -115,19 +99,6 @@ export const AlertsSirenEventEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsSirenEventEntity$ {
-  /** @deprecated use `AlertsSirenEventEntity$inboundSchema` instead. */
-  export const inboundSchema = AlertsSirenEventEntity$inboundSchema;
-  /** @deprecated use `AlertsSirenEventEntity$outboundSchema` instead. */
-  export const outboundSchema = AlertsSirenEventEntity$outboundSchema;
-  /** @deprecated use `AlertsSirenEventEntity$Outbound` instead. */
-  export type Outbound = AlertsSirenEventEntity$Outbound;
-}
-
 export function alertsSirenEventEntityToJSON(
   alertsSirenEventEntity: AlertsSirenEventEntity,
 ): string {
@@ -135,7 +106,6 @@ export function alertsSirenEventEntityToJSON(
     AlertsSirenEventEntity$outboundSchema.parse(alertsSirenEventEntity),
   );
 }
-
 export function alertsSirenEventEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AlertsSirenEventEntity, SDKValidationError> {

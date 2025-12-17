@@ -1,5 +1,4 @@
 # Pages
-(*pages*)
 
 ## Overview
 

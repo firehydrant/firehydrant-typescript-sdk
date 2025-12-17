@@ -38,7 +38,6 @@ export const NullableRunbooksActionConfigEntity$inboundSchema: z.ZodType<
     "documentation_url": "documentationUrl",
   });
 });
-
 /** @internal */
 export type NullableRunbooksActionConfigEntity$Outbound = {
   elements?: Array<RunbooksElementEntity$Outbound> | null | undefined;
@@ -60,20 +59,6 @@ export const NullableRunbooksActionConfigEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksActionConfigEntity$ {
-  /** @deprecated use `NullableRunbooksActionConfigEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableRunbooksActionConfigEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksActionConfigEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksActionConfigEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksActionConfigEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksActionConfigEntity$Outbound;
-}
-
 export function nullableRunbooksActionConfigEntityToJSON(
   nullableRunbooksActionConfigEntity: NullableRunbooksActionConfigEntity,
 ): string {
@@ -83,7 +68,6 @@ export function nullableRunbooksActionConfigEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksActionConfigEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRunbooksActionConfigEntity, SDKValidationError> {

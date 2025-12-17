@@ -19,7 +19,6 @@ export const GetAwsConnectionRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetAwsConnectionRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetAwsConnectionRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAwsConnectionRequest$ {
-  /** @deprecated use `GetAwsConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = GetAwsConnectionRequest$inboundSchema;
-  /** @deprecated use `GetAwsConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = GetAwsConnectionRequest$outboundSchema;
-  /** @deprecated use `GetAwsConnectionRequest$Outbound` instead. */
-  export type Outbound = GetAwsConnectionRequest$Outbound;
-}
-
 export function getAwsConnectionRequestToJSON(
   getAwsConnectionRequest: GetAwsConnectionRequest,
 ): string {
@@ -54,7 +40,6 @@ export function getAwsConnectionRequestToJSON(
     GetAwsConnectionRequest$outboundSchema.parse(getAwsConnectionRequest),
   );
 }
-
 export function getAwsConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetAwsConnectionRequest, SDKValidationError> {

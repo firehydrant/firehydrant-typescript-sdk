@@ -45,7 +45,6 @@ export const IntegrationsConnectionEntityDetails$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IntegrationsConnectionEntityDetails$Outbound = {};
 
@@ -56,21 +55,6 @@ export const IntegrationsConnectionEntityDetails$outboundSchema: z.ZodType<
   IntegrationsConnectionEntityDetails
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConnectionEntityDetails$ {
-  /** @deprecated use `IntegrationsConnectionEntityDetails$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsConnectionEntityDetails$inboundSchema;
-  /** @deprecated use `IntegrationsConnectionEntityDetails$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsConnectionEntityDetails$outboundSchema;
-  /** @deprecated use `IntegrationsConnectionEntityDetails$Outbound` instead. */
-  export type Outbound = IntegrationsConnectionEntityDetails$Outbound;
-}
-
 export function integrationsConnectionEntityDetailsToJSON(
   integrationsConnectionEntityDetails: IntegrationsConnectionEntityDetails,
 ): string {
@@ -80,7 +64,6 @@ export function integrationsConnectionEntityDetailsToJSON(
     ),
   );
 }
-
 export function integrationsConnectionEntityDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsConnectionEntityDetails, SDKValidationError> {
@@ -129,7 +112,6 @@ export const IntegrationsConnectionEntity$inboundSchema: z.ZodType<
     "default_authorized_actor": "defaultAuthorizedActor",
   });
 });
-
 /** @internal */
 export type IntegrationsConnectionEntity$Outbound = {
   id?: string | null | undefined;
@@ -179,19 +161,6 @@ export const IntegrationsConnectionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConnectionEntity$ {
-  /** @deprecated use `IntegrationsConnectionEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsConnectionEntity$inboundSchema;
-  /** @deprecated use `IntegrationsConnectionEntity$outboundSchema` instead. */
-  export const outboundSchema = IntegrationsConnectionEntity$outboundSchema;
-  /** @deprecated use `IntegrationsConnectionEntity$Outbound` instead. */
-  export type Outbound = IntegrationsConnectionEntity$Outbound;
-}
-
 export function integrationsConnectionEntityToJSON(
   integrationsConnectionEntity: IntegrationsConnectionEntity,
 ): string {
@@ -201,7 +170,6 @@ export function integrationsConnectionEntityToJSON(
     ),
   );
 }
-
 export function integrationsConnectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsConnectionEntity, SDKValidationError> {

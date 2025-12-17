@@ -29,7 +29,6 @@ export const CreateIncidentImpact$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type CreateIncidentImpact$Outbound = {
   id: string;
@@ -50,19 +49,6 @@ export const CreateIncidentImpact$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentImpact$ {
-  /** @deprecated use `CreateIncidentImpact$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentImpact$inboundSchema;
-  /** @deprecated use `CreateIncidentImpact$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentImpact$outboundSchema;
-  /** @deprecated use `CreateIncidentImpact$Outbound` instead. */
-  export type Outbound = CreateIncidentImpact$Outbound;
-}
-
 export function createIncidentImpactToJSON(
   createIncidentImpact: CreateIncidentImpact,
 ): string {
@@ -70,7 +56,6 @@ export function createIncidentImpactToJSON(
     CreateIncidentImpact$outboundSchema.parse(createIncidentImpact),
   );
 }
-
 export function createIncidentImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentImpact, SDKValidationError> {

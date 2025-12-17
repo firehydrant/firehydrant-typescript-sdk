@@ -6,7 +6,7 @@
 import { CreateSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: CreateSavedSearchRequest = {
-  resourceType: "ticket_tasks",
+  resourceType: "ticket_follow_ups",
   createSavedSearch: {
     name: "<value>",
     filterValues: {

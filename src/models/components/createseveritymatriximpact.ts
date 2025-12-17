@@ -32,7 +32,6 @@ export const CreateSeverityMatrixImpact$inboundSchema: z.ZodType<
     "affects_id": "affectsId",
   });
 });
-
 /** @internal */
 export type CreateSeverityMatrixImpact$Outbound = {
   affects_type: string;
@@ -56,19 +55,6 @@ export const CreateSeverityMatrixImpact$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSeverityMatrixImpact$ {
-  /** @deprecated use `CreateSeverityMatrixImpact$inboundSchema` instead. */
-  export const inboundSchema = CreateSeverityMatrixImpact$inboundSchema;
-  /** @deprecated use `CreateSeverityMatrixImpact$outboundSchema` instead. */
-  export const outboundSchema = CreateSeverityMatrixImpact$outboundSchema;
-  /** @deprecated use `CreateSeverityMatrixImpact$Outbound` instead. */
-  export type Outbound = CreateSeverityMatrixImpact$Outbound;
-}
-
 export function createSeverityMatrixImpactToJSON(
   createSeverityMatrixImpact: CreateSeverityMatrixImpact,
 ): string {
@@ -76,7 +62,6 @@ export function createSeverityMatrixImpactToJSON(
     CreateSeverityMatrixImpact$outboundSchema.parse(createSeverityMatrixImpact),
   );
 }
-
 export function createSeverityMatrixImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSeverityMatrixImpact, SDKValidationError> {

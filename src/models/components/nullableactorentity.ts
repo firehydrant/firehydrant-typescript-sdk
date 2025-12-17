@@ -62,22 +62,10 @@ export type NullableActorEntity = {
 export const NullableActorEntityType$inboundSchema: z.ZodNativeEnum<
   typeof NullableActorEntityType
 > = z.nativeEnum(NullableActorEntityType);
-
 /** @internal */
 export const NullableActorEntityType$outboundSchema: z.ZodNativeEnum<
   typeof NullableActorEntityType
 > = NullableActorEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableActorEntityType$ {
-  /** @deprecated use `NullableActorEntityType$inboundSchema` instead. */
-  export const inboundSchema = NullableActorEntityType$inboundSchema;
-  /** @deprecated use `NullableActorEntityType$outboundSchema` instead. */
-  export const outboundSchema = NullableActorEntityType$outboundSchema;
-}
 
 /** @internal */
 export const NullableActorEntity$inboundSchema: z.ZodType<
@@ -90,7 +78,6 @@ export const NullableActorEntity$inboundSchema: z.ZodType<
   email: z.nullable(z.string()).optional(),
   type: z.nullable(NullableActorEntityType$inboundSchema).optional(),
 });
-
 /** @internal */
 export type NullableActorEntity$Outbound = {
   id?: string | null | undefined;
@@ -111,19 +98,6 @@ export const NullableActorEntity$outboundSchema: z.ZodType<
   type: z.nullable(NullableActorEntityType$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableActorEntity$ {
-  /** @deprecated use `NullableActorEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableActorEntity$inboundSchema;
-  /** @deprecated use `NullableActorEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableActorEntity$outboundSchema;
-  /** @deprecated use `NullableActorEntity$Outbound` instead. */
-  export type Outbound = NullableActorEntity$Outbound;
-}
-
 export function nullableActorEntityToJSON(
   nullableActorEntity: NullableActorEntity,
 ): string {
@@ -131,7 +105,6 @@ export function nullableActorEntityToJSON(
     NullableActorEntity$outboundSchema.parse(nullableActorEntity),
   );
 }
-
 export function nullableActorEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableActorEntity, SDKValidationError> {

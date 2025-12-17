@@ -26,7 +26,6 @@ export const ListNotificationPolicySettingsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListNotificationPolicySettingsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,21 +46,6 @@ export const ListNotificationPolicySettingsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListNotificationPolicySettingsRequest$ {
-  /** @deprecated use `ListNotificationPolicySettingsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListNotificationPolicySettingsRequest$inboundSchema;
-  /** @deprecated use `ListNotificationPolicySettingsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListNotificationPolicySettingsRequest$outboundSchema;
-  /** @deprecated use `ListNotificationPolicySettingsRequest$Outbound` instead. */
-  export type Outbound = ListNotificationPolicySettingsRequest$Outbound;
-}
-
 export function listNotificationPolicySettingsRequestToJSON(
   listNotificationPolicySettingsRequest: ListNotificationPolicySettingsRequest,
 ): string {
@@ -71,7 +55,6 @@ export function listNotificationPolicySettingsRequestToJSON(
     ),
   );
 }
-
 export function listNotificationPolicySettingsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListNotificationPolicySettingsRequest, SDKValidationError> {

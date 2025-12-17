@@ -19,7 +19,6 @@ export const ListConnectionStatusesBySlugRequest$inboundSchema: z.ZodType<
 > = z.object({
   slug: z.string(),
 });
-
 /** @internal */
 export type ListConnectionStatusesBySlugRequest$Outbound = {
   slug: string;
@@ -34,21 +33,6 @@ export const ListConnectionStatusesBySlugRequest$outboundSchema: z.ZodType<
   slug: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListConnectionStatusesBySlugRequest$ {
-  /** @deprecated use `ListConnectionStatusesBySlugRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListConnectionStatusesBySlugRequest$inboundSchema;
-  /** @deprecated use `ListConnectionStatusesBySlugRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListConnectionStatusesBySlugRequest$outboundSchema;
-  /** @deprecated use `ListConnectionStatusesBySlugRequest$Outbound` instead. */
-  export type Outbound = ListConnectionStatusesBySlugRequest$Outbound;
-}
-
 export function listConnectionStatusesBySlugRequestToJSON(
   listConnectionStatusesBySlugRequest: ListConnectionStatusesBySlugRequest,
 ): string {
@@ -58,7 +42,6 @@ export function listConnectionStatusesBySlugRequestToJSON(
     ),
   );
 }
-
 export function listConnectionStatusesBySlugRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListConnectionStatusesBySlugRequest, SDKValidationError> {

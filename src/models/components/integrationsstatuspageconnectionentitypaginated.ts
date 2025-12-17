@@ -39,7 +39,6 @@ export const IntegrationsStatuspageConnectionEntityPaginated$inboundSchema:
     ).optional(),
     pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
   });
-
 /** @internal */
 export type IntegrationsStatuspageConnectionEntityPaginated$Outbound = {
   data?:
@@ -62,22 +61,6 @@ export const IntegrationsStatuspageConnectionEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsStatuspageConnectionEntityPaginated$ {
-  /** @deprecated use `IntegrationsStatuspageConnectionEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsStatuspageConnectionEntityPaginated$inboundSchema;
-  /** @deprecated use `IntegrationsStatuspageConnectionEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsStatuspageConnectionEntityPaginated$outboundSchema;
-  /** @deprecated use `IntegrationsStatuspageConnectionEntityPaginated$Outbound` instead. */
-  export type Outbound =
-    IntegrationsStatuspageConnectionEntityPaginated$Outbound;
-}
-
 export function integrationsStatuspageConnectionEntityPaginatedToJSON(
   integrationsStatuspageConnectionEntityPaginated:
     IntegrationsStatuspageConnectionEntityPaginated,
@@ -88,7 +71,6 @@ export function integrationsStatuspageConnectionEntityPaginatedToJSON(
     ),
   );
 }
-
 export function integrationsStatuspageConnectionEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

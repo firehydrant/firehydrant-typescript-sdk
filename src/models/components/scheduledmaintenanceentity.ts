@@ -58,7 +58,6 @@ export const ScheduledMaintenanceEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ScheduledMaintenanceEntityLabels$Outbound = {};
 
@@ -69,19 +68,6 @@ export const ScheduledMaintenanceEntityLabels$outboundSchema: z.ZodType<
   ScheduledMaintenanceEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ScheduledMaintenanceEntityLabels$ {
-  /** @deprecated use `ScheduledMaintenanceEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = ScheduledMaintenanceEntityLabels$inboundSchema;
-  /** @deprecated use `ScheduledMaintenanceEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = ScheduledMaintenanceEntityLabels$outboundSchema;
-  /** @deprecated use `ScheduledMaintenanceEntityLabels$Outbound` instead. */
-  export type Outbound = ScheduledMaintenanceEntityLabels$Outbound;
-}
-
 export function scheduledMaintenanceEntityLabelsToJSON(
   scheduledMaintenanceEntityLabels: ScheduledMaintenanceEntityLabels,
 ): string {
@@ -91,7 +77,6 @@ export function scheduledMaintenanceEntityLabelsToJSON(
     ),
   );
 }
-
 export function scheduledMaintenanceEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<ScheduledMaintenanceEntityLabels, SDKValidationError> {
@@ -142,7 +127,6 @@ export const ScheduledMaintenanceEntity$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type ScheduledMaintenanceEntity$Outbound = {
   id?: string | null | undefined;
@@ -198,19 +182,6 @@ export const ScheduledMaintenanceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ScheduledMaintenanceEntity$ {
-  /** @deprecated use `ScheduledMaintenanceEntity$inboundSchema` instead. */
-  export const inboundSchema = ScheduledMaintenanceEntity$inboundSchema;
-  /** @deprecated use `ScheduledMaintenanceEntity$outboundSchema` instead. */
-  export const outboundSchema = ScheduledMaintenanceEntity$outboundSchema;
-  /** @deprecated use `ScheduledMaintenanceEntity$Outbound` instead. */
-  export type Outbound = ScheduledMaintenanceEntity$Outbound;
-}
-
 export function scheduledMaintenanceEntityToJSON(
   scheduledMaintenanceEntity: ScheduledMaintenanceEntity,
 ): string {
@@ -218,7 +189,6 @@ export function scheduledMaintenanceEntityToJSON(
     ScheduledMaintenanceEntity$outboundSchema.parse(scheduledMaintenanceEntity),
   );
 }
-
 export function scheduledMaintenanceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ScheduledMaintenanceEntity, SDKValidationError> {

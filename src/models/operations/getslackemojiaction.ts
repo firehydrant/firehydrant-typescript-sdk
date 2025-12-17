@@ -30,7 +30,6 @@ export const GetSlackEmojiActionRequest$inboundSchema: z.ZodType<
     "emoji_action_id": "emojiActionId",
   });
 });
-
 /** @internal */
 export type GetSlackEmojiActionRequest$Outbound = {
   connection_id: string;
@@ -52,19 +51,6 @@ export const GetSlackEmojiActionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSlackEmojiActionRequest$ {
-  /** @deprecated use `GetSlackEmojiActionRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSlackEmojiActionRequest$inboundSchema;
-  /** @deprecated use `GetSlackEmojiActionRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSlackEmojiActionRequest$outboundSchema;
-  /** @deprecated use `GetSlackEmojiActionRequest$Outbound` instead. */
-  export type Outbound = GetSlackEmojiActionRequest$Outbound;
-}
-
 export function getSlackEmojiActionRequestToJSON(
   getSlackEmojiActionRequest: GetSlackEmojiActionRequest,
 ): string {
@@ -72,7 +58,6 @@ export function getSlackEmojiActionRequestToJSON(
     GetSlackEmojiActionRequest$outboundSchema.parse(getSlackEmojiActionRequest),
   );
 }
-
 export function getSlackEmojiActionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSlackEmojiActionRequest, SDKValidationError> {

@@ -42,7 +42,6 @@ export const OverrideOnCallScheduleRotationShifts$inboundSchema: z.ZodType<
     "user_id": "userId",
   });
 });
-
 /** @internal */
 export type OverrideOnCallScheduleRotationShifts$Outbound = {
   start_time: string;
@@ -67,21 +66,6 @@ export const OverrideOnCallScheduleRotationShifts$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OverrideOnCallScheduleRotationShifts$ {
-  /** @deprecated use `OverrideOnCallScheduleRotationShifts$inboundSchema` instead. */
-  export const inboundSchema =
-    OverrideOnCallScheduleRotationShifts$inboundSchema;
-  /** @deprecated use `OverrideOnCallScheduleRotationShifts$outboundSchema` instead. */
-  export const outboundSchema =
-    OverrideOnCallScheduleRotationShifts$outboundSchema;
-  /** @deprecated use `OverrideOnCallScheduleRotationShifts$Outbound` instead. */
-  export type Outbound = OverrideOnCallScheduleRotationShifts$Outbound;
-}
-
 export function overrideOnCallScheduleRotationShiftsToJSON(
   overrideOnCallScheduleRotationShifts: OverrideOnCallScheduleRotationShifts,
 ): string {
@@ -91,7 +75,6 @@ export function overrideOnCallScheduleRotationShiftsToJSON(
     ),
   );
 }
-
 export function overrideOnCallScheduleRotationShiftsFromJSON(
   jsonString: string,
 ): SafeParseResult<OverrideOnCallScheduleRotationShifts, SDKValidationError> {

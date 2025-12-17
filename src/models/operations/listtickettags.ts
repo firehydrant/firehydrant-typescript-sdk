@@ -19,7 +19,6 @@ export const ListTicketTagsRequest$inboundSchema: z.ZodType<
 > = z.object({
   prefix: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type ListTicketTagsRequest$Outbound = {
   prefix?: string | null | undefined;
@@ -34,19 +33,6 @@ export const ListTicketTagsRequest$outboundSchema: z.ZodType<
   prefix: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTicketTagsRequest$ {
-  /** @deprecated use `ListTicketTagsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTicketTagsRequest$inboundSchema;
-  /** @deprecated use `ListTicketTagsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTicketTagsRequest$outboundSchema;
-  /** @deprecated use `ListTicketTagsRequest$Outbound` instead. */
-  export type Outbound = ListTicketTagsRequest$Outbound;
-}
-
 export function listTicketTagsRequestToJSON(
   listTicketTagsRequest: ListTicketTagsRequest,
 ): string {
@@ -54,7 +40,6 @@ export function listTicketTagsRequestToJSON(
     ListTicketTagsRequest$outboundSchema.parse(listTicketTagsRequest),
   );
 }
-
 export function listTicketTagsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTicketTagsRequest, SDKValidationError> {

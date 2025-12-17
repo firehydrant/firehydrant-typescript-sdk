@@ -26,7 +26,6 @@ export const ListTaskListsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListTaskListsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListTaskListsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTaskListsRequest$ {
-  /** @deprecated use `ListTaskListsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTaskListsRequest$inboundSchema;
-  /** @deprecated use `ListTaskListsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTaskListsRequest$outboundSchema;
-  /** @deprecated use `ListTaskListsRequest$Outbound` instead. */
-  export type Outbound = ListTaskListsRequest$Outbound;
-}
-
 export function listTaskListsRequestToJSON(
   listTaskListsRequest: ListTaskListsRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listTaskListsRequestToJSON(
     ListTaskListsRequest$outboundSchema.parse(listTaskListsRequest),
   );
 }
-
 export function listTaskListsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTaskListsRequest, SDKValidationError> {

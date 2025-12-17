@@ -27,7 +27,6 @@ export const ListSlackWorkspacesRequest$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type ListSlackWorkspacesRequest$Outbound = {
   connection_id: string;
@@ -46,19 +45,6 @@ export const ListSlackWorkspacesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSlackWorkspacesRequest$ {
-  /** @deprecated use `ListSlackWorkspacesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSlackWorkspacesRequest$inboundSchema;
-  /** @deprecated use `ListSlackWorkspacesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSlackWorkspacesRequest$outboundSchema;
-  /** @deprecated use `ListSlackWorkspacesRequest$Outbound` instead. */
-  export type Outbound = ListSlackWorkspacesRequest$Outbound;
-}
-
 export function listSlackWorkspacesRequestToJSON(
   listSlackWorkspacesRequest: ListSlackWorkspacesRequest,
 ): string {
@@ -66,7 +52,6 @@ export function listSlackWorkspacesRequestToJSON(
     ListSlackWorkspacesRequest$outboundSchema.parse(listSlackWorkspacesRequest),
   );
 }
-
 export function listSlackWorkspacesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSlackWorkspacesRequest, SDKValidationError> {

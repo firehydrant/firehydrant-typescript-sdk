@@ -31,7 +31,6 @@ export const ListSignalsWebhookTargetsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListSignalsWebhookTargetsRequest$Outbound = {
   query?: string | null | undefined;
@@ -54,19 +53,6 @@ export const ListSignalsWebhookTargetsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSignalsWebhookTargetsRequest$ {
-  /** @deprecated use `ListSignalsWebhookTargetsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSignalsWebhookTargetsRequest$inboundSchema;
-  /** @deprecated use `ListSignalsWebhookTargetsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSignalsWebhookTargetsRequest$outboundSchema;
-  /** @deprecated use `ListSignalsWebhookTargetsRequest$Outbound` instead. */
-  export type Outbound = ListSignalsWebhookTargetsRequest$Outbound;
-}
-
 export function listSignalsWebhookTargetsRequestToJSON(
   listSignalsWebhookTargetsRequest: ListSignalsWebhookTargetsRequest,
 ): string {
@@ -76,7 +62,6 @@ export function listSignalsWebhookTargetsRequestToJSON(
     ),
   );
 }
-
 export function listSignalsWebhookTargetsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSignalsWebhookTargetsRequest, SDKValidationError> {

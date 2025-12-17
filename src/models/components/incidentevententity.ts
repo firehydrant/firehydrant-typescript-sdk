@@ -66,7 +66,6 @@ export const IncidentEventEntityData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IncidentEventEntityData$Outbound = {};
 
@@ -77,19 +76,6 @@ export const IncidentEventEntityData$outboundSchema: z.ZodType<
   IncidentEventEntityData
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEventEntityData$ {
-  /** @deprecated use `IncidentEventEntityData$inboundSchema` instead. */
-  export const inboundSchema = IncidentEventEntityData$inboundSchema;
-  /** @deprecated use `IncidentEventEntityData$outboundSchema` instead. */
-  export const outboundSchema = IncidentEventEntityData$outboundSchema;
-  /** @deprecated use `IncidentEventEntityData$Outbound` instead. */
-  export type Outbound = IncidentEventEntityData$Outbound;
-}
-
 export function incidentEventEntityDataToJSON(
   incidentEventEntityData: IncidentEventEntityData,
 ): string {
@@ -97,7 +83,6 @@ export function incidentEventEntityDataToJSON(
     IncidentEventEntityData$outboundSchema.parse(incidentEventEntityData),
   );
 }
-
 export function incidentEventEntityDataFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentEventEntityData, SDKValidationError> {
@@ -112,22 +97,10 @@ export function incidentEventEntityDataFromJSON(
 export const IncidentEventEntityVisibility$inboundSchema: z.ZodNativeEnum<
   typeof IncidentEventEntityVisibility
 > = z.nativeEnum(IncidentEventEntityVisibility);
-
 /** @internal */
 export const IncidentEventEntityVisibility$outboundSchema: z.ZodNativeEnum<
   typeof IncidentEventEntityVisibility
 > = IncidentEventEntityVisibility$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEventEntityVisibility$ {
-  /** @deprecated use `IncidentEventEntityVisibility$inboundSchema` instead. */
-  export const inboundSchema = IncidentEventEntityVisibility$inboundSchema;
-  /** @deprecated use `IncidentEventEntityVisibility$outboundSchema` instead. */
-  export const outboundSchema = IncidentEventEntityVisibility$outboundSchema;
-}
 
 /** @internal */
 export const IncidentEventEntity$inboundSchema: z.ZodType<
@@ -157,7 +130,6 @@ export const IncidentEventEntity$inboundSchema: z.ZodType<
     "occurred_at": "occurredAt",
   });
 });
-
 /** @internal */
 export type IncidentEventEntity$Outbound = {
   id?: string | null | undefined;
@@ -202,19 +174,6 @@ export const IncidentEventEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEventEntity$ {
-  /** @deprecated use `IncidentEventEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentEventEntity$inboundSchema;
-  /** @deprecated use `IncidentEventEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentEventEntity$outboundSchema;
-  /** @deprecated use `IncidentEventEntity$Outbound` instead. */
-  export type Outbound = IncidentEventEntity$Outbound;
-}
-
 export function incidentEventEntityToJSON(
   incidentEventEntity: IncidentEventEntity,
 ): string {
@@ -222,7 +181,6 @@ export function incidentEventEntityToJSON(
     IncidentEventEntity$outboundSchema.parse(incidentEventEntity),
   );
 }
-
 export function incidentEventEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentEventEntity, SDKValidationError> {

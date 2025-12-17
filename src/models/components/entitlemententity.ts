@@ -32,21 +32,9 @@ export type EntitlementEntity = {
 export const Tier$inboundSchema: z.ZodNativeEnum<typeof Tier> = z.nativeEnum(
   Tier,
 );
-
 /** @internal */
 export const Tier$outboundSchema: z.ZodNativeEnum<typeof Tier> =
   Tier$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Tier$ {
-  /** @deprecated use `Tier$inboundSchema` instead. */
-  export const inboundSchema = Tier$inboundSchema;
-  /** @deprecated use `Tier$outboundSchema` instead. */
-  export const outboundSchema = Tier$outboundSchema;
-}
 
 /** @internal */
 export const EntitlementEntity$inboundSchema: z.ZodType<
@@ -67,7 +55,6 @@ export const EntitlementEntity$inboundSchema: z.ZodType<
     "current_count": "currentCount",
   });
 });
-
 /** @internal */
 export type EntitlementEntity$Outbound = {
   current_count?: number | null | undefined;
@@ -100,19 +87,6 @@ export const EntitlementEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EntitlementEntity$ {
-  /** @deprecated use `EntitlementEntity$inboundSchema` instead. */
-  export const inboundSchema = EntitlementEntity$inboundSchema;
-  /** @deprecated use `EntitlementEntity$outboundSchema` instead. */
-  export const outboundSchema = EntitlementEntity$outboundSchema;
-  /** @deprecated use `EntitlementEntity$Outbound` instead. */
-  export type Outbound = EntitlementEntity$Outbound;
-}
-
 export function entitlementEntityToJSON(
   entitlementEntity: EntitlementEntity,
 ): string {
@@ -120,7 +94,6 @@ export function entitlementEntityToJSON(
     EntitlementEntity$outboundSchema.parse(entitlementEntity),
   );
 }
-
 export function entitlementEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<EntitlementEntity, SDKValidationError> {

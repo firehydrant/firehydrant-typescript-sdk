@@ -24,7 +24,6 @@ export const GetTaskListRequest$inboundSchema: z.ZodType<
     "task_list_id": "taskListId",
   });
 });
-
 /** @internal */
 export type GetTaskListRequest$Outbound = {
   task_list_id: string;
@@ -43,19 +42,6 @@ export const GetTaskListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetTaskListRequest$ {
-  /** @deprecated use `GetTaskListRequest$inboundSchema` instead. */
-  export const inboundSchema = GetTaskListRequest$inboundSchema;
-  /** @deprecated use `GetTaskListRequest$outboundSchema` instead. */
-  export const outboundSchema = GetTaskListRequest$outboundSchema;
-  /** @deprecated use `GetTaskListRequest$Outbound` instead. */
-  export type Outbound = GetTaskListRequest$Outbound;
-}
-
 export function getTaskListRequestToJSON(
   getTaskListRequest: GetTaskListRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getTaskListRequestToJSON(
     GetTaskListRequest$outboundSchema.parse(getTaskListRequest),
   );
 }
-
 export function getTaskListRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetTaskListRequest, SDKValidationError> {

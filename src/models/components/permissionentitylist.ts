@@ -29,7 +29,6 @@ export const PermissionEntityList$inboundSchema: z.ZodType<
   data: z.nullable(z.array(PublicApiv1PermissionEntity$inboundSchema))
     .optional(),
 });
-
 /** @internal */
 export type PermissionEntityList$Outbound = {
   data?: Array<PublicApiv1PermissionEntity$Outbound> | null | undefined;
@@ -45,19 +44,6 @@ export const PermissionEntityList$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PermissionEntityList$ {
-  /** @deprecated use `PermissionEntityList$inboundSchema` instead. */
-  export const inboundSchema = PermissionEntityList$inboundSchema;
-  /** @deprecated use `PermissionEntityList$outboundSchema` instead. */
-  export const outboundSchema = PermissionEntityList$outboundSchema;
-  /** @deprecated use `PermissionEntityList$Outbound` instead. */
-  export type Outbound = PermissionEntityList$Outbound;
-}
-
 export function permissionEntityListToJSON(
   permissionEntityList: PermissionEntityList,
 ): string {
@@ -65,7 +51,6 @@ export function permissionEntityListToJSON(
     PermissionEntityList$outboundSchema.parse(permissionEntityList),
   );
 }
-
 export function permissionEntityListFromJSON(
   jsonString: string,
 ): SafeParseResult<PermissionEntityList, SDKValidationError> {

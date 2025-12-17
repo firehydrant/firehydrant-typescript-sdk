@@ -56,7 +56,6 @@ export const SavedSearchEntity$inboundSchema: z.ZodType<
     "filter_values": "filterValues",
   });
 });
-
 /** @internal */
 export type SavedSearchEntity$Outbound = {
   id?: string | null | undefined;
@@ -94,19 +93,6 @@ export const SavedSearchEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SavedSearchEntity$ {
-  /** @deprecated use `SavedSearchEntity$inboundSchema` instead. */
-  export const inboundSchema = SavedSearchEntity$inboundSchema;
-  /** @deprecated use `SavedSearchEntity$outboundSchema` instead. */
-  export const outboundSchema = SavedSearchEntity$outboundSchema;
-  /** @deprecated use `SavedSearchEntity$Outbound` instead. */
-  export type Outbound = SavedSearchEntity$Outbound;
-}
-
 export function savedSearchEntityToJSON(
   savedSearchEntity: SavedSearchEntity,
 ): string {
@@ -114,7 +100,6 @@ export function savedSearchEntityToJSON(
     SavedSearchEntity$outboundSchema.parse(savedSearchEntity),
   );
 }
-
 export function savedSearchEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SavedSearchEntity, SDKValidationError> {

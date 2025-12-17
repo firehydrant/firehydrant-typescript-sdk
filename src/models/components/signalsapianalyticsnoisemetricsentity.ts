@@ -33,7 +33,6 @@ export const SignalsAPIAnalyticsNoiseMetricsEntity$inboundSchema: z.ZodType<
     NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$inboundSchema,
   ).optional(),
 });
-
 /** @internal */
 export type SignalsAPIAnalyticsNoiseMetricsEntity$Outbound = {
   data?:
@@ -53,21 +52,6 @@ export const SignalsAPIAnalyticsNoiseMetricsEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIAnalyticsNoiseMetricsEntity$ {
-  /** @deprecated use `SignalsAPIAnalyticsNoiseMetricsEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIAnalyticsNoiseMetricsEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsNoiseMetricsEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIAnalyticsNoiseMetricsEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsNoiseMetricsEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIAnalyticsNoiseMetricsEntity$Outbound;
-}
-
 export function signalsAPIAnalyticsNoiseMetricsEntityToJSON(
   signalsAPIAnalyticsNoiseMetricsEntity: SignalsAPIAnalyticsNoiseMetricsEntity,
 ): string {
@@ -77,7 +61,6 @@ export function signalsAPIAnalyticsNoiseMetricsEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIAnalyticsNoiseMetricsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIAnalyticsNoiseMetricsEntity, SDKValidationError> {

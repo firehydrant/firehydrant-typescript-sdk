@@ -45,7 +45,6 @@ export const UpdateIncidentLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type UpdateIncidentLabels$Outbound = {};
 
@@ -56,19 +55,6 @@ export const UpdateIncidentLabels$outboundSchema: z.ZodType<
   UpdateIncidentLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentLabels$ {
-  /** @deprecated use `UpdateIncidentLabels$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentLabels$inboundSchema;
-  /** @deprecated use `UpdateIncidentLabels$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentLabels$outboundSchema;
-  /** @deprecated use `UpdateIncidentLabels$Outbound` instead. */
-  export type Outbound = UpdateIncidentLabels$Outbound;
-}
-
 export function updateIncidentLabelsToJSON(
   updateIncidentLabels: UpdateIncidentLabels,
 ): string {
@@ -76,7 +62,6 @@ export function updateIncidentLabelsToJSON(
     UpdateIncidentLabels$outboundSchema.parse(updateIncidentLabels),
   );
 }
-
 export function updateIncidentLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentLabels, SDKValidationError> {
@@ -114,7 +99,6 @@ export const UpdateIncident$inboundSchema: z.ZodType<
     "incident_type_id": "incidentTypeId",
   });
 });
-
 /** @internal */
 export type UpdateIncident$Outbound = {
   name?: string | null | undefined;
@@ -158,23 +142,9 @@ export const UpdateIncident$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncident$ {
-  /** @deprecated use `UpdateIncident$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncident$inboundSchema;
-  /** @deprecated use `UpdateIncident$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncident$outboundSchema;
-  /** @deprecated use `UpdateIncident$Outbound` instead. */
-  export type Outbound = UpdateIncident$Outbound;
-}
-
 export function updateIncidentToJSON(updateIncident: UpdateIncident): string {
   return JSON.stringify(UpdateIncident$outboundSchema.parse(updateIncident));
 }
-
 export function updateIncidentFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncident, SDKValidationError> {

@@ -31,7 +31,6 @@ export const UpdateNuncLinkRequest$inboundSchema: z.ZodType<
     "update_nunc_link": "updateNuncLink",
   });
 });
-
 /** @internal */
 export type UpdateNuncLinkRequest$Outbound = {
   nunc_connection_id: string;
@@ -56,19 +55,6 @@ export const UpdateNuncLinkRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncLinkRequest$ {
-  /** @deprecated use `UpdateNuncLinkRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncLinkRequest$inboundSchema;
-  /** @deprecated use `UpdateNuncLinkRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncLinkRequest$outboundSchema;
-  /** @deprecated use `UpdateNuncLinkRequest$Outbound` instead. */
-  export type Outbound = UpdateNuncLinkRequest$Outbound;
-}
-
 export function updateNuncLinkRequestToJSON(
   updateNuncLinkRequest: UpdateNuncLinkRequest,
 ): string {
@@ -76,7 +62,6 @@ export function updateNuncLinkRequestToJSON(
     UpdateNuncLinkRequest$outboundSchema.parse(updateNuncLinkRequest),
   );
 }
-
 export function updateNuncLinkRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncLinkRequest, SDKValidationError> {

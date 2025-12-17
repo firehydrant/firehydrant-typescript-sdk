@@ -31,22 +31,10 @@ export type CreateIncidentChatMessage = {
 export const VoteDirection$inboundSchema: z.ZodNativeEnum<
   typeof VoteDirection
 > = z.nativeEnum(VoteDirection);
-
 /** @internal */
 export const VoteDirection$outboundSchema: z.ZodNativeEnum<
   typeof VoteDirection
 > = VoteDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VoteDirection$ {
-  /** @deprecated use `VoteDirection$inboundSchema` instead. */
-  export const inboundSchema = VoteDirection$inboundSchema;
-  /** @deprecated use `VoteDirection$outboundSchema` instead. */
-  export const outboundSchema = VoteDirection$outboundSchema;
-}
 
 /** @internal */
 export const CreateIncidentChatMessage$inboundSchema: z.ZodType<
@@ -65,7 +53,6 @@ export const CreateIncidentChatMessage$inboundSchema: z.ZodType<
     "vote_direction": "voteDirection",
   });
 });
-
 /** @internal */
 export type CreateIncidentChatMessage$Outbound = {
   body: string;
@@ -89,19 +76,6 @@ export const CreateIncidentChatMessage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentChatMessage$ {
-  /** @deprecated use `CreateIncidentChatMessage$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentChatMessage$inboundSchema;
-  /** @deprecated use `CreateIncidentChatMessage$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentChatMessage$outboundSchema;
-  /** @deprecated use `CreateIncidentChatMessage$Outbound` instead. */
-  export type Outbound = CreateIncidentChatMessage$Outbound;
-}
-
 export function createIncidentChatMessageToJSON(
   createIncidentChatMessage: CreateIncidentChatMessage,
 ): string {
@@ -109,7 +83,6 @@ export function createIncidentChatMessageToJSON(
     CreateIncidentChatMessage$outboundSchema.parse(createIncidentChatMessage),
   );
 }
-
 export function createIncidentChatMessageFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentChatMessage, SDKValidationError> {

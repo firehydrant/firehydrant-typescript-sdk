@@ -59,7 +59,6 @@ export const TaskListEntity$inboundSchema: z.ZodType<
     "task_list_items": "taskListItems",
   });
 });
-
 /** @internal */
 export type TaskListEntity$Outbound = {
   id?: string | null | undefined;
@@ -94,23 +93,9 @@ export const TaskListEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaskListEntity$ {
-  /** @deprecated use `TaskListEntity$inboundSchema` instead. */
-  export const inboundSchema = TaskListEntity$inboundSchema;
-  /** @deprecated use `TaskListEntity$outboundSchema` instead. */
-  export const outboundSchema = TaskListEntity$outboundSchema;
-  /** @deprecated use `TaskListEntity$Outbound` instead. */
-  export type Outbound = TaskListEntity$Outbound;
-}
-
 export function taskListEntityToJSON(taskListEntity: TaskListEntity): string {
   return JSON.stringify(TaskListEntity$outboundSchema.parse(taskListEntity));
 }
-
 export function taskListEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TaskListEntity, SDKValidationError> {

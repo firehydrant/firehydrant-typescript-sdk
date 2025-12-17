@@ -29,7 +29,6 @@ export const FormConfigurationEntity$inboundSchema: z.ZodType<
     "show_incident_types": "showIncidentTypes",
   });
 });
-
 /** @internal */
 export type FormConfigurationEntity$Outbound = {
   fields?: string | null | undefined;
@@ -50,19 +49,6 @@ export const FormConfigurationEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FormConfigurationEntity$ {
-  /** @deprecated use `FormConfigurationEntity$inboundSchema` instead. */
-  export const inboundSchema = FormConfigurationEntity$inboundSchema;
-  /** @deprecated use `FormConfigurationEntity$outboundSchema` instead. */
-  export const outboundSchema = FormConfigurationEntity$outboundSchema;
-  /** @deprecated use `FormConfigurationEntity$Outbound` instead. */
-  export type Outbound = FormConfigurationEntity$Outbound;
-}
-
 export function formConfigurationEntityToJSON(
   formConfigurationEntity: FormConfigurationEntity,
 ): string {
@@ -70,7 +56,6 @@ export function formConfigurationEntityToJSON(
     FormConfigurationEntity$outboundSchema.parse(formConfigurationEntity),
   );
 }
-
 export function formConfigurationEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<FormConfigurationEntity, SDKValidationError> {

@@ -38,21 +38,9 @@ export type IngestCatalogData = {
 /** @internal */
 export const Encoding$inboundSchema: z.ZodNativeEnum<typeof Encoding> = z
   .nativeEnum(Encoding);
-
 /** @internal */
 export const Encoding$outboundSchema: z.ZodNativeEnum<typeof Encoding> =
   Encoding$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Encoding$ {
-  /** @deprecated use `Encoding$inboundSchema` instead. */
-  export const inboundSchema = Encoding$inboundSchema;
-  /** @deprecated use `Encoding$outboundSchema` instead. */
-  export const outboundSchema = Encoding$outboundSchema;
-}
 
 /** @internal */
 export const IngestCatalogData$inboundSchema: z.ZodType<
@@ -63,7 +51,6 @@ export const IngestCatalogData$inboundSchema: z.ZodType<
   encoding: Encoding$inboundSchema,
   data: z.string(),
 });
-
 /** @internal */
 export type IngestCatalogData$Outbound = {
   encoding: string;
@@ -80,19 +67,6 @@ export const IngestCatalogData$outboundSchema: z.ZodType<
   data: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IngestCatalogData$ {
-  /** @deprecated use `IngestCatalogData$inboundSchema` instead. */
-  export const inboundSchema = IngestCatalogData$inboundSchema;
-  /** @deprecated use `IngestCatalogData$outboundSchema` instead. */
-  export const outboundSchema = IngestCatalogData$outboundSchema;
-  /** @deprecated use `IngestCatalogData$Outbound` instead. */
-  export type Outbound = IngestCatalogData$Outbound;
-}
-
 export function ingestCatalogDataToJSON(
   ingestCatalogData: IngestCatalogData,
 ): string {
@@ -100,7 +74,6 @@ export function ingestCatalogDataToJSON(
     IngestCatalogData$outboundSchema.parse(ingestCatalogData),
   );
 }
-
 export function ingestCatalogDataFromJSON(
   jsonString: string,
 ): SafeParseResult<IngestCatalogData, SDKValidationError> {

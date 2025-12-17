@@ -22,7 +22,6 @@ export const NuncNuncSubscription$inboundSchema: z.ZodType<
 > = z.object({
   response: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NuncNuncSubscription$Outbound = {
   response?: string | null | undefined;
@@ -37,19 +36,6 @@ export const NuncNuncSubscription$outboundSchema: z.ZodType<
   response: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NuncNuncSubscription$ {
-  /** @deprecated use `NuncNuncSubscription$inboundSchema` instead. */
-  export const inboundSchema = NuncNuncSubscription$inboundSchema;
-  /** @deprecated use `NuncNuncSubscription$outboundSchema` instead. */
-  export const outboundSchema = NuncNuncSubscription$outboundSchema;
-  /** @deprecated use `NuncNuncSubscription$Outbound` instead. */
-  export type Outbound = NuncNuncSubscription$Outbound;
-}
-
 export function nuncNuncSubscriptionToJSON(
   nuncNuncSubscription: NuncNuncSubscription,
 ): string {
@@ -57,7 +43,6 @@ export function nuncNuncSubscriptionToJSON(
     NuncNuncSubscription$outboundSchema.parse(nuncNuncSubscription),
   );
 }
-
 export function nuncNuncSubscriptionFromJSON(
   jsonString: string,
 ): SafeParseResult<NuncNuncSubscription, SDKValidationError> {

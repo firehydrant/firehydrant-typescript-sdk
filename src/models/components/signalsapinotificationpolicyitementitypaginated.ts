@@ -39,7 +39,6 @@ export const SignalsAPINotificationPolicyItemEntityPaginated$inboundSchema:
     ).optional(),
     pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
   });
-
 /** @internal */
 export type SignalsAPINotificationPolicyItemEntityPaginated$Outbound = {
   data?:
@@ -62,22 +61,6 @@ export const SignalsAPINotificationPolicyItemEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPINotificationPolicyItemEntityPaginated$ {
-  /** @deprecated use `SignalsAPINotificationPolicyItemEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPINotificationPolicyItemEntityPaginated$inboundSchema;
-  /** @deprecated use `SignalsAPINotificationPolicyItemEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPINotificationPolicyItemEntityPaginated$outboundSchema;
-  /** @deprecated use `SignalsAPINotificationPolicyItemEntityPaginated$Outbound` instead. */
-  export type Outbound =
-    SignalsAPINotificationPolicyItemEntityPaginated$Outbound;
-}
-
 export function signalsAPINotificationPolicyItemEntityPaginatedToJSON(
   signalsAPINotificationPolicyItemEntityPaginated:
     SignalsAPINotificationPolicyItemEntityPaginated,
@@ -88,7 +71,6 @@ export function signalsAPINotificationPolicyItemEntityPaginatedToJSON(
     ),
   );
 }
-
 export function signalsAPINotificationPolicyItemEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

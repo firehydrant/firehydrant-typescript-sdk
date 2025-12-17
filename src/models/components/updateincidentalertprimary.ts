@@ -22,7 +22,6 @@ export const UpdateIncidentAlertPrimary$inboundSchema: z.ZodType<
 > = z.object({
   primary: z.boolean(),
 });
-
 /** @internal */
 export type UpdateIncidentAlertPrimary$Outbound = {
   primary: boolean;
@@ -37,19 +36,6 @@ export const UpdateIncidentAlertPrimary$outboundSchema: z.ZodType<
   primary: z.boolean(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentAlertPrimary$ {
-  /** @deprecated use `UpdateIncidentAlertPrimary$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentAlertPrimary$inboundSchema;
-  /** @deprecated use `UpdateIncidentAlertPrimary$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentAlertPrimary$outboundSchema;
-  /** @deprecated use `UpdateIncidentAlertPrimary$Outbound` instead. */
-  export type Outbound = UpdateIncidentAlertPrimary$Outbound;
-}
-
 export function updateIncidentAlertPrimaryToJSON(
   updateIncidentAlertPrimary: UpdateIncidentAlertPrimary,
 ): string {
@@ -57,7 +43,6 @@ export function updateIncidentAlertPrimaryToJSON(
     UpdateIncidentAlertPrimary$outboundSchema.parse(updateIncidentAlertPrimary),
   );
 }
-
 export function updateIncidentAlertPrimaryFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentAlertPrimary, SDKValidationError> {

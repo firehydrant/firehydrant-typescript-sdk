@@ -29,7 +29,6 @@ export const DeleteRunbookExecutionRequest$inboundSchema: z.ZodType<
     "execution_id": "executionId",
   });
 });
-
 /** @internal */
 export type DeleteRunbookExecutionRequest$Outbound = {
   execution_id: string;
@@ -50,19 +49,6 @@ export const DeleteRunbookExecutionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteRunbookExecutionRequest$ {
-  /** @deprecated use `DeleteRunbookExecutionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteRunbookExecutionRequest$inboundSchema;
-  /** @deprecated use `DeleteRunbookExecutionRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteRunbookExecutionRequest$outboundSchema;
-  /** @deprecated use `DeleteRunbookExecutionRequest$Outbound` instead. */
-  export type Outbound = DeleteRunbookExecutionRequest$Outbound;
-}
-
 export function deleteRunbookExecutionRequestToJSON(
   deleteRunbookExecutionRequest: DeleteRunbookExecutionRequest,
 ): string {
@@ -72,7 +58,6 @@ export function deleteRunbookExecutionRequestToJSON(
     ),
   );
 }
-
 export function deleteRunbookExecutionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteRunbookExecutionRequest, SDKValidationError> {

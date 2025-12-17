@@ -42,7 +42,6 @@ export const PatchScimUserOperation$inboundSchema: z.ZodType<
   op: z.string(),
   path: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type PatchScimUserOperation$Outbound = {
   op: string;
@@ -59,19 +58,6 @@ export const PatchScimUserOperation$outboundSchema: z.ZodType<
   path: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PatchScimUserOperation$ {
-  /** @deprecated use `PatchScimUserOperation$inboundSchema` instead. */
-  export const inboundSchema = PatchScimUserOperation$inboundSchema;
-  /** @deprecated use `PatchScimUserOperation$outboundSchema` instead. */
-  export const outboundSchema = PatchScimUserOperation$outboundSchema;
-  /** @deprecated use `PatchScimUserOperation$Outbound` instead. */
-  export type Outbound = PatchScimUserOperation$Outbound;
-}
-
 export function patchScimUserOperationToJSON(
   patchScimUserOperation: PatchScimUserOperation,
 ): string {
@@ -79,7 +65,6 @@ export function patchScimUserOperationToJSON(
     PatchScimUserOperation$outboundSchema.parse(patchScimUserOperation),
   );
 }
-
 export function patchScimUserOperationFromJSON(
   jsonString: string,
 ): SafeParseResult<PatchScimUserOperation, SDKValidationError> {
@@ -103,7 +88,6 @@ export const PatchScimUser$inboundSchema: z.ZodType<
     "Operations": "operations",
   });
 });
-
 /** @internal */
 export type PatchScimUser$Outbound = {
   trail?: string | null | undefined;
@@ -124,23 +108,9 @@ export const PatchScimUser$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PatchScimUser$ {
-  /** @deprecated use `PatchScimUser$inboundSchema` instead. */
-  export const inboundSchema = PatchScimUser$inboundSchema;
-  /** @deprecated use `PatchScimUser$outboundSchema` instead. */
-  export const outboundSchema = PatchScimUser$outboundSchema;
-  /** @deprecated use `PatchScimUser$Outbound` instead. */
-  export type Outbound = PatchScimUser$Outbound;
-}
-
 export function patchScimUserToJSON(patchScimUser: PatchScimUser): string {
   return JSON.stringify(PatchScimUser$outboundSchema.parse(patchScimUser));
 }
-
 export function patchScimUserFromJSON(
   jsonString: string,
 ): SafeParseResult<PatchScimUser, SDKValidationError> {

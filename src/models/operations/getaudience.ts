@@ -27,7 +27,6 @@ export const GetAudienceRequest$inboundSchema: z.ZodType<
     "audience_id": "audienceId",
   });
 });
-
 /** @internal */
 export type GetAudienceRequest$Outbound = {
   audience_id: string;
@@ -46,19 +45,6 @@ export const GetAudienceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAudienceRequest$ {
-  /** @deprecated use `GetAudienceRequest$inboundSchema` instead. */
-  export const inboundSchema = GetAudienceRequest$inboundSchema;
-  /** @deprecated use `GetAudienceRequest$outboundSchema` instead. */
-  export const outboundSchema = GetAudienceRequest$outboundSchema;
-  /** @deprecated use `GetAudienceRequest$Outbound` instead. */
-  export type Outbound = GetAudienceRequest$Outbound;
-}
-
 export function getAudienceRequestToJSON(
   getAudienceRequest: GetAudienceRequest,
 ): string {
@@ -66,7 +52,6 @@ export function getAudienceRequestToJSON(
     GetAudienceRequest$outboundSchema.parse(getAudienceRequest),
   );
 }
-
 export function getAudienceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetAudienceRequest, SDKValidationError> {

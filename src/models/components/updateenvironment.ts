@@ -24,7 +24,6 @@ export const UpdateEnvironment$inboundSchema: z.ZodType<
   name: z.string(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateEnvironment$Outbound = {
   name: string;
@@ -41,19 +40,6 @@ export const UpdateEnvironment$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateEnvironment$ {
-  /** @deprecated use `UpdateEnvironment$inboundSchema` instead. */
-  export const inboundSchema = UpdateEnvironment$inboundSchema;
-  /** @deprecated use `UpdateEnvironment$outboundSchema` instead. */
-  export const outboundSchema = UpdateEnvironment$outboundSchema;
-  /** @deprecated use `UpdateEnvironment$Outbound` instead. */
-  export type Outbound = UpdateEnvironment$Outbound;
-}
-
 export function updateEnvironmentToJSON(
   updateEnvironment: UpdateEnvironment,
 ): string {
@@ -61,7 +47,6 @@ export function updateEnvironmentToJSON(
     UpdateEnvironment$outboundSchema.parse(updateEnvironment),
   );
 }
-
 export function updateEnvironmentFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateEnvironment, SDKValidationError> {

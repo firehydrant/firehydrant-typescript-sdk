@@ -42,6 +42,7 @@ export const UpdateRolePermission = {
   ManageIncidents: "manage_incidents",
   CreateIncidents: "create_incidents",
   ReadIncidents: "read_incidents",
+  UpdateIncidents: "update_incidents",
   ManageIncidentSettings: "manage_incident_settings",
   ReadIncidentSettings: "read_incident_settings",
   ManageIntegrations: "manage_integrations",
@@ -93,22 +94,10 @@ export type UpdateRole = {
 export const UpdateRolePermission$inboundSchema: z.ZodNativeEnum<
   typeof UpdateRolePermission
 > = z.nativeEnum(UpdateRolePermission);
-
 /** @internal */
 export const UpdateRolePermission$outboundSchema: z.ZodNativeEnum<
   typeof UpdateRolePermission
 > = UpdateRolePermission$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRolePermission$ {
-  /** @deprecated use `UpdateRolePermission$inboundSchema` instead. */
-  export const inboundSchema = UpdateRolePermission$inboundSchema;
-  /** @deprecated use `UpdateRolePermission$outboundSchema` instead. */
-  export const outboundSchema = UpdateRolePermission$outboundSchema;
-}
 
 /** @internal */
 export const UpdateRole$inboundSchema: z.ZodType<
@@ -121,7 +110,6 @@ export const UpdateRole$inboundSchema: z.ZodType<
   permissions: z.nullable(z.array(UpdateRolePermission$inboundSchema))
     .optional(),
 });
-
 /** @internal */
 export type UpdateRole$Outbound = {
   name: string;
@@ -141,23 +129,9 @@ export const UpdateRole$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRole$ {
-  /** @deprecated use `UpdateRole$inboundSchema` instead. */
-  export const inboundSchema = UpdateRole$inboundSchema;
-  /** @deprecated use `UpdateRole$outboundSchema` instead. */
-  export const outboundSchema = UpdateRole$outboundSchema;
-  /** @deprecated use `UpdateRole$Outbound` instead. */
-  export type Outbound = UpdateRole$Outbound;
-}
-
 export function updateRoleToJSON(updateRole: UpdateRole): string {
   return JSON.stringify(UpdateRole$outboundSchema.parse(updateRole));
 }
-
 export function updateRoleFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRole, SDKValidationError> {

@@ -27,7 +27,6 @@ export const DeleteStatuspageConnectionRequest$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type DeleteStatuspageConnectionRequest$Outbound = {
   connection_id: string;
@@ -46,20 +45,6 @@ export const DeleteStatuspageConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteStatuspageConnectionRequest$ {
-  /** @deprecated use `DeleteStatuspageConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteStatuspageConnectionRequest$inboundSchema;
-  /** @deprecated use `DeleteStatuspageConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteStatuspageConnectionRequest$outboundSchema;
-  /** @deprecated use `DeleteStatuspageConnectionRequest$Outbound` instead. */
-  export type Outbound = DeleteStatuspageConnectionRequest$Outbound;
-}
-
 export function deleteStatuspageConnectionRequestToJSON(
   deleteStatuspageConnectionRequest: DeleteStatuspageConnectionRequest,
 ): string {
@@ -69,7 +54,6 @@ export function deleteStatuspageConnectionRequestToJSON(
     ),
   );
 }
-
 export function deleteStatuspageConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteStatuspageConnectionRequest, SDKValidationError> {

@@ -27,7 +27,6 @@ export const GetRunbookExecutionStepScriptRequest$inboundSchema: z.ZodType<
     "step_id": "stepId",
   });
 });
-
 /** @internal */
 export type GetRunbookExecutionStepScriptRequest$Outbound = {
   execution_id: string;
@@ -49,21 +48,6 @@ export const GetRunbookExecutionStepScriptRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetRunbookExecutionStepScriptRequest$ {
-  /** @deprecated use `GetRunbookExecutionStepScriptRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetRunbookExecutionStepScriptRequest$inboundSchema;
-  /** @deprecated use `GetRunbookExecutionStepScriptRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetRunbookExecutionStepScriptRequest$outboundSchema;
-  /** @deprecated use `GetRunbookExecutionStepScriptRequest$Outbound` instead. */
-  export type Outbound = GetRunbookExecutionStepScriptRequest$Outbound;
-}
-
 export function getRunbookExecutionStepScriptRequestToJSON(
   getRunbookExecutionStepScriptRequest: GetRunbookExecutionStepScriptRequest,
 ): string {
@@ -73,7 +57,6 @@ export function getRunbookExecutionStepScriptRequestToJSON(
     ),
   );
 }
-
 export function getRunbookExecutionStepScriptRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetRunbookExecutionStepScriptRequest, SDKValidationError> {

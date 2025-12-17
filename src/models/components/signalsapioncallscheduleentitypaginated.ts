@@ -37,7 +37,6 @@ export const SignalsAPIOnCallScheduleEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SignalsAPIOnCallScheduleEntityPaginated$Outbound = {
   data?: Array<SignalsAPIOnCallScheduleEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const SignalsAPIOnCallScheduleEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallScheduleEntityPaginated$ {
-  /** @deprecated use `SignalsAPIOnCallScheduleEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIOnCallScheduleEntityPaginated$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallScheduleEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOnCallScheduleEntityPaginated$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallScheduleEntityPaginated$Outbound` instead. */
-  export type Outbound = SignalsAPIOnCallScheduleEntityPaginated$Outbound;
-}
-
 export function signalsAPIOnCallScheduleEntityPaginatedToJSON(
   signalsAPIOnCallScheduleEntityPaginated:
     SignalsAPIOnCallScheduleEntityPaginated,
@@ -80,7 +64,6 @@ export function signalsAPIOnCallScheduleEntityPaginatedToJSON(
     ),
   );
 }
-
 export function signalsAPIOnCallScheduleEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

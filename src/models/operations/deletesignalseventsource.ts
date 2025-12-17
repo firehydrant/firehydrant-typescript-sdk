@@ -24,7 +24,6 @@ export const DeleteSignalsEventSourceRequest$inboundSchema: z.ZodType<
     "transposer_slug": "transposerSlug",
   });
 });
-
 /** @internal */
 export type DeleteSignalsEventSourceRequest$Outbound = {
   transposer_slug: string;
@@ -43,19 +42,6 @@ export const DeleteSignalsEventSourceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSignalsEventSourceRequest$ {
-  /** @deprecated use `DeleteSignalsEventSourceRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteSignalsEventSourceRequest$inboundSchema;
-  /** @deprecated use `DeleteSignalsEventSourceRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteSignalsEventSourceRequest$outboundSchema;
-  /** @deprecated use `DeleteSignalsEventSourceRequest$Outbound` instead. */
-  export type Outbound = DeleteSignalsEventSourceRequest$Outbound;
-}
-
 export function deleteSignalsEventSourceRequestToJSON(
   deleteSignalsEventSourceRequest: DeleteSignalsEventSourceRequest,
 ): string {
@@ -65,7 +51,6 @@ export function deleteSignalsEventSourceRequestToJSON(
     ),
   );
 }
-
 export function deleteSignalsEventSourceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteSignalsEventSourceRequest, SDKValidationError> {

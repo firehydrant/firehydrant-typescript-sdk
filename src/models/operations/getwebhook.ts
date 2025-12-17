@@ -24,7 +24,6 @@ export const GetWebhookRequest$inboundSchema: z.ZodType<
     "webhook_id": "webhookId",
   });
 });
-
 /** @internal */
 export type GetWebhookRequest$Outbound = {
   webhook_id: string;
@@ -43,19 +42,6 @@ export const GetWebhookRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetWebhookRequest$ {
-  /** @deprecated use `GetWebhookRequest$inboundSchema` instead. */
-  export const inboundSchema = GetWebhookRequest$inboundSchema;
-  /** @deprecated use `GetWebhookRequest$outboundSchema` instead. */
-  export const outboundSchema = GetWebhookRequest$outboundSchema;
-  /** @deprecated use `GetWebhookRequest$Outbound` instead. */
-  export type Outbound = GetWebhookRequest$Outbound;
-}
-
 export function getWebhookRequestToJSON(
   getWebhookRequest: GetWebhookRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getWebhookRequestToJSON(
     GetWebhookRequest$outboundSchema.parse(getWebhookRequest),
   );
 }
-
 export function getWebhookRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetWebhookRequest, SDKValidationError> {

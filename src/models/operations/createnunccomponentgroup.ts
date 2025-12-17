@@ -33,7 +33,6 @@ export const CreateNuncComponentGroupRequestBody$inboundSchema: z.ZodType<
     "component_group_id": "componentGroupId",
   });
 });
-
 /** @internal */
 export type CreateNuncComponentGroupRequestBody$Outbound = {
   name: string;
@@ -56,21 +55,6 @@ export const CreateNuncComponentGroupRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNuncComponentGroupRequestBody$ {
-  /** @deprecated use `CreateNuncComponentGroupRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateNuncComponentGroupRequestBody$inboundSchema;
-  /** @deprecated use `CreateNuncComponentGroupRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateNuncComponentGroupRequestBody$outboundSchema;
-  /** @deprecated use `CreateNuncComponentGroupRequestBody$Outbound` instead. */
-  export type Outbound = CreateNuncComponentGroupRequestBody$Outbound;
-}
-
 export function createNuncComponentGroupRequestBodyToJSON(
   createNuncComponentGroupRequestBody: CreateNuncComponentGroupRequestBody,
 ): string {
@@ -80,7 +64,6 @@ export function createNuncComponentGroupRequestBodyToJSON(
     ),
   );
 }
-
 export function createNuncComponentGroupRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateNuncComponentGroupRequestBody, SDKValidationError> {
@@ -106,7 +89,6 @@ export const CreateNuncComponentGroupRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type CreateNuncComponentGroupRequest$Outbound = {
   nunc_connection_id: string;
@@ -128,19 +110,6 @@ export const CreateNuncComponentGroupRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNuncComponentGroupRequest$ {
-  /** @deprecated use `CreateNuncComponentGroupRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateNuncComponentGroupRequest$inboundSchema;
-  /** @deprecated use `CreateNuncComponentGroupRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateNuncComponentGroupRequest$outboundSchema;
-  /** @deprecated use `CreateNuncComponentGroupRequest$Outbound` instead. */
-  export type Outbound = CreateNuncComponentGroupRequest$Outbound;
-}
-
 export function createNuncComponentGroupRequestToJSON(
   createNuncComponentGroupRequest: CreateNuncComponentGroupRequest,
 ): string {
@@ -150,7 +119,6 @@ export function createNuncComponentGroupRequestToJSON(
     ),
   );
 }
-
 export function createNuncComponentGroupRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateNuncComponentGroupRequest, SDKValidationError> {

@@ -35,7 +35,6 @@ export const IncidentsAlertEntity$inboundSchema: z.ZodType<
   alert: z.nullable(NullableAlertsAlertEntity$inboundSchema).optional(),
   primary: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type IncidentsAlertEntity$Outbound = {
   id?: string | null | undefined;
@@ -54,19 +53,6 @@ export const IncidentsAlertEntity$outboundSchema: z.ZodType<
   primary: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsAlertEntity$ {
-  /** @deprecated use `IncidentsAlertEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsAlertEntity$inboundSchema;
-  /** @deprecated use `IncidentsAlertEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsAlertEntity$outboundSchema;
-  /** @deprecated use `IncidentsAlertEntity$Outbound` instead. */
-  export type Outbound = IncidentsAlertEntity$Outbound;
-}
-
 export function incidentsAlertEntityToJSON(
   incidentsAlertEntity: IncidentsAlertEntity,
 ): string {
@@ -74,7 +60,6 @@ export function incidentsAlertEntityToJSON(
     IncidentsAlertEntity$outboundSchema.parse(incidentsAlertEntity),
   );
 }
-
 export function incidentsAlertEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsAlertEntity, SDKValidationError> {

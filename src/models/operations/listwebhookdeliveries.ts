@@ -27,7 +27,6 @@ export const ListWebhookDeliveriesRequest$inboundSchema: z.ZodType<
     "webhook_id": "webhookId",
   });
 });
-
 /** @internal */
 export type ListWebhookDeliveriesRequest$Outbound = {
   webhook_id: string;
@@ -46,19 +45,6 @@ export const ListWebhookDeliveriesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListWebhookDeliveriesRequest$ {
-  /** @deprecated use `ListWebhookDeliveriesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListWebhookDeliveriesRequest$inboundSchema;
-  /** @deprecated use `ListWebhookDeliveriesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListWebhookDeliveriesRequest$outboundSchema;
-  /** @deprecated use `ListWebhookDeliveriesRequest$Outbound` instead. */
-  export type Outbound = ListWebhookDeliveriesRequest$Outbound;
-}
-
 export function listWebhookDeliveriesRequestToJSON(
   listWebhookDeliveriesRequest: ListWebhookDeliveriesRequest,
 ): string {
@@ -68,7 +54,6 @@ export function listWebhookDeliveriesRequestToJSON(
     ),
   );
 }
-
 export function listWebhookDeliveriesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListWebhookDeliveriesRequest, SDKValidationError> {

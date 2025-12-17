@@ -37,7 +37,6 @@ export const SignalsAPIEmailTargetEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SignalsAPIEmailTargetEntityPaginated$Outbound = {
   data?: Array<SignalsAPIEmailTargetEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const SignalsAPIEmailTargetEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIEmailTargetEntityPaginated$ {
-  /** @deprecated use `SignalsAPIEmailTargetEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIEmailTargetEntityPaginated$inboundSchema;
-  /** @deprecated use `SignalsAPIEmailTargetEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIEmailTargetEntityPaginated$outboundSchema;
-  /** @deprecated use `SignalsAPIEmailTargetEntityPaginated$Outbound` instead. */
-  export type Outbound = SignalsAPIEmailTargetEntityPaginated$Outbound;
-}
-
 export function signalsAPIEmailTargetEntityPaginatedToJSON(
   signalsAPIEmailTargetEntityPaginated: SignalsAPIEmailTargetEntityPaginated,
 ): string {
@@ -79,7 +63,6 @@ export function signalsAPIEmailTargetEntityPaginatedToJSON(
     ),
   );
 }
-
 export function signalsAPIEmailTargetEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIEmailTargetEntityPaginated, SDKValidationError> {

@@ -37,7 +37,6 @@ export const IntegrationsConnectionEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IntegrationsConnectionEntityPaginated$Outbound = {
   data?: Array<IntegrationsConnectionEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const IntegrationsConnectionEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConnectionEntityPaginated$ {
-  /** @deprecated use `IntegrationsConnectionEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsConnectionEntityPaginated$inboundSchema;
-  /** @deprecated use `IntegrationsConnectionEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsConnectionEntityPaginated$outboundSchema;
-  /** @deprecated use `IntegrationsConnectionEntityPaginated$Outbound` instead. */
-  export type Outbound = IntegrationsConnectionEntityPaginated$Outbound;
-}
-
 export function integrationsConnectionEntityPaginatedToJSON(
   integrationsConnectionEntityPaginated: IntegrationsConnectionEntityPaginated,
 ): string {
@@ -79,7 +63,6 @@ export function integrationsConnectionEntityPaginatedToJSON(
     ),
   );
 }
-
 export function integrationsConnectionEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsConnectionEntityPaginated, SDKValidationError> {

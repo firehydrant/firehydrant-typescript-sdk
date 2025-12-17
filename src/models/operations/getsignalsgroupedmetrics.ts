@@ -108,67 +108,29 @@ export type GetSignalsGroupedMetricsRequest = {
 export const GetSignalsGroupedMetricsGroupBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsGroupedMetricsGroupBy
 > = z.nativeEnum(GetSignalsGroupedMetricsGroupBy);
-
 /** @internal */
 export const GetSignalsGroupedMetricsGroupBy$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsGroupedMetricsGroupBy
 > = GetSignalsGroupedMetricsGroupBy$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsGroupedMetricsGroupBy$ {
-  /** @deprecated use `GetSignalsGroupedMetricsGroupBy$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsGroupedMetricsGroupBy$inboundSchema;
-  /** @deprecated use `GetSignalsGroupedMetricsGroupBy$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsGroupedMetricsGroupBy$outboundSchema;
-}
-
 /** @internal */
 export const GetSignalsGroupedMetricsSortBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsGroupedMetricsSortBy
 > = z.nativeEnum(GetSignalsGroupedMetricsSortBy);
-
 /** @internal */
 export const GetSignalsGroupedMetricsSortBy$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsGroupedMetricsSortBy
 > = GetSignalsGroupedMetricsSortBy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsGroupedMetricsSortBy$ {
-  /** @deprecated use `GetSignalsGroupedMetricsSortBy$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsGroupedMetricsSortBy$inboundSchema;
-  /** @deprecated use `GetSignalsGroupedMetricsSortBy$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsGroupedMetricsSortBy$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsGroupedMetricsSortDirection$inboundSchema:
   z.ZodNativeEnum<typeof GetSignalsGroupedMetricsSortDirection> = z.nativeEnum(
     GetSignalsGroupedMetricsSortDirection,
   );
-
 /** @internal */
 export const GetSignalsGroupedMetricsSortDirection$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsGroupedMetricsSortDirection> =
     GetSignalsGroupedMetricsSortDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsGroupedMetricsSortDirection$ {
-  /** @deprecated use `GetSignalsGroupedMetricsSortDirection$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsGroupedMetricsSortDirection$inboundSchema;
-  /** @deprecated use `GetSignalsGroupedMetricsSortDirection$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsGroupedMetricsSortDirection$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsGroupedMetricsRequest$inboundSchema: z.ZodType<
@@ -204,7 +166,6 @@ export const GetSignalsGroupedMetricsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
   });
 });
-
 /** @internal */
 export type GetSignalsGroupedMetricsRequest$Outbound = {
   signal_rules?: string | null | undefined;
@@ -251,19 +212,6 @@ export const GetSignalsGroupedMetricsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsGroupedMetricsRequest$ {
-  /** @deprecated use `GetSignalsGroupedMetricsRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsGroupedMetricsRequest$inboundSchema;
-  /** @deprecated use `GetSignalsGroupedMetricsRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsGroupedMetricsRequest$outboundSchema;
-  /** @deprecated use `GetSignalsGroupedMetricsRequest$Outbound` instead. */
-  export type Outbound = GetSignalsGroupedMetricsRequest$Outbound;
-}
-
 export function getSignalsGroupedMetricsRequestToJSON(
   getSignalsGroupedMetricsRequest: GetSignalsGroupedMetricsRequest,
 ): string {
@@ -273,7 +221,6 @@ export function getSignalsGroupedMetricsRequestToJSON(
     ),
   );
 }
-
 export function getSignalsGroupedMetricsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsGroupedMetricsRequest, SDKValidationError> {

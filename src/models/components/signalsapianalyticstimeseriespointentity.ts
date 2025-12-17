@@ -33,7 +33,6 @@ export const SignalsAPIAnalyticsTimeseriesPointEntity$inboundSchema: z.ZodType<
     NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$inboundSchema,
   ).optional(),
 });
-
 /** @internal */
 export type SignalsAPIAnalyticsTimeseriesPointEntity$Outbound = {
   data?:
@@ -53,21 +52,6 @@ export const SignalsAPIAnalyticsTimeseriesPointEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIAnalyticsTimeseriesPointEntity$ {
-  /** @deprecated use `SignalsAPIAnalyticsTimeseriesPointEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIAnalyticsTimeseriesPointEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsTimeseriesPointEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIAnalyticsTimeseriesPointEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsTimeseriesPointEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIAnalyticsTimeseriesPointEntity$Outbound;
-}
-
 export function signalsAPIAnalyticsTimeseriesPointEntityToJSON(
   signalsAPIAnalyticsTimeseriesPointEntity:
     SignalsAPIAnalyticsTimeseriesPointEntity,
@@ -78,7 +62,6 @@ export function signalsAPIAnalyticsTimeseriesPointEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIAnalyticsTimeseriesPointEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

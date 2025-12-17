@@ -50,24 +50,10 @@ export type NullableRunbooksExecutionStepExecutionEntity = {
 export const NullableRunbooksExecutionStepExecutionEntityState$inboundSchema:
   z.ZodNativeEnum<typeof NullableRunbooksExecutionStepExecutionEntityState> = z
     .nativeEnum(NullableRunbooksExecutionStepExecutionEntityState);
-
 /** @internal */
 export const NullableRunbooksExecutionStepExecutionEntityState$outboundSchema:
   z.ZodNativeEnum<typeof NullableRunbooksExecutionStepExecutionEntityState> =
     NullableRunbooksExecutionStepExecutionEntityState$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionStepExecutionEntityState$ {
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntityState$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionStepExecutionEntityState$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntityState$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionStepExecutionEntityState$outboundSchema;
-}
 
 /** @internal */
 export const NullableRunbooksExecutionStepExecutionEntityData$inboundSchema:
@@ -76,7 +62,6 @@ export const NullableRunbooksExecutionStepExecutionEntityData$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type NullableRunbooksExecutionStepExecutionEntityData$Outbound = {};
 
@@ -88,22 +73,6 @@ export const NullableRunbooksExecutionStepExecutionEntityData$outboundSchema:
     NullableRunbooksExecutionStepExecutionEntityData
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionStepExecutionEntityData$ {
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntityData$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionStepExecutionEntityData$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntityData$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionStepExecutionEntityData$outboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntityData$Outbound` instead. */
-  export type Outbound =
-    NullableRunbooksExecutionStepExecutionEntityData$Outbound;
-}
-
 export function nullableRunbooksExecutionStepExecutionEntityDataToJSON(
   nullableRunbooksExecutionStepExecutionEntityData:
     NullableRunbooksExecutionStepExecutionEntityData,
@@ -114,7 +83,6 @@ export function nullableRunbooksExecutionStepExecutionEntityDataToJSON(
     ),
   );
 }
-
 export function nullableRunbooksExecutionStepExecutionEntityDataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -165,7 +133,6 @@ export const NullableRunbooksExecutionStepExecutionEntity$inboundSchema:
       "webhook_delivery": "webhookDelivery",
     });
   });
-
 /** @internal */
 export type NullableRunbooksExecutionStepExecutionEntity$Outbound = {
   state?: string | null | undefined;
@@ -216,21 +183,6 @@ export const NullableRunbooksExecutionStepExecutionEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionStepExecutionEntity$ {
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionStepExecutionEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionStepExecutionEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepExecutionEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksExecutionStepExecutionEntity$Outbound;
-}
-
 export function nullableRunbooksExecutionStepExecutionEntityToJSON(
   nullableRunbooksExecutionStepExecutionEntity:
     NullableRunbooksExecutionStepExecutionEntity,
@@ -241,7 +193,6 @@ export function nullableRunbooksExecutionStepExecutionEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksExecutionStepExecutionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -23,7 +23,6 @@ export const NullableMetricsMetricsEntitySortEntity$inboundSchema: z.ZodType<
   direction: z.nullable(z.string()).optional(),
   limit: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type NullableMetricsMetricsEntitySortEntity$Outbound = {
   field?: string | null | undefined;
@@ -42,21 +41,6 @@ export const NullableMetricsMetricsEntitySortEntity$outboundSchema: z.ZodType<
   limit: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableMetricsMetricsEntitySortEntity$ {
-  /** @deprecated use `NullableMetricsMetricsEntitySortEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableMetricsMetricsEntitySortEntity$inboundSchema;
-  /** @deprecated use `NullableMetricsMetricsEntitySortEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableMetricsMetricsEntitySortEntity$outboundSchema;
-  /** @deprecated use `NullableMetricsMetricsEntitySortEntity$Outbound` instead. */
-  export type Outbound = NullableMetricsMetricsEntitySortEntity$Outbound;
-}
-
 export function nullableMetricsMetricsEntitySortEntityToJSON(
   nullableMetricsMetricsEntitySortEntity:
     NullableMetricsMetricsEntitySortEntity,
@@ -67,7 +51,6 @@ export function nullableMetricsMetricsEntitySortEntityToJSON(
     ),
   );
 }
-
 export function nullableMetricsMetricsEntitySortEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableMetricsMetricsEntitySortEntity, SDKValidationError> {

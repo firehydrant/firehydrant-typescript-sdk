@@ -50,45 +50,19 @@ export type CreateRetrospectiveTemplateRequest = {
 /** @internal */
 export const SectionsSlug$inboundSchema: z.ZodNativeEnum<typeof SectionsSlug> =
   z.nativeEnum(SectionsSlug);
-
 /** @internal */
 export const SectionsSlug$outboundSchema: z.ZodNativeEnum<typeof SectionsSlug> =
   SectionsSlug$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SectionsSlug$ {
-  /** @deprecated use `SectionsSlug$inboundSchema` instead. */
-  export const inboundSchema = SectionsSlug$inboundSchema;
-  /** @deprecated use `SectionsSlug$outboundSchema` instead. */
-  export const outboundSchema = SectionsSlug$outboundSchema;
-}
 
 /** @internal */
 export const CreateRetrospectiveTemplateFieldsType$inboundSchema:
   z.ZodNativeEnum<typeof CreateRetrospectiveTemplateFieldsType> = z.nativeEnum(
     CreateRetrospectiveTemplateFieldsType,
   );
-
 /** @internal */
 export const CreateRetrospectiveTemplateFieldsType$outboundSchema:
   z.ZodNativeEnum<typeof CreateRetrospectiveTemplateFieldsType> =
     CreateRetrospectiveTemplateFieldsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateRetrospectiveTemplateFieldsType$ {
-  /** @deprecated use `CreateRetrospectiveTemplateFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateRetrospectiveTemplateFieldsType$inboundSchema;
-  /** @deprecated use `CreateRetrospectiveTemplateFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateRetrospectiveTemplateFieldsType$outboundSchema;
-}
 
 /** @internal */
 export const CreateRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
@@ -123,7 +97,6 @@ export const CreateRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
     "fields[schema]": "fieldsSchema",
   });
 });
-
 /** @internal */
 export type CreateRetrospectiveTemplateRequest$Outbound = {
   name: string;
@@ -173,20 +146,6 @@ export const CreateRetrospectiveTemplateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateRetrospectiveTemplateRequest$ {
-  /** @deprecated use `CreateRetrospectiveTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateRetrospectiveTemplateRequest$inboundSchema;
-  /** @deprecated use `CreateRetrospectiveTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateRetrospectiveTemplateRequest$outboundSchema;
-  /** @deprecated use `CreateRetrospectiveTemplateRequest$Outbound` instead. */
-  export type Outbound = CreateRetrospectiveTemplateRequest$Outbound;
-}
-
 export function createRetrospectiveTemplateRequestToJSON(
   createRetrospectiveTemplateRequest: CreateRetrospectiveTemplateRequest,
 ): string {
@@ -196,7 +155,6 @@ export function createRetrospectiveTemplateRequestToJSON(
     ),
   );
 }
-
 export function createRetrospectiveTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateRetrospectiveTemplateRequest, SDKValidationError> {

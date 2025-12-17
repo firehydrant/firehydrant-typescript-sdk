@@ -57,7 +57,6 @@ export const ChangeEventSlimEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ChangeEventSlimEntityLabels$Outbound = {};
 
@@ -68,19 +67,6 @@ export const ChangeEventSlimEntityLabels$outboundSchema: z.ZodType<
   ChangeEventSlimEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEventSlimEntityLabels$ {
-  /** @deprecated use `ChangeEventSlimEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventSlimEntityLabels$inboundSchema;
-  /** @deprecated use `ChangeEventSlimEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventSlimEntityLabels$outboundSchema;
-  /** @deprecated use `ChangeEventSlimEntityLabels$Outbound` instead. */
-  export type Outbound = ChangeEventSlimEntityLabels$Outbound;
-}
-
 export function changeEventSlimEntityLabelsToJSON(
   changeEventSlimEntityLabels: ChangeEventSlimEntityLabels,
 ): string {
@@ -90,7 +76,6 @@ export function changeEventSlimEntityLabelsToJSON(
     ),
   );
 }
-
 export function changeEventSlimEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEventSlimEntityLabels, SDKValidationError> {
@@ -142,7 +127,6 @@ export const ChangeEventSlimEntity$inboundSchema: z.ZodType<
     "duration_iso8601": "durationIso8601",
   });
 });
-
 /** @internal */
 export type ChangeEventSlimEntity$Outbound = {
   id?: string | null | undefined;
@@ -195,19 +179,6 @@ export const ChangeEventSlimEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEventSlimEntity$ {
-  /** @deprecated use `ChangeEventSlimEntity$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventSlimEntity$inboundSchema;
-  /** @deprecated use `ChangeEventSlimEntity$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventSlimEntity$outboundSchema;
-  /** @deprecated use `ChangeEventSlimEntity$Outbound` instead. */
-  export type Outbound = ChangeEventSlimEntity$Outbound;
-}
-
 export function changeEventSlimEntityToJSON(
   changeEventSlimEntity: ChangeEventSlimEntity,
 ): string {
@@ -215,7 +186,6 @@ export function changeEventSlimEntityToJSON(
     ChangeEventSlimEntity$outboundSchema.parse(changeEventSlimEntity),
   );
 }
-
 export function changeEventSlimEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEventSlimEntity, SDKValidationError> {

@@ -37,7 +37,6 @@ export const SignalsAPIOnCallSchedulePreviewEntity$inboundSchema: z.ZodType<
     ),
   ).optional(),
 });
-
 /** @internal */
 export type SignalsAPIOnCallSchedulePreviewEntity$Outbound = {
   name?: string | null | undefined;
@@ -61,21 +60,6 @@ export const SignalsAPIOnCallSchedulePreviewEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallSchedulePreviewEntity$ {
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIOnCallSchedulePreviewEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOnCallSchedulePreviewEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIOnCallSchedulePreviewEntity$Outbound;
-}
-
 export function signalsAPIOnCallSchedulePreviewEntityToJSON(
   signalsAPIOnCallSchedulePreviewEntity: SignalsAPIOnCallSchedulePreviewEntity,
 ): string {
@@ -85,7 +69,6 @@ export function signalsAPIOnCallSchedulePreviewEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIOnCallSchedulePreviewEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIOnCallSchedulePreviewEntity, SDKValidationError> {

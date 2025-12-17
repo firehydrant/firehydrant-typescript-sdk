@@ -25,7 +25,6 @@ export const CreateCommentReaction$inboundSchema: z.ZodType<
 > = z.object({
   reaction: z.string(),
 });
-
 /** @internal */
 export type CreateCommentReaction$Outbound = {
   reaction: string;
@@ -40,19 +39,6 @@ export const CreateCommentReaction$outboundSchema: z.ZodType<
   reaction: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateCommentReaction$ {
-  /** @deprecated use `CreateCommentReaction$inboundSchema` instead. */
-  export const inboundSchema = CreateCommentReaction$inboundSchema;
-  /** @deprecated use `CreateCommentReaction$outboundSchema` instead. */
-  export const outboundSchema = CreateCommentReaction$outboundSchema;
-  /** @deprecated use `CreateCommentReaction$Outbound` instead. */
-  export type Outbound = CreateCommentReaction$Outbound;
-}
-
 export function createCommentReactionToJSON(
   createCommentReaction: CreateCommentReaction,
 ): string {
@@ -60,7 +46,6 @@ export function createCommentReactionToJSON(
     CreateCommentReaction$outboundSchema.parse(createCommentReaction),
   );
 }
-
 export function createCommentReactionFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateCommentReaction, SDKValidationError> {

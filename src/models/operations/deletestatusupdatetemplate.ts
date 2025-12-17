@@ -24,7 +24,6 @@ export const DeleteStatusUpdateTemplateRequest$inboundSchema: z.ZodType<
     "status_update_template_id": "statusUpdateTemplateId",
   });
 });
-
 /** @internal */
 export type DeleteStatusUpdateTemplateRequest$Outbound = {
   status_update_template_id: string;
@@ -43,20 +42,6 @@ export const DeleteStatusUpdateTemplateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteStatusUpdateTemplateRequest$ {
-  /** @deprecated use `DeleteStatusUpdateTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteStatusUpdateTemplateRequest$inboundSchema;
-  /** @deprecated use `DeleteStatusUpdateTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteStatusUpdateTemplateRequest$outboundSchema;
-  /** @deprecated use `DeleteStatusUpdateTemplateRequest$Outbound` instead. */
-  export type Outbound = DeleteStatusUpdateTemplateRequest$Outbound;
-}
-
 export function deleteStatusUpdateTemplateRequestToJSON(
   deleteStatusUpdateTemplateRequest: DeleteStatusUpdateTemplateRequest,
 ): string {
@@ -66,7 +51,6 @@ export function deleteStatusUpdateTemplateRequestToJSON(
     ),
   );
 }
-
 export function deleteStatusUpdateTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteStatusUpdateTemplateRequest, SDKValidationError> {

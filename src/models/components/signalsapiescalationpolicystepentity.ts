@@ -60,24 +60,10 @@ export type SignalsAPIEscalationPolicyStepEntity = {
 export const SignalsAPIEscalationPolicyStepEntityDistributionType$inboundSchema:
   z.ZodNativeEnum<typeof SignalsAPIEscalationPolicyStepEntityDistributionType> =
     z.nativeEnum(SignalsAPIEscalationPolicyStepEntityDistributionType);
-
 /** @internal */
 export const SignalsAPIEscalationPolicyStepEntityDistributionType$outboundSchema:
   z.ZodNativeEnum<typeof SignalsAPIEscalationPolicyStepEntityDistributionType> =
     SignalsAPIEscalationPolicyStepEntityDistributionType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIEscalationPolicyStepEntityDistributionType$ {
-  /** @deprecated use `SignalsAPIEscalationPolicyStepEntityDistributionType$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIEscalationPolicyStepEntityDistributionType$inboundSchema;
-  /** @deprecated use `SignalsAPIEscalationPolicyStepEntityDistributionType$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIEscalationPolicyStepEntityDistributionType$outboundSchema;
-}
 
 /** @internal */
 export const SignalsAPIEscalationPolicyStepEntity$inboundSchema: z.ZodType<
@@ -104,7 +90,6 @@ export const SignalsAPIEscalationPolicyStepEntity$inboundSchema: z.ZodType<
     "next_target_for_round_robin": "nextTargetForRoundRobin",
   });
 });
-
 /** @internal */
 export type SignalsAPIEscalationPolicyStepEntity$Outbound = {
   id?: string | null | undefined;
@@ -147,21 +132,6 @@ export const SignalsAPIEscalationPolicyStepEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIEscalationPolicyStepEntity$ {
-  /** @deprecated use `SignalsAPIEscalationPolicyStepEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIEscalationPolicyStepEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIEscalationPolicyStepEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIEscalationPolicyStepEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIEscalationPolicyStepEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIEscalationPolicyStepEntity$Outbound;
-}
-
 export function signalsAPIEscalationPolicyStepEntityToJSON(
   signalsAPIEscalationPolicyStepEntity: SignalsAPIEscalationPolicyStepEntity,
 ): string {
@@ -171,7 +141,6 @@ export function signalsAPIEscalationPolicyStepEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIEscalationPolicyStepEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIEscalationPolicyStepEntity, SDKValidationError> {

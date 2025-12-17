@@ -27,7 +27,6 @@ export const GetOptionsForFieldRequest$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type GetOptionsForFieldRequest$Outbound = {
   field_id: string;
@@ -49,19 +48,6 @@ export const GetOptionsForFieldRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetOptionsForFieldRequest$ {
-  /** @deprecated use `GetOptionsForFieldRequest$inboundSchema` instead. */
-  export const inboundSchema = GetOptionsForFieldRequest$inboundSchema;
-  /** @deprecated use `GetOptionsForFieldRequest$outboundSchema` instead. */
-  export const outboundSchema = GetOptionsForFieldRequest$outboundSchema;
-  /** @deprecated use `GetOptionsForFieldRequest$Outbound` instead. */
-  export type Outbound = GetOptionsForFieldRequest$Outbound;
-}
-
 export function getOptionsForFieldRequestToJSON(
   getOptionsForFieldRequest: GetOptionsForFieldRequest,
 ): string {
@@ -69,7 +55,6 @@ export function getOptionsForFieldRequestToJSON(
     GetOptionsForFieldRequest$outboundSchema.parse(getOptionsForFieldRequest),
   );
 }
-
 export function getOptionsForFieldRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetOptionsForFieldRequest, SDKValidationError> {

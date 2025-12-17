@@ -22,6 +22,7 @@ let value: UpdateRetrospectiveTemplateRequest = {
     fieldsType: [
       "single_select",
     ],
+    reportElementsType: "prosemirror_content",
   },
 };
 ```

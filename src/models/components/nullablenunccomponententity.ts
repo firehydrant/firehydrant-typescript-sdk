@@ -34,7 +34,6 @@ export const NullableNuncComponentEntity$inboundSchema: z.ZodType<
     "component_group_id": "componentGroupId",
   });
 });
-
 /** @internal */
 export type NullableNuncComponentEntity$Outbound = {
   infrastructure_type?: string | null | undefined;
@@ -63,19 +62,6 @@ export const NullableNuncComponentEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableNuncComponentEntity$ {
-  /** @deprecated use `NullableNuncComponentEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableNuncComponentEntity$inboundSchema;
-  /** @deprecated use `NullableNuncComponentEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableNuncComponentEntity$outboundSchema;
-  /** @deprecated use `NullableNuncComponentEntity$Outbound` instead. */
-  export type Outbound = NullableNuncComponentEntity$Outbound;
-}
-
 export function nullableNuncComponentEntityToJSON(
   nullableNuncComponentEntity: NullableNuncComponentEntity,
 ): string {
@@ -85,7 +71,6 @@ export function nullableNuncComponentEntityToJSON(
     ),
   );
 }
-
 export function nullableNuncComponentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableNuncComponentEntity, SDKValidationError> {

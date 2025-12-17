@@ -30,7 +30,6 @@ export const DeleteOnCallScheduleRotationRequest$inboundSchema: z.ZodType<
     "schedule_id": "scheduleId",
   });
 });
-
 /** @internal */
 export type DeleteOnCallScheduleRotationRequest$Outbound = {
   rotation_id: string;
@@ -55,21 +54,6 @@ export const DeleteOnCallScheduleRotationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteOnCallScheduleRotationRequest$ {
-  /** @deprecated use `DeleteOnCallScheduleRotationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteOnCallScheduleRotationRequest$inboundSchema;
-  /** @deprecated use `DeleteOnCallScheduleRotationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteOnCallScheduleRotationRequest$outboundSchema;
-  /** @deprecated use `DeleteOnCallScheduleRotationRequest$Outbound` instead. */
-  export type Outbound = DeleteOnCallScheduleRotationRequest$Outbound;
-}
-
 export function deleteOnCallScheduleRotationRequestToJSON(
   deleteOnCallScheduleRotationRequest: DeleteOnCallScheduleRotationRequest,
 ): string {
@@ -79,7 +63,6 @@ export function deleteOnCallScheduleRotationRequestToJSON(
     ),
   );
 }
-
 export function deleteOnCallScheduleRotationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteOnCallScheduleRotationRequest, SDKValidationError> {

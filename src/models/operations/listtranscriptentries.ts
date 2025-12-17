@@ -43,22 +43,10 @@ export type ListTranscriptEntriesRequest = {
 export const ListTranscriptEntriesSort$inboundSchema: z.ZodNativeEnum<
   typeof ListTranscriptEntriesSort
 > = z.nativeEnum(ListTranscriptEntriesSort);
-
 /** @internal */
 export const ListTranscriptEntriesSort$outboundSchema: z.ZodNativeEnum<
   typeof ListTranscriptEntriesSort
 > = ListTranscriptEntriesSort$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTranscriptEntriesSort$ {
-  /** @deprecated use `ListTranscriptEntriesSort$inboundSchema` instead. */
-  export const inboundSchema = ListTranscriptEntriesSort$inboundSchema;
-  /** @deprecated use `ListTranscriptEntriesSort$outboundSchema` instead. */
-  export const outboundSchema = ListTranscriptEntriesSort$outboundSchema;
-}
 
 /** @internal */
 export const ListTranscriptEntriesRequest$inboundSchema: z.ZodType<
@@ -75,7 +63,6 @@ export const ListTranscriptEntriesRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListTranscriptEntriesRequest$Outbound = {
   after?: string | null | undefined;
@@ -100,19 +87,6 @@ export const ListTranscriptEntriesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTranscriptEntriesRequest$ {
-  /** @deprecated use `ListTranscriptEntriesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTranscriptEntriesRequest$inboundSchema;
-  /** @deprecated use `ListTranscriptEntriesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTranscriptEntriesRequest$outboundSchema;
-  /** @deprecated use `ListTranscriptEntriesRequest$Outbound` instead. */
-  export type Outbound = ListTranscriptEntriesRequest$Outbound;
-}
-
 export function listTranscriptEntriesRequestToJSON(
   listTranscriptEntriesRequest: ListTranscriptEntriesRequest,
 ): string {
@@ -122,7 +96,6 @@ export function listTranscriptEntriesRequestToJSON(
     ),
   );
 }
-
 export function listTranscriptEntriesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTranscriptEntriesRequest, SDKValidationError> {

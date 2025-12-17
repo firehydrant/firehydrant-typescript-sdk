@@ -19,7 +19,6 @@ export const GetChecklistTemplateRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetChecklistTemplateRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetChecklistTemplateRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetChecklistTemplateRequest$ {
-  /** @deprecated use `GetChecklistTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = GetChecklistTemplateRequest$inboundSchema;
-  /** @deprecated use `GetChecklistTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema = GetChecklistTemplateRequest$outboundSchema;
-  /** @deprecated use `GetChecklistTemplateRequest$Outbound` instead. */
-  export type Outbound = GetChecklistTemplateRequest$Outbound;
-}
-
 export function getChecklistTemplateRequestToJSON(
   getChecklistTemplateRequest: GetChecklistTemplateRequest,
 ): string {
@@ -56,7 +42,6 @@ export function getChecklistTemplateRequestToJSON(
     ),
   );
 }
-
 export function getChecklistTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetChecklistTemplateRequest, SDKValidationError> {

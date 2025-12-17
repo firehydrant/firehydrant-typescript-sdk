@@ -45,7 +45,6 @@ export const ListSignalsEventSourcesRequest$inboundSchema: z.ZodType<
     "user_id": "userId",
   });
 });
-
 /** @internal */
 export type ListSignalsEventSourcesRequest$Outbound = {
   team_id?: string | null | undefined;
@@ -73,19 +72,6 @@ export const ListSignalsEventSourcesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSignalsEventSourcesRequest$ {
-  /** @deprecated use `ListSignalsEventSourcesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSignalsEventSourcesRequest$inboundSchema;
-  /** @deprecated use `ListSignalsEventSourcesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSignalsEventSourcesRequest$outboundSchema;
-  /** @deprecated use `ListSignalsEventSourcesRequest$Outbound` instead. */
-  export type Outbound = ListSignalsEventSourcesRequest$Outbound;
-}
-
 export function listSignalsEventSourcesRequestToJSON(
   listSignalsEventSourcesRequest: ListSignalsEventSourcesRequest,
 ): string {
@@ -95,7 +81,6 @@ export function listSignalsEventSourcesRequestToJSON(
     ),
   );
 }
-
 export function listSignalsEventSourcesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSignalsEventSourcesRequest, SDKValidationError> {

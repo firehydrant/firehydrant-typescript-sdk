@@ -17,6 +17,8 @@ import { statusPagesDeleteNuncSubscription } from "../funcs/statusPagesDeleteNun
 import { statusPagesGetNuncConnection } from "../funcs/statusPagesGetNuncConnection.js";
 import { statusPagesListEmailSubscribers } from "../funcs/statusPagesListEmailSubscribers.js";
 import { statusPagesListNuncConnections } from "../funcs/statusPagesListNuncConnections.js";
+import { statusPagesPublishNuncConnection } from "../funcs/statusPagesPublishNuncConnection.js";
+import { statusPagesUnpublishNuncConnection } from "../funcs/statusPagesUnpublishNuncConnection.js";
 import { statusPagesUpdateNuncComponentGroup } from "../funcs/statusPagesUpdateNuncComponentGroup.js";
 import { statusPagesUpdateNuncConnection } from "../funcs/statusPagesUpdateNuncConnection.js";
 import { statusPagesUpdateNuncImage } from "../funcs/statusPagesUpdateNuncImage.js";
@@ -172,6 +174,40 @@ export class StatusPages extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(statusPagesDeleteNuncConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Unpublish a status page
+   *
+   * @remarks
+   * Unpublish a FireHydrant hosted status page
+   */
+  async unpublishNuncConnection(
+    request: operations.UnpublishNuncConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.NuncConnectionEntity> {
+    return unwrapAsync(statusPagesUnpublishNuncConnection(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Publish a status page
+   *
+   * @remarks
+   * Publish a FireHydrant hosted status page
+   */
+  async publishNuncConnection(
+    request: operations.PublishNuncConnectionRequest,
+    options?: RequestOptions,
+  ): Promise<components.NuncConnectionEntity> {
+    return unwrapAsync(statusPagesPublishNuncConnection(
       this,
       request,
       options,

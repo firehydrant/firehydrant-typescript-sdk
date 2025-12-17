@@ -33,7 +33,6 @@ export const NullableSignalsAPIGroupingEntityActionEntity$inboundSchema:
       NullableSignalsAPIGroupingEntityActionEntityFyiEntity$inboundSchema,
     ).optional(),
   });
-
 /** @internal */
 export type NullableSignalsAPIGroupingEntityActionEntity$Outbound = {
   link?: boolean | null | undefined;
@@ -56,21 +55,6 @@ export const NullableSignalsAPIGroupingEntityActionEntity$outboundSchema:
     ).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIGroupingEntityActionEntity$ {
-  /** @deprecated use `NullableSignalsAPIGroupingEntityActionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIGroupingEntityActionEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityActionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIGroupingEntityActionEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityActionEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPIGroupingEntityActionEntity$Outbound;
-}
-
 export function nullableSignalsAPIGroupingEntityActionEntityToJSON(
   nullableSignalsAPIGroupingEntityActionEntity:
     NullableSignalsAPIGroupingEntityActionEntity,
@@ -81,7 +65,6 @@ export function nullableSignalsAPIGroupingEntityActionEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIGroupingEntityActionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

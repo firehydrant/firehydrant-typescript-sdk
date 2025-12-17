@@ -25,7 +25,6 @@ export const NullableScheduleEntity$inboundSchema: z.ZodType<
   integration: z.nullable(z.string()).optional(),
   discarded: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type NullableScheduleEntity$Outbound = {
   id?: string | null | undefined;
@@ -46,19 +45,6 @@ export const NullableScheduleEntity$outboundSchema: z.ZodType<
   discarded: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableScheduleEntity$ {
-  /** @deprecated use `NullableScheduleEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableScheduleEntity$inboundSchema;
-  /** @deprecated use `NullableScheduleEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableScheduleEntity$outboundSchema;
-  /** @deprecated use `NullableScheduleEntity$Outbound` instead. */
-  export type Outbound = NullableScheduleEntity$Outbound;
-}
-
 export function nullableScheduleEntityToJSON(
   nullableScheduleEntity: NullableScheduleEntity,
 ): string {
@@ -66,7 +52,6 @@ export function nullableScheduleEntityToJSON(
     NullableScheduleEntity$outboundSchema.parse(nullableScheduleEntity),
   );
 }
-
 export function nullableScheduleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableScheduleEntity, SDKValidationError> {

@@ -36,7 +36,6 @@ export const ChecklistTemplateEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(ChecklistTemplateEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type ChecklistTemplateEntityPaginated$Outbound = {
   data?: Array<ChecklistTemplateEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const ChecklistTemplateEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChecklistTemplateEntityPaginated$ {
-  /** @deprecated use `ChecklistTemplateEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = ChecklistTemplateEntityPaginated$inboundSchema;
-  /** @deprecated use `ChecklistTemplateEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = ChecklistTemplateEntityPaginated$outboundSchema;
-  /** @deprecated use `ChecklistTemplateEntityPaginated$Outbound` instead. */
-  export type Outbound = ChecklistTemplateEntityPaginated$Outbound;
-}
-
 export function checklistTemplateEntityPaginatedToJSON(
   checklistTemplateEntityPaginated: ChecklistTemplateEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function checklistTemplateEntityPaginatedToJSON(
     ),
   );
 }
-
 export function checklistTemplateEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<ChecklistTemplateEntityPaginated, SDKValidationError> {

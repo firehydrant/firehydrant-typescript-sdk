@@ -6,7 +6,7 @@
 import { UpdateSavedSearchRequest } from "firehydrant-typescript-sdk/models/operations";
 
 let value: UpdateSavedSearchRequest = {
-  resourceType: "impact_analytics",
+  resourceType: "alerts",
   savedSearchId: "<id>",
   updateSavedSearch: {},
 };

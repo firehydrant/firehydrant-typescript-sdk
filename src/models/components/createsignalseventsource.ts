@@ -61,7 +61,6 @@ export type CreateSignalsEventSource = {
 /** @internal */
 export const Headers$inboundSchema: z.ZodType<Headers, z.ZodTypeDef, unknown> =
   z.object({});
-
 /** @internal */
 export type Headers$Outbound = {};
 
@@ -72,23 +71,9 @@ export const Headers$outboundSchema: z.ZodType<
   Headers
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Headers$ {
-  /** @deprecated use `Headers$inboundSchema` instead. */
-  export const inboundSchema = Headers$inboundSchema;
-  /** @deprecated use `Headers$outboundSchema` instead. */
-  export const outboundSchema = Headers$outboundSchema;
-  /** @deprecated use `Headers$Outbound` instead. */
-  export type Outbound = Headers$Outbound;
-}
-
 export function headersToJSON(headers: Headers): string {
   return JSON.stringify(Headers$outboundSchema.parse(headers));
 }
-
 export function headersFromJSON(
   jsonString: string,
 ): SafeParseResult<Headers, SDKValidationError> {
@@ -105,7 +90,6 @@ export const CreateSignalsEventSourceData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type CreateSignalsEventSourceData$Outbound = {};
 
@@ -116,19 +100,6 @@ export const CreateSignalsEventSourceData$outboundSchema: z.ZodType<
   CreateSignalsEventSourceData
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEventSourceData$ {
-  /** @deprecated use `CreateSignalsEventSourceData$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsEventSourceData$inboundSchema;
-  /** @deprecated use `CreateSignalsEventSourceData$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsEventSourceData$outboundSchema;
-  /** @deprecated use `CreateSignalsEventSourceData$Outbound` instead. */
-  export type Outbound = CreateSignalsEventSourceData$Outbound;
-}
-
 export function createSignalsEventSourceDataToJSON(
   createSignalsEventSourceData: CreateSignalsEventSourceData,
 ): string {
@@ -138,7 +109,6 @@ export function createSignalsEventSourceDataToJSON(
     ),
   );
 }
-
 export function createSignalsEventSourceDataFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSignalsEventSourceData, SDKValidationError> {
@@ -159,7 +129,6 @@ export const CreateSignalsEventSourceExamplePayload$inboundSchema: z.ZodType<
   data: z.nullable(z.lazy(() => CreateSignalsEventSourceData$inboundSchema))
     .optional(),
 });
-
 /** @internal */
 export type CreateSignalsEventSourceExamplePayload$Outbound = {
   headers?: Headers$Outbound | null | undefined;
@@ -177,21 +146,6 @@ export const CreateSignalsEventSourceExamplePayload$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEventSourceExamplePayload$ {
-  /** @deprecated use `CreateSignalsEventSourceExamplePayload$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsEventSourceExamplePayload$inboundSchema;
-  /** @deprecated use `CreateSignalsEventSourceExamplePayload$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsEventSourceExamplePayload$outboundSchema;
-  /** @deprecated use `CreateSignalsEventSourceExamplePayload$Outbound` instead. */
-  export type Outbound = CreateSignalsEventSourceExamplePayload$Outbound;
-}
-
 export function createSignalsEventSourceExamplePayloadToJSON(
   createSignalsEventSourceExamplePayload:
     CreateSignalsEventSourceExamplePayload,
@@ -202,7 +156,6 @@ export function createSignalsEventSourceExamplePayloadToJSON(
     ),
   );
 }
-
 export function createSignalsEventSourceExamplePayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSignalsEventSourceExamplePayload, SDKValidationError> {
@@ -232,7 +185,6 @@ export const CreateSignalsEventSource$inboundSchema: z.ZodType<
     "example_payload": "examplePayload",
   });
 });
-
 /** @internal */
 export type CreateSignalsEventSource$Outbound = {
   name: string;
@@ -261,19 +213,6 @@ export const CreateSignalsEventSource$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEventSource$ {
-  /** @deprecated use `CreateSignalsEventSource$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsEventSource$inboundSchema;
-  /** @deprecated use `CreateSignalsEventSource$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsEventSource$outboundSchema;
-  /** @deprecated use `CreateSignalsEventSource$Outbound` instead. */
-  export type Outbound = CreateSignalsEventSource$Outbound;
-}
-
 export function createSignalsEventSourceToJSON(
   createSignalsEventSource: CreateSignalsEventSource,
 ): string {
@@ -281,7 +220,6 @@ export function createSignalsEventSourceToJSON(
     CreateSignalsEventSource$outboundSchema.parse(createSignalsEventSource),
   );
 }
-
 export function createSignalsEventSourceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSignalsEventSource, SDKValidationError> {

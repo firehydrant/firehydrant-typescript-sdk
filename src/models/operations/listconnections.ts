@@ -27,7 +27,6 @@ export const ListConnectionsRequest$inboundSchema: z.ZodType<
     "integration_slug": "integrationSlug",
   });
 });
-
 /** @internal */
 export type ListConnectionsRequest$Outbound = {
   integration_slug?: string | null | undefined;
@@ -46,19 +45,6 @@ export const ListConnectionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListConnectionsRequest$ {
-  /** @deprecated use `ListConnectionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListConnectionsRequest$inboundSchema;
-  /** @deprecated use `ListConnectionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListConnectionsRequest$outboundSchema;
-  /** @deprecated use `ListConnectionsRequest$Outbound` instead. */
-  export type Outbound = ListConnectionsRequest$Outbound;
-}
-
 export function listConnectionsRequestToJSON(
   listConnectionsRequest: ListConnectionsRequest,
 ): string {
@@ -66,7 +52,6 @@ export function listConnectionsRequestToJSON(
     ListConnectionsRequest$outboundSchema.parse(listConnectionsRequest),
   );
 }
-
 export function listConnectionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListConnectionsRequest, SDKValidationError> {

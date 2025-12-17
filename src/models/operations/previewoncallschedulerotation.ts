@@ -33,7 +33,6 @@ export const PreviewOnCallScheduleRotationRequest$inboundSchema: z.ZodType<
     "preview_on_call_schedule_rotation": "previewOnCallScheduleRotation",
   });
 });
-
 /** @internal */
 export type PreviewOnCallScheduleRotationRequest$Outbound = {
   team_id: string;
@@ -61,21 +60,6 @@ export const PreviewOnCallScheduleRotationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewOnCallScheduleRotationRequest$ {
-  /** @deprecated use `PreviewOnCallScheduleRotationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    PreviewOnCallScheduleRotationRequest$inboundSchema;
-  /** @deprecated use `PreviewOnCallScheduleRotationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    PreviewOnCallScheduleRotationRequest$outboundSchema;
-  /** @deprecated use `PreviewOnCallScheduleRotationRequest$Outbound` instead. */
-  export type Outbound = PreviewOnCallScheduleRotationRequest$Outbound;
-}
-
 export function previewOnCallScheduleRotationRequestToJSON(
   previewOnCallScheduleRotationRequest: PreviewOnCallScheduleRotationRequest,
 ): string {
@@ -85,7 +69,6 @@ export function previewOnCallScheduleRotationRequestToJSON(
     ),
   );
 }
-
 export function previewOnCallScheduleRotationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewOnCallScheduleRotationRequest, SDKValidationError> {

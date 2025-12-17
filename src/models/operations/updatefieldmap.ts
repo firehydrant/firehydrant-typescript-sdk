@@ -24,7 +24,6 @@ export const UpdateFieldMapRequest$inboundSchema: z.ZodType<
     "field_map_id": "fieldMapId",
   });
 });
-
 /** @internal */
 export type UpdateFieldMapRequest$Outbound = {
   field_map_id: string;
@@ -43,19 +42,6 @@ export const UpdateFieldMapRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateFieldMapRequest$ {
-  /** @deprecated use `UpdateFieldMapRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateFieldMapRequest$inboundSchema;
-  /** @deprecated use `UpdateFieldMapRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateFieldMapRequest$outboundSchema;
-  /** @deprecated use `UpdateFieldMapRequest$Outbound` instead. */
-  export type Outbound = UpdateFieldMapRequest$Outbound;
-}
-
 export function updateFieldMapRequestToJSON(
   updateFieldMapRequest: UpdateFieldMapRequest,
 ): string {
@@ -63,7 +49,6 @@ export function updateFieldMapRequestToJSON(
     UpdateFieldMapRequest$outboundSchema.parse(updateFieldMapRequest),
   );
 }
-
 export function updateFieldMapRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateFieldMapRequest, SDKValidationError> {

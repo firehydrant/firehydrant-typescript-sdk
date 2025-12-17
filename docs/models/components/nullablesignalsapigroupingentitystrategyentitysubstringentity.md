@@ -14,3 +14,5 @@ let value: NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity = {};
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `fieldName`        | *string*           | :heavy_minus_sign: | N/A                |
 | `value`            | *string*           | :heavy_minus_sign: | N/A                |
+| `values`           | *string*[]         | :heavy_minus_sign: | N/A                |
+| `matchType`        | *string*           | :heavy_minus_sign: | N/A                |

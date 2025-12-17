@@ -24,7 +24,6 @@ export const ListLifecycleMeasurementDefinitionsRequest$inboundSchema:
         "per_page": "perPage",
       });
     });
-
 /** @internal */
 export type ListLifecycleMeasurementDefinitionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -46,21 +45,6 @@ export const ListLifecycleMeasurementDefinitionsRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListLifecycleMeasurementDefinitionsRequest$ {
-  /** @deprecated use `ListLifecycleMeasurementDefinitionsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListLifecycleMeasurementDefinitionsRequest$inboundSchema;
-  /** @deprecated use `ListLifecycleMeasurementDefinitionsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListLifecycleMeasurementDefinitionsRequest$outboundSchema;
-  /** @deprecated use `ListLifecycleMeasurementDefinitionsRequest$Outbound` instead. */
-  export type Outbound = ListLifecycleMeasurementDefinitionsRequest$Outbound;
-}
-
 export function listLifecycleMeasurementDefinitionsRequestToJSON(
   listLifecycleMeasurementDefinitionsRequest:
     ListLifecycleMeasurementDefinitionsRequest,
@@ -71,7 +55,6 @@ export function listLifecycleMeasurementDefinitionsRequestToJSON(
     ),
   );
 }
-
 export function listLifecycleMeasurementDefinitionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

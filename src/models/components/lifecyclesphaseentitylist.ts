@@ -28,7 +28,6 @@ export const LifecyclesPhaseEntityList$inboundSchema: z.ZodType<
 > = z.object({
   data: z.nullable(z.array(LifecyclesPhaseEntity$inboundSchema)).optional(),
 });
-
 /** @internal */
 export type LifecyclesPhaseEntityList$Outbound = {
   data?: Array<LifecyclesPhaseEntity$Outbound> | null | undefined;
@@ -43,19 +42,6 @@ export const LifecyclesPhaseEntityList$outboundSchema: z.ZodType<
   data: z.nullable(z.array(LifecyclesPhaseEntity$outboundSchema)).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LifecyclesPhaseEntityList$ {
-  /** @deprecated use `LifecyclesPhaseEntityList$inboundSchema` instead. */
-  export const inboundSchema = LifecyclesPhaseEntityList$inboundSchema;
-  /** @deprecated use `LifecyclesPhaseEntityList$outboundSchema` instead. */
-  export const outboundSchema = LifecyclesPhaseEntityList$outboundSchema;
-  /** @deprecated use `LifecyclesPhaseEntityList$Outbound` instead. */
-  export type Outbound = LifecyclesPhaseEntityList$Outbound;
-}
-
 export function lifecyclesPhaseEntityListToJSON(
   lifecyclesPhaseEntityList: LifecyclesPhaseEntityList,
 ): string {
@@ -63,7 +49,6 @@ export function lifecyclesPhaseEntityListToJSON(
     LifecyclesPhaseEntityList$outboundSchema.parse(lifecyclesPhaseEntityList),
   );
 }
-
 export function lifecyclesPhaseEntityListFromJSON(
   jsonString: string,
 ): SafeParseResult<LifecyclesPhaseEntityList, SDKValidationError> {

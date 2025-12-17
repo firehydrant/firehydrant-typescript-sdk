@@ -42,7 +42,6 @@ export const NullableSignalsAPICallRouteStepEntity$inboundSchema: z.ZodType<
     "on_call_rotation": "onCallRotation",
   });
 });
-
 /** @internal */
 export type NullableSignalsAPICallRouteStepEntity$Outbound = {
   target?: NullableSignalsAPITargetEntity$Outbound | null | undefined;
@@ -67,21 +66,6 @@ export const NullableSignalsAPICallRouteStepEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPICallRouteStepEntity$ {
-  /** @deprecated use `NullableSignalsAPICallRouteStepEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPICallRouteStepEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPICallRouteStepEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPICallRouteStepEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPICallRouteStepEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPICallRouteStepEntity$Outbound;
-}
-
 export function nullableSignalsAPICallRouteStepEntityToJSON(
   nullableSignalsAPICallRouteStepEntity: NullableSignalsAPICallRouteStepEntity,
 ): string {
@@ -91,7 +75,6 @@ export function nullableSignalsAPICallRouteStepEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPICallRouteStepEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSignalsAPICallRouteStepEntity, SDKValidationError> {

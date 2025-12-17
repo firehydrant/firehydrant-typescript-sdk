@@ -24,7 +24,6 @@ export const InfrastructureSearchEntity$inboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   infrastructure: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type InfrastructureSearchEntity$Outbound = {
   type?: string | null | undefined;
@@ -41,19 +40,6 @@ export const InfrastructureSearchEntity$outboundSchema: z.ZodType<
   infrastructure: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InfrastructureSearchEntity$ {
-  /** @deprecated use `InfrastructureSearchEntity$inboundSchema` instead. */
-  export const inboundSchema = InfrastructureSearchEntity$inboundSchema;
-  /** @deprecated use `InfrastructureSearchEntity$outboundSchema` instead. */
-  export const outboundSchema = InfrastructureSearchEntity$outboundSchema;
-  /** @deprecated use `InfrastructureSearchEntity$Outbound` instead. */
-  export type Outbound = InfrastructureSearchEntity$Outbound;
-}
-
 export function infrastructureSearchEntityToJSON(
   infrastructureSearchEntity: InfrastructureSearchEntity,
 ): string {
@@ -61,7 +47,6 @@ export function infrastructureSearchEntityToJSON(
     InfrastructureSearchEntity$outboundSchema.parse(infrastructureSearchEntity),
   );
 }
-
 export function infrastructureSearchEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<InfrastructureSearchEntity, SDKValidationError> {

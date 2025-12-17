@@ -67,6 +67,10 @@ export type FunctionalityEntity = {
    */
   links?: Array<LinksEntity> | null | undefined;
   owner?: NullableTeamEntityLite | null | undefined;
+  /**
+   * Integer representing functionality tier (0-5, lower is more critical)
+   */
+  serviceTier?: number | null | undefined;
   alertOnAdd?: boolean | null | undefined;
   autoAddRespondingTeam?: boolean | null | undefined;
   updatedBy?: NullableAuthorEntity | null | undefined;
@@ -104,6 +108,7 @@ export const FunctionalityEntity$inboundSchema: z.ZodType<
   active_incidents: z.nullable(z.array(z.string())).optional(),
   links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
   owner: z.nullable(NullableTeamEntityLite$inboundSchema).optional(),
+  service_tier: z.nullable(z.number().int()).optional(),
   alert_on_add: z.nullable(z.boolean()).optional(),
   auto_add_responding_team: z.nullable(z.boolean()).optional(),
   updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
@@ -116,13 +121,13 @@ export const FunctionalityEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "updated_at": "updatedAt",
     "active_incidents": "activeIncidents",
+    "service_tier": "serviceTier",
     "alert_on_add": "alertOnAdd",
     "auto_add_responding_team": "autoAddRespondingTeam",
     "updated_by": "updatedBy",
     "external_resources": "externalResources",
   });
 });
-
 /** @internal */
 export type FunctionalityEntity$Outbound = {
   id?: string | null | undefined;
@@ -135,6 +140,7 @@ export type FunctionalityEntity$Outbound = {
   active_incidents?: Array<string> | null | undefined;
   links?: Array<LinksEntity$Outbound> | null | undefined;
   owner?: NullableTeamEntityLite$Outbound | null | undefined;
+  service_tier?: number | null | undefined;
   alert_on_add?: boolean | null | undefined;
   auto_add_responding_team?: boolean | null | undefined;
   updated_by?: NullableAuthorEntity$Outbound | null | undefined;
@@ -162,6 +168,7 @@ export const FunctionalityEntity$outboundSchema: z.ZodType<
   activeIncidents: z.nullable(z.array(z.string())).optional(),
   links: z.nullable(z.array(LinksEntity$outboundSchema)).optional(),
   owner: z.nullable(NullableTeamEntityLite$outboundSchema).optional(),
+  serviceTier: z.nullable(z.number().int()).optional(),
   alertOnAdd: z.nullable(z.boolean()).optional(),
   autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
   updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
@@ -174,25 +181,13 @@ export const FunctionalityEntity$outboundSchema: z.ZodType<
     createdAt: "created_at",
     updatedAt: "updated_at",
     activeIncidents: "active_incidents",
+    serviceTier: "service_tier",
     alertOnAdd: "alert_on_add",
     autoAddRespondingTeam: "auto_add_responding_team",
     updatedBy: "updated_by",
     externalResources: "external_resources",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FunctionalityEntity$ {
-  /** @deprecated use `FunctionalityEntity$inboundSchema` instead. */
-  export const inboundSchema = FunctionalityEntity$inboundSchema;
-  /** @deprecated use `FunctionalityEntity$outboundSchema` instead. */
-  export const outboundSchema = FunctionalityEntity$outboundSchema;
-  /** @deprecated use `FunctionalityEntity$Outbound` instead. */
-  export type Outbound = FunctionalityEntity$Outbound;
-}
 
 export function functionalityEntityToJSON(
   functionalityEntity: FunctionalityEntity,
@@ -201,7 +196,6 @@ export function functionalityEntityToJSON(
     FunctionalityEntity$outboundSchema.parse(functionalityEntity),
   );
 }
-
 export function functionalityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<FunctionalityEntity, SDKValidationError> {

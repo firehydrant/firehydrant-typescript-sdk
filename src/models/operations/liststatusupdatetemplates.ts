@@ -26,7 +26,6 @@ export const ListStatusUpdateTemplatesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListStatusUpdateTemplatesRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListStatusUpdateTemplatesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListStatusUpdateTemplatesRequest$ {
-  /** @deprecated use `ListStatusUpdateTemplatesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListStatusUpdateTemplatesRequest$inboundSchema;
-  /** @deprecated use `ListStatusUpdateTemplatesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListStatusUpdateTemplatesRequest$outboundSchema;
-  /** @deprecated use `ListStatusUpdateTemplatesRequest$Outbound` instead. */
-  export type Outbound = ListStatusUpdateTemplatesRequest$Outbound;
-}
-
 export function listStatusUpdateTemplatesRequestToJSON(
   listStatusUpdateTemplatesRequest: ListStatusUpdateTemplatesRequest,
 ): string {
@@ -69,7 +55,6 @@ export function listStatusUpdateTemplatesRequestToJSON(
     ),
   );
 }
-
 export function listStatusUpdateTemplatesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListStatusUpdateTemplatesRequest, SDKValidationError> {

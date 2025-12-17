@@ -20,7 +20,6 @@ export const GetSignalsAlertGroupingConfigurationRequest$inboundSchema:
   > = z.object({
     id: z.string(),
   });
-
 /** @internal */
 export type GetSignalsAlertGroupingConfigurationRequest$Outbound = {
   id: string;
@@ -36,21 +35,6 @@ export const GetSignalsAlertGroupingConfigurationRequest$outboundSchema:
     id: z.string(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsAlertGroupingConfigurationRequest$ {
-  /** @deprecated use `GetSignalsAlertGroupingConfigurationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsAlertGroupingConfigurationRequest$inboundSchema;
-  /** @deprecated use `GetSignalsAlertGroupingConfigurationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsAlertGroupingConfigurationRequest$outboundSchema;
-  /** @deprecated use `GetSignalsAlertGroupingConfigurationRequest$Outbound` instead. */
-  export type Outbound = GetSignalsAlertGroupingConfigurationRequest$Outbound;
-}
-
 export function getSignalsAlertGroupingConfigurationRequestToJSON(
   getSignalsAlertGroupingConfigurationRequest:
     GetSignalsAlertGroupingConfigurationRequest,
@@ -61,7 +45,6 @@ export function getSignalsAlertGroupingConfigurationRequestToJSON(
     ),
   );
 }
-
 export function getSignalsAlertGroupingConfigurationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

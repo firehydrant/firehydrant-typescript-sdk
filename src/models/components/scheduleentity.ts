@@ -25,7 +25,6 @@ export const ScheduleEntity$inboundSchema: z.ZodType<
   integration: z.nullable(z.string()).optional(),
   discarded: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type ScheduleEntity$Outbound = {
   id?: string | null | undefined;
@@ -46,23 +45,9 @@ export const ScheduleEntity$outboundSchema: z.ZodType<
   discarded: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ScheduleEntity$ {
-  /** @deprecated use `ScheduleEntity$inboundSchema` instead. */
-  export const inboundSchema = ScheduleEntity$inboundSchema;
-  /** @deprecated use `ScheduleEntity$outboundSchema` instead. */
-  export const outboundSchema = ScheduleEntity$outboundSchema;
-  /** @deprecated use `ScheduleEntity$Outbound` instead. */
-  export type Outbound = ScheduleEntity$Outbound;
-}
-
 export function scheduleEntityToJSON(scheduleEntity: ScheduleEntity): string {
   return JSON.stringify(ScheduleEntity$outboundSchema.parse(scheduleEntity));
 }
-
 export function scheduleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ScheduleEntity, SDKValidationError> {

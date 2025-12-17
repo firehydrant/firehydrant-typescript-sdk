@@ -33,7 +33,6 @@ export const EventGenericChatMessageEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
   });
 });
-
 /** @internal */
 export type EventGenericChatMessageEntity$Outbound = {
   id?: string | null | undefined;
@@ -56,19 +55,6 @@ export const EventGenericChatMessageEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventGenericChatMessageEntity$ {
-  /** @deprecated use `EventGenericChatMessageEntity$inboundSchema` instead. */
-  export const inboundSchema = EventGenericChatMessageEntity$inboundSchema;
-  /** @deprecated use `EventGenericChatMessageEntity$outboundSchema` instead. */
-  export const outboundSchema = EventGenericChatMessageEntity$outboundSchema;
-  /** @deprecated use `EventGenericChatMessageEntity$Outbound` instead. */
-  export type Outbound = EventGenericChatMessageEntity$Outbound;
-}
-
 export function eventGenericChatMessageEntityToJSON(
   eventGenericChatMessageEntity: EventGenericChatMessageEntity,
 ): string {
@@ -78,7 +64,6 @@ export function eventGenericChatMessageEntityToJSON(
     ),
   );
 }
-
 export function eventGenericChatMessageEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<EventGenericChatMessageEntity, SDKValidationError> {

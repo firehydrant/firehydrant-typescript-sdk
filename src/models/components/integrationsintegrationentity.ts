@@ -68,7 +68,6 @@ export const IntegrationsIntegrationEntity$inboundSchema: z.ZodType<
     "nat_ip": "natIp",
   });
 });
-
 /** @internal */
 export type IntegrationsIntegrationEntity$Outbound = {
   id?: string | null | undefined;
@@ -117,19 +116,6 @@ export const IntegrationsIntegrationEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsIntegrationEntity$ {
-  /** @deprecated use `IntegrationsIntegrationEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsIntegrationEntity$inboundSchema;
-  /** @deprecated use `IntegrationsIntegrationEntity$outboundSchema` instead. */
-  export const outboundSchema = IntegrationsIntegrationEntity$outboundSchema;
-  /** @deprecated use `IntegrationsIntegrationEntity$Outbound` instead. */
-  export type Outbound = IntegrationsIntegrationEntity$Outbound;
-}
-
 export function integrationsIntegrationEntityToJSON(
   integrationsIntegrationEntity: IntegrationsIntegrationEntity,
 ): string {
@@ -139,7 +125,6 @@ export function integrationsIntegrationEntityToJSON(
     ),
   );
 }
-
 export function integrationsIntegrationEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsIntegrationEntity, SDKValidationError> {

@@ -21,7 +21,6 @@ export const NullableSuccinctEntity$inboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NullableSuccinctEntity$Outbound = {
   id?: string | null | undefined;
@@ -38,19 +37,6 @@ export const NullableSuccinctEntity$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSuccinctEntity$ {
-  /** @deprecated use `NullableSuccinctEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableSuccinctEntity$inboundSchema;
-  /** @deprecated use `NullableSuccinctEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableSuccinctEntity$outboundSchema;
-  /** @deprecated use `NullableSuccinctEntity$Outbound` instead. */
-  export type Outbound = NullableSuccinctEntity$Outbound;
-}
-
 export function nullableSuccinctEntityToJSON(
   nullableSuccinctEntity: NullableSuccinctEntity,
 ): string {
@@ -58,7 +44,6 @@ export function nullableSuccinctEntityToJSON(
     NullableSuccinctEntity$outboundSchema.parse(nullableSuccinctEntity),
   );
 }
-
 export function nullableSuccinctEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSuccinctEntity, SDKValidationError> {

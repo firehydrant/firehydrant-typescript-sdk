@@ -27,7 +27,6 @@ export const DeleteIncidentLinkRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type DeleteIncidentLinkRequest$Outbound = {
   link_id: string;
@@ -49,19 +48,6 @@ export const DeleteIncidentLinkRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentLinkRequest$ {
-  /** @deprecated use `DeleteIncidentLinkRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteIncidentLinkRequest$inboundSchema;
-  /** @deprecated use `DeleteIncidentLinkRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteIncidentLinkRequest$outboundSchema;
-  /** @deprecated use `DeleteIncidentLinkRequest$Outbound` instead. */
-  export type Outbound = DeleteIncidentLinkRequest$Outbound;
-}
-
 export function deleteIncidentLinkRequestToJSON(
   deleteIncidentLinkRequest: DeleteIncidentLinkRequest,
 ): string {
@@ -69,7 +55,6 @@ export function deleteIncidentLinkRequestToJSON(
     DeleteIncidentLinkRequest$outboundSchema.parse(deleteIncidentLinkRequest),
   );
 }
-
 export function deleteIncidentLinkRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteIncidentLinkRequest, SDKValidationError> {

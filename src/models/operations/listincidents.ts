@@ -151,28 +151,20 @@ export type ListIncidentsRequest = {
    * A comma separated list of retrospective template IDs
    */
   retrospectiveTemplates?: string | null | undefined;
+  /**
+   * A comma separated list of runbook IDs
+   */
+  attachedRunbooks?: string | null | undefined;
 };
 
 /** @internal */
 export const ListIncidentsTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
   typeof ListIncidentsTagMatchStrategy
 > = z.nativeEnum(ListIncidentsTagMatchStrategy);
-
 /** @internal */
 export const ListIncidentsTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
   typeof ListIncidentsTagMatchStrategy
 > = ListIncidentsTagMatchStrategy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentsTagMatchStrategy$ {
-  /** @deprecated use `ListIncidentsTagMatchStrategy$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentsTagMatchStrategy$inboundSchema;
-  /** @deprecated use `ListIncidentsTagMatchStrategy$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentsTagMatchStrategy$outboundSchema;
-}
 
 /** @internal */
 export const ListIncidentsRequest$inboundSchema: z.ZodType<
@@ -234,6 +226,7 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
   ).optional(),
   incident_type_id: z.nullable(z.string()).optional(),
   retrospective_templates: z.nullable(z.string()).optional(),
+  attached_runbooks: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
@@ -256,9 +249,9 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     "updated_before": "updatedBefore",
     "incident_type_id": "incidentTypeId",
     "retrospective_templates": "retrospectiveTemplates",
+    "attached_runbooks": "attachedRunbooks",
   });
 });
-
 /** @internal */
 export type ListIncidentsRequest$Outbound = {
   page?: number | null | undefined;
@@ -294,6 +287,7 @@ export type ListIncidentsRequest$Outbound = {
   updated_before?: string | null | undefined;
   incident_type_id?: string | null | undefined;
   retrospective_templates?: string | null | undefined;
+  attached_runbooks?: string | null | undefined;
 };
 
 /** @internal */
@@ -343,6 +337,7 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
     .optional(),
   incidentTypeId: z.nullable(z.string()).optional(),
   retrospectiveTemplates: z.nullable(z.string()).optional(),
+  attachedRunbooks: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",
@@ -365,21 +360,9 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
     updatedBefore: "updated_before",
     incidentTypeId: "incident_type_id",
     retrospectiveTemplates: "retrospective_templates",
+    attachedRunbooks: "attached_runbooks",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentsRequest$ {
-  /** @deprecated use `ListIncidentsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentsRequest$Outbound;
-}
 
 export function listIncidentsRequestToJSON(
   listIncidentsRequest: ListIncidentsRequest,
@@ -388,7 +371,6 @@ export function listIncidentsRequestToJSON(
     ListIncidentsRequest$outboundSchema.parse(listIncidentsRequest),
   );
 }
-
 export function listIncidentsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentsRequest, SDKValidationError> {

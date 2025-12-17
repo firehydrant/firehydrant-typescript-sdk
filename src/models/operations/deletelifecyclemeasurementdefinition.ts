@@ -25,7 +25,6 @@ export const DeleteLifecycleMeasurementDefinitionRequest$inboundSchema:
       "measurement_definition_id": "measurementDefinitionId",
     });
   });
-
 /** @internal */
 export type DeleteLifecycleMeasurementDefinitionRequest$Outbound = {
   measurement_definition_id: string;
@@ -45,21 +44,6 @@ export const DeleteLifecycleMeasurementDefinitionRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteLifecycleMeasurementDefinitionRequest$ {
-  /** @deprecated use `DeleteLifecycleMeasurementDefinitionRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteLifecycleMeasurementDefinitionRequest$inboundSchema;
-  /** @deprecated use `DeleteLifecycleMeasurementDefinitionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteLifecycleMeasurementDefinitionRequest$outboundSchema;
-  /** @deprecated use `DeleteLifecycleMeasurementDefinitionRequest$Outbound` instead. */
-  export type Outbound = DeleteLifecycleMeasurementDefinitionRequest$Outbound;
-}
-
 export function deleteLifecycleMeasurementDefinitionRequestToJSON(
   deleteLifecycleMeasurementDefinitionRequest:
     DeleteLifecycleMeasurementDefinitionRequest,
@@ -70,7 +54,6 @@ export function deleteLifecycleMeasurementDefinitionRequestToJSON(
     ),
   );
 }
-
 export function deleteLifecycleMeasurementDefinitionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

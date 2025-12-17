@@ -29,7 +29,6 @@ export const UpdateTicketingPriorityRequest$inboundSchema: z.ZodType<
     "update_ticketing_priority": "updateTicketingPriority",
   });
 });
-
 /** @internal */
 export type UpdateTicketingPriorityRequest$Outbound = {
   id: string;
@@ -52,19 +51,6 @@ export const UpdateTicketingPriorityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTicketingPriorityRequest$ {
-  /** @deprecated use `UpdateTicketingPriorityRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateTicketingPriorityRequest$inboundSchema;
-  /** @deprecated use `UpdateTicketingPriorityRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateTicketingPriorityRequest$outboundSchema;
-  /** @deprecated use `UpdateTicketingPriorityRequest$Outbound` instead. */
-  export type Outbound = UpdateTicketingPriorityRequest$Outbound;
-}
-
 export function updateTicketingPriorityRequestToJSON(
   updateTicketingPriorityRequest: UpdateTicketingPriorityRequest,
 ): string {
@@ -74,7 +60,6 @@ export function updateTicketingPriorityRequestToJSON(
     ),
   );
 }
-
 export function updateTicketingPriorityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTicketingPriorityRequest, SDKValidationError> {

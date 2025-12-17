@@ -34,21 +34,9 @@ export type ListInboundFieldMapsRequest = {
 /** @internal */
 export const TicketType$inboundSchema: z.ZodNativeEnum<typeof TicketType> = z
   .nativeEnum(TicketType);
-
 /** @internal */
 export const TicketType$outboundSchema: z.ZodNativeEnum<typeof TicketType> =
   TicketType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketType$ {
-  /** @deprecated use `TicketType$inboundSchema` instead. */
-  export const inboundSchema = TicketType$inboundSchema;
-  /** @deprecated use `TicketType$outboundSchema` instead. */
-  export const outboundSchema = TicketType$outboundSchema;
-}
 
 /** @internal */
 export const ListInboundFieldMapsRequest$inboundSchema: z.ZodType<
@@ -67,7 +55,6 @@ export const ListInboundFieldMapsRequest$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type ListInboundFieldMapsRequest$Outbound = {
   page?: number | null | undefined;
@@ -94,19 +81,6 @@ export const ListInboundFieldMapsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListInboundFieldMapsRequest$ {
-  /** @deprecated use `ListInboundFieldMapsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListInboundFieldMapsRequest$inboundSchema;
-  /** @deprecated use `ListInboundFieldMapsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListInboundFieldMapsRequest$outboundSchema;
-  /** @deprecated use `ListInboundFieldMapsRequest$Outbound` instead. */
-  export type Outbound = ListInboundFieldMapsRequest$Outbound;
-}
-
 export function listInboundFieldMapsRequestToJSON(
   listInboundFieldMapsRequest: ListInboundFieldMapsRequest,
 ): string {
@@ -116,7 +90,6 @@ export function listInboundFieldMapsRequestToJSON(
     ),
   );
 }
-
 export function listInboundFieldMapsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListInboundFieldMapsRequest, SDKValidationError> {

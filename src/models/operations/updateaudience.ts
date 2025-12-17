@@ -73,7 +73,6 @@ export const UpdateAudienceRequestBody$inboundSchema: z.ZodType<
     "details[position]": "detailsPosition",
   });
 });
-
 /** @internal */
 export type UpdateAudienceRequestBody$Outbound = {
   name?: string | null | undefined;
@@ -109,19 +108,6 @@ export const UpdateAudienceRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAudienceRequestBody$ {
-  /** @deprecated use `UpdateAudienceRequestBody$inboundSchema` instead. */
-  export const inboundSchema = UpdateAudienceRequestBody$inboundSchema;
-  /** @deprecated use `UpdateAudienceRequestBody$outboundSchema` instead. */
-  export const outboundSchema = UpdateAudienceRequestBody$outboundSchema;
-  /** @deprecated use `UpdateAudienceRequestBody$Outbound` instead. */
-  export type Outbound = UpdateAudienceRequestBody$Outbound;
-}
-
 export function updateAudienceRequestBodyToJSON(
   updateAudienceRequestBody: UpdateAudienceRequestBody,
 ): string {
@@ -129,7 +115,6 @@ export function updateAudienceRequestBodyToJSON(
     UpdateAudienceRequestBody$outboundSchema.parse(updateAudienceRequestBody),
   );
 }
-
 export function updateAudienceRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAudienceRequestBody, SDKValidationError> {
@@ -154,7 +139,6 @@ export const UpdateAudienceRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateAudienceRequest$Outbound = {
   audience_id: string;
@@ -177,19 +161,6 @@ export const UpdateAudienceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAudienceRequest$ {
-  /** @deprecated use `UpdateAudienceRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateAudienceRequest$inboundSchema;
-  /** @deprecated use `UpdateAudienceRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateAudienceRequest$outboundSchema;
-  /** @deprecated use `UpdateAudienceRequest$Outbound` instead. */
-  export type Outbound = UpdateAudienceRequest$Outbound;
-}
-
 export function updateAudienceRequestToJSON(
   updateAudienceRequest: UpdateAudienceRequest,
 ): string {
@@ -197,7 +168,6 @@ export function updateAudienceRequestToJSON(
     UpdateAudienceRequest$outboundSchema.parse(updateAudienceRequest),
   );
 }
-
 export function updateAudienceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAudienceRequest, SDKValidationError> {

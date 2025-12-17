@@ -53,7 +53,6 @@ export const EventNoteEntity$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type EventNoteEntity$Outbound = {
   id?: string | null | undefined;
@@ -87,25 +86,11 @@ export const EventNoteEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventNoteEntity$ {
-  /** @deprecated use `EventNoteEntity$inboundSchema` instead. */
-  export const inboundSchema = EventNoteEntity$inboundSchema;
-  /** @deprecated use `EventNoteEntity$outboundSchema` instead. */
-  export const outboundSchema = EventNoteEntity$outboundSchema;
-  /** @deprecated use `EventNoteEntity$Outbound` instead. */
-  export type Outbound = EventNoteEntity$Outbound;
-}
-
 export function eventNoteEntityToJSON(
   eventNoteEntity: EventNoteEntity,
 ): string {
   return JSON.stringify(EventNoteEntity$outboundSchema.parse(eventNoteEntity));
 }
-
 export function eventNoteEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<EventNoteEntity, SDKValidationError> {

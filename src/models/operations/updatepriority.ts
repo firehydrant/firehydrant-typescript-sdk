@@ -28,7 +28,6 @@ export const UpdatePriorityRequest$inboundSchema: z.ZodType<
     "update_priority": "updatePriority",
   });
 });
-
 /** @internal */
 export type UpdatePriorityRequest$Outbound = {
   priority_slug: string;
@@ -50,19 +49,6 @@ export const UpdatePriorityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePriorityRequest$ {
-  /** @deprecated use `UpdatePriorityRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdatePriorityRequest$inboundSchema;
-  /** @deprecated use `UpdatePriorityRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdatePriorityRequest$outboundSchema;
-  /** @deprecated use `UpdatePriorityRequest$Outbound` instead. */
-  export type Outbound = UpdatePriorityRequest$Outbound;
-}
-
 export function updatePriorityRequestToJSON(
   updatePriorityRequest: UpdatePriorityRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updatePriorityRequestToJSON(
     UpdatePriorityRequest$outboundSchema.parse(updatePriorityRequest),
   );
 }
-
 export function updatePriorityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePriorityRequest, SDKValidationError> {

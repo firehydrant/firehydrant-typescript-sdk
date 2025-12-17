@@ -11,6 +11,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity = {
   fieldName?: string | null | undefined;
   value?: string | null | undefined;
+  values?: Array<string> | null | undefined;
+  matchType?: string | null | undefined;
 };
 
 /** @internal */
@@ -22,17 +24,21 @@ export const NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$inbou
   > = z.object({
     field_name: z.nullable(z.string()).optional(),
     value: z.nullable(z.string()).optional(),
+    values: z.nullable(z.array(z.string())).optional(),
+    match_type: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {
       "field_name": "fieldName",
+      "match_type": "matchType",
     });
   });
-
 /** @internal */
 export type NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$Outbound =
   {
     field_name?: string | null | undefined;
     value?: string | null | undefined;
+    values?: Array<string> | null | undefined;
+    match_type?: string | null | undefined;
   };
 
 /** @internal */
@@ -44,27 +50,14 @@ export const NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$outbo
   > = z.object({
     fieldName: z.nullable(z.string()).optional(),
     value: z.nullable(z.string()).optional(),
+    values: z.nullable(z.array(z.string())).optional(),
+    matchType: z.nullable(z.string()).optional(),
   }).transform((v) => {
     return remap$(v, {
       fieldName: "field_name",
+      matchType: "match_type",
     });
   });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$ {
-  /** @deprecated use `NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$Outbound;
-}
 
 export function nullableSignalsAPIGroupingEntityStrategyEntitySubstringEntityToJSON(
   nullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity:
@@ -75,7 +68,6 @@ export function nullableSignalsAPIGroupingEntityStrategyEntitySubstringEntityToJ
       .parse(nullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity),
   );
 }
-
 export function nullableSignalsAPIGroupingEntityStrategyEntitySubstringEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

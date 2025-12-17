@@ -35,7 +35,6 @@ export const IncidentsRelatedChangeEventEntityPaginated$inboundSchema:
         .optional(),
       pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
     });
-
 /** @internal */
 export type IncidentsRelatedChangeEventEntityPaginated$Outbound = {
   data?: Array<IncidentsRelatedChangeEventEntity$Outbound> | null | undefined;
@@ -54,21 +53,6 @@ export const IncidentsRelatedChangeEventEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRelatedChangeEventEntityPaginated$ {
-  /** @deprecated use `IncidentsRelatedChangeEventEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRelatedChangeEventEntityPaginated$inboundSchema;
-  /** @deprecated use `IncidentsRelatedChangeEventEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRelatedChangeEventEntityPaginated$outboundSchema;
-  /** @deprecated use `IncidentsRelatedChangeEventEntityPaginated$Outbound` instead. */
-  export type Outbound = IncidentsRelatedChangeEventEntityPaginated$Outbound;
-}
-
 export function incidentsRelatedChangeEventEntityPaginatedToJSON(
   incidentsRelatedChangeEventEntityPaginated:
     IncidentsRelatedChangeEventEntityPaginated,
@@ -79,7 +63,6 @@ export function incidentsRelatedChangeEventEntityPaginatedToJSON(
     ),
   );
 }
-
 export function incidentsRelatedChangeEventEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

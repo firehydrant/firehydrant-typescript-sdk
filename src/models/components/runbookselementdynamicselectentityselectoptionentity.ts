@@ -22,7 +22,6 @@ export const RunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema:
     label: z.nullable(z.string()).optional(),
     value: z.nullable(z.string()).optional(),
   });
-
 /** @internal */
 export type RunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound = {
   label?: string | null | undefined;
@@ -40,22 +39,6 @@ export const RunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema
     value: z.nullable(z.string()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksElementDynamicSelectEntitySelectOptionEntity$ {
-  /** @deprecated use `RunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    RunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema;
-  /** @deprecated use `RunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    RunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema;
-  /** @deprecated use `RunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound` instead. */
-  export type Outbound =
-    RunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound;
-}
-
 export function runbooksElementDynamicSelectEntitySelectOptionEntityToJSON(
   runbooksElementDynamicSelectEntitySelectOptionEntity:
     RunbooksElementDynamicSelectEntitySelectOptionEntity,
@@ -66,7 +49,6 @@ export function runbooksElementDynamicSelectEntitySelectOptionEntityToJSON(
     ),
   );
 }
-
 export function runbooksElementDynamicSelectEntitySelectOptionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

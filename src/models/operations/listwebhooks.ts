@@ -26,7 +26,6 @@ export const ListWebhooksRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListWebhooksRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListWebhooksRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListWebhooksRequest$ {
-  /** @deprecated use `ListWebhooksRequest$inboundSchema` instead. */
-  export const inboundSchema = ListWebhooksRequest$inboundSchema;
-  /** @deprecated use `ListWebhooksRequest$outboundSchema` instead. */
-  export const outboundSchema = ListWebhooksRequest$outboundSchema;
-  /** @deprecated use `ListWebhooksRequest$Outbound` instead. */
-  export type Outbound = ListWebhooksRequest$Outbound;
-}
-
 export function listWebhooksRequestToJSON(
   listWebhooksRequest: ListWebhooksRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listWebhooksRequestToJSON(
     ListWebhooksRequest$outboundSchema.parse(listWebhooksRequest),
   );
 }
-
 export function listWebhooksRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListWebhooksRequest, SDKValidationError> {

@@ -45,7 +45,6 @@ export const GetRunbookActionFieldOptionsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type GetRunbookActionFieldOptionsRequest$Outbound = {
   integration_slug: string;
@@ -76,21 +75,6 @@ export const GetRunbookActionFieldOptionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetRunbookActionFieldOptionsRequest$ {
-  /** @deprecated use `GetRunbookActionFieldOptionsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetRunbookActionFieldOptionsRequest$inboundSchema;
-  /** @deprecated use `GetRunbookActionFieldOptionsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetRunbookActionFieldOptionsRequest$outboundSchema;
-  /** @deprecated use `GetRunbookActionFieldOptionsRequest$Outbound` instead. */
-  export type Outbound = GetRunbookActionFieldOptionsRequest$Outbound;
-}
-
 export function getRunbookActionFieldOptionsRequestToJSON(
   getRunbookActionFieldOptionsRequest: GetRunbookActionFieldOptionsRequest,
 ): string {
@@ -100,7 +84,6 @@ export function getRunbookActionFieldOptionsRequestToJSON(
     ),
   );
 }
-
 export function getRunbookActionFieldOptionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetRunbookActionFieldOptionsRequest, SDKValidationError> {

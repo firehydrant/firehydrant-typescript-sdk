@@ -32,7 +32,6 @@ export const CreateServiceChecklistResponse$inboundSchema: z.ZodType<
     "check_id": "checkId",
   });
 });
-
 /** @internal */
 export type CreateServiceChecklistResponse$Outbound = {
   check_id: string;
@@ -53,19 +52,6 @@ export const CreateServiceChecklistResponse$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceChecklistResponse$ {
-  /** @deprecated use `CreateServiceChecklistResponse$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceChecklistResponse$inboundSchema;
-  /** @deprecated use `CreateServiceChecklistResponse$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceChecklistResponse$outboundSchema;
-  /** @deprecated use `CreateServiceChecklistResponse$Outbound` instead. */
-  export type Outbound = CreateServiceChecklistResponse$Outbound;
-}
-
 export function createServiceChecklistResponseToJSON(
   createServiceChecklistResponse: CreateServiceChecklistResponse,
 ): string {
@@ -75,7 +61,6 @@ export function createServiceChecklistResponseToJSON(
     ),
   );
 }
-
 export function createServiceChecklistResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceChecklistResponse, SDKValidationError> {

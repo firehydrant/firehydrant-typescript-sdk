@@ -31,7 +31,6 @@ export const IntegrationsSlackWorkspaceEntity$inboundSchema: z.ZodType<
     "team_id": "teamId",
   });
 });
-
 /** @internal */
 export type IntegrationsSlackWorkspaceEntity$Outbound = {
   id?: string | null | undefined;
@@ -54,19 +53,6 @@ export const IntegrationsSlackWorkspaceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsSlackWorkspaceEntity$ {
-  /** @deprecated use `IntegrationsSlackWorkspaceEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsSlackWorkspaceEntity$inboundSchema;
-  /** @deprecated use `IntegrationsSlackWorkspaceEntity$outboundSchema` instead. */
-  export const outboundSchema = IntegrationsSlackWorkspaceEntity$outboundSchema;
-  /** @deprecated use `IntegrationsSlackWorkspaceEntity$Outbound` instead. */
-  export type Outbound = IntegrationsSlackWorkspaceEntity$Outbound;
-}
-
 export function integrationsSlackWorkspaceEntityToJSON(
   integrationsSlackWorkspaceEntity: IntegrationsSlackWorkspaceEntity,
 ): string {
@@ -76,7 +62,6 @@ export function integrationsSlackWorkspaceEntityToJSON(
     ),
   );
 }
-
 export function integrationsSlackWorkspaceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsSlackWorkspaceEntity, SDKValidationError> {

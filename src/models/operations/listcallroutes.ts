@@ -26,7 +26,6 @@ export const ListCallRoutesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListCallRoutesRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListCallRoutesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCallRoutesRequest$ {
-  /** @deprecated use `ListCallRoutesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListCallRoutesRequest$inboundSchema;
-  /** @deprecated use `ListCallRoutesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListCallRoutesRequest$outboundSchema;
-  /** @deprecated use `ListCallRoutesRequest$Outbound` instead. */
-  export type Outbound = ListCallRoutesRequest$Outbound;
-}
-
 export function listCallRoutesRequestToJSON(
   listCallRoutesRequest: ListCallRoutesRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listCallRoutesRequestToJSON(
     ListCallRoutesRequest$outboundSchema.parse(listCallRoutesRequest),
   );
 }
-
 export function listCallRoutesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListCallRoutesRequest, SDKValidationError> {

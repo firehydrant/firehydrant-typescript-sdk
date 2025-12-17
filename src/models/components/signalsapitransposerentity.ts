@@ -40,7 +40,6 @@ export const SignalsAPITransposerEntityExamplePayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type SignalsAPITransposerEntityExamplePayload$Outbound = {};
 
@@ -50,21 +49,6 @@ export const SignalsAPITransposerEntityExamplePayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SignalsAPITransposerEntityExamplePayload
 > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPITransposerEntityExamplePayload$ {
-  /** @deprecated use `SignalsAPITransposerEntityExamplePayload$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPITransposerEntityExamplePayload$inboundSchema;
-  /** @deprecated use `SignalsAPITransposerEntityExamplePayload$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPITransposerEntityExamplePayload$outboundSchema;
-  /** @deprecated use `SignalsAPITransposerEntityExamplePayload$Outbound` instead. */
-  export type Outbound = SignalsAPITransposerEntityExamplePayload$Outbound;
-}
 
 export function signalsAPITransposerEntityExamplePayloadToJSON(
   signalsAPITransposerEntityExamplePayload:
@@ -76,7 +60,6 @@ export function signalsAPITransposerEntityExamplePayloadToJSON(
     ),
   );
 }
-
 export function signalsAPITransposerEntityExamplePayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -121,7 +104,6 @@ export const SignalsAPITransposerEntity$inboundSchema: z.ZodType<
     "updated_by": "updatedBy",
   });
 });
-
 /** @internal */
 export type SignalsAPITransposerEntity$Outbound = {
   name?: string | null | undefined;
@@ -170,19 +152,6 @@ export const SignalsAPITransposerEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPITransposerEntity$ {
-  /** @deprecated use `SignalsAPITransposerEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPITransposerEntity$inboundSchema;
-  /** @deprecated use `SignalsAPITransposerEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPITransposerEntity$outboundSchema;
-  /** @deprecated use `SignalsAPITransposerEntity$Outbound` instead. */
-  export type Outbound = SignalsAPITransposerEntity$Outbound;
-}
-
 export function signalsAPITransposerEntityToJSON(
   signalsAPITransposerEntity: SignalsAPITransposerEntity,
 ): string {
@@ -190,7 +159,6 @@ export function signalsAPITransposerEntityToJSON(
     SignalsAPITransposerEntity$outboundSchema.parse(signalsAPITransposerEntity),
   );
 }
-
 export function signalsAPITransposerEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPITransposerEntity, SDKValidationError> {

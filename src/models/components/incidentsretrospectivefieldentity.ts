@@ -45,29 +45,14 @@ export const IncidentsRetrospectiveFieldEntityType$inboundSchema:
   z.ZodNativeEnum<typeof IncidentsRetrospectiveFieldEntityType> = z.nativeEnum(
     IncidentsRetrospectiveFieldEntityType,
   );
-
 /** @internal */
 export const IncidentsRetrospectiveFieldEntityType$outboundSchema:
   z.ZodNativeEnum<typeof IncidentsRetrospectiveFieldEntityType> =
     IncidentsRetrospectiveFieldEntityType$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRetrospectiveFieldEntityType$ {
-  /** @deprecated use `IncidentsRetrospectiveFieldEntityType$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRetrospectiveFieldEntityType$inboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveFieldEntityType$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRetrospectiveFieldEntityType$outboundSchema;
-}
-
 /** @internal */
 export const Schema$inboundSchema: z.ZodType<Schema, z.ZodTypeDef, unknown> = z
   .object({});
-
 /** @internal */
 export type Schema$Outbound = {};
 
@@ -78,23 +63,9 @@ export const Schema$outboundSchema: z.ZodType<
   Schema
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Schema$ {
-  /** @deprecated use `Schema$inboundSchema` instead. */
-  export const inboundSchema = Schema$inboundSchema;
-  /** @deprecated use `Schema$outboundSchema` instead. */
-  export const outboundSchema = Schema$outboundSchema;
-  /** @deprecated use `Schema$Outbound` instead. */
-  export type Outbound = Schema$Outbound;
-}
-
 export function schemaToJSON(schema: Schema): string {
   return JSON.stringify(Schema$outboundSchema.parse(schema));
 }
-
 export function schemaFromJSON(
   jsonString: string,
 ): SafeParseResult<Schema, SDKValidationError> {
@@ -129,7 +100,6 @@ export const IncidentsRetrospectiveFieldEntity$inboundSchema: z.ZodType<
     "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
-
 /** @internal */
 export type IncidentsRetrospectiveFieldEntity$Outbound = {
   id?: string | null | undefined;
@@ -168,20 +138,6 @@ export const IncidentsRetrospectiveFieldEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRetrospectiveFieldEntity$ {
-  /** @deprecated use `IncidentsRetrospectiveFieldEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsRetrospectiveFieldEntity$inboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveFieldEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRetrospectiveFieldEntity$outboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveFieldEntity$Outbound` instead. */
-  export type Outbound = IncidentsRetrospectiveFieldEntity$Outbound;
-}
-
 export function incidentsRetrospectiveFieldEntityToJSON(
   incidentsRetrospectiveFieldEntity: IncidentsRetrospectiveFieldEntity,
 ): string {
@@ -191,7 +147,6 @@ export function incidentsRetrospectiveFieldEntityToJSON(
     ),
   );
 }
-
 export function incidentsRetrospectiveFieldEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRetrospectiveFieldEntity, SDKValidationError> {

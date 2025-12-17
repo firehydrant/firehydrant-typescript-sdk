@@ -51,7 +51,6 @@ export const SignalsAPIWebhookTargetEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type SignalsAPIWebhookTargetEntity$Outbound = {
   id?: string | null | undefined;
@@ -84,19 +83,6 @@ export const SignalsAPIWebhookTargetEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIWebhookTargetEntity$ {
-  /** @deprecated use `SignalsAPIWebhookTargetEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIWebhookTargetEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIWebhookTargetEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIWebhookTargetEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIWebhookTargetEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIWebhookTargetEntity$Outbound;
-}
-
 export function signalsAPIWebhookTargetEntityToJSON(
   signalsAPIWebhookTargetEntity: SignalsAPIWebhookTargetEntity,
 ): string {
@@ -106,7 +92,6 @@ export function signalsAPIWebhookTargetEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIWebhookTargetEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIWebhookTargetEntity, SDKValidationError> {

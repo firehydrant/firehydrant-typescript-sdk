@@ -27,7 +27,6 @@ export const UpdateCallRouteRequest$inboundSchema: z.ZodType<
     "update_call_route": "updateCallRoute",
   });
 });
-
 /** @internal */
 export type UpdateCallRouteRequest$Outbound = {
   id: string;
@@ -48,19 +47,6 @@ export const UpdateCallRouteRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteRequest$ {
-  /** @deprecated use `UpdateCallRouteRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteRequest$inboundSchema;
-  /** @deprecated use `UpdateCallRouteRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteRequest$outboundSchema;
-  /** @deprecated use `UpdateCallRouteRequest$Outbound` instead. */
-  export type Outbound = UpdateCallRouteRequest$Outbound;
-}
-
 export function updateCallRouteRequestToJSON(
   updateCallRouteRequest: UpdateCallRouteRequest,
 ): string {
@@ -68,7 +54,6 @@ export function updateCallRouteRequestToJSON(
     UpdateCallRouteRequest$outboundSchema.parse(updateCallRouteRequest),
   );
 }
-
 export function updateCallRouteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCallRouteRequest, SDKValidationError> {

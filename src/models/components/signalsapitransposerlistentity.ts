@@ -28,7 +28,6 @@ export const SignalsAPITransposerListEntity$inboundSchema: z.ZodType<
 > = z.object({
   data: z.nullable(NullableSignalsAPITransposerEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SignalsAPITransposerListEntity$Outbound = {
   data?: NullableSignalsAPITransposerEntity$Outbound | null | undefined;
@@ -44,19 +43,6 @@ export const SignalsAPITransposerListEntity$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPITransposerListEntity$ {
-  /** @deprecated use `SignalsAPITransposerListEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPITransposerListEntity$inboundSchema;
-  /** @deprecated use `SignalsAPITransposerListEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPITransposerListEntity$outboundSchema;
-  /** @deprecated use `SignalsAPITransposerListEntity$Outbound` instead. */
-  export type Outbound = SignalsAPITransposerListEntity$Outbound;
-}
-
 export function signalsAPITransposerListEntityToJSON(
   signalsAPITransposerListEntity: SignalsAPITransposerListEntity,
 ): string {
@@ -66,7 +52,6 @@ export function signalsAPITransposerListEntityToJSON(
     ),
   );
 }
-
 export function signalsAPITransposerListEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPITransposerListEntity, SDKValidationError> {

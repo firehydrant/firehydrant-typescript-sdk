@@ -19,7 +19,6 @@ export const CreateConnectionRequest$inboundSchema: z.ZodType<
 > = z.object({
   slug: z.string(),
 });
-
 /** @internal */
 export type CreateConnectionRequest$Outbound = {
   slug: string;
@@ -34,19 +33,6 @@ export const CreateConnectionRequest$outboundSchema: z.ZodType<
   slug: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateConnectionRequest$ {
-  /** @deprecated use `CreateConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateConnectionRequest$inboundSchema;
-  /** @deprecated use `CreateConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateConnectionRequest$outboundSchema;
-  /** @deprecated use `CreateConnectionRequest$Outbound` instead. */
-  export type Outbound = CreateConnectionRequest$Outbound;
-}
-
 export function createConnectionRequestToJSON(
   createConnectionRequest: CreateConnectionRequest,
 ): string {
@@ -54,7 +40,6 @@ export function createConnectionRequestToJSON(
     CreateConnectionRequest$outboundSchema.parse(createConnectionRequest),
   );
 }
-
 export function createConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateConnectionRequest, SDKValidationError> {

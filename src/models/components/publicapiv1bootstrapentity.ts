@@ -27,7 +27,6 @@ export const PublicApiv1BootstrapEntity$inboundSchema: z.ZodType<
     "posthog_write_key": "posthogWriteKey",
   });
 });
-
 /** @internal */
 export type PublicApiv1BootstrapEntity$Outbound = {
   posthog_write_key?: string | null | undefined;
@@ -46,19 +45,6 @@ export const PublicApiv1BootstrapEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1BootstrapEntity$ {
-  /** @deprecated use `PublicApiv1BootstrapEntity$inboundSchema` instead. */
-  export const inboundSchema = PublicApiv1BootstrapEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1BootstrapEntity$outboundSchema` instead. */
-  export const outboundSchema = PublicApiv1BootstrapEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1BootstrapEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1BootstrapEntity$Outbound;
-}
-
 export function publicAPIV1BootstrapEntityToJSON(
   publicApiv1BootstrapEntity: PublicApiv1BootstrapEntity,
 ): string {
@@ -66,7 +52,6 @@ export function publicAPIV1BootstrapEntityToJSON(
     PublicApiv1BootstrapEntity$outboundSchema.parse(publicApiv1BootstrapEntity),
   );
 }
-
 export function publicAPIV1BootstrapEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PublicApiv1BootstrapEntity, SDKValidationError> {

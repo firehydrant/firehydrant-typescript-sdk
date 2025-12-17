@@ -31,7 +31,6 @@ export const NullablePaginationEntity$inboundSchema: z.ZodType<
   prev: z.nullable(z.number().int()).optional(),
   next: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type NullablePaginationEntity$Outbound = {
   count?: number | null | undefined;
@@ -58,19 +57,6 @@ export const NullablePaginationEntity$outboundSchema: z.ZodType<
   next: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullablePaginationEntity$ {
-  /** @deprecated use `NullablePaginationEntity$inboundSchema` instead. */
-  export const inboundSchema = NullablePaginationEntity$inboundSchema;
-  /** @deprecated use `NullablePaginationEntity$outboundSchema` instead. */
-  export const outboundSchema = NullablePaginationEntity$outboundSchema;
-  /** @deprecated use `NullablePaginationEntity$Outbound` instead. */
-  export type Outbound = NullablePaginationEntity$Outbound;
-}
-
 export function nullablePaginationEntityToJSON(
   nullablePaginationEntity: NullablePaginationEntity,
 ): string {
@@ -78,7 +64,6 @@ export function nullablePaginationEntityToJSON(
     NullablePaginationEntity$outboundSchema.parse(nullablePaginationEntity),
   );
 }
-
 export function nullablePaginationEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullablePaginationEntity, SDKValidationError> {

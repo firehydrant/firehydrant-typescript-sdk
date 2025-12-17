@@ -30,7 +30,6 @@ export const CreatePostMortemReasonRequest$inboundSchema: z.ZodType<
     "create_post_mortem_reason": "createPostMortemReason",
   });
 });
-
 /** @internal */
 export type CreatePostMortemReasonRequest$Outbound = {
   report_id: string;
@@ -54,19 +53,6 @@ export const CreatePostMortemReasonRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreatePostMortemReasonRequest$ {
-  /** @deprecated use `CreatePostMortemReasonRequest$inboundSchema` instead. */
-  export const inboundSchema = CreatePostMortemReasonRequest$inboundSchema;
-  /** @deprecated use `CreatePostMortemReasonRequest$outboundSchema` instead. */
-  export const outboundSchema = CreatePostMortemReasonRequest$outboundSchema;
-  /** @deprecated use `CreatePostMortemReasonRequest$Outbound` instead. */
-  export type Outbound = CreatePostMortemReasonRequest$Outbound;
-}
-
 export function createPostMortemReasonRequestToJSON(
   createPostMortemReasonRequest: CreatePostMortemReasonRequest,
 ): string {
@@ -76,7 +62,6 @@ export function createPostMortemReasonRequestToJSON(
     ),
   );
 }
-
 export function createPostMortemReasonRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreatePostMortemReasonRequest, SDKValidationError> {

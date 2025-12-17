@@ -24,7 +24,6 @@ export const DeleteChangeRequest$inboundSchema: z.ZodType<
     "change_id": "changeId",
   });
 });
-
 /** @internal */
 export type DeleteChangeRequest$Outbound = {
   change_id: string;
@@ -43,19 +42,6 @@ export const DeleteChangeRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteChangeRequest$ {
-  /** @deprecated use `DeleteChangeRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteChangeRequest$inboundSchema;
-  /** @deprecated use `DeleteChangeRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteChangeRequest$outboundSchema;
-  /** @deprecated use `DeleteChangeRequest$Outbound` instead. */
-  export type Outbound = DeleteChangeRequest$Outbound;
-}
-
 export function deleteChangeRequestToJSON(
   deleteChangeRequest: DeleteChangeRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteChangeRequestToJSON(
     DeleteChangeRequest$outboundSchema.parse(deleteChangeRequest),
   );
 }
-
 export function deleteChangeRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteChangeRequest, SDKValidationError> {

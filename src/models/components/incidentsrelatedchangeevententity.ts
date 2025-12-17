@@ -53,24 +53,10 @@ export const IncidentsRelatedChangeEventEntityType$inboundSchema:
   z.ZodNativeEnum<typeof IncidentsRelatedChangeEventEntityType> = z.nativeEnum(
     IncidentsRelatedChangeEventEntityType,
   );
-
 /** @internal */
 export const IncidentsRelatedChangeEventEntityType$outboundSchema:
   z.ZodNativeEnum<typeof IncidentsRelatedChangeEventEntityType> =
     IncidentsRelatedChangeEventEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRelatedChangeEventEntityType$ {
-  /** @deprecated use `IncidentsRelatedChangeEventEntityType$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRelatedChangeEventEntityType$inboundSchema;
-  /** @deprecated use `IncidentsRelatedChangeEventEntityType$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRelatedChangeEventEntityType$outboundSchema;
-}
 
 /** @internal */
 export const IncidentsRelatedChangeEventEntity$inboundSchema: z.ZodType<
@@ -100,7 +86,6 @@ export const IncidentsRelatedChangeEventEntity$inboundSchema: z.ZodType<
     "created_by": "createdBy",
   });
 });
-
 /** @internal */
 export type IncidentsRelatedChangeEventEntity$Outbound = {
   id?: string | null | undefined;
@@ -138,20 +123,6 @@ export const IncidentsRelatedChangeEventEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRelatedChangeEventEntity$ {
-  /** @deprecated use `IncidentsRelatedChangeEventEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsRelatedChangeEventEntity$inboundSchema;
-  /** @deprecated use `IncidentsRelatedChangeEventEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRelatedChangeEventEntity$outboundSchema;
-  /** @deprecated use `IncidentsRelatedChangeEventEntity$Outbound` instead. */
-  export type Outbound = IncidentsRelatedChangeEventEntity$Outbound;
-}
-
 export function incidentsRelatedChangeEventEntityToJSON(
   incidentsRelatedChangeEventEntity: IncidentsRelatedChangeEventEntity,
 ): string {
@@ -161,7 +132,6 @@ export function incidentsRelatedChangeEventEntityToJSON(
     ),
   );
 }
-
 export function incidentsRelatedChangeEventEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRelatedChangeEventEntity, SDKValidationError> {

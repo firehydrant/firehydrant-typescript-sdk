@@ -14,9 +14,9 @@ export const tool$audiencesGenerateAudienceSummary: ToolDefinition<
   typeof args
 > = {
   name: "audiences-generate-audience-summary",
-  description: `Generate summary
+  description: `Generate summary (async)
 
-Generate a new audience-specific summary for an incident`,
+Initiates asynchronous generation of a new audience-specific summary for an incident. This is an async operation that can take up to 60 seconds to complete. The response includes a WebSocket topic name for internal use. After initiating generation, use the GET endpoint to poll for the completed summary.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await audiencesGenerateAudienceSummary(
@@ -32,8 +32,6 @@ Generate a new audience-specific summary for an incident`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };

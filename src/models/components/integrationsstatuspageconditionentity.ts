@@ -27,22 +27,10 @@ export type IntegrationsStatuspageConditionEntity = {
 export const StatuspageioCondition$inboundSchema: z.ZodNativeEnum<
   typeof StatuspageioCondition
 > = z.nativeEnum(StatuspageioCondition);
-
 /** @internal */
 export const StatuspageioCondition$outboundSchema: z.ZodNativeEnum<
   typeof StatuspageioCondition
 > = StatuspageioCondition$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace StatuspageioCondition$ {
-  /** @deprecated use `StatuspageioCondition$inboundSchema` instead. */
-  export const inboundSchema = StatuspageioCondition$inboundSchema;
-  /** @deprecated use `StatuspageioCondition$outboundSchema` instead. */
-  export const outboundSchema = StatuspageioCondition$outboundSchema;
-}
 
 /** @internal */
 export const IntegrationsStatuspageConditionEntity$inboundSchema: z.ZodType<
@@ -61,7 +49,6 @@ export const IntegrationsStatuspageConditionEntity$inboundSchema: z.ZodType<
     "statuspageio_condition": "statuspageioCondition",
   });
 });
-
 /** @internal */
 export type IntegrationsStatuspageConditionEntity$Outbound = {
   condition_id?: string | null | undefined;
@@ -87,21 +74,6 @@ export const IntegrationsStatuspageConditionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsStatuspageConditionEntity$ {
-  /** @deprecated use `IntegrationsStatuspageConditionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsStatuspageConditionEntity$inboundSchema;
-  /** @deprecated use `IntegrationsStatuspageConditionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsStatuspageConditionEntity$outboundSchema;
-  /** @deprecated use `IntegrationsStatuspageConditionEntity$Outbound` instead. */
-  export type Outbound = IntegrationsStatuspageConditionEntity$Outbound;
-}
-
 export function integrationsStatuspageConditionEntityToJSON(
   integrationsStatuspageConditionEntity: IntegrationsStatuspageConditionEntity,
 ): string {
@@ -111,7 +83,6 @@ export function integrationsStatuspageConditionEntityToJSON(
     ),
   );
 }
-
 export function integrationsStatuspageConditionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsStatuspageConditionEntity, SDKValidationError> {

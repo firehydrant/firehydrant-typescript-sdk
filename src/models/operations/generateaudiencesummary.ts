@@ -39,7 +39,6 @@ export const GenerateAudienceSummaryRequestBody$inboundSchema: z.ZodType<
     "force_regenerate": "forceRegenerate",
   });
 });
-
 /** @internal */
 export type GenerateAudienceSummaryRequestBody$Outbound = {
   force_regenerate: boolean | null;
@@ -58,20 +57,6 @@ export const GenerateAudienceSummaryRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GenerateAudienceSummaryRequestBody$ {
-  /** @deprecated use `GenerateAudienceSummaryRequestBody$inboundSchema` instead. */
-  export const inboundSchema = GenerateAudienceSummaryRequestBody$inboundSchema;
-  /** @deprecated use `GenerateAudienceSummaryRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    GenerateAudienceSummaryRequestBody$outboundSchema;
-  /** @deprecated use `GenerateAudienceSummaryRequestBody$Outbound` instead. */
-  export type Outbound = GenerateAudienceSummaryRequestBody$Outbound;
-}
-
 export function generateAudienceSummaryRequestBodyToJSON(
   generateAudienceSummaryRequestBody: GenerateAudienceSummaryRequestBody,
 ): string {
@@ -81,7 +66,6 @@ export function generateAudienceSummaryRequestBodyToJSON(
     ),
   );
 }
-
 export function generateAudienceSummaryRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<GenerateAudienceSummaryRequestBody, SDKValidationError> {
@@ -110,7 +94,6 @@ export const GenerateAudienceSummaryRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type GenerateAudienceSummaryRequest$Outbound = {
   audience_id: string;
@@ -136,19 +119,6 @@ export const GenerateAudienceSummaryRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GenerateAudienceSummaryRequest$ {
-  /** @deprecated use `GenerateAudienceSummaryRequest$inboundSchema` instead. */
-  export const inboundSchema = GenerateAudienceSummaryRequest$inboundSchema;
-  /** @deprecated use `GenerateAudienceSummaryRequest$outboundSchema` instead. */
-  export const outboundSchema = GenerateAudienceSummaryRequest$outboundSchema;
-  /** @deprecated use `GenerateAudienceSummaryRequest$Outbound` instead. */
-  export type Outbound = GenerateAudienceSummaryRequest$Outbound;
-}
-
 export function generateAudienceSummaryRequestToJSON(
   generateAudienceSummaryRequest: GenerateAudienceSummaryRequest,
 ): string {
@@ -158,7 +128,6 @@ export function generateAudienceSummaryRequestToJSON(
     ),
   );
 }
-
 export function generateAudienceSummaryRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GenerateAudienceSummaryRequest, SDKValidationError> {

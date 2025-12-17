@@ -32,7 +32,6 @@ export const AudiencesEntitiesAudienceSummariesEntity$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type AudiencesEntitiesAudienceSummariesEntity$Outbound = {
   incident_id?: string | null | undefined;
@@ -53,21 +52,6 @@ export const AudiencesEntitiesAudienceSummariesEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AudiencesEntitiesAudienceSummariesEntity$ {
-  /** @deprecated use `AudiencesEntitiesAudienceSummariesEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    AudiencesEntitiesAudienceSummariesEntity$inboundSchema;
-  /** @deprecated use `AudiencesEntitiesAudienceSummariesEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    AudiencesEntitiesAudienceSummariesEntity$outboundSchema;
-  /** @deprecated use `AudiencesEntitiesAudienceSummariesEntity$Outbound` instead. */
-  export type Outbound = AudiencesEntitiesAudienceSummariesEntity$Outbound;
-}
-
 export function audiencesEntitiesAudienceSummariesEntityToJSON(
   audiencesEntitiesAudienceSummariesEntity:
     AudiencesEntitiesAudienceSummariesEntity,
@@ -78,7 +62,6 @@ export function audiencesEntitiesAudienceSummariesEntityToJSON(
     ),
   );
 }
-
 export function audiencesEntitiesAudienceSummariesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

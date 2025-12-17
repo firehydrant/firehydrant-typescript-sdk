@@ -93,7 +93,6 @@ export const GetMeanTimeReportRequest$inboundSchema: z.ZodType<
     "current_milestones": "currentMilestones",
   });
 });
-
 /** @internal */
 export type GetMeanTimeReportRequest$Outbound = {
   environments?: string | null | undefined;
@@ -143,19 +142,6 @@ export const GetMeanTimeReportRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetMeanTimeReportRequest$ {
-  /** @deprecated use `GetMeanTimeReportRequest$inboundSchema` instead. */
-  export const inboundSchema = GetMeanTimeReportRequest$inboundSchema;
-  /** @deprecated use `GetMeanTimeReportRequest$outboundSchema` instead. */
-  export const outboundSchema = GetMeanTimeReportRequest$outboundSchema;
-  /** @deprecated use `GetMeanTimeReportRequest$Outbound` instead. */
-  export type Outbound = GetMeanTimeReportRequest$Outbound;
-}
-
 export function getMeanTimeReportRequestToJSON(
   getMeanTimeReportRequest: GetMeanTimeReportRequest,
 ): string {
@@ -163,7 +149,6 @@ export function getMeanTimeReportRequestToJSON(
     GetMeanTimeReportRequest$outboundSchema.parse(getMeanTimeReportRequest),
   );
 }
-
 export function getMeanTimeReportRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetMeanTimeReportRequest, SDKValidationError> {

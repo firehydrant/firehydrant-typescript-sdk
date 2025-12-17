@@ -27,7 +27,6 @@ export const GetCommentRequest$inboundSchema: z.ZodType<
     "conversation_id": "conversationId",
   });
 });
-
 /** @internal */
 export type GetCommentRequest$Outbound = {
   comment_id: string;
@@ -49,19 +48,6 @@ export const GetCommentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetCommentRequest$ {
-  /** @deprecated use `GetCommentRequest$inboundSchema` instead. */
-  export const inboundSchema = GetCommentRequest$inboundSchema;
-  /** @deprecated use `GetCommentRequest$outboundSchema` instead. */
-  export const outboundSchema = GetCommentRequest$outboundSchema;
-  /** @deprecated use `GetCommentRequest$Outbound` instead. */
-  export type Outbound = GetCommentRequest$Outbound;
-}
-
 export function getCommentRequestToJSON(
   getCommentRequest: GetCommentRequest,
 ): string {
@@ -69,7 +55,6 @@ export function getCommentRequestToJSON(
     GetCommentRequest$outboundSchema.parse(getCommentRequest),
   );
 }
-
 export function getCommentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetCommentRequest, SDKValidationError> {

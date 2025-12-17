@@ -36,7 +36,6 @@ export const ImportsImportErrorEntityData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ImportsImportErrorEntityData$Outbound = {};
 
@@ -47,19 +46,6 @@ export const ImportsImportErrorEntityData$outboundSchema: z.ZodType<
   ImportsImportErrorEntityData
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ImportsImportErrorEntityData$ {
-  /** @deprecated use `ImportsImportErrorEntityData$inboundSchema` instead. */
-  export const inboundSchema = ImportsImportErrorEntityData$inboundSchema;
-  /** @deprecated use `ImportsImportErrorEntityData$outboundSchema` instead. */
-  export const outboundSchema = ImportsImportErrorEntityData$outboundSchema;
-  /** @deprecated use `ImportsImportErrorEntityData$Outbound` instead. */
-  export type Outbound = ImportsImportErrorEntityData$Outbound;
-}
-
 export function importsImportErrorEntityDataToJSON(
   importsImportErrorEntityData: ImportsImportErrorEntityData,
 ): string {
@@ -69,7 +55,6 @@ export function importsImportErrorEntityDataToJSON(
     ),
   );
 }
-
 export function importsImportErrorEntityDataFromJSON(
   jsonString: string,
 ): SafeParseResult<ImportsImportErrorEntityData, SDKValidationError> {
@@ -101,7 +86,6 @@ export const ImportsImportErrorEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
   });
 });
-
 /** @internal */
 export type ImportsImportErrorEntity$Outbound = {
   id?: string | null | undefined;
@@ -134,19 +118,6 @@ export const ImportsImportErrorEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ImportsImportErrorEntity$ {
-  /** @deprecated use `ImportsImportErrorEntity$inboundSchema` instead. */
-  export const inboundSchema = ImportsImportErrorEntity$inboundSchema;
-  /** @deprecated use `ImportsImportErrorEntity$outboundSchema` instead. */
-  export const outboundSchema = ImportsImportErrorEntity$outboundSchema;
-  /** @deprecated use `ImportsImportErrorEntity$Outbound` instead. */
-  export type Outbound = ImportsImportErrorEntity$Outbound;
-}
-
 export function importsImportErrorEntityToJSON(
   importsImportErrorEntity: ImportsImportErrorEntity,
 ): string {
@@ -154,7 +125,6 @@ export function importsImportErrorEntityToJSON(
     ImportsImportErrorEntity$outboundSchema.parse(importsImportErrorEntity),
   );
 }
-
 export function importsImportErrorEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ImportsImportErrorEntity, SDKValidationError> {

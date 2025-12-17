@@ -45,22 +45,10 @@ export type UpdateChangeEvent = {
 export const UpdateChangeEventType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateChangeEventType
 > = z.nativeEnum(UpdateChangeEventType);
-
 /** @internal */
 export const UpdateChangeEventType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateChangeEventType
 > = UpdateChangeEventType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChangeEventType$ {
-  /** @deprecated use `UpdateChangeEventType$inboundSchema` instead. */
-  export const inboundSchema = UpdateChangeEventType$inboundSchema;
-  /** @deprecated use `UpdateChangeEventType$outboundSchema` instead. */
-  export const outboundSchema = UpdateChangeEventType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateChangeEventAttachment$inboundSchema: z.ZodType<
@@ -70,7 +58,6 @@ export const UpdateChangeEventAttachment$inboundSchema: z.ZodType<
 > = z.object({
   type: UpdateChangeEventType$inboundSchema,
 });
-
 /** @internal */
 export type UpdateChangeEventAttachment$Outbound = {
   type: string;
@@ -85,19 +72,6 @@ export const UpdateChangeEventAttachment$outboundSchema: z.ZodType<
   type: UpdateChangeEventType$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChangeEventAttachment$ {
-  /** @deprecated use `UpdateChangeEventAttachment$inboundSchema` instead. */
-  export const inboundSchema = UpdateChangeEventAttachment$inboundSchema;
-  /** @deprecated use `UpdateChangeEventAttachment$outboundSchema` instead. */
-  export const outboundSchema = UpdateChangeEventAttachment$outboundSchema;
-  /** @deprecated use `UpdateChangeEventAttachment$Outbound` instead. */
-  export type Outbound = UpdateChangeEventAttachment$Outbound;
-}
-
 export function updateChangeEventAttachmentToJSON(
   updateChangeEventAttachment: UpdateChangeEventAttachment,
 ): string {
@@ -107,7 +81,6 @@ export function updateChangeEventAttachmentToJSON(
     ),
   );
 }
-
 export function updateChangeEventAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChangeEventAttachment, SDKValidationError> {
@@ -144,7 +117,6 @@ export const UpdateChangeEvent$inboundSchema: z.ZodType<
     "ends_at": "endsAt",
   });
 });
-
 /** @internal */
 export type UpdateChangeEvent$Outbound = {
   summary?: string | null | undefined;
@@ -180,19 +152,6 @@ export const UpdateChangeEvent$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChangeEvent$ {
-  /** @deprecated use `UpdateChangeEvent$inboundSchema` instead. */
-  export const inboundSchema = UpdateChangeEvent$inboundSchema;
-  /** @deprecated use `UpdateChangeEvent$outboundSchema` instead. */
-  export const outboundSchema = UpdateChangeEvent$outboundSchema;
-  /** @deprecated use `UpdateChangeEvent$Outbound` instead. */
-  export type Outbound = UpdateChangeEvent$Outbound;
-}
-
 export function updateChangeEventToJSON(
   updateChangeEvent: UpdateChangeEvent,
 ): string {
@@ -200,7 +159,6 @@ export function updateChangeEventToJSON(
     UpdateChangeEvent$outboundSchema.parse(updateChangeEvent),
   );
 }
-
 export function updateChangeEventFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChangeEvent, SDKValidationError> {

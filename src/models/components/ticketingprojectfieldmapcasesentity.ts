@@ -33,7 +33,6 @@ export type TicketingProjectFieldMapCasesEntity = {
 /** @internal */
 export const Logic$inboundSchema: z.ZodType<Logic, z.ZodTypeDef, unknown> = z
   .object({});
-
 /** @internal */
 export type Logic$Outbound = {};
 
@@ -44,23 +43,9 @@ export const Logic$outboundSchema: z.ZodType<
   Logic
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Logic$ {
-  /** @deprecated use `Logic$inboundSchema` instead. */
-  export const inboundSchema = Logic$inboundSchema;
-  /** @deprecated use `Logic$outboundSchema` instead. */
-  export const outboundSchema = Logic$outboundSchema;
-  /** @deprecated use `Logic$Outbound` instead. */
-  export type Outbound = Logic$Outbound;
-}
-
 export function logicToJSON(logic: Logic): string {
   return JSON.stringify(Logic$outboundSchema.parse(logic));
 }
-
 export function logicFromJSON(
   jsonString: string,
 ): SafeParseResult<Logic, SDKValidationError> {
@@ -86,7 +71,6 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
     "external_value": "externalValue",
   });
 });
-
 /** @internal */
 export type TicketingProjectFieldMapCasesEntity$Outbound = {
   logic?: Logic$Outbound | null | undefined;
@@ -112,21 +96,6 @@ export const TicketingProjectFieldMapCasesEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectFieldMapCasesEntity$ {
-  /** @deprecated use `TicketingProjectFieldMapCasesEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectFieldMapCasesEntity$inboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapCasesEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectFieldMapCasesEntity$outboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapCasesEntity$Outbound` instead. */
-  export type Outbound = TicketingProjectFieldMapCasesEntity$Outbound;
-}
-
 export function ticketingProjectFieldMapCasesEntityToJSON(
   ticketingProjectFieldMapCasesEntity: TicketingProjectFieldMapCasesEntity,
 ): string {
@@ -136,7 +105,6 @@ export function ticketingProjectFieldMapCasesEntityToJSON(
     ),
   );
 }
-
 export function ticketingProjectFieldMapCasesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingProjectFieldMapCasesEntity, SDKValidationError> {

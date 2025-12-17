@@ -31,7 +31,6 @@ export const ListScheduledMaintenancesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListScheduledMaintenancesRequest$Outbound = {
   query?: string | null | undefined;
@@ -54,19 +53,6 @@ export const ListScheduledMaintenancesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListScheduledMaintenancesRequest$ {
-  /** @deprecated use `ListScheduledMaintenancesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListScheduledMaintenancesRequest$inboundSchema;
-  /** @deprecated use `ListScheduledMaintenancesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListScheduledMaintenancesRequest$outboundSchema;
-  /** @deprecated use `ListScheduledMaintenancesRequest$Outbound` instead. */
-  export type Outbound = ListScheduledMaintenancesRequest$Outbound;
-}
-
 export function listScheduledMaintenancesRequestToJSON(
   listScheduledMaintenancesRequest: ListScheduledMaintenancesRequest,
 ): string {
@@ -76,7 +62,6 @@ export function listScheduledMaintenancesRequestToJSON(
     ),
   );
 }
-
 export function listScheduledMaintenancesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListScheduledMaintenancesRequest, SDKValidationError> {

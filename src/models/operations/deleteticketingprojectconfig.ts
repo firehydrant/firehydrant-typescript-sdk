@@ -27,7 +27,6 @@ export const DeleteTicketingProjectConfigRequest$inboundSchema: z.ZodType<
     "config_id": "configId",
   });
 });
-
 /** @internal */
 export type DeleteTicketingProjectConfigRequest$Outbound = {
   ticketing_project_id: string;
@@ -49,21 +48,6 @@ export const DeleteTicketingProjectConfigRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteTicketingProjectConfigRequest$ {
-  /** @deprecated use `DeleteTicketingProjectConfigRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteTicketingProjectConfigRequest$inboundSchema;
-  /** @deprecated use `DeleteTicketingProjectConfigRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteTicketingProjectConfigRequest$outboundSchema;
-  /** @deprecated use `DeleteTicketingProjectConfigRequest$Outbound` instead. */
-  export type Outbound = DeleteTicketingProjectConfigRequest$Outbound;
-}
-
 export function deleteTicketingProjectConfigRequestToJSON(
   deleteTicketingProjectConfigRequest: DeleteTicketingProjectConfigRequest,
 ): string {
@@ -73,7 +57,6 @@ export function deleteTicketingProjectConfigRequestToJSON(
     ),
   );
 }
-
 export function deleteTicketingProjectConfigRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteTicketingProjectConfigRequest, SDKValidationError> {

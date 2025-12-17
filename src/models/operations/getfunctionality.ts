@@ -24,7 +24,6 @@ export const GetFunctionalityRequest$inboundSchema: z.ZodType<
     "functionality_id": "functionalityId",
   });
 });
-
 /** @internal */
 export type GetFunctionalityRequest$Outbound = {
   functionality_id: string;
@@ -43,19 +42,6 @@ export const GetFunctionalityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetFunctionalityRequest$ {
-  /** @deprecated use `GetFunctionalityRequest$inboundSchema` instead. */
-  export const inboundSchema = GetFunctionalityRequest$inboundSchema;
-  /** @deprecated use `GetFunctionalityRequest$outboundSchema` instead. */
-  export const outboundSchema = GetFunctionalityRequest$outboundSchema;
-  /** @deprecated use `GetFunctionalityRequest$Outbound` instead. */
-  export type Outbound = GetFunctionalityRequest$Outbound;
-}
-
 export function getFunctionalityRequestToJSON(
   getFunctionalityRequest: GetFunctionalityRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getFunctionalityRequestToJSON(
     GetFunctionalityRequest$outboundSchema.parse(getFunctionalityRequest),
   );
 }
-
 export function getFunctionalityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetFunctionalityRequest, SDKValidationError> {

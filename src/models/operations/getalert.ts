@@ -24,7 +24,6 @@ export const GetAlertRequest$inboundSchema: z.ZodType<
     "alert_id": "alertId",
   });
 });
-
 /** @internal */
 export type GetAlertRequest$Outbound = {
   alert_id: string;
@@ -43,25 +42,11 @@ export const GetAlertRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAlertRequest$ {
-  /** @deprecated use `GetAlertRequest$inboundSchema` instead. */
-  export const inboundSchema = GetAlertRequest$inboundSchema;
-  /** @deprecated use `GetAlertRequest$outboundSchema` instead. */
-  export const outboundSchema = GetAlertRequest$outboundSchema;
-  /** @deprecated use `GetAlertRequest$Outbound` instead. */
-  export type Outbound = GetAlertRequest$Outbound;
-}
-
 export function getAlertRequestToJSON(
   getAlertRequest: GetAlertRequest,
 ): string {
   return JSON.stringify(GetAlertRequest$outboundSchema.parse(getAlertRequest));
 }
-
 export function getAlertRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetAlertRequest, SDKValidationError> {

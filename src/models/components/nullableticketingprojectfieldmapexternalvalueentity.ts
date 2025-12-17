@@ -31,25 +31,11 @@ export const NullableTicketingProjectFieldMapExternalValueEntityType$inboundSche
   z.ZodNativeEnum<
     typeof NullableTicketingProjectFieldMapExternalValueEntityType
   > = z.nativeEnum(NullableTicketingProjectFieldMapExternalValueEntityType);
-
 /** @internal */
 export const NullableTicketingProjectFieldMapExternalValueEntityType$outboundSchema:
   z.ZodNativeEnum<
     typeof NullableTicketingProjectFieldMapExternalValueEntityType
   > = NullableTicketingProjectFieldMapExternalValueEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingProjectFieldMapExternalValueEntityType$ {
-  /** @deprecated use `NullableTicketingProjectFieldMapExternalValueEntityType$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingProjectFieldMapExternalValueEntityType$inboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapExternalValueEntityType$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingProjectFieldMapExternalValueEntityType$outboundSchema;
-}
 
 /** @internal */
 export const NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema:
@@ -65,7 +51,6 @@ export const NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema:
     attribute: z.nullable(z.string()).optional(),
     presentation: z.nullable(z.string()).optional(),
   });
-
 /** @internal */
 export type NullableTicketingProjectFieldMapExternalValueEntity$Outbound = {
   type?: string | null | undefined;
@@ -89,22 +74,6 @@ export const NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema:
     presentation: z.nullable(z.string()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingProjectFieldMapExternalValueEntity$ {
-  /** @deprecated use `NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapExternalValueEntity$Outbound` instead. */
-  export type Outbound =
-    NullableTicketingProjectFieldMapExternalValueEntity$Outbound;
-}
-
 export function nullableTicketingProjectFieldMapExternalValueEntityToJSON(
   nullableTicketingProjectFieldMapExternalValueEntity:
     NullableTicketingProjectFieldMapExternalValueEntity,
@@ -115,7 +84,6 @@ export function nullableTicketingProjectFieldMapExternalValueEntityToJSON(
     ),
   );
 }
-
 export function nullableTicketingProjectFieldMapExternalValueEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

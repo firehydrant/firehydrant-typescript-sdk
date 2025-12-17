@@ -27,7 +27,6 @@ export const IntegrationsStatuspageMilestoneMappingEntity$inboundSchema:
       "milestone_id": "milestoneId",
     });
   });
-
 /** @internal */
 export type IntegrationsStatuspageMilestoneMappingEntity$Outbound = {
   milestone_id?: string | null | undefined;
@@ -49,21 +48,6 @@ export const IntegrationsStatuspageMilestoneMappingEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsStatuspageMilestoneMappingEntity$ {
-  /** @deprecated use `IntegrationsStatuspageMilestoneMappingEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsStatuspageMilestoneMappingEntity$inboundSchema;
-  /** @deprecated use `IntegrationsStatuspageMilestoneMappingEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsStatuspageMilestoneMappingEntity$outboundSchema;
-  /** @deprecated use `IntegrationsStatuspageMilestoneMappingEntity$Outbound` instead. */
-  export type Outbound = IntegrationsStatuspageMilestoneMappingEntity$Outbound;
-}
-
 export function integrationsStatuspageMilestoneMappingEntityToJSON(
   integrationsStatuspageMilestoneMappingEntity:
     IntegrationsStatuspageMilestoneMappingEntity,
@@ -74,7 +58,6 @@ export function integrationsStatuspageMilestoneMappingEntityToJSON(
     ),
   );
 }
-
 export function integrationsStatuspageMilestoneMappingEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

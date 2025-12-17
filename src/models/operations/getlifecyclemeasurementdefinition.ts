@@ -24,7 +24,6 @@ export const GetLifecycleMeasurementDefinitionRequest$inboundSchema: z.ZodType<
     "measurement_definition_id": "measurementDefinitionId",
   });
 });
-
 /** @internal */
 export type GetLifecycleMeasurementDefinitionRequest$Outbound = {
   measurement_definition_id: string;
@@ -43,21 +42,6 @@ export const GetLifecycleMeasurementDefinitionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetLifecycleMeasurementDefinitionRequest$ {
-  /** @deprecated use `GetLifecycleMeasurementDefinitionRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetLifecycleMeasurementDefinitionRequest$inboundSchema;
-  /** @deprecated use `GetLifecycleMeasurementDefinitionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetLifecycleMeasurementDefinitionRequest$outboundSchema;
-  /** @deprecated use `GetLifecycleMeasurementDefinitionRequest$Outbound` instead. */
-  export type Outbound = GetLifecycleMeasurementDefinitionRequest$Outbound;
-}
-
 export function getLifecycleMeasurementDefinitionRequestToJSON(
   getLifecycleMeasurementDefinitionRequest:
     GetLifecycleMeasurementDefinitionRequest,
@@ -68,7 +52,6 @@ export function getLifecycleMeasurementDefinitionRequestToJSON(
     ),
   );
 }
-
 export function getLifecycleMeasurementDefinitionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

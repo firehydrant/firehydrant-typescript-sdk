@@ -19,7 +19,6 @@ export const DeleteCallRouteRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteCallRouteRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const DeleteCallRouteRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteCallRouteRequest$ {
-  /** @deprecated use `DeleteCallRouteRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteCallRouteRequest$inboundSchema;
-  /** @deprecated use `DeleteCallRouteRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteCallRouteRequest$outboundSchema;
-  /** @deprecated use `DeleteCallRouteRequest$Outbound` instead. */
-  export type Outbound = DeleteCallRouteRequest$Outbound;
-}
-
 export function deleteCallRouteRequestToJSON(
   deleteCallRouteRequest: DeleteCallRouteRequest,
 ): string {
@@ -54,7 +40,6 @@ export function deleteCallRouteRequestToJSON(
     DeleteCallRouteRequest$outboundSchema.parse(deleteCallRouteRequest),
   );
 }
-
 export function deleteCallRouteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteCallRouteRequest, SDKValidationError> {

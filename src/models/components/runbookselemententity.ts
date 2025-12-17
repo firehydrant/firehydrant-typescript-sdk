@@ -67,7 +67,6 @@ export const RunbooksElementEntity$inboundSchema: z.ZodType<
     "dynamic_select": "dynamicSelect",
   });
 });
-
 /** @internal */
 export type RunbooksElementEntity$Outbound = {
   id?: string | null | undefined;
@@ -111,19 +110,6 @@ export const RunbooksElementEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksElementEntity$ {
-  /** @deprecated use `RunbooksElementEntity$inboundSchema` instead. */
-  export const inboundSchema = RunbooksElementEntity$inboundSchema;
-  /** @deprecated use `RunbooksElementEntity$outboundSchema` instead. */
-  export const outboundSchema = RunbooksElementEntity$outboundSchema;
-  /** @deprecated use `RunbooksElementEntity$Outbound` instead. */
-  export type Outbound = RunbooksElementEntity$Outbound;
-}
-
 export function runbooksElementEntityToJSON(
   runbooksElementEntity: RunbooksElementEntity,
 ): string {
@@ -131,7 +117,6 @@ export function runbooksElementEntityToJSON(
     RunbooksElementEntity$outboundSchema.parse(runbooksElementEntity),
   );
 }
-
 export function runbooksElementEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksElementEntity, SDKValidationError> {

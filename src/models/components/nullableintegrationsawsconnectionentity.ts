@@ -43,25 +43,11 @@ export const NullableIntegrationsAwsConnectionEntityConnectionStatus$inboundSche
   z.ZodNativeEnum<
     typeof NullableIntegrationsAwsConnectionEntityConnectionStatus
   > = z.nativeEnum(NullableIntegrationsAwsConnectionEntityConnectionStatus);
-
 /** @internal */
 export const NullableIntegrationsAwsConnectionEntityConnectionStatus$outboundSchema:
   z.ZodNativeEnum<
     typeof NullableIntegrationsAwsConnectionEntityConnectionStatus
   > = NullableIntegrationsAwsConnectionEntityConnectionStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIntegrationsAwsConnectionEntityConnectionStatus$ {
-  /** @deprecated use `NullableIntegrationsAwsConnectionEntityConnectionStatus$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIntegrationsAwsConnectionEntityConnectionStatus$inboundSchema;
-  /** @deprecated use `NullableIntegrationsAwsConnectionEntityConnectionStatus$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIntegrationsAwsConnectionEntityConnectionStatus$outboundSchema;
-}
 
 /** @internal */
 export const NullableIntegrationsAwsConnectionEntity$inboundSchema: z.ZodType<
@@ -93,7 +79,6 @@ export const NullableIntegrationsAwsConnectionEntity$inboundSchema: z.ZodType<
     "environment_name": "environmentName",
   });
 });
-
 /** @internal */
 export type NullableIntegrationsAwsConnectionEntity$Outbound = {
   id?: string | null | undefined;
@@ -139,21 +124,6 @@ export const NullableIntegrationsAwsConnectionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIntegrationsAwsConnectionEntity$ {
-  /** @deprecated use `NullableIntegrationsAwsConnectionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIntegrationsAwsConnectionEntity$inboundSchema;
-  /** @deprecated use `NullableIntegrationsAwsConnectionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIntegrationsAwsConnectionEntity$outboundSchema;
-  /** @deprecated use `NullableIntegrationsAwsConnectionEntity$Outbound` instead. */
-  export type Outbound = NullableIntegrationsAwsConnectionEntity$Outbound;
-}
-
 export function nullableIntegrationsAwsConnectionEntityToJSON(
   nullableIntegrationsAwsConnectionEntity:
     NullableIntegrationsAwsConnectionEntity,
@@ -164,7 +134,6 @@ export function nullableIntegrationsAwsConnectionEntityToJSON(
     ),
   );
 }
-
 export function nullableIntegrationsAwsConnectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

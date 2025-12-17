@@ -43,24 +43,10 @@ export type IntegrationsAwsCloudtrailBatchEntity = {
 export const IntegrationsAwsCloudtrailBatchEntityStatus$inboundSchema:
   z.ZodNativeEnum<typeof IntegrationsAwsCloudtrailBatchEntityStatus> = z
     .nativeEnum(IntegrationsAwsCloudtrailBatchEntityStatus);
-
 /** @internal */
 export const IntegrationsAwsCloudtrailBatchEntityStatus$outboundSchema:
   z.ZodNativeEnum<typeof IntegrationsAwsCloudtrailBatchEntityStatus> =
     IntegrationsAwsCloudtrailBatchEntityStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAwsCloudtrailBatchEntityStatus$ {
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntityStatus$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsAwsCloudtrailBatchEntityStatus$inboundSchema;
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntityStatus$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsAwsCloudtrailBatchEntityStatus$outboundSchema;
-}
 
 /** @internal */
 export const IntegrationsAwsCloudtrailBatchEntity$inboundSchema: z.ZodType<
@@ -91,7 +77,6 @@ export const IntegrationsAwsCloudtrailBatchEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
   });
 });
-
 /** @internal */
 export type IntegrationsAwsCloudtrailBatchEntity$Outbound = {
   id?: string | null | undefined;
@@ -130,21 +115,6 @@ export const IntegrationsAwsCloudtrailBatchEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAwsCloudtrailBatchEntity$ {
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsAwsCloudtrailBatchEntity$inboundSchema;
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsAwsCloudtrailBatchEntity$outboundSchema;
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntity$Outbound` instead. */
-  export type Outbound = IntegrationsAwsCloudtrailBatchEntity$Outbound;
-}
-
 export function integrationsAwsCloudtrailBatchEntityToJSON(
   integrationsAwsCloudtrailBatchEntity: IntegrationsAwsCloudtrailBatchEntity,
 ): string {
@@ -154,7 +124,6 @@ export function integrationsAwsCloudtrailBatchEntityToJSON(
     ),
   );
 }
-
 export function integrationsAwsCloudtrailBatchEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsAwsCloudtrailBatchEntity, SDKValidationError> {

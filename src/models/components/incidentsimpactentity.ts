@@ -48,22 +48,10 @@ export type IncidentsImpactEntity = {
 export const IncidentsImpactEntityType$inboundSchema: z.ZodNativeEnum<
   typeof IncidentsImpactEntityType
 > = z.nativeEnum(IncidentsImpactEntityType);
-
 /** @internal */
 export const IncidentsImpactEntityType$outboundSchema: z.ZodNativeEnum<
   typeof IncidentsImpactEntityType
 > = IncidentsImpactEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsImpactEntityType$ {
-  /** @deprecated use `IncidentsImpactEntityType$inboundSchema` instead. */
-  export const inboundSchema = IncidentsImpactEntityType$inboundSchema;
-  /** @deprecated use `IncidentsImpactEntityType$outboundSchema` instead. */
-  export const outboundSchema = IncidentsImpactEntityType$outboundSchema;
-}
 
 /** @internal */
 export const IncidentsImpactEntity$inboundSchema: z.ZodType<
@@ -80,7 +68,6 @@ export const IncidentsImpactEntity$inboundSchema: z.ZodType<
     z.array(ConversationsAPIEntitiesReference$inboundSchema),
   ).optional(),
 });
-
 /** @internal */
 export type IncidentsImpactEntity$Outbound = {
   id?: string | null | undefined;
@@ -109,19 +96,6 @@ export const IncidentsImpactEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsImpactEntity$ {
-  /** @deprecated use `IncidentsImpactEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsImpactEntity$inboundSchema;
-  /** @deprecated use `IncidentsImpactEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsImpactEntity$outboundSchema;
-  /** @deprecated use `IncidentsImpactEntity$Outbound` instead. */
-  export type Outbound = IncidentsImpactEntity$Outbound;
-}
-
 export function incidentsImpactEntityToJSON(
   incidentsImpactEntity: IncidentsImpactEntity,
 ): string {
@@ -129,7 +103,6 @@ export function incidentsImpactEntityToJSON(
     IncidentsImpactEntity$outboundSchema.parse(incidentsImpactEntity),
   );
 }
-
 export function incidentsImpactEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsImpactEntity, SDKValidationError> {

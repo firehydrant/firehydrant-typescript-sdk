@@ -33,7 +33,6 @@ export const SignalsAPIOnCallRestrictionEntity$inboundSchema: z.ZodType<
     "end_time": "endTime",
   });
 });
-
 /** @internal */
 export type SignalsAPIOnCallRestrictionEntity$Outbound = {
   start_day?: string | null | undefined;
@@ -61,20 +60,6 @@ export const SignalsAPIOnCallRestrictionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallRestrictionEntity$ {
-  /** @deprecated use `SignalsAPIOnCallRestrictionEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIOnCallRestrictionEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallRestrictionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOnCallRestrictionEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallRestrictionEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIOnCallRestrictionEntity$Outbound;
-}
-
 export function signalsAPIOnCallRestrictionEntityToJSON(
   signalsAPIOnCallRestrictionEntity: SignalsAPIOnCallRestrictionEntity,
 ): string {
@@ -84,7 +69,6 @@ export function signalsAPIOnCallRestrictionEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIOnCallRestrictionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIOnCallRestrictionEntity, SDKValidationError> {

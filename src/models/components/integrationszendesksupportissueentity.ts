@@ -68,7 +68,6 @@ export const IntegrationsZendeskSupportIssueEntityData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IntegrationsZendeskSupportIssueEntityData$Outbound = {};
 
@@ -80,21 +79,6 @@ export const IntegrationsZendeskSupportIssueEntityData$outboundSchema:
     IntegrationsZendeskSupportIssueEntityData
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsZendeskSupportIssueEntityData$ {
-  /** @deprecated use `IntegrationsZendeskSupportIssueEntityData$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsZendeskSupportIssueEntityData$inboundSchema;
-  /** @deprecated use `IntegrationsZendeskSupportIssueEntityData$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsZendeskSupportIssueEntityData$outboundSchema;
-  /** @deprecated use `IntegrationsZendeskSupportIssueEntityData$Outbound` instead. */
-  export type Outbound = IntegrationsZendeskSupportIssueEntityData$Outbound;
-}
-
 export function integrationsZendeskSupportIssueEntityDataToJSON(
   integrationsZendeskSupportIssueEntityData:
     IntegrationsZendeskSupportIssueEntityData,
@@ -105,7 +89,6 @@ export function integrationsZendeskSupportIssueEntityDataToJSON(
     ),
   );
 }
-
 export function integrationsZendeskSupportIssueEntityDataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -150,7 +133,6 @@ export const IntegrationsZendeskSupportIssueEntity$inboundSchema: z.ZodType<
     "attached_incidents": "attachedIncidents",
   });
 });
-
 /** @internal */
 export type IntegrationsZendeskSupportIssueEntity$Outbound = {
   remote_id?: string | null | undefined;
@@ -197,21 +179,6 @@ export const IntegrationsZendeskSupportIssueEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsZendeskSupportIssueEntity$ {
-  /** @deprecated use `IntegrationsZendeskSupportIssueEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsZendeskSupportIssueEntity$inboundSchema;
-  /** @deprecated use `IntegrationsZendeskSupportIssueEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsZendeskSupportIssueEntity$outboundSchema;
-  /** @deprecated use `IntegrationsZendeskSupportIssueEntity$Outbound` instead. */
-  export type Outbound = IntegrationsZendeskSupportIssueEntity$Outbound;
-}
-
 export function integrationsZendeskSupportIssueEntityToJSON(
   integrationsZendeskSupportIssueEntity: IntegrationsZendeskSupportIssueEntity,
 ): string {
@@ -221,7 +188,6 @@ export function integrationsZendeskSupportIssueEntityToJSON(
     ),
   );
 }
-
 export function integrationsZendeskSupportIssueEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsZendeskSupportIssueEntity, SDKValidationError> {

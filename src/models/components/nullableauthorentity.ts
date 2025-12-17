@@ -25,7 +25,6 @@ export const NullableAuthorEntity$inboundSchema: z.ZodType<
   source: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NullableAuthorEntity$Outbound = {
   id?: string | null | undefined;
@@ -46,19 +45,6 @@ export const NullableAuthorEntity$outboundSchema: z.ZodType<
   email: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableAuthorEntity$ {
-  /** @deprecated use `NullableAuthorEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableAuthorEntity$inboundSchema;
-  /** @deprecated use `NullableAuthorEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableAuthorEntity$outboundSchema;
-  /** @deprecated use `NullableAuthorEntity$Outbound` instead. */
-  export type Outbound = NullableAuthorEntity$Outbound;
-}
-
 export function nullableAuthorEntityToJSON(
   nullableAuthorEntity: NullableAuthorEntity,
 ): string {
@@ -66,7 +52,6 @@ export function nullableAuthorEntityToJSON(
     NullableAuthorEntity$outboundSchema.parse(nullableAuthorEntity),
   );
 }
-
 export function nullableAuthorEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableAuthorEntity, SDKValidationError> {

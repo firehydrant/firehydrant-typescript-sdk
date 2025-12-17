@@ -47,41 +47,17 @@ export type SignalsAPINotificationPolicyItemEntity = {
 export const NotificationGroupMethod$inboundSchema: z.ZodNativeEnum<
   typeof NotificationGroupMethod
 > = z.nativeEnum(NotificationGroupMethod);
-
 /** @internal */
 export const NotificationGroupMethod$outboundSchema: z.ZodNativeEnum<
   typeof NotificationGroupMethod
 > = NotificationGroupMethod$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NotificationGroupMethod$ {
-  /** @deprecated use `NotificationGroupMethod$inboundSchema` instead. */
-  export const inboundSchema = NotificationGroupMethod$inboundSchema;
-  /** @deprecated use `NotificationGroupMethod$outboundSchema` instead. */
-  export const outboundSchema = NotificationGroupMethod$outboundSchema;
-}
-
 /** @internal */
 export const Priority$inboundSchema: z.ZodNativeEnum<typeof Priority> = z
   .nativeEnum(Priority);
-
 /** @internal */
 export const Priority$outboundSchema: z.ZodNativeEnum<typeof Priority> =
   Priority$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Priority$ {
-  /** @deprecated use `Priority$inboundSchema` instead. */
-  export const inboundSchema = Priority$inboundSchema;
-  /** @deprecated use `Priority$outboundSchema` instead. */
-  export const outboundSchema = Priority$outboundSchema;
-}
 
 /** @internal */
 export const SignalsAPINotificationPolicyItemEntity$inboundSchema: z.ZodType<
@@ -108,7 +84,6 @@ export const SignalsAPINotificationPolicyItemEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type SignalsAPINotificationPolicyItemEntity$Outbound = {
   id?: string | null | undefined;
@@ -141,21 +116,6 @@ export const SignalsAPINotificationPolicyItemEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPINotificationPolicyItemEntity$ {
-  /** @deprecated use `SignalsAPINotificationPolicyItemEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPINotificationPolicyItemEntity$inboundSchema;
-  /** @deprecated use `SignalsAPINotificationPolicyItemEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPINotificationPolicyItemEntity$outboundSchema;
-  /** @deprecated use `SignalsAPINotificationPolicyItemEntity$Outbound` instead. */
-  export type Outbound = SignalsAPINotificationPolicyItemEntity$Outbound;
-}
-
 export function signalsAPINotificationPolicyItemEntityToJSON(
   signalsAPINotificationPolicyItemEntity:
     SignalsAPINotificationPolicyItemEntity,
@@ -166,7 +126,6 @@ export function signalsAPINotificationPolicyItemEntityToJSON(
     ),
   );
 }
-
 export function signalsAPINotificationPolicyItemEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPINotificationPolicyItemEntity, SDKValidationError> {

@@ -37,7 +37,6 @@ export const IncidentsRoleAssignmentEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IncidentsRoleAssignmentEntityPaginated$Outbound = {
   data?: Array<IncidentsRoleAssignmentEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const IncidentsRoleAssignmentEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRoleAssignmentEntityPaginated$ {
-  /** @deprecated use `IncidentsRoleAssignmentEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRoleAssignmentEntityPaginated$inboundSchema;
-  /** @deprecated use `IncidentsRoleAssignmentEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRoleAssignmentEntityPaginated$outboundSchema;
-  /** @deprecated use `IncidentsRoleAssignmentEntityPaginated$Outbound` instead. */
-  export type Outbound = IncidentsRoleAssignmentEntityPaginated$Outbound;
-}
-
 export function incidentsRoleAssignmentEntityPaginatedToJSON(
   incidentsRoleAssignmentEntityPaginated:
     IncidentsRoleAssignmentEntityPaginated,
@@ -80,7 +64,6 @@ export function incidentsRoleAssignmentEntityPaginatedToJSON(
     ),
   );
 }
-
 export function incidentsRoleAssignmentEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRoleAssignmentEntityPaginated, SDKValidationError> {

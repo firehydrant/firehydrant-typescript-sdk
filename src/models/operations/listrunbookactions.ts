@@ -36,7 +36,6 @@ export const ListRunbookActionsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListRunbookActionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -61,19 +60,6 @@ export const ListRunbookActionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListRunbookActionsRequest$ {
-  /** @deprecated use `ListRunbookActionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListRunbookActionsRequest$inboundSchema;
-  /** @deprecated use `ListRunbookActionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListRunbookActionsRequest$outboundSchema;
-  /** @deprecated use `ListRunbookActionsRequest$Outbound` instead. */
-  export type Outbound = ListRunbookActionsRequest$Outbound;
-}
-
 export function listRunbookActionsRequestToJSON(
   listRunbookActionsRequest: ListRunbookActionsRequest,
 ): string {
@@ -81,7 +67,6 @@ export function listRunbookActionsRequestToJSON(
     ListRunbookActionsRequest$outboundSchema.parse(listRunbookActionsRequest),
   );
 }
-
 export function listRunbookActionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListRunbookActionsRequest, SDKValidationError> {

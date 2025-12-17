@@ -50,21 +50,9 @@ export type TicketingProjectFieldMapBodyEntity = {
 /** @internal */
 export const StrategyEnum$inboundSchema: z.ZodNativeEnum<typeof StrategyEnum> =
   z.nativeEnum(StrategyEnum);
-
 /** @internal */
 export const StrategyEnum$outboundSchema: z.ZodNativeEnum<typeof StrategyEnum> =
   StrategyEnum$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace StrategyEnum$ {
-  /** @deprecated use `StrategyEnum$inboundSchema` instead. */
-  export const inboundSchema = StrategyEnum$inboundSchema;
-  /** @deprecated use `StrategyEnum$outboundSchema` instead. */
-  export const outboundSchema = StrategyEnum$outboundSchema;
-}
 
 /** @internal */
 export const UserData$inboundSchema: z.ZodType<
@@ -72,7 +60,6 @@ export const UserData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type UserData$Outbound = {};
 
@@ -83,23 +70,9 @@ export const UserData$outboundSchema: z.ZodType<
   UserData
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserData$ {
-  /** @deprecated use `UserData$inboundSchema` instead. */
-  export const inboundSchema = UserData$inboundSchema;
-  /** @deprecated use `UserData$outboundSchema` instead. */
-  export const outboundSchema = UserData$outboundSchema;
-  /** @deprecated use `UserData$Outbound` instead. */
-  export type Outbound = UserData$Outbound;
-}
-
 export function userDataToJSON(userData: UserData): string {
   return JSON.stringify(UserData$outboundSchema.parse(userData));
 }
-
 export function userDataFromJSON(
   jsonString: string,
 ): SafeParseResult<UserData, SDKValidationError> {
@@ -134,7 +107,6 @@ export const TicketingProjectFieldMapBodyEntity$inboundSchema: z.ZodType<
     "user_data": "userData",
   });
 });
-
 /** @internal */
 export type TicketingProjectFieldMapBodyEntity$Outbound = {
   strategy?: string | null | undefined;
@@ -179,20 +151,6 @@ export const TicketingProjectFieldMapBodyEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectFieldMapBodyEntity$ {
-  /** @deprecated use `TicketingProjectFieldMapBodyEntity$inboundSchema` instead. */
-  export const inboundSchema = TicketingProjectFieldMapBodyEntity$inboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapBodyEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectFieldMapBodyEntity$outboundSchema;
-  /** @deprecated use `TicketingProjectFieldMapBodyEntity$Outbound` instead. */
-  export type Outbound = TicketingProjectFieldMapBodyEntity$Outbound;
-}
-
 export function ticketingProjectFieldMapBodyEntityToJSON(
   ticketingProjectFieldMapBodyEntity: TicketingProjectFieldMapBodyEntity,
 ): string {
@@ -202,7 +160,6 @@ export function ticketingProjectFieldMapBodyEntityToJSON(
     ),
   );
 }
-
 export function ticketingProjectFieldMapBodyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingProjectFieldMapBodyEntity, SDKValidationError> {

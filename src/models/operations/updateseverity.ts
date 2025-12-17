@@ -28,7 +28,6 @@ export const UpdateSeverityRequest$inboundSchema: z.ZodType<
     "update_severity": "updateSeverity",
   });
 });
-
 /** @internal */
 export type UpdateSeverityRequest$Outbound = {
   severity_slug: string;
@@ -50,19 +49,6 @@ export const UpdateSeverityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityRequest$ {
-  /** @deprecated use `UpdateSeverityRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverityRequest$inboundSchema;
-  /** @deprecated use `UpdateSeverityRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverityRequest$outboundSchema;
-  /** @deprecated use `UpdateSeverityRequest$Outbound` instead. */
-  export type Outbound = UpdateSeverityRequest$Outbound;
-}
-
 export function updateSeverityRequestToJSON(
   updateSeverityRequest: UpdateSeverityRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updateSeverityRequestToJSON(
     UpdateSeverityRequest$outboundSchema.parse(updateSeverityRequest),
   );
 }
-
 export function updateSeverityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverityRequest, SDKValidationError> {

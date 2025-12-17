@@ -23,6 +23,14 @@ export type UpdateRetrospectiveTemplateFieldsType = ClosedEnum<
   typeof UpdateRetrospectiveTemplateFieldsType
 >;
 
+export const ReportElementsType = {
+  IncidentData: "incident_data",
+  RetrospectiveField: "retrospective_field",
+  ProsemirrorContent: "prosemirror_content",
+  Divider: "divider",
+} as const;
+export type ReportElementsType = ClosedEnum<typeof ReportElementsType>;
+
 export type UpdateRetrospectiveTemplateRequestBody = {
   name?: string | null | undefined;
   description?: string | null | undefined;
@@ -37,6 +45,7 @@ export type UpdateRetrospectiveTemplateRequestBody = {
   fieldsIsRequired?: Array<boolean> | null | undefined;
   fieldsRequiredAtMilestoneId?: Array<string> | null | undefined;
   fieldsSchema?: Array<string> | null | undefined;
+  reportElementsType: ReportElementsType;
 };
 
 export type UpdateRetrospectiveTemplateRequest = {
@@ -49,24 +58,19 @@ export const UpdateRetrospectiveTemplateFieldsType$inboundSchema:
   z.ZodNativeEnum<typeof UpdateRetrospectiveTemplateFieldsType> = z.nativeEnum(
     UpdateRetrospectiveTemplateFieldsType,
   );
-
 /** @internal */
 export const UpdateRetrospectiveTemplateFieldsType$outboundSchema:
   z.ZodNativeEnum<typeof UpdateRetrospectiveTemplateFieldsType> =
     UpdateRetrospectiveTemplateFieldsType$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRetrospectiveTemplateFieldsType$ {
-  /** @deprecated use `UpdateRetrospectiveTemplateFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateRetrospectiveTemplateFieldsType$inboundSchema;
-  /** @deprecated use `UpdateRetrospectiveTemplateFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateRetrospectiveTemplateFieldsType$outboundSchema;
-}
+/** @internal */
+export const ReportElementsType$inboundSchema: z.ZodNativeEnum<
+  typeof ReportElementsType
+> = z.nativeEnum(ReportElementsType);
+/** @internal */
+export const ReportElementsType$outboundSchema: z.ZodNativeEnum<
+  typeof ReportElementsType
+> = ReportElementsType$inboundSchema;
 
 /** @internal */
 export const UpdateRetrospectiveTemplateRequestBody$inboundSchema: z.ZodType<
@@ -88,6 +92,7 @@ export const UpdateRetrospectiveTemplateRequestBody$inboundSchema: z.ZodType<
   "fields[required_at_milestone_id]": z.nullable(z.array(z.string()))
     .optional(),
   "fields[schema]": z.nullable(z.array(z.string())).optional(),
+  "report_elements[type]": ReportElementsType$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "is_default": "isDefault",
@@ -101,9 +106,9 @@ export const UpdateRetrospectiveTemplateRequestBody$inboundSchema: z.ZodType<
     "fields[is_required]": "fieldsIsRequired",
     "fields[required_at_milestone_id]": "fieldsRequiredAtMilestoneId",
     "fields[schema]": "fieldsSchema",
+    "report_elements[type]": "reportElementsType",
   });
 });
-
 /** @internal */
 export type UpdateRetrospectiveTemplateRequestBody$Outbound = {
   name?: string | null | undefined;
@@ -119,6 +124,7 @@ export type UpdateRetrospectiveTemplateRequestBody$Outbound = {
   "fields[is_required]"?: Array<boolean> | null | undefined;
   "fields[required_at_milestone_id]"?: Array<string> | null | undefined;
   "fields[schema]"?: Array<string> | null | undefined;
+  "report_elements[type]": string;
 };
 
 /** @internal */
@@ -140,6 +146,7 @@ export const UpdateRetrospectiveTemplateRequestBody$outboundSchema: z.ZodType<
   fieldsIsRequired: z.nullable(z.array(z.boolean())).optional(),
   fieldsRequiredAtMilestoneId: z.nullable(z.array(z.string())).optional(),
   fieldsSchema: z.nullable(z.array(z.string())).optional(),
+  reportElementsType: ReportElementsType$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     isDefault: "is_default",
@@ -153,23 +160,9 @@ export const UpdateRetrospectiveTemplateRequestBody$outboundSchema: z.ZodType<
     fieldsIsRequired: "fields[is_required]",
     fieldsRequiredAtMilestoneId: "fields[required_at_milestone_id]",
     fieldsSchema: "fields[schema]",
+    reportElementsType: "report_elements[type]",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRetrospectiveTemplateRequestBody$ {
-  /** @deprecated use `UpdateRetrospectiveTemplateRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateRetrospectiveTemplateRequestBody$inboundSchema;
-  /** @deprecated use `UpdateRetrospectiveTemplateRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateRetrospectiveTemplateRequestBody$outboundSchema;
-  /** @deprecated use `UpdateRetrospectiveTemplateRequestBody$Outbound` instead. */
-  export type Outbound = UpdateRetrospectiveTemplateRequestBody$Outbound;
-}
 
 export function updateRetrospectiveTemplateRequestBodyToJSON(
   updateRetrospectiveTemplateRequestBody:
@@ -181,7 +174,6 @@ export function updateRetrospectiveTemplateRequestBodyToJSON(
     ),
   );
 }
-
 export function updateRetrospectiveTemplateRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRetrospectiveTemplateRequestBody, SDKValidationError> {
@@ -209,7 +201,6 @@ export const UpdateRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateRetrospectiveTemplateRequest$Outbound = {
   retrospective_template_id: string;
@@ -233,20 +224,6 @@ export const UpdateRetrospectiveTemplateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRetrospectiveTemplateRequest$ {
-  /** @deprecated use `UpdateRetrospectiveTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateRetrospectiveTemplateRequest$inboundSchema;
-  /** @deprecated use `UpdateRetrospectiveTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateRetrospectiveTemplateRequest$outboundSchema;
-  /** @deprecated use `UpdateRetrospectiveTemplateRequest$Outbound` instead. */
-  export type Outbound = UpdateRetrospectiveTemplateRequest$Outbound;
-}
-
 export function updateRetrospectiveTemplateRequestToJSON(
   updateRetrospectiveTemplateRequest: UpdateRetrospectiveTemplateRequest,
 ): string {
@@ -256,7 +233,6 @@ export function updateRetrospectiveTemplateRequestToJSON(
     ),
   );
 }
-
 export function updateRetrospectiveTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRetrospectiveTemplateRequest, SDKValidationError> {

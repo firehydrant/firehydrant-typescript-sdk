@@ -27,7 +27,6 @@ export const ListCommentReactionsRequest$inboundSchema: z.ZodType<
     "comment_id": "commentId",
   });
 });
-
 /** @internal */
 export type ListCommentReactionsRequest$Outbound = {
   conversation_id: string;
@@ -49,19 +48,6 @@ export const ListCommentReactionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCommentReactionsRequest$ {
-  /** @deprecated use `ListCommentReactionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListCommentReactionsRequest$inboundSchema;
-  /** @deprecated use `ListCommentReactionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListCommentReactionsRequest$outboundSchema;
-  /** @deprecated use `ListCommentReactionsRequest$Outbound` instead. */
-  export type Outbound = ListCommentReactionsRequest$Outbound;
-}
-
 export function listCommentReactionsRequestToJSON(
   listCommentReactionsRequest: ListCommentReactionsRequest,
 ): string {
@@ -71,7 +57,6 @@ export function listCommentReactionsRequestToJSON(
     ),
   );
 }
-
 export function listCommentReactionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListCommentReactionsRequest, SDKValidationError> {

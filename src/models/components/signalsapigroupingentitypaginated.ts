@@ -36,7 +36,6 @@ export const SignalsAPIGroupingEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(SignalsAPIGroupingEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SignalsAPIGroupingEntityPaginated$Outbound = {
   data?: Array<SignalsAPIGroupingEntity$Outbound> | null | undefined;
@@ -53,20 +52,6 @@ export const SignalsAPIGroupingEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIGroupingEntityPaginated$ {
-  /** @deprecated use `SignalsAPIGroupingEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIGroupingEntityPaginated$inboundSchema;
-  /** @deprecated use `SignalsAPIGroupingEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIGroupingEntityPaginated$outboundSchema;
-  /** @deprecated use `SignalsAPIGroupingEntityPaginated$Outbound` instead. */
-  export type Outbound = SignalsAPIGroupingEntityPaginated$Outbound;
-}
-
 export function signalsAPIGroupingEntityPaginatedToJSON(
   signalsAPIGroupingEntityPaginated: SignalsAPIGroupingEntityPaginated,
 ): string {
@@ -76,7 +61,6 @@ export function signalsAPIGroupingEntityPaginatedToJSON(
     ),
   );
 }
-
 export function signalsAPIGroupingEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIGroupingEntityPaginated, SDKValidationError> {

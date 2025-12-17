@@ -32,7 +32,6 @@ export const GetZendeskCustomerSupportIssueRequest$inboundSchema: z.ZodType<
     "ticket_id": "ticketId",
   });
 });
-
 /** @internal */
 export type GetZendeskCustomerSupportIssueRequest$Outbound = {
   ticket_id: string;
@@ -53,21 +52,6 @@ export const GetZendeskCustomerSupportIssueRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetZendeskCustomerSupportIssueRequest$ {
-  /** @deprecated use `GetZendeskCustomerSupportIssueRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetZendeskCustomerSupportIssueRequest$inboundSchema;
-  /** @deprecated use `GetZendeskCustomerSupportIssueRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetZendeskCustomerSupportIssueRequest$outboundSchema;
-  /** @deprecated use `GetZendeskCustomerSupportIssueRequest$Outbound` instead. */
-  export type Outbound = GetZendeskCustomerSupportIssueRequest$Outbound;
-}
-
 export function getZendeskCustomerSupportIssueRequestToJSON(
   getZendeskCustomerSupportIssueRequest: GetZendeskCustomerSupportIssueRequest,
 ): string {
@@ -77,7 +61,6 @@ export function getZendeskCustomerSupportIssueRequestToJSON(
     ),
   );
 }
-
 export function getZendeskCustomerSupportIssueRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetZendeskCustomerSupportIssueRequest, SDKValidationError> {

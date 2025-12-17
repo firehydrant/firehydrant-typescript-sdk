@@ -19,7 +19,6 @@ export const DeleteNotificationPolicyRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteNotificationPolicyRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const DeleteNotificationPolicyRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteNotificationPolicyRequest$ {
-  /** @deprecated use `DeleteNotificationPolicyRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteNotificationPolicyRequest$inboundSchema;
-  /** @deprecated use `DeleteNotificationPolicyRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteNotificationPolicyRequest$outboundSchema;
-  /** @deprecated use `DeleteNotificationPolicyRequest$Outbound` instead. */
-  export type Outbound = DeleteNotificationPolicyRequest$Outbound;
-}
-
 export function deleteNotificationPolicyRequestToJSON(
   deleteNotificationPolicyRequest: DeleteNotificationPolicyRequest,
 ): string {
@@ -56,7 +42,6 @@ export function deleteNotificationPolicyRequestToJSON(
     ),
   );
 }
-
 export function deleteNotificationPolicyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteNotificationPolicyRequest, SDKValidationError> {

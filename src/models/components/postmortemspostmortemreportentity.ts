@@ -85,7 +85,6 @@ export const PostMortemsPostMortemReportEntity$inboundSchema: z.ZodType<
     "retrospective_note": "retrospectiveNote",
   });
 });
-
 /** @internal */
 export type PostMortemsPostMortemReportEntity$Outbound = {
   id?: string | null | undefined;
@@ -140,20 +139,6 @@ export const PostMortemsPostMortemReportEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PostMortemsPostMortemReportEntity$ {
-  /** @deprecated use `PostMortemsPostMortemReportEntity$inboundSchema` instead. */
-  export const inboundSchema = PostMortemsPostMortemReportEntity$inboundSchema;
-  /** @deprecated use `PostMortemsPostMortemReportEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    PostMortemsPostMortemReportEntity$outboundSchema;
-  /** @deprecated use `PostMortemsPostMortemReportEntity$Outbound` instead. */
-  export type Outbound = PostMortemsPostMortemReportEntity$Outbound;
-}
-
 export function postMortemsPostMortemReportEntityToJSON(
   postMortemsPostMortemReportEntity: PostMortemsPostMortemReportEntity,
 ): string {
@@ -163,7 +148,6 @@ export function postMortemsPostMortemReportEntityToJSON(
     ),
   );
 }
-
 export function postMortemsPostMortemReportEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PostMortemsPostMortemReportEntity, SDKValidationError> {

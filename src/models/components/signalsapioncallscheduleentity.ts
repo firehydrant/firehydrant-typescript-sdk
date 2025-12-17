@@ -113,7 +113,6 @@ export const SignalsAPIOnCallScheduleEntity$inboundSchema: z.ZodType<
     "slack_user_group_id": "slackUserGroupId",
   });
 });
-
 /** @internal */
 export type SignalsAPIOnCallScheduleEntity$Outbound = {
   id?: string | null | undefined;
@@ -175,19 +174,6 @@ export const SignalsAPIOnCallScheduleEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallScheduleEntity$ {
-  /** @deprecated use `SignalsAPIOnCallScheduleEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIOnCallScheduleEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallScheduleEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIOnCallScheduleEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallScheduleEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIOnCallScheduleEntity$Outbound;
-}
-
 export function signalsAPIOnCallScheduleEntityToJSON(
   signalsAPIOnCallScheduleEntity: SignalsAPIOnCallScheduleEntity,
 ): string {
@@ -197,7 +183,6 @@ export function signalsAPIOnCallScheduleEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIOnCallScheduleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIOnCallScheduleEntity, SDKValidationError> {

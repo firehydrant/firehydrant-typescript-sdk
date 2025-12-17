@@ -31,7 +31,6 @@ export const AlertsSignalAlertEntity$inboundSchema: z.ZodType<
     "is_noise": "isNoise",
   });
 });
-
 /** @internal */
 export type AlertsSignalAlertEntity$Outbound = {
   id?: string | null | undefined;
@@ -54,19 +53,6 @@ export const AlertsSignalAlertEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsSignalAlertEntity$ {
-  /** @deprecated use `AlertsSignalAlertEntity$inboundSchema` instead. */
-  export const inboundSchema = AlertsSignalAlertEntity$inboundSchema;
-  /** @deprecated use `AlertsSignalAlertEntity$outboundSchema` instead. */
-  export const outboundSchema = AlertsSignalAlertEntity$outboundSchema;
-  /** @deprecated use `AlertsSignalAlertEntity$Outbound` instead. */
-  export type Outbound = AlertsSignalAlertEntity$Outbound;
-}
-
 export function alertsSignalAlertEntityToJSON(
   alertsSignalAlertEntity: AlertsSignalAlertEntity,
 ): string {
@@ -74,7 +60,6 @@ export function alertsSignalAlertEntityToJSON(
     AlertsSignalAlertEntity$outboundSchema.parse(alertsSignalAlertEntity),
   );
 }
-
 export function alertsSignalAlertEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AlertsSignalAlertEntity, SDKValidationError> {

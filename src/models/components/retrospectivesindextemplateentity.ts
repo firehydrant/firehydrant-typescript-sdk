@@ -7,6 +7,12 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  RetrospectivesTemplateEntityReportElementEntity,
+  RetrospectivesTemplateEntityReportElementEntity$inboundSchema,
+  RetrospectivesTemplateEntityReportElementEntity$Outbound,
+  RetrospectivesTemplateEntityReportElementEntity$outboundSchema,
+} from "./retrospectivestemplateentityreportelemententity.js";
 
 export type RetrospectivesIndexTemplateEntity = {
   id?: string | null | undefined;
@@ -15,6 +21,10 @@ export type RetrospectivesIndexTemplateEntity = {
   isDefault?: boolean | null | undefined;
   createdAt?: Date | null | undefined;
   updatedAt?: Date | null | undefined;
+  reportElements?:
+    | Array<RetrospectivesTemplateEntityReportElementEntity>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -33,14 +43,17 @@ export const RetrospectivesIndexTemplateEntity$inboundSchema: z.ZodType<
   updated_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
+  report_elements: z.nullable(
+    z.array(RetrospectivesTemplateEntityReportElementEntity$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "is_default": "isDefault",
     "created_at": "createdAt",
     "updated_at": "updatedAt",
+    "report_elements": "reportElements",
   });
 });
-
 /** @internal */
 export type RetrospectivesIndexTemplateEntity$Outbound = {
   id?: string | null | undefined;
@@ -49,6 +62,10 @@ export type RetrospectivesIndexTemplateEntity$Outbound = {
   is_default?: boolean | null | undefined;
   created_at?: string | null | undefined;
   updated_at?: string | null | undefined;
+  report_elements?:
+    | Array<RetrospectivesTemplateEntityReportElementEntity$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -63,27 +80,17 @@ export const RetrospectivesIndexTemplateEntity$outboundSchema: z.ZodType<
   isDefault: z.nullable(z.boolean()).optional(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  reportElements: z.nullable(
+    z.array(RetrospectivesTemplateEntityReportElementEntity$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     isDefault: "is_default",
     createdAt: "created_at",
     updatedAt: "updated_at",
+    reportElements: "report_elements",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RetrospectivesIndexTemplateEntity$ {
-  /** @deprecated use `RetrospectivesIndexTemplateEntity$inboundSchema` instead. */
-  export const inboundSchema = RetrospectivesIndexTemplateEntity$inboundSchema;
-  /** @deprecated use `RetrospectivesIndexTemplateEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    RetrospectivesIndexTemplateEntity$outboundSchema;
-  /** @deprecated use `RetrospectivesIndexTemplateEntity$Outbound` instead. */
-  export type Outbound = RetrospectivesIndexTemplateEntity$Outbound;
-}
 
 export function retrospectivesIndexTemplateEntityToJSON(
   retrospectivesIndexTemplateEntity: RetrospectivesIndexTemplateEntity,
@@ -94,7 +101,6 @@ export function retrospectivesIndexTemplateEntityToJSON(
     ),
   );
 }
-
 export function retrospectivesIndexTemplateEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RetrospectivesIndexTemplateEntity, SDKValidationError> {

@@ -36,7 +36,6 @@ export const IncidentsShareRetrospectivesResultEntity$inboundSchema: z.ZodType<
     "user_ids": "userIds",
   });
 });
-
 /** @internal */
 export type IncidentsShareRetrospectivesResultEntity$Outbound = {
   retrospective_ids?: Array<string> | null | undefined;
@@ -58,21 +57,6 @@ export const IncidentsShareRetrospectivesResultEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsShareRetrospectivesResultEntity$ {
-  /** @deprecated use `IncidentsShareRetrospectivesResultEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsShareRetrospectivesResultEntity$inboundSchema;
-  /** @deprecated use `IncidentsShareRetrospectivesResultEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsShareRetrospectivesResultEntity$outboundSchema;
-  /** @deprecated use `IncidentsShareRetrospectivesResultEntity$Outbound` instead. */
-  export type Outbound = IncidentsShareRetrospectivesResultEntity$Outbound;
-}
-
 export function incidentsShareRetrospectivesResultEntityToJSON(
   incidentsShareRetrospectivesResultEntity:
     IncidentsShareRetrospectivesResultEntity,
@@ -83,7 +67,6 @@ export function incidentsShareRetrospectivesResultEntityToJSON(
     ),
   );
 }
-
 export function incidentsShareRetrospectivesResultEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

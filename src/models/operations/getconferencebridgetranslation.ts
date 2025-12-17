@@ -35,7 +35,6 @@ export const GetConferenceBridgeTranslationRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type GetConferenceBridgeTranslationRequest$Outbound = {
   id: string;
@@ -59,21 +58,6 @@ export const GetConferenceBridgeTranslationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetConferenceBridgeTranslationRequest$ {
-  /** @deprecated use `GetConferenceBridgeTranslationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetConferenceBridgeTranslationRequest$inboundSchema;
-  /** @deprecated use `GetConferenceBridgeTranslationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetConferenceBridgeTranslationRequest$outboundSchema;
-  /** @deprecated use `GetConferenceBridgeTranslationRequest$Outbound` instead. */
-  export type Outbound = GetConferenceBridgeTranslationRequest$Outbound;
-}
-
 export function getConferenceBridgeTranslationRequestToJSON(
   getConferenceBridgeTranslationRequest: GetConferenceBridgeTranslationRequest,
 ): string {
@@ -83,7 +67,6 @@ export function getConferenceBridgeTranslationRequestToJSON(
     ),
   );
 }
-
 export function getConferenceBridgeTranslationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetConferenceBridgeTranslationRequest, SDKValidationError> {

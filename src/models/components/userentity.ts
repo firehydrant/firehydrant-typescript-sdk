@@ -22,6 +22,7 @@ export type UserEntity = {
   name?: string | null | undefined;
   email?: string | null | undefined;
   slackUserId?: string | null | undefined;
+  role?: string | null | undefined;
   slackLinked?: boolean | null | undefined;
   createdAt?: Date | null | undefined;
   updatedAt?: Date | null | undefined;
@@ -42,6 +43,7 @@ export const UserEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   slack_user_id: z.nullable(z.string()).optional(),
+  role: z.nullable(z.string()).optional(),
   "slack_linked?": z.nullable(z.boolean()).optional(),
   created_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -65,13 +67,13 @@ export const UserEntity$inboundSchema: z.ZodType<
       "signalsNotificationPolicyCompliance",
   });
 });
-
 /** @internal */
 export type UserEntity$Outbound = {
   id?: string | null | undefined;
   name?: string | null | undefined;
   email?: string | null | undefined;
   slack_user_id?: string | null | undefined;
+  role?: string | null | undefined;
   "slack_linked?"?: boolean | null | undefined;
   created_at?: string | null | undefined;
   updated_at?: string | null | undefined;
@@ -92,6 +94,7 @@ export const UserEntity$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   slackUserId: z.nullable(z.string()).optional(),
+  role: z.nullable(z.string()).optional(),
   slackLinked: z.nullable(z.boolean()).optional(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
@@ -111,23 +114,9 @@ export const UserEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserEntity$ {
-  /** @deprecated use `UserEntity$inboundSchema` instead. */
-  export const inboundSchema = UserEntity$inboundSchema;
-  /** @deprecated use `UserEntity$outboundSchema` instead. */
-  export const outboundSchema = UserEntity$outboundSchema;
-  /** @deprecated use `UserEntity$Outbound` instead. */
-  export type Outbound = UserEntity$Outbound;
-}
-
 export function userEntityToJSON(userEntity: UserEntity): string {
   return JSON.stringify(UserEntity$outboundSchema.parse(userEntity));
 }
-
 export function userEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<UserEntity, SDKValidationError> {

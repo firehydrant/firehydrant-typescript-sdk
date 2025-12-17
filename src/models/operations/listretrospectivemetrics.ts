@@ -34,7 +34,6 @@ export const ListRetrospectiveMetricsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
   });
 });
-
 /** @internal */
 export type ListRetrospectiveMetricsRequest$Outbound = {
   start_date?: string | null | undefined;
@@ -58,19 +57,6 @@ export const ListRetrospectiveMetricsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListRetrospectiveMetricsRequest$ {
-  /** @deprecated use `ListRetrospectiveMetricsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListRetrospectiveMetricsRequest$inboundSchema;
-  /** @deprecated use `ListRetrospectiveMetricsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListRetrospectiveMetricsRequest$outboundSchema;
-  /** @deprecated use `ListRetrospectiveMetricsRequest$Outbound` instead. */
-  export type Outbound = ListRetrospectiveMetricsRequest$Outbound;
-}
-
 export function listRetrospectiveMetricsRequestToJSON(
   listRetrospectiveMetricsRequest: ListRetrospectiveMetricsRequest,
 ): string {
@@ -80,7 +66,6 @@ export function listRetrospectiveMetricsRequestToJSON(
     ),
   );
 }
-
 export function listRetrospectiveMetricsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListRetrospectiveMetricsRequest, SDKValidationError> {

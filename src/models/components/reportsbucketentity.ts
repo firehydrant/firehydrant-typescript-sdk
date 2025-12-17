@@ -27,7 +27,6 @@ export const ReportsBucketEntity$inboundSchema: z.ZodType<
   bucket: z.nullable(z.string()).optional(),
   points: z.nullable(z.array(ReportsDataPointEntity$inboundSchema)).optional(),
 });
-
 /** @internal */
 export type ReportsBucketEntity$Outbound = {
   bucket?: string | null | undefined;
@@ -44,19 +43,6 @@ export const ReportsBucketEntity$outboundSchema: z.ZodType<
   points: z.nullable(z.array(ReportsDataPointEntity$outboundSchema)).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ReportsBucketEntity$ {
-  /** @deprecated use `ReportsBucketEntity$inboundSchema` instead. */
-  export const inboundSchema = ReportsBucketEntity$inboundSchema;
-  /** @deprecated use `ReportsBucketEntity$outboundSchema` instead. */
-  export const outboundSchema = ReportsBucketEntity$outboundSchema;
-  /** @deprecated use `ReportsBucketEntity$Outbound` instead. */
-  export type Outbound = ReportsBucketEntity$Outbound;
-}
-
 export function reportsBucketEntityToJSON(
   reportsBucketEntity: ReportsBucketEntity,
 ): string {
@@ -64,7 +50,6 @@ export function reportsBucketEntityToJSON(
     ReportsBucketEntity$outboundSchema.parse(reportsBucketEntity),
   );
 }
-
 export function reportsBucketEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportsBucketEntity, SDKValidationError> {

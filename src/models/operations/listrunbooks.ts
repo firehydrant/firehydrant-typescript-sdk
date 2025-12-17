@@ -77,62 +77,26 @@ export type ListRunbooksRequest = {
 export const ListRunbooksSort$inboundSchema: z.ZodNativeEnum<
   typeof ListRunbooksSort
 > = z.nativeEnum(ListRunbooksSort);
-
 /** @internal */
 export const ListRunbooksSort$outboundSchema: z.ZodNativeEnum<
   typeof ListRunbooksSort
 > = ListRunbooksSort$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListRunbooksSort$ {
-  /** @deprecated use `ListRunbooksSort$inboundSchema` instead. */
-  export const inboundSchema = ListRunbooksSort$inboundSchema;
-  /** @deprecated use `ListRunbooksSort$outboundSchema` instead. */
-  export const outboundSchema = ListRunbooksSort$outboundSchema;
-}
-
 /** @internal */
 export const OrderBy$inboundSchema: z.ZodNativeEnum<typeof OrderBy> = z
   .nativeEnum(OrderBy);
-
 /** @internal */
 export const OrderBy$outboundSchema: z.ZodNativeEnum<typeof OrderBy> =
   OrderBy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderBy$ {
-  /** @deprecated use `OrderBy$inboundSchema` instead. */
-  export const inboundSchema = OrderBy$inboundSchema;
-  /** @deprecated use `OrderBy$outboundSchema` instead. */
-  export const outboundSchema = OrderBy$outboundSchema;
-}
 
 /** @internal */
 export const OrderDirection$inboundSchema: z.ZodNativeEnum<
   typeof OrderDirection
 > = z.nativeEnum(OrderDirection);
-
 /** @internal */
 export const OrderDirection$outboundSchema: z.ZodNativeEnum<
   typeof OrderDirection
 > = OrderDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderDirection$ {
-  /** @deprecated use `OrderDirection$inboundSchema` instead. */
-  export const inboundSchema = OrderDirection$inboundSchema;
-  /** @deprecated use `OrderDirection$outboundSchema` instead. */
-  export const outboundSchema = OrderDirection$outboundSchema;
-}
 
 /** @internal */
 export const ListRunbooksRequest$inboundSchema: z.ZodType<
@@ -154,7 +118,6 @@ export const ListRunbooksRequest$inboundSchema: z.ZodType<
     "order_direction": "orderDirection",
   });
 });
-
 /** @internal */
 export type ListRunbooksRequest$Outbound = {
   page?: number | null | undefined;
@@ -187,19 +150,6 @@ export const ListRunbooksRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListRunbooksRequest$ {
-  /** @deprecated use `ListRunbooksRequest$inboundSchema` instead. */
-  export const inboundSchema = ListRunbooksRequest$inboundSchema;
-  /** @deprecated use `ListRunbooksRequest$outboundSchema` instead. */
-  export const outboundSchema = ListRunbooksRequest$outboundSchema;
-  /** @deprecated use `ListRunbooksRequest$Outbound` instead. */
-  export type Outbound = ListRunbooksRequest$Outbound;
-}
-
 export function listRunbooksRequestToJSON(
   listRunbooksRequest: ListRunbooksRequest,
 ): string {
@@ -207,7 +157,6 @@ export function listRunbooksRequestToJSON(
     ListRunbooksRequest$outboundSchema.parse(listRunbooksRequest),
   );
 }
-
 export function listRunbooksRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListRunbooksRequest, SDKValidationError> {

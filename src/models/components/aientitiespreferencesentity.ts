@@ -41,7 +41,6 @@ export const AIEntitiesPreferencesEntity$inboundSchema: z.ZodType<
     "similar_incidents": "similarIncidents",
   });
 });
-
 /** @internal */
 export type AIEntitiesPreferencesEntity$Outbound = {
   ai?: boolean | null | undefined;
@@ -74,19 +73,6 @@ export const AIEntitiesPreferencesEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AIEntitiesPreferencesEntity$ {
-  /** @deprecated use `AIEntitiesPreferencesEntity$inboundSchema` instead. */
-  export const inboundSchema = AIEntitiesPreferencesEntity$inboundSchema;
-  /** @deprecated use `AIEntitiesPreferencesEntity$outboundSchema` instead. */
-  export const outboundSchema = AIEntitiesPreferencesEntity$outboundSchema;
-  /** @deprecated use `AIEntitiesPreferencesEntity$Outbound` instead. */
-  export type Outbound = AIEntitiesPreferencesEntity$Outbound;
-}
-
 export function aiEntitiesPreferencesEntityToJSON(
   aiEntitiesPreferencesEntity: AIEntitiesPreferencesEntity,
 ): string {
@@ -96,7 +82,6 @@ export function aiEntitiesPreferencesEntityToJSON(
     ),
   );
 }
-
 export function aiEntitiesPreferencesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AIEntitiesPreferencesEntity, SDKValidationError> {

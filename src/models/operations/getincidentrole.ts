@@ -24,7 +24,6 @@ export const GetIncidentRoleRequest$inboundSchema: z.ZodType<
     "incident_role_id": "incidentRoleId",
   });
 });
-
 /** @internal */
 export type GetIncidentRoleRequest$Outbound = {
   incident_role_id: string;
@@ -43,19 +42,6 @@ export const GetIncidentRoleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetIncidentRoleRequest$ {
-  /** @deprecated use `GetIncidentRoleRequest$inboundSchema` instead. */
-  export const inboundSchema = GetIncidentRoleRequest$inboundSchema;
-  /** @deprecated use `GetIncidentRoleRequest$outboundSchema` instead. */
-  export const outboundSchema = GetIncidentRoleRequest$outboundSchema;
-  /** @deprecated use `GetIncidentRoleRequest$Outbound` instead. */
-  export type Outbound = GetIncidentRoleRequest$Outbound;
-}
-
 export function getIncidentRoleRequestToJSON(
   getIncidentRoleRequest: GetIncidentRoleRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getIncidentRoleRequestToJSON(
     GetIncidentRoleRequest$outboundSchema.parse(getIncidentRoleRequest),
   );
 }
-
 export function getIncidentRoleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetIncidentRoleRequest, SDKValidationError> {

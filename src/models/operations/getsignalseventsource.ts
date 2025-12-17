@@ -24,7 +24,6 @@ export const GetSignalsEventSourceRequest$inboundSchema: z.ZodType<
     "transposer_slug": "transposerSlug",
   });
 });
-
 /** @internal */
 export type GetSignalsEventSourceRequest$Outbound = {
   transposer_slug: string;
@@ -43,19 +42,6 @@ export const GetSignalsEventSourceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsEventSourceRequest$ {
-  /** @deprecated use `GetSignalsEventSourceRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsEventSourceRequest$inboundSchema;
-  /** @deprecated use `GetSignalsEventSourceRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsEventSourceRequest$outboundSchema;
-  /** @deprecated use `GetSignalsEventSourceRequest$Outbound` instead. */
-  export type Outbound = GetSignalsEventSourceRequest$Outbound;
-}
-
 export function getSignalsEventSourceRequestToJSON(
   getSignalsEventSourceRequest: GetSignalsEventSourceRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getSignalsEventSourceRequestToJSON(
     ),
   );
 }
-
 export function getSignalsEventSourceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsEventSourceRequest, SDKValidationError> {

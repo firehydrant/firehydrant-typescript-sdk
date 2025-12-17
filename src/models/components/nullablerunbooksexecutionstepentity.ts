@@ -64,7 +64,6 @@ export const NullableRunbooksExecutionStepEntityConfig$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableRunbooksExecutionStepEntityConfig$Outbound = {};
 
@@ -76,21 +75,6 @@ export const NullableRunbooksExecutionStepEntityConfig$outboundSchema:
     NullableRunbooksExecutionStepEntityConfig
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionStepEntityConfig$ {
-  /** @deprecated use `NullableRunbooksExecutionStepEntityConfig$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionStepEntityConfig$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepEntityConfig$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionStepEntityConfig$outboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepEntityConfig$Outbound` instead. */
-  export type Outbound = NullableRunbooksExecutionStepEntityConfig$Outbound;
-}
-
 export function nullableRunbooksExecutionStepEntityConfigToJSON(
   nullableRunbooksExecutionStepEntityConfig:
     NullableRunbooksExecutionStepEntityConfig,
@@ -101,7 +85,6 @@ export function nullableRunbooksExecutionStepEntityConfigToJSON(
     ),
   );
 }
-
 export function nullableRunbooksExecutionStepEntityConfigFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -125,7 +108,6 @@ export const NullableRunbooksExecutionStepEntityStepElement$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type NullableRunbooksExecutionStepEntityStepElement$Outbound = {};
 
@@ -137,22 +119,6 @@ export const NullableRunbooksExecutionStepEntityStepElement$outboundSchema:
     NullableRunbooksExecutionStepEntityStepElement
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionStepEntityStepElement$ {
-  /** @deprecated use `NullableRunbooksExecutionStepEntityStepElement$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionStepEntityStepElement$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepEntityStepElement$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionStepEntityStepElement$outboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepEntityStepElement$Outbound` instead. */
-  export type Outbound =
-    NullableRunbooksExecutionStepEntityStepElement$Outbound;
-}
-
 export function nullableRunbooksExecutionStepEntityStepElementToJSON(
   nullableRunbooksExecutionStepEntityStepElement:
     NullableRunbooksExecutionStepEntityStepElement,
@@ -163,7 +129,6 @@ export function nullableRunbooksExecutionStepEntityStepElementToJSON(
     ),
   );
 }
-
 export function nullableRunbooksExecutionStepEntityStepElementFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -231,7 +196,6 @@ export const NullableRunbooksExecutionStepEntity$inboundSchema: z.ZodType<
     "conference_bridge": "conferenceBridge",
   });
 });
-
 /** @internal */
 export type NullableRunbooksExecutionStepEntity$Outbound = {
   id?: string | null | undefined;
@@ -317,21 +281,6 @@ export const NullableRunbooksExecutionStepEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionStepEntity$ {
-  /** @deprecated use `NullableRunbooksExecutionStepEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionStepEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionStepEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionStepEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksExecutionStepEntity$Outbound;
-}
-
 export function nullableRunbooksExecutionStepEntityToJSON(
   nullableRunbooksExecutionStepEntity: NullableRunbooksExecutionStepEntity,
 ): string {
@@ -341,7 +290,6 @@ export function nullableRunbooksExecutionStepEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksExecutionStepEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRunbooksExecutionStepEntity, SDKValidationError> {

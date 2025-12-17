@@ -45,24 +45,10 @@ export type IncidentsRoleAssignmentEntity = {
 export const IncidentsRoleAssignmentEntityStatus$inboundSchema: z.ZodNativeEnum<
   typeof IncidentsRoleAssignmentEntityStatus
 > = z.nativeEnum(IncidentsRoleAssignmentEntityStatus);
-
 /** @internal */
 export const IncidentsRoleAssignmentEntityStatus$outboundSchema:
   z.ZodNativeEnum<typeof IncidentsRoleAssignmentEntityStatus> =
     IncidentsRoleAssignmentEntityStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRoleAssignmentEntityStatus$ {
-  /** @deprecated use `IncidentsRoleAssignmentEntityStatus$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRoleAssignmentEntityStatus$inboundSchema;
-  /** @deprecated use `IncidentsRoleAssignmentEntityStatus$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRoleAssignmentEntityStatus$outboundSchema;
-}
 
 /** @internal */
 export const IncidentsRoleAssignmentEntity$inboundSchema: z.ZodType<
@@ -89,7 +75,6 @@ export const IncidentsRoleAssignmentEntity$inboundSchema: z.ZodType<
     "incident_role": "incidentRole",
   });
 });
-
 /** @internal */
 export type IncidentsRoleAssignmentEntity$Outbound = {
   id?: string | null | undefined;
@@ -122,19 +107,6 @@ export const IncidentsRoleAssignmentEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRoleAssignmentEntity$ {
-  /** @deprecated use `IncidentsRoleAssignmentEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsRoleAssignmentEntity$inboundSchema;
-  /** @deprecated use `IncidentsRoleAssignmentEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsRoleAssignmentEntity$outboundSchema;
-  /** @deprecated use `IncidentsRoleAssignmentEntity$Outbound` instead. */
-  export type Outbound = IncidentsRoleAssignmentEntity$Outbound;
-}
-
 export function incidentsRoleAssignmentEntityToJSON(
   incidentsRoleAssignmentEntity: IncidentsRoleAssignmentEntity,
 ): string {
@@ -144,7 +116,6 @@ export function incidentsRoleAssignmentEntityToJSON(
     ),
   );
 }
-
 export function incidentsRoleAssignmentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRoleAssignmentEntity, SDKValidationError> {

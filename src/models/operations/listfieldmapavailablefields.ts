@@ -24,7 +24,6 @@ export const ListFieldMapAvailableFieldsRequest$inboundSchema: z.ZodType<
     "field_map_id": "fieldMapId",
   });
 });
-
 /** @internal */
 export type ListFieldMapAvailableFieldsRequest$Outbound = {
   field_map_id: string;
@@ -43,20 +42,6 @@ export const ListFieldMapAvailableFieldsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListFieldMapAvailableFieldsRequest$ {
-  /** @deprecated use `ListFieldMapAvailableFieldsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListFieldMapAvailableFieldsRequest$inboundSchema;
-  /** @deprecated use `ListFieldMapAvailableFieldsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListFieldMapAvailableFieldsRequest$outboundSchema;
-  /** @deprecated use `ListFieldMapAvailableFieldsRequest$Outbound` instead. */
-  export type Outbound = ListFieldMapAvailableFieldsRequest$Outbound;
-}
-
 export function listFieldMapAvailableFieldsRequestToJSON(
   listFieldMapAvailableFieldsRequest: ListFieldMapAvailableFieldsRequest,
 ): string {
@@ -66,7 +51,6 @@ export function listFieldMapAvailableFieldsRequestToJSON(
     ),
   );
 }
-
 export function listFieldMapAvailableFieldsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListFieldMapAvailableFieldsRequest, SDKValidationError> {

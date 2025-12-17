@@ -55,7 +55,6 @@ export const CreateChecklistTemplateCheck$inboundSchema: z.ZodType<
   name: z.string(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type CreateChecklistTemplateCheck$Outbound = {
   name: string;
@@ -72,19 +71,6 @@ export const CreateChecklistTemplateCheck$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChecklistTemplateCheck$ {
-  /** @deprecated use `CreateChecklistTemplateCheck$inboundSchema` instead. */
-  export const inboundSchema = CreateChecklistTemplateCheck$inboundSchema;
-  /** @deprecated use `CreateChecklistTemplateCheck$outboundSchema` instead. */
-  export const outboundSchema = CreateChecklistTemplateCheck$outboundSchema;
-  /** @deprecated use `CreateChecklistTemplateCheck$Outbound` instead. */
-  export type Outbound = CreateChecklistTemplateCheck$Outbound;
-}
-
 export function createChecklistTemplateCheckToJSON(
   createChecklistTemplateCheck: CreateChecklistTemplateCheck,
 ): string {
@@ -94,7 +80,6 @@ export function createChecklistTemplateCheckToJSON(
     ),
   );
 }
-
 export function createChecklistTemplateCheckFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChecklistTemplateCheck, SDKValidationError> {
@@ -113,7 +98,6 @@ export const CreateChecklistTemplateConnectedService$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type CreateChecklistTemplateConnectedService$Outbound = {
   id: string;
@@ -128,21 +112,6 @@ export const CreateChecklistTemplateConnectedService$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChecklistTemplateConnectedService$ {
-  /** @deprecated use `CreateChecklistTemplateConnectedService$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateChecklistTemplateConnectedService$inboundSchema;
-  /** @deprecated use `CreateChecklistTemplateConnectedService$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateChecklistTemplateConnectedService$outboundSchema;
-  /** @deprecated use `CreateChecklistTemplateConnectedService$Outbound` instead. */
-  export type Outbound = CreateChecklistTemplateConnectedService$Outbound;
-}
-
 export function createChecklistTemplateConnectedServiceToJSON(
   createChecklistTemplateConnectedService:
     CreateChecklistTemplateConnectedService,
@@ -153,7 +122,6 @@ export function createChecklistTemplateConnectedServiceToJSON(
     ),
   );
 }
-
 export function createChecklistTemplateConnectedServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -191,7 +159,6 @@ export const CreateChecklistTemplate$inboundSchema: z.ZodType<
     "connected_services": "connectedServices",
   });
 });
-
 /** @internal */
 export type CreateChecklistTemplate$Outbound = {
   name: string;
@@ -226,19 +193,6 @@ export const CreateChecklistTemplate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChecklistTemplate$ {
-  /** @deprecated use `CreateChecklistTemplate$inboundSchema` instead. */
-  export const inboundSchema = CreateChecklistTemplate$inboundSchema;
-  /** @deprecated use `CreateChecklistTemplate$outboundSchema` instead. */
-  export const outboundSchema = CreateChecklistTemplate$outboundSchema;
-  /** @deprecated use `CreateChecklistTemplate$Outbound` instead. */
-  export type Outbound = CreateChecklistTemplate$Outbound;
-}
-
 export function createChecklistTemplateToJSON(
   createChecklistTemplate: CreateChecklistTemplate,
 ): string {
@@ -246,7 +200,6 @@ export function createChecklistTemplateToJSON(
     CreateChecklistTemplate$outboundSchema.parse(createChecklistTemplate),
   );
 }
-
 export function createChecklistTemplateFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChecklistTemplate, SDKValidationError> {

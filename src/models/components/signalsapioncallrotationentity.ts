@@ -110,7 +110,6 @@ export const SignalsAPIOnCallRotationEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type SignalsAPIOnCallRotationEntity$Outbound = {
   id?: string | null | undefined;
@@ -175,19 +174,6 @@ export const SignalsAPIOnCallRotationEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallRotationEntity$ {
-  /** @deprecated use `SignalsAPIOnCallRotationEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIOnCallRotationEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallRotationEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIOnCallRotationEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallRotationEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIOnCallRotationEntity$Outbound;
-}
-
 export function signalsAPIOnCallRotationEntityToJSON(
   signalsAPIOnCallRotationEntity: SignalsAPIOnCallRotationEntity,
 ): string {
@@ -197,7 +183,6 @@ export function signalsAPIOnCallRotationEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIOnCallRotationEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIOnCallRotationEntity, SDKValidationError> {

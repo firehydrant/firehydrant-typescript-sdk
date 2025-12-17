@@ -24,7 +24,6 @@ export const GetIncidentRelationshipsRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type GetIncidentRelationshipsRequest$Outbound = {
   incident_id: string;
@@ -43,19 +42,6 @@ export const GetIncidentRelationshipsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetIncidentRelationshipsRequest$ {
-  /** @deprecated use `GetIncidentRelationshipsRequest$inboundSchema` instead. */
-  export const inboundSchema = GetIncidentRelationshipsRequest$inboundSchema;
-  /** @deprecated use `GetIncidentRelationshipsRequest$outboundSchema` instead. */
-  export const outboundSchema = GetIncidentRelationshipsRequest$outboundSchema;
-  /** @deprecated use `GetIncidentRelationshipsRequest$Outbound` instead. */
-  export type Outbound = GetIncidentRelationshipsRequest$Outbound;
-}
-
 export function getIncidentRelationshipsRequestToJSON(
   getIncidentRelationshipsRequest: GetIncidentRelationshipsRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getIncidentRelationshipsRequestToJSON(
     ),
   );
 }
-
 export function getIncidentRelationshipsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetIncidentRelationshipsRequest, SDKValidationError> {

@@ -38,7 +38,6 @@ export const ScheduledMaintenancesImpactEntity$inboundSchema: z.ZodType<
   condition: z.nullable(NullableSeverityMatrixConditionEntity$inboundSchema)
     .optional(),
 });
-
 /** @internal */
 export type ScheduledMaintenancesImpactEntity$Outbound = {
   id?: string | null | undefined;
@@ -60,20 +59,6 @@ export const ScheduledMaintenancesImpactEntity$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ScheduledMaintenancesImpactEntity$ {
-  /** @deprecated use `ScheduledMaintenancesImpactEntity$inboundSchema` instead. */
-  export const inboundSchema = ScheduledMaintenancesImpactEntity$inboundSchema;
-  /** @deprecated use `ScheduledMaintenancesImpactEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    ScheduledMaintenancesImpactEntity$outboundSchema;
-  /** @deprecated use `ScheduledMaintenancesImpactEntity$Outbound` instead. */
-  export type Outbound = ScheduledMaintenancesImpactEntity$Outbound;
-}
-
 export function scheduledMaintenancesImpactEntityToJSON(
   scheduledMaintenancesImpactEntity: ScheduledMaintenancesImpactEntity,
 ): string {
@@ -83,7 +68,6 @@ export function scheduledMaintenancesImpactEntityToJSON(
     ),
   );
 }
-
 export function scheduledMaintenancesImpactEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ScheduledMaintenancesImpactEntity, SDKValidationError> {

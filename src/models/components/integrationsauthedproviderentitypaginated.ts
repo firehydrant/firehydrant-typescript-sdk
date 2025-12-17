@@ -38,7 +38,6 @@ export const IntegrationsAuthedProviderEntityPaginated$inboundSchema: z.ZodType<
   ).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IntegrationsAuthedProviderEntityPaginated$Outbound = {
   data?:
@@ -61,21 +60,6 @@ export const IntegrationsAuthedProviderEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAuthedProviderEntityPaginated$ {
-  /** @deprecated use `IntegrationsAuthedProviderEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsAuthedProviderEntityPaginated$inboundSchema;
-  /** @deprecated use `IntegrationsAuthedProviderEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsAuthedProviderEntityPaginated$outboundSchema;
-  /** @deprecated use `IntegrationsAuthedProviderEntityPaginated$Outbound` instead. */
-  export type Outbound = IntegrationsAuthedProviderEntityPaginated$Outbound;
-}
-
 export function integrationsAuthedProviderEntityPaginatedToJSON(
   integrationsAuthedProviderEntityPaginated:
     IntegrationsAuthedProviderEntityPaginated,
@@ -86,7 +70,6 @@ export function integrationsAuthedProviderEntityPaginatedToJSON(
     ),
   );
 }
-
 export function integrationsAuthedProviderEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

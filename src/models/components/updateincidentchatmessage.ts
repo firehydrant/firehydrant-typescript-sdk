@@ -22,7 +22,6 @@ export const UpdateIncidentChatMessage$inboundSchema: z.ZodType<
 > = z.object({
   body: z.string(),
 });
-
 /** @internal */
 export type UpdateIncidentChatMessage$Outbound = {
   body: string;
@@ -37,19 +36,6 @@ export const UpdateIncidentChatMessage$outboundSchema: z.ZodType<
   body: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentChatMessage$ {
-  /** @deprecated use `UpdateIncidentChatMessage$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentChatMessage$inboundSchema;
-  /** @deprecated use `UpdateIncidentChatMessage$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentChatMessage$outboundSchema;
-  /** @deprecated use `UpdateIncidentChatMessage$Outbound` instead. */
-  export type Outbound = UpdateIncidentChatMessage$Outbound;
-}
-
 export function updateIncidentChatMessageToJSON(
   updateIncidentChatMessage: UpdateIncidentChatMessage,
 ): string {
@@ -57,7 +43,6 @@ export function updateIncidentChatMessageToJSON(
     UpdateIncidentChatMessage$outboundSchema.parse(updateIncidentChatMessage),
   );
 }
-
 export function updateIncidentChatMessageFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentChatMessage, SDKValidationError> {

@@ -44,7 +44,6 @@ export const NullableTicketingProjectFieldMapEntity$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type NullableTicketingProjectFieldMapEntity$Outbound = {
   id?: string | null | undefined;
@@ -74,21 +73,6 @@ export const NullableTicketingProjectFieldMapEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingProjectFieldMapEntity$ {
-  /** @deprecated use `NullableTicketingProjectFieldMapEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingProjectFieldMapEntity$inboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingProjectFieldMapEntity$outboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapEntity$Outbound` instead. */
-  export type Outbound = NullableTicketingProjectFieldMapEntity$Outbound;
-}
-
 export function nullableTicketingProjectFieldMapEntityToJSON(
   nullableTicketingProjectFieldMapEntity:
     NullableTicketingProjectFieldMapEntity,
@@ -99,7 +83,6 @@ export function nullableTicketingProjectFieldMapEntityToJSON(
     ),
   );
 }
-
 export function nullableTicketingProjectFieldMapEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableTicketingProjectFieldMapEntity, SDKValidationError> {

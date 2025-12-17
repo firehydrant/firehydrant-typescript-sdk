@@ -27,7 +27,6 @@ export const DeleteTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
     "schedule_id": "scheduleId",
   });
 });
-
 /** @internal */
 export type DeleteTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
@@ -49,19 +48,6 @@ export const DeleteTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteTeamOnCallScheduleRequest$ {
-  /** @deprecated use `DeleteTeamOnCallScheduleRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteTeamOnCallScheduleRequest$inboundSchema;
-  /** @deprecated use `DeleteTeamOnCallScheduleRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteTeamOnCallScheduleRequest$outboundSchema;
-  /** @deprecated use `DeleteTeamOnCallScheduleRequest$Outbound` instead. */
-  export type Outbound = DeleteTeamOnCallScheduleRequest$Outbound;
-}
-
 export function deleteTeamOnCallScheduleRequestToJSON(
   deleteTeamOnCallScheduleRequest: DeleteTeamOnCallScheduleRequest,
 ): string {
@@ -71,7 +57,6 @@ export function deleteTeamOnCallScheduleRequestToJSON(
     ),
   );
 }
-
 export function deleteTeamOnCallScheduleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteTeamOnCallScheduleRequest, SDKValidationError> {

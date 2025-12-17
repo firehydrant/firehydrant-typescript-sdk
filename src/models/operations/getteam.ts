@@ -29,7 +29,6 @@ export const GetTeamRequest$inboundSchema: z.ZodType<
     "team_id": "teamId",
   });
 });
-
 /** @internal */
 export type GetTeamRequest$Outbound = {
   team_id: string;
@@ -50,23 +49,9 @@ export const GetTeamRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetTeamRequest$ {
-  /** @deprecated use `GetTeamRequest$inboundSchema` instead. */
-  export const inboundSchema = GetTeamRequest$inboundSchema;
-  /** @deprecated use `GetTeamRequest$outboundSchema` instead. */
-  export const outboundSchema = GetTeamRequest$outboundSchema;
-  /** @deprecated use `GetTeamRequest$Outbound` instead. */
-  export type Outbound = GetTeamRequest$Outbound;
-}
-
 export function getTeamRequestToJSON(getTeamRequest: GetTeamRequest): string {
   return JSON.stringify(GetTeamRequest$outboundSchema.parse(getTeamRequest));
 }
-
 export function getTeamRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetTeamRequest, SDKValidationError> {

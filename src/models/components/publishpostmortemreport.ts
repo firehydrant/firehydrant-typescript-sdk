@@ -32,21 +32,9 @@ export type PublishPostMortemReport = {
 /** @internal */
 export const Publish$inboundSchema: z.ZodNativeEnum<typeof Publish> = z
   .nativeEnum(Publish);
-
 /** @internal */
 export const Publish$outboundSchema: z.ZodNativeEnum<typeof Publish> =
   Publish$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Publish$ {
-  /** @deprecated use `Publish$inboundSchema` instead. */
-  export const inboundSchema = Publish$inboundSchema;
-  /** @deprecated use `Publish$outboundSchema` instead. */
-  export const outboundSchema = Publish$outboundSchema;
-}
 
 /** @internal */
 export const PublishPostMortemReport$inboundSchema: z.ZodType<
@@ -63,7 +51,6 @@ export const PublishPostMortemReport$inboundSchema: z.ZodType<
     "team_ids": "teamIds",
   });
 });
-
 /** @internal */
 export type PublishPostMortemReport$Outbound = {
   publish?: string | null | undefined;
@@ -87,19 +74,6 @@ export const PublishPostMortemReport$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublishPostMortemReport$ {
-  /** @deprecated use `PublishPostMortemReport$inboundSchema` instead. */
-  export const inboundSchema = PublishPostMortemReport$inboundSchema;
-  /** @deprecated use `PublishPostMortemReport$outboundSchema` instead. */
-  export const outboundSchema = PublishPostMortemReport$outboundSchema;
-  /** @deprecated use `PublishPostMortemReport$Outbound` instead. */
-  export type Outbound = PublishPostMortemReport$Outbound;
-}
-
 export function publishPostMortemReportToJSON(
   publishPostMortemReport: PublishPostMortemReport,
 ): string {
@@ -107,7 +81,6 @@ export function publishPostMortemReportToJSON(
     PublishPostMortemReport$outboundSchema.parse(publishPostMortemReport),
   );
 }
-
 export function publishPostMortemReportFromJSON(
   jsonString: string,
 ): SafeParseResult<PublishPostMortemReport, SDKValidationError> {

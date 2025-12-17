@@ -46,7 +46,6 @@ export const UpdateSeverityMatrixData$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type UpdateSeverityMatrixData$Outbound = {
   severity: string;
@@ -70,19 +69,6 @@ export const UpdateSeverityMatrixData$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityMatrixData$ {
-  /** @deprecated use `UpdateSeverityMatrixData$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverityMatrixData$inboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixData$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverityMatrixData$outboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixData$Outbound` instead. */
-  export type Outbound = UpdateSeverityMatrixData$Outbound;
-}
-
 export function updateSeverityMatrixDataToJSON(
   updateSeverityMatrixData: UpdateSeverityMatrixData,
 ): string {
@@ -90,7 +76,6 @@ export function updateSeverityMatrixDataToJSON(
     UpdateSeverityMatrixData$outboundSchema.parse(updateSeverityMatrixData),
   );
 }
-
 export function updateSeverityMatrixDataFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverityMatrixData, SDKValidationError> {
@@ -110,7 +95,6 @@ export const UpdateSeverityMatrix$inboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
   data: z.array(z.lazy(() => UpdateSeverityMatrixData$inboundSchema)),
 });
-
 /** @internal */
 export type UpdateSeverityMatrix$Outbound = {
   summary?: string | null | undefined;
@@ -127,19 +111,6 @@ export const UpdateSeverityMatrix$outboundSchema: z.ZodType<
   data: z.array(z.lazy(() => UpdateSeverityMatrixData$outboundSchema)),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityMatrix$ {
-  /** @deprecated use `UpdateSeverityMatrix$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverityMatrix$inboundSchema;
-  /** @deprecated use `UpdateSeverityMatrix$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverityMatrix$outboundSchema;
-  /** @deprecated use `UpdateSeverityMatrix$Outbound` instead. */
-  export type Outbound = UpdateSeverityMatrix$Outbound;
-}
-
 export function updateSeverityMatrixToJSON(
   updateSeverityMatrix: UpdateSeverityMatrix,
 ): string {
@@ -147,7 +118,6 @@ export function updateSeverityMatrixToJSON(
     UpdateSeverityMatrix$outboundSchema.parse(updateSeverityMatrix),
   );
 }
-
 export function updateSeverityMatrixFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverityMatrix, SDKValidationError> {

@@ -1,5 +1,4 @@
 # AccountSettings
-(*accountSettings*)
 
 ## Overview
 

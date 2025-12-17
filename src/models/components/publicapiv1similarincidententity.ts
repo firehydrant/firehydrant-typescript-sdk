@@ -23,7 +23,6 @@ export const PublicApiv1SimilarIncidentEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   distance: z.nullable(z.number()).optional(),
 });
-
 /** @internal */
 export type PublicApiv1SimilarIncidentEntity$Outbound = {
   id?: string | null | undefined;
@@ -42,19 +41,6 @@ export const PublicApiv1SimilarIncidentEntity$outboundSchema: z.ZodType<
   distance: z.nullable(z.number()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1SimilarIncidentEntity$ {
-  /** @deprecated use `PublicApiv1SimilarIncidentEntity$inboundSchema` instead. */
-  export const inboundSchema = PublicApiv1SimilarIncidentEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1SimilarIncidentEntity$outboundSchema` instead. */
-  export const outboundSchema = PublicApiv1SimilarIncidentEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1SimilarIncidentEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1SimilarIncidentEntity$Outbound;
-}
-
 export function publicAPIV1SimilarIncidentEntityToJSON(
   publicApiv1SimilarIncidentEntity: PublicApiv1SimilarIncidentEntity,
 ): string {
@@ -64,7 +50,6 @@ export function publicAPIV1SimilarIncidentEntityToJSON(
     ),
   );
 }
-
 export function publicAPIV1SimilarIncidentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PublicApiv1SimilarIncidentEntity, SDKValidationError> {

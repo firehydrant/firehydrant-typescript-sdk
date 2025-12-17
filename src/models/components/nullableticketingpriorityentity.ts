@@ -40,7 +40,6 @@ export const NullableTicketingPriorityEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type NullableTicketingPriorityEntity$Outbound = {
   id?: string | null | undefined;
@@ -68,19 +67,6 @@ export const NullableTicketingPriorityEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingPriorityEntity$ {
-  /** @deprecated use `NullableTicketingPriorityEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableTicketingPriorityEntity$inboundSchema;
-  /** @deprecated use `NullableTicketingPriorityEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableTicketingPriorityEntity$outboundSchema;
-  /** @deprecated use `NullableTicketingPriorityEntity$Outbound` instead. */
-  export type Outbound = NullableTicketingPriorityEntity$Outbound;
-}
-
 export function nullableTicketingPriorityEntityToJSON(
   nullableTicketingPriorityEntity: NullableTicketingPriorityEntity,
 ): string {
@@ -90,7 +76,6 @@ export function nullableTicketingPriorityEntityToJSON(
     ),
   );
 }
-
 export function nullableTicketingPriorityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableTicketingPriorityEntity, SDKValidationError> {

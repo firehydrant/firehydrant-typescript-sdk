@@ -30,7 +30,6 @@ export const CreateTeamEscalationPolicyRequest$inboundSchema: z.ZodType<
     "create_team_escalation_policy": "createTeamEscalationPolicy",
   });
 });
-
 /** @internal */
 export type CreateTeamEscalationPolicyRequest$Outbound = {
   team_id: string;
@@ -54,20 +53,6 @@ export const CreateTeamEscalationPolicyRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamEscalationPolicyRequest$ {
-  /** @deprecated use `CreateTeamEscalationPolicyRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamEscalationPolicyRequest$inboundSchema;
-  /** @deprecated use `CreateTeamEscalationPolicyRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamEscalationPolicyRequest$outboundSchema;
-  /** @deprecated use `CreateTeamEscalationPolicyRequest$Outbound` instead. */
-  export type Outbound = CreateTeamEscalationPolicyRequest$Outbound;
-}
-
 export function createTeamEscalationPolicyRequestToJSON(
   createTeamEscalationPolicyRequest: CreateTeamEscalationPolicyRequest,
 ): string {
@@ -77,7 +62,6 @@ export function createTeamEscalationPolicyRequestToJSON(
     ),
   );
 }
-
 export function createTeamEscalationPolicyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamEscalationPolicyRequest, SDKValidationError> {

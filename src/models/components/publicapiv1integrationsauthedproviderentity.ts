@@ -57,7 +57,6 @@ export const PublicApiv1IntegrationsAuthedProviderEntity$inboundSchema:
       "updated_at": "updatedAt",
     });
   });
-
 /** @internal */
 export type PublicApiv1IntegrationsAuthedProviderEntity$Outbound = {
   id?: string | null | undefined;
@@ -93,21 +92,6 @@ export const PublicApiv1IntegrationsAuthedProviderEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1IntegrationsAuthedProviderEntity$ {
-  /** @deprecated use `PublicApiv1IntegrationsAuthedProviderEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    PublicApiv1IntegrationsAuthedProviderEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1IntegrationsAuthedProviderEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    PublicApiv1IntegrationsAuthedProviderEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1IntegrationsAuthedProviderEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1IntegrationsAuthedProviderEntity$Outbound;
-}
-
 export function publicAPIV1IntegrationsAuthedProviderEntityToJSON(
   publicApiv1IntegrationsAuthedProviderEntity:
     PublicApiv1IntegrationsAuthedProviderEntity,
@@ -118,7 +102,6 @@ export function publicAPIV1IntegrationsAuthedProviderEntityToJSON(
     ),
   );
 }
-
 export function publicAPIV1IntegrationsAuthedProviderEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

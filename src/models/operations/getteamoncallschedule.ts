@@ -39,7 +39,6 @@ export const GetTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
     "shift_time_window_end": "shiftTimeWindowEnd",
   });
 });
-
 /** @internal */
 export type GetTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
@@ -67,19 +66,6 @@ export const GetTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetTeamOnCallScheduleRequest$ {
-  /** @deprecated use `GetTeamOnCallScheduleRequest$inboundSchema` instead. */
-  export const inboundSchema = GetTeamOnCallScheduleRequest$inboundSchema;
-  /** @deprecated use `GetTeamOnCallScheduleRequest$outboundSchema` instead. */
-  export const outboundSchema = GetTeamOnCallScheduleRequest$outboundSchema;
-  /** @deprecated use `GetTeamOnCallScheduleRequest$Outbound` instead. */
-  export type Outbound = GetTeamOnCallScheduleRequest$Outbound;
-}
-
 export function getTeamOnCallScheduleRequestToJSON(
   getTeamOnCallScheduleRequest: GetTeamOnCallScheduleRequest,
 ): string {
@@ -89,7 +75,6 @@ export function getTeamOnCallScheduleRequestToJSON(
     ),
   );
 }
-
 export function getTeamOnCallScheduleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetTeamOnCallScheduleRequest, SDKValidationError> {

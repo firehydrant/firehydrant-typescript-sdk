@@ -26,7 +26,6 @@ export const ListPrioritiesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListPrioritiesRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListPrioritiesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListPrioritiesRequest$ {
-  /** @deprecated use `ListPrioritiesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListPrioritiesRequest$inboundSchema;
-  /** @deprecated use `ListPrioritiesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListPrioritiesRequest$outboundSchema;
-  /** @deprecated use `ListPrioritiesRequest$Outbound` instead. */
-  export type Outbound = ListPrioritiesRequest$Outbound;
-}
-
 export function listPrioritiesRequestToJSON(
   listPrioritiesRequest: ListPrioritiesRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listPrioritiesRequestToJSON(
     ListPrioritiesRequest$outboundSchema.parse(listPrioritiesRequest),
   );
 }
-
 export function listPrioritiesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListPrioritiesRequest, SDKValidationError> {

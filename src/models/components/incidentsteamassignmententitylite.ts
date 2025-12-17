@@ -43,7 +43,6 @@ export const IncidentsTeamAssignmentEntityLite$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type IncidentsTeamAssignmentEntityLite$Outbound = {
   id?: string | null | undefined;
@@ -71,20 +70,6 @@ export const IncidentsTeamAssignmentEntityLite$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsTeamAssignmentEntityLite$ {
-  /** @deprecated use `IncidentsTeamAssignmentEntityLite$inboundSchema` instead. */
-  export const inboundSchema = IncidentsTeamAssignmentEntityLite$inboundSchema;
-  /** @deprecated use `IncidentsTeamAssignmentEntityLite$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsTeamAssignmentEntityLite$outboundSchema;
-  /** @deprecated use `IncidentsTeamAssignmentEntityLite$Outbound` instead. */
-  export type Outbound = IncidentsTeamAssignmentEntityLite$Outbound;
-}
-
 export function incidentsTeamAssignmentEntityLiteToJSON(
   incidentsTeamAssignmentEntityLite: IncidentsTeamAssignmentEntityLite,
 ): string {
@@ -94,7 +79,6 @@ export function incidentsTeamAssignmentEntityLiteToJSON(
     ),
   );
 }
-
 export function incidentsTeamAssignmentEntityLiteFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsTeamAssignmentEntityLite, SDKValidationError> {

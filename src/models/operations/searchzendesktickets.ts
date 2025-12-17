@@ -31,7 +31,6 @@ export const SearchZendeskTicketsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type SearchZendeskTicketsRequest$Outbound = {
   connection_id: string;
@@ -57,19 +56,6 @@ export const SearchZendeskTicketsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SearchZendeskTicketsRequest$ {
-  /** @deprecated use `SearchZendeskTicketsRequest$inboundSchema` instead. */
-  export const inboundSchema = SearchZendeskTicketsRequest$inboundSchema;
-  /** @deprecated use `SearchZendeskTicketsRequest$outboundSchema` instead. */
-  export const outboundSchema = SearchZendeskTicketsRequest$outboundSchema;
-  /** @deprecated use `SearchZendeskTicketsRequest$Outbound` instead. */
-  export type Outbound = SearchZendeskTicketsRequest$Outbound;
-}
-
 export function searchZendeskTicketsRequestToJSON(
   searchZendeskTicketsRequest: SearchZendeskTicketsRequest,
 ): string {
@@ -79,7 +65,6 @@ export function searchZendeskTicketsRequestToJSON(
     ),
   );
 }
-
 export function searchZendeskTicketsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<SearchZendeskTicketsRequest, SDKValidationError> {

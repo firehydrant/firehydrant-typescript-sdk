@@ -61,45 +61,19 @@ export type CreateNotificationPolicyRequest = {
 export const CreateNotificationPolicyNotificationGroupMethod$inboundSchema:
   z.ZodNativeEnum<typeof CreateNotificationPolicyNotificationGroupMethod> = z
     .nativeEnum(CreateNotificationPolicyNotificationGroupMethod);
-
 /** @internal */
 export const CreateNotificationPolicyNotificationGroupMethod$outboundSchema:
   z.ZodNativeEnum<typeof CreateNotificationPolicyNotificationGroupMethod> =
     CreateNotificationPolicyNotificationGroupMethod$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNotificationPolicyNotificationGroupMethod$ {
-  /** @deprecated use `CreateNotificationPolicyNotificationGroupMethod$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateNotificationPolicyNotificationGroupMethod$inboundSchema;
-  /** @deprecated use `CreateNotificationPolicyNotificationGroupMethod$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateNotificationPolicyNotificationGroupMethod$outboundSchema;
-}
-
 /** @internal */
 export const CreateNotificationPolicyPriority$inboundSchema: z.ZodNativeEnum<
   typeof CreateNotificationPolicyPriority
 > = z.nativeEnum(CreateNotificationPolicyPriority);
-
 /** @internal */
 export const CreateNotificationPolicyPriority$outboundSchema: z.ZodNativeEnum<
   typeof CreateNotificationPolicyPriority
 > = CreateNotificationPolicyPriority$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNotificationPolicyPriority$ {
-  /** @deprecated use `CreateNotificationPolicyPriority$inboundSchema` instead. */
-  export const inboundSchema = CreateNotificationPolicyPriority$inboundSchema;
-  /** @deprecated use `CreateNotificationPolicyPriority$outboundSchema` instead. */
-  export const outboundSchema = CreateNotificationPolicyPriority$outboundSchema;
-}
 
 /** @internal */
 export const CreateNotificationPolicyRequest$inboundSchema: z.ZodType<
@@ -117,7 +91,6 @@ export const CreateNotificationPolicyRequest$inboundSchema: z.ZodType<
     "max_delay": "maxDelay",
   });
 });
-
 /** @internal */
 export type CreateNotificationPolicyRequest$Outbound = {
   notification_group_method: string;
@@ -142,19 +115,6 @@ export const CreateNotificationPolicyRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNotificationPolicyRequest$ {
-  /** @deprecated use `CreateNotificationPolicyRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateNotificationPolicyRequest$inboundSchema;
-  /** @deprecated use `CreateNotificationPolicyRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateNotificationPolicyRequest$outboundSchema;
-  /** @deprecated use `CreateNotificationPolicyRequest$Outbound` instead. */
-  export type Outbound = CreateNotificationPolicyRequest$Outbound;
-}
-
 export function createNotificationPolicyRequestToJSON(
   createNotificationPolicyRequest: CreateNotificationPolicyRequest,
 ): string {
@@ -164,7 +124,6 @@ export function createNotificationPolicyRequestToJSON(
     ),
   );
 }
-
 export function createNotificationPolicyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateNotificationPolicyRequest, SDKValidationError> {

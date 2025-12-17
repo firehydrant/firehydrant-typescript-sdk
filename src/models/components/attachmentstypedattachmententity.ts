@@ -33,7 +33,6 @@ export const Attributes$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type Attributes$Outbound = {};
 
@@ -44,23 +43,9 @@ export const Attributes$outboundSchema: z.ZodType<
   Attributes
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Attributes$ {
-  /** @deprecated use `Attributes$inboundSchema` instead. */
-  export const inboundSchema = Attributes$inboundSchema;
-  /** @deprecated use `Attributes$outboundSchema` instead. */
-  export const outboundSchema = Attributes$outboundSchema;
-  /** @deprecated use `Attributes$Outbound` instead. */
-  export type Outbound = Attributes$Outbound;
-}
-
 export function attributesToJSON(attributes: Attributes): string {
   return JSON.stringify(Attributes$outboundSchema.parse(attributes));
 }
-
 export function attributesFromJSON(
   jsonString: string,
 ): SafeParseResult<Attributes, SDKValidationError> {
@@ -96,7 +81,6 @@ export const AttachmentsTypedAttachmentEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
   });
 });
-
 /** @internal */
 export type AttachmentsTypedAttachmentEntity$Outbound = {
   id?: string | null | undefined;
@@ -133,19 +117,6 @@ export const AttachmentsTypedAttachmentEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AttachmentsTypedAttachmentEntity$ {
-  /** @deprecated use `AttachmentsTypedAttachmentEntity$inboundSchema` instead. */
-  export const inboundSchema = AttachmentsTypedAttachmentEntity$inboundSchema;
-  /** @deprecated use `AttachmentsTypedAttachmentEntity$outboundSchema` instead. */
-  export const outboundSchema = AttachmentsTypedAttachmentEntity$outboundSchema;
-  /** @deprecated use `AttachmentsTypedAttachmentEntity$Outbound` instead. */
-  export type Outbound = AttachmentsTypedAttachmentEntity$Outbound;
-}
-
 export function attachmentsTypedAttachmentEntityToJSON(
   attachmentsTypedAttachmentEntity: AttachmentsTypedAttachmentEntity,
 ): string {
@@ -155,7 +126,6 @@ export function attachmentsTypedAttachmentEntityToJSON(
     ),
   );
 }
-
 export function attachmentsTypedAttachmentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AttachmentsTypedAttachmentEntity, SDKValidationError> {

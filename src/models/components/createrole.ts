@@ -42,6 +42,7 @@ export const CreateRolePermission = {
   ManageIncidents: "manage_incidents",
   CreateIncidents: "create_incidents",
   ReadIncidents: "read_incidents",
+  UpdateIncidents: "update_incidents",
   ManageIncidentSettings: "manage_incident_settings",
   ReadIncidentSettings: "read_incident_settings",
   ManageIntegrations: "manage_integrations",
@@ -97,22 +98,10 @@ export type CreateRole = {
 export const CreateRolePermission$inboundSchema: z.ZodNativeEnum<
   typeof CreateRolePermission
 > = z.nativeEnum(CreateRolePermission);
-
 /** @internal */
 export const CreateRolePermission$outboundSchema: z.ZodNativeEnum<
   typeof CreateRolePermission
 > = CreateRolePermission$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateRolePermission$ {
-  /** @deprecated use `CreateRolePermission$inboundSchema` instead. */
-  export const inboundSchema = CreateRolePermission$inboundSchema;
-  /** @deprecated use `CreateRolePermission$outboundSchema` instead. */
-  export const outboundSchema = CreateRolePermission$outboundSchema;
-}
 
 /** @internal */
 export const CreateRole$inboundSchema: z.ZodType<
@@ -126,7 +115,6 @@ export const CreateRole$inboundSchema: z.ZodType<
   permissions: z.nullable(z.array(CreateRolePermission$inboundSchema))
     .optional(),
 });
-
 /** @internal */
 export type CreateRole$Outbound = {
   name: string;
@@ -148,23 +136,9 @@ export const CreateRole$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateRole$ {
-  /** @deprecated use `CreateRole$inboundSchema` instead. */
-  export const inboundSchema = CreateRole$inboundSchema;
-  /** @deprecated use `CreateRole$outboundSchema` instead. */
-  export const outboundSchema = CreateRole$outboundSchema;
-  /** @deprecated use `CreateRole$Outbound` instead. */
-  export type Outbound = CreateRole$Outbound;
-}
-
 export function createRoleToJSON(createRole: CreateRole): string {
   return JSON.stringify(CreateRole$outboundSchema.parse(createRole));
 }
-
 export function createRoleFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateRole, SDKValidationError> {

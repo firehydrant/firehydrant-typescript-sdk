@@ -24,7 +24,6 @@ export const UpdateSeverityMatrixImpact$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type UpdateSeverityMatrixImpact$Outbound = {
   name?: string | null | undefined;
@@ -41,19 +40,6 @@ export const UpdateSeverityMatrixImpact$outboundSchema: z.ZodType<
   position: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityMatrixImpact$ {
-  /** @deprecated use `UpdateSeverityMatrixImpact$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverityMatrixImpact$inboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixImpact$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverityMatrixImpact$outboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixImpact$Outbound` instead. */
-  export type Outbound = UpdateSeverityMatrixImpact$Outbound;
-}
-
 export function updateSeverityMatrixImpactToJSON(
   updateSeverityMatrixImpact: UpdateSeverityMatrixImpact,
 ): string {
@@ -61,7 +47,6 @@ export function updateSeverityMatrixImpactToJSON(
     UpdateSeverityMatrixImpact$outboundSchema.parse(updateSeverityMatrixImpact),
   );
 }
-
 export function updateSeverityMatrixImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverityMatrixImpact, SDKValidationError> {

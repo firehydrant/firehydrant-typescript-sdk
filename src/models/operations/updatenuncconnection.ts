@@ -79,7 +79,6 @@ export const UpdateNuncConnectionRequestBody$inboundSchema: z.ZodType<
     "ui_version": "uiVersion",
   });
 });
-
 /** @internal */
 export type UpdateNuncConnectionRequestBody$Outbound = {
   company_name?: string | null | undefined;
@@ -142,19 +141,6 @@ export const UpdateNuncConnectionRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncConnectionRequestBody$ {
-  /** @deprecated use `UpdateNuncConnectionRequestBody$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncConnectionRequestBody$inboundSchema;
-  /** @deprecated use `UpdateNuncConnectionRequestBody$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncConnectionRequestBody$outboundSchema;
-  /** @deprecated use `UpdateNuncConnectionRequestBody$Outbound` instead. */
-  export type Outbound = UpdateNuncConnectionRequestBody$Outbound;
-}
-
 export function updateNuncConnectionRequestBodyToJSON(
   updateNuncConnectionRequestBody: UpdateNuncConnectionRequestBody,
 ): string {
@@ -164,7 +150,6 @@ export function updateNuncConnectionRequestBodyToJSON(
     ),
   );
 }
-
 export function updateNuncConnectionRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncConnectionRequestBody, SDKValidationError> {
@@ -189,7 +174,6 @@ export const UpdateNuncConnectionRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateNuncConnectionRequest$Outbound = {
   nunc_connection_id: string;
@@ -211,19 +195,6 @@ export const UpdateNuncConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncConnectionRequest$ {
-  /** @deprecated use `UpdateNuncConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncConnectionRequest$inboundSchema;
-  /** @deprecated use `UpdateNuncConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncConnectionRequest$outboundSchema;
-  /** @deprecated use `UpdateNuncConnectionRequest$Outbound` instead. */
-  export type Outbound = UpdateNuncConnectionRequest$Outbound;
-}
-
 export function updateNuncConnectionRequestToJSON(
   updateNuncConnectionRequest: UpdateNuncConnectionRequest,
 ): string {
@@ -233,7 +204,6 @@ export function updateNuncConnectionRequestToJSON(
     ),
   );
 }
-
 export function updateNuncConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncConnectionRequest, SDKValidationError> {

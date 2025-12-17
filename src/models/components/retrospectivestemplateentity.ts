@@ -55,7 +55,6 @@ export const RetrospectivesTemplateEntity$inboundSchema: z.ZodType<
     "is_default": "isDefault",
   });
 });
-
 /** @internal */
 export type RetrospectivesTemplateEntity$Outbound = {
   id?: string | null | undefined;
@@ -90,19 +89,6 @@ export const RetrospectivesTemplateEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RetrospectivesTemplateEntity$ {
-  /** @deprecated use `RetrospectivesTemplateEntity$inboundSchema` instead. */
-  export const inboundSchema = RetrospectivesTemplateEntity$inboundSchema;
-  /** @deprecated use `RetrospectivesTemplateEntity$outboundSchema` instead. */
-  export const outboundSchema = RetrospectivesTemplateEntity$outboundSchema;
-  /** @deprecated use `RetrospectivesTemplateEntity$Outbound` instead. */
-  export type Outbound = RetrospectivesTemplateEntity$Outbound;
-}
-
 export function retrospectivesTemplateEntityToJSON(
   retrospectivesTemplateEntity: RetrospectivesTemplateEntity,
 ): string {
@@ -112,7 +98,6 @@ export function retrospectivesTemplateEntityToJSON(
     ),
   );
 }
-
 export function retrospectivesTemplateEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RetrospectivesTemplateEntity, SDKValidationError> {

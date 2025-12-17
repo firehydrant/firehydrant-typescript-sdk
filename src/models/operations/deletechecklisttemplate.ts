@@ -22,7 +22,6 @@ export const DeleteChecklistTemplateRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteChecklistTemplateRequest$Outbound = {
   id: string;
@@ -37,19 +36,6 @@ export const DeleteChecklistTemplateRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteChecklistTemplateRequest$ {
-  /** @deprecated use `DeleteChecklistTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteChecklistTemplateRequest$inboundSchema;
-  /** @deprecated use `DeleteChecklistTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteChecklistTemplateRequest$outboundSchema;
-  /** @deprecated use `DeleteChecklistTemplateRequest$Outbound` instead. */
-  export type Outbound = DeleteChecklistTemplateRequest$Outbound;
-}
-
 export function deleteChecklistTemplateRequestToJSON(
   deleteChecklistTemplateRequest: DeleteChecklistTemplateRequest,
 ): string {
@@ -59,7 +45,6 @@ export function deleteChecklistTemplateRequestToJSON(
     ),
   );
 }
-
 export function deleteChecklistTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteChecklistTemplateRequest, SDKValidationError> {

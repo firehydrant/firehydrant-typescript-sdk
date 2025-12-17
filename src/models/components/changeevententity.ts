@@ -80,7 +80,6 @@ export const ChangeEventEntityAttachment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ChangeEventEntityAttachment$Outbound = {};
 
@@ -91,19 +90,6 @@ export const ChangeEventEntityAttachment$outboundSchema: z.ZodType<
   ChangeEventEntityAttachment
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEventEntityAttachment$ {
-  /** @deprecated use `ChangeEventEntityAttachment$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventEntityAttachment$inboundSchema;
-  /** @deprecated use `ChangeEventEntityAttachment$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventEntityAttachment$outboundSchema;
-  /** @deprecated use `ChangeEventEntityAttachment$Outbound` instead. */
-  export type Outbound = ChangeEventEntityAttachment$Outbound;
-}
-
 export function changeEventEntityAttachmentToJSON(
   changeEventEntityAttachment: ChangeEventEntityAttachment,
 ): string {
@@ -113,7 +99,6 @@ export function changeEventEntityAttachmentToJSON(
     ),
   );
 }
-
 export function changeEventEntityAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEventEntityAttachment, SDKValidationError> {
@@ -130,7 +115,6 @@ export const ChangeEventEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ChangeEventEntityLabels$Outbound = {};
 
@@ -141,19 +125,6 @@ export const ChangeEventEntityLabels$outboundSchema: z.ZodType<
   ChangeEventEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEventEntityLabels$ {
-  /** @deprecated use `ChangeEventEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventEntityLabels$inboundSchema;
-  /** @deprecated use `ChangeEventEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventEntityLabels$outboundSchema;
-  /** @deprecated use `ChangeEventEntityLabels$Outbound` instead. */
-  export type Outbound = ChangeEventEntityLabels$Outbound;
-}
-
 export function changeEventEntityLabelsToJSON(
   changeEventEntityLabels: ChangeEventEntityLabels,
 ): string {
@@ -161,7 +132,6 @@ export function changeEventEntityLabelsToJSON(
     ChangeEventEntityLabels$outboundSchema.parse(changeEventEntityLabels),
   );
 }
-
 export function changeEventEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEventEntityLabels, SDKValidationError> {
@@ -220,7 +190,6 @@ export const ChangeEventEntity$inboundSchema: z.ZodType<
     "related_changes": "relatedChanges",
   });
 });
-
 /** @internal */
 export type ChangeEventEntity$Outbound = {
   id?: string | null | undefined;
@@ -283,19 +252,6 @@ export const ChangeEventEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEventEntity$ {
-  /** @deprecated use `ChangeEventEntity$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventEntity$inboundSchema;
-  /** @deprecated use `ChangeEventEntity$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventEntity$outboundSchema;
-  /** @deprecated use `ChangeEventEntity$Outbound` instead. */
-  export type Outbound = ChangeEventEntity$Outbound;
-}
-
 export function changeEventEntityToJSON(
   changeEventEntity: ChangeEventEntity,
 ): string {
@@ -303,7 +259,6 @@ export function changeEventEntityToJSON(
     ChangeEventEntity$outboundSchema.parse(changeEventEntity),
   );
 }
-
 export function changeEventEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEventEntity, SDKValidationError> {

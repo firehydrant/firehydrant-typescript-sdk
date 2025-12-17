@@ -29,7 +29,6 @@ export const UpdateSignalsWebhookTargetRequest$inboundSchema: z.ZodType<
     "update_signals_webhook_target": "updateSignalsWebhookTarget",
   });
 });
-
 /** @internal */
 export type UpdateSignalsWebhookTargetRequest$Outbound = {
   id: string;
@@ -52,20 +51,6 @@ export const UpdateSignalsWebhookTargetRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSignalsWebhookTargetRequest$ {
-  /** @deprecated use `UpdateSignalsWebhookTargetRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateSignalsWebhookTargetRequest$inboundSchema;
-  /** @deprecated use `UpdateSignalsWebhookTargetRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateSignalsWebhookTargetRequest$outboundSchema;
-  /** @deprecated use `UpdateSignalsWebhookTargetRequest$Outbound` instead. */
-  export type Outbound = UpdateSignalsWebhookTargetRequest$Outbound;
-}
-
 export function updateSignalsWebhookTargetRequestToJSON(
   updateSignalsWebhookTargetRequest: UpdateSignalsWebhookTargetRequest,
 ): string {
@@ -75,7 +60,6 @@ export function updateSignalsWebhookTargetRequestToJSON(
     ),
   );
 }
-
 export function updateSignalsWebhookTargetRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSignalsWebhookTargetRequest, SDKValidationError> {

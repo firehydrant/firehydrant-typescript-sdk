@@ -19,7 +19,6 @@ export const GetRoleRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetRoleRequest$Outbound = {
   id: string;
@@ -34,23 +33,9 @@ export const GetRoleRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetRoleRequest$ {
-  /** @deprecated use `GetRoleRequest$inboundSchema` instead. */
-  export const inboundSchema = GetRoleRequest$inboundSchema;
-  /** @deprecated use `GetRoleRequest$outboundSchema` instead. */
-  export const outboundSchema = GetRoleRequest$outboundSchema;
-  /** @deprecated use `GetRoleRequest$Outbound` instead. */
-  export type Outbound = GetRoleRequest$Outbound;
-}
-
 export function getRoleRequestToJSON(getRoleRequest: GetRoleRequest): string {
   return JSON.stringify(GetRoleRequest$outboundSchema.parse(getRoleRequest));
 }
-
 export function getRoleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetRoleRequest, SDKValidationError> {

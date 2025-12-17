@@ -24,7 +24,6 @@ export const DeleteNuncConnectionRequest$inboundSchema: z.ZodType<
     "nunc_connection_id": "nuncConnectionId",
   });
 });
-
 /** @internal */
 export type DeleteNuncConnectionRequest$Outbound = {
   nunc_connection_id: string;
@@ -43,19 +42,6 @@ export const DeleteNuncConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteNuncConnectionRequest$ {
-  /** @deprecated use `DeleteNuncConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteNuncConnectionRequest$inboundSchema;
-  /** @deprecated use `DeleteNuncConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteNuncConnectionRequest$outboundSchema;
-  /** @deprecated use `DeleteNuncConnectionRequest$Outbound` instead. */
-  export type Outbound = DeleteNuncConnectionRequest$Outbound;
-}
-
 export function deleteNuncConnectionRequestToJSON(
   deleteNuncConnectionRequest: DeleteNuncConnectionRequest,
 ): string {
@@ -65,7 +51,6 @@ export function deleteNuncConnectionRequestToJSON(
     ),
   );
 }
-
 export function deleteNuncConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteNuncConnectionRequest, SDKValidationError> {

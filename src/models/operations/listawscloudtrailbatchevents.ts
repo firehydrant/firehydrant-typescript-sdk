@@ -19,7 +19,6 @@ export const ListAwsCloudtrailBatchEventsRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type ListAwsCloudtrailBatchEventsRequest$Outbound = {
   id: string;
@@ -34,21 +33,6 @@ export const ListAwsCloudtrailBatchEventsRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAwsCloudtrailBatchEventsRequest$ {
-  /** @deprecated use `ListAwsCloudtrailBatchEventsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListAwsCloudtrailBatchEventsRequest$inboundSchema;
-  /** @deprecated use `ListAwsCloudtrailBatchEventsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListAwsCloudtrailBatchEventsRequest$outboundSchema;
-  /** @deprecated use `ListAwsCloudtrailBatchEventsRequest$Outbound` instead. */
-  export type Outbound = ListAwsCloudtrailBatchEventsRequest$Outbound;
-}
-
 export function listAwsCloudtrailBatchEventsRequestToJSON(
   listAwsCloudtrailBatchEventsRequest: ListAwsCloudtrailBatchEventsRequest,
 ): string {
@@ -58,7 +42,6 @@ export function listAwsCloudtrailBatchEventsRequestToJSON(
     ),
   );
 }
-
 export function listAwsCloudtrailBatchEventsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAwsCloudtrailBatchEventsRequest, SDKValidationError> {

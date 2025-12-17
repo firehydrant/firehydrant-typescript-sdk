@@ -11,5 +11,5 @@ let value: NullableSignalsAPIRuleEntityNotificationPriorityOverride = "HIGH";
 ## Values
 
 ```typescript
-"HIGH" | "MEDIUM" | "LOW"
+"HIGH" | "MEDIUM" | "LOW" | ""
 ```

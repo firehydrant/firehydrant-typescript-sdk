@@ -28,7 +28,6 @@ export const NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$inbound
     id: z.nullable(z.string()).optional(),
     name: z.nullable(z.string()).optional(),
   });
-
 /** @internal */
 export type NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$Outbound =
   {
@@ -47,22 +46,6 @@ export const NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$outboun
     name: z.nullable(z.string()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$ {
-  /** @deprecated use `NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$inboundSchema;
-  /** @deprecated use `NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$outboundSchema;
-  /** @deprecated use `NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$Outbound` instead. */
-  export type Outbound =
-    NullableIntegrationsZendeskSupportIssueEntityCustomerEntity$Outbound;
-}
-
 export function nullableIntegrationsZendeskSupportIssueEntityCustomerEntityToJSON(
   nullableIntegrationsZendeskSupportIssueEntityCustomerEntity:
     NullableIntegrationsZendeskSupportIssueEntityCustomerEntity,
@@ -72,7 +55,6 @@ export function nullableIntegrationsZendeskSupportIssueEntityCustomerEntityToJSO
       .parse(nullableIntegrationsZendeskSupportIssueEntityCustomerEntity),
   );
 }
-
 export function nullableIntegrationsZendeskSupportIssueEntityCustomerEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

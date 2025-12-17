@@ -36,7 +36,6 @@ export const TaskEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(TaskEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type TaskEntityPaginated$Outbound = {
   data?: Array<TaskEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const TaskEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaskEntityPaginated$ {
-  /** @deprecated use `TaskEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = TaskEntityPaginated$inboundSchema;
-  /** @deprecated use `TaskEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = TaskEntityPaginated$outboundSchema;
-  /** @deprecated use `TaskEntityPaginated$Outbound` instead. */
-  export type Outbound = TaskEntityPaginated$Outbound;
-}
-
 export function taskEntityPaginatedToJSON(
   taskEntityPaginated: TaskEntityPaginated,
 ): string {
@@ -73,7 +59,6 @@ export function taskEntityPaginatedToJSON(
     TaskEntityPaginated$outboundSchema.parse(taskEntityPaginated),
   );
 }
-
 export function taskEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<TaskEntityPaginated, SDKValidationError> {

@@ -38,22 +38,10 @@ export type ListRunbookAuditsRequest = {
 export const AuditableType$inboundSchema: z.ZodNativeEnum<
   typeof AuditableType
 > = z.nativeEnum(AuditableType);
-
 /** @internal */
 export const AuditableType$outboundSchema: z.ZodNativeEnum<
   typeof AuditableType
 > = AuditableType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuditableType$ {
-  /** @deprecated use `AuditableType$inboundSchema` instead. */
-  export const inboundSchema = AuditableType$inboundSchema;
-  /** @deprecated use `AuditableType$outboundSchema` instead. */
-  export const outboundSchema = AuditableType$outboundSchema;
-}
 
 /** @internal */
 export const ListRunbookAuditsRequest$inboundSchema: z.ZodType<
@@ -73,7 +61,6 @@ export const ListRunbookAuditsRequest$inboundSchema: z.ZodType<
     "auditable_type": "auditableType",
   });
 });
-
 /** @internal */
 export type ListRunbookAuditsRequest$Outbound = {
   page?: number | null | undefined;
@@ -101,19 +88,6 @@ export const ListRunbookAuditsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListRunbookAuditsRequest$ {
-  /** @deprecated use `ListRunbookAuditsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListRunbookAuditsRequest$inboundSchema;
-  /** @deprecated use `ListRunbookAuditsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListRunbookAuditsRequest$outboundSchema;
-  /** @deprecated use `ListRunbookAuditsRequest$Outbound` instead. */
-  export type Outbound = ListRunbookAuditsRequest$Outbound;
-}
-
 export function listRunbookAuditsRequestToJSON(
   listRunbookAuditsRequest: ListRunbookAuditsRequest,
 ): string {
@@ -121,7 +95,6 @@ export function listRunbookAuditsRequestToJSON(
     ListRunbookAuditsRequest$outboundSchema.parse(listRunbookAuditsRequest),
   );
 }
-
 export function listRunbookAuditsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListRunbookAuditsRequest, SDKValidationError> {

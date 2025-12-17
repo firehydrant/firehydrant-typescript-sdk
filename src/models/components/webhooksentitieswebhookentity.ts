@@ -51,7 +51,6 @@ export const WebhooksEntitiesWebhookEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type WebhooksEntitiesWebhookEntity$Outbound = {
   id?: string | null | undefined;
@@ -84,19 +83,6 @@ export const WebhooksEntitiesWebhookEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhooksEntitiesWebhookEntity$ {
-  /** @deprecated use `WebhooksEntitiesWebhookEntity$inboundSchema` instead. */
-  export const inboundSchema = WebhooksEntitiesWebhookEntity$inboundSchema;
-  /** @deprecated use `WebhooksEntitiesWebhookEntity$outboundSchema` instead. */
-  export const outboundSchema = WebhooksEntitiesWebhookEntity$outboundSchema;
-  /** @deprecated use `WebhooksEntitiesWebhookEntity$Outbound` instead. */
-  export type Outbound = WebhooksEntitiesWebhookEntity$Outbound;
-}
-
 export function webhooksEntitiesWebhookEntityToJSON(
   webhooksEntitiesWebhookEntity: WebhooksEntitiesWebhookEntity,
 ): string {
@@ -106,7 +92,6 @@ export function webhooksEntitiesWebhookEntityToJSON(
     ),
   );
 }
-
 export function webhooksEntitiesWebhookEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhooksEntitiesWebhookEntity, SDKValidationError> {

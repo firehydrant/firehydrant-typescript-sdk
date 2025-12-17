@@ -33,7 +33,6 @@ export const IncidentEntityFieldRequirementEntity$inboundSchema: z.ZodType<
     "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
-
 /** @internal */
 export type IncidentEntityFieldRequirementEntity$Outbound = {
   field_id?: string | null | undefined;
@@ -55,21 +54,6 @@ export const IncidentEntityFieldRequirementEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEntityFieldRequirementEntity$ {
-  /** @deprecated use `IncidentEntityFieldRequirementEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentEntityFieldRequirementEntity$inboundSchema;
-  /** @deprecated use `IncidentEntityFieldRequirementEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentEntityFieldRequirementEntity$outboundSchema;
-  /** @deprecated use `IncidentEntityFieldRequirementEntity$Outbound` instead. */
-  export type Outbound = IncidentEntityFieldRequirementEntity$Outbound;
-}
-
 export function incidentEntityFieldRequirementEntityToJSON(
   incidentEntityFieldRequirementEntity: IncidentEntityFieldRequirementEntity,
 ): string {
@@ -79,7 +63,6 @@ export function incidentEntityFieldRequirementEntityToJSON(
     ),
   );
 }
-
 export function incidentEntityFieldRequirementEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentEntityFieldRequirementEntity, SDKValidationError> {

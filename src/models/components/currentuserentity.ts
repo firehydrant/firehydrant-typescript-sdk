@@ -51,7 +51,6 @@ export const CurrentUserEntity$inboundSchema: z.ZodType<
     "account_id": "accountId",
   });
 });
-
 /** @internal */
 export type CurrentUserEntity$Outbound = {
   id?: string | null | undefined;
@@ -88,19 +87,6 @@ export const CurrentUserEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CurrentUserEntity$ {
-  /** @deprecated use `CurrentUserEntity$inboundSchema` instead. */
-  export const inboundSchema = CurrentUserEntity$inboundSchema;
-  /** @deprecated use `CurrentUserEntity$outboundSchema` instead. */
-  export const outboundSchema = CurrentUserEntity$outboundSchema;
-  /** @deprecated use `CurrentUserEntity$Outbound` instead. */
-  export type Outbound = CurrentUserEntity$Outbound;
-}
-
 export function currentUserEntityToJSON(
   currentUserEntity: CurrentUserEntity,
 ): string {
@@ -108,7 +94,6 @@ export function currentUserEntityToJSON(
     CurrentUserEntity$outboundSchema.parse(currentUserEntity),
   );
 }
-
 export function currentUserEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<CurrentUserEntity, SDKValidationError> {

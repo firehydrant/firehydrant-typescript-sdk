@@ -25,7 +25,6 @@ export const NullableIntegrationsIntegrationEntityLogoEntity$inboundSchema:
       "logo_url": "logoUrl",
     });
   });
-
 /** @internal */
 export type NullableIntegrationsIntegrationEntityLogoEntity$Outbound = {
   logo_url?: string | null | undefined;
@@ -45,22 +44,6 @@ export const NullableIntegrationsIntegrationEntityLogoEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIntegrationsIntegrationEntityLogoEntity$ {
-  /** @deprecated use `NullableIntegrationsIntegrationEntityLogoEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIntegrationsIntegrationEntityLogoEntity$inboundSchema;
-  /** @deprecated use `NullableIntegrationsIntegrationEntityLogoEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIntegrationsIntegrationEntityLogoEntity$outboundSchema;
-  /** @deprecated use `NullableIntegrationsIntegrationEntityLogoEntity$Outbound` instead. */
-  export type Outbound =
-    NullableIntegrationsIntegrationEntityLogoEntity$Outbound;
-}
-
 export function nullableIntegrationsIntegrationEntityLogoEntityToJSON(
   nullableIntegrationsIntegrationEntityLogoEntity:
     NullableIntegrationsIntegrationEntityLogoEntity,
@@ -71,7 +54,6 @@ export function nullableIntegrationsIntegrationEntityLogoEntityToJSON(
     ),
   );
 }
-
 export function nullableIntegrationsIntegrationEntityLogoEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

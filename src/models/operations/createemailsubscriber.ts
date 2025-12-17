@@ -28,7 +28,6 @@ export const CreateEmailSubscriberRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   emails: z.string(),
 });
-
 /** @internal */
 export type CreateEmailSubscriberRequestBody$Outbound = {
   emails: string;
@@ -43,19 +42,6 @@ export const CreateEmailSubscriberRequestBody$outboundSchema: z.ZodType<
   emails: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateEmailSubscriberRequestBody$ {
-  /** @deprecated use `CreateEmailSubscriberRequestBody$inboundSchema` instead. */
-  export const inboundSchema = CreateEmailSubscriberRequestBody$inboundSchema;
-  /** @deprecated use `CreateEmailSubscriberRequestBody$outboundSchema` instead. */
-  export const outboundSchema = CreateEmailSubscriberRequestBody$outboundSchema;
-  /** @deprecated use `CreateEmailSubscriberRequestBody$Outbound` instead. */
-  export type Outbound = CreateEmailSubscriberRequestBody$Outbound;
-}
-
 export function createEmailSubscriberRequestBodyToJSON(
   createEmailSubscriberRequestBody: CreateEmailSubscriberRequestBody,
 ): string {
@@ -65,7 +51,6 @@ export function createEmailSubscriberRequestBodyToJSON(
     ),
   );
 }
-
 export function createEmailSubscriberRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateEmailSubscriberRequestBody, SDKValidationError> {
@@ -90,7 +75,6 @@ export const CreateEmailSubscriberRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type CreateEmailSubscriberRequest$Outbound = {
   nunc_connection_id: string;
@@ -112,19 +96,6 @@ export const CreateEmailSubscriberRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateEmailSubscriberRequest$ {
-  /** @deprecated use `CreateEmailSubscriberRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateEmailSubscriberRequest$inboundSchema;
-  /** @deprecated use `CreateEmailSubscriberRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateEmailSubscriberRequest$outboundSchema;
-  /** @deprecated use `CreateEmailSubscriberRequest$Outbound` instead. */
-  export type Outbound = CreateEmailSubscriberRequest$Outbound;
-}
-
 export function createEmailSubscriberRequestToJSON(
   createEmailSubscriberRequest: CreateEmailSubscriberRequest,
 ): string {
@@ -134,7 +105,6 @@ export function createEmailSubscriberRequestToJSON(
     ),
   );
 }
-
 export function createEmailSubscriberRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateEmailSubscriberRequest, SDKValidationError> {

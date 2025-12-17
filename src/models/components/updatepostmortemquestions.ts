@@ -41,7 +41,6 @@ export const UpdatePostMortemQuestionsQuestion$inboundSchema: z.ZodType<
   title: z.nullable(z.string()).optional(),
   tooltip: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdatePostMortemQuestionsQuestion$Outbound = {
   id?: string | null | undefined;
@@ -60,20 +59,6 @@ export const UpdatePostMortemQuestionsQuestion$outboundSchema: z.ZodType<
   tooltip: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemQuestionsQuestion$ {
-  /** @deprecated use `UpdatePostMortemQuestionsQuestion$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemQuestionsQuestion$inboundSchema;
-  /** @deprecated use `UpdatePostMortemQuestionsQuestion$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdatePostMortemQuestionsQuestion$outboundSchema;
-  /** @deprecated use `UpdatePostMortemQuestionsQuestion$Outbound` instead. */
-  export type Outbound = UpdatePostMortemQuestionsQuestion$Outbound;
-}
-
 export function updatePostMortemQuestionsQuestionToJSON(
   updatePostMortemQuestionsQuestion: UpdatePostMortemQuestionsQuestion,
 ): string {
@@ -83,7 +68,6 @@ export function updatePostMortemQuestionsQuestionToJSON(
     ),
   );
 }
-
 export function updatePostMortemQuestionsQuestionFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemQuestionsQuestion, SDKValidationError> {
@@ -109,7 +93,6 @@ export const UpdatePostMortemQuestions$inboundSchema: z.ZodType<
     "_make_swagger_work_": "makeSwaggerWork",
   });
 });
-
 /** @internal */
 export type UpdatePostMortemQuestions$Outbound = {
   _make_swagger_work_?: string | null | undefined;
@@ -135,19 +118,6 @@ export const UpdatePostMortemQuestions$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemQuestions$ {
-  /** @deprecated use `UpdatePostMortemQuestions$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemQuestions$inboundSchema;
-  /** @deprecated use `UpdatePostMortemQuestions$outboundSchema` instead. */
-  export const outboundSchema = UpdatePostMortemQuestions$outboundSchema;
-  /** @deprecated use `UpdatePostMortemQuestions$Outbound` instead. */
-  export type Outbound = UpdatePostMortemQuestions$Outbound;
-}
-
 export function updatePostMortemQuestionsToJSON(
   updatePostMortemQuestions: UpdatePostMortemQuestions,
 ): string {
@@ -155,7 +125,6 @@ export function updatePostMortemQuestionsToJSON(
     UpdatePostMortemQuestions$outboundSchema.parse(updatePostMortemQuestions),
   );
 }
-
 export function updatePostMortemQuestionsFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemQuestions, SDKValidationError> {

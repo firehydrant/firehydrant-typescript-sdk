@@ -33,7 +33,6 @@ export const CreateScimGroupMember$inboundSchema: z.ZodType<
 > = z.object({
   value: z.string(),
 });
-
 /** @internal */
 export type CreateScimGroupMember$Outbound = {
   value: string;
@@ -48,19 +47,6 @@ export const CreateScimGroupMember$outboundSchema: z.ZodType<
   value: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimGroupMember$ {
-  /** @deprecated use `CreateScimGroupMember$inboundSchema` instead. */
-  export const inboundSchema = CreateScimGroupMember$inboundSchema;
-  /** @deprecated use `CreateScimGroupMember$outboundSchema` instead. */
-  export const outboundSchema = CreateScimGroupMember$outboundSchema;
-  /** @deprecated use `CreateScimGroupMember$Outbound` instead. */
-  export type Outbound = CreateScimGroupMember$Outbound;
-}
-
 export function createScimGroupMemberToJSON(
   createScimGroupMember: CreateScimGroupMember,
 ): string {
@@ -68,7 +54,6 @@ export function createScimGroupMemberToJSON(
     CreateScimGroupMember$outboundSchema.parse(createScimGroupMember),
   );
 }
-
 export function createScimGroupMemberFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimGroupMember, SDKValidationError> {
@@ -88,7 +73,6 @@ export const CreateScimGroup$inboundSchema: z.ZodType<
   displayName: z.string(),
   members: z.array(z.lazy(() => CreateScimGroupMember$inboundSchema)),
 });
-
 /** @internal */
 export type CreateScimGroup$Outbound = {
   displayName: string;
@@ -105,25 +89,11 @@ export const CreateScimGroup$outboundSchema: z.ZodType<
   members: z.array(z.lazy(() => CreateScimGroupMember$outboundSchema)),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimGroup$ {
-  /** @deprecated use `CreateScimGroup$inboundSchema` instead. */
-  export const inboundSchema = CreateScimGroup$inboundSchema;
-  /** @deprecated use `CreateScimGroup$outboundSchema` instead. */
-  export const outboundSchema = CreateScimGroup$outboundSchema;
-  /** @deprecated use `CreateScimGroup$Outbound` instead. */
-  export type Outbound = CreateScimGroup$Outbound;
-}
-
 export function createScimGroupToJSON(
   createScimGroup: CreateScimGroup,
 ): string {
   return JSON.stringify(CreateScimGroup$outboundSchema.parse(createScimGroup));
 }
-
 export function createScimGroupFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimGroup, SDKValidationError> {

@@ -38,22 +38,10 @@ export type CreateSeverity = {
 export const CreateSeverityColor$inboundSchema: z.ZodNativeEnum<
   typeof CreateSeverityColor
 > = z.nativeEnum(CreateSeverityColor);
-
 /** @internal */
 export const CreateSeverityColor$outboundSchema: z.ZodNativeEnum<
   typeof CreateSeverityColor
 > = CreateSeverityColor$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSeverityColor$ {
-  /** @deprecated use `CreateSeverityColor$inboundSchema` instead. */
-  export const inboundSchema = CreateSeverityColor$inboundSchema;
-  /** @deprecated use `CreateSeverityColor$outboundSchema` instead. */
-  export const outboundSchema = CreateSeverityColor$outboundSchema;
-}
 
 /** @internal */
 export const CreateSeverity$inboundSchema: z.ZodType<
@@ -71,7 +59,6 @@ export const CreateSeverity$inboundSchema: z.ZodType<
     "allowed_role_ids": "allowedRoleIds",
   });
 });
-
 /** @internal */
 export type CreateSeverity$Outbound = {
   slug: string;
@@ -98,23 +85,9 @@ export const CreateSeverity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSeverity$ {
-  /** @deprecated use `CreateSeverity$inboundSchema` instead. */
-  export const inboundSchema = CreateSeverity$inboundSchema;
-  /** @deprecated use `CreateSeverity$outboundSchema` instead. */
-  export const outboundSchema = CreateSeverity$outboundSchema;
-  /** @deprecated use `CreateSeverity$Outbound` instead. */
-  export type Outbound = CreateSeverity$Outbound;
-}
-
 export function createSeverityToJSON(createSeverity: CreateSeverity): string {
   return JSON.stringify(CreateSeverity$outboundSchema.parse(createSeverity));
 }
-
 export function createSeverityFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSeverity, SDKValidationError> {

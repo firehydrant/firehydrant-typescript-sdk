@@ -28,7 +28,6 @@ export const ResolveIncidentRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   milestone: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type ResolveIncidentRequestBody$Outbound = {
   milestone?: string | null | undefined;
@@ -43,19 +42,6 @@ export const ResolveIncidentRequestBody$outboundSchema: z.ZodType<
   milestone: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ResolveIncidentRequestBody$ {
-  /** @deprecated use `ResolveIncidentRequestBody$inboundSchema` instead. */
-  export const inboundSchema = ResolveIncidentRequestBody$inboundSchema;
-  /** @deprecated use `ResolveIncidentRequestBody$outboundSchema` instead. */
-  export const outboundSchema = ResolveIncidentRequestBody$outboundSchema;
-  /** @deprecated use `ResolveIncidentRequestBody$Outbound` instead. */
-  export type Outbound = ResolveIncidentRequestBody$Outbound;
-}
-
 export function resolveIncidentRequestBodyToJSON(
   resolveIncidentRequestBody: ResolveIncidentRequestBody,
 ): string {
@@ -63,7 +49,6 @@ export function resolveIncidentRequestBodyToJSON(
     ResolveIncidentRequestBody$outboundSchema.parse(resolveIncidentRequestBody),
   );
 }
-
 export function resolveIncidentRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<ResolveIncidentRequestBody, SDKValidationError> {
@@ -89,7 +74,6 @@ export const ResolveIncidentRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type ResolveIncidentRequest$Outbound = {
   incident_id: string;
@@ -112,19 +96,6 @@ export const ResolveIncidentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ResolveIncidentRequest$ {
-  /** @deprecated use `ResolveIncidentRequest$inboundSchema` instead. */
-  export const inboundSchema = ResolveIncidentRequest$inboundSchema;
-  /** @deprecated use `ResolveIncidentRequest$outboundSchema` instead. */
-  export const outboundSchema = ResolveIncidentRequest$outboundSchema;
-  /** @deprecated use `ResolveIncidentRequest$Outbound` instead. */
-  export type Outbound = ResolveIncidentRequest$Outbound;
-}
-
 export function resolveIncidentRequestToJSON(
   resolveIncidentRequest: ResolveIncidentRequest,
 ): string {
@@ -132,7 +103,6 @@ export function resolveIncidentRequestToJSON(
     ResolveIncidentRequest$outboundSchema.parse(resolveIncidentRequest),
   );
 }
-
 export function resolveIncidentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ResolveIncidentRequest, SDKValidationError> {

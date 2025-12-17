@@ -114,22 +114,10 @@ export type CreateService = {
 export const CreateServiceServiceTier$inboundSchema: z.ZodNativeEnum<
   typeof CreateServiceServiceTier
 > = z.nativeEnum(CreateServiceServiceTier);
-
 /** @internal */
 export const CreateServiceServiceTier$outboundSchema: z.ZodNativeEnum<
   typeof CreateServiceServiceTier
 > = CreateServiceServiceTier$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceServiceTier$ {
-  /** @deprecated use `CreateServiceServiceTier$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceServiceTier$inboundSchema;
-  /** @deprecated use `CreateServiceServiceTier$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceServiceTier$outboundSchema;
-}
 
 /** @internal */
 export const CreateServiceFunctionality$inboundSchema: z.ZodType<
@@ -140,7 +128,6 @@ export const CreateServiceFunctionality$inboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
   id: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type CreateServiceFunctionality$Outbound = {
   summary?: string | null | undefined;
@@ -157,19 +144,6 @@ export const CreateServiceFunctionality$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceFunctionality$ {
-  /** @deprecated use `CreateServiceFunctionality$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceFunctionality$inboundSchema;
-  /** @deprecated use `CreateServiceFunctionality$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceFunctionality$outboundSchema;
-  /** @deprecated use `CreateServiceFunctionality$Outbound` instead. */
-  export type Outbound = CreateServiceFunctionality$Outbound;
-}
-
 export function createServiceFunctionalityToJSON(
   createServiceFunctionality: CreateServiceFunctionality,
 ): string {
@@ -177,7 +151,6 @@ export function createServiceFunctionalityToJSON(
     CreateServiceFunctionality$outboundSchema.parse(createServiceFunctionality),
   );
 }
-
 export function createServiceFunctionalityFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceFunctionality, SDKValidationError> {
@@ -203,7 +176,6 @@ export const CreateServiceLink$inboundSchema: z.ZodType<
     "icon_url": "iconUrl",
   });
 });
-
 /** @internal */
 export type CreateServiceLink$Outbound = {
   name: string;
@@ -227,19 +199,6 @@ export const CreateServiceLink$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceLink$ {
-  /** @deprecated use `CreateServiceLink$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceLink$inboundSchema;
-  /** @deprecated use `CreateServiceLink$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceLink$outboundSchema;
-  /** @deprecated use `CreateServiceLink$Outbound` instead. */
-  export type Outbound = CreateServiceLink$Outbound;
-}
-
 export function createServiceLinkToJSON(
   createServiceLink: CreateServiceLink,
 ): string {
@@ -247,7 +206,6 @@ export function createServiceLinkToJSON(
     CreateServiceLink$outboundSchema.parse(createServiceLink),
   );
 }
-
 export function createServiceLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceLink, SDKValidationError> {
@@ -266,7 +224,6 @@ export const CreateServiceOwner$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type CreateServiceOwner$Outbound = {
   id: string;
@@ -281,19 +238,6 @@ export const CreateServiceOwner$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceOwner$ {
-  /** @deprecated use `CreateServiceOwner$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceOwner$inboundSchema;
-  /** @deprecated use `CreateServiceOwner$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceOwner$outboundSchema;
-  /** @deprecated use `CreateServiceOwner$Outbound` instead. */
-  export type Outbound = CreateServiceOwner$Outbound;
-}
-
 export function createServiceOwnerToJSON(
   createServiceOwner: CreateServiceOwner,
 ): string {
@@ -301,7 +245,6 @@ export function createServiceOwnerToJSON(
     CreateServiceOwner$outboundSchema.parse(createServiceOwner),
   );
 }
-
 export function createServiceOwnerFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceOwner, SDKValidationError> {
@@ -320,7 +263,6 @@ export const CreateServiceTeam$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type CreateServiceTeam$Outbound = {
   id: string;
@@ -335,19 +277,6 @@ export const CreateServiceTeam$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceTeam$ {
-  /** @deprecated use `CreateServiceTeam$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceTeam$inboundSchema;
-  /** @deprecated use `CreateServiceTeam$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceTeam$outboundSchema;
-  /** @deprecated use `CreateServiceTeam$Outbound` instead. */
-  export type Outbound = CreateServiceTeam$Outbound;
-}
-
 export function createServiceTeamToJSON(
   createServiceTeam: CreateServiceTeam,
 ): string {
@@ -355,7 +284,6 @@ export function createServiceTeamToJSON(
     CreateServiceTeam$outboundSchema.parse(createServiceTeam),
   );
 }
-
 export function createServiceTeamFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceTeam, SDKValidationError> {
@@ -380,7 +308,6 @@ export const CreateServiceExternalResource$inboundSchema: z.ZodType<
     "connection_type": "connectionType",
   });
 });
-
 /** @internal */
 export type CreateServiceExternalResource$Outbound = {
   remote_id: string;
@@ -402,19 +329,6 @@ export const CreateServiceExternalResource$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceExternalResource$ {
-  /** @deprecated use `CreateServiceExternalResource$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceExternalResource$inboundSchema;
-  /** @deprecated use `CreateServiceExternalResource$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceExternalResource$outboundSchema;
-  /** @deprecated use `CreateServiceExternalResource$Outbound` instead. */
-  export type Outbound = CreateServiceExternalResource$Outbound;
-}
-
 export function createServiceExternalResourceToJSON(
   createServiceExternalResource: CreateServiceExternalResource,
 ): string {
@@ -424,7 +338,6 @@ export function createServiceExternalResourceToJSON(
     ),
   );
 }
-
 export function createServiceExternalResourceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceExternalResource, SDKValidationError> {
@@ -466,7 +379,6 @@ export const CreateService$inboundSchema: z.ZodType<
     "external_resources": "externalResources",
   });
 });
-
 /** @internal */
 export type CreateService$Outbound = {
   name: string;
@@ -520,23 +432,9 @@ export const CreateService$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateService$ {
-  /** @deprecated use `CreateService$inboundSchema` instead. */
-  export const inboundSchema = CreateService$inboundSchema;
-  /** @deprecated use `CreateService$outboundSchema` instead. */
-  export const outboundSchema = CreateService$outboundSchema;
-  /** @deprecated use `CreateService$Outbound` instead. */
-  export type Outbound = CreateService$Outbound;
-}
-
 export function createServiceToJSON(createService: CreateService): string {
   return JSON.stringify(CreateService$outboundSchema.parse(createService));
 }
-
 export function createServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateService, SDKValidationError> {

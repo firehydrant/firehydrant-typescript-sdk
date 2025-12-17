@@ -34,7 +34,6 @@ export const IncidentsExportRetrospectivesResultEntity$inboundSchema: z.ZodType<
     "external_resource": "externalResource",
   });
 });
-
 /** @internal */
 export type IncidentsExportRetrospectivesResultEntity$Outbound = {
   external_resource?:
@@ -58,21 +57,6 @@ export const IncidentsExportRetrospectivesResultEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsExportRetrospectivesResultEntity$ {
-  /** @deprecated use `IncidentsExportRetrospectivesResultEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsExportRetrospectivesResultEntity$inboundSchema;
-  /** @deprecated use `IncidentsExportRetrospectivesResultEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsExportRetrospectivesResultEntity$outboundSchema;
-  /** @deprecated use `IncidentsExportRetrospectivesResultEntity$Outbound` instead. */
-  export type Outbound = IncidentsExportRetrospectivesResultEntity$Outbound;
-}
-
 export function incidentsExportRetrospectivesResultEntityToJSON(
   incidentsExportRetrospectivesResultEntity:
     IncidentsExportRetrospectivesResultEntity,
@@ -83,7 +67,6 @@ export function incidentsExportRetrospectivesResultEntityToJSON(
     ),
   );
 }
-
 export function incidentsExportRetrospectivesResultEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

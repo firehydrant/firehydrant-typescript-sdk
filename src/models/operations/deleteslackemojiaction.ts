@@ -30,7 +30,6 @@ export const DeleteSlackEmojiActionRequest$inboundSchema: z.ZodType<
     "emoji_action_id": "emojiActionId",
   });
 });
-
 /** @internal */
 export type DeleteSlackEmojiActionRequest$Outbound = {
   connection_id: string;
@@ -52,19 +51,6 @@ export const DeleteSlackEmojiActionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSlackEmojiActionRequest$ {
-  /** @deprecated use `DeleteSlackEmojiActionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteSlackEmojiActionRequest$inboundSchema;
-  /** @deprecated use `DeleteSlackEmojiActionRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteSlackEmojiActionRequest$outboundSchema;
-  /** @deprecated use `DeleteSlackEmojiActionRequest$Outbound` instead. */
-  export type Outbound = DeleteSlackEmojiActionRequest$Outbound;
-}
-
 export function deleteSlackEmojiActionRequestToJSON(
   deleteSlackEmojiActionRequest: DeleteSlackEmojiActionRequest,
 ): string {
@@ -74,7 +60,6 @@ export function deleteSlackEmojiActionRequestToJSON(
     ),
   );
 }
-
 export function deleteSlackEmojiActionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteSlackEmojiActionRequest, SDKValidationError> {

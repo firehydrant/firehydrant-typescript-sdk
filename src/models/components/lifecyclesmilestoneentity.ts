@@ -59,7 +59,6 @@ export const LifecyclesMilestoneEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type LifecyclesMilestoneEntity$Outbound = {
   id?: string | null | undefined;
@@ -100,19 +99,6 @@ export const LifecyclesMilestoneEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LifecyclesMilestoneEntity$ {
-  /** @deprecated use `LifecyclesMilestoneEntity$inboundSchema` instead. */
-  export const inboundSchema = LifecyclesMilestoneEntity$inboundSchema;
-  /** @deprecated use `LifecyclesMilestoneEntity$outboundSchema` instead. */
-  export const outboundSchema = LifecyclesMilestoneEntity$outboundSchema;
-  /** @deprecated use `LifecyclesMilestoneEntity$Outbound` instead. */
-  export type Outbound = LifecyclesMilestoneEntity$Outbound;
-}
-
 export function lifecyclesMilestoneEntityToJSON(
   lifecyclesMilestoneEntity: LifecyclesMilestoneEntity,
 ): string {
@@ -120,7 +106,6 @@ export function lifecyclesMilestoneEntityToJSON(
     LifecyclesMilestoneEntity$outboundSchema.parse(lifecyclesMilestoneEntity),
   );
 }
-
 export function lifecyclesMilestoneEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<LifecyclesMilestoneEntity, SDKValidationError> {

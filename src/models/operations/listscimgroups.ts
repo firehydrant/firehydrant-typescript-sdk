@@ -30,7 +30,6 @@ export const ListScimGroupsRequest$inboundSchema: z.ZodType<
   count: z.nullable(z.number().int()).optional(),
   filter: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type ListScimGroupsRequest$Outbound = {
   startIndex?: number | null | undefined;
@@ -49,19 +48,6 @@ export const ListScimGroupsRequest$outboundSchema: z.ZodType<
   filter: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListScimGroupsRequest$ {
-  /** @deprecated use `ListScimGroupsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListScimGroupsRequest$inboundSchema;
-  /** @deprecated use `ListScimGroupsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListScimGroupsRequest$outboundSchema;
-  /** @deprecated use `ListScimGroupsRequest$Outbound` instead. */
-  export type Outbound = ListScimGroupsRequest$Outbound;
-}
-
 export function listScimGroupsRequestToJSON(
   listScimGroupsRequest: ListScimGroupsRequest,
 ): string {
@@ -69,7 +55,6 @@ export function listScimGroupsRequestToJSON(
     ListScimGroupsRequest$outboundSchema.parse(listScimGroupsRequest),
   );
 }
-
 export function listScimGroupsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListScimGroupsRequest, SDKValidationError> {

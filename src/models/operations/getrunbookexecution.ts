@@ -24,7 +24,6 @@ export const GetRunbookExecutionRequest$inboundSchema: z.ZodType<
     "execution_id": "executionId",
   });
 });
-
 /** @internal */
 export type GetRunbookExecutionRequest$Outbound = {
   execution_id: string;
@@ -43,19 +42,6 @@ export const GetRunbookExecutionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetRunbookExecutionRequest$ {
-  /** @deprecated use `GetRunbookExecutionRequest$inboundSchema` instead. */
-  export const inboundSchema = GetRunbookExecutionRequest$inboundSchema;
-  /** @deprecated use `GetRunbookExecutionRequest$outboundSchema` instead. */
-  export const outboundSchema = GetRunbookExecutionRequest$outboundSchema;
-  /** @deprecated use `GetRunbookExecutionRequest$Outbound` instead. */
-  export type Outbound = GetRunbookExecutionRequest$Outbound;
-}
-
 export function getRunbookExecutionRequestToJSON(
   getRunbookExecutionRequest: GetRunbookExecutionRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getRunbookExecutionRequestToJSON(
     GetRunbookExecutionRequest$outboundSchema.parse(getRunbookExecutionRequest),
   );
 }
-
 export function getRunbookExecutionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetRunbookExecutionRequest, SDKValidationError> {

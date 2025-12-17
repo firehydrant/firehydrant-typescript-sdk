@@ -36,7 +36,6 @@ export const RunbooksActionsEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(RunbooksActionsEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type RunbooksActionsEntityPaginated$Outbound = {
   data?: Array<RunbooksActionsEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const RunbooksActionsEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksActionsEntityPaginated$ {
-  /** @deprecated use `RunbooksActionsEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = RunbooksActionsEntityPaginated$inboundSchema;
-  /** @deprecated use `RunbooksActionsEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = RunbooksActionsEntityPaginated$outboundSchema;
-  /** @deprecated use `RunbooksActionsEntityPaginated$Outbound` instead. */
-  export type Outbound = RunbooksActionsEntityPaginated$Outbound;
-}
-
 export function runbooksActionsEntityPaginatedToJSON(
   runbooksActionsEntityPaginated: RunbooksActionsEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function runbooksActionsEntityPaginatedToJSON(
     ),
   );
 }
-
 export function runbooksActionsEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksActionsEntityPaginated, SDKValidationError> {

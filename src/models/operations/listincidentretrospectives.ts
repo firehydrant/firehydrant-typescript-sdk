@@ -35,7 +35,6 @@ export const ListIncidentRetrospectivesRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentRetrospectivesRequest$Outbound = {
   page?: number | null | undefined;
@@ -62,20 +61,6 @@ export const ListIncidentRetrospectivesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentRetrospectivesRequest$ {
-  /** @deprecated use `ListIncidentRetrospectivesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentRetrospectivesRequest$inboundSchema;
-  /** @deprecated use `ListIncidentRetrospectivesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListIncidentRetrospectivesRequest$outboundSchema;
-  /** @deprecated use `ListIncidentRetrospectivesRequest$Outbound` instead. */
-  export type Outbound = ListIncidentRetrospectivesRequest$Outbound;
-}
-
 export function listIncidentRetrospectivesRequestToJSON(
   listIncidentRetrospectivesRequest: ListIncidentRetrospectivesRequest,
 ): string {
@@ -85,7 +70,6 @@ export function listIncidentRetrospectivesRequestToJSON(
     ),
   );
 }
-
 export function listIncidentRetrospectivesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentRetrospectivesRequest, SDKValidationError> {

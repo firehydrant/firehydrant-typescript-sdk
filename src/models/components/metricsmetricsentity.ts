@@ -43,7 +43,6 @@ export const DisplayInformation$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type DisplayInformation$Outbound = {};
 
@@ -54,19 +53,6 @@ export const DisplayInformation$outboundSchema: z.ZodType<
   DisplayInformation
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DisplayInformation$ {
-  /** @deprecated use `DisplayInformation$inboundSchema` instead. */
-  export const inboundSchema = DisplayInformation$inboundSchema;
-  /** @deprecated use `DisplayInformation$outboundSchema` instead. */
-  export const outboundSchema = DisplayInformation$outboundSchema;
-  /** @deprecated use `DisplayInformation$Outbound` instead. */
-  export type Outbound = DisplayInformation$Outbound;
-}
-
 export function displayInformationToJSON(
   displayInformation: DisplayInformation,
 ): string {
@@ -74,7 +60,6 @@ export function displayInformationToJSON(
     DisplayInformation$outboundSchema.parse(displayInformation),
   );
 }
-
 export function displayInformationFromJSON(
   jsonString: string,
 ): SafeParseResult<DisplayInformation, SDKValidationError> {
@@ -88,7 +73,6 @@ export function displayInformationFromJSON(
 /** @internal */
 export const Bucket$inboundSchema: z.ZodType<Bucket, z.ZodTypeDef, unknown> = z
   .object({});
-
 /** @internal */
 export type Bucket$Outbound = {};
 
@@ -99,23 +83,9 @@ export const Bucket$outboundSchema: z.ZodType<
   Bucket
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Bucket$ {
-  /** @deprecated use `Bucket$inboundSchema` instead. */
-  export const inboundSchema = Bucket$inboundSchema;
-  /** @deprecated use `Bucket$outboundSchema` instead. */
-  export const outboundSchema = Bucket$outboundSchema;
-  /** @deprecated use `Bucket$Outbound` instead. */
-  export type Outbound = Bucket$Outbound;
-}
-
 export function bucketToJSON(bucket: Bucket): string {
   return JSON.stringify(Bucket$outboundSchema.parse(bucket));
 }
-
 export function bucketFromJSON(
   jsonString: string,
 ): SafeParseResult<Bucket, SDKValidationError> {
@@ -148,7 +118,6 @@ export const MetricsMetricsEntity$inboundSchema: z.ZodType<
     "display_information": "displayInformation",
   });
 });
-
 /** @internal */
 export type MetricsMetricsEntity$Outbound = {
   type?: string | null | undefined;
@@ -183,19 +152,6 @@ export const MetricsMetricsEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsMetricsEntity$ {
-  /** @deprecated use `MetricsMetricsEntity$inboundSchema` instead. */
-  export const inboundSchema = MetricsMetricsEntity$inboundSchema;
-  /** @deprecated use `MetricsMetricsEntity$outboundSchema` instead. */
-  export const outboundSchema = MetricsMetricsEntity$outboundSchema;
-  /** @deprecated use `MetricsMetricsEntity$Outbound` instead. */
-  export type Outbound = MetricsMetricsEntity$Outbound;
-}
-
 export function metricsMetricsEntityToJSON(
   metricsMetricsEntity: MetricsMetricsEntity,
 ): string {
@@ -203,7 +159,6 @@ export function metricsMetricsEntityToJSON(
     MetricsMetricsEntity$outboundSchema.parse(metricsMetricsEntity),
   );
 }
-
 export function metricsMetricsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsMetricsEntity, SDKValidationError> {

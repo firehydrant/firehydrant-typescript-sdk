@@ -36,7 +36,6 @@ export const AttachmentsLinkEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(AttachmentsLinkEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type AttachmentsLinkEntityPaginated$Outbound = {
   data?: Array<AttachmentsLinkEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const AttachmentsLinkEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AttachmentsLinkEntityPaginated$ {
-  /** @deprecated use `AttachmentsLinkEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = AttachmentsLinkEntityPaginated$inboundSchema;
-  /** @deprecated use `AttachmentsLinkEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = AttachmentsLinkEntityPaginated$outboundSchema;
-  /** @deprecated use `AttachmentsLinkEntityPaginated$Outbound` instead. */
-  export type Outbound = AttachmentsLinkEntityPaginated$Outbound;
-}
-
 export function attachmentsLinkEntityPaginatedToJSON(
   attachmentsLinkEntityPaginated: AttachmentsLinkEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function attachmentsLinkEntityPaginatedToJSON(
     ),
   );
 }
-
 export function attachmentsLinkEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<AttachmentsLinkEntityPaginated, SDKValidationError> {

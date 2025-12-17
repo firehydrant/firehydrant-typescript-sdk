@@ -11,7 +11,6 @@ let value: PatchScimGroupRequest = {
     operations: [
       {
         op: "<value>",
-        path: "/var/tmp",
       },
     ],
   },

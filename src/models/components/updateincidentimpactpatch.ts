@@ -49,7 +49,6 @@ export const UpdateIncidentImpactPatchImpact$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPatchImpact$Outbound = {
   id: string;
@@ -70,19 +69,6 @@ export const UpdateIncidentImpactPatchImpact$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPatchImpact$ {
-  /** @deprecated use `UpdateIncidentImpactPatchImpact$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentImpactPatchImpact$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPatchImpact$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentImpactPatchImpact$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPatchImpact$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPatchImpact$Outbound;
-}
-
 export function updateIncidentImpactPatchImpactToJSON(
   updateIncidentImpactPatchImpact: UpdateIncidentImpactPatchImpact,
 ): string {
@@ -92,7 +78,6 @@ export function updateIncidentImpactPatchImpactToJSON(
     ),
   );
 }
-
 export function updateIncidentImpactPatchImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPatchImpact, SDKValidationError> {
@@ -116,7 +101,6 @@ export const UpdateIncidentImpactPatchStatusPage$inboundSchema: z.ZodType<
     "integration_slug": "integrationSlug",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPatchStatusPage$Outbound = {
   id: string;
@@ -137,21 +121,6 @@ export const UpdateIncidentImpactPatchStatusPage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPatchStatusPage$ {
-  /** @deprecated use `UpdateIncidentImpactPatchStatusPage$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateIncidentImpactPatchStatusPage$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPatchStatusPage$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateIncidentImpactPatchStatusPage$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPatchStatusPage$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPatchStatusPage$Outbound;
-}
-
 export function updateIncidentImpactPatchStatusPageToJSON(
   updateIncidentImpactPatchStatusPage: UpdateIncidentImpactPatchStatusPage,
 ): string {
@@ -161,7 +130,6 @@ export function updateIncidentImpactPatchStatusPageToJSON(
     ),
   );
 }
-
 export function updateIncidentImpactPatchStatusPageFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPatchStatusPage, SDKValidationError> {
@@ -192,7 +160,6 @@ export const UpdateIncidentImpactPatch$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPatch$Outbound = {
   note?: string | null | undefined;
@@ -224,19 +191,6 @@ export const UpdateIncidentImpactPatch$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPatch$ {
-  /** @deprecated use `UpdateIncidentImpactPatch$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentImpactPatch$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPatch$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentImpactPatch$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPatch$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPatch$Outbound;
-}
-
 export function updateIncidentImpactPatchToJSON(
   updateIncidentImpactPatch: UpdateIncidentImpactPatch,
 ): string {
@@ -244,7 +198,6 @@ export function updateIncidentImpactPatchToJSON(
     UpdateIncidentImpactPatch$outboundSchema.parse(updateIncidentImpactPatch),
   );
 }
-
 export function updateIncidentImpactPatchFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPatch, SDKValidationError> {

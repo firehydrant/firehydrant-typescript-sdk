@@ -24,7 +24,6 @@ export const DeleteSeverityMatrixConditionRequest$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type DeleteSeverityMatrixConditionRequest$Outbound = {
   condition_id: string;
@@ -43,21 +42,6 @@ export const DeleteSeverityMatrixConditionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSeverityMatrixConditionRequest$ {
-  /** @deprecated use `DeleteSeverityMatrixConditionRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteSeverityMatrixConditionRequest$inboundSchema;
-  /** @deprecated use `DeleteSeverityMatrixConditionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteSeverityMatrixConditionRequest$outboundSchema;
-  /** @deprecated use `DeleteSeverityMatrixConditionRequest$Outbound` instead. */
-  export type Outbound = DeleteSeverityMatrixConditionRequest$Outbound;
-}
-
 export function deleteSeverityMatrixConditionRequestToJSON(
   deleteSeverityMatrixConditionRequest: DeleteSeverityMatrixConditionRequest,
 ): string {
@@ -67,7 +51,6 @@ export function deleteSeverityMatrixConditionRequestToJSON(
     ),
   );
 }
-
 export function deleteSeverityMatrixConditionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteSeverityMatrixConditionRequest, SDKValidationError> {

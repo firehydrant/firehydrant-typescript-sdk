@@ -27,7 +27,6 @@ export const UpdateScimGroupRequest$inboundSchema: z.ZodType<
     "update_scim_group": "updateScimGroup",
   });
 });
-
 /** @internal */
 export type UpdateScimGroupRequest$Outbound = {
   id: string;
@@ -48,19 +47,6 @@ export const UpdateScimGroupRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimGroupRequest$ {
-  /** @deprecated use `UpdateScimGroupRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimGroupRequest$inboundSchema;
-  /** @deprecated use `UpdateScimGroupRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimGroupRequest$outboundSchema;
-  /** @deprecated use `UpdateScimGroupRequest$Outbound` instead. */
-  export type Outbound = UpdateScimGroupRequest$Outbound;
-}
-
 export function updateScimGroupRequestToJSON(
   updateScimGroupRequest: UpdateScimGroupRequest,
 ): string {
@@ -68,7 +54,6 @@ export function updateScimGroupRequestToJSON(
     UpdateScimGroupRequest$outboundSchema.parse(updateScimGroupRequest),
   );
 }
-
 export function updateScimGroupRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimGroupRequest, SDKValidationError> {

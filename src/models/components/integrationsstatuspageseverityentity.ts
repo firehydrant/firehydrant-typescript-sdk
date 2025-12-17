@@ -27,7 +27,6 @@ export const IntegrationsStatuspageSeverityEntity$inboundSchema: z.ZodType<
     "remote_status": "remoteStatus",
   });
 });
-
 /** @internal */
 export type IntegrationsStatuspageSeverityEntity$Outbound = {
   severity_slug?: string | null | undefined;
@@ -49,21 +48,6 @@ export const IntegrationsStatuspageSeverityEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsStatuspageSeverityEntity$ {
-  /** @deprecated use `IntegrationsStatuspageSeverityEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsStatuspageSeverityEntity$inboundSchema;
-  /** @deprecated use `IntegrationsStatuspageSeverityEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsStatuspageSeverityEntity$outboundSchema;
-  /** @deprecated use `IntegrationsStatuspageSeverityEntity$Outbound` instead. */
-  export type Outbound = IntegrationsStatuspageSeverityEntity$Outbound;
-}
-
 export function integrationsStatuspageSeverityEntityToJSON(
   integrationsStatuspageSeverityEntity: IntegrationsStatuspageSeverityEntity,
 ): string {
@@ -73,7 +57,6 @@ export function integrationsStatuspageSeverityEntityToJSON(
     ),
   );
 }
-
 export function integrationsStatuspageSeverityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsStatuspageSeverityEntity, SDKValidationError> {

@@ -33,7 +33,6 @@ export const UpdateIncidentNoteRequest$inboundSchema: z.ZodType<
     "update_incident_note": "updateIncidentNote",
   });
 });
-
 /** @internal */
 export type UpdateIncidentNoteRequest$Outbound = {
   note_id: string;
@@ -60,19 +59,6 @@ export const UpdateIncidentNoteRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentNoteRequest$ {
-  /** @deprecated use `UpdateIncidentNoteRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentNoteRequest$inboundSchema;
-  /** @deprecated use `UpdateIncidentNoteRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentNoteRequest$outboundSchema;
-  /** @deprecated use `UpdateIncidentNoteRequest$Outbound` instead. */
-  export type Outbound = UpdateIncidentNoteRequest$Outbound;
-}
-
 export function updateIncidentNoteRequestToJSON(
   updateIncidentNoteRequest: UpdateIncidentNoteRequest,
 ): string {
@@ -80,7 +66,6 @@ export function updateIncidentNoteRequestToJSON(
     UpdateIncidentNoteRequest$outboundSchema.parse(updateIncidentNoteRequest),
   );
 }
-
 export function updateIncidentNoteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentNoteRequest, SDKValidationError> {

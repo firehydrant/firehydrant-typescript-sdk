@@ -30,7 +30,6 @@ export const NullableNuncConditionEntity$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type NullableNuncConditionEntity$Outbound = {
   nunc_condition?: string | null | undefined;
@@ -55,19 +54,6 @@ export const NullableNuncConditionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableNuncConditionEntity$ {
-  /** @deprecated use `NullableNuncConditionEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableNuncConditionEntity$inboundSchema;
-  /** @deprecated use `NullableNuncConditionEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableNuncConditionEntity$outboundSchema;
-  /** @deprecated use `NullableNuncConditionEntity$Outbound` instead. */
-  export type Outbound = NullableNuncConditionEntity$Outbound;
-}
-
 export function nullableNuncConditionEntityToJSON(
   nullableNuncConditionEntity: NullableNuncConditionEntity,
 ): string {
@@ -77,7 +63,6 @@ export function nullableNuncConditionEntityToJSON(
     ),
   );
 }
-
 export function nullableNuncConditionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableNuncConditionEntity, SDKValidationError> {

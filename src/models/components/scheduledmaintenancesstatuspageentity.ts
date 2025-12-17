@@ -32,7 +32,6 @@ export const ScheduledMaintenancesStatusPageEntity$inboundSchema: z.ZodType<
     "integration_name": "integrationName",
   });
 });
-
 /** @internal */
 export type ScheduledMaintenancesStatusPageEntity$Outbound = {
   id?: string | null | undefined;
@@ -59,21 +58,6 @@ export const ScheduledMaintenancesStatusPageEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ScheduledMaintenancesStatusPageEntity$ {
-  /** @deprecated use `ScheduledMaintenancesStatusPageEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    ScheduledMaintenancesStatusPageEntity$inboundSchema;
-  /** @deprecated use `ScheduledMaintenancesStatusPageEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    ScheduledMaintenancesStatusPageEntity$outboundSchema;
-  /** @deprecated use `ScheduledMaintenancesStatusPageEntity$Outbound` instead. */
-  export type Outbound = ScheduledMaintenancesStatusPageEntity$Outbound;
-}
-
 export function scheduledMaintenancesStatusPageEntityToJSON(
   scheduledMaintenancesStatusPageEntity: ScheduledMaintenancesStatusPageEntity,
 ): string {
@@ -83,7 +67,6 @@ export function scheduledMaintenancesStatusPageEntityToJSON(
     ),
   );
 }
-
 export function scheduledMaintenancesStatusPageEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ScheduledMaintenancesStatusPageEntity, SDKValidationError> {

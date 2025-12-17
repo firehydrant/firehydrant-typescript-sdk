@@ -35,22 +35,10 @@ export type ListEntitlementsRequest = {
 export const ListEntitlementsType$inboundSchema: z.ZodNativeEnum<
   typeof ListEntitlementsType
 > = z.nativeEnum(ListEntitlementsType);
-
 /** @internal */
 export const ListEntitlementsType$outboundSchema: z.ZodNativeEnum<
   typeof ListEntitlementsType
 > = ListEntitlementsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListEntitlementsType$ {
-  /** @deprecated use `ListEntitlementsType$inboundSchema` instead. */
-  export const inboundSchema = ListEntitlementsType$inboundSchema;
-  /** @deprecated use `ListEntitlementsType$outboundSchema` instead. */
-  export const outboundSchema = ListEntitlementsType$outboundSchema;
-}
 
 /** @internal */
 export const ListEntitlementsRequest$inboundSchema: z.ZodType<
@@ -61,7 +49,6 @@ export const ListEntitlementsRequest$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   type: z.nullable(ListEntitlementsType$inboundSchema).optional(),
 });
-
 /** @internal */
 export type ListEntitlementsRequest$Outbound = {
   name?: string | null | undefined;
@@ -78,19 +65,6 @@ export const ListEntitlementsRequest$outboundSchema: z.ZodType<
   type: z.nullable(ListEntitlementsType$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListEntitlementsRequest$ {
-  /** @deprecated use `ListEntitlementsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListEntitlementsRequest$inboundSchema;
-  /** @deprecated use `ListEntitlementsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListEntitlementsRequest$outboundSchema;
-  /** @deprecated use `ListEntitlementsRequest$Outbound` instead. */
-  export type Outbound = ListEntitlementsRequest$Outbound;
-}
-
 export function listEntitlementsRequestToJSON(
   listEntitlementsRequest: ListEntitlementsRequest,
 ): string {
@@ -98,7 +72,6 @@ export function listEntitlementsRequestToJSON(
     ListEntitlementsRequest$outboundSchema.parse(listEntitlementsRequest),
   );
 }
-
 export function listEntitlementsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListEntitlementsRequest, SDKValidationError> {

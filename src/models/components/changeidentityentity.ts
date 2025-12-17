@@ -43,7 +43,6 @@ export const ChangeIdentityEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type ChangeIdentityEntity$Outbound = {
   id?: string | null | undefined;
@@ -74,19 +73,6 @@ export const ChangeIdentityEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeIdentityEntity$ {
-  /** @deprecated use `ChangeIdentityEntity$inboundSchema` instead. */
-  export const inboundSchema = ChangeIdentityEntity$inboundSchema;
-  /** @deprecated use `ChangeIdentityEntity$outboundSchema` instead. */
-  export const outboundSchema = ChangeIdentityEntity$outboundSchema;
-  /** @deprecated use `ChangeIdentityEntity$Outbound` instead. */
-  export type Outbound = ChangeIdentityEntity$Outbound;
-}
-
 export function changeIdentityEntityToJSON(
   changeIdentityEntity: ChangeIdentityEntity,
 ): string {
@@ -94,7 +80,6 @@ export function changeIdentityEntityToJSON(
     ChangeIdentityEntity$outboundSchema.parse(changeIdentityEntity),
   );
 }
-
 export function changeIdentityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeIdentityEntity, SDKValidationError> {

@@ -29,7 +29,6 @@ export const UpdateSignalsAlertRequest$inboundSchema: z.ZodType<
     "update_signals_alert": "updateSignalsAlert",
   });
 });
-
 /** @internal */
 export type UpdateSignalsAlertRequest$Outbound = {
   id: string;
@@ -52,19 +51,6 @@ export const UpdateSignalsAlertRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSignalsAlertRequest$ {
-  /** @deprecated use `UpdateSignalsAlertRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateSignalsAlertRequest$inboundSchema;
-  /** @deprecated use `UpdateSignalsAlertRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateSignalsAlertRequest$outboundSchema;
-  /** @deprecated use `UpdateSignalsAlertRequest$Outbound` instead. */
-  export type Outbound = UpdateSignalsAlertRequest$Outbound;
-}
-
 export function updateSignalsAlertRequestToJSON(
   updateSignalsAlertRequest: UpdateSignalsAlertRequest,
 ): string {
@@ -72,7 +58,6 @@ export function updateSignalsAlertRequestToJSON(
     UpdateSignalsAlertRequest$outboundSchema.parse(updateSignalsAlertRequest),
   );
 }
-
 export function updateSignalsAlertRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSignalsAlertRequest, SDKValidationError> {

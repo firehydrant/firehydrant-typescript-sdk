@@ -76,7 +76,6 @@ export const CreateNuncConnectionRequest$inboundSchema: z.ZodType<
     "ui_version": "uiVersion",
   });
 });
-
 /** @internal */
 export type CreateNuncConnectionRequest$Outbound = {
   domain: string;
@@ -141,19 +140,6 @@ export const CreateNuncConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNuncConnectionRequest$ {
-  /** @deprecated use `CreateNuncConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateNuncConnectionRequest$inboundSchema;
-  /** @deprecated use `CreateNuncConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateNuncConnectionRequest$outboundSchema;
-  /** @deprecated use `CreateNuncConnectionRequest$Outbound` instead. */
-  export type Outbound = CreateNuncConnectionRequest$Outbound;
-}
-
 export function createNuncConnectionRequestToJSON(
   createNuncConnectionRequest: CreateNuncConnectionRequest,
 ): string {
@@ -163,7 +149,6 @@ export function createNuncConnectionRequestToJSON(
     ),
   );
 }
-
 export function createNuncConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateNuncConnectionRequest, SDKValidationError> {

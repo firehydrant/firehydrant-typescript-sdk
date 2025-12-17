@@ -24,7 +24,6 @@ export const DeleteNuncSubscriptionRequest$inboundSchema: z.ZodType<
     "unsubscribe_token": "unsubscribeToken",
   });
 });
-
 /** @internal */
 export type DeleteNuncSubscriptionRequest$Outbound = {
   unsubscribe_token: string;
@@ -43,19 +42,6 @@ export const DeleteNuncSubscriptionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteNuncSubscriptionRequest$ {
-  /** @deprecated use `DeleteNuncSubscriptionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteNuncSubscriptionRequest$inboundSchema;
-  /** @deprecated use `DeleteNuncSubscriptionRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteNuncSubscriptionRequest$outboundSchema;
-  /** @deprecated use `DeleteNuncSubscriptionRequest$Outbound` instead. */
-  export type Outbound = DeleteNuncSubscriptionRequest$Outbound;
-}
-
 export function deleteNuncSubscriptionRequestToJSON(
   deleteNuncSubscriptionRequest: DeleteNuncSubscriptionRequest,
 ): string {
@@ -65,7 +51,6 @@ export function deleteNuncSubscriptionRequestToJSON(
     ),
   );
 }
-
 export function deleteNuncSubscriptionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteNuncSubscriptionRequest, SDKValidationError> {

@@ -31,7 +31,6 @@ export const FunctionalityWithAllServicesEntity$inboundSchema: z.ZodType<
 > = z.object({
   services: z.nullable(z.array(ServiceEntity$inboundSchema)).optional(),
 });
-
 /** @internal */
 export type FunctionalityWithAllServicesEntity$Outbound = {
   services?: Array<ServiceEntity$Outbound> | null | undefined;
@@ -46,20 +45,6 @@ export const FunctionalityWithAllServicesEntity$outboundSchema: z.ZodType<
   services: z.nullable(z.array(ServiceEntity$outboundSchema)).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FunctionalityWithAllServicesEntity$ {
-  /** @deprecated use `FunctionalityWithAllServicesEntity$inboundSchema` instead. */
-  export const inboundSchema = FunctionalityWithAllServicesEntity$inboundSchema;
-  /** @deprecated use `FunctionalityWithAllServicesEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    FunctionalityWithAllServicesEntity$outboundSchema;
-  /** @deprecated use `FunctionalityWithAllServicesEntity$Outbound` instead. */
-  export type Outbound = FunctionalityWithAllServicesEntity$Outbound;
-}
-
 export function functionalityWithAllServicesEntityToJSON(
   functionalityWithAllServicesEntity: FunctionalityWithAllServicesEntity,
 ): string {
@@ -69,7 +54,6 @@ export function functionalityWithAllServicesEntityToJSON(
     ),
   );
 }
-
 export function functionalityWithAllServicesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<FunctionalityWithAllServicesEntity, SDKValidationError> {

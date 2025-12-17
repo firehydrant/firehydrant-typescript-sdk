@@ -30,7 +30,6 @@ export const CreateTeamSignalRuleRequest$inboundSchema: z.ZodType<
     "create_team_signal_rule": "createTeamSignalRule",
   });
 });
-
 /** @internal */
 export type CreateTeamSignalRuleRequest$Outbound = {
   team_id: string;
@@ -54,19 +53,6 @@ export const CreateTeamSignalRuleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamSignalRuleRequest$ {
-  /** @deprecated use `CreateTeamSignalRuleRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamSignalRuleRequest$inboundSchema;
-  /** @deprecated use `CreateTeamSignalRuleRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamSignalRuleRequest$outboundSchema;
-  /** @deprecated use `CreateTeamSignalRuleRequest$Outbound` instead. */
-  export type Outbound = CreateTeamSignalRuleRequest$Outbound;
-}
-
 export function createTeamSignalRuleRequestToJSON(
   createTeamSignalRuleRequest: CreateTeamSignalRuleRequest,
 ): string {
@@ -76,7 +62,6 @@ export function createTeamSignalRuleRequestToJSON(
     ),
   );
 }
-
 export function createTeamSignalRuleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamSignalRuleRequest, SDKValidationError> {

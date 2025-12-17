@@ -28,7 +28,6 @@ export const ListSimilarIncidentsRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListSimilarIncidentsRequest$Outbound = {
   threshold: number | null;
@@ -51,19 +50,6 @@ export const ListSimilarIncidentsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSimilarIncidentsRequest$ {
-  /** @deprecated use `ListSimilarIncidentsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSimilarIncidentsRequest$inboundSchema;
-  /** @deprecated use `ListSimilarIncidentsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSimilarIncidentsRequest$outboundSchema;
-  /** @deprecated use `ListSimilarIncidentsRequest$Outbound` instead. */
-  export type Outbound = ListSimilarIncidentsRequest$Outbound;
-}
-
 export function listSimilarIncidentsRequestToJSON(
   listSimilarIncidentsRequest: ListSimilarIncidentsRequest,
 ): string {
@@ -73,7 +59,6 @@ export function listSimilarIncidentsRequestToJSON(
     ),
   );
 }
-
 export function listSimilarIncidentsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSimilarIncidentsRequest, SDKValidationError> {

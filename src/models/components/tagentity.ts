@@ -22,7 +22,6 @@ export const TagEntity$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type TagEntity$Outbound = {
   name?: string | null | undefined;
@@ -37,23 +36,9 @@ export const TagEntity$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TagEntity$ {
-  /** @deprecated use `TagEntity$inboundSchema` instead. */
-  export const inboundSchema = TagEntity$inboundSchema;
-  /** @deprecated use `TagEntity$outboundSchema` instead. */
-  export const outboundSchema = TagEntity$outboundSchema;
-  /** @deprecated use `TagEntity$Outbound` instead. */
-  export type Outbound = TagEntity$Outbound;
-}
-
 export function tagEntityToJSON(tagEntity: TagEntity): string {
   return JSON.stringify(TagEntity$outboundSchema.parse(tagEntity));
 }
-
 export function tagEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TagEntity, SDKValidationError> {

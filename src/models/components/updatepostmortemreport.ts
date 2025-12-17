@@ -38,7 +38,6 @@ export const UpdatePostMortemReportQuestion$inboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   body: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdatePostMortemReportQuestion$Outbound = {
   id?: string | null | undefined;
@@ -55,19 +54,6 @@ export const UpdatePostMortemReportQuestion$outboundSchema: z.ZodType<
   body: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemReportQuestion$ {
-  /** @deprecated use `UpdatePostMortemReportQuestion$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemReportQuestion$inboundSchema;
-  /** @deprecated use `UpdatePostMortemReportQuestion$outboundSchema` instead. */
-  export const outboundSchema = UpdatePostMortemReportQuestion$outboundSchema;
-  /** @deprecated use `UpdatePostMortemReportQuestion$Outbound` instead. */
-  export type Outbound = UpdatePostMortemReportQuestion$Outbound;
-}
-
 export function updatePostMortemReportQuestionToJSON(
   updatePostMortemReportQuestion: UpdatePostMortemReportQuestion,
 ): string {
@@ -77,7 +63,6 @@ export function updatePostMortemReportQuestionToJSON(
     ),
   );
 }
-
 export function updatePostMortemReportQuestionFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemReportQuestion, SDKValidationError> {
@@ -105,7 +90,6 @@ export const UpdatePostMortemReport$inboundSchema: z.ZodType<
     "additional_details": "additionalDetails",
   });
 });
-
 /** @internal */
 export type UpdatePostMortemReport$Outbound = {
   name?: string | null | undefined;
@@ -132,19 +116,6 @@ export const UpdatePostMortemReport$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemReport$ {
-  /** @deprecated use `UpdatePostMortemReport$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemReport$inboundSchema;
-  /** @deprecated use `UpdatePostMortemReport$outboundSchema` instead. */
-  export const outboundSchema = UpdatePostMortemReport$outboundSchema;
-  /** @deprecated use `UpdatePostMortemReport$Outbound` instead. */
-  export type Outbound = UpdatePostMortemReport$Outbound;
-}
-
 export function updatePostMortemReportToJSON(
   updatePostMortemReport: UpdatePostMortemReport,
 ): string {
@@ -152,7 +123,6 @@ export function updatePostMortemReportToJSON(
     UpdatePostMortemReport$outboundSchema.parse(updatePostMortemReport),
   );
 }
-
 export function updatePostMortemReportFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemReport, SDKValidationError> {

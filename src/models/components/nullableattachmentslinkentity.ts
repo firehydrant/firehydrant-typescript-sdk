@@ -47,7 +47,6 @@ export const NullableAttachmentsLinkEntity$inboundSchema: z.ZodType<
     "icon_url": "iconUrl",
   });
 });
-
 /** @internal */
 export type NullableAttachmentsLinkEntity$Outbound = {
   id?: string | null | undefined;
@@ -80,19 +79,6 @@ export const NullableAttachmentsLinkEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableAttachmentsLinkEntity$ {
-  /** @deprecated use `NullableAttachmentsLinkEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableAttachmentsLinkEntity$inboundSchema;
-  /** @deprecated use `NullableAttachmentsLinkEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableAttachmentsLinkEntity$outboundSchema;
-  /** @deprecated use `NullableAttachmentsLinkEntity$Outbound` instead. */
-  export type Outbound = NullableAttachmentsLinkEntity$Outbound;
-}
-
 export function nullableAttachmentsLinkEntityToJSON(
   nullableAttachmentsLinkEntity: NullableAttachmentsLinkEntity,
 ): string {
@@ -102,7 +88,6 @@ export function nullableAttachmentsLinkEntityToJSON(
     ),
   );
 }
-
 export function nullableAttachmentsLinkEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableAttachmentsLinkEntity, SDKValidationError> {

@@ -26,22 +26,10 @@ export type UpdateWebhook = {
 export const UpdateWebhookState$inboundSchema: z.ZodNativeEnum<
   typeof UpdateWebhookState
 > = z.nativeEnum(UpdateWebhookState);
-
 /** @internal */
 export const UpdateWebhookState$outboundSchema: z.ZodNativeEnum<
   typeof UpdateWebhookState
 > = UpdateWebhookState$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateWebhookState$ {
-  /** @deprecated use `UpdateWebhookState$inboundSchema` instead. */
-  export const inboundSchema = UpdateWebhookState$inboundSchema;
-  /** @deprecated use `UpdateWebhookState$outboundSchema` instead. */
-  export const outboundSchema = UpdateWebhookState$outboundSchema;
-}
 
 /** @internal */
 export const UpdateWebhook$inboundSchema: z.ZodType<
@@ -52,7 +40,6 @@ export const UpdateWebhook$inboundSchema: z.ZodType<
   url: z.nullable(z.string()).optional(),
   state: z.nullable(UpdateWebhookState$inboundSchema).optional(),
 });
-
 /** @internal */
 export type UpdateWebhook$Outbound = {
   url?: string | null | undefined;
@@ -69,23 +56,9 @@ export const UpdateWebhook$outboundSchema: z.ZodType<
   state: z.nullable(UpdateWebhookState$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateWebhook$ {
-  /** @deprecated use `UpdateWebhook$inboundSchema` instead. */
-  export const inboundSchema = UpdateWebhook$inboundSchema;
-  /** @deprecated use `UpdateWebhook$outboundSchema` instead. */
-  export const outboundSchema = UpdateWebhook$outboundSchema;
-  /** @deprecated use `UpdateWebhook$Outbound` instead. */
-  export type Outbound = UpdateWebhook$Outbound;
-}
-
 export function updateWebhookToJSON(updateWebhook: UpdateWebhook): string {
   return JSON.stringify(UpdateWebhook$outboundSchema.parse(updateWebhook));
 }
-
 export function updateWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateWebhook, SDKValidationError> {

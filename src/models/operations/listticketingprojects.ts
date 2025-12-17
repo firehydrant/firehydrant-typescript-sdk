@@ -39,7 +39,6 @@ export const ListTicketingProjectsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListTicketingProjectsRequest$Outbound = {
   supports_ticket_types?: string | null | undefined;
@@ -73,19 +72,6 @@ export const ListTicketingProjectsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTicketingProjectsRequest$ {
-  /** @deprecated use `ListTicketingProjectsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTicketingProjectsRequest$inboundSchema;
-  /** @deprecated use `ListTicketingProjectsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTicketingProjectsRequest$outboundSchema;
-  /** @deprecated use `ListTicketingProjectsRequest$Outbound` instead. */
-  export type Outbound = ListTicketingProjectsRequest$Outbound;
-}
-
 export function listTicketingProjectsRequestToJSON(
   listTicketingProjectsRequest: ListTicketingProjectsRequest,
 ): string {
@@ -95,7 +81,6 @@ export function listTicketingProjectsRequestToJSON(
     ),
   );
 }
-
 export function listTicketingProjectsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTicketingProjectsRequest, SDKValidationError> {

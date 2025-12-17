@@ -36,7 +36,6 @@ export const EntitlementEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(EntitlementEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type EntitlementEntityPaginated$Outbound = {
   data?: Array<EntitlementEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const EntitlementEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EntitlementEntityPaginated$ {
-  /** @deprecated use `EntitlementEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = EntitlementEntityPaginated$inboundSchema;
-  /** @deprecated use `EntitlementEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = EntitlementEntityPaginated$outboundSchema;
-  /** @deprecated use `EntitlementEntityPaginated$Outbound` instead. */
-  export type Outbound = EntitlementEntityPaginated$Outbound;
-}
-
 export function entitlementEntityPaginatedToJSON(
   entitlementEntityPaginated: EntitlementEntityPaginated,
 ): string {
@@ -73,7 +59,6 @@ export function entitlementEntityPaginatedToJSON(
     EntitlementEntityPaginated$outboundSchema.parse(entitlementEntityPaginated),
   );
 }
-
 export function entitlementEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<EntitlementEntityPaginated, SDKValidationError> {

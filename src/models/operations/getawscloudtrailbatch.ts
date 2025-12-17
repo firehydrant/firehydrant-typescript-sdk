@@ -19,7 +19,6 @@ export const GetAwsCloudtrailBatchRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetAwsCloudtrailBatchRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetAwsCloudtrailBatchRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAwsCloudtrailBatchRequest$ {
-  /** @deprecated use `GetAwsCloudtrailBatchRequest$inboundSchema` instead. */
-  export const inboundSchema = GetAwsCloudtrailBatchRequest$inboundSchema;
-  /** @deprecated use `GetAwsCloudtrailBatchRequest$outboundSchema` instead. */
-  export const outboundSchema = GetAwsCloudtrailBatchRequest$outboundSchema;
-  /** @deprecated use `GetAwsCloudtrailBatchRequest$Outbound` instead. */
-  export type Outbound = GetAwsCloudtrailBatchRequest$Outbound;
-}
-
 export function getAwsCloudtrailBatchRequestToJSON(
   getAwsCloudtrailBatchRequest: GetAwsCloudtrailBatchRequest,
 ): string {
@@ -56,7 +42,6 @@ export function getAwsCloudtrailBatchRequestToJSON(
     ),
   );
 }
-
 export function getAwsCloudtrailBatchRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetAwsCloudtrailBatchRequest, SDKValidationError> {

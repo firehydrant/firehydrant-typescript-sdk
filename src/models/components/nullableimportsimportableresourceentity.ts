@@ -36,24 +36,10 @@ export type NullableImportsImportableResourceEntity = {
 export const NullableImportsImportableResourceEntityState$inboundSchema:
   z.ZodNativeEnum<typeof NullableImportsImportableResourceEntityState> = z
     .nativeEnum(NullableImportsImportableResourceEntityState);
-
 /** @internal */
 export const NullableImportsImportableResourceEntityState$outboundSchema:
   z.ZodNativeEnum<typeof NullableImportsImportableResourceEntityState> =
     NullableImportsImportableResourceEntityState$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableImportsImportableResourceEntityState$ {
-  /** @deprecated use `NullableImportsImportableResourceEntityState$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableImportsImportableResourceEntityState$inboundSchema;
-  /** @deprecated use `NullableImportsImportableResourceEntityState$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableImportsImportableResourceEntityState$outboundSchema;
-}
 
 /** @internal */
 export const NullableImportsImportableResourceEntity$inboundSchema: z.ZodType<
@@ -76,7 +62,6 @@ export const NullableImportsImportableResourceEntity$inboundSchema: z.ZodType<
     "remote_id": "remoteId",
   });
 });
-
 /** @internal */
 export type NullableImportsImportableResourceEntity$Outbound = {
   import_errors?: Array<ImportsImportErrorEntity$Outbound> | null | undefined;
@@ -105,21 +90,6 @@ export const NullableImportsImportableResourceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableImportsImportableResourceEntity$ {
-  /** @deprecated use `NullableImportsImportableResourceEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableImportsImportableResourceEntity$inboundSchema;
-  /** @deprecated use `NullableImportsImportableResourceEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableImportsImportableResourceEntity$outboundSchema;
-  /** @deprecated use `NullableImportsImportableResourceEntity$Outbound` instead. */
-  export type Outbound = NullableImportsImportableResourceEntity$Outbound;
-}
-
 export function nullableImportsImportableResourceEntityToJSON(
   nullableImportsImportableResourceEntity:
     NullableImportsImportableResourceEntity,
@@ -130,7 +100,6 @@ export function nullableImportsImportableResourceEntityToJSON(
     ),
   );
 }
-
 export function nullableImportsImportableResourceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

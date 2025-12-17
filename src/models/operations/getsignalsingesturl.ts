@@ -45,7 +45,6 @@ export const GetSignalsIngestUrlRequest$inboundSchema: z.ZodType<
     "user_id": "userId",
   });
 });
-
 /** @internal */
 export type GetSignalsIngestUrlRequest$Outbound = {
   team_id?: string | null | undefined;
@@ -73,19 +72,6 @@ export const GetSignalsIngestUrlRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsIngestUrlRequest$ {
-  /** @deprecated use `GetSignalsIngestUrlRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsIngestUrlRequest$inboundSchema;
-  /** @deprecated use `GetSignalsIngestUrlRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsIngestUrlRequest$outboundSchema;
-  /** @deprecated use `GetSignalsIngestUrlRequest$Outbound` instead. */
-  export type Outbound = GetSignalsIngestUrlRequest$Outbound;
-}
-
 export function getSignalsIngestUrlRequestToJSON(
   getSignalsIngestUrlRequest: GetSignalsIngestUrlRequest,
 ): string {
@@ -93,7 +79,6 @@ export function getSignalsIngestUrlRequestToJSON(
     GetSignalsIngestUrlRequest$outboundSchema.parse(getSignalsIngestUrlRequest),
   );
 }
-
 export function getSignalsIngestUrlRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsIngestUrlRequest, SDKValidationError> {

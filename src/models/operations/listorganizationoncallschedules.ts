@@ -27,7 +27,6 @@ export const ListOrganizationOnCallSchedulesRequest$inboundSchema: z.ZodType<
     "team_id": "teamId",
   });
 });
-
 /** @internal */
 export type ListOrganizationOnCallSchedulesRequest$Outbound = {
   team_id?: string | null | undefined;
@@ -46,21 +45,6 @@ export const ListOrganizationOnCallSchedulesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListOrganizationOnCallSchedulesRequest$ {
-  /** @deprecated use `ListOrganizationOnCallSchedulesRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListOrganizationOnCallSchedulesRequest$inboundSchema;
-  /** @deprecated use `ListOrganizationOnCallSchedulesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListOrganizationOnCallSchedulesRequest$outboundSchema;
-  /** @deprecated use `ListOrganizationOnCallSchedulesRequest$Outbound` instead. */
-  export type Outbound = ListOrganizationOnCallSchedulesRequest$Outbound;
-}
-
 export function listOrganizationOnCallSchedulesRequestToJSON(
   listOrganizationOnCallSchedulesRequest:
     ListOrganizationOnCallSchedulesRequest,
@@ -71,7 +55,6 @@ export function listOrganizationOnCallSchedulesRequestToJSON(
     ),
   );
 }
-
 export function listOrganizationOnCallSchedulesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListOrganizationOnCallSchedulesRequest, SDKValidationError> {

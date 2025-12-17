@@ -31,24 +31,10 @@ export type IncidentTypeEntityTemplateImpactEntity = {
 export const IncidentTypeEntityTemplateImpactEntityType$inboundSchema:
   z.ZodNativeEnum<typeof IncidentTypeEntityTemplateImpactEntityType> = z
     .nativeEnum(IncidentTypeEntityTemplateImpactEntityType);
-
 /** @internal */
 export const IncidentTypeEntityTemplateImpactEntityType$outboundSchema:
   z.ZodNativeEnum<typeof IncidentTypeEntityTemplateImpactEntityType> =
     IncidentTypeEntityTemplateImpactEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentTypeEntityTemplateImpactEntityType$ {
-  /** @deprecated use `IncidentTypeEntityTemplateImpactEntityType$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentTypeEntityTemplateImpactEntityType$inboundSchema;
-  /** @deprecated use `IncidentTypeEntityTemplateImpactEntityType$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentTypeEntityTemplateImpactEntityType$outboundSchema;
-}
 
 /** @internal */
 export const IncidentTypeEntityTemplateImpactEntity$inboundSchema: z.ZodType<
@@ -68,7 +54,6 @@ export const IncidentTypeEntityTemplateImpactEntity$inboundSchema: z.ZodType<
     "condition_name": "conditionName",
   });
 });
-
 /** @internal */
 export type IncidentTypeEntityTemplateImpactEntity$Outbound = {
   id?: string | null | undefined;
@@ -97,21 +82,6 @@ export const IncidentTypeEntityTemplateImpactEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentTypeEntityTemplateImpactEntity$ {
-  /** @deprecated use `IncidentTypeEntityTemplateImpactEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentTypeEntityTemplateImpactEntity$inboundSchema;
-  /** @deprecated use `IncidentTypeEntityTemplateImpactEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentTypeEntityTemplateImpactEntity$outboundSchema;
-  /** @deprecated use `IncidentTypeEntityTemplateImpactEntity$Outbound` instead. */
-  export type Outbound = IncidentTypeEntityTemplateImpactEntity$Outbound;
-}
-
 export function incidentTypeEntityTemplateImpactEntityToJSON(
   incidentTypeEntityTemplateImpactEntity:
     IncidentTypeEntityTemplateImpactEntity,
@@ -122,7 +92,6 @@ export function incidentTypeEntityTemplateImpactEntityToJSON(
     ),
   );
 }
-
 export function incidentTypeEntityTemplateImpactEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentTypeEntityTemplateImpactEntity, SDKValidationError> {

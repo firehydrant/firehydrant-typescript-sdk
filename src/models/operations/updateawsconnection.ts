@@ -29,7 +29,6 @@ export const UpdateAwsConnectionRequest$inboundSchema: z.ZodType<
     "update_aws_connection": "updateAwsConnection",
   });
 });
-
 /** @internal */
 export type UpdateAwsConnectionRequest$Outbound = {
   id: string;
@@ -52,19 +51,6 @@ export const UpdateAwsConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAwsConnectionRequest$ {
-  /** @deprecated use `UpdateAwsConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateAwsConnectionRequest$inboundSchema;
-  /** @deprecated use `UpdateAwsConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateAwsConnectionRequest$outboundSchema;
-  /** @deprecated use `UpdateAwsConnectionRequest$Outbound` instead. */
-  export type Outbound = UpdateAwsConnectionRequest$Outbound;
-}
-
 export function updateAwsConnectionRequestToJSON(
   updateAwsConnectionRequest: UpdateAwsConnectionRequest,
 ): string {
@@ -72,7 +58,6 @@ export function updateAwsConnectionRequestToJSON(
     UpdateAwsConnectionRequest$outboundSchema.parse(updateAwsConnectionRequest),
   );
 }
-
 export function updateAwsConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAwsConnectionRequest, SDKValidationError> {

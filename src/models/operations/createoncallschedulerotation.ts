@@ -33,7 +33,6 @@ export const CreateOnCallScheduleRotationRequest$inboundSchema: z.ZodType<
     "create_on_call_schedule_rotation": "createOnCallScheduleRotation",
   });
 });
-
 /** @internal */
 export type CreateOnCallScheduleRotationRequest$Outbound = {
   team_id: string;
@@ -61,21 +60,6 @@ export const CreateOnCallScheduleRotationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateOnCallScheduleRotationRequest$ {
-  /** @deprecated use `CreateOnCallScheduleRotationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateOnCallScheduleRotationRequest$inboundSchema;
-  /** @deprecated use `CreateOnCallScheduleRotationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateOnCallScheduleRotationRequest$outboundSchema;
-  /** @deprecated use `CreateOnCallScheduleRotationRequest$Outbound` instead. */
-  export type Outbound = CreateOnCallScheduleRotationRequest$Outbound;
-}
-
 export function createOnCallScheduleRotationRequestToJSON(
   createOnCallScheduleRotationRequest: CreateOnCallScheduleRotationRequest,
 ): string {
@@ -85,7 +69,6 @@ export function createOnCallScheduleRotationRequestToJSON(
     ),
   );
 }
-
 export function createOnCallScheduleRotationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateOnCallScheduleRotationRequest, SDKValidationError> {

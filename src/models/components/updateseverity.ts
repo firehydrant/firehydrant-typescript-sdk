@@ -38,22 +38,10 @@ export type UpdateSeverity = {
 export const UpdateSeverityColor$inboundSchema: z.ZodNativeEnum<
   typeof UpdateSeverityColor
 > = z.nativeEnum(UpdateSeverityColor);
-
 /** @internal */
 export const UpdateSeverityColor$outboundSchema: z.ZodNativeEnum<
   typeof UpdateSeverityColor
 > = UpdateSeverityColor$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityColor$ {
-  /** @deprecated use `UpdateSeverityColor$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverityColor$inboundSchema;
-  /** @deprecated use `UpdateSeverityColor$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverityColor$outboundSchema;
-}
 
 /** @internal */
 export const UpdateSeverity$inboundSchema: z.ZodType<
@@ -71,7 +59,6 @@ export const UpdateSeverity$inboundSchema: z.ZodType<
     "allowed_role_ids": "allowedRoleIds",
   });
 });
-
 /** @internal */
 export type UpdateSeverity$Outbound = {
   slug?: string | null | undefined;
@@ -98,23 +85,9 @@ export const UpdateSeverity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverity$ {
-  /** @deprecated use `UpdateSeverity$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverity$inboundSchema;
-  /** @deprecated use `UpdateSeverity$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverity$outboundSchema;
-  /** @deprecated use `UpdateSeverity$Outbound` instead. */
-  export type Outbound = UpdateSeverity$Outbound;
-}
-
 export function updateSeverityToJSON(updateSeverity: UpdateSeverity): string {
   return JSON.stringify(UpdateSeverity$outboundSchema.parse(updateSeverity));
 }
-
 export function updateSeverityFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverity, SDKValidationError> {

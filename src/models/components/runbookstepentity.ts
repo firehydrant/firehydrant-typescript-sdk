@@ -67,7 +67,6 @@ export const RunbookStepEntityConfig$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type RunbookStepEntityConfig$Outbound = {};
 
@@ -78,19 +77,6 @@ export const RunbookStepEntityConfig$outboundSchema: z.ZodType<
   RunbookStepEntityConfig
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbookStepEntityConfig$ {
-  /** @deprecated use `RunbookStepEntityConfig$inboundSchema` instead. */
-  export const inboundSchema = RunbookStepEntityConfig$inboundSchema;
-  /** @deprecated use `RunbookStepEntityConfig$outboundSchema` instead. */
-  export const outboundSchema = RunbookStepEntityConfig$outboundSchema;
-  /** @deprecated use `RunbookStepEntityConfig$Outbound` instead. */
-  export type Outbound = RunbookStepEntityConfig$Outbound;
-}
-
 export function runbookStepEntityConfigToJSON(
   runbookStepEntityConfig: RunbookStepEntityConfig,
 ): string {
@@ -98,7 +84,6 @@ export function runbookStepEntityConfigToJSON(
     RunbookStepEntityConfig$outboundSchema.parse(runbookStepEntityConfig),
   );
 }
-
 export function runbookStepEntityConfigFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbookStepEntityConfig, SDKValidationError> {
@@ -115,7 +100,6 @@ export const ActionElement$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ActionElement$Outbound = {};
 
@@ -126,23 +110,9 @@ export const ActionElement$outboundSchema: z.ZodType<
   ActionElement
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ActionElement$ {
-  /** @deprecated use `ActionElement$inboundSchema` instead. */
-  export const inboundSchema = ActionElement$inboundSchema;
-  /** @deprecated use `ActionElement$outboundSchema` instead. */
-  export const outboundSchema = ActionElement$outboundSchema;
-  /** @deprecated use `ActionElement$Outbound` instead. */
-  export type Outbound = ActionElement$Outbound;
-}
-
 export function actionElementToJSON(actionElement: ActionElement): string {
   return JSON.stringify(ActionElement$outboundSchema.parse(actionElement));
 }
-
 export function actionElementFromJSON(
   jsonString: string,
 ): SafeParseResult<ActionElement, SDKValidationError> {
@@ -159,7 +129,6 @@ export const RunbookStepEntityStepElement$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type RunbookStepEntityStepElement$Outbound = {};
 
@@ -170,19 +139,6 @@ export const RunbookStepEntityStepElement$outboundSchema: z.ZodType<
   RunbookStepEntityStepElement
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbookStepEntityStepElement$ {
-  /** @deprecated use `RunbookStepEntityStepElement$inboundSchema` instead. */
-  export const inboundSchema = RunbookStepEntityStepElement$inboundSchema;
-  /** @deprecated use `RunbookStepEntityStepElement$outboundSchema` instead. */
-  export const outboundSchema = RunbookStepEntityStepElement$outboundSchema;
-  /** @deprecated use `RunbookStepEntityStepElement$Outbound` instead. */
-  export type Outbound = RunbookStepEntityStepElement$Outbound;
-}
-
 export function runbookStepEntityStepElementToJSON(
   runbookStepEntityStepElement: RunbookStepEntityStepElement,
 ): string {
@@ -192,7 +148,6 @@ export function runbookStepEntityStepElementToJSON(
     ),
   );
 }
-
 export function runbookStepEntityStepElementFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbookStepEntityStepElement, SDKValidationError> {
@@ -238,7 +193,6 @@ export const RunbookStepEntity$inboundSchema: z.ZodType<
     "repeats_duration": "repeatsDuration",
   });
 });
-
 /** @internal */
 export type RunbookStepEntity$Outbound = {
   name?: string | null | undefined;
@@ -296,19 +250,6 @@ export const RunbookStepEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbookStepEntity$ {
-  /** @deprecated use `RunbookStepEntity$inboundSchema` instead. */
-  export const inboundSchema = RunbookStepEntity$inboundSchema;
-  /** @deprecated use `RunbookStepEntity$outboundSchema` instead. */
-  export const outboundSchema = RunbookStepEntity$outboundSchema;
-  /** @deprecated use `RunbookStepEntity$Outbound` instead. */
-  export type Outbound = RunbookStepEntity$Outbound;
-}
-
 export function runbookStepEntityToJSON(
   runbookStepEntity: RunbookStepEntity,
 ): string {
@@ -316,7 +257,6 @@ export function runbookStepEntityToJSON(
     RunbookStepEntity$outboundSchema.parse(runbookStepEntity),
   );
 }
-
 export function runbookStepEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbookStepEntity, SDKValidationError> {

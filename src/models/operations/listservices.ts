@@ -91,7 +91,6 @@ export const ListServicesRequest$inboundSchema: z.ZodType<
       "availableUpstreamDependenciesForId",
   });
 });
-
 /** @internal */
 export type ListServicesRequest$Outbound = {
   page?: number | null | undefined;
@@ -141,19 +140,6 @@ export const ListServicesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListServicesRequest$ {
-  /** @deprecated use `ListServicesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListServicesRequest$inboundSchema;
-  /** @deprecated use `ListServicesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListServicesRequest$outboundSchema;
-  /** @deprecated use `ListServicesRequest$Outbound` instead. */
-  export type Outbound = ListServicesRequest$Outbound;
-}
-
 export function listServicesRequestToJSON(
   listServicesRequest: ListServicesRequest,
 ): string {
@@ -161,7 +147,6 @@ export function listServicesRequestToJSON(
     ListServicesRequest$outboundSchema.parse(listServicesRequest),
   );
 }
-
 export function listServicesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListServicesRequest, SDKValidationError> {

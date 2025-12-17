@@ -45,7 +45,6 @@ export type AlertsProcessingLogEntryEntity = {
 /** @internal */
 export const Context$inboundSchema: z.ZodType<Context, z.ZodTypeDef, unknown> =
   z.object({});
-
 /** @internal */
 export type Context$Outbound = {};
 
@@ -56,23 +55,9 @@ export const Context$outboundSchema: z.ZodType<
   Context
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Context$ {
-  /** @deprecated use `Context$inboundSchema` instead. */
-  export const inboundSchema = Context$inboundSchema;
-  /** @deprecated use `Context$outboundSchema` instead. */
-  export const outboundSchema = Context$outboundSchema;
-  /** @deprecated use `Context$Outbound` instead. */
-  export type Outbound = Context$Outbound;
-}
-
 export function contextToJSON(context: Context): string {
   return JSON.stringify(Context$outboundSchema.parse(context));
 }
-
 export function contextFromJSON(
   jsonString: string,
 ): SafeParseResult<Context, SDKValidationError> {
@@ -87,40 +72,16 @@ export function contextFromJSON(
 export const Level$inboundSchema: z.ZodNativeEnum<typeof Level> = z.nativeEnum(
   Level,
 );
-
 /** @internal */
 export const Level$outboundSchema: z.ZodNativeEnum<typeof Level> =
   Level$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Level$ {
-  /** @deprecated use `Level$inboundSchema` instead. */
-  export const inboundSchema = Level$inboundSchema;
-  /** @deprecated use `Level$outboundSchema` instead. */
-  export const outboundSchema = Level$outboundSchema;
-}
-
 /** @internal */
 export const MessageType$inboundSchema: z.ZodNativeEnum<typeof MessageType> = z
   .nativeEnum(MessageType);
-
 /** @internal */
 export const MessageType$outboundSchema: z.ZodNativeEnum<typeof MessageType> =
   MessageType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MessageType$ {
-  /** @deprecated use `MessageType$inboundSchema` instead. */
-  export const inboundSchema = MessageType$inboundSchema;
-  /** @deprecated use `MessageType$outboundSchema` instead. */
-  export const outboundSchema = MessageType$outboundSchema;
-}
 
 /** @internal */
 export const AlertsProcessingLogEntryEntity$inboundSchema: z.ZodType<
@@ -142,7 +103,6 @@ export const AlertsProcessingLogEntryEntity$inboundSchema: z.ZodType<
     "message_type": "messageType",
   });
 });
-
 /** @internal */
 export type AlertsProcessingLogEntryEntity$Outbound = {
   id?: string | null | undefined;
@@ -172,19 +132,6 @@ export const AlertsProcessingLogEntryEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsProcessingLogEntryEntity$ {
-  /** @deprecated use `AlertsProcessingLogEntryEntity$inboundSchema` instead. */
-  export const inboundSchema = AlertsProcessingLogEntryEntity$inboundSchema;
-  /** @deprecated use `AlertsProcessingLogEntryEntity$outboundSchema` instead. */
-  export const outboundSchema = AlertsProcessingLogEntryEntity$outboundSchema;
-  /** @deprecated use `AlertsProcessingLogEntryEntity$Outbound` instead. */
-  export type Outbound = AlertsProcessingLogEntryEntity$Outbound;
-}
-
 export function alertsProcessingLogEntryEntityToJSON(
   alertsProcessingLogEntryEntity: AlertsProcessingLogEntryEntity,
 ): string {
@@ -194,7 +141,6 @@ export function alertsProcessingLogEntryEntityToJSON(
     ),
   );
 }
-
 export function alertsProcessingLogEntryEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AlertsProcessingLogEntryEntity, SDKValidationError> {

@@ -24,7 +24,6 @@ export const DeletePriorityRequest$inboundSchema: z.ZodType<
     "priority_slug": "prioritySlug",
   });
 });
-
 /** @internal */
 export type DeletePriorityRequest$Outbound = {
   priority_slug: string;
@@ -43,19 +42,6 @@ export const DeletePriorityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeletePriorityRequest$ {
-  /** @deprecated use `DeletePriorityRequest$inboundSchema` instead. */
-  export const inboundSchema = DeletePriorityRequest$inboundSchema;
-  /** @deprecated use `DeletePriorityRequest$outboundSchema` instead. */
-  export const outboundSchema = DeletePriorityRequest$outboundSchema;
-  /** @deprecated use `DeletePriorityRequest$Outbound` instead. */
-  export type Outbound = DeletePriorityRequest$Outbound;
-}
-
 export function deletePriorityRequestToJSON(
   deletePriorityRequest: DeletePriorityRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deletePriorityRequestToJSON(
     DeletePriorityRequest$outboundSchema.parse(deletePriorityRequest),
   );
 }
-
 export function deletePriorityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeletePriorityRequest, SDKValidationError> {

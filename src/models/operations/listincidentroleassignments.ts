@@ -32,21 +32,9 @@ export type ListIncidentRoleAssignmentsRequest = {
 /** @internal */
 export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
   .nativeEnum(Status);
-
 /** @internal */
 export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
   Status$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Status$ {
-  /** @deprecated use `Status$inboundSchema` instead. */
-  export const inboundSchema = Status$inboundSchema;
-  /** @deprecated use `Status$outboundSchema` instead. */
-  export const outboundSchema = Status$outboundSchema;
-}
 
 /** @internal */
 export const ListIncidentRoleAssignmentsRequest$inboundSchema: z.ZodType<
@@ -61,7 +49,6 @@ export const ListIncidentRoleAssignmentsRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentRoleAssignmentsRequest$Outbound = {
   incident_id: string;
@@ -82,20 +69,6 @@ export const ListIncidentRoleAssignmentsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentRoleAssignmentsRequest$ {
-  /** @deprecated use `ListIncidentRoleAssignmentsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentRoleAssignmentsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentRoleAssignmentsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListIncidentRoleAssignmentsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentRoleAssignmentsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentRoleAssignmentsRequest$Outbound;
-}
-
 export function listIncidentRoleAssignmentsRequestToJSON(
   listIncidentRoleAssignmentsRequest: ListIncidentRoleAssignmentsRequest,
 ): string {
@@ -105,7 +78,6 @@ export function listIncidentRoleAssignmentsRequestToJSON(
     ),
   );
 }
-
 export function listIncidentRoleAssignmentsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentRoleAssignmentsRequest, SDKValidationError> {

@@ -42,7 +42,6 @@ export const NuncEmailSubscribersEntity$inboundSchema: z.ZodType<
     "created_at": "createdAt",
   });
 });
-
 /** @internal */
 export type NuncEmailSubscribersEntity$Outbound = {
   id?: string | null | undefined;
@@ -65,19 +64,6 @@ export const NuncEmailSubscribersEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NuncEmailSubscribersEntity$ {
-  /** @deprecated use `NuncEmailSubscribersEntity$inboundSchema` instead. */
-  export const inboundSchema = NuncEmailSubscribersEntity$inboundSchema;
-  /** @deprecated use `NuncEmailSubscribersEntity$outboundSchema` instead. */
-  export const outboundSchema = NuncEmailSubscribersEntity$outboundSchema;
-  /** @deprecated use `NuncEmailSubscribersEntity$Outbound` instead. */
-  export type Outbound = NuncEmailSubscribersEntity$Outbound;
-}
-
 export function nuncEmailSubscribersEntityToJSON(
   nuncEmailSubscribersEntity: NuncEmailSubscribersEntity,
 ): string {
@@ -85,7 +71,6 @@ export function nuncEmailSubscribersEntityToJSON(
     NuncEmailSubscribersEntity$outboundSchema.parse(nuncEmailSubscribersEntity),
   );
 }
-
 export function nuncEmailSubscribersEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NuncEmailSubscribersEntity, SDKValidationError> {

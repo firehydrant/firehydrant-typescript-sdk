@@ -48,21 +48,9 @@ export type BulkUpdateIncidentMilestones = {
 export const Bulk$inboundSchema: z.ZodNativeEnum<typeof Bulk> = z.nativeEnum(
   Bulk,
 );
-
 /** @internal */
 export const Bulk$outboundSchema: z.ZodNativeEnum<typeof Bulk> =
   Bulk$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Bulk$ {
-  /** @deprecated use `Bulk$inboundSchema` instead. */
-  export const inboundSchema = Bulk$inboundSchema;
-  /** @deprecated use `Bulk$outboundSchema` instead. */
-  export const outboundSchema = Bulk$outboundSchema;
-}
 
 /** @internal */
 export const BulkUpdateIncidentMilestonesMilestone$inboundSchema: z.ZodType<
@@ -80,7 +68,6 @@ export const BulkUpdateIncidentMilestonesMilestone$inboundSchema: z.ZodType<
     "occurred_at": "occurredAt",
   });
 });
-
 /** @internal */
 export type BulkUpdateIncidentMilestonesMilestone$Outbound = {
   type: string;
@@ -103,21 +90,6 @@ export const BulkUpdateIncidentMilestonesMilestone$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BulkUpdateIncidentMilestonesMilestone$ {
-  /** @deprecated use `BulkUpdateIncidentMilestonesMilestone$inboundSchema` instead. */
-  export const inboundSchema =
-    BulkUpdateIncidentMilestonesMilestone$inboundSchema;
-  /** @deprecated use `BulkUpdateIncidentMilestonesMilestone$outboundSchema` instead. */
-  export const outboundSchema =
-    BulkUpdateIncidentMilestonesMilestone$outboundSchema;
-  /** @deprecated use `BulkUpdateIncidentMilestonesMilestone$Outbound` instead. */
-  export type Outbound = BulkUpdateIncidentMilestonesMilestone$Outbound;
-}
-
 export function bulkUpdateIncidentMilestonesMilestoneToJSON(
   bulkUpdateIncidentMilestonesMilestone: BulkUpdateIncidentMilestonesMilestone,
 ): string {
@@ -127,7 +99,6 @@ export function bulkUpdateIncidentMilestonesMilestoneToJSON(
     ),
   );
 }
-
 export function bulkUpdateIncidentMilestonesMilestoneFromJSON(
   jsonString: string,
 ): SafeParseResult<BulkUpdateIncidentMilestonesMilestone, SDKValidationError> {
@@ -150,7 +121,6 @@ export const BulkUpdateIncidentMilestones$inboundSchema: z.ZodType<
     z.lazy(() => BulkUpdateIncidentMilestonesMilestone$inboundSchema),
   ),
 });
-
 /** @internal */
 export type BulkUpdateIncidentMilestones$Outbound = {
   bulk?: string | null | undefined;
@@ -169,19 +139,6 @@ export const BulkUpdateIncidentMilestones$outboundSchema: z.ZodType<
   ),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BulkUpdateIncidentMilestones$ {
-  /** @deprecated use `BulkUpdateIncidentMilestones$inboundSchema` instead. */
-  export const inboundSchema = BulkUpdateIncidentMilestones$inboundSchema;
-  /** @deprecated use `BulkUpdateIncidentMilestones$outboundSchema` instead. */
-  export const outboundSchema = BulkUpdateIncidentMilestones$outboundSchema;
-  /** @deprecated use `BulkUpdateIncidentMilestones$Outbound` instead. */
-  export type Outbound = BulkUpdateIncidentMilestones$Outbound;
-}
-
 export function bulkUpdateIncidentMilestonesToJSON(
   bulkUpdateIncidentMilestones: BulkUpdateIncidentMilestones,
 ): string {
@@ -191,7 +148,6 @@ export function bulkUpdateIncidentMilestonesToJSON(
     ),
   );
 }
-
 export function bulkUpdateIncidentMilestonesFromJSON(
   jsonString: string,
 ): SafeParseResult<BulkUpdateIncidentMilestones, SDKValidationError> {

@@ -24,7 +24,6 @@ export const IntegrationsStatuspagePageEntity$inboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type IntegrationsStatuspagePageEntity$Outbound = {
   id?: string | null | undefined;
@@ -41,19 +40,6 @@ export const IntegrationsStatuspagePageEntity$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsStatuspagePageEntity$ {
-  /** @deprecated use `IntegrationsStatuspagePageEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsStatuspagePageEntity$inboundSchema;
-  /** @deprecated use `IntegrationsStatuspagePageEntity$outboundSchema` instead. */
-  export const outboundSchema = IntegrationsStatuspagePageEntity$outboundSchema;
-  /** @deprecated use `IntegrationsStatuspagePageEntity$Outbound` instead. */
-  export type Outbound = IntegrationsStatuspagePageEntity$Outbound;
-}
-
 export function integrationsStatuspagePageEntityToJSON(
   integrationsStatuspagePageEntity: IntegrationsStatuspagePageEntity,
 ): string {
@@ -63,7 +49,6 @@ export function integrationsStatuspagePageEntityToJSON(
     ),
   );
 }
-
 export function integrationsStatuspagePageEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsStatuspagePageEntity, SDKValidationError> {

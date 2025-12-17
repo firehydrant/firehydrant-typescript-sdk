@@ -68,7 +68,6 @@ export const UpdateChecklistTemplateCheck$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   name: z.string(),
 });
-
 /** @internal */
 export type UpdateChecklistTemplateCheck$Outbound = {
   id?: string | null | undefined;
@@ -87,19 +86,6 @@ export const UpdateChecklistTemplateCheck$outboundSchema: z.ZodType<
   name: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChecklistTemplateCheck$ {
-  /** @deprecated use `UpdateChecklistTemplateCheck$inboundSchema` instead. */
-  export const inboundSchema = UpdateChecklistTemplateCheck$inboundSchema;
-  /** @deprecated use `UpdateChecklistTemplateCheck$outboundSchema` instead. */
-  export const outboundSchema = UpdateChecklistTemplateCheck$outboundSchema;
-  /** @deprecated use `UpdateChecklistTemplateCheck$Outbound` instead. */
-  export type Outbound = UpdateChecklistTemplateCheck$Outbound;
-}
-
 export function updateChecklistTemplateCheckToJSON(
   updateChecklistTemplateCheck: UpdateChecklistTemplateCheck,
 ): string {
@@ -109,7 +95,6 @@ export function updateChecklistTemplateCheckToJSON(
     ),
   );
 }
-
 export function updateChecklistTemplateCheckFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChecklistTemplateCheck, SDKValidationError> {
@@ -129,7 +114,6 @@ export const UpdateChecklistTemplateConnectedService$inboundSchema: z.ZodType<
   id: z.string(),
   remove: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type UpdateChecklistTemplateConnectedService$Outbound = {
   id: string;
@@ -146,21 +130,6 @@ export const UpdateChecklistTemplateConnectedService$outboundSchema: z.ZodType<
   remove: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChecklistTemplateConnectedService$ {
-  /** @deprecated use `UpdateChecklistTemplateConnectedService$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateChecklistTemplateConnectedService$inboundSchema;
-  /** @deprecated use `UpdateChecklistTemplateConnectedService$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateChecklistTemplateConnectedService$outboundSchema;
-  /** @deprecated use `UpdateChecklistTemplateConnectedService$Outbound` instead. */
-  export type Outbound = UpdateChecklistTemplateConnectedService$Outbound;
-}
-
 export function updateChecklistTemplateConnectedServiceToJSON(
   updateChecklistTemplateConnectedService:
     UpdateChecklistTemplateConnectedService,
@@ -171,7 +140,6 @@ export function updateChecklistTemplateConnectedServiceToJSON(
     ),
   );
 }
-
 export function updateChecklistTemplateConnectedServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -213,7 +181,6 @@ export const UpdateChecklistTemplate$inboundSchema: z.ZodType<
     "remove_remaining_connected_services": "removeRemainingConnectedServices",
   });
 });
-
 /** @internal */
 export type UpdateChecklistTemplate$Outbound = {
   name?: string | null | undefined;
@@ -253,19 +220,6 @@ export const UpdateChecklistTemplate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChecklistTemplate$ {
-  /** @deprecated use `UpdateChecklistTemplate$inboundSchema` instead. */
-  export const inboundSchema = UpdateChecklistTemplate$inboundSchema;
-  /** @deprecated use `UpdateChecklistTemplate$outboundSchema` instead. */
-  export const outboundSchema = UpdateChecklistTemplate$outboundSchema;
-  /** @deprecated use `UpdateChecklistTemplate$Outbound` instead. */
-  export type Outbound = UpdateChecklistTemplate$Outbound;
-}
-
 export function updateChecklistTemplateToJSON(
   updateChecklistTemplate: UpdateChecklistTemplate,
 ): string {
@@ -273,7 +227,6 @@ export function updateChecklistTemplateToJSON(
     UpdateChecklistTemplate$outboundSchema.parse(updateChecklistTemplate),
   );
 }
-
 export function updateChecklistTemplateFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChecklistTemplate, SDKValidationError> {

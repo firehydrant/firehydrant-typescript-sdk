@@ -73,7 +73,6 @@ export const CreateTeamMsTeamsChannel$inboundSchema: z.ZodType<
     "ms_team_id": "msTeamId",
   });
 });
-
 /** @internal */
 export type CreateTeamMsTeamsChannel$Outbound = {
   channel_id: string;
@@ -95,19 +94,6 @@ export const CreateTeamMsTeamsChannel$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamMsTeamsChannel$ {
-  /** @deprecated use `CreateTeamMsTeamsChannel$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamMsTeamsChannel$inboundSchema;
-  /** @deprecated use `CreateTeamMsTeamsChannel$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamMsTeamsChannel$outboundSchema;
-  /** @deprecated use `CreateTeamMsTeamsChannel$Outbound` instead. */
-  export type Outbound = CreateTeamMsTeamsChannel$Outbound;
-}
-
 export function createTeamMsTeamsChannelToJSON(
   createTeamMsTeamsChannel: CreateTeamMsTeamsChannel,
 ): string {
@@ -115,7 +101,6 @@ export function createTeamMsTeamsChannelToJSON(
     CreateTeamMsTeamsChannel$outboundSchema.parse(createTeamMsTeamsChannel),
   );
 }
-
 export function createTeamMsTeamsChannelFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamMsTeamsChannel, SDKValidationError> {
@@ -144,7 +129,6 @@ export const CreateTeamMembership$inboundSchema: z.ZodType<
     "incident_role_id": "incidentRoleId",
   });
 });
-
 /** @internal */
 export type CreateTeamMembership$Outbound = {
   user_id?: string | null | undefined;
@@ -172,19 +156,6 @@ export const CreateTeamMembership$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamMembership$ {
-  /** @deprecated use `CreateTeamMembership$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamMembership$inboundSchema;
-  /** @deprecated use `CreateTeamMembership$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamMembership$outboundSchema;
-  /** @deprecated use `CreateTeamMembership$Outbound` instead. */
-  export type Outbound = CreateTeamMembership$Outbound;
-}
-
 export function createTeamMembershipToJSON(
   createTeamMembership: CreateTeamMembership,
 ): string {
@@ -192,7 +163,6 @@ export function createTeamMembershipToJSON(
     CreateTeamMembership$outboundSchema.parse(createTeamMembership),
   );
 }
-
 export function createTeamMembershipFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamMembership, SDKValidationError> {
@@ -227,7 +197,6 @@ export const CreateTeam$inboundSchema: z.ZodType<
     "invite_emails": "inviteEmails",
   });
 });
-
 /** @internal */
 export type CreateTeam$Outbound = {
   name: string;
@@ -264,23 +233,9 @@ export const CreateTeam$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeam$ {
-  /** @deprecated use `CreateTeam$inboundSchema` instead. */
-  export const inboundSchema = CreateTeam$inboundSchema;
-  /** @deprecated use `CreateTeam$outboundSchema` instead. */
-  export const outboundSchema = CreateTeam$outboundSchema;
-  /** @deprecated use `CreateTeam$Outbound` instead. */
-  export type Outbound = CreateTeam$Outbound;
-}
-
 export function createTeamToJSON(createTeam: CreateTeam): string {
   return JSON.stringify(CreateTeam$outboundSchema.parse(createTeam));
 }
-
 export function createTeamFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeam, SDKValidationError> {

@@ -85,7 +85,6 @@ export const AudiencesEntitiesAudienceEntity$inboundSchema: z.ZodType<
     "discarded_at": "discardedAt",
   });
 });
-
 /** @internal */
 export type AudiencesEntitiesAudienceEntity$Outbound = {
   id?: string | null | undefined;
@@ -123,19 +122,6 @@ export const AudiencesEntitiesAudienceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AudiencesEntitiesAudienceEntity$ {
-  /** @deprecated use `AudiencesEntitiesAudienceEntity$inboundSchema` instead. */
-  export const inboundSchema = AudiencesEntitiesAudienceEntity$inboundSchema;
-  /** @deprecated use `AudiencesEntitiesAudienceEntity$outboundSchema` instead. */
-  export const outboundSchema = AudiencesEntitiesAudienceEntity$outboundSchema;
-  /** @deprecated use `AudiencesEntitiesAudienceEntity$Outbound` instead. */
-  export type Outbound = AudiencesEntitiesAudienceEntity$Outbound;
-}
-
 export function audiencesEntitiesAudienceEntityToJSON(
   audiencesEntitiesAudienceEntity: AudiencesEntitiesAudienceEntity,
 ): string {
@@ -145,7 +131,6 @@ export function audiencesEntitiesAudienceEntityToJSON(
     ),
   );
 }
-
 export function audiencesEntitiesAudienceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AudiencesEntitiesAudienceEntity, SDKValidationError> {

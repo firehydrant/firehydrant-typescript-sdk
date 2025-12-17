@@ -27,7 +27,6 @@ export const DeleteEnvironmentRequest$inboundSchema: z.ZodType<
     "environment_id": "environmentId",
   });
 });
-
 /** @internal */
 export type DeleteEnvironmentRequest$Outbound = {
   environment_id: string;
@@ -46,19 +45,6 @@ export const DeleteEnvironmentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteEnvironmentRequest$ {
-  /** @deprecated use `DeleteEnvironmentRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteEnvironmentRequest$inboundSchema;
-  /** @deprecated use `DeleteEnvironmentRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteEnvironmentRequest$outboundSchema;
-  /** @deprecated use `DeleteEnvironmentRequest$Outbound` instead. */
-  export type Outbound = DeleteEnvironmentRequest$Outbound;
-}
-
 export function deleteEnvironmentRequestToJSON(
   deleteEnvironmentRequest: DeleteEnvironmentRequest,
 ): string {
@@ -66,7 +52,6 @@ export function deleteEnvironmentRequestToJSON(
     DeleteEnvironmentRequest$outboundSchema.parse(deleteEnvironmentRequest),
   );
 }
-
 export function deleteEnvironmentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteEnvironmentRequest, SDKValidationError> {

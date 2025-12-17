@@ -23,7 +23,6 @@ export const PublicApiv1IncidentsSuccinctEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   number: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type PublicApiv1IncidentsSuccinctEntity$Outbound = {
   id?: string | null | undefined;
@@ -42,20 +41,6 @@ export const PublicApiv1IncidentsSuccinctEntity$outboundSchema: z.ZodType<
   number: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1IncidentsSuccinctEntity$ {
-  /** @deprecated use `PublicApiv1IncidentsSuccinctEntity$inboundSchema` instead. */
-  export const inboundSchema = PublicApiv1IncidentsSuccinctEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1IncidentsSuccinctEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    PublicApiv1IncidentsSuccinctEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1IncidentsSuccinctEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1IncidentsSuccinctEntity$Outbound;
-}
-
 export function publicAPIV1IncidentsSuccinctEntityToJSON(
   publicApiv1IncidentsSuccinctEntity: PublicApiv1IncidentsSuccinctEntity,
 ): string {
@@ -65,7 +50,6 @@ export function publicAPIV1IncidentsSuccinctEntityToJSON(
     ),
   );
 }
-
 export function publicAPIV1IncidentsSuccinctEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PublicApiv1IncidentsSuccinctEntity, SDKValidationError> {

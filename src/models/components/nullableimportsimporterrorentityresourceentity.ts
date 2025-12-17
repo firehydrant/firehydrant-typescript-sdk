@@ -30,7 +30,6 @@ export const NullableImportsImportErrorEntityResourceEntity$inboundSchema:
       "resource_type": "resourceType",
     });
   });
-
 /** @internal */
 export type NullableImportsImportErrorEntityResourceEntity$Outbound = {
   resource_id?: string | null | undefined;
@@ -55,22 +54,6 @@ export const NullableImportsImportErrorEntityResourceEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableImportsImportErrorEntityResourceEntity$ {
-  /** @deprecated use `NullableImportsImportErrorEntityResourceEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableImportsImportErrorEntityResourceEntity$inboundSchema;
-  /** @deprecated use `NullableImportsImportErrorEntityResourceEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableImportsImportErrorEntityResourceEntity$outboundSchema;
-  /** @deprecated use `NullableImportsImportErrorEntityResourceEntity$Outbound` instead. */
-  export type Outbound =
-    NullableImportsImportErrorEntityResourceEntity$Outbound;
-}
-
 export function nullableImportsImportErrorEntityResourceEntityToJSON(
   nullableImportsImportErrorEntityResourceEntity:
     NullableImportsImportErrorEntityResourceEntity,
@@ -81,7 +64,6 @@ export function nullableImportsImportErrorEntityResourceEntityToJSON(
     ),
   );
 }
-
 export function nullableImportsImportErrorEntityResourceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

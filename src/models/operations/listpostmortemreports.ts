@@ -40,7 +40,6 @@ export const ListPostMortemReportsRequest$inboundSchema: z.ZodType<
     "updated_since": "updatedSince",
   });
 });
-
 /** @internal */
 export type ListPostMortemReportsRequest$Outbound = {
   page?: number | null | undefined;
@@ -67,19 +66,6 @@ export const ListPostMortemReportsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListPostMortemReportsRequest$ {
-  /** @deprecated use `ListPostMortemReportsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListPostMortemReportsRequest$inboundSchema;
-  /** @deprecated use `ListPostMortemReportsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListPostMortemReportsRequest$outboundSchema;
-  /** @deprecated use `ListPostMortemReportsRequest$Outbound` instead. */
-  export type Outbound = ListPostMortemReportsRequest$Outbound;
-}
-
 export function listPostMortemReportsRequestToJSON(
   listPostMortemReportsRequest: ListPostMortemReportsRequest,
 ): string {
@@ -89,7 +75,6 @@ export function listPostMortemReportsRequestToJSON(
     ),
   );
 }
-
 export function listPostMortemReportsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListPostMortemReportsRequest, SDKValidationError> {

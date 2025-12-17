@@ -47,7 +47,6 @@ export const Runbooks$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type Runbooks$Outbound = {};
 
@@ -58,23 +57,9 @@ export const Runbooks$outboundSchema: z.ZodType<
   Runbooks
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Runbooks$ {
-  /** @deprecated use `Runbooks$inboundSchema` instead. */
-  export const inboundSchema = Runbooks$inboundSchema;
-  /** @deprecated use `Runbooks$outboundSchema` instead. */
-  export const outboundSchema = Runbooks$outboundSchema;
-  /** @deprecated use `Runbooks$Outbound` instead. */
-  export type Outbound = Runbooks$Outbound;
-}
-
 export function runbooksToJSON(runbooks: Runbooks): string {
   return JSON.stringify(Runbooks$outboundSchema.parse(runbooks));
 }
-
 export function runbooksFromJSON(
   jsonString: string,
 ): SafeParseResult<Runbooks, SDKValidationError> {
@@ -104,7 +89,6 @@ export const NullableIncidentTypeEntityTemplateValuesEntity$inboundSchema:
     runbooks: z.nullable(z.lazy(() => Runbooks$inboundSchema)).optional(),
     teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
   });
-
 /** @internal */
 export type NullableIncidentTypeEntityTemplateValuesEntity$Outbound = {
   services?:
@@ -143,22 +127,6 @@ export const NullableIncidentTypeEntityTemplateValuesEntity$outboundSchema:
     teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentTypeEntityTemplateValuesEntity$ {
-  /** @deprecated use `NullableIncidentTypeEntityTemplateValuesEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIncidentTypeEntityTemplateValuesEntity$inboundSchema;
-  /** @deprecated use `NullableIncidentTypeEntityTemplateValuesEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIncidentTypeEntityTemplateValuesEntity$outboundSchema;
-  /** @deprecated use `NullableIncidentTypeEntityTemplateValuesEntity$Outbound` instead. */
-  export type Outbound =
-    NullableIncidentTypeEntityTemplateValuesEntity$Outbound;
-}
-
 export function nullableIncidentTypeEntityTemplateValuesEntityToJSON(
   nullableIncidentTypeEntityTemplateValuesEntity:
     NullableIncidentTypeEntityTemplateValuesEntity,
@@ -169,7 +137,6 @@ export function nullableIncidentTypeEntityTemplateValuesEntityToJSON(
     ),
   );
 }
-
 export function nullableIncidentTypeEntityTemplateValuesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

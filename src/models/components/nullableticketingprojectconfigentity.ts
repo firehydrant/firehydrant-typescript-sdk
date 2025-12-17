@@ -35,7 +35,6 @@ export const NullableTicketingProjectConfigEntityDetails$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type NullableTicketingProjectConfigEntityDetails$Outbound = {};
 
@@ -47,21 +46,6 @@ export const NullableTicketingProjectConfigEntityDetails$outboundSchema:
     NullableTicketingProjectConfigEntityDetails
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingProjectConfigEntityDetails$ {
-  /** @deprecated use `NullableTicketingProjectConfigEntityDetails$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingProjectConfigEntityDetails$inboundSchema;
-  /** @deprecated use `NullableTicketingProjectConfigEntityDetails$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingProjectConfigEntityDetails$outboundSchema;
-  /** @deprecated use `NullableTicketingProjectConfigEntityDetails$Outbound` instead. */
-  export type Outbound = NullableTicketingProjectConfigEntityDetails$Outbound;
-}
-
 export function nullableTicketingProjectConfigEntityDetailsToJSON(
   nullableTicketingProjectConfigEntityDetails:
     NullableTicketingProjectConfigEntityDetails,
@@ -72,7 +56,6 @@ export function nullableTicketingProjectConfigEntityDetailsToJSON(
     ),
   );
 }
-
 export function nullableTicketingProjectConfigEntityDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -111,7 +94,6 @@ export const NullableTicketingProjectConfigEntity$inboundSchema: z.ZodType<
     "ticketing_project_name": "ticketingProjectName",
   });
 });
-
 /** @internal */
 export type NullableTicketingProjectConfigEntity$Outbound = {
   id?: string | null | undefined;
@@ -148,21 +130,6 @@ export const NullableTicketingProjectConfigEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingProjectConfigEntity$ {
-  /** @deprecated use `NullableTicketingProjectConfigEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingProjectConfigEntity$inboundSchema;
-  /** @deprecated use `NullableTicketingProjectConfigEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingProjectConfigEntity$outboundSchema;
-  /** @deprecated use `NullableTicketingProjectConfigEntity$Outbound` instead. */
-  export type Outbound = NullableTicketingProjectConfigEntity$Outbound;
-}
-
 export function nullableTicketingProjectConfigEntityToJSON(
   nullableTicketingProjectConfigEntity: NullableTicketingProjectConfigEntity,
 ): string {
@@ -172,7 +139,6 @@ export function nullableTicketingProjectConfigEntityToJSON(
     ),
   );
 }
-
 export function nullableTicketingProjectConfigEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableTicketingProjectConfigEntity, SDKValidationError> {

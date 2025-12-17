@@ -30,7 +30,6 @@ export const CreateTeamCallRouteRequest$inboundSchema: z.ZodType<
     "create_team_call_route": "createTeamCallRoute",
   });
 });
-
 /** @internal */
 export type CreateTeamCallRouteRequest$Outbound = {
   team_id: string;
@@ -54,19 +53,6 @@ export const CreateTeamCallRouteRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRouteRequest$ {
-  /** @deprecated use `CreateTeamCallRouteRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRouteRequest$inboundSchema;
-  /** @deprecated use `CreateTeamCallRouteRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRouteRequest$outboundSchema;
-  /** @deprecated use `CreateTeamCallRouteRequest$Outbound` instead. */
-  export type Outbound = CreateTeamCallRouteRequest$Outbound;
-}
-
 export function createTeamCallRouteRequestToJSON(
   createTeamCallRouteRequest: CreateTeamCallRouteRequest,
 ): string {
@@ -74,7 +60,6 @@ export function createTeamCallRouteRequestToJSON(
     CreateTeamCallRouteRequest$outboundSchema.parse(createTeamCallRouteRequest),
   );
 }
-
 export function createTeamCallRouteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamCallRouteRequest, SDKValidationError> {

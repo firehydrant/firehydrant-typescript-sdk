@@ -34,7 +34,6 @@ export const TicketingProjectConfigEntityDetails$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type TicketingProjectConfigEntityDetails$Outbound = {};
 
@@ -45,21 +44,6 @@ export const TicketingProjectConfigEntityDetails$outboundSchema: z.ZodType<
   TicketingProjectConfigEntityDetails
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectConfigEntityDetails$ {
-  /** @deprecated use `TicketingProjectConfigEntityDetails$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectConfigEntityDetails$inboundSchema;
-  /** @deprecated use `TicketingProjectConfigEntityDetails$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectConfigEntityDetails$outboundSchema;
-  /** @deprecated use `TicketingProjectConfigEntityDetails$Outbound` instead. */
-  export type Outbound = TicketingProjectConfigEntityDetails$Outbound;
-}
-
 export function ticketingProjectConfigEntityDetailsToJSON(
   ticketingProjectConfigEntityDetails: TicketingProjectConfigEntityDetails,
 ): string {
@@ -69,7 +53,6 @@ export function ticketingProjectConfigEntityDetailsToJSON(
     ),
   );
 }
-
 export function ticketingProjectConfigEntityDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingProjectConfigEntityDetails, SDKValidationError> {
@@ -103,7 +86,6 @@ export const TicketingProjectConfigEntity$inboundSchema: z.ZodType<
     "ticketing_project_name": "ticketingProjectName",
   });
 });
-
 /** @internal */
 export type TicketingProjectConfigEntity$Outbound = {
   id?: string | null | undefined;
@@ -137,19 +119,6 @@ export const TicketingProjectConfigEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectConfigEntity$ {
-  /** @deprecated use `TicketingProjectConfigEntity$inboundSchema` instead. */
-  export const inboundSchema = TicketingProjectConfigEntity$inboundSchema;
-  /** @deprecated use `TicketingProjectConfigEntity$outboundSchema` instead. */
-  export const outboundSchema = TicketingProjectConfigEntity$outboundSchema;
-  /** @deprecated use `TicketingProjectConfigEntity$Outbound` instead. */
-  export type Outbound = TicketingProjectConfigEntity$Outbound;
-}
-
 export function ticketingProjectConfigEntityToJSON(
   ticketingProjectConfigEntity: TicketingProjectConfigEntity,
 ): string {
@@ -159,7 +128,6 @@ export function ticketingProjectConfigEntityToJSON(
     ),
   );
 }
-
 export function ticketingProjectConfigEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingProjectConfigEntity, SDKValidationError> {

@@ -19,7 +19,6 @@ export const GetFormConfigurationRequest$inboundSchema: z.ZodType<
 > = z.object({
   slug: z.string(),
 });
-
 /** @internal */
 export type GetFormConfigurationRequest$Outbound = {
   slug: string;
@@ -34,19 +33,6 @@ export const GetFormConfigurationRequest$outboundSchema: z.ZodType<
   slug: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetFormConfigurationRequest$ {
-  /** @deprecated use `GetFormConfigurationRequest$inboundSchema` instead. */
-  export const inboundSchema = GetFormConfigurationRequest$inboundSchema;
-  /** @deprecated use `GetFormConfigurationRequest$outboundSchema` instead. */
-  export const outboundSchema = GetFormConfigurationRequest$outboundSchema;
-  /** @deprecated use `GetFormConfigurationRequest$Outbound` instead. */
-  export type Outbound = GetFormConfigurationRequest$Outbound;
-}
-
 export function getFormConfigurationRequestToJSON(
   getFormConfigurationRequest: GetFormConfigurationRequest,
 ): string {
@@ -56,7 +42,6 @@ export function getFormConfigurationRequestToJSON(
     ),
   );
 }
-
 export function getFormConfigurationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetFormConfigurationRequest, SDKValidationError> {

@@ -29,7 +29,6 @@ export const ListPostMortemReasonsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListPostMortemReasonsRequest$Outbound = {
   report_id: string;
@@ -53,19 +52,6 @@ export const ListPostMortemReasonsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListPostMortemReasonsRequest$ {
-  /** @deprecated use `ListPostMortemReasonsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListPostMortemReasonsRequest$inboundSchema;
-  /** @deprecated use `ListPostMortemReasonsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListPostMortemReasonsRequest$outboundSchema;
-  /** @deprecated use `ListPostMortemReasonsRequest$Outbound` instead. */
-  export type Outbound = ListPostMortemReasonsRequest$Outbound;
-}
-
 export function listPostMortemReasonsRequestToJSON(
   listPostMortemReasonsRequest: ListPostMortemReasonsRequest,
 ): string {
@@ -75,7 +61,6 @@ export function listPostMortemReasonsRequestToJSON(
     ),
   );
 }
-
 export function listPostMortemReasonsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListPostMortemReasonsRequest, SDKValidationError> {

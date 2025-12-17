@@ -47,7 +47,6 @@ export const AttachmentsLinkEntity$inboundSchema: z.ZodType<
     "icon_url": "iconUrl",
   });
 });
-
 /** @internal */
 export type AttachmentsLinkEntity$Outbound = {
   id?: string | null | undefined;
@@ -80,19 +79,6 @@ export const AttachmentsLinkEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AttachmentsLinkEntity$ {
-  /** @deprecated use `AttachmentsLinkEntity$inboundSchema` instead. */
-  export const inboundSchema = AttachmentsLinkEntity$inboundSchema;
-  /** @deprecated use `AttachmentsLinkEntity$outboundSchema` instead. */
-  export const outboundSchema = AttachmentsLinkEntity$outboundSchema;
-  /** @deprecated use `AttachmentsLinkEntity$Outbound` instead. */
-  export type Outbound = AttachmentsLinkEntity$Outbound;
-}
-
 export function attachmentsLinkEntityToJSON(
   attachmentsLinkEntity: AttachmentsLinkEntity,
 ): string {
@@ -100,7 +86,6 @@ export function attachmentsLinkEntityToJSON(
     AttachmentsLinkEntity$outboundSchema.parse(attachmentsLinkEntity),
   );
 }
-
 export function attachmentsLinkEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AttachmentsLinkEntity, SDKValidationError> {

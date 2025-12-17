@@ -24,7 +24,6 @@ export const GetConfigurationOptionsRequest$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type GetConfigurationOptionsRequest$Outbound = {
   ticketing_project_id: string;
@@ -43,19 +42,6 @@ export const GetConfigurationOptionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetConfigurationOptionsRequest$ {
-  /** @deprecated use `GetConfigurationOptionsRequest$inboundSchema` instead. */
-  export const inboundSchema = GetConfigurationOptionsRequest$inboundSchema;
-  /** @deprecated use `GetConfigurationOptionsRequest$outboundSchema` instead. */
-  export const outboundSchema = GetConfigurationOptionsRequest$outboundSchema;
-  /** @deprecated use `GetConfigurationOptionsRequest$Outbound` instead. */
-  export type Outbound = GetConfigurationOptionsRequest$Outbound;
-}
-
 export function getConfigurationOptionsRequestToJSON(
   getConfigurationOptionsRequest: GetConfigurationOptionsRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getConfigurationOptionsRequestToJSON(
     ),
   );
 }
-
 export function getConfigurationOptionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetConfigurationOptionsRequest, SDKValidationError> {

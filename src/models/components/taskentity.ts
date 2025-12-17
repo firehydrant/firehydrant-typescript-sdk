@@ -58,7 +58,6 @@ export const TaskEntity$inboundSchema: z.ZodType<
     "due_at": "dueAt",
   });
 });
-
 /** @internal */
 export type TaskEntity$Outbound = {
   id?: string | null | undefined;
@@ -96,23 +95,9 @@ export const TaskEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaskEntity$ {
-  /** @deprecated use `TaskEntity$inboundSchema` instead. */
-  export const inboundSchema = TaskEntity$inboundSchema;
-  /** @deprecated use `TaskEntity$outboundSchema` instead. */
-  export const outboundSchema = TaskEntity$outboundSchema;
-  /** @deprecated use `TaskEntity$Outbound` instead. */
-  export type Outbound = TaskEntity$Outbound;
-}
-
 export function taskEntityToJSON(taskEntity: TaskEntity): string {
   return JSON.stringify(TaskEntity$outboundSchema.parse(taskEntity));
 }
-
 export function taskEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TaskEntity, SDKValidationError> {

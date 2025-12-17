@@ -66,7 +66,6 @@ export const ListChangeEventsRequest$inboundSchema: z.ZodType<
     "ends_at": "endsAt",
   });
 });
-
 /** @internal */
 export type ListChangeEventsRequest$Outbound = {
   page?: number | null | undefined;
@@ -104,19 +103,6 @@ export const ListChangeEventsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListChangeEventsRequest$ {
-  /** @deprecated use `ListChangeEventsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListChangeEventsRequest$inboundSchema;
-  /** @deprecated use `ListChangeEventsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListChangeEventsRequest$outboundSchema;
-  /** @deprecated use `ListChangeEventsRequest$Outbound` instead. */
-  export type Outbound = ListChangeEventsRequest$Outbound;
-}
-
 export function listChangeEventsRequestToJSON(
   listChangeEventsRequest: ListChangeEventsRequest,
 ): string {
@@ -124,7 +110,6 @@ export function listChangeEventsRequestToJSON(
     ListChangeEventsRequest$outboundSchema.parse(listChangeEventsRequest),
   );
 }
-
 export function listChangeEventsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListChangeEventsRequest, SDKValidationError> {

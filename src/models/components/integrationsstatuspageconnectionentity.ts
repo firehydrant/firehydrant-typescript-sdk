@@ -66,7 +66,6 @@ export const IntegrationsStatuspageConnectionEntity$inboundSchema: z.ZodType<
     "milestone_mappings": "milestoneMappings",
   });
 });
-
 /** @internal */
 export type IntegrationsStatuspageConnectionEntity$Outbound = {
   id?: string | null | undefined;
@@ -112,21 +111,6 @@ export const IntegrationsStatuspageConnectionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsStatuspageConnectionEntity$ {
-  /** @deprecated use `IntegrationsStatuspageConnectionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsStatuspageConnectionEntity$inboundSchema;
-  /** @deprecated use `IntegrationsStatuspageConnectionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsStatuspageConnectionEntity$outboundSchema;
-  /** @deprecated use `IntegrationsStatuspageConnectionEntity$Outbound` instead. */
-  export type Outbound = IntegrationsStatuspageConnectionEntity$Outbound;
-}
-
 export function integrationsStatuspageConnectionEntityToJSON(
   integrationsStatuspageConnectionEntity:
     IntegrationsStatuspageConnectionEntity,
@@ -137,7 +121,6 @@ export function integrationsStatuspageConnectionEntityToJSON(
     ),
   );
 }
-
 export function integrationsStatuspageConnectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsStatuspageConnectionEntity, SDKValidationError> {

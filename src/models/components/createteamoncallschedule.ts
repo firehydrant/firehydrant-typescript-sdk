@@ -381,7 +381,6 @@ export const CreateTeamOnCallScheduleRotationMember$inboundSchema: z.ZodType<
     "user_id": "userId",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleRotationMember$Outbound = {
   user_id?: string | null | undefined;
@@ -400,21 +399,6 @@ export const CreateTeamOnCallScheduleRotationMember$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationMember$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationMember$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationMember$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationMember$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationMember$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationMember$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleRotationMember$Outbound;
-}
-
 export function createTeamOnCallScheduleRotationMemberToJSON(
   createTeamOnCallScheduleRotationMember:
     CreateTeamOnCallScheduleRotationMember,
@@ -425,7 +409,6 @@ export function createTeamOnCallScheduleRotationMemberToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleRotationMemberFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallScheduleRotationMember, SDKValidationError> {
@@ -442,47 +425,19 @@ export const CreateTeamOnCallScheduleRotationType$inboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationType> = z.nativeEnum(
     CreateTeamOnCallScheduleRotationType,
   );
-
 /** @internal */
 export const CreateTeamOnCallScheduleRotationType$outboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationType> =
     CreateTeamOnCallScheduleRotationType$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationType$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationType$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationType$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationType$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationType$outboundSchema;
-}
-
 /** @internal */
 export const CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationHandoffDay> = z
     .nativeEnum(CreateTeamOnCallScheduleRotationHandoffDay);
-
 /** @internal */
 export const CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationHandoffDay> =
     CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationHandoffDay$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationHandoffDay$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationHandoffDay$outboundSchema;
-}
 
 /** @internal */
 export const CreateTeamOnCallScheduleRotationStrategy$inboundSchema: z.ZodType<
@@ -503,7 +458,6 @@ export const CreateTeamOnCallScheduleRotationStrategy$inboundSchema: z.ZodType<
     "shift_duration": "shiftDuration",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleRotationStrategy$Outbound = {
   type: string;
@@ -532,21 +486,6 @@ export const CreateTeamOnCallScheduleRotationStrategy$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationStrategy$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationStrategy$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationStrategy$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationStrategy$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationStrategy$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationStrategy$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleRotationStrategy$Outbound;
-}
-
 export function createTeamOnCallScheduleRotationStrategyToJSON(
   createTeamOnCallScheduleRotationStrategy:
     CreateTeamOnCallScheduleRotationStrategy,
@@ -557,7 +496,6 @@ export function createTeamOnCallScheduleRotationStrategyToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleRotationStrategyFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -578,48 +516,20 @@ export function createTeamOnCallScheduleRotationStrategyFromJSON(
 export const CreateTeamOnCallScheduleRotationStartDay$inboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationStartDay> = z
     .nativeEnum(CreateTeamOnCallScheduleRotationStartDay);
-
 /** @internal */
 export const CreateTeamOnCallScheduleRotationStartDay$outboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationStartDay> =
     CreateTeamOnCallScheduleRotationStartDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationStartDay$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationStartDay$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationStartDay$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationStartDay$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationStartDay$outboundSchema;
-}
 
 /** @internal */
 export const CreateTeamOnCallScheduleRotationEndDay$inboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationEndDay> = z.nativeEnum(
     CreateTeamOnCallScheduleRotationEndDay,
   );
-
 /** @internal */
 export const CreateTeamOnCallScheduleRotationEndDay$outboundSchema:
   z.ZodNativeEnum<typeof CreateTeamOnCallScheduleRotationEndDay> =
     CreateTeamOnCallScheduleRotationEndDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationEndDay$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationEndDay$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationEndDay$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationEndDay$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationEndDay$outboundSchema;
-}
 
 /** @internal */
 export const CreateTeamOnCallScheduleRotationRestriction$inboundSchema:
@@ -640,7 +550,6 @@ export const CreateTeamOnCallScheduleRotationRestriction$inboundSchema:
       "end_time": "endTime",
     });
   });
-
 /** @internal */
 export type CreateTeamOnCallScheduleRotationRestriction$Outbound = {
   start_day: string;
@@ -669,21 +578,6 @@ export const CreateTeamOnCallScheduleRotationRestriction$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotationRestriction$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotationRestriction$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRotationRestriction$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationRestriction$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRotationRestriction$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotationRestriction$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleRotationRestriction$Outbound;
-}
-
 export function createTeamOnCallScheduleRotationRestrictionToJSON(
   createTeamOnCallScheduleRotationRestriction:
     CreateTeamOnCallScheduleRotationRestriction,
@@ -694,7 +588,6 @@ export function createTeamOnCallScheduleRotationRestrictionToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleRotationRestrictionFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -747,7 +640,6 @@ export const CreateTeamOnCallScheduleRotation$inboundSchema: z.ZodType<
     "start_time": "startTime",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleRotation$Outbound = {
   name: string;
@@ -809,19 +701,6 @@ export const CreateTeamOnCallScheduleRotation$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRotation$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRotation$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleRotation$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotation$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleRotation$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRotation$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleRotation$Outbound;
-}
-
 export function createTeamOnCallScheduleRotationToJSON(
   createTeamOnCallScheduleRotation: CreateTeamOnCallScheduleRotation,
 ): string {
@@ -831,7 +710,6 @@ export function createTeamOnCallScheduleRotationToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleRotationFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallScheduleRotation, SDKValidationError> {
@@ -854,7 +732,6 @@ export const CreateTeamOnCallScheduleMember$inboundSchema: z.ZodType<
     "user_id": "userId",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleMember$Outbound = {
   user_id?: string | null | undefined;
@@ -873,19 +750,6 @@ export const CreateTeamOnCallScheduleMember$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleMember$ {
-  /** @deprecated use `CreateTeamOnCallScheduleMember$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleMember$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleMember$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleMember$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleMember$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleMember$Outbound;
-}
-
 export function createTeamOnCallScheduleMemberToJSON(
   createTeamOnCallScheduleMember: CreateTeamOnCallScheduleMember,
 ): string {
@@ -895,7 +759,6 @@ export function createTeamOnCallScheduleMemberToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleMemberFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallScheduleMember, SDKValidationError> {
@@ -910,44 +773,19 @@ export function createTeamOnCallScheduleMemberFromJSON(
 export const CreateTeamOnCallScheduleType$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleType
 > = z.nativeEnum(CreateTeamOnCallScheduleType);
-
 /** @internal */
 export const CreateTeamOnCallScheduleType$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleType
 > = CreateTeamOnCallScheduleType$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleType$ {
-  /** @deprecated use `CreateTeamOnCallScheduleType$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleType$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleType$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleType$outboundSchema;
-}
-
 /** @internal */
 export const CreateTeamOnCallScheduleHandoffDay$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleHandoffDay
 > = z.nativeEnum(CreateTeamOnCallScheduleHandoffDay);
-
 /** @internal */
 export const CreateTeamOnCallScheduleHandoffDay$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleHandoffDay
 > = CreateTeamOnCallScheduleHandoffDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleHandoffDay$ {
-  /** @deprecated use `CreateTeamOnCallScheduleHandoffDay$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleHandoffDay$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleHandoffDay$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleHandoffDay$outboundSchema;
-}
 
 /** @internal */
 export const CreateTeamOnCallScheduleStrategy$inboundSchema: z.ZodType<
@@ -967,7 +805,6 @@ export const CreateTeamOnCallScheduleStrategy$inboundSchema: z.ZodType<
     "shift_duration": "shiftDuration",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleStrategy$Outbound = {
   type: string;
@@ -995,19 +832,6 @@ export const CreateTeamOnCallScheduleStrategy$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleStrategy$ {
-  /** @deprecated use `CreateTeamOnCallScheduleStrategy$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleStrategy$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleStrategy$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleStrategy$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleStrategy$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleStrategy$Outbound;
-}
-
 export function createTeamOnCallScheduleStrategyToJSON(
   createTeamOnCallScheduleStrategy: CreateTeamOnCallScheduleStrategy,
 ): string {
@@ -1017,7 +841,6 @@ export function createTeamOnCallScheduleStrategyToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleStrategyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallScheduleStrategy, SDKValidationError> {
@@ -1032,43 +855,19 @@ export function createTeamOnCallScheduleStrategyFromJSON(
 export const CreateTeamOnCallScheduleStartDay$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleStartDay
 > = z.nativeEnum(CreateTeamOnCallScheduleStartDay);
-
 /** @internal */
 export const CreateTeamOnCallScheduleStartDay$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleStartDay
 > = CreateTeamOnCallScheduleStartDay$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleStartDay$ {
-  /** @deprecated use `CreateTeamOnCallScheduleStartDay$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleStartDay$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleStartDay$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleStartDay$outboundSchema;
-}
-
 /** @internal */
 export const CreateTeamOnCallScheduleEndDay$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleEndDay
 > = z.nativeEnum(CreateTeamOnCallScheduleEndDay);
-
 /** @internal */
 export const CreateTeamOnCallScheduleEndDay$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamOnCallScheduleEndDay
 > = CreateTeamOnCallScheduleEndDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleEndDay$ {
-  /** @deprecated use `CreateTeamOnCallScheduleEndDay$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleEndDay$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleEndDay$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleEndDay$outboundSchema;
-}
 
 /** @internal */
 export const CreateTeamOnCallScheduleRestriction$inboundSchema: z.ZodType<
@@ -1088,7 +887,6 @@ export const CreateTeamOnCallScheduleRestriction$inboundSchema: z.ZodType<
     "end_time": "endTime",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleRestriction$Outbound = {
   start_day: string;
@@ -1116,21 +914,6 @@ export const CreateTeamOnCallScheduleRestriction$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRestriction$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRestriction$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateTeamOnCallScheduleRestriction$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRestriction$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateTeamOnCallScheduleRestriction$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRestriction$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleRestriction$Outbound;
-}
-
 export function createTeamOnCallScheduleRestrictionToJSON(
   createTeamOnCallScheduleRestriction: CreateTeamOnCallScheduleRestriction,
 ): string {
@@ -1140,7 +923,6 @@ export function createTeamOnCallScheduleRestrictionToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleRestrictionFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallScheduleRestriction, SDKValidationError> {
@@ -1189,7 +971,6 @@ export const CreateTeamOnCallSchedule$inboundSchema: z.ZodType<
     "member_ids": "memberIds",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallSchedule$Outbound = {
   name: string;
@@ -1251,19 +1032,6 @@ export const CreateTeamOnCallSchedule$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallSchedule$ {
-  /** @deprecated use `CreateTeamOnCallSchedule$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallSchedule$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallSchedule$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallSchedule$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallSchedule$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallSchedule$Outbound;
-}
-
 export function createTeamOnCallScheduleToJSON(
   createTeamOnCallSchedule: CreateTeamOnCallSchedule,
 ): string {
@@ -1271,7 +1039,6 @@ export function createTeamOnCallScheduleToJSON(
     CreateTeamOnCallSchedule$outboundSchema.parse(createTeamOnCallSchedule),
   );
 }
-
 export function createTeamOnCallScheduleFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallSchedule, SDKValidationError> {

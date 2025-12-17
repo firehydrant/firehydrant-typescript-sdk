@@ -29,7 +29,6 @@ export const ListChangeIdentitiesRequest$inboundSchema: z.ZodType<
     "change_id": "changeId",
   });
 });
-
 /** @internal */
 export type ListChangeIdentitiesRequest$Outbound = {
   page?: number | null | undefined;
@@ -53,19 +52,6 @@ export const ListChangeIdentitiesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListChangeIdentitiesRequest$ {
-  /** @deprecated use `ListChangeIdentitiesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListChangeIdentitiesRequest$inboundSchema;
-  /** @deprecated use `ListChangeIdentitiesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListChangeIdentitiesRequest$outboundSchema;
-  /** @deprecated use `ListChangeIdentitiesRequest$Outbound` instead. */
-  export type Outbound = ListChangeIdentitiesRequest$Outbound;
-}
-
 export function listChangeIdentitiesRequestToJSON(
   listChangeIdentitiesRequest: ListChangeIdentitiesRequest,
 ): string {
@@ -75,7 +61,6 @@ export function listChangeIdentitiesRequestToJSON(
     ),
   );
 }
-
 export function listChangeIdentitiesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListChangeIdentitiesRequest, SDKValidationError> {

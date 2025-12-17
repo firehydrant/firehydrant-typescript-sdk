@@ -39,7 +39,6 @@ export const MetricsRetrospectiveEntity$inboundSchema: z.ZodType<
     NullableMetricsRetrospectiveEntitySummaryEntity$inboundSchema,
   ).optional(),
 });
-
 /** @internal */
 export type MetricsRetrospectiveEntity$Outbound = {
   data?:
@@ -65,19 +64,6 @@ export const MetricsRetrospectiveEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsRetrospectiveEntity$ {
-  /** @deprecated use `MetricsRetrospectiveEntity$inboundSchema` instead. */
-  export const inboundSchema = MetricsRetrospectiveEntity$inboundSchema;
-  /** @deprecated use `MetricsRetrospectiveEntity$outboundSchema` instead. */
-  export const outboundSchema = MetricsRetrospectiveEntity$outboundSchema;
-  /** @deprecated use `MetricsRetrospectiveEntity$Outbound` instead. */
-  export type Outbound = MetricsRetrospectiveEntity$Outbound;
-}
-
 export function metricsRetrospectiveEntityToJSON(
   metricsRetrospectiveEntity: MetricsRetrospectiveEntity,
 ): string {
@@ -85,7 +71,6 @@ export function metricsRetrospectiveEntityToJSON(
     MetricsRetrospectiveEntity$outboundSchema.parse(metricsRetrospectiveEntity),
   );
 }
-
 export function metricsRetrospectiveEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsRetrospectiveEntity, SDKValidationError> {

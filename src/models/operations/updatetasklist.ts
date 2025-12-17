@@ -28,7 +28,6 @@ export const UpdateTaskListRequest$inboundSchema: z.ZodType<
     "update_task_list": "updateTaskList",
   });
 });
-
 /** @internal */
 export type UpdateTaskListRequest$Outbound = {
   task_list_id: string;
@@ -50,19 +49,6 @@ export const UpdateTaskListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTaskListRequest$ {
-  /** @deprecated use `UpdateTaskListRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateTaskListRequest$inboundSchema;
-  /** @deprecated use `UpdateTaskListRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateTaskListRequest$outboundSchema;
-  /** @deprecated use `UpdateTaskListRequest$Outbound` instead. */
-  export type Outbound = UpdateTaskListRequest$Outbound;
-}
-
 export function updateTaskListRequestToJSON(
   updateTaskListRequest: UpdateTaskListRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updateTaskListRequestToJSON(
     UpdateTaskListRequest$outboundSchema.parse(updateTaskListRequest),
   );
 }
-
 export function updateTaskListRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTaskListRequest, SDKValidationError> {

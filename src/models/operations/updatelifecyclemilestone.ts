@@ -63,24 +63,10 @@ export type UpdateLifecycleMilestoneRequest = {
 export const UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema:
   z.ZodNativeEnum<typeof UpdateLifecycleMilestoneAutoAssignTimestampOnCreate> =
     z.nativeEnum(UpdateLifecycleMilestoneAutoAssignTimestampOnCreate);
-
 /** @internal */
 export const UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema:
   z.ZodNativeEnum<typeof UpdateLifecycleMilestoneAutoAssignTimestampOnCreate> =
     UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$ {
-  /** @deprecated use `UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$inboundSchema;
-  /** @deprecated use `UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateLifecycleMilestoneAutoAssignTimestampOnCreate$outboundSchema;
-}
 
 /** @internal */
 export const UpdateLifecycleMilestoneRequestBody$inboundSchema: z.ZodType<
@@ -102,7 +88,6 @@ export const UpdateLifecycleMilestoneRequestBody$inboundSchema: z.ZodType<
     "auto_assign_timestamp_on_create": "autoAssignTimestampOnCreate",
   });
 });
-
 /** @internal */
 export type UpdateLifecycleMilestoneRequestBody$Outbound = {
   name?: string | null | undefined;
@@ -134,21 +119,6 @@ export const UpdateLifecycleMilestoneRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateLifecycleMilestoneRequestBody$ {
-  /** @deprecated use `UpdateLifecycleMilestoneRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateLifecycleMilestoneRequestBody$inboundSchema;
-  /** @deprecated use `UpdateLifecycleMilestoneRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateLifecycleMilestoneRequestBody$outboundSchema;
-  /** @deprecated use `UpdateLifecycleMilestoneRequestBody$Outbound` instead. */
-  export type Outbound = UpdateLifecycleMilestoneRequestBody$Outbound;
-}
-
 export function updateLifecycleMilestoneRequestBodyToJSON(
   updateLifecycleMilestoneRequestBody: UpdateLifecycleMilestoneRequestBody,
 ): string {
@@ -158,7 +128,6 @@ export function updateLifecycleMilestoneRequestBodyToJSON(
     ),
   );
 }
-
 export function updateLifecycleMilestoneRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateLifecycleMilestoneRequestBody, SDKValidationError> {
@@ -185,7 +154,6 @@ export const UpdateLifecycleMilestoneRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateLifecycleMilestoneRequest$Outbound = {
   milestone_id: string;
@@ -208,19 +176,6 @@ export const UpdateLifecycleMilestoneRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateLifecycleMilestoneRequest$ {
-  /** @deprecated use `UpdateLifecycleMilestoneRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateLifecycleMilestoneRequest$inboundSchema;
-  /** @deprecated use `UpdateLifecycleMilestoneRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateLifecycleMilestoneRequest$outboundSchema;
-  /** @deprecated use `UpdateLifecycleMilestoneRequest$Outbound` instead. */
-  export type Outbound = UpdateLifecycleMilestoneRequest$Outbound;
-}
-
 export function updateLifecycleMilestoneRequestToJSON(
   updateLifecycleMilestoneRequest: UpdateLifecycleMilestoneRequest,
 ): string {
@@ -230,7 +185,6 @@ export function updateLifecycleMilestoneRequestToJSON(
     ),
   );
 }
-
 export function updateLifecycleMilestoneRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateLifecycleMilestoneRequest, SDKValidationError> {

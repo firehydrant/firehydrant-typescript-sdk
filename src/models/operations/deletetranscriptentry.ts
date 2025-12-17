@@ -27,7 +27,6 @@ export const DeleteTranscriptEntryRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type DeleteTranscriptEntryRequest$Outbound = {
   transcript_id: string;
@@ -49,19 +48,6 @@ export const DeleteTranscriptEntryRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteTranscriptEntryRequest$ {
-  /** @deprecated use `DeleteTranscriptEntryRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteTranscriptEntryRequest$inboundSchema;
-  /** @deprecated use `DeleteTranscriptEntryRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteTranscriptEntryRequest$outboundSchema;
-  /** @deprecated use `DeleteTranscriptEntryRequest$Outbound` instead. */
-  export type Outbound = DeleteTranscriptEntryRequest$Outbound;
-}
-
 export function deleteTranscriptEntryRequestToJSON(
   deleteTranscriptEntryRequest: DeleteTranscriptEntryRequest,
 ): string {
@@ -71,7 +57,6 @@ export function deleteTranscriptEntryRequestToJSON(
     ),
   );
 }
-
 export function deleteTranscriptEntryRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteTranscriptEntryRequest, SDKValidationError> {

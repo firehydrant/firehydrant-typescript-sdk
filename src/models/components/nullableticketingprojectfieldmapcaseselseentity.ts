@@ -36,7 +36,6 @@ export const NullableTicketingProjectFieldMapCasesElseEntity$inboundSchema:
       "external_value": "externalValue",
     });
   });
-
 /** @internal */
 export type NullableTicketingProjectFieldMapCasesElseEntity$Outbound = {
   external_value?:
@@ -61,22 +60,6 @@ export const NullableTicketingProjectFieldMapCasesElseEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingProjectFieldMapCasesElseEntity$ {
-  /** @deprecated use `NullableTicketingProjectFieldMapCasesElseEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingProjectFieldMapCasesElseEntity$inboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapCasesElseEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingProjectFieldMapCasesElseEntity$outboundSchema;
-  /** @deprecated use `NullableTicketingProjectFieldMapCasesElseEntity$Outbound` instead. */
-  export type Outbound =
-    NullableTicketingProjectFieldMapCasesElseEntity$Outbound;
-}
-
 export function nullableTicketingProjectFieldMapCasesElseEntityToJSON(
   nullableTicketingProjectFieldMapCasesElseEntity:
     NullableTicketingProjectFieldMapCasesElseEntity,
@@ -87,7 +70,6 @@ export function nullableTicketingProjectFieldMapCasesElseEntityToJSON(
     ),
   );
 }
-
 export function nullableTicketingProjectFieldMapCasesElseEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

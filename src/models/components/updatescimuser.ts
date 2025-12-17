@@ -91,7 +91,6 @@ export const UpdateScimUserName$inboundSchema: z.ZodType<
   givenName: z.string(),
   familyName: z.string(),
 });
-
 /** @internal */
 export type UpdateScimUserName$Outbound = {
   givenName: string;
@@ -108,19 +107,6 @@ export const UpdateScimUserName$outboundSchema: z.ZodType<
   familyName: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimUserName$ {
-  /** @deprecated use `UpdateScimUserName$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimUserName$inboundSchema;
-  /** @deprecated use `UpdateScimUserName$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimUserName$outboundSchema;
-  /** @deprecated use `UpdateScimUserName$Outbound` instead. */
-  export type Outbound = UpdateScimUserName$Outbound;
-}
-
 export function updateScimUserNameToJSON(
   updateScimUserName: UpdateScimUserName,
 ): string {
@@ -128,7 +114,6 @@ export function updateScimUserNameToJSON(
     UpdateScimUserName$outboundSchema.parse(updateScimUserName),
   );
 }
-
 export function updateScimUserNameFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimUserName, SDKValidationError> {
@@ -148,7 +133,6 @@ export const UpdateScimUserEmail$inboundSchema: z.ZodType<
   value: z.string(),
   primary: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type UpdateScimUserEmail$Outbound = {
   value: string;
@@ -165,19 +149,6 @@ export const UpdateScimUserEmail$outboundSchema: z.ZodType<
   primary: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimUserEmail$ {
-  /** @deprecated use `UpdateScimUserEmail$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimUserEmail$inboundSchema;
-  /** @deprecated use `UpdateScimUserEmail$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimUserEmail$outboundSchema;
-  /** @deprecated use `UpdateScimUserEmail$Outbound` instead. */
-  export type Outbound = UpdateScimUserEmail$Outbound;
-}
-
 export function updateScimUserEmailToJSON(
   updateScimUserEmail: UpdateScimUserEmail,
 ): string {
@@ -185,7 +156,6 @@ export function updateScimUserEmailToJSON(
     UpdateScimUserEmail$outboundSchema.parse(updateScimUserEmail),
   );
 }
-
 export function updateScimUserEmailFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimUserEmail, SDKValidationError> {
@@ -202,7 +172,6 @@ export const UpdateScimUserRoles$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type UpdateScimUserRoles$Outbound = {};
 
@@ -213,19 +182,6 @@ export const UpdateScimUserRoles$outboundSchema: z.ZodType<
   UpdateScimUserRoles
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimUserRoles$ {
-  /** @deprecated use `UpdateScimUserRoles$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimUserRoles$inboundSchema;
-  /** @deprecated use `UpdateScimUserRoles$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimUserRoles$outboundSchema;
-  /** @deprecated use `UpdateScimUserRoles$Outbound` instead. */
-  export type Outbound = UpdateScimUserRoles$Outbound;
-}
-
 export function updateScimUserRolesToJSON(
   updateScimUserRoles: UpdateScimUserRoles,
 ): string {
@@ -233,7 +189,6 @@ export function updateScimUserRolesToJSON(
     UpdateScimUserRoles$outboundSchema.parse(updateScimUserRoles),
   );
 }
-
 export function updateScimUserRolesFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimUserRoles, SDKValidationError> {
@@ -254,7 +209,6 @@ export const UpdateScimUserPhoneNumber$inboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   primary: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type UpdateScimUserPhoneNumber$Outbound = {
   value: string;
@@ -273,19 +227,6 @@ export const UpdateScimUserPhoneNumber$outboundSchema: z.ZodType<
   primary: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimUserPhoneNumber$ {
-  /** @deprecated use `UpdateScimUserPhoneNumber$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimUserPhoneNumber$inboundSchema;
-  /** @deprecated use `UpdateScimUserPhoneNumber$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimUserPhoneNumber$outboundSchema;
-  /** @deprecated use `UpdateScimUserPhoneNumber$Outbound` instead. */
-  export type Outbound = UpdateScimUserPhoneNumber$Outbound;
-}
-
 export function updateScimUserPhoneNumberToJSON(
   updateScimUserPhoneNumber: UpdateScimUserPhoneNumber,
 ): string {
@@ -293,7 +234,6 @@ export function updateScimUserPhoneNumberToJSON(
     UpdateScimUserPhoneNumber$outboundSchema.parse(updateScimUserPhoneNumber),
   );
 }
-
 export function updateScimUserPhoneNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimUserPhoneNumber, SDKValidationError> {
@@ -320,7 +260,6 @@ export const UpdateScimUser$inboundSchema: z.ZodType<
     z.array(z.lazy(() => UpdateScimUserPhoneNumber$inboundSchema)),
   ).optional(),
 });
-
 /** @internal */
 export type UpdateScimUser$Outbound = {
   userName?: string | null | undefined;
@@ -349,23 +288,9 @@ export const UpdateScimUser$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimUser$ {
-  /** @deprecated use `UpdateScimUser$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimUser$inboundSchema;
-  /** @deprecated use `UpdateScimUser$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimUser$outboundSchema;
-  /** @deprecated use `UpdateScimUser$Outbound` instead. */
-  export type Outbound = UpdateScimUser$Outbound;
-}
-
 export function updateScimUserToJSON(updateScimUser: UpdateScimUser): string {
   return JSON.stringify(UpdateScimUser$outboundSchema.parse(updateScimUser));
 }
-
 export function updateScimUserFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimUser, SDKValidationError> {

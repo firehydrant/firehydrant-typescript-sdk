@@ -33,22 +33,10 @@ export type UpdateIncidentChangeEvent = {
 export const UpdateIncidentChangeEventType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateIncidentChangeEventType
 > = z.nativeEnum(UpdateIncidentChangeEventType);
-
 /** @internal */
 export const UpdateIncidentChangeEventType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateIncidentChangeEventType
 > = UpdateIncidentChangeEventType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentChangeEventType$ {
-  /** @deprecated use `UpdateIncidentChangeEventType$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentChangeEventType$inboundSchema;
-  /** @deprecated use `UpdateIncidentChangeEventType$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentChangeEventType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateIncidentChangeEvent$inboundSchema: z.ZodType<
@@ -59,7 +47,6 @@ export const UpdateIncidentChangeEvent$inboundSchema: z.ZodType<
   type: z.nullable(UpdateIncidentChangeEventType$inboundSchema).optional(),
   why: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateIncidentChangeEvent$Outbound = {
   type?: string | null | undefined;
@@ -76,19 +63,6 @@ export const UpdateIncidentChangeEvent$outboundSchema: z.ZodType<
   why: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentChangeEvent$ {
-  /** @deprecated use `UpdateIncidentChangeEvent$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentChangeEvent$inboundSchema;
-  /** @deprecated use `UpdateIncidentChangeEvent$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentChangeEvent$outboundSchema;
-  /** @deprecated use `UpdateIncidentChangeEvent$Outbound` instead. */
-  export type Outbound = UpdateIncidentChangeEvent$Outbound;
-}
-
 export function updateIncidentChangeEventToJSON(
   updateIncidentChangeEvent: UpdateIncidentChangeEvent,
 ): string {
@@ -96,7 +70,6 @@ export function updateIncidentChangeEventToJSON(
     UpdateIncidentChangeEvent$outboundSchema.parse(updateIncidentChangeEvent),
   );
 }
-
 export function updateIncidentChangeEventFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentChangeEvent, SDKValidationError> {

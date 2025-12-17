@@ -39,7 +39,6 @@ export const IntegrationsZendeskSearchTicketsPaginatedEntity$inboundSchema:
     ).optional(),
     pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
   });
-
 /** @internal */
 export type IntegrationsZendeskSearchTicketsPaginatedEntity$Outbound = {
   data?:
@@ -62,22 +61,6 @@ export const IntegrationsZendeskSearchTicketsPaginatedEntity$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsZendeskSearchTicketsPaginatedEntity$ {
-  /** @deprecated use `IntegrationsZendeskSearchTicketsPaginatedEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsZendeskSearchTicketsPaginatedEntity$inboundSchema;
-  /** @deprecated use `IntegrationsZendeskSearchTicketsPaginatedEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsZendeskSearchTicketsPaginatedEntity$outboundSchema;
-  /** @deprecated use `IntegrationsZendeskSearchTicketsPaginatedEntity$Outbound` instead. */
-  export type Outbound =
-    IntegrationsZendeskSearchTicketsPaginatedEntity$Outbound;
-}
-
 export function integrationsZendeskSearchTicketsPaginatedEntityToJSON(
   integrationsZendeskSearchTicketsPaginatedEntity:
     IntegrationsZendeskSearchTicketsPaginatedEntity,
@@ -88,7 +71,6 @@ export function integrationsZendeskSearchTicketsPaginatedEntityToJSON(
     ),
   );
 }
-
 export function integrationsZendeskSearchTicketsPaginatedEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -102,7 +102,6 @@ export const UpdateRunbookOwner$inboundSchema: z.ZodType<
 > = z.object({
   id: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateRunbookOwner$Outbound = {
   id?: string | null | undefined;
@@ -117,19 +116,6 @@ export const UpdateRunbookOwner$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookOwner$ {
-  /** @deprecated use `UpdateRunbookOwner$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookOwner$inboundSchema;
-  /** @deprecated use `UpdateRunbookOwner$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookOwner$outboundSchema;
-  /** @deprecated use `UpdateRunbookOwner$Outbound` instead. */
-  export type Outbound = UpdateRunbookOwner$Outbound;
-}
-
 export function updateRunbookOwnerToJSON(
   updateRunbookOwner: UpdateRunbookOwner,
 ): string {
@@ -137,7 +123,6 @@ export function updateRunbookOwnerToJSON(
     UpdateRunbookOwner$outboundSchema.parse(updateRunbookOwner),
   );
 }
-
 export function updateRunbookOwnerFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookOwner, SDKValidationError> {
@@ -156,7 +141,6 @@ export const UpdateRunbookSeverity$inboundSchema: z.ZodType<
 > = z.object({
   id: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateRunbookSeverity$Outbound = {
   id?: string | null | undefined;
@@ -171,19 +155,6 @@ export const UpdateRunbookSeverity$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookSeverity$ {
-  /** @deprecated use `UpdateRunbookSeverity$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookSeverity$inboundSchema;
-  /** @deprecated use `UpdateRunbookSeverity$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookSeverity$outboundSchema;
-  /** @deprecated use `UpdateRunbookSeverity$Outbound` instead. */
-  export type Outbound = UpdateRunbookSeverity$Outbound;
-}
-
 export function updateRunbookSeverityToJSON(
   updateRunbookSeverity: UpdateRunbookSeverity,
 ): string {
@@ -191,7 +162,6 @@ export function updateRunbookSeverityToJSON(
     UpdateRunbookSeverity$outboundSchema.parse(updateRunbookSeverity),
   );
 }
-
 export function updateRunbookSeverityFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookSeverity, SDKValidationError> {
@@ -210,7 +180,6 @@ export const UpdateRunbookService$inboundSchema: z.ZodType<
 > = z.object({
   id: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateRunbookService$Outbound = {
   id?: string | null | undefined;
@@ -225,19 +194,6 @@ export const UpdateRunbookService$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookService$ {
-  /** @deprecated use `UpdateRunbookService$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookService$inboundSchema;
-  /** @deprecated use `UpdateRunbookService$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookService$outboundSchema;
-  /** @deprecated use `UpdateRunbookService$Outbound` instead. */
-  export type Outbound = UpdateRunbookService$Outbound;
-}
-
 export function updateRunbookServiceToJSON(
   updateRunbookService: UpdateRunbookService,
 ): string {
@@ -245,7 +201,6 @@ export function updateRunbookServiceToJSON(
     UpdateRunbookService$outboundSchema.parse(updateRunbookService),
   );
 }
-
 export function updateRunbookServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookService, SDKValidationError> {
@@ -264,7 +219,6 @@ export const Environment$inboundSchema: z.ZodType<
 > = z.object({
   id: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type Environment$Outbound = {
   id?: string | null | undefined;
@@ -279,23 +233,9 @@ export const Environment$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Environment$ {
-  /** @deprecated use `Environment$inboundSchema` instead. */
-  export const inboundSchema = Environment$inboundSchema;
-  /** @deprecated use `Environment$outboundSchema` instead. */
-  export const outboundSchema = Environment$outboundSchema;
-  /** @deprecated use `Environment$Outbound` instead. */
-  export type Outbound = Environment$Outbound;
-}
-
 export function environmentToJSON(environment: Environment): string {
   return JSON.stringify(Environment$outboundSchema.parse(environment));
 }
-
 export function environmentFromJSON(
   jsonString: string,
 ): SafeParseResult<Environment, SDKValidationError> {
@@ -319,7 +259,6 @@ export const UpdateRunbookAttachmentRule$inboundSchema: z.ZodType<
     "user_data": "userData",
   });
 });
-
 /** @internal */
 export type UpdateRunbookAttachmentRule$Outbound = {
   logic: string;
@@ -340,19 +279,6 @@ export const UpdateRunbookAttachmentRule$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookAttachmentRule$ {
-  /** @deprecated use `UpdateRunbookAttachmentRule$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookAttachmentRule$inboundSchema;
-  /** @deprecated use `UpdateRunbookAttachmentRule$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookAttachmentRule$outboundSchema;
-  /** @deprecated use `UpdateRunbookAttachmentRule$Outbound` instead. */
-  export type Outbound = UpdateRunbookAttachmentRule$Outbound;
-}
-
 export function updateRunbookAttachmentRuleToJSON(
   updateRunbookAttachmentRule: UpdateRunbookAttachmentRule,
 ): string {
@@ -362,7 +288,6 @@ export function updateRunbookAttachmentRuleToJSON(
     ),
   );
 }
-
 export function updateRunbookAttachmentRuleFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookAttachmentRule, SDKValidationError> {
@@ -386,7 +311,6 @@ export const UpdateRunbookRule$inboundSchema: z.ZodType<
     "user_data": "userData",
   });
 });
-
 /** @internal */
 export type UpdateRunbookRule$Outbound = {
   logic: string;
@@ -407,19 +331,6 @@ export const UpdateRunbookRule$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookRule$ {
-  /** @deprecated use `UpdateRunbookRule$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookRule$inboundSchema;
-  /** @deprecated use `UpdateRunbookRule$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookRule$outboundSchema;
-  /** @deprecated use `UpdateRunbookRule$Outbound` instead. */
-  export type Outbound = UpdateRunbookRule$Outbound;
-}
-
 export function updateRunbookRuleToJSON(
   updateRunbookRule: UpdateRunbookRule,
 ): string {
@@ -427,7 +338,6 @@ export function updateRunbookRuleToJSON(
     UpdateRunbookRule$outboundSchema.parse(updateRunbookRule),
   );
 }
-
 export function updateRunbookRuleFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookRule, SDKValidationError> {
@@ -454,7 +364,6 @@ export const UpdateRunbookStep$inboundSchema: z.ZodType<
     "action_id": "actionId",
   });
 });
-
 /** @internal */
 export type UpdateRunbookStep$Outbound = {
   step_id?: string | null | undefined;
@@ -480,19 +389,6 @@ export const UpdateRunbookStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookStep$ {
-  /** @deprecated use `UpdateRunbookStep$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookStep$inboundSchema;
-  /** @deprecated use `UpdateRunbookStep$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookStep$outboundSchema;
-  /** @deprecated use `UpdateRunbookStep$Outbound` instead. */
-  export type Outbound = UpdateRunbookStep$Outbound;
-}
-
 export function updateRunbookStepToJSON(
   updateRunbookStep: UpdateRunbookStep,
 ): string {
@@ -500,7 +396,6 @@ export function updateRunbookStepToJSON(
     UpdateRunbookStep$outboundSchema.parse(updateRunbookStep),
   );
 }
-
 export function updateRunbookStepFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookStep, SDKValidationError> {
@@ -542,7 +437,6 @@ export const UpdateRunbook$inboundSchema: z.ZodType<
     "auto_attach_to_restricted_incidents": "autoAttachToRestrictedIncidents",
   });
 });
-
 /** @internal */
 export type UpdateRunbook$Outbound = {
   name?: string | null | undefined;
@@ -590,23 +484,9 @@ export const UpdateRunbook$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbook$ {
-  /** @deprecated use `UpdateRunbook$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbook$inboundSchema;
-  /** @deprecated use `UpdateRunbook$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbook$outboundSchema;
-  /** @deprecated use `UpdateRunbook$Outbound` instead. */
-  export type Outbound = UpdateRunbook$Outbound;
-}
-
 export function updateRunbookToJSON(updateRunbook: UpdateRunbook): string {
   return JSON.stringify(UpdateRunbook$outboundSchema.parse(updateRunbook));
 }
-
 export function updateRunbookFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbook, SDKValidationError> {

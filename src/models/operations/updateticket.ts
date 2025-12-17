@@ -28,7 +28,6 @@ export const UpdateTicketRequest$inboundSchema: z.ZodType<
     "update_ticket": "updateTicket",
   });
 });
-
 /** @internal */
 export type UpdateTicketRequest$Outbound = {
   ticket_id: string;
@@ -50,19 +49,6 @@ export const UpdateTicketRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTicketRequest$ {
-  /** @deprecated use `UpdateTicketRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateTicketRequest$inboundSchema;
-  /** @deprecated use `UpdateTicketRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateTicketRequest$outboundSchema;
-  /** @deprecated use `UpdateTicketRequest$Outbound` instead. */
-  export type Outbound = UpdateTicketRequest$Outbound;
-}
-
 export function updateTicketRequestToJSON(
   updateTicketRequest: UpdateTicketRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updateTicketRequestToJSON(
     UpdateTicketRequest$outboundSchema.parse(updateTicketRequest),
   );
 }
-
 export function updateTicketRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTicketRequest, SDKValidationError> {

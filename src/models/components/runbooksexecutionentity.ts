@@ -81,7 +81,6 @@ export const RunbooksExecutionEntity$inboundSchema: z.ZodType<
     "executed_for": "executedFor",
   });
 });
-
 /** @internal */
 export type RunbooksExecutionEntity$Outbound = {
   id?: string | null | undefined;
@@ -132,19 +131,6 @@ export const RunbooksExecutionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksExecutionEntity$ {
-  /** @deprecated use `RunbooksExecutionEntity$inboundSchema` instead. */
-  export const inboundSchema = RunbooksExecutionEntity$inboundSchema;
-  /** @deprecated use `RunbooksExecutionEntity$outboundSchema` instead. */
-  export const outboundSchema = RunbooksExecutionEntity$outboundSchema;
-  /** @deprecated use `RunbooksExecutionEntity$Outbound` instead. */
-  export type Outbound = RunbooksExecutionEntity$Outbound;
-}
-
 export function runbooksExecutionEntityToJSON(
   runbooksExecutionEntity: RunbooksExecutionEntity,
 ): string {
@@ -152,7 +138,6 @@ export function runbooksExecutionEntityToJSON(
     RunbooksExecutionEntity$outboundSchema.parse(runbooksExecutionEntity),
   );
 }
-
 export function runbooksExecutionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksExecutionEntity, SDKValidationError> {

@@ -124,7 +124,6 @@ export const NullableServiceEntityManagedBySettings$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableServiceEntityManagedBySettings$Outbound = {};
 
@@ -134,21 +133,6 @@ export const NullableServiceEntityManagedBySettings$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NullableServiceEntityManagedBySettings
 > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableServiceEntityManagedBySettings$ {
-  /** @deprecated use `NullableServiceEntityManagedBySettings$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableServiceEntityManagedBySettings$inboundSchema;
-  /** @deprecated use `NullableServiceEntityManagedBySettings$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableServiceEntityManagedBySettings$outboundSchema;
-  /** @deprecated use `NullableServiceEntityManagedBySettings$Outbound` instead. */
-  export type Outbound = NullableServiceEntityManagedBySettings$Outbound;
-}
 
 export function nullableServiceEntityManagedBySettingsToJSON(
   nullableServiceEntityManagedBySettings:
@@ -160,7 +144,6 @@ export function nullableServiceEntityManagedBySettingsToJSON(
     ),
   );
 }
-
 export function nullableServiceEntityManagedBySettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableServiceEntityManagedBySettings, SDKValidationError> {
@@ -232,7 +215,6 @@ export const NullableServiceEntity$inboundSchema: z.ZodType<
     "updated_by": "updatedBy",
   });
 });
-
 /** @internal */
 export type NullableServiceEntity$Outbound = {
   id?: string | null | undefined;
@@ -327,19 +309,6 @@ export const NullableServiceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableServiceEntity$ {
-  /** @deprecated use `NullableServiceEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableServiceEntity$inboundSchema;
-  /** @deprecated use `NullableServiceEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableServiceEntity$outboundSchema;
-  /** @deprecated use `NullableServiceEntity$Outbound` instead. */
-  export type Outbound = NullableServiceEntity$Outbound;
-}
-
 export function nullableServiceEntityToJSON(
   nullableServiceEntity: NullableServiceEntity,
 ): string {
@@ -347,7 +316,6 @@ export function nullableServiceEntityToJSON(
     NullableServiceEntity$outboundSchema.parse(nullableServiceEntity),
   );
 }
-
 export function nullableServiceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableServiceEntity, SDKValidationError> {

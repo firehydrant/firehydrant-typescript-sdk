@@ -27,7 +27,6 @@ export const ListAudiencesRequest$inboundSchema: z.ZodType<
     "include_archived": "includeArchived",
   });
 });
-
 /** @internal */
 export type ListAudiencesRequest$Outbound = {
   include_archived: boolean | null;
@@ -46,19 +45,6 @@ export const ListAudiencesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAudiencesRequest$ {
-  /** @deprecated use `ListAudiencesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAudiencesRequest$inboundSchema;
-  /** @deprecated use `ListAudiencesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAudiencesRequest$outboundSchema;
-  /** @deprecated use `ListAudiencesRequest$Outbound` instead. */
-  export type Outbound = ListAudiencesRequest$Outbound;
-}
-
 export function listAudiencesRequestToJSON(
   listAudiencesRequest: ListAudiencesRequest,
 ): string {
@@ -66,7 +52,6 @@ export function listAudiencesRequestToJSON(
     ListAudiencesRequest$outboundSchema.parse(listAudiencesRequest),
   );
 }
-
 export function listAudiencesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAudiencesRequest, SDKValidationError> {

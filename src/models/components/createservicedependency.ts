@@ -35,7 +35,6 @@ export const CreateServiceDependency$inboundSchema: z.ZodType<
     "connected_service_id": "connectedServiceId",
   });
 });
-
 /** @internal */
 export type CreateServiceDependency$Outbound = {
   service_id: string;
@@ -59,19 +58,6 @@ export const CreateServiceDependency$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceDependency$ {
-  /** @deprecated use `CreateServiceDependency$inboundSchema` instead. */
-  export const inboundSchema = CreateServiceDependency$inboundSchema;
-  /** @deprecated use `CreateServiceDependency$outboundSchema` instead. */
-  export const outboundSchema = CreateServiceDependency$outboundSchema;
-  /** @deprecated use `CreateServiceDependency$Outbound` instead. */
-  export type Outbound = CreateServiceDependency$Outbound;
-}
-
 export function createServiceDependencyToJSON(
   createServiceDependency: CreateServiceDependency,
 ): string {
@@ -79,7 +65,6 @@ export function createServiceDependencyToJSON(
     CreateServiceDependency$outboundSchema.parse(createServiceDependency),
   );
 }
-
 export function createServiceDependencyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceDependency, SDKValidationError> {

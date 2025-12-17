@@ -27,7 +27,6 @@ export const DeletePostMortemReasonRequest$inboundSchema: z.ZodType<
     "reason_id": "reasonId",
   });
 });
-
 /** @internal */
 export type DeletePostMortemReasonRequest$Outbound = {
   report_id: string;
@@ -49,19 +48,6 @@ export const DeletePostMortemReasonRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeletePostMortemReasonRequest$ {
-  /** @deprecated use `DeletePostMortemReasonRequest$inboundSchema` instead. */
-  export const inboundSchema = DeletePostMortemReasonRequest$inboundSchema;
-  /** @deprecated use `DeletePostMortemReasonRequest$outboundSchema` instead. */
-  export const outboundSchema = DeletePostMortemReasonRequest$outboundSchema;
-  /** @deprecated use `DeletePostMortemReasonRequest$Outbound` instead. */
-  export type Outbound = DeletePostMortemReasonRequest$Outbound;
-}
-
 export function deletePostMortemReasonRequestToJSON(
   deletePostMortemReasonRequest: DeletePostMortemReasonRequest,
 ): string {
@@ -71,7 +57,6 @@ export function deletePostMortemReasonRequestToJSON(
     ),
   );
 }
-
 export function deletePostMortemReasonRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeletePostMortemReasonRequest, SDKValidationError> {

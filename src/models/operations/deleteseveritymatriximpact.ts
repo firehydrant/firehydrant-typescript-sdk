@@ -24,7 +24,6 @@ export const DeleteSeverityMatrixImpactRequest$inboundSchema: z.ZodType<
     "impact_id": "impactId",
   });
 });
-
 /** @internal */
 export type DeleteSeverityMatrixImpactRequest$Outbound = {
   impact_id: string;
@@ -43,20 +42,6 @@ export const DeleteSeverityMatrixImpactRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSeverityMatrixImpactRequest$ {
-  /** @deprecated use `DeleteSeverityMatrixImpactRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteSeverityMatrixImpactRequest$inboundSchema;
-  /** @deprecated use `DeleteSeverityMatrixImpactRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteSeverityMatrixImpactRequest$outboundSchema;
-  /** @deprecated use `DeleteSeverityMatrixImpactRequest$Outbound` instead. */
-  export type Outbound = DeleteSeverityMatrixImpactRequest$Outbound;
-}
-
 export function deleteSeverityMatrixImpactRequestToJSON(
   deleteSeverityMatrixImpactRequest: DeleteSeverityMatrixImpactRequest,
 ): string {
@@ -66,7 +51,6 @@ export function deleteSeverityMatrixImpactRequestToJSON(
     ),
   );
 }
-
 export function deleteSeverityMatrixImpactRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteSeverityMatrixImpactRequest, SDKValidationError> {

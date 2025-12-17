@@ -31,6 +31,7 @@ export const SignalsAPIRuleEntityNotificationPriorityOverride = {
   High: "HIGH",
   Medium: "MEDIUM",
   Low: "LOW",
+  Unknown: "",
 } as const;
 export type SignalsAPIRuleEntityNotificationPriorityOverride = ClosedEnum<
   typeof SignalsAPIRuleEntityNotificationPriorityOverride
@@ -75,47 +76,19 @@ export type SignalsAPIRuleEntity = {
 export const SignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema:
   z.ZodNativeEnum<typeof SignalsAPIRuleEntityNotificationPriorityOverride> = z
     .nativeEnum(SignalsAPIRuleEntityNotificationPriorityOverride);
-
 /** @internal */
 export const SignalsAPIRuleEntityNotificationPriorityOverride$outboundSchema:
   z.ZodNativeEnum<typeof SignalsAPIRuleEntityNotificationPriorityOverride> =
     SignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIRuleEntityNotificationPriorityOverride$ {
-  /** @deprecated use `SignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema;
-  /** @deprecated use `SignalsAPIRuleEntityNotificationPriorityOverride$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIRuleEntityNotificationPriorityOverride$outboundSchema;
-}
-
 /** @internal */
 export const SignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema:
   z.ZodNativeEnum<typeof SignalsAPIRuleEntityCreateIncidentConditionWhen> = z
     .nativeEnum(SignalsAPIRuleEntityCreateIncidentConditionWhen);
-
 /** @internal */
 export const SignalsAPIRuleEntityCreateIncidentConditionWhen$outboundSchema:
   z.ZodNativeEnum<typeof SignalsAPIRuleEntityCreateIncidentConditionWhen> =
     SignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIRuleEntityCreateIncidentConditionWhen$ {
-  /** @deprecated use `SignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema;
-  /** @deprecated use `SignalsAPIRuleEntityCreateIncidentConditionWhen$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIRuleEntityCreateIncidentConditionWhen$outboundSchema;
-}
 
 /** @internal */
 export const SignalsAPIRuleEntity$inboundSchema: z.ZodType<
@@ -155,7 +128,6 @@ export const SignalsAPIRuleEntity$inboundSchema: z.ZodType<
     "deduplication_expiry": "deduplicationExpiry",
   });
 });
-
 /** @internal */
 export type SignalsAPIRuleEntity$Outbound = {
   id?: string | null | undefined;
@@ -207,19 +179,6 @@ export const SignalsAPIRuleEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIRuleEntity$ {
-  /** @deprecated use `SignalsAPIRuleEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIRuleEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIRuleEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIRuleEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIRuleEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIRuleEntity$Outbound;
-}
-
 export function signalsAPIRuleEntityToJSON(
   signalsAPIRuleEntity: SignalsAPIRuleEntity,
 ): string {
@@ -227,7 +186,6 @@ export function signalsAPIRuleEntityToJSON(
     SignalsAPIRuleEntity$outboundSchema.parse(signalsAPIRuleEntity),
   );
 }
-
 export function signalsAPIRuleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIRuleEntity, SDKValidationError> {

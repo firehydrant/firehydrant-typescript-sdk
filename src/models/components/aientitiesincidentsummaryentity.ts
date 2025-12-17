@@ -41,7 +41,6 @@ export const AIEntitiesIncidentSummaryEntity$inboundSchema: z.ZodType<
     "incident_updated_at": "incidentUpdatedAt",
   });
 });
-
 /** @internal */
 export type AIEntitiesIncidentSummaryEntity$Outbound = {
   id?: string | null | undefined;
@@ -73,19 +72,6 @@ export const AIEntitiesIncidentSummaryEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AIEntitiesIncidentSummaryEntity$ {
-  /** @deprecated use `AIEntitiesIncidentSummaryEntity$inboundSchema` instead. */
-  export const inboundSchema = AIEntitiesIncidentSummaryEntity$inboundSchema;
-  /** @deprecated use `AIEntitiesIncidentSummaryEntity$outboundSchema` instead. */
-  export const outboundSchema = AIEntitiesIncidentSummaryEntity$outboundSchema;
-  /** @deprecated use `AIEntitiesIncidentSummaryEntity$Outbound` instead. */
-  export type Outbound = AIEntitiesIncidentSummaryEntity$Outbound;
-}
-
 export function aiEntitiesIncidentSummaryEntityToJSON(
   aiEntitiesIncidentSummaryEntity: AIEntitiesIncidentSummaryEntity,
 ): string {
@@ -95,7 +81,6 @@ export function aiEntitiesIncidentSummaryEntityToJSON(
     ),
   );
 }
-
 export function aiEntitiesIncidentSummaryEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AIEntitiesIncidentSummaryEntity, SDKValidationError> {

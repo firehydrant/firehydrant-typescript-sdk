@@ -33,7 +33,6 @@ export const UpdateNuncLink$inboundSchema: z.ZodType<
     "href_url": "hrefUrl",
   });
 });
-
 /** @internal */
 export type UpdateNuncLink$Outbound = {
   display_text?: string | null | undefined;
@@ -58,23 +57,9 @@ export const UpdateNuncLink$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncLink$ {
-  /** @deprecated use `UpdateNuncLink$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncLink$inboundSchema;
-  /** @deprecated use `UpdateNuncLink$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncLink$outboundSchema;
-  /** @deprecated use `UpdateNuncLink$Outbound` instead. */
-  export type Outbound = UpdateNuncLink$Outbound;
-}
-
 export function updateNuncLinkToJSON(updateNuncLink: UpdateNuncLink): string {
   return JSON.stringify(UpdateNuncLink$outboundSchema.parse(updateNuncLink));
 }
-
 export function updateNuncLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncLink, SDKValidationError> {

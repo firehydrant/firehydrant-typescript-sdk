@@ -49,7 +49,6 @@ export const ServiceDependencyEntity$inboundSchema: z.ZodType<
     "connected_service": "connectedService",
   });
 });
-
 /** @internal */
 export type ServiceDependencyEntity$Outbound = {
   id?: string | null | undefined;
@@ -80,19 +79,6 @@ export const ServiceDependencyEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceDependencyEntity$ {
-  /** @deprecated use `ServiceDependencyEntity$inboundSchema` instead. */
-  export const inboundSchema = ServiceDependencyEntity$inboundSchema;
-  /** @deprecated use `ServiceDependencyEntity$outboundSchema` instead. */
-  export const outboundSchema = ServiceDependencyEntity$outboundSchema;
-  /** @deprecated use `ServiceDependencyEntity$Outbound` instead. */
-  export type Outbound = ServiceDependencyEntity$Outbound;
-}
-
 export function serviceDependencyEntityToJSON(
   serviceDependencyEntity: ServiceDependencyEntity,
 ): string {
@@ -100,7 +86,6 @@ export function serviceDependencyEntityToJSON(
     ServiceDependencyEntity$outboundSchema.parse(serviceDependencyEntity),
   );
 }
-
 export function serviceDependencyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceDependencyEntity, SDKValidationError> {

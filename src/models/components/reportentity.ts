@@ -42,7 +42,6 @@ export const ReportEntity$inboundSchema: z.ZodType<
     "bucket_period": "bucketPeriod",
   });
 });
-
 /** @internal */
 export type ReportEntity$Outbound = {
   data?: Array<ReportsBucketEntity$Outbound> | null | undefined;
@@ -71,23 +70,9 @@ export const ReportEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ReportEntity$ {
-  /** @deprecated use `ReportEntity$inboundSchema` instead. */
-  export const inboundSchema = ReportEntity$inboundSchema;
-  /** @deprecated use `ReportEntity$outboundSchema` instead. */
-  export const outboundSchema = ReportEntity$outboundSchema;
-  /** @deprecated use `ReportEntity$Outbound` instead. */
-  export type Outbound = ReportEntity$Outbound;
-}
-
 export function reportEntityToJSON(reportEntity: ReportEntity): string {
   return JSON.stringify(ReportEntity$outboundSchema.parse(reportEntity));
 }
-
 export function reportEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportEntity, SDKValidationError> {

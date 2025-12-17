@@ -33,7 +33,6 @@ export const UpdateTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
     "update_team_on_call_schedule": "updateTeamOnCallSchedule",
   });
 });
-
 /** @internal */
 export type UpdateTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
@@ -60,19 +59,6 @@ export const UpdateTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamOnCallScheduleRequest$ {
-  /** @deprecated use `UpdateTeamOnCallScheduleRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamOnCallScheduleRequest$inboundSchema;
-  /** @deprecated use `UpdateTeamOnCallScheduleRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamOnCallScheduleRequest$outboundSchema;
-  /** @deprecated use `UpdateTeamOnCallScheduleRequest$Outbound` instead. */
-  export type Outbound = UpdateTeamOnCallScheduleRequest$Outbound;
-}
-
 export function updateTeamOnCallScheduleRequestToJSON(
   updateTeamOnCallScheduleRequest: UpdateTeamOnCallScheduleRequest,
 ): string {
@@ -82,7 +68,6 @@ export function updateTeamOnCallScheduleRequestToJSON(
     ),
   );
 }
-
 export function updateTeamOnCallScheduleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamOnCallScheduleRequest, SDKValidationError> {

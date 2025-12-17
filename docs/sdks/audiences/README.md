@@ -1,5 +1,4 @@
 # Audiences
-(*audiences*)
 
 ## Overview
 
@@ -16,7 +15,7 @@ Operations related to Audiences
 * [getMemberDefaultAudience](#getmemberdefaultaudience) - Get default audience
 * [setMemberDefaultAudience](#setmemberdefaultaudience) - Set default audience
 * [getAudienceSummary](#getaudiencesummary) - Get latest summary
-* [generateAudienceSummary](#generateaudiencesummary) - Generate summary
+* [generateAudienceSummary](#generateaudiencesummary) - Generate summary (async)
 * [listAudienceSummaries](#listaudiencesummaries) - List audience summaries
 
 ## listAudiences
@@ -684,7 +683,7 @@ run();
 
 ## generateAudienceSummary
 
-Generate a new audience-specific summary for an incident
+Initiates asynchronous generation of a new audience-specific summary for an incident. This is an async operation that can take up to 60 seconds to complete. The response includes a WebSocket topic name for internal use. After initiating generation, use the GET endpoint to poll for the completed summary.
 
 ### Example Usage
 
@@ -697,12 +696,12 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.audiences.generateAudienceSummary({
+  await firehydrant.audiences.generateAudienceSummary({
     audienceId: "<id>",
     incidentId: "<id>",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -729,7 +728,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("audiencesGenerateAudienceSummary failed:", res.error);
   }
@@ -749,7 +748,7 @@ run();
 
 ### Response
 
-**Promise\<[components.AIEntitiesIncidentSummaryEntity](../../models/components/aientitiesincidentsummaryentity.md)\>**
+**Promise\<void\>**
 
 ### Errors
 

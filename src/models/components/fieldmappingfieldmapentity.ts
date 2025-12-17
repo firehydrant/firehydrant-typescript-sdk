@@ -27,7 +27,6 @@ export type FieldMappingFieldMapEntity = {
 /** @internal */
 export const Body$inboundSchema: z.ZodType<Body, z.ZodTypeDef, unknown> = z
   .object({});
-
 /** @internal */
 export type Body$Outbound = {};
 
@@ -35,23 +34,9 @@ export type Body$Outbound = {};
 export const Body$outboundSchema: z.ZodType<Body$Outbound, z.ZodTypeDef, Body> =
   z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Body$ {
-  /** @deprecated use `Body$inboundSchema` instead. */
-  export const inboundSchema = Body$inboundSchema;
-  /** @deprecated use `Body$outboundSchema` instead. */
-  export const outboundSchema = Body$outboundSchema;
-  /** @deprecated use `Body$Outbound` instead. */
-  export type Outbound = Body$Outbound;
-}
-
 export function bodyToJSON(body: Body): string {
   return JSON.stringify(Body$outboundSchema.parse(body));
 }
-
 export function bodyFromJSON(
   jsonString: string,
 ): SafeParseResult<Body, SDKValidationError> {
@@ -86,7 +71,6 @@ export const FieldMappingFieldMapEntity$inboundSchema: z.ZodType<
     "data_bag_url": "dataBagUrl",
   });
 });
-
 /** @internal */
 export type FieldMappingFieldMapEntity$Outbound = {
   id?: string | null | undefined;
@@ -124,19 +108,6 @@ export const FieldMappingFieldMapEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldMappingFieldMapEntity$ {
-  /** @deprecated use `FieldMappingFieldMapEntity$inboundSchema` instead. */
-  export const inboundSchema = FieldMappingFieldMapEntity$inboundSchema;
-  /** @deprecated use `FieldMappingFieldMapEntity$outboundSchema` instead. */
-  export const outboundSchema = FieldMappingFieldMapEntity$outboundSchema;
-  /** @deprecated use `FieldMappingFieldMapEntity$Outbound` instead. */
-  export type Outbound = FieldMappingFieldMapEntity$Outbound;
-}
-
 export function fieldMappingFieldMapEntityToJSON(
   fieldMappingFieldMapEntity: FieldMappingFieldMapEntity,
 ): string {
@@ -144,7 +115,6 @@ export function fieldMappingFieldMapEntityToJSON(
     FieldMappingFieldMapEntity$outboundSchema.parse(fieldMappingFieldMapEntity),
   );
 }
-
 export function fieldMappingFieldMapEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<FieldMappingFieldMapEntity, SDKValidationError> {

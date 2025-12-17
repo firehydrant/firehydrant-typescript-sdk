@@ -36,7 +36,6 @@ export const PostMortemsReasonEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(PostMortemsReasonEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type PostMortemsReasonEntityPaginated$Outbound = {
   data?: Array<PostMortemsReasonEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const PostMortemsReasonEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PostMortemsReasonEntityPaginated$ {
-  /** @deprecated use `PostMortemsReasonEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = PostMortemsReasonEntityPaginated$inboundSchema;
-  /** @deprecated use `PostMortemsReasonEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = PostMortemsReasonEntityPaginated$outboundSchema;
-  /** @deprecated use `PostMortemsReasonEntityPaginated$Outbound` instead. */
-  export type Outbound = PostMortemsReasonEntityPaginated$Outbound;
-}
-
 export function postMortemsReasonEntityPaginatedToJSON(
   postMortemsReasonEntityPaginated: PostMortemsReasonEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function postMortemsReasonEntityPaginatedToJSON(
     ),
   );
 }
-
 export function postMortemsReasonEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<PostMortemsReasonEntityPaginated, SDKValidationError> {

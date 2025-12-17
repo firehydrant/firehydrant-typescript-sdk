@@ -46,7 +46,6 @@ export const ListTeamOnCallSchedulesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListTeamOnCallSchedulesRequest$Outbound = {
   team_id: string;
@@ -78,19 +77,6 @@ export const ListTeamOnCallSchedulesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTeamOnCallSchedulesRequest$ {
-  /** @deprecated use `ListTeamOnCallSchedulesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTeamOnCallSchedulesRequest$inboundSchema;
-  /** @deprecated use `ListTeamOnCallSchedulesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTeamOnCallSchedulesRequest$outboundSchema;
-  /** @deprecated use `ListTeamOnCallSchedulesRequest$Outbound` instead. */
-  export type Outbound = ListTeamOnCallSchedulesRequest$Outbound;
-}
-
 export function listTeamOnCallSchedulesRequestToJSON(
   listTeamOnCallSchedulesRequest: ListTeamOnCallSchedulesRequest,
 ): string {
@@ -100,7 +86,6 @@ export function listTeamOnCallSchedulesRequestToJSON(
     ),
   );
 }
-
 export function listTeamOnCallSchedulesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTeamOnCallSchedulesRequest, SDKValidationError> {

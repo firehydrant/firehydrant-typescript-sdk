@@ -26,7 +26,6 @@ export const ListChangeTypesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListChangeTypesRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListChangeTypesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListChangeTypesRequest$ {
-  /** @deprecated use `ListChangeTypesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListChangeTypesRequest$inboundSchema;
-  /** @deprecated use `ListChangeTypesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListChangeTypesRequest$outboundSchema;
-  /** @deprecated use `ListChangeTypesRequest$Outbound` instead. */
-  export type Outbound = ListChangeTypesRequest$Outbound;
-}
-
 export function listChangeTypesRequestToJSON(
   listChangeTypesRequest: ListChangeTypesRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listChangeTypesRequestToJSON(
     ListChangeTypesRequest$outboundSchema.parse(listChangeTypesRequest),
   );
 }
-
 export function listChangeTypesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListChangeTypesRequest, SDKValidationError> {

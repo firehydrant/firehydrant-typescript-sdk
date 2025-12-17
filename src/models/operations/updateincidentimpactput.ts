@@ -30,7 +30,6 @@ export const UpdateIncidentImpactPutRequest$inboundSchema: z.ZodType<
     "update_incident_impact_put": "updateIncidentImpactPut",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPutRequest$Outbound = {
   incident_id: string;
@@ -54,19 +53,6 @@ export const UpdateIncidentImpactPutRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPutRequest$ {
-  /** @deprecated use `UpdateIncidentImpactPutRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentImpactPutRequest$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPutRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentImpactPutRequest$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPutRequest$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPutRequest$Outbound;
-}
-
 export function updateIncidentImpactPutRequestToJSON(
   updateIncidentImpactPutRequest: UpdateIncidentImpactPutRequest,
 ): string {
@@ -76,7 +62,6 @@ export function updateIncidentImpactPutRequestToJSON(
     ),
   );
 }
-
 export function updateIncidentImpactPutRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPutRequest, SDKValidationError> {

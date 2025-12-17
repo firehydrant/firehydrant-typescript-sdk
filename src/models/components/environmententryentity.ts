@@ -79,7 +79,6 @@ export const EnvironmentEntryEntity$inboundSchema: z.ZodType<
     "external_resources": "externalResources",
   });
 });
-
 /** @internal */
 export type EnvironmentEntryEntity$Outbound = {
   id?: string | null | undefined;
@@ -119,19 +118,6 @@ export const EnvironmentEntryEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EnvironmentEntryEntity$ {
-  /** @deprecated use `EnvironmentEntryEntity$inboundSchema` instead. */
-  export const inboundSchema = EnvironmentEntryEntity$inboundSchema;
-  /** @deprecated use `EnvironmentEntryEntity$outboundSchema` instead. */
-  export const outboundSchema = EnvironmentEntryEntity$outboundSchema;
-  /** @deprecated use `EnvironmentEntryEntity$Outbound` instead. */
-  export type Outbound = EnvironmentEntryEntity$Outbound;
-}
-
 export function environmentEntryEntityToJSON(
   environmentEntryEntity: EnvironmentEntryEntity,
 ): string {
@@ -139,7 +125,6 @@ export function environmentEntryEntityToJSON(
     EnvironmentEntryEntity$outboundSchema.parse(environmentEntryEntity),
   );
 }
-
 export function environmentEntryEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<EnvironmentEntryEntity, SDKValidationError> {
