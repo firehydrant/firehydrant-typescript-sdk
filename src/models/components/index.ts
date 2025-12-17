@@ -157,7 +157,7 @@ export * from "./integrationsawscloudtrailbatchentity.js";
 export * from "./integrationsawscloudtrailbatchentitypaginated.js";
 export * from "./integrationsawsconnectionentity.js";
 export * from "./integrationsawsconnectionentitypaginated.js";
-export * from "./integrationsconfluencecloudspacekeyentity.js";
+export * from "./integrationsconfluencecloudspaceentity.js";
 export * from "./integrationsconnectionentity.js";
 export * from "./integrationsconnectionentitypaginated.js";
 export * from "./integrationsconnectionstatusentity.js";

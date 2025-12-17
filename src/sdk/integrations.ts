@@ -388,7 +388,7 @@ export class Integrations extends ClientSDK {
   async searchConfluenceSpaces(
     request: operations.SearchConfluenceSpacesRequest,
     options?: RequestOptions,
-  ): Promise<components.IntegrationsConfluenceCloudSpaceKeyEntity> {
+  ): Promise<components.IntegrationsConfluenceCloudSpaceEntity> {
     return unwrapAsync(integrationsSearchConfluenceSpaces(
       this,
       request,
