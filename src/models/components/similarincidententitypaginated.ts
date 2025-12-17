@@ -37,7 +37,6 @@ export const SimilarIncidentEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SimilarIncidentEntityPaginated$Outbound = {
   data?: Array<PublicApiv1SimilarIncidentEntity$Outbound> | null | undefined;
@@ -55,19 +54,6 @@ export const SimilarIncidentEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SimilarIncidentEntityPaginated$ {
-  /** @deprecated use `SimilarIncidentEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = SimilarIncidentEntityPaginated$inboundSchema;
-  /** @deprecated use `SimilarIncidentEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = SimilarIncidentEntityPaginated$outboundSchema;
-  /** @deprecated use `SimilarIncidentEntityPaginated$Outbound` instead. */
-  export type Outbound = SimilarIncidentEntityPaginated$Outbound;
-}
-
 export function similarIncidentEntityPaginatedToJSON(
   similarIncidentEntityPaginated: SimilarIncidentEntityPaginated,
 ): string {
@@ -77,7 +63,6 @@ export function similarIncidentEntityPaginatedToJSON(
     ),
   );
 }
-
 export function similarIncidentEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<SimilarIncidentEntityPaginated, SDKValidationError> {

@@ -22,7 +22,6 @@ export const CreateNuncSubscription$inboundSchema: z.ZodType<
 > = z.object({
   email: z.string(),
 });
-
 /** @internal */
 export type CreateNuncSubscription$Outbound = {
   email: string;
@@ -37,19 +36,6 @@ export const CreateNuncSubscription$outboundSchema: z.ZodType<
   email: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateNuncSubscription$ {
-  /** @deprecated use `CreateNuncSubscription$inboundSchema` instead. */
-  export const inboundSchema = CreateNuncSubscription$inboundSchema;
-  /** @deprecated use `CreateNuncSubscription$outboundSchema` instead. */
-  export const outboundSchema = CreateNuncSubscription$outboundSchema;
-  /** @deprecated use `CreateNuncSubscription$Outbound` instead. */
-  export type Outbound = CreateNuncSubscription$Outbound;
-}
-
 export function createNuncSubscriptionToJSON(
   createNuncSubscription: CreateNuncSubscription,
 ): string {
@@ -57,7 +43,6 @@ export function createNuncSubscriptionToJSON(
     CreateNuncSubscription$outboundSchema.parse(createNuncSubscription),
   );
 }
-
 export function createNuncSubscriptionFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateNuncSubscription, SDKValidationError> {

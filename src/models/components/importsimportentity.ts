@@ -32,22 +32,10 @@ export type ImportsImportEntity = {
 export const ImportsImportEntityState$inboundSchema: z.ZodNativeEnum<
   typeof ImportsImportEntityState
 > = z.nativeEnum(ImportsImportEntityState);
-
 /** @internal */
 export const ImportsImportEntityState$outboundSchema: z.ZodNativeEnum<
   typeof ImportsImportEntityState
 > = ImportsImportEntityState$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ImportsImportEntityState$ {
-  /** @deprecated use `ImportsImportEntityState$inboundSchema` instead. */
-  export const inboundSchema = ImportsImportEntityState$inboundSchema;
-  /** @deprecated use `ImportsImportEntityState$outboundSchema` instead. */
-  export const outboundSchema = ImportsImportEntityState$outboundSchema;
-}
 
 /** @internal */
 export const ImportsImportEntity$inboundSchema: z.ZodType<
@@ -64,7 +52,6 @@ export const ImportsImportEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type ImportsImportEntity$Outbound = {
   state?: string | null | undefined;
@@ -85,19 +72,6 @@ export const ImportsImportEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ImportsImportEntity$ {
-  /** @deprecated use `ImportsImportEntity$inboundSchema` instead. */
-  export const inboundSchema = ImportsImportEntity$inboundSchema;
-  /** @deprecated use `ImportsImportEntity$outboundSchema` instead. */
-  export const outboundSchema = ImportsImportEntity$outboundSchema;
-  /** @deprecated use `ImportsImportEntity$Outbound` instead. */
-  export type Outbound = ImportsImportEntity$Outbound;
-}
-
 export function importsImportEntityToJSON(
   importsImportEntity: ImportsImportEntity,
 ): string {
@@ -105,7 +79,6 @@ export function importsImportEntityToJSON(
     ImportsImportEntity$outboundSchema.parse(importsImportEntity),
   );
 }
-
 export function importsImportEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ImportsImportEntity, SDKValidationError> {

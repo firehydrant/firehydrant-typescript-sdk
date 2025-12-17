@@ -32,7 +32,6 @@ export const ListIncidentAttachmentsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListIncidentAttachmentsRequest$Outbound = {
   incident_id: string;
@@ -59,19 +58,6 @@ export const ListIncidentAttachmentsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentAttachmentsRequest$ {
-  /** @deprecated use `ListIncidentAttachmentsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentAttachmentsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentAttachmentsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentAttachmentsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentAttachmentsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentAttachmentsRequest$Outbound;
-}
-
 export function listIncidentAttachmentsRequestToJSON(
   listIncidentAttachmentsRequest: ListIncidentAttachmentsRequest,
 ): string {
@@ -81,7 +67,6 @@ export function listIncidentAttachmentsRequestToJSON(
     ),
   );
 }
-
 export function listIncidentAttachmentsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentAttachmentsRequest, SDKValidationError> {

@@ -173,15 +173,15 @@ export class Audiences extends ClientSDK {
   }
 
   /**
-   * Generate summary
+   * Generate summary (async)
    *
    * @remarks
-   * Generate a new audience-specific summary for an incident
+   * Initiates asynchronous generation of a new audience-specific summary for an incident. This is an async operation that can take up to 60 seconds to complete. The response includes a WebSocket topic name for internal use. After initiating generation, use the GET endpoint to poll for the completed summary.
    */
   async generateAudienceSummary(
     request: operations.GenerateAudienceSummaryRequest,
     options?: RequestOptions,
-  ): Promise<components.AIEntitiesIncidentSummaryEntity> {
+  ): Promise<void> {
     return unwrapAsync(audiencesGenerateAudienceSummary(
       this,
       request,

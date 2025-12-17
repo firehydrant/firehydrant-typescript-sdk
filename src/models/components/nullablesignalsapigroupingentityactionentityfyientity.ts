@@ -33,7 +33,6 @@ export const NullableSignalsAPIGroupingEntityActionEntityFyiEntity$inboundSchema
       "slack_channels": "slackChannels",
     });
   });
-
 /** @internal */
 export type NullableSignalsAPIGroupingEntityActionEntityFyiEntity$Outbound = {
   slack_channels?:
@@ -58,22 +57,6 @@ export const NullableSignalsAPIGroupingEntityActionEntityFyiEntity$outboundSchem
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIGroupingEntityActionEntityFyiEntity$ {
-  /** @deprecated use `NullableSignalsAPIGroupingEntityActionEntityFyiEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIGroupingEntityActionEntityFyiEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityActionEntityFyiEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIGroupingEntityActionEntityFyiEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityActionEntityFyiEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIGroupingEntityActionEntityFyiEntity$Outbound;
-}
-
 export function nullableSignalsAPIGroupingEntityActionEntityFyiEntityToJSON(
   nullableSignalsAPIGroupingEntityActionEntityFyiEntity:
     NullableSignalsAPIGroupingEntityActionEntityFyiEntity,
@@ -84,7 +67,6 @@ export function nullableSignalsAPIGroupingEntityActionEntityFyiEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIGroupingEntityActionEntityFyiEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

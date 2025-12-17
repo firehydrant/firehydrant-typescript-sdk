@@ -27,7 +27,6 @@ export const UpdateSeverityMatrixCondition$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type UpdateSeverityMatrixCondition$Outbound = {
   name?: string | null | undefined;
@@ -44,19 +43,6 @@ export const UpdateSeverityMatrixCondition$outboundSchema: z.ZodType<
   position: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityMatrixCondition$ {
-  /** @deprecated use `UpdateSeverityMatrixCondition$inboundSchema` instead. */
-  export const inboundSchema = UpdateSeverityMatrixCondition$inboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixCondition$outboundSchema` instead. */
-  export const outboundSchema = UpdateSeverityMatrixCondition$outboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixCondition$Outbound` instead. */
-  export type Outbound = UpdateSeverityMatrixCondition$Outbound;
-}
-
 export function updateSeverityMatrixConditionToJSON(
   updateSeverityMatrixCondition: UpdateSeverityMatrixCondition,
 ): string {
@@ -66,7 +52,6 @@ export function updateSeverityMatrixConditionToJSON(
     ),
   );
 }
-
 export function updateSeverityMatrixConditionFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverityMatrixCondition, SDKValidationError> {

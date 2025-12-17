@@ -32,7 +32,6 @@ export const CreateIncidentStatusPage$inboundSchema: z.ZodType<
     "integration_id": "integrationId",
   });
 });
-
 /** @internal */
 export type CreateIncidentStatusPage$Outbound = {
   integration_slug: string;
@@ -56,19 +55,6 @@ export const CreateIncidentStatusPage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentStatusPage$ {
-  /** @deprecated use `CreateIncidentStatusPage$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentStatusPage$inboundSchema;
-  /** @deprecated use `CreateIncidentStatusPage$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentStatusPage$outboundSchema;
-  /** @deprecated use `CreateIncidentStatusPage$Outbound` instead. */
-  export type Outbound = CreateIncidentStatusPage$Outbound;
-}
-
 export function createIncidentStatusPageToJSON(
   createIncidentStatusPage: CreateIncidentStatusPage,
 ): string {
@@ -76,7 +62,6 @@ export function createIncidentStatusPageToJSON(
     CreateIncidentStatusPage$outboundSchema.parse(createIncidentStatusPage),
   );
 }
-
 export function createIncidentStatusPageFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentStatusPage, SDKValidationError> {

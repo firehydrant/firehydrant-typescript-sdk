@@ -26,7 +26,6 @@ export const ListSeverityMatrixImpactsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListSeverityMatrixImpactsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListSeverityMatrixImpactsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSeverityMatrixImpactsRequest$ {
-  /** @deprecated use `ListSeverityMatrixImpactsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSeverityMatrixImpactsRequest$inboundSchema;
-  /** @deprecated use `ListSeverityMatrixImpactsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSeverityMatrixImpactsRequest$outboundSchema;
-  /** @deprecated use `ListSeverityMatrixImpactsRequest$Outbound` instead. */
-  export type Outbound = ListSeverityMatrixImpactsRequest$Outbound;
-}
-
 export function listSeverityMatrixImpactsRequestToJSON(
   listSeverityMatrixImpactsRequest: ListSeverityMatrixImpactsRequest,
 ): string {
@@ -69,7 +55,6 @@ export function listSeverityMatrixImpactsRequestToJSON(
     ),
   );
 }
-
 export function listSeverityMatrixImpactsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSeverityMatrixImpactsRequest, SDKValidationError> {

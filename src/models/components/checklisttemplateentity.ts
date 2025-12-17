@@ -67,7 +67,6 @@ export const ChecklistTemplateEntity$inboundSchema: z.ZodType<
     "connected_services": "connectedServices",
   });
 });
-
 /** @internal */
 export type ChecklistTemplateEntity$Outbound = {
   id?: string | null | undefined;
@@ -106,19 +105,6 @@ export const ChecklistTemplateEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChecklistTemplateEntity$ {
-  /** @deprecated use `ChecklistTemplateEntity$inboundSchema` instead. */
-  export const inboundSchema = ChecklistTemplateEntity$inboundSchema;
-  /** @deprecated use `ChecklistTemplateEntity$outboundSchema` instead. */
-  export const outboundSchema = ChecklistTemplateEntity$outboundSchema;
-  /** @deprecated use `ChecklistTemplateEntity$Outbound` instead. */
-  export type Outbound = ChecklistTemplateEntity$Outbound;
-}
-
 export function checklistTemplateEntityToJSON(
   checklistTemplateEntity: ChecklistTemplateEntity,
 ): string {
@@ -126,7 +112,6 @@ export function checklistTemplateEntityToJSON(
     ChecklistTemplateEntity$outboundSchema.parse(checklistTemplateEntity),
   );
 }
-
 export function checklistTemplateEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChecklistTemplateEntity, SDKValidationError> {

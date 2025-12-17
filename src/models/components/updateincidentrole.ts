@@ -26,7 +26,6 @@ export const UpdateIncidentRole$inboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateIncidentRole$Outbound = {
   name?: string | null | undefined;
@@ -45,19 +44,6 @@ export const UpdateIncidentRole$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentRole$ {
-  /** @deprecated use `UpdateIncidentRole$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentRole$inboundSchema;
-  /** @deprecated use `UpdateIncidentRole$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentRole$outboundSchema;
-  /** @deprecated use `UpdateIncidentRole$Outbound` instead. */
-  export type Outbound = UpdateIncidentRole$Outbound;
-}
-
 export function updateIncidentRoleToJSON(
   updateIncidentRole: UpdateIncidentRole,
 ): string {
@@ -65,7 +51,6 @@ export function updateIncidentRoleToJSON(
     UpdateIncidentRole$outboundSchema.parse(updateIncidentRole),
   );
 }
-
 export function updateIncidentRoleFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentRole, SDKValidationError> {

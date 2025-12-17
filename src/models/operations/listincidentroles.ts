@@ -26,7 +26,6 @@ export const ListIncidentRolesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListIncidentRolesRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListIncidentRolesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentRolesRequest$ {
-  /** @deprecated use `ListIncidentRolesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentRolesRequest$inboundSchema;
-  /** @deprecated use `ListIncidentRolesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentRolesRequest$outboundSchema;
-  /** @deprecated use `ListIncidentRolesRequest$Outbound` instead. */
-  export type Outbound = ListIncidentRolesRequest$Outbound;
-}
-
 export function listIncidentRolesRequestToJSON(
   listIncidentRolesRequest: ListIncidentRolesRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listIncidentRolesRequestToJSON(
     ListIncidentRolesRequest$outboundSchema.parse(listIncidentRolesRequest),
   );
 }
-
 export function listIncidentRolesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentRolesRequest, SDKValidationError> {

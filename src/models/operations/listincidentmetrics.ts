@@ -70,80 +70,32 @@ export type ListIncidentMetricsRequest = {
 /** @internal */
 export const BucketSize$inboundSchema: z.ZodNativeEnum<typeof BucketSize> = z
   .nativeEnum(BucketSize);
-
 /** @internal */
 export const BucketSize$outboundSchema: z.ZodNativeEnum<typeof BucketSize> =
   BucketSize$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BucketSize$ {
-  /** @deprecated use `BucketSize$inboundSchema` instead. */
-  export const inboundSchema = BucketSize$inboundSchema;
-  /** @deprecated use `BucketSize$outboundSchema` instead. */
-  export const outboundSchema = BucketSize$outboundSchema;
-}
-
 /** @internal */
 export const By$inboundSchema: z.ZodNativeEnum<typeof By> = z.nativeEnum(By);
-
 /** @internal */
 export const By$outboundSchema: z.ZodNativeEnum<typeof By> = By$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace By$ {
-  /** @deprecated use `By$inboundSchema` instead. */
-  export const inboundSchema = By$inboundSchema;
-  /** @deprecated use `By$outboundSchema` instead. */
-  export const outboundSchema = By$outboundSchema;
-}
 
 /** @internal */
 export const ListIncidentMetricsSortField$inboundSchema: z.ZodNativeEnum<
   typeof ListIncidentMetricsSortField
 > = z.nativeEnum(ListIncidentMetricsSortField);
-
 /** @internal */
 export const ListIncidentMetricsSortField$outboundSchema: z.ZodNativeEnum<
   typeof ListIncidentMetricsSortField
 > = ListIncidentMetricsSortField$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentMetricsSortField$ {
-  /** @deprecated use `ListIncidentMetricsSortField$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentMetricsSortField$inboundSchema;
-  /** @deprecated use `ListIncidentMetricsSortField$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentMetricsSortField$outboundSchema;
-}
-
 /** @internal */
 export const ListIncidentMetricsSortDirection$inboundSchema: z.ZodNativeEnum<
   typeof ListIncidentMetricsSortDirection
 > = z.nativeEnum(ListIncidentMetricsSortDirection);
-
 /** @internal */
 export const ListIncidentMetricsSortDirection$outboundSchema: z.ZodNativeEnum<
   typeof ListIncidentMetricsSortDirection
 > = ListIncidentMetricsSortDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentMetricsSortDirection$ {
-  /** @deprecated use `ListIncidentMetricsSortDirection$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentMetricsSortDirection$inboundSchema;
-  /** @deprecated use `ListIncidentMetricsSortDirection$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentMetricsSortDirection$outboundSchema;
-}
 
 /** @internal */
 export const ListIncidentMetricsRequest$inboundSchema: z.ZodType<
@@ -170,7 +122,6 @@ export const ListIncidentMetricsRequest$inboundSchema: z.ZodType<
     "sort_limit": "sortLimit",
   });
 });
-
 /** @internal */
 export type ListIncidentMetricsRequest$Outbound = {
   start_date?: string | null | undefined;
@@ -211,19 +162,6 @@ export const ListIncidentMetricsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentMetricsRequest$ {
-  /** @deprecated use `ListIncidentMetricsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentMetricsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentMetricsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentMetricsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentMetricsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentMetricsRequest$Outbound;
-}
-
 export function listIncidentMetricsRequestToJSON(
   listIncidentMetricsRequest: ListIncidentMetricsRequest,
 ): string {
@@ -231,7 +169,6 @@ export function listIncidentMetricsRequestToJSON(
     ListIncidentMetricsRequest$outboundSchema.parse(listIncidentMetricsRequest),
   );
 }
-
 export function listIncidentMetricsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentMetricsRequest, SDKValidationError> {

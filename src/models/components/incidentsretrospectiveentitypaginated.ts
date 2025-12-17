@@ -37,7 +37,6 @@ export const IncidentsRetrospectiveEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IncidentsRetrospectiveEntityPaginated$Outbound = {
   data?: Array<IncidentsRetrospectiveEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const IncidentsRetrospectiveEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRetrospectiveEntityPaginated$ {
-  /** @deprecated use `IncidentsRetrospectiveEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRetrospectiveEntityPaginated$inboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRetrospectiveEntityPaginated$outboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveEntityPaginated$Outbound` instead. */
-  export type Outbound = IncidentsRetrospectiveEntityPaginated$Outbound;
-}
-
 export function incidentsRetrospectiveEntityPaginatedToJSON(
   incidentsRetrospectiveEntityPaginated: IncidentsRetrospectiveEntityPaginated,
 ): string {
@@ -79,7 +63,6 @@ export function incidentsRetrospectiveEntityPaginatedToJSON(
     ),
   );
 }
-
 export function incidentsRetrospectiveEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRetrospectiveEntityPaginated, SDKValidationError> {

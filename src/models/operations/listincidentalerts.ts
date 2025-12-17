@@ -24,7 +24,6 @@ export const ListIncidentAlertsRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentAlertsRequest$Outbound = {
   incident_id: string;
@@ -43,19 +42,6 @@ export const ListIncidentAlertsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentAlertsRequest$ {
-  /** @deprecated use `ListIncidentAlertsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentAlertsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentAlertsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentAlertsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentAlertsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentAlertsRequest$Outbound;
-}
-
 export function listIncidentAlertsRequestToJSON(
   listIncidentAlertsRequest: ListIncidentAlertsRequest,
 ): string {
@@ -63,7 +49,6 @@ export function listIncidentAlertsRequestToJSON(
     ListIncidentAlertsRequest$outboundSchema.parse(listIncidentAlertsRequest),
   );
 }
-
 export function listIncidentAlertsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentAlertsRequest, SDKValidationError> {

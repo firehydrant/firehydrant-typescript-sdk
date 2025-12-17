@@ -41,22 +41,10 @@ export type ExportIncidentRetrospectivesRequest = {
 export const IntegrationSlug$inboundSchema: z.ZodNativeEnum<
   typeof IntegrationSlug
 > = z.nativeEnum(IntegrationSlug);
-
 /** @internal */
 export const IntegrationSlug$outboundSchema: z.ZodNativeEnum<
   typeof IntegrationSlug
 > = IntegrationSlug$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationSlug$ {
-  /** @deprecated use `IntegrationSlug$inboundSchema` instead. */
-  export const inboundSchema = IntegrationSlug$inboundSchema;
-  /** @deprecated use `IntegrationSlug$outboundSchema` instead. */
-  export const outboundSchema = IntegrationSlug$outboundSchema;
-}
 
 /** @internal */
 export const ExportIncidentRetrospectivesRequestBody$inboundSchema: z.ZodType<
@@ -72,7 +60,6 @@ export const ExportIncidentRetrospectivesRequestBody$inboundSchema: z.ZodType<
     "parent_page_id": "parentPageId",
   });
 });
-
 /** @internal */
 export type ExportIncidentRetrospectivesRequestBody$Outbound = {
   integration_slug: string;
@@ -94,21 +81,6 @@ export const ExportIncidentRetrospectivesRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExportIncidentRetrospectivesRequestBody$ {
-  /** @deprecated use `ExportIncidentRetrospectivesRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    ExportIncidentRetrospectivesRequestBody$inboundSchema;
-  /** @deprecated use `ExportIncidentRetrospectivesRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    ExportIncidentRetrospectivesRequestBody$outboundSchema;
-  /** @deprecated use `ExportIncidentRetrospectivesRequestBody$Outbound` instead. */
-  export type Outbound = ExportIncidentRetrospectivesRequestBody$Outbound;
-}
-
 export function exportIncidentRetrospectivesRequestBodyToJSON(
   exportIncidentRetrospectivesRequestBody:
     ExportIncidentRetrospectivesRequestBody,
@@ -119,7 +91,6 @@ export function exportIncidentRetrospectivesRequestBodyToJSON(
     ),
   );
 }
-
 export function exportIncidentRetrospectivesRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -152,7 +123,6 @@ export const ExportIncidentRetrospectivesRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type ExportIncidentRetrospectivesRequest$Outbound = {
   incident_id: string;
@@ -176,21 +146,6 @@ export const ExportIncidentRetrospectivesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExportIncidentRetrospectivesRequest$ {
-  /** @deprecated use `ExportIncidentRetrospectivesRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ExportIncidentRetrospectivesRequest$inboundSchema;
-  /** @deprecated use `ExportIncidentRetrospectivesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ExportIncidentRetrospectivesRequest$outboundSchema;
-  /** @deprecated use `ExportIncidentRetrospectivesRequest$Outbound` instead. */
-  export type Outbound = ExportIncidentRetrospectivesRequest$Outbound;
-}
-
 export function exportIncidentRetrospectivesRequestToJSON(
   exportIncidentRetrospectivesRequest: ExportIncidentRetrospectivesRequest,
 ): string {
@@ -200,7 +155,6 @@ export function exportIncidentRetrospectivesRequestToJSON(
     ),
   );
 }
-
 export function exportIncidentRetrospectivesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ExportIncidentRetrospectivesRequest, SDKValidationError> {

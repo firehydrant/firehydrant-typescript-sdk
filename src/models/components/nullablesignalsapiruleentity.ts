@@ -31,6 +31,7 @@ export const NullableSignalsAPIRuleEntityNotificationPriorityOverride = {
   High: "HIGH",
   Medium: "MEDIUM",
   Low: "LOW",
+  Unknown: "",
 } as const;
 export type NullableSignalsAPIRuleEntityNotificationPriorityOverride =
   ClosedEnum<typeof NullableSignalsAPIRuleEntityNotificationPriorityOverride>;
@@ -74,50 +75,22 @@ export const NullableSignalsAPIRuleEntityNotificationPriorityOverride$inboundSch
   z.ZodNativeEnum<
     typeof NullableSignalsAPIRuleEntityNotificationPriorityOverride
   > = z.nativeEnum(NullableSignalsAPIRuleEntityNotificationPriorityOverride);
-
 /** @internal */
 export const NullableSignalsAPIRuleEntityNotificationPriorityOverride$outboundSchema:
   z.ZodNativeEnum<
     typeof NullableSignalsAPIRuleEntityNotificationPriorityOverride
   > = NullableSignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIRuleEntityNotificationPriorityOverride$ {
-  /** @deprecated use `NullableSignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIRuleEntityNotificationPriorityOverride$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIRuleEntityNotificationPriorityOverride$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIRuleEntityNotificationPriorityOverride$outboundSchema;
-}
-
 /** @internal */
 export const NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema:
   z.ZodNativeEnum<
     typeof NullableSignalsAPIRuleEntityCreateIncidentConditionWhen
   > = z.nativeEnum(NullableSignalsAPIRuleEntityCreateIncidentConditionWhen);
-
 /** @internal */
 export const NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$outboundSchema:
   z.ZodNativeEnum<
     typeof NullableSignalsAPIRuleEntityCreateIncidentConditionWhen
   > = NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$ {
-  /** @deprecated use `NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIRuleEntityCreateIncidentConditionWhen$outboundSchema;
-}
 
 /** @internal */
 export const NullableSignalsAPIRuleEntity$inboundSchema: z.ZodType<
@@ -157,7 +130,6 @@ export const NullableSignalsAPIRuleEntity$inboundSchema: z.ZodType<
     "deduplication_expiry": "deduplicationExpiry",
   });
 });
-
 /** @internal */
 export type NullableSignalsAPIRuleEntity$Outbound = {
   id?: string | null | undefined;
@@ -209,19 +181,6 @@ export const NullableSignalsAPIRuleEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIRuleEntity$ {
-  /** @deprecated use `NullableSignalsAPIRuleEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableSignalsAPIRuleEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIRuleEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableSignalsAPIRuleEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIRuleEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPIRuleEntity$Outbound;
-}
-
 export function nullableSignalsAPIRuleEntityToJSON(
   nullableSignalsAPIRuleEntity: NullableSignalsAPIRuleEntity,
 ): string {
@@ -231,7 +190,6 @@ export function nullableSignalsAPIRuleEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIRuleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSignalsAPIRuleEntity, SDKValidationError> {

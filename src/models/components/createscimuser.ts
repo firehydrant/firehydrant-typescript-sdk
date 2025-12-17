@@ -95,7 +95,6 @@ export const CreateScimUserName$inboundSchema: z.ZodType<
   familyName: z.string(),
   givenName: z.string(),
 });
-
 /** @internal */
 export type CreateScimUserName$Outbound = {
   familyName: string;
@@ -112,19 +111,6 @@ export const CreateScimUserName$outboundSchema: z.ZodType<
   givenName: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimUserName$ {
-  /** @deprecated use `CreateScimUserName$inboundSchema` instead. */
-  export const inboundSchema = CreateScimUserName$inboundSchema;
-  /** @deprecated use `CreateScimUserName$outboundSchema` instead. */
-  export const outboundSchema = CreateScimUserName$outboundSchema;
-  /** @deprecated use `CreateScimUserName$Outbound` instead. */
-  export type Outbound = CreateScimUserName$Outbound;
-}
-
 export function createScimUserNameToJSON(
   createScimUserName: CreateScimUserName,
 ): string {
@@ -132,7 +118,6 @@ export function createScimUserNameToJSON(
     CreateScimUserName$outboundSchema.parse(createScimUserName),
   );
 }
-
 export function createScimUserNameFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimUserName, SDKValidationError> {
@@ -152,7 +137,6 @@ export const CreateScimUserEmail$inboundSchema: z.ZodType<
   value: z.string(),
   primary: z.boolean(),
 });
-
 /** @internal */
 export type CreateScimUserEmail$Outbound = {
   value: string;
@@ -169,19 +153,6 @@ export const CreateScimUserEmail$outboundSchema: z.ZodType<
   primary: z.boolean(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimUserEmail$ {
-  /** @deprecated use `CreateScimUserEmail$inboundSchema` instead. */
-  export const inboundSchema = CreateScimUserEmail$inboundSchema;
-  /** @deprecated use `CreateScimUserEmail$outboundSchema` instead. */
-  export const outboundSchema = CreateScimUserEmail$outboundSchema;
-  /** @deprecated use `CreateScimUserEmail$Outbound` instead. */
-  export type Outbound = CreateScimUserEmail$Outbound;
-}
-
 export function createScimUserEmailToJSON(
   createScimUserEmail: CreateScimUserEmail,
 ): string {
@@ -189,7 +160,6 @@ export function createScimUserEmailToJSON(
     CreateScimUserEmail$outboundSchema.parse(createScimUserEmail),
   );
 }
-
 export function createScimUserEmailFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimUserEmail, SDKValidationError> {
@@ -206,7 +176,6 @@ export const CreateScimUserRoles$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type CreateScimUserRoles$Outbound = {};
 
@@ -217,19 +186,6 @@ export const CreateScimUserRoles$outboundSchema: z.ZodType<
   CreateScimUserRoles
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimUserRoles$ {
-  /** @deprecated use `CreateScimUserRoles$inboundSchema` instead. */
-  export const inboundSchema = CreateScimUserRoles$inboundSchema;
-  /** @deprecated use `CreateScimUserRoles$outboundSchema` instead. */
-  export const outboundSchema = CreateScimUserRoles$outboundSchema;
-  /** @deprecated use `CreateScimUserRoles$Outbound` instead. */
-  export type Outbound = CreateScimUserRoles$Outbound;
-}
-
 export function createScimUserRolesToJSON(
   createScimUserRoles: CreateScimUserRoles,
 ): string {
@@ -237,7 +193,6 @@ export function createScimUserRolesToJSON(
     CreateScimUserRoles$outboundSchema.parse(createScimUserRoles),
   );
 }
-
 export function createScimUserRolesFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimUserRoles, SDKValidationError> {
@@ -258,7 +213,6 @@ export const CreateScimUserPhoneNumber$inboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   primary: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type CreateScimUserPhoneNumber$Outbound = {
   value: string;
@@ -277,19 +231,6 @@ export const CreateScimUserPhoneNumber$outboundSchema: z.ZodType<
   primary: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimUserPhoneNumber$ {
-  /** @deprecated use `CreateScimUserPhoneNumber$inboundSchema` instead. */
-  export const inboundSchema = CreateScimUserPhoneNumber$inboundSchema;
-  /** @deprecated use `CreateScimUserPhoneNumber$outboundSchema` instead. */
-  export const outboundSchema = CreateScimUserPhoneNumber$outboundSchema;
-  /** @deprecated use `CreateScimUserPhoneNumber$Outbound` instead. */
-  export type Outbound = CreateScimUserPhoneNumber$Outbound;
-}
-
 export function createScimUserPhoneNumberToJSON(
   createScimUserPhoneNumber: CreateScimUserPhoneNumber,
 ): string {
@@ -297,7 +238,6 @@ export function createScimUserPhoneNumberToJSON(
     CreateScimUserPhoneNumber$outboundSchema.parse(createScimUserPhoneNumber),
   );
 }
-
 export function createScimUserPhoneNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimUserPhoneNumber, SDKValidationError> {
@@ -324,7 +264,6 @@ export const CreateScimUser$inboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateScimUserPhoneNumber$inboundSchema)),
   ).optional(),
 });
-
 /** @internal */
 export type CreateScimUser$Outbound = {
   userName: string;
@@ -354,23 +293,9 @@ export const CreateScimUser$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateScimUser$ {
-  /** @deprecated use `CreateScimUser$inboundSchema` instead. */
-  export const inboundSchema = CreateScimUser$inboundSchema;
-  /** @deprecated use `CreateScimUser$outboundSchema` instead. */
-  export const outboundSchema = CreateScimUser$outboundSchema;
-  /** @deprecated use `CreateScimUser$Outbound` instead. */
-  export type Outbound = CreateScimUser$Outbound;
-}
-
 export function createScimUserToJSON(createScimUser: CreateScimUser): string {
   return JSON.stringify(CreateScimUser$outboundSchema.parse(createScimUser));
 }
-
 export function createScimUserFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateScimUser, SDKValidationError> {

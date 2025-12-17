@@ -56,7 +56,6 @@ export const UpdateTranscriptAttributionRequestBody$inboundSchema: z.ZodType<
     "conference_bridge_id": "conferenceBridgeId",
   });
 });
-
 /** @internal */
 export type UpdateTranscriptAttributionRequestBody$Outbound = {
   from_speaker?: string | null | undefined;
@@ -87,21 +86,6 @@ export const UpdateTranscriptAttributionRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTranscriptAttributionRequestBody$ {
-  /** @deprecated use `UpdateTranscriptAttributionRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTranscriptAttributionRequestBody$inboundSchema;
-  /** @deprecated use `UpdateTranscriptAttributionRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTranscriptAttributionRequestBody$outboundSchema;
-  /** @deprecated use `UpdateTranscriptAttributionRequestBody$Outbound` instead. */
-  export type Outbound = UpdateTranscriptAttributionRequestBody$Outbound;
-}
-
 export function updateTranscriptAttributionRequestBodyToJSON(
   updateTranscriptAttributionRequestBody:
     UpdateTranscriptAttributionRequestBody,
@@ -112,7 +96,6 @@ export function updateTranscriptAttributionRequestBodyToJSON(
     ),
   );
 }
-
 export function updateTranscriptAttributionRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTranscriptAttributionRequestBody, SDKValidationError> {
@@ -140,7 +123,6 @@ export const UpdateTranscriptAttributionRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateTranscriptAttributionRequest$Outbound = {
   incident_id: string;
@@ -164,20 +146,6 @@ export const UpdateTranscriptAttributionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTranscriptAttributionRequest$ {
-  /** @deprecated use `UpdateTranscriptAttributionRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateTranscriptAttributionRequest$inboundSchema;
-  /** @deprecated use `UpdateTranscriptAttributionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTranscriptAttributionRequest$outboundSchema;
-  /** @deprecated use `UpdateTranscriptAttributionRequest$Outbound` instead. */
-  export type Outbound = UpdateTranscriptAttributionRequest$Outbound;
-}
-
 export function updateTranscriptAttributionRequestToJSON(
   updateTranscriptAttributionRequest: UpdateTranscriptAttributionRequest,
 ): string {
@@ -187,7 +155,6 @@ export function updateTranscriptAttributionRequestToJSON(
     ),
   );
 }
-
 export function updateTranscriptAttributionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTranscriptAttributionRequest, SDKValidationError> {

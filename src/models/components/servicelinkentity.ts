@@ -35,7 +35,6 @@ export const ServiceLinkEntity$inboundSchema: z.ZodType<
     "status_code": "statusCode",
   });
 });
-
 /** @internal */
 export type ServiceLinkEntity$Outbound = {
   status_code?: number | null | undefined;
@@ -56,19 +55,6 @@ export const ServiceLinkEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceLinkEntity$ {
-  /** @deprecated use `ServiceLinkEntity$inboundSchema` instead. */
-  export const inboundSchema = ServiceLinkEntity$inboundSchema;
-  /** @deprecated use `ServiceLinkEntity$outboundSchema` instead. */
-  export const outboundSchema = ServiceLinkEntity$outboundSchema;
-  /** @deprecated use `ServiceLinkEntity$Outbound` instead. */
-  export type Outbound = ServiceLinkEntity$Outbound;
-}
-
 export function serviceLinkEntityToJSON(
   serviceLinkEntity: ServiceLinkEntity,
 ): string {
@@ -76,7 +62,6 @@ export function serviceLinkEntityToJSON(
     ServiceLinkEntity$outboundSchema.parse(serviceLinkEntity),
   );
 }
-
 export function serviceLinkEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceLinkEntity, SDKValidationError> {

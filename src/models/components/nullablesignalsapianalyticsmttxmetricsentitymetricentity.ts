@@ -28,7 +28,6 @@ export const NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$inboundSch
     mtta: z.nullable(z.number()).optional(),
     mttr: z.nullable(z.number()).optional(),
   });
-
 /** @internal */
 export type NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$Outbound =
   {
@@ -47,22 +46,6 @@ export const NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$outboundSc
     mttr: z.nullable(z.number()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$ {
-  /** @deprecated use `NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$Outbound;
-}
-
 export function nullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntityToJSON(
   nullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity:
     NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity,
@@ -72,7 +55,6 @@ export function nullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntityToJSON(
       .parse(nullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity),
   );
 }
-
 export function nullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

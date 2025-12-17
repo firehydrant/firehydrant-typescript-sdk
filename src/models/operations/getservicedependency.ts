@@ -24,7 +24,6 @@ export const GetServiceDependencyRequest$inboundSchema: z.ZodType<
     "service_dependency_id": "serviceDependencyId",
   });
 });
-
 /** @internal */
 export type GetServiceDependencyRequest$Outbound = {
   service_dependency_id: string;
@@ -43,19 +42,6 @@ export const GetServiceDependencyRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetServiceDependencyRequest$ {
-  /** @deprecated use `GetServiceDependencyRequest$inboundSchema` instead. */
-  export const inboundSchema = GetServiceDependencyRequest$inboundSchema;
-  /** @deprecated use `GetServiceDependencyRequest$outboundSchema` instead. */
-  export const outboundSchema = GetServiceDependencyRequest$outboundSchema;
-  /** @deprecated use `GetServiceDependencyRequest$Outbound` instead. */
-  export type Outbound = GetServiceDependencyRequest$Outbound;
-}
-
 export function getServiceDependencyRequestToJSON(
   getServiceDependencyRequest: GetServiceDependencyRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getServiceDependencyRequestToJSON(
     ),
   );
 }
-
 export function getServiceDependencyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetServiceDependencyRequest, SDKValidationError> {

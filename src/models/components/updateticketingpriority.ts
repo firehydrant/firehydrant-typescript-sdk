@@ -27,7 +27,6 @@ export const UpdateTicketingPriority$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type UpdateTicketingPriority$Outbound = {
   name?: string | null | undefined;
@@ -44,19 +43,6 @@ export const UpdateTicketingPriority$outboundSchema: z.ZodType<
   position: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTicketingPriority$ {
-  /** @deprecated use `UpdateTicketingPriority$inboundSchema` instead. */
-  export const inboundSchema = UpdateTicketingPriority$inboundSchema;
-  /** @deprecated use `UpdateTicketingPriority$outboundSchema` instead. */
-  export const outboundSchema = UpdateTicketingPriority$outboundSchema;
-  /** @deprecated use `UpdateTicketingPriority$Outbound` instead. */
-  export type Outbound = UpdateTicketingPriority$Outbound;
-}
-
 export function updateTicketingPriorityToJSON(
   updateTicketingPriority: UpdateTicketingPriority,
 ): string {
@@ -64,7 +50,6 @@ export function updateTicketingPriorityToJSON(
     UpdateTicketingPriority$outboundSchema.parse(updateTicketingPriority),
   );
 }
-
 export function updateTicketingPriorityFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTicketingPriority, SDKValidationError> {

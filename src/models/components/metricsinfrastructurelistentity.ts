@@ -32,7 +32,6 @@ export const MetricsInfrastructureListEntity$inboundSchema: z.ZodType<
   data: z.nullable(z.array(MetricsInfrastructureMetricsEntity$inboundSchema))
     .optional(),
 });
-
 /** @internal */
 export type MetricsInfrastructureListEntity$Outbound = {
   data?: Array<MetricsInfrastructureMetricsEntity$Outbound> | null | undefined;
@@ -48,19 +47,6 @@ export const MetricsInfrastructureListEntity$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsInfrastructureListEntity$ {
-  /** @deprecated use `MetricsInfrastructureListEntity$inboundSchema` instead. */
-  export const inboundSchema = MetricsInfrastructureListEntity$inboundSchema;
-  /** @deprecated use `MetricsInfrastructureListEntity$outboundSchema` instead. */
-  export const outboundSchema = MetricsInfrastructureListEntity$outboundSchema;
-  /** @deprecated use `MetricsInfrastructureListEntity$Outbound` instead. */
-  export type Outbound = MetricsInfrastructureListEntity$Outbound;
-}
-
 export function metricsInfrastructureListEntityToJSON(
   metricsInfrastructureListEntity: MetricsInfrastructureListEntity,
 ): string {
@@ -70,7 +56,6 @@ export function metricsInfrastructureListEntityToJSON(
     ),
   );
 }
-
 export function metricsInfrastructureListEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsInfrastructureListEntity, SDKValidationError> {

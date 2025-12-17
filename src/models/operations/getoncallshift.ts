@@ -29,7 +29,6 @@ export const GetOnCallShiftRequest$inboundSchema: z.ZodType<
     "schedule_id": "scheduleId",
   });
 });
-
 /** @internal */
 export type GetOnCallShiftRequest$Outbound = {
   id: string;
@@ -53,19 +52,6 @@ export const GetOnCallShiftRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetOnCallShiftRequest$ {
-  /** @deprecated use `GetOnCallShiftRequest$inboundSchema` instead. */
-  export const inboundSchema = GetOnCallShiftRequest$inboundSchema;
-  /** @deprecated use `GetOnCallShiftRequest$outboundSchema` instead. */
-  export const outboundSchema = GetOnCallShiftRequest$outboundSchema;
-  /** @deprecated use `GetOnCallShiftRequest$Outbound` instead. */
-  export type Outbound = GetOnCallShiftRequest$Outbound;
-}
-
 export function getOnCallShiftRequestToJSON(
   getOnCallShiftRequest: GetOnCallShiftRequest,
 ): string {
@@ -73,7 +59,6 @@ export function getOnCallShiftRequestToJSON(
     GetOnCallShiftRequest$outboundSchema.parse(getOnCallShiftRequest),
   );
 }
-
 export function getOnCallShiftRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetOnCallShiftRequest, SDKValidationError> {

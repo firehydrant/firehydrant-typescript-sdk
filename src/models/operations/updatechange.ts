@@ -28,7 +28,6 @@ export const UpdateChangeRequest$inboundSchema: z.ZodType<
     "update_change": "updateChange",
   });
 });
-
 /** @internal */
 export type UpdateChangeRequest$Outbound = {
   change_id: string;
@@ -50,19 +49,6 @@ export const UpdateChangeRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChangeRequest$ {
-  /** @deprecated use `UpdateChangeRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateChangeRequest$inboundSchema;
-  /** @deprecated use `UpdateChangeRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateChangeRequest$outboundSchema;
-  /** @deprecated use `UpdateChangeRequest$Outbound` instead. */
-  export type Outbound = UpdateChangeRequest$Outbound;
-}
-
 export function updateChangeRequestToJSON(
   updateChangeRequest: UpdateChangeRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updateChangeRequestToJSON(
     UpdateChangeRequest$outboundSchema.parse(updateChangeRequest),
   );
 }
-
 export function updateChangeRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChangeRequest, SDKValidationError> {

@@ -82,7 +82,6 @@ export const UpdateStatuspageConnectionSeverity$inboundSchema: z.ZodType<
     "remote_status": "remoteStatus",
   });
 });
-
 /** @internal */
 export type UpdateStatuspageConnectionSeverity$Outbound = {
   severity_slug: string;
@@ -104,20 +103,6 @@ export const UpdateStatuspageConnectionSeverity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateStatuspageConnectionSeverity$ {
-  /** @deprecated use `UpdateStatuspageConnectionSeverity$inboundSchema` instead. */
-  export const inboundSchema = UpdateStatuspageConnectionSeverity$inboundSchema;
-  /** @deprecated use `UpdateStatuspageConnectionSeverity$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateStatuspageConnectionSeverity$outboundSchema;
-  /** @deprecated use `UpdateStatuspageConnectionSeverity$Outbound` instead. */
-  export type Outbound = UpdateStatuspageConnectionSeverity$Outbound;
-}
-
 export function updateStatuspageConnectionSeverityToJSON(
   updateStatuspageConnectionSeverity: UpdateStatuspageConnectionSeverity,
 ): string {
@@ -127,7 +112,6 @@ export function updateStatuspageConnectionSeverityToJSON(
     ),
   );
 }
-
 export function updateStatuspageConnectionSeverityFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateStatuspageConnectionSeverity, SDKValidationError> {
@@ -153,7 +137,6 @@ export const Condition$inboundSchema: z.ZodType<
     "statuspageio_condition": "statuspageioCondition",
   });
 });
-
 /** @internal */
 export type Condition$Outbound = {
   condition_id: string;
@@ -175,23 +158,9 @@ export const Condition$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Condition$ {
-  /** @deprecated use `Condition$inboundSchema` instead. */
-  export const inboundSchema = Condition$inboundSchema;
-  /** @deprecated use `Condition$outboundSchema` instead. */
-  export const outboundSchema = Condition$outboundSchema;
-  /** @deprecated use `Condition$Outbound` instead. */
-  export type Outbound = Condition$Outbound;
-}
-
 export function conditionToJSON(condition: Condition): string {
   return JSON.stringify(Condition$outboundSchema.parse(condition));
 }
-
 export function conditionFromJSON(
   jsonString: string,
 ): SafeParseResult<Condition, SDKValidationError> {
@@ -206,22 +175,10 @@ export function conditionFromJSON(
 export const UpdateStatuspageConnectionStatus$inboundSchema: z.ZodNativeEnum<
   typeof UpdateStatuspageConnectionStatus
 > = z.nativeEnum(UpdateStatuspageConnectionStatus);
-
 /** @internal */
 export const UpdateStatuspageConnectionStatus$outboundSchema: z.ZodNativeEnum<
   typeof UpdateStatuspageConnectionStatus
 > = UpdateStatuspageConnectionStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateStatuspageConnectionStatus$ {
-  /** @deprecated use `UpdateStatuspageConnectionStatus$inboundSchema` instead. */
-  export const inboundSchema = UpdateStatuspageConnectionStatus$inboundSchema;
-  /** @deprecated use `UpdateStatuspageConnectionStatus$outboundSchema` instead. */
-  export const outboundSchema = UpdateStatuspageConnectionStatus$outboundSchema;
-}
 
 /** @internal */
 export const MilestoneMapping$inboundSchema: z.ZodType<
@@ -236,7 +193,6 @@ export const MilestoneMapping$inboundSchema: z.ZodType<
     "milestone_id": "milestoneId",
   });
 });
-
 /** @internal */
 export type MilestoneMapping$Outbound = {
   milestone_id: string;
@@ -257,19 +213,6 @@ export const MilestoneMapping$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MilestoneMapping$ {
-  /** @deprecated use `MilestoneMapping$inboundSchema` instead. */
-  export const inboundSchema = MilestoneMapping$inboundSchema;
-  /** @deprecated use `MilestoneMapping$outboundSchema` instead. */
-  export const outboundSchema = MilestoneMapping$outboundSchema;
-  /** @deprecated use `MilestoneMapping$Outbound` instead. */
-  export type Outbound = MilestoneMapping$Outbound;
-}
-
 export function milestoneMappingToJSON(
   milestoneMapping: MilestoneMapping,
 ): string {
@@ -277,7 +220,6 @@ export function milestoneMappingToJSON(
     MilestoneMapping$outboundSchema.parse(milestoneMapping),
   );
 }
-
 export function milestoneMappingFromJSON(
   jsonString: string,
 ): SafeParseResult<MilestoneMapping, SDKValidationError> {
@@ -309,7 +251,6 @@ export const UpdateStatuspageConnection$inboundSchema: z.ZodType<
     "milestone_mappings": "milestoneMappings",
   });
 });
-
 /** @internal */
 export type UpdateStatuspageConnection$Outbound = {
   page_id?: string | null | undefined;
@@ -343,19 +284,6 @@ export const UpdateStatuspageConnection$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateStatuspageConnection$ {
-  /** @deprecated use `UpdateStatuspageConnection$inboundSchema` instead. */
-  export const inboundSchema = UpdateStatuspageConnection$inboundSchema;
-  /** @deprecated use `UpdateStatuspageConnection$outboundSchema` instead. */
-  export const outboundSchema = UpdateStatuspageConnection$outboundSchema;
-  /** @deprecated use `UpdateStatuspageConnection$Outbound` instead. */
-  export type Outbound = UpdateStatuspageConnection$Outbound;
-}
-
 export function updateStatuspageConnectionToJSON(
   updateStatuspageConnection: UpdateStatuspageConnection,
 ): string {
@@ -363,7 +291,6 @@ export function updateStatuspageConnectionToJSON(
     UpdateStatuspageConnection$outboundSchema.parse(updateStatuspageConnection),
   );
 }
-
 export function updateStatuspageConnectionFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateStatuspageConnection, SDKValidationError> {

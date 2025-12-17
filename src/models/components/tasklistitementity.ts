@@ -21,7 +21,6 @@ export const TaskListItemEntity$inboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type TaskListItemEntity$Outbound = {
   summary?: string | null | undefined;
@@ -38,19 +37,6 @@ export const TaskListItemEntity$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaskListItemEntity$ {
-  /** @deprecated use `TaskListItemEntity$inboundSchema` instead. */
-  export const inboundSchema = TaskListItemEntity$inboundSchema;
-  /** @deprecated use `TaskListItemEntity$outboundSchema` instead. */
-  export const outboundSchema = TaskListItemEntity$outboundSchema;
-  /** @deprecated use `TaskListItemEntity$Outbound` instead. */
-  export type Outbound = TaskListItemEntity$Outbound;
-}
-
 export function taskListItemEntityToJSON(
   taskListItemEntity: TaskListItemEntity,
 ): string {
@@ -58,7 +44,6 @@ export function taskListItemEntityToJSON(
     TaskListItemEntity$outboundSchema.parse(taskListItemEntity),
   );
 }
-
 export function taskListItemEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TaskListItemEntity, SDKValidationError> {

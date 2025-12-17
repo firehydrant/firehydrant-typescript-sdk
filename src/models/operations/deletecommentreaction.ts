@@ -30,7 +30,6 @@ export const DeleteCommentReactionRequest$inboundSchema: z.ZodType<
     "comment_id": "commentId",
   });
 });
-
 /** @internal */
 export type DeleteCommentReactionRequest$Outbound = {
   reaction_id: string;
@@ -55,19 +54,6 @@ export const DeleteCommentReactionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteCommentReactionRequest$ {
-  /** @deprecated use `DeleteCommentReactionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteCommentReactionRequest$inboundSchema;
-  /** @deprecated use `DeleteCommentReactionRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteCommentReactionRequest$outboundSchema;
-  /** @deprecated use `DeleteCommentReactionRequest$Outbound` instead. */
-  export type Outbound = DeleteCommentReactionRequest$Outbound;
-}
-
 export function deleteCommentReactionRequestToJSON(
   deleteCommentReactionRequest: DeleteCommentReactionRequest,
 ): string {
@@ -77,7 +63,6 @@ export function deleteCommentReactionRequestToJSON(
     ),
   );
 }
-
 export function deleteCommentReactionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteCommentReactionRequest, SDKValidationError> {

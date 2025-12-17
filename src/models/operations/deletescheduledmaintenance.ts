@@ -24,7 +24,6 @@ export const DeleteScheduledMaintenanceRequest$inboundSchema: z.ZodType<
     "scheduled_maintenance_id": "scheduledMaintenanceId",
   });
 });
-
 /** @internal */
 export type DeleteScheduledMaintenanceRequest$Outbound = {
   scheduled_maintenance_id: string;
@@ -43,20 +42,6 @@ export const DeleteScheduledMaintenanceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteScheduledMaintenanceRequest$ {
-  /** @deprecated use `DeleteScheduledMaintenanceRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteScheduledMaintenanceRequest$inboundSchema;
-  /** @deprecated use `DeleteScheduledMaintenanceRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteScheduledMaintenanceRequest$outboundSchema;
-  /** @deprecated use `DeleteScheduledMaintenanceRequest$Outbound` instead. */
-  export type Outbound = DeleteScheduledMaintenanceRequest$Outbound;
-}
-
 export function deleteScheduledMaintenanceRequestToJSON(
   deleteScheduledMaintenanceRequest: DeleteScheduledMaintenanceRequest,
 ): string {
@@ -66,7 +51,6 @@ export function deleteScheduledMaintenanceRequestToJSON(
     ),
   );
 }
-
 export function deleteScheduledMaintenanceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteScheduledMaintenanceRequest, SDKValidationError> {

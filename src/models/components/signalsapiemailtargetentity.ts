@@ -81,7 +81,6 @@ export const SignalsAPIEmailTargetEntity$inboundSchema: z.ZodType<
     "team_id": "teamId",
   });
 });
-
 /** @internal */
 export type SignalsAPIEmailTargetEntity$Outbound = {
   id?: string | null | undefined;
@@ -135,19 +134,6 @@ export const SignalsAPIEmailTargetEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIEmailTargetEntity$ {
-  /** @deprecated use `SignalsAPIEmailTargetEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIEmailTargetEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIEmailTargetEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIEmailTargetEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIEmailTargetEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIEmailTargetEntity$Outbound;
-}
-
 export function signalsAPIEmailTargetEntityToJSON(
   signalsAPIEmailTargetEntity: SignalsAPIEmailTargetEntity,
 ): string {
@@ -157,7 +143,6 @@ export function signalsAPIEmailTargetEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIEmailTargetEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIEmailTargetEntity, SDKValidationError> {

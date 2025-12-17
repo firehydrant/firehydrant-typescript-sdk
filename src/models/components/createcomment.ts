@@ -25,7 +25,6 @@ export const CreateComment$inboundSchema: z.ZodType<
 > = z.object({
   body: z.string(),
 });
-
 /** @internal */
 export type CreateComment$Outbound = {
   body: string;
@@ -40,23 +39,9 @@ export const CreateComment$outboundSchema: z.ZodType<
   body: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateComment$ {
-  /** @deprecated use `CreateComment$inboundSchema` instead. */
-  export const inboundSchema = CreateComment$inboundSchema;
-  /** @deprecated use `CreateComment$outboundSchema` instead. */
-  export const outboundSchema = CreateComment$outboundSchema;
-  /** @deprecated use `CreateComment$Outbound` instead. */
-  export type Outbound = CreateComment$Outbound;
-}
-
 export function createCommentToJSON(createComment: CreateComment): string {
   return JSON.stringify(CreateComment$outboundSchema.parse(createComment));
 }
-
 export function createCommentFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateComment, SDKValidationError> {

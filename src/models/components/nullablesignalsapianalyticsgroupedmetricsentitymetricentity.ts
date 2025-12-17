@@ -64,7 +64,6 @@ export const NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$inbound
       "incidents_percentage": "incidentsPercentage",
     });
   });
-
 /** @internal */
 export type NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$Outbound =
   {
@@ -103,22 +102,6 @@ export const NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$outboun
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$ {
-  /** @deprecated use `NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$Outbound;
-}
-
 export function nullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntityToJSON(
   nullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity:
     NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity,
@@ -128,7 +111,6 @@ export function nullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntityToJSO
       .parse(nullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity),
   );
 }
-
 export function nullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

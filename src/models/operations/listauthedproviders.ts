@@ -38,7 +38,6 @@ export const ListAuthedProvidersRequest$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type ListAuthedProvidersRequest$Outbound = {
   integration_slug: string;
@@ -62,19 +61,6 @@ export const ListAuthedProvidersRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAuthedProvidersRequest$ {
-  /** @deprecated use `ListAuthedProvidersRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAuthedProvidersRequest$inboundSchema;
-  /** @deprecated use `ListAuthedProvidersRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAuthedProvidersRequest$outboundSchema;
-  /** @deprecated use `ListAuthedProvidersRequest$Outbound` instead. */
-  export type Outbound = ListAuthedProvidersRequest$Outbound;
-}
-
 export function listAuthedProvidersRequestToJSON(
   listAuthedProvidersRequest: ListAuthedProvidersRequest,
 ): string {
@@ -82,7 +68,6 @@ export function listAuthedProvidersRequestToJSON(
     ListAuthedProvidersRequest$outboundSchema.parse(listAuthedProvidersRequest),
   );
 }
-
 export function listAuthedProvidersRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAuthedProvidersRequest, SDKValidationError> {

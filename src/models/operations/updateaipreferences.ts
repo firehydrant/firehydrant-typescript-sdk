@@ -62,7 +62,6 @@ export const UpdateAiPreferencesRequest$inboundSchema: z.ZodType<
     "similar_incidents": "similarIncidents",
   });
 });
-
 /** @internal */
 export type UpdateAiPreferencesRequest$Outbound = {
   ai?: boolean | null | undefined;
@@ -95,19 +94,6 @@ export const UpdateAiPreferencesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAiPreferencesRequest$ {
-  /** @deprecated use `UpdateAiPreferencesRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateAiPreferencesRequest$inboundSchema;
-  /** @deprecated use `UpdateAiPreferencesRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateAiPreferencesRequest$outboundSchema;
-  /** @deprecated use `UpdateAiPreferencesRequest$Outbound` instead. */
-  export type Outbound = UpdateAiPreferencesRequest$Outbound;
-}
-
 export function updateAiPreferencesRequestToJSON(
   updateAiPreferencesRequest: UpdateAiPreferencesRequest,
 ): string {
@@ -115,7 +101,6 @@ export function updateAiPreferencesRequestToJSON(
     UpdateAiPreferencesRequest$outboundSchema.parse(updateAiPreferencesRequest),
   );
 }
-
 export function updateAiPreferencesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAiPreferencesRequest, SDKValidationError> {

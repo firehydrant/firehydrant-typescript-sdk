@@ -27,7 +27,6 @@ export const PatchScimUserRequest$inboundSchema: z.ZodType<
     "patch_scim_user": "patchScimUser",
   });
 });
-
 /** @internal */
 export type PatchScimUserRequest$Outbound = {
   id: string;
@@ -48,19 +47,6 @@ export const PatchScimUserRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PatchScimUserRequest$ {
-  /** @deprecated use `PatchScimUserRequest$inboundSchema` instead. */
-  export const inboundSchema = PatchScimUserRequest$inboundSchema;
-  /** @deprecated use `PatchScimUserRequest$outboundSchema` instead. */
-  export const outboundSchema = PatchScimUserRequest$outboundSchema;
-  /** @deprecated use `PatchScimUserRequest$Outbound` instead. */
-  export type Outbound = PatchScimUserRequest$Outbound;
-}
-
 export function patchScimUserRequestToJSON(
   patchScimUserRequest: PatchScimUserRequest,
 ): string {
@@ -68,7 +54,6 @@ export function patchScimUserRequestToJSON(
     PatchScimUserRequest$outboundSchema.parse(patchScimUserRequest),
   );
 }
-
 export function patchScimUserRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<PatchScimUserRequest, SDKValidationError> {

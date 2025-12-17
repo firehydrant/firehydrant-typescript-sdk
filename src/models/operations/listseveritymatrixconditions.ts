@@ -26,7 +26,6 @@ export const ListSeverityMatrixConditionsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListSeverityMatrixConditionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,21 +46,6 @@ export const ListSeverityMatrixConditionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSeverityMatrixConditionsRequest$ {
-  /** @deprecated use `ListSeverityMatrixConditionsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListSeverityMatrixConditionsRequest$inboundSchema;
-  /** @deprecated use `ListSeverityMatrixConditionsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListSeverityMatrixConditionsRequest$outboundSchema;
-  /** @deprecated use `ListSeverityMatrixConditionsRequest$Outbound` instead. */
-  export type Outbound = ListSeverityMatrixConditionsRequest$Outbound;
-}
-
 export function listSeverityMatrixConditionsRequestToJSON(
   listSeverityMatrixConditionsRequest: ListSeverityMatrixConditionsRequest,
 ): string {
@@ -71,7 +55,6 @@ export function listSeverityMatrixConditionsRequestToJSON(
     ),
   );
 }
-
 export function listSeverityMatrixConditionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSeverityMatrixConditionsRequest, SDKValidationError> {

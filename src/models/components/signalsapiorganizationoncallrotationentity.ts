@@ -62,7 +62,6 @@ export const SignalsAPIOrganizationOnCallRotationEntity$inboundSchema:
         "updated_at": "updatedAt",
       });
     });
-
 /** @internal */
 export type SignalsAPIOrganizationOnCallRotationEntity$Outbound = {
   id?: string | null | undefined;
@@ -108,21 +107,6 @@ export const SignalsAPIOrganizationOnCallRotationEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOrganizationOnCallRotationEntity$ {
-  /** @deprecated use `SignalsAPIOrganizationOnCallRotationEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIOrganizationOnCallRotationEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOrganizationOnCallRotationEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOrganizationOnCallRotationEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOrganizationOnCallRotationEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIOrganizationOnCallRotationEntity$Outbound;
-}
-
 export function signalsAPIOrganizationOnCallRotationEntityToJSON(
   signalsAPIOrganizationOnCallRotationEntity:
     SignalsAPIOrganizationOnCallRotationEntity,
@@ -133,7 +117,6 @@ export function signalsAPIOrganizationOnCallRotationEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIOrganizationOnCallRotationEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

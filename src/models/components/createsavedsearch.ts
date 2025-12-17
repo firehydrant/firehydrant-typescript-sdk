@@ -32,7 +32,6 @@ export const CreateSavedSearch$inboundSchema: z.ZodType<
     "filter_values": "filterValues",
   });
 });
-
 /** @internal */
 export type CreateSavedSearch$Outbound = {
   name: string;
@@ -56,19 +55,6 @@ export const CreateSavedSearch$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSavedSearch$ {
-  /** @deprecated use `CreateSavedSearch$inboundSchema` instead. */
-  export const inboundSchema = CreateSavedSearch$inboundSchema;
-  /** @deprecated use `CreateSavedSearch$outboundSchema` instead. */
-  export const outboundSchema = CreateSavedSearch$outboundSchema;
-  /** @deprecated use `CreateSavedSearch$Outbound` instead. */
-  export type Outbound = CreateSavedSearch$Outbound;
-}
-
 export function createSavedSearchToJSON(
   createSavedSearch: CreateSavedSearch,
 ): string {
@@ -76,7 +62,6 @@ export function createSavedSearchToJSON(
     CreateSavedSearch$outboundSchema.parse(createSavedSearch),
   );
 }
-
 export function createSavedSearchFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSavedSearch, SDKValidationError> {

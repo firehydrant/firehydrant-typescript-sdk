@@ -29,7 +29,6 @@ export const SeverityMatrixConditionEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type SeverityMatrixConditionEntity$Outbound = {
   id?: string | null | undefined;
@@ -48,19 +47,6 @@ export const SeverityMatrixConditionEntity$outboundSchema: z.ZodType<
   position: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeverityMatrixConditionEntity$ {
-  /** @deprecated use `SeverityMatrixConditionEntity$inboundSchema` instead. */
-  export const inboundSchema = SeverityMatrixConditionEntity$inboundSchema;
-  /** @deprecated use `SeverityMatrixConditionEntity$outboundSchema` instead. */
-  export const outboundSchema = SeverityMatrixConditionEntity$outboundSchema;
-  /** @deprecated use `SeverityMatrixConditionEntity$Outbound` instead. */
-  export type Outbound = SeverityMatrixConditionEntity$Outbound;
-}
-
 export function severityMatrixConditionEntityToJSON(
   severityMatrixConditionEntity: SeverityMatrixConditionEntity,
 ): string {
@@ -70,7 +56,6 @@ export function severityMatrixConditionEntityToJSON(
     ),
   );
 }
-
 export function severityMatrixConditionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SeverityMatrixConditionEntity, SDKValidationError> {

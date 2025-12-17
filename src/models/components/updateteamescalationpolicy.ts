@@ -256,22 +256,10 @@ export type UpdateTeamEscalationPolicy = {
 export const UpdateTeamEscalationPolicyType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateTeamEscalationPolicyType
 > = z.nativeEnum(UpdateTeamEscalationPolicyType);
-
 /** @internal */
 export const UpdateTeamEscalationPolicyType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateTeamEscalationPolicyType
 > = UpdateTeamEscalationPolicyType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyType$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyType$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicyType$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyType$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicyType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamEscalationPolicyTarget$inboundSchema: z.ZodType<
@@ -282,7 +270,6 @@ export const UpdateTeamEscalationPolicyTarget$inboundSchema: z.ZodType<
   type: UpdateTeamEscalationPolicyType$inboundSchema,
   id: z.string(),
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyTarget$Outbound = {
   type: string;
@@ -299,19 +286,6 @@ export const UpdateTeamEscalationPolicyTarget$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyTarget$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyTarget$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicyTarget$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyTarget$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicyTarget$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyTarget$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyTarget$Outbound;
-}
-
 export function updateTeamEscalationPolicyTargetToJSON(
   updateTeamEscalationPolicyTarget: UpdateTeamEscalationPolicyTarget,
 ): string {
@@ -321,7 +295,6 @@ export function updateTeamEscalationPolicyTargetToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyTargetFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicyTarget, SDKValidationError> {
@@ -336,24 +309,10 @@ export function updateTeamEscalationPolicyTargetFromJSON(
 export const UpdateTeamEscalationPolicyDistributionType$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyDistributionType> = z
     .nativeEnum(UpdateTeamEscalationPolicyDistributionType);
-
 /** @internal */
 export const UpdateTeamEscalationPolicyDistributionType$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyDistributionType> =
     UpdateTeamEscalationPolicyDistributionType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyDistributionType$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyDistributionType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyDistributionType$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyDistributionType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyDistributionType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamEscalationPolicyStep$inboundSchema: z.ZodType<
@@ -374,7 +333,6 @@ export const UpdateTeamEscalationPolicyStep$inboundSchema: z.ZodType<
     "distribution_type": "distributionType",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyStep$Outbound = {
   targets?: Array<UpdateTeamEscalationPolicyTarget$Outbound> | null | undefined;
@@ -403,19 +361,6 @@ export const UpdateTeamEscalationPolicyStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyStep$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyStep$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicyStep$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyStep$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicyStep$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyStep$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyStep$Outbound;
-}
-
 export function updateTeamEscalationPolicyStepToJSON(
   updateTeamEscalationPolicyStep: UpdateTeamEscalationPolicyStep,
 ): string {
@@ -425,7 +370,6 @@ export function updateTeamEscalationPolicyStepToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyStepFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicyStep, SDKValidationError> {
@@ -441,24 +385,10 @@ export const UpdateTeamEscalationPolicyTargetType$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyTargetType> = z.nativeEnum(
     UpdateTeamEscalationPolicyTargetType,
   );
-
 /** @internal */
 export const UpdateTeamEscalationPolicyTargetType$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyTargetType> =
     UpdateTeamEscalationPolicyTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyTargetType$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyTargetType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyTargetType$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyTargetType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyTargetType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamEscalationPolicyHandoffStep$inboundSchema: z.ZodType<
@@ -474,7 +404,6 @@ export const UpdateTeamEscalationPolicyHandoffStep$inboundSchema: z.ZodType<
     "target_id": "targetId",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyHandoffStep$Outbound = {
   target_type: string;
@@ -496,21 +425,6 @@ export const UpdateTeamEscalationPolicyHandoffStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyHandoffStep$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyHandoffStep$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyHandoffStep$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHandoffStep$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyHandoffStep$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHandoffStep$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyHandoffStep$Outbound;
-}
-
 export function updateTeamEscalationPolicyHandoffStepToJSON(
   updateTeamEscalationPolicyHandoffStep: UpdateTeamEscalationPolicyHandoffStep,
 ): string {
@@ -520,7 +434,6 @@ export function updateTeamEscalationPolicyHandoffStepToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyHandoffStepFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicyHandoffStep, SDKValidationError> {
@@ -536,24 +449,10 @@ export function updateTeamEscalationPolicyHandoffStepFromJSON(
 export const UpdateTeamEscalationPolicyHighTargetType$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyHighTargetType> = z
     .nativeEnum(UpdateTeamEscalationPolicyHighTargetType);
-
 /** @internal */
 export const UpdateTeamEscalationPolicyHighTargetType$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyHighTargetType> =
     UpdateTeamEscalationPolicyHighTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyHighTargetType$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyHighTargetType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyHighTargetType$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHighTargetType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyHighTargetType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamEscalationPolicyHighHandoffStep$inboundSchema: z.ZodType<
@@ -569,7 +468,6 @@ export const UpdateTeamEscalationPolicyHighHandoffStep$inboundSchema: z.ZodType<
     "target_id": "targetId",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyHighHandoffStep$Outbound = {
   target_type: string;
@@ -592,21 +490,6 @@ export const UpdateTeamEscalationPolicyHighHandoffStep$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyHighHandoffStep$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyHighHandoffStep$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyHighHandoffStep$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHighHandoffStep$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyHighHandoffStep$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHighHandoffStep$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyHighHandoffStep$Outbound;
-}
-
 export function updateTeamEscalationPolicyHighHandoffStepToJSON(
   updateTeamEscalationPolicyHighHandoffStep:
     UpdateTeamEscalationPolicyHighHandoffStep,
@@ -617,7 +500,6 @@ export function updateTeamEscalationPolicyHighHandoffStepToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyHighHandoffStepFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -649,7 +531,6 @@ export const UpdateTeamEscalationPolicyHigh$inboundSchema: z.ZodType<
     "handoff_step": "handoffStep",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyHigh$Outbound = {
   repetitions?: number | null | undefined;
@@ -675,19 +556,6 @@ export const UpdateTeamEscalationPolicyHigh$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyHigh$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyHigh$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicyHigh$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHigh$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicyHigh$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyHigh$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyHigh$Outbound;
-}
-
 export function updateTeamEscalationPolicyHighToJSON(
   updateTeamEscalationPolicyHigh: UpdateTeamEscalationPolicyHigh,
 ): string {
@@ -697,7 +565,6 @@ export function updateTeamEscalationPolicyHighToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyHighFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicyHigh, SDKValidationError> {
@@ -712,24 +579,10 @@ export function updateTeamEscalationPolicyHighFromJSON(
 export const UpdateTeamEscalationPolicyMediumTargetType$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyMediumTargetType> = z
     .nativeEnum(UpdateTeamEscalationPolicyMediumTargetType);
-
 /** @internal */
 export const UpdateTeamEscalationPolicyMediumTargetType$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyMediumTargetType> =
     UpdateTeamEscalationPolicyMediumTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyMediumTargetType$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyMediumTargetType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyMediumTargetType$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyMediumTargetType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyMediumTargetType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamEscalationPolicyMediumHandoffStep$inboundSchema:
@@ -746,7 +599,6 @@ export const UpdateTeamEscalationPolicyMediumHandoffStep$inboundSchema:
       "target_id": "targetId",
     });
   });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyMediumHandoffStep$Outbound = {
   target_type: string;
@@ -769,21 +621,6 @@ export const UpdateTeamEscalationPolicyMediumHandoffStep$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyMediumHandoffStep$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyMediumHandoffStep$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyMediumHandoffStep$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyMediumHandoffStep$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyMediumHandoffStep$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyMediumHandoffStep$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyMediumHandoffStep$Outbound;
-}
-
 export function updateTeamEscalationPolicyMediumHandoffStepToJSON(
   updateTeamEscalationPolicyMediumHandoffStep:
     UpdateTeamEscalationPolicyMediumHandoffStep,
@@ -794,7 +631,6 @@ export function updateTeamEscalationPolicyMediumHandoffStepToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyMediumHandoffStepFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -826,7 +662,6 @@ export const UpdateTeamEscalationPolicyMedium$inboundSchema: z.ZodType<
     "handoff_step": "handoffStep",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyMedium$Outbound = {
   repetitions?: number | null | undefined;
@@ -852,19 +687,6 @@ export const UpdateTeamEscalationPolicyMedium$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyMedium$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyMedium$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicyMedium$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyMedium$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicyMedium$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyMedium$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyMedium$Outbound;
-}
-
 export function updateTeamEscalationPolicyMediumToJSON(
   updateTeamEscalationPolicyMedium: UpdateTeamEscalationPolicyMedium,
 ): string {
@@ -874,7 +696,6 @@ export function updateTeamEscalationPolicyMediumToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyMediumFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicyMedium, SDKValidationError> {
@@ -889,24 +710,10 @@ export function updateTeamEscalationPolicyMediumFromJSON(
 export const UpdateTeamEscalationPolicyLowTargetType$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyLowTargetType> = z
     .nativeEnum(UpdateTeamEscalationPolicyLowTargetType);
-
 /** @internal */
 export const UpdateTeamEscalationPolicyLowTargetType$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamEscalationPolicyLowTargetType> =
     UpdateTeamEscalationPolicyLowTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyLowTargetType$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyLowTargetType$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyLowTargetType$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyLowTargetType$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyLowTargetType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamEscalationPolicyLowHandoffStep$inboundSchema: z.ZodType<
@@ -922,7 +729,6 @@ export const UpdateTeamEscalationPolicyLowHandoffStep$inboundSchema: z.ZodType<
     "target_id": "targetId",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyLowHandoffStep$Outbound = {
   target_type: string;
@@ -944,21 +750,6 @@ export const UpdateTeamEscalationPolicyLowHandoffStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyLowHandoffStep$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyLowHandoffStep$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyLowHandoffStep$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyLowHandoffStep$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyLowHandoffStep$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyLowHandoffStep$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyLowHandoffStep$Outbound;
-}
-
 export function updateTeamEscalationPolicyLowHandoffStepToJSON(
   updateTeamEscalationPolicyLowHandoffStep:
     UpdateTeamEscalationPolicyLowHandoffStep,
@@ -969,7 +760,6 @@ export function updateTeamEscalationPolicyLowHandoffStepToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyLowHandoffStepFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1001,7 +791,6 @@ export const UpdateTeamEscalationPolicyLow$inboundSchema: z.ZodType<
     "handoff_step": "handoffStep",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyLow$Outbound = {
   repetitions?: number | null | undefined;
@@ -1027,19 +816,6 @@ export const UpdateTeamEscalationPolicyLow$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyLow$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyLow$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicyLow$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyLow$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicyLow$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyLow$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyLow$Outbound;
-}
-
 export function updateTeamEscalationPolicyLowToJSON(
   updateTeamEscalationPolicyLow: UpdateTeamEscalationPolicyLow,
 ): string {
@@ -1049,7 +825,6 @@ export function updateTeamEscalationPolicyLowToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyLowFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicyLow, SDKValidationError> {
@@ -1075,7 +850,6 @@ export const UpdateTeamEscalationPolicyPrioritizedSettings$inboundSchema:
     low: z.nullable(z.lazy(() => UpdateTeamEscalationPolicyLow$inboundSchema))
       .optional(),
   });
-
 /** @internal */
 export type UpdateTeamEscalationPolicyPrioritizedSettings$Outbound = {
   high?: UpdateTeamEscalationPolicyHigh$Outbound | null | undefined;
@@ -1100,21 +874,6 @@ export const UpdateTeamEscalationPolicyPrioritizedSettings$outboundSchema:
       .optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicyPrioritizedSettings$ {
-  /** @deprecated use `UpdateTeamEscalationPolicyPrioritizedSettings$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamEscalationPolicyPrioritizedSettings$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyPrioritizedSettings$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamEscalationPolicyPrioritizedSettings$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicyPrioritizedSettings$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicyPrioritizedSettings$Outbound;
-}
-
 export function updateTeamEscalationPolicyPrioritizedSettingsToJSON(
   updateTeamEscalationPolicyPrioritizedSettings:
     UpdateTeamEscalationPolicyPrioritizedSettings,
@@ -1125,7 +884,6 @@ export function updateTeamEscalationPolicyPrioritizedSettingsToJSON(
     ),
   );
 }
-
 export function updateTeamEscalationPolicyPrioritizedSettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1169,7 +927,6 @@ export const UpdateTeamEscalationPolicy$inboundSchema: z.ZodType<
     "prioritized_settings": "prioritizedSettings",
   });
 });
-
 /** @internal */
 export type UpdateTeamEscalationPolicy$Outbound = {
   name?: string | null | undefined;
@@ -1216,19 +973,6 @@ export const UpdateTeamEscalationPolicy$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamEscalationPolicy$ {
-  /** @deprecated use `UpdateTeamEscalationPolicy$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamEscalationPolicy$inboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicy$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamEscalationPolicy$outboundSchema;
-  /** @deprecated use `UpdateTeamEscalationPolicy$Outbound` instead. */
-  export type Outbound = UpdateTeamEscalationPolicy$Outbound;
-}
-
 export function updateTeamEscalationPolicyToJSON(
   updateTeamEscalationPolicy: UpdateTeamEscalationPolicy,
 ): string {
@@ -1236,7 +980,6 @@ export function updateTeamEscalationPolicyToJSON(
     UpdateTeamEscalationPolicy$outboundSchema.parse(updateTeamEscalationPolicy),
   );
 }
-
 export function updateTeamEscalationPolicyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamEscalationPolicy, SDKValidationError> {

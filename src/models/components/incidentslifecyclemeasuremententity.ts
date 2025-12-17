@@ -42,7 +42,6 @@ export const IncidentsLifecycleMeasurementEntity$inboundSchema: z.ZodType<
     "calculated_at": "calculatedAt",
   });
 });
-
 /** @internal */
 export type IncidentsLifecycleMeasurementEntity$Outbound = {
   id?: string | null | undefined;
@@ -77,21 +76,6 @@ export const IncidentsLifecycleMeasurementEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsLifecycleMeasurementEntity$ {
-  /** @deprecated use `IncidentsLifecycleMeasurementEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsLifecycleMeasurementEntity$inboundSchema;
-  /** @deprecated use `IncidentsLifecycleMeasurementEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsLifecycleMeasurementEntity$outboundSchema;
-  /** @deprecated use `IncidentsLifecycleMeasurementEntity$Outbound` instead. */
-  export type Outbound = IncidentsLifecycleMeasurementEntity$Outbound;
-}
-
 export function incidentsLifecycleMeasurementEntityToJSON(
   incidentsLifecycleMeasurementEntity: IncidentsLifecycleMeasurementEntity,
 ): string {
@@ -101,7 +85,6 @@ export function incidentsLifecycleMeasurementEntityToJSON(
     ),
   );
 }
-
 export function incidentsLifecycleMeasurementEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsLifecycleMeasurementEntity, SDKValidationError> {

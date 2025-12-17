@@ -28,21 +28,9 @@ export type VoteAiIncidentSummaryRequest = {
 /** @internal */
 export const Direction$inboundSchema: z.ZodNativeEnum<typeof Direction> = z
   .nativeEnum(Direction);
-
 /** @internal */
 export const Direction$outboundSchema: z.ZodNativeEnum<typeof Direction> =
   Direction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Direction$ {
-  /** @deprecated use `Direction$inboundSchema` instead. */
-  export const inboundSchema = Direction$inboundSchema;
-  /** @deprecated use `Direction$outboundSchema` instead. */
-  export const outboundSchema = Direction$outboundSchema;
-}
 
 /** @internal */
 export const VoteAiIncidentSummaryRequestBody$inboundSchema: z.ZodType<
@@ -52,7 +40,6 @@ export const VoteAiIncidentSummaryRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   direction: Direction$inboundSchema,
 });
-
 /** @internal */
 export type VoteAiIncidentSummaryRequestBody$Outbound = {
   direction: string;
@@ -67,19 +54,6 @@ export const VoteAiIncidentSummaryRequestBody$outboundSchema: z.ZodType<
   direction: Direction$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VoteAiIncidentSummaryRequestBody$ {
-  /** @deprecated use `VoteAiIncidentSummaryRequestBody$inboundSchema` instead. */
-  export const inboundSchema = VoteAiIncidentSummaryRequestBody$inboundSchema;
-  /** @deprecated use `VoteAiIncidentSummaryRequestBody$outboundSchema` instead. */
-  export const outboundSchema = VoteAiIncidentSummaryRequestBody$outboundSchema;
-  /** @deprecated use `VoteAiIncidentSummaryRequestBody$Outbound` instead. */
-  export type Outbound = VoteAiIncidentSummaryRequestBody$Outbound;
-}
-
 export function voteAiIncidentSummaryRequestBodyToJSON(
   voteAiIncidentSummaryRequestBody: VoteAiIncidentSummaryRequestBody,
 ): string {
@@ -89,7 +63,6 @@ export function voteAiIncidentSummaryRequestBodyToJSON(
     ),
   );
 }
-
 export function voteAiIncidentSummaryRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<VoteAiIncidentSummaryRequestBody, SDKValidationError> {
@@ -116,7 +89,6 @@ export const VoteAiIncidentSummaryRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type VoteAiIncidentSummaryRequest$Outbound = {
   incident_id: string;
@@ -141,19 +113,6 @@ export const VoteAiIncidentSummaryRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VoteAiIncidentSummaryRequest$ {
-  /** @deprecated use `VoteAiIncidentSummaryRequest$inboundSchema` instead. */
-  export const inboundSchema = VoteAiIncidentSummaryRequest$inboundSchema;
-  /** @deprecated use `VoteAiIncidentSummaryRequest$outboundSchema` instead. */
-  export const outboundSchema = VoteAiIncidentSummaryRequest$outboundSchema;
-  /** @deprecated use `VoteAiIncidentSummaryRequest$Outbound` instead. */
-  export type Outbound = VoteAiIncidentSummaryRequest$Outbound;
-}
-
 export function voteAiIncidentSummaryRequestToJSON(
   voteAiIncidentSummaryRequest: VoteAiIncidentSummaryRequest,
 ): string {
@@ -163,7 +122,6 @@ export function voteAiIncidentSummaryRequestToJSON(
     ),
   );
 }
-
 export function voteAiIncidentSummaryRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<VoteAiIncidentSummaryRequest, SDKValidationError> {

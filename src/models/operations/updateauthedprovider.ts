@@ -43,7 +43,6 @@ export const UpdateAuthedProviderRequestBody$inboundSchema: z.ZodType<
     "integration_default": "integrationDefault",
   });
 });
-
 /** @internal */
 export type UpdateAuthedProviderRequestBody$Outbound = {
   integration_default?: boolean | null | undefined;
@@ -62,19 +61,6 @@ export const UpdateAuthedProviderRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAuthedProviderRequestBody$ {
-  /** @deprecated use `UpdateAuthedProviderRequestBody$inboundSchema` instead. */
-  export const inboundSchema = UpdateAuthedProviderRequestBody$inboundSchema;
-  /** @deprecated use `UpdateAuthedProviderRequestBody$outboundSchema` instead. */
-  export const outboundSchema = UpdateAuthedProviderRequestBody$outboundSchema;
-  /** @deprecated use `UpdateAuthedProviderRequestBody$Outbound` instead. */
-  export type Outbound = UpdateAuthedProviderRequestBody$Outbound;
-}
-
 export function updateAuthedProviderRequestBodyToJSON(
   updateAuthedProviderRequestBody: UpdateAuthedProviderRequestBody,
 ): string {
@@ -84,7 +70,6 @@ export function updateAuthedProviderRequestBodyToJSON(
     ),
   );
 }
-
 export function updateAuthedProviderRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAuthedProviderRequestBody, SDKValidationError> {
@@ -114,7 +99,6 @@ export const UpdateAuthedProviderRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateAuthedProviderRequest$Outbound = {
   integration_slug: string;
@@ -143,19 +127,6 @@ export const UpdateAuthedProviderRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAuthedProviderRequest$ {
-  /** @deprecated use `UpdateAuthedProviderRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateAuthedProviderRequest$inboundSchema;
-  /** @deprecated use `UpdateAuthedProviderRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateAuthedProviderRequest$outboundSchema;
-  /** @deprecated use `UpdateAuthedProviderRequest$Outbound` instead. */
-  export type Outbound = UpdateAuthedProviderRequest$Outbound;
-}
-
 export function updateAuthedProviderRequestToJSON(
   updateAuthedProviderRequest: UpdateAuthedProviderRequest,
 ): string {
@@ -165,7 +136,6 @@ export function updateAuthedProviderRequestToJSON(
     ),
   );
 }
-
 export function updateAuthedProviderRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAuthedProviderRequest, SDKValidationError> {

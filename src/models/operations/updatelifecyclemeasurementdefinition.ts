@@ -39,7 +39,6 @@ export const UpdateLifecycleMeasurementDefinitionRequestBody$inboundSchema:
       "ends_at_milestone_id": "endsAtMilestoneId",
     });
   });
-
 /** @internal */
 export type UpdateLifecycleMeasurementDefinitionRequestBody$Outbound = {
   name?: string | null | undefined;
@@ -68,22 +67,6 @@ export const UpdateLifecycleMeasurementDefinitionRequestBody$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateLifecycleMeasurementDefinitionRequestBody$ {
-  /** @deprecated use `UpdateLifecycleMeasurementDefinitionRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateLifecycleMeasurementDefinitionRequestBody$inboundSchema;
-  /** @deprecated use `UpdateLifecycleMeasurementDefinitionRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateLifecycleMeasurementDefinitionRequestBody$outboundSchema;
-  /** @deprecated use `UpdateLifecycleMeasurementDefinitionRequestBody$Outbound` instead. */
-  export type Outbound =
-    UpdateLifecycleMeasurementDefinitionRequestBody$Outbound;
-}
-
 export function updateLifecycleMeasurementDefinitionRequestBodyToJSON(
   updateLifecycleMeasurementDefinitionRequestBody:
     UpdateLifecycleMeasurementDefinitionRequestBody,
@@ -94,7 +77,6 @@ export function updateLifecycleMeasurementDefinitionRequestBodyToJSON(
     ),
   );
 }
-
 export function updateLifecycleMeasurementDefinitionRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -128,7 +110,6 @@ export const UpdateLifecycleMeasurementDefinitionRequest$inboundSchema:
       "RequestBody": "requestBody",
     });
   });
-
 /** @internal */
 export type UpdateLifecycleMeasurementDefinitionRequest$Outbound = {
   measurement_definition_id: string;
@@ -155,21 +136,6 @@ export const UpdateLifecycleMeasurementDefinitionRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateLifecycleMeasurementDefinitionRequest$ {
-  /** @deprecated use `UpdateLifecycleMeasurementDefinitionRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateLifecycleMeasurementDefinitionRequest$inboundSchema;
-  /** @deprecated use `UpdateLifecycleMeasurementDefinitionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateLifecycleMeasurementDefinitionRequest$outboundSchema;
-  /** @deprecated use `UpdateLifecycleMeasurementDefinitionRequest$Outbound` instead. */
-  export type Outbound = UpdateLifecycleMeasurementDefinitionRequest$Outbound;
-}
-
 export function updateLifecycleMeasurementDefinitionRequestToJSON(
   updateLifecycleMeasurementDefinitionRequest:
     UpdateLifecycleMeasurementDefinitionRequest,
@@ -180,7 +146,6 @@ export function updateLifecycleMeasurementDefinitionRequestToJSON(
     ),
   );
 }
-
 export function updateLifecycleMeasurementDefinitionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -19,7 +19,6 @@ export const DeleteSignalsWebhookTargetRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteSignalsWebhookTargetRequest$Outbound = {
   id: string;
@@ -34,20 +33,6 @@ export const DeleteSignalsWebhookTargetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSignalsWebhookTargetRequest$ {
-  /** @deprecated use `DeleteSignalsWebhookTargetRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteSignalsWebhookTargetRequest$inboundSchema;
-  /** @deprecated use `DeleteSignalsWebhookTargetRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteSignalsWebhookTargetRequest$outboundSchema;
-  /** @deprecated use `DeleteSignalsWebhookTargetRequest$Outbound` instead. */
-  export type Outbound = DeleteSignalsWebhookTargetRequest$Outbound;
-}
-
 export function deleteSignalsWebhookTargetRequestToJSON(
   deleteSignalsWebhookTargetRequest: DeleteSignalsWebhookTargetRequest,
 ): string {
@@ -57,7 +42,6 @@ export function deleteSignalsWebhookTargetRequestToJSON(
     ),
   );
 }
-
 export function deleteSignalsWebhookTargetRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteSignalsWebhookTargetRequest, SDKValidationError> {

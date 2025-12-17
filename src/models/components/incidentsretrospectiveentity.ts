@@ -34,6 +34,7 @@ export type IncidentsRetrospectiveEntity = {
   isHidden?: boolean | null | undefined;
   fields?: Array<IncidentsRetrospectiveFieldEntity> | null | undefined;
   exports?: Array<string> | null | undefined;
+  retrospectiveTemplateId?: string | null | undefined;
 };
 
 /** @internal */
@@ -52,12 +53,13 @@ export const IncidentsRetrospectiveEntity$inboundSchema: z.ZodType<
   fields: z.nullable(z.array(IncidentsRetrospectiveFieldEntity$inboundSchema))
     .optional(),
   exports: z.nullable(z.array(z.string())).optional(),
+  retrospective_template_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "is_hidden": "isHidden",
+    "retrospective_template_id": "retrospectiveTemplateId",
   });
 });
-
 /** @internal */
 export type IncidentsRetrospectiveEntity$Outbound = {
   id?: string | null | undefined;
@@ -70,6 +72,7 @@ export type IncidentsRetrospectiveEntity$Outbound = {
   is_hidden?: boolean | null | undefined;
   fields?: Array<IncidentsRetrospectiveFieldEntity$Outbound> | null | undefined;
   exports?: Array<string> | null | undefined;
+  retrospective_template_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -88,24 +91,13 @@ export const IncidentsRetrospectiveEntity$outboundSchema: z.ZodType<
   fields: z.nullable(z.array(IncidentsRetrospectiveFieldEntity$outboundSchema))
     .optional(),
   exports: z.nullable(z.array(z.string())).optional(),
+  retrospectiveTemplateId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     isHidden: "is_hidden",
+    retrospectiveTemplateId: "retrospective_template_id",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRetrospectiveEntity$ {
-  /** @deprecated use `IncidentsRetrospectiveEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsRetrospectiveEntity$inboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsRetrospectiveEntity$outboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveEntity$Outbound` instead. */
-  export type Outbound = IncidentsRetrospectiveEntity$Outbound;
-}
 
 export function incidentsRetrospectiveEntityToJSON(
   incidentsRetrospectiveEntity: IncidentsRetrospectiveEntity,
@@ -116,7 +108,6 @@ export function incidentsRetrospectiveEntityToJSON(
     ),
   );
 }
-
 export function incidentsRetrospectiveEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRetrospectiveEntity, SDKValidationError> {

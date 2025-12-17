@@ -27,7 +27,6 @@ export const GetIntegrationRequest$inboundSchema: z.ZodType<
     "integration_id": "integrationId",
   });
 });
-
 /** @internal */
 export type GetIntegrationRequest$Outbound = {
   integration_id: string;
@@ -46,19 +45,6 @@ export const GetIntegrationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetIntegrationRequest$ {
-  /** @deprecated use `GetIntegrationRequest$inboundSchema` instead. */
-  export const inboundSchema = GetIntegrationRequest$inboundSchema;
-  /** @deprecated use `GetIntegrationRequest$outboundSchema` instead. */
-  export const outboundSchema = GetIntegrationRequest$outboundSchema;
-  /** @deprecated use `GetIntegrationRequest$Outbound` instead. */
-  export type Outbound = GetIntegrationRequest$Outbound;
-}
-
 export function getIntegrationRequestToJSON(
   getIntegrationRequest: GetIntegrationRequest,
 ): string {
@@ -66,7 +52,6 @@ export function getIntegrationRequestToJSON(
     GetIntegrationRequest$outboundSchema.parse(getIntegrationRequest),
   );
 }
-
 export function getIntegrationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetIntegrationRequest, SDKValidationError> {

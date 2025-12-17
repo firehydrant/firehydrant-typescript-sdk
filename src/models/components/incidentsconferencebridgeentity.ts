@@ -38,7 +38,6 @@ export const IncidentsConferenceBridgeEntityAttachment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IncidentsConferenceBridgeEntityAttachment$Outbound = {};
 
@@ -50,21 +49,6 @@ export const IncidentsConferenceBridgeEntityAttachment$outboundSchema:
     IncidentsConferenceBridgeEntityAttachment
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsConferenceBridgeEntityAttachment$ {
-  /** @deprecated use `IncidentsConferenceBridgeEntityAttachment$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsConferenceBridgeEntityAttachment$inboundSchema;
-  /** @deprecated use `IncidentsConferenceBridgeEntityAttachment$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsConferenceBridgeEntityAttachment$outboundSchema;
-  /** @deprecated use `IncidentsConferenceBridgeEntityAttachment$Outbound` instead. */
-  export type Outbound = IncidentsConferenceBridgeEntityAttachment$Outbound;
-}
-
 export function incidentsConferenceBridgeEntityAttachmentToJSON(
   incidentsConferenceBridgeEntityAttachment:
     IncidentsConferenceBridgeEntityAttachment,
@@ -75,7 +59,6 @@ export function incidentsConferenceBridgeEntityAttachmentToJSON(
     ),
   );
 }
-
 export function incidentsConferenceBridgeEntityAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -118,7 +101,6 @@ export const IncidentsConferenceBridgeEntity$inboundSchema: z.ZodType<
     "previous_host_assignment": "previousHostAssignment",
   });
 });
-
 /** @internal */
 export type IncidentsConferenceBridgeEntity$Outbound = {
   id?: string | null | undefined;
@@ -160,19 +142,6 @@ export const IncidentsConferenceBridgeEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsConferenceBridgeEntity$ {
-  /** @deprecated use `IncidentsConferenceBridgeEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsConferenceBridgeEntity$inboundSchema;
-  /** @deprecated use `IncidentsConferenceBridgeEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsConferenceBridgeEntity$outboundSchema;
-  /** @deprecated use `IncidentsConferenceBridgeEntity$Outbound` instead. */
-  export type Outbound = IncidentsConferenceBridgeEntity$Outbound;
-}
-
 export function incidentsConferenceBridgeEntityToJSON(
   incidentsConferenceBridgeEntity: IncidentsConferenceBridgeEntity,
 ): string {
@@ -182,7 +151,6 @@ export function incidentsConferenceBridgeEntityToJSON(
     ),
   );
 }
-
 export function incidentsConferenceBridgeEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsConferenceBridgeEntity, SDKValidationError> {

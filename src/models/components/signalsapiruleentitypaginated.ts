@@ -36,7 +36,6 @@ export const SignalsAPIRuleEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(SignalsAPIRuleEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SignalsAPIRuleEntityPaginated$Outbound = {
   data?: Array<SignalsAPIRuleEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const SignalsAPIRuleEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIRuleEntityPaginated$ {
-  /** @deprecated use `SignalsAPIRuleEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIRuleEntityPaginated$inboundSchema;
-  /** @deprecated use `SignalsAPIRuleEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIRuleEntityPaginated$outboundSchema;
-  /** @deprecated use `SignalsAPIRuleEntityPaginated$Outbound` instead. */
-  export type Outbound = SignalsAPIRuleEntityPaginated$Outbound;
-}
-
 export function signalsAPIRuleEntityPaginatedToJSON(
   signalsAPIRuleEntityPaginated: SignalsAPIRuleEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function signalsAPIRuleEntityPaginatedToJSON(
     ),
   );
 }
-
 export function signalsAPIRuleEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIRuleEntityPaginated, SDKValidationError> {

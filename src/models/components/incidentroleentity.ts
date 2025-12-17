@@ -47,7 +47,6 @@ export const IncidentRoleEntity$inboundSchema: z.ZodType<
     "discarded_at": "discardedAt",
   });
 });
-
 /** @internal */
 export type IncidentRoleEntity$Outbound = {
   id?: string | null | undefined;
@@ -80,19 +79,6 @@ export const IncidentRoleEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentRoleEntity$ {
-  /** @deprecated use `IncidentRoleEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentRoleEntity$inboundSchema;
-  /** @deprecated use `IncidentRoleEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentRoleEntity$outboundSchema;
-  /** @deprecated use `IncidentRoleEntity$Outbound` instead. */
-  export type Outbound = IncidentRoleEntity$Outbound;
-}
-
 export function incidentRoleEntityToJSON(
   incidentRoleEntity: IncidentRoleEntity,
 ): string {
@@ -100,7 +86,6 @@ export function incidentRoleEntityToJSON(
     IncidentRoleEntity$outboundSchema.parse(incidentRoleEntity),
   );
 }
-
 export function incidentRoleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentRoleEntity, SDKValidationError> {

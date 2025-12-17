@@ -35,7 +35,6 @@ export const RetrospectivesIndexTemplateEntityPaginated$inboundSchema:
         .optional(),
       pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
     });
-
 /** @internal */
 export type RetrospectivesIndexTemplateEntityPaginated$Outbound = {
   data?: Array<RetrospectivesIndexTemplateEntity$Outbound> | null | undefined;
@@ -54,21 +53,6 @@ export const RetrospectivesIndexTemplateEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RetrospectivesIndexTemplateEntityPaginated$ {
-  /** @deprecated use `RetrospectivesIndexTemplateEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    RetrospectivesIndexTemplateEntityPaginated$inboundSchema;
-  /** @deprecated use `RetrospectivesIndexTemplateEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    RetrospectivesIndexTemplateEntityPaginated$outboundSchema;
-  /** @deprecated use `RetrospectivesIndexTemplateEntityPaginated$Outbound` instead. */
-  export type Outbound = RetrospectivesIndexTemplateEntityPaginated$Outbound;
-}
-
 export function retrospectivesIndexTemplateEntityPaginatedToJSON(
   retrospectivesIndexTemplateEntityPaginated:
     RetrospectivesIndexTemplateEntityPaginated,
@@ -79,7 +63,6 @@ export function retrospectivesIndexTemplateEntityPaginatedToJSON(
     ),
   );
 }
-
 export function retrospectivesIndexTemplateEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -1,5 +1,4 @@
 # Ticketing
-(*ticketing*)
 
 ## Overview
 
@@ -37,6 +36,11 @@ Operations related to Ticketing
 * [deleteTicketingPriority](#deleteticketingpriority) - Delete a ticketing priority
 * [updateTicketingPriority](#updateticketingpriority) - Update a ticketing priority
 * [listTicketTags](#listtickettags) - List ticket tags
+* [getTicketingFormConfiguration](#getticketingformconfiguration) - Get the ticketing form configuration
+* [listTicketingCustomDefinitions](#listticketingcustomdefinitions) - List ticketing custom fields
+* [createTicketingCustomDefinition](#createticketingcustomdefinition) - Create a ticketing custom field
+* [deleteTicketingCustomDefinition](#deleteticketingcustomdefinition) - Delete a ticketing custom field
+* [updateTicketingCustomDefinition](#updateticketingcustomdefinition) - Update a ticketing custom field
 
 ## listTickets
 
@@ -2228,6 +2232,365 @@ run();
 ### Response
 
 **Promise\<[components.TagEntityPaginated](../../models/components/tagentitypaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getTicketingFormConfiguration
+
+Get the ticketing form configuration
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get_ticketing_form_configuration" method="get" path="/v1/ticketing/form_configurations" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.ticketing.getTicketingFormConfiguration();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingGetTicketingFormConfiguration } from "firehydrant-typescript-sdk/funcs/ticketingGetTicketingFormConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await ticketingGetTicketingFormConfiguration(firehydrant);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingGetTicketingFormConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.TicketingTicketFormConfigurationEntity](../../models/components/ticketingticketformconfigurationentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listTicketingCustomDefinitions
+
+List all ticketing custom fields available to the organization
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_ticketing_custom_definitions" method="get" path="/v1/ticketing/custom_fields/definitions" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.ticketing.listTicketingCustomDefinitions();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingListTicketingCustomDefinitions } from "firehydrant-typescript-sdk/funcs/ticketingListTicketingCustomDefinitions.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await ticketingListTicketingCustomDefinitions(firehydrant);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingListTicketingCustomDefinitions failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.OrganizationsTicketingCustomFieldDefinitionEntity](../../models/components/organizationsticketingcustomfielddefinitionentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createTicketingCustomDefinition
+
+Creates a ticketing custom field for the organization
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="create_ticketing_custom_definition" method="post" path="/v1/ticketing/custom_fields/definitions" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.ticketing.createTicketingCustomDefinition({
+    displayName: "Rigoberto.Will15",
+    fieldType: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingCreateTicketingCustomDefinition } from "firehydrant-typescript-sdk/funcs/ticketingCreateTicketingCustomDefinition.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await ticketingCreateTicketingCustomDefinition(firehydrant, {
+    displayName: "Rigoberto.Will15",
+    fieldType: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingCreateTicketingCustomDefinition failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.CreateTicketingCustomDefinition](../../models/components/createticketingcustomdefinition.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.OrganizationsTicketingCustomFieldDefinitionEntity](../../models/components/organizationsticketingcustomfielddefinitionentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteTicketingCustomDefinition
+
+Deletes a ticketing custom field for the organization
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="delete_ticketing_custom_definition" method="delete" path="/v1/ticketing/custom_fields/definitions/{field_id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.ticketing.deleteTicketingCustomDefinition({
+    fieldId: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingDeleteTicketingCustomDefinition } from "firehydrant-typescript-sdk/funcs/ticketingDeleteTicketingCustomDefinition.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await ticketingDeleteTicketingCustomDefinition(firehydrant, {
+    fieldId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("ticketingDeleteTicketingCustomDefinition failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteTicketingCustomDefinitionRequest](../../models/operations/deleteticketingcustomdefinitionrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateTicketingCustomDefinition
+
+Update a ticketing custom field for the organization
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update_ticketing_custom_definition" method="patch" path="/v1/ticketing/custom_fields/definitions/{field_id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.ticketing.updateTicketingCustomDefinition({
+    fieldId: "<id>",
+    updateTicketingCustomDefinition: {},
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { ticketingUpdateTicketingCustomDefinition } from "firehydrant-typescript-sdk/funcs/ticketingUpdateTicketingCustomDefinition.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await ticketingUpdateTicketingCustomDefinition(firehydrant, {
+    fieldId: "<id>",
+    updateTicketingCustomDefinition: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("ticketingUpdateTicketingCustomDefinition failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateTicketingCustomDefinitionRequest](../../models/operations/updateticketingcustomdefinitionrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.OrganizationsTicketingCustomFieldDefinitionEntity](../../models/components/organizationsticketingcustomfielddefinitionentity.md)\>**
 
 ### Errors
 

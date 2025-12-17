@@ -39,7 +39,6 @@ export const OverrideOnCallScheduleRotationShiftsRequest$inboundSchema:
         "overrideOnCallScheduleRotationShifts",
     });
   });
-
 /** @internal */
 export type OverrideOnCallScheduleRotationShiftsRequest$Outbound = {
   rotation_id: string;
@@ -72,21 +71,6 @@ export const OverrideOnCallScheduleRotationShiftsRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OverrideOnCallScheduleRotationShiftsRequest$ {
-  /** @deprecated use `OverrideOnCallScheduleRotationShiftsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    OverrideOnCallScheduleRotationShiftsRequest$inboundSchema;
-  /** @deprecated use `OverrideOnCallScheduleRotationShiftsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    OverrideOnCallScheduleRotationShiftsRequest$outboundSchema;
-  /** @deprecated use `OverrideOnCallScheduleRotationShiftsRequest$Outbound` instead. */
-  export type Outbound = OverrideOnCallScheduleRotationShiftsRequest$Outbound;
-}
-
 export function overrideOnCallScheduleRotationShiftsRequestToJSON(
   overrideOnCallScheduleRotationShiftsRequest:
     OverrideOnCallScheduleRotationShiftsRequest,
@@ -97,7 +81,6 @@ export function overrideOnCallScheduleRotationShiftsRequestToJSON(
     ),
   );
 }
-
 export function overrideOnCallScheduleRotationShiftsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

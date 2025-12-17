@@ -51,7 +51,6 @@ export const ExternalResourceEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type ExternalResourceEntity$Outbound = {
   connection_type?: string | null | undefined;
@@ -93,19 +92,6 @@ export const ExternalResourceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExternalResourceEntity$ {
-  /** @deprecated use `ExternalResourceEntity$inboundSchema` instead. */
-  export const inboundSchema = ExternalResourceEntity$inboundSchema;
-  /** @deprecated use `ExternalResourceEntity$outboundSchema` instead. */
-  export const outboundSchema = ExternalResourceEntity$outboundSchema;
-  /** @deprecated use `ExternalResourceEntity$Outbound` instead. */
-  export type Outbound = ExternalResourceEntity$Outbound;
-}
-
 export function externalResourceEntityToJSON(
   externalResourceEntity: ExternalResourceEntity,
 ): string {
@@ -113,7 +99,6 @@ export function externalResourceEntityToJSON(
     ExternalResourceEntity$outboundSchema.parse(externalResourceEntity),
   );
 }
-
 export function externalResourceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ExternalResourceEntity, SDKValidationError> {

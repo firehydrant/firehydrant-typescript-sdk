@@ -85,7 +85,6 @@ export const SlimRunbookEntity$inboundSchema: z.ZodType<
     "last_executed_for_incident": "lastExecutedForIncident",
   });
 });
-
 /** @internal */
 export type SlimRunbookEntity$Outbound = {
   id?: string | null | undefined;
@@ -136,19 +135,6 @@ export const SlimRunbookEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SlimRunbookEntity$ {
-  /** @deprecated use `SlimRunbookEntity$inboundSchema` instead. */
-  export const inboundSchema = SlimRunbookEntity$inboundSchema;
-  /** @deprecated use `SlimRunbookEntity$outboundSchema` instead. */
-  export const outboundSchema = SlimRunbookEntity$outboundSchema;
-  /** @deprecated use `SlimRunbookEntity$Outbound` instead. */
-  export type Outbound = SlimRunbookEntity$Outbound;
-}
-
 export function slimRunbookEntityToJSON(
   slimRunbookEntity: SlimRunbookEntity,
 ): string {
@@ -156,7 +142,6 @@ export function slimRunbookEntityToJSON(
     SlimRunbookEntity$outboundSchema.parse(slimRunbookEntity),
   );
 }
-
 export function slimRunbookEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SlimRunbookEntity, SDKValidationError> {

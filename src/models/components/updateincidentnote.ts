@@ -22,7 +22,6 @@ export const UpdateIncidentNote$inboundSchema: z.ZodType<
 > = z.object({
   body: z.string(),
 });
-
 /** @internal */
 export type UpdateIncidentNote$Outbound = {
   body: string;
@@ -37,19 +36,6 @@ export const UpdateIncidentNote$outboundSchema: z.ZodType<
   body: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentNote$ {
-  /** @deprecated use `UpdateIncidentNote$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentNote$inboundSchema;
-  /** @deprecated use `UpdateIncidentNote$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentNote$outboundSchema;
-  /** @deprecated use `UpdateIncidentNote$Outbound` instead. */
-  export type Outbound = UpdateIncidentNote$Outbound;
-}
-
 export function updateIncidentNoteToJSON(
   updateIncidentNote: UpdateIncidentNote,
 ): string {
@@ -57,7 +43,6 @@ export function updateIncidentNoteToJSON(
     UpdateIncidentNote$outboundSchema.parse(updateIncidentNote),
   );
 }
-
 export function updateIncidentNoteFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentNote, SDKValidationError> {

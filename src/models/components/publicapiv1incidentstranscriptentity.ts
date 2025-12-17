@@ -73,7 +73,6 @@ export const PublicApiv1IncidentsTranscriptEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type PublicApiv1IncidentsTranscriptEntity$Outbound = {
   id?: string | null | undefined;
@@ -107,21 +106,6 @@ export const PublicApiv1IncidentsTranscriptEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1IncidentsTranscriptEntity$ {
-  /** @deprecated use `PublicApiv1IncidentsTranscriptEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    PublicApiv1IncidentsTranscriptEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1IncidentsTranscriptEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    PublicApiv1IncidentsTranscriptEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1IncidentsTranscriptEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1IncidentsTranscriptEntity$Outbound;
-}
-
 export function publicAPIV1IncidentsTranscriptEntityToJSON(
   publicApiv1IncidentsTranscriptEntity: PublicApiv1IncidentsTranscriptEntity,
 ): string {
@@ -131,7 +115,6 @@ export function publicAPIV1IncidentsTranscriptEntityToJSON(
     ),
   );
 }
-
 export function publicAPIV1IncidentsTranscriptEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PublicApiv1IncidentsTranscriptEntity, SDKValidationError> {

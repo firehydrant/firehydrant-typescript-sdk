@@ -39,7 +39,6 @@ export const ConvertIncidentTask$inboundSchema: z.ZodType<
     "tag_list": "tagList",
   });
 });
-
 /** @internal */
 export type ConvertIncidentTask$Outbound = {
   summary?: string | null | undefined;
@@ -67,19 +66,6 @@ export const ConvertIncidentTask$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ConvertIncidentTask$ {
-  /** @deprecated use `ConvertIncidentTask$inboundSchema` instead. */
-  export const inboundSchema = ConvertIncidentTask$inboundSchema;
-  /** @deprecated use `ConvertIncidentTask$outboundSchema` instead. */
-  export const outboundSchema = ConvertIncidentTask$outboundSchema;
-  /** @deprecated use `ConvertIncidentTask$Outbound` instead. */
-  export type Outbound = ConvertIncidentTask$Outbound;
-}
-
 export function convertIncidentTaskToJSON(
   convertIncidentTask: ConvertIncidentTask,
 ): string {
@@ -87,7 +73,6 @@ export function convertIncidentTaskToJSON(
     ConvertIncidentTask$outboundSchema.parse(convertIncidentTask),
   );
 }
-
 export function convertIncidentTaskFromJSON(
   jsonString: string,
 ): SafeParseResult<ConvertIncidentTask, SDKValidationError> {

@@ -37,7 +37,6 @@ export const CreateTaskListTaskListItem$inboundSchema: z.ZodType<
   summary: z.string(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type CreateTaskListTaskListItem$Outbound = {
   summary: string;
@@ -54,19 +53,6 @@ export const CreateTaskListTaskListItem$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTaskListTaskListItem$ {
-  /** @deprecated use `CreateTaskListTaskListItem$inboundSchema` instead. */
-  export const inboundSchema = CreateTaskListTaskListItem$inboundSchema;
-  /** @deprecated use `CreateTaskListTaskListItem$outboundSchema` instead. */
-  export const outboundSchema = CreateTaskListTaskListItem$outboundSchema;
-  /** @deprecated use `CreateTaskListTaskListItem$Outbound` instead. */
-  export type Outbound = CreateTaskListTaskListItem$Outbound;
-}
-
 export function createTaskListTaskListItemToJSON(
   createTaskListTaskListItem: CreateTaskListTaskListItem,
 ): string {
@@ -74,7 +60,6 @@ export function createTaskListTaskListItemToJSON(
     CreateTaskListTaskListItem$outboundSchema.parse(createTaskListTaskListItem),
   );
 }
-
 export function createTaskListTaskListItemFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTaskListTaskListItem, SDKValidationError> {
@@ -101,7 +86,6 @@ export const CreateTaskList$inboundSchema: z.ZodType<
     "task_list_items": "taskListItems",
   });
 });
-
 /** @internal */
 export type CreateTaskList$Outbound = {
   name: string;
@@ -126,23 +110,9 @@ export const CreateTaskList$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTaskList$ {
-  /** @deprecated use `CreateTaskList$inboundSchema` instead. */
-  export const inboundSchema = CreateTaskList$inboundSchema;
-  /** @deprecated use `CreateTaskList$outboundSchema` instead. */
-  export const outboundSchema = CreateTaskList$outboundSchema;
-  /** @deprecated use `CreateTaskList$Outbound` instead. */
-  export type Outbound = CreateTaskList$Outbound;
-}
-
 export function createTaskListToJSON(createTaskList: CreateTaskList): string {
   return JSON.stringify(CreateTaskList$outboundSchema.parse(createTaskList));
 }
-
 export function createTaskListFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTaskList, SDKValidationError> {

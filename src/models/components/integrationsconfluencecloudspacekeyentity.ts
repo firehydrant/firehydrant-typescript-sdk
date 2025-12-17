@@ -24,7 +24,6 @@ export const IntegrationsConfluenceCloudSpaceKeyEntity$inboundSchema: z.ZodType<
   key: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type IntegrationsConfluenceCloudSpaceKeyEntity$Outbound = {
   key?: string | null | undefined;
@@ -42,21 +41,6 @@ export const IntegrationsConfluenceCloudSpaceKeyEntity$outboundSchema:
     name: z.nullable(z.string()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConfluenceCloudSpaceKeyEntity$ {
-  /** @deprecated use `IntegrationsConfluenceCloudSpaceKeyEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsConfluenceCloudSpaceKeyEntity$inboundSchema;
-  /** @deprecated use `IntegrationsConfluenceCloudSpaceKeyEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsConfluenceCloudSpaceKeyEntity$outboundSchema;
-  /** @deprecated use `IntegrationsConfluenceCloudSpaceKeyEntity$Outbound` instead. */
-  export type Outbound = IntegrationsConfluenceCloudSpaceKeyEntity$Outbound;
-}
-
 export function integrationsConfluenceCloudSpaceKeyEntityToJSON(
   integrationsConfluenceCloudSpaceKeyEntity:
     IntegrationsConfluenceCloudSpaceKeyEntity,
@@ -67,7 +51,6 @@ export function integrationsConfluenceCloudSpaceKeyEntityToJSON(
     ),
   );
 }
-
 export function integrationsConfluenceCloudSpaceKeyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

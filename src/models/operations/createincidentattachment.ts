@@ -47,7 +47,6 @@ export const CreateIncidentAttachmentFile$inboundSchema: z.ZodType<
     z.instanceof(Uint8Array),
   ]),
 });
-
 /** @internal */
 export type CreateIncidentAttachmentFile$Outbound = {
   fileName: string;
@@ -69,19 +68,6 @@ export const CreateIncidentAttachmentFile$outboundSchema: z.ZodType<
   ]),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentAttachmentFile$ {
-  /** @deprecated use `CreateIncidentAttachmentFile$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentAttachmentFile$inboundSchema;
-  /** @deprecated use `CreateIncidentAttachmentFile$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentAttachmentFile$outboundSchema;
-  /** @deprecated use `CreateIncidentAttachmentFile$Outbound` instead. */
-  export type Outbound = CreateIncidentAttachmentFile$Outbound;
-}
-
 export function createIncidentAttachmentFileToJSON(
   createIncidentAttachmentFile: CreateIncidentAttachmentFile,
 ): string {
@@ -91,7 +77,6 @@ export function createIncidentAttachmentFileToJSON(
     ),
   );
 }
-
 export function createIncidentAttachmentFileFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentAttachmentFile, SDKValidationError> {
@@ -106,22 +91,10 @@ export function createIncidentAttachmentFileFromJSON(
 export const VoteDirection$inboundSchema: z.ZodNativeEnum<
   typeof VoteDirection
 > = z.nativeEnum(VoteDirection);
-
 /** @internal */
 export const VoteDirection$outboundSchema: z.ZodNativeEnum<
   typeof VoteDirection
 > = VoteDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VoteDirection$ {
-  /** @deprecated use `VoteDirection$inboundSchema` instead. */
-  export const inboundSchema = VoteDirection$inboundSchema;
-  /** @deprecated use `VoteDirection$outboundSchema` instead. */
-  export const outboundSchema = VoteDirection$outboundSchema;
-}
 
 /** @internal */
 export const CreateIncidentAttachmentRequestBody$inboundSchema: z.ZodType<
@@ -141,7 +114,6 @@ export const CreateIncidentAttachmentRequestBody$inboundSchema: z.ZodType<
     "vote_direction": "voteDirection",
   });
 });
-
 /** @internal */
 export type CreateIncidentAttachmentRequestBody$Outbound = {
   file: CreateIncidentAttachmentFile$Outbound | Blob;
@@ -169,21 +141,6 @@ export const CreateIncidentAttachmentRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentAttachmentRequestBody$ {
-  /** @deprecated use `CreateIncidentAttachmentRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateIncidentAttachmentRequestBody$inboundSchema;
-  /** @deprecated use `CreateIncidentAttachmentRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentAttachmentRequestBody$outboundSchema;
-  /** @deprecated use `CreateIncidentAttachmentRequestBody$Outbound` instead. */
-  export type Outbound = CreateIncidentAttachmentRequestBody$Outbound;
-}
-
 export function createIncidentAttachmentRequestBodyToJSON(
   createIncidentAttachmentRequestBody: CreateIncidentAttachmentRequestBody,
 ): string {
@@ -193,7 +150,6 @@ export function createIncidentAttachmentRequestBodyToJSON(
     ),
   );
 }
-
 export function createIncidentAttachmentRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentAttachmentRequestBody, SDKValidationError> {
@@ -219,7 +175,6 @@ export const CreateIncidentAttachmentRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type CreateIncidentAttachmentRequest$Outbound = {
   incident_id: string;
@@ -241,19 +196,6 @@ export const CreateIncidentAttachmentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentAttachmentRequest$ {
-  /** @deprecated use `CreateIncidentAttachmentRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentAttachmentRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentAttachmentRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentAttachmentRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentAttachmentRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentAttachmentRequest$Outbound;
-}
-
 export function createIncidentAttachmentRequestToJSON(
   createIncidentAttachmentRequest: CreateIncidentAttachmentRequest,
 ): string {
@@ -263,7 +205,6 @@ export function createIncidentAttachmentRequestToJSON(
     ),
   );
 }
-
 export function createIncidentAttachmentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentAttachmentRequest, SDKValidationError> {

@@ -73,7 +73,6 @@ export const UpdateTeamMsTeamsChannel$inboundSchema: z.ZodType<
     "ms_team_id": "msTeamId",
   });
 });
-
 /** @internal */
 export type UpdateTeamMsTeamsChannel$Outbound = {
   channel_id: string;
@@ -95,19 +94,6 @@ export const UpdateTeamMsTeamsChannel$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamMsTeamsChannel$ {
-  /** @deprecated use `UpdateTeamMsTeamsChannel$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamMsTeamsChannel$inboundSchema;
-  /** @deprecated use `UpdateTeamMsTeamsChannel$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamMsTeamsChannel$outboundSchema;
-  /** @deprecated use `UpdateTeamMsTeamsChannel$Outbound` instead. */
-  export type Outbound = UpdateTeamMsTeamsChannel$Outbound;
-}
-
 export function updateTeamMsTeamsChannelToJSON(
   updateTeamMsTeamsChannel: UpdateTeamMsTeamsChannel,
 ): string {
@@ -115,7 +101,6 @@ export function updateTeamMsTeamsChannelToJSON(
     UpdateTeamMsTeamsChannel$outboundSchema.parse(updateTeamMsTeamsChannel),
   );
 }
-
 export function updateTeamMsTeamsChannelFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamMsTeamsChannel, SDKValidationError> {
@@ -144,7 +129,6 @@ export const UpdateTeamMembership$inboundSchema: z.ZodType<
     "incident_role_id": "incidentRoleId",
   });
 });
-
 /** @internal */
 export type UpdateTeamMembership$Outbound = {
   user_id?: string | null | undefined;
@@ -172,19 +156,6 @@ export const UpdateTeamMembership$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamMembership$ {
-  /** @deprecated use `UpdateTeamMembership$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamMembership$inboundSchema;
-  /** @deprecated use `UpdateTeamMembership$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamMembership$outboundSchema;
-  /** @deprecated use `UpdateTeamMembership$Outbound` instead. */
-  export type Outbound = UpdateTeamMembership$Outbound;
-}
-
 export function updateTeamMembershipToJSON(
   updateTeamMembership: UpdateTeamMembership,
 ): string {
@@ -192,7 +163,6 @@ export function updateTeamMembershipToJSON(
     UpdateTeamMembership$outboundSchema.parse(updateTeamMembership),
   );
 }
-
 export function updateTeamMembershipFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamMembership, SDKValidationError> {
@@ -227,7 +197,6 @@ export const UpdateTeam$inboundSchema: z.ZodType<
     "invite_emails": "inviteEmails",
   });
 });
-
 /** @internal */
 export type UpdateTeam$Outbound = {
   name?: string | null | undefined;
@@ -264,23 +233,9 @@ export const UpdateTeam$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeam$ {
-  /** @deprecated use `UpdateTeam$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeam$inboundSchema;
-  /** @deprecated use `UpdateTeam$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeam$outboundSchema;
-  /** @deprecated use `UpdateTeam$Outbound` instead. */
-  export type Outbound = UpdateTeam$Outbound;
-}
-
 export function updateTeamToJSON(updateTeam: UpdateTeam): string {
   return JSON.stringify(UpdateTeam$outboundSchema.parse(updateTeam));
 }
-
 export function updateTeamFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeam, SDKValidationError> {

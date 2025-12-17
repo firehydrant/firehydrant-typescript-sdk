@@ -28,7 +28,6 @@ export const UpdateTeamRequest$inboundSchema: z.ZodType<
     "update_team": "updateTeam",
   });
 });
-
 /** @internal */
 export type UpdateTeamRequest$Outbound = {
   team_id: string;
@@ -50,19 +49,6 @@ export const UpdateTeamRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamRequest$ {
-  /** @deprecated use `UpdateTeamRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamRequest$inboundSchema;
-  /** @deprecated use `UpdateTeamRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamRequest$outboundSchema;
-  /** @deprecated use `UpdateTeamRequest$Outbound` instead. */
-  export type Outbound = UpdateTeamRequest$Outbound;
-}
-
 export function updateTeamRequestToJSON(
   updateTeamRequest: UpdateTeamRequest,
 ): string {
@@ -70,7 +56,6 @@ export function updateTeamRequestToJSON(
     UpdateTeamRequest$outboundSchema.parse(updateTeamRequest),
   );
 }
-
 export function updateTeamRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamRequest, SDKValidationError> {

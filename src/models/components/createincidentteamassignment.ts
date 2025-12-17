@@ -30,7 +30,6 @@ export const CreateIncidentTeamAssignment$inboundSchema: z.ZodType<
     "team_id": "teamId",
   });
 });
-
 /** @internal */
 export type CreateIncidentTeamAssignment$Outbound = {
   team_id: string;
@@ -49,19 +48,6 @@ export const CreateIncidentTeamAssignment$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentTeamAssignment$ {
-  /** @deprecated use `CreateIncidentTeamAssignment$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentTeamAssignment$inboundSchema;
-  /** @deprecated use `CreateIncidentTeamAssignment$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentTeamAssignment$outboundSchema;
-  /** @deprecated use `CreateIncidentTeamAssignment$Outbound` instead. */
-  export type Outbound = CreateIncidentTeamAssignment$Outbound;
-}
-
 export function createIncidentTeamAssignmentToJSON(
   createIncidentTeamAssignment: CreateIncidentTeamAssignment,
 ): string {
@@ -71,7 +57,6 @@ export function createIncidentTeamAssignmentToJSON(
     ),
   );
 }
-
 export function createIncidentTeamAssignmentFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentTeamAssignment, SDKValidationError> {

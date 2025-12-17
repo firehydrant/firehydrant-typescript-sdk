@@ -25,7 +25,6 @@ export const UpdateComment$inboundSchema: z.ZodType<
 > = z.object({
   body: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateComment$Outbound = {
   body?: string | null | undefined;
@@ -40,23 +39,9 @@ export const UpdateComment$outboundSchema: z.ZodType<
   body: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateComment$ {
-  /** @deprecated use `UpdateComment$inboundSchema` instead. */
-  export const inboundSchema = UpdateComment$inboundSchema;
-  /** @deprecated use `UpdateComment$outboundSchema` instead. */
-  export const outboundSchema = UpdateComment$outboundSchema;
-  /** @deprecated use `UpdateComment$Outbound` instead. */
-  export type Outbound = UpdateComment$Outbound;
-}
-
 export function updateCommentToJSON(updateComment: UpdateComment): string {
   return JSON.stringify(UpdateComment$outboundSchema.parse(updateComment));
 }
-
 export function updateCommentFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateComment, SDKValidationError> {

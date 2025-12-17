@@ -56,7 +56,6 @@ export const FieldMappingMappableFieldEntity$inboundSchema: z.ZodType<
     "help_text": "helpText",
   });
 });
-
 /** @internal */
 export type FieldMappingMappableFieldEntity$Outbound = {
   value?: string | null | undefined;
@@ -86,19 +85,6 @@ export const FieldMappingMappableFieldEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldMappingMappableFieldEntity$ {
-  /** @deprecated use `FieldMappingMappableFieldEntity$inboundSchema` instead. */
-  export const inboundSchema = FieldMappingMappableFieldEntity$inboundSchema;
-  /** @deprecated use `FieldMappingMappableFieldEntity$outboundSchema` instead. */
-  export const outboundSchema = FieldMappingMappableFieldEntity$outboundSchema;
-  /** @deprecated use `FieldMappingMappableFieldEntity$Outbound` instead. */
-  export type Outbound = FieldMappingMappableFieldEntity$Outbound;
-}
-
 export function fieldMappingMappableFieldEntityToJSON(
   fieldMappingMappableFieldEntity: FieldMappingMappableFieldEntity,
 ): string {
@@ -108,7 +94,6 @@ export function fieldMappingMappableFieldEntityToJSON(
     ),
   );
 }
-
 export function fieldMappingMappableFieldEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<FieldMappingMappableFieldEntity, SDKValidationError> {

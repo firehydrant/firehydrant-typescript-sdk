@@ -44,7 +44,6 @@ export const ShareIncidentRetrospectivesRequestBody$inboundSchema: z.ZodType<
     "retrospective_ids": "retrospectiveIds",
   });
 });
-
 /** @internal */
 export type ShareIncidentRetrospectivesRequestBody$Outbound = {
   user_ids?: Array<string> | null | undefined;
@@ -69,21 +68,6 @@ export const ShareIncidentRetrospectivesRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ShareIncidentRetrospectivesRequestBody$ {
-  /** @deprecated use `ShareIncidentRetrospectivesRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    ShareIncidentRetrospectivesRequestBody$inboundSchema;
-  /** @deprecated use `ShareIncidentRetrospectivesRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    ShareIncidentRetrospectivesRequestBody$outboundSchema;
-  /** @deprecated use `ShareIncidentRetrospectivesRequestBody$Outbound` instead. */
-  export type Outbound = ShareIncidentRetrospectivesRequestBody$Outbound;
-}
-
 export function shareIncidentRetrospectivesRequestBodyToJSON(
   shareIncidentRetrospectivesRequestBody:
     ShareIncidentRetrospectivesRequestBody,
@@ -94,7 +78,6 @@ export function shareIncidentRetrospectivesRequestBodyToJSON(
     ),
   );
 }
-
 export function shareIncidentRetrospectivesRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<ShareIncidentRetrospectivesRequestBody, SDKValidationError> {
@@ -122,7 +105,6 @@ export const ShareIncidentRetrospectivesRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type ShareIncidentRetrospectivesRequest$Outbound = {
   incident_id: string;
@@ -146,20 +128,6 @@ export const ShareIncidentRetrospectivesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ShareIncidentRetrospectivesRequest$ {
-  /** @deprecated use `ShareIncidentRetrospectivesRequest$inboundSchema` instead. */
-  export const inboundSchema = ShareIncidentRetrospectivesRequest$inboundSchema;
-  /** @deprecated use `ShareIncidentRetrospectivesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ShareIncidentRetrospectivesRequest$outboundSchema;
-  /** @deprecated use `ShareIncidentRetrospectivesRequest$Outbound` instead. */
-  export type Outbound = ShareIncidentRetrospectivesRequest$Outbound;
-}
-
 export function shareIncidentRetrospectivesRequestToJSON(
   shareIncidentRetrospectivesRequest: ShareIncidentRetrospectivesRequest,
 ): string {
@@ -169,7 +137,6 @@ export function shareIncidentRetrospectivesRequestToJSON(
     ),
   );
 }
-
 export function shareIncidentRetrospectivesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ShareIncidentRetrospectivesRequest, SDKValidationError> {

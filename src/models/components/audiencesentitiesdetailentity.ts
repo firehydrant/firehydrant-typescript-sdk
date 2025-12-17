@@ -42,7 +42,6 @@ export const AudiencesEntitiesDetailEntity$inboundSchema: z.ZodType<
   position: z.nullable(z.number().int()).optional(),
   slug: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type AudiencesEntitiesDetailEntity$Outbound = {
   id?: string | null | undefined;
@@ -65,19 +64,6 @@ export const AudiencesEntitiesDetailEntity$outboundSchema: z.ZodType<
   slug: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AudiencesEntitiesDetailEntity$ {
-  /** @deprecated use `AudiencesEntitiesDetailEntity$inboundSchema` instead. */
-  export const inboundSchema = AudiencesEntitiesDetailEntity$inboundSchema;
-  /** @deprecated use `AudiencesEntitiesDetailEntity$outboundSchema` instead. */
-  export const outboundSchema = AudiencesEntitiesDetailEntity$outboundSchema;
-  /** @deprecated use `AudiencesEntitiesDetailEntity$Outbound` instead. */
-  export type Outbound = AudiencesEntitiesDetailEntity$Outbound;
-}
-
 export function audiencesEntitiesDetailEntityToJSON(
   audiencesEntitiesDetailEntity: AudiencesEntitiesDetailEntity,
 ): string {
@@ -87,7 +73,6 @@ export function audiencesEntitiesDetailEntityToJSON(
     ),
   );
 }
-
 export function audiencesEntitiesDetailEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AudiencesEntitiesDetailEntity, SDKValidationError> {

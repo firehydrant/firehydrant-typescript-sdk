@@ -11,5 +11,5 @@ let value: SignalsAPIRuleEntityNotificationPriorityOverride = "LOW";
 ## Values
 
 ```typescript
-"HIGH" | "MEDIUM" | "LOW"
+"HIGH" | "MEDIUM" | "LOW" | ""
 ```

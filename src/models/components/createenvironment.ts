@@ -24,7 +24,6 @@ export const CreateEnvironment$inboundSchema: z.ZodType<
   name: z.string(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type CreateEnvironment$Outbound = {
   name: string;
@@ -41,19 +40,6 @@ export const CreateEnvironment$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateEnvironment$ {
-  /** @deprecated use `CreateEnvironment$inboundSchema` instead. */
-  export const inboundSchema = CreateEnvironment$inboundSchema;
-  /** @deprecated use `CreateEnvironment$outboundSchema` instead. */
-  export const outboundSchema = CreateEnvironment$outboundSchema;
-  /** @deprecated use `CreateEnvironment$Outbound` instead. */
-  export type Outbound = CreateEnvironment$Outbound;
-}
-
 export function createEnvironmentToJSON(
   createEnvironment: CreateEnvironment,
 ): string {
@@ -61,7 +47,6 @@ export function createEnvironmentToJSON(
     CreateEnvironment$outboundSchema.parse(createEnvironment),
   );
 }
-
 export function createEnvironmentFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateEnvironment, SDKValidationError> {

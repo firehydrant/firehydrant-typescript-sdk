@@ -30,7 +30,6 @@ export const CreateIncidentStatusPageRequest$inboundSchema: z.ZodType<
     "create_incident_status_page": "createIncidentStatusPage",
   });
 });
-
 /** @internal */
 export type CreateIncidentStatusPageRequest$Outbound = {
   incident_id: string;
@@ -54,19 +53,6 @@ export const CreateIncidentStatusPageRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentStatusPageRequest$ {
-  /** @deprecated use `CreateIncidentStatusPageRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentStatusPageRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentStatusPageRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentStatusPageRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentStatusPageRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentStatusPageRequest$Outbound;
-}
-
 export function createIncidentStatusPageRequestToJSON(
   createIncidentStatusPageRequest: CreateIncidentStatusPageRequest,
 ): string {
@@ -76,7 +62,6 @@ export function createIncidentStatusPageRequestToJSON(
     ),
   );
 }
-
 export function createIncidentStatusPageRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentStatusPageRequest, SDKValidationError> {

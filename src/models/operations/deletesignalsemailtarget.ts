@@ -19,7 +19,6 @@ export const DeleteSignalsEmailTargetRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteSignalsEmailTargetRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const DeleteSignalsEmailTargetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSignalsEmailTargetRequest$ {
-  /** @deprecated use `DeleteSignalsEmailTargetRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteSignalsEmailTargetRequest$inboundSchema;
-  /** @deprecated use `DeleteSignalsEmailTargetRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteSignalsEmailTargetRequest$outboundSchema;
-  /** @deprecated use `DeleteSignalsEmailTargetRequest$Outbound` instead. */
-  export type Outbound = DeleteSignalsEmailTargetRequest$Outbound;
-}
-
 export function deleteSignalsEmailTargetRequestToJSON(
   deleteSignalsEmailTargetRequest: DeleteSignalsEmailTargetRequest,
 ): string {
@@ -56,7 +42,6 @@ export function deleteSignalsEmailTargetRequestToJSON(
     ),
   );
 }
-
 export function deleteSignalsEmailTargetRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteSignalsEmailTargetRequest, SDKValidationError> {

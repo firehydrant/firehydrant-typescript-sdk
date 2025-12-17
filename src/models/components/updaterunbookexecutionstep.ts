@@ -41,7 +41,6 @@ export const UpdateRunbookExecutionStep$inboundSchema: z.ZodType<
     "repeats_at": "repeatsAt",
   });
 });
-
 /** @internal */
 export type UpdateRunbookExecutionStep$Outbound = {
   state: string;
@@ -67,19 +66,6 @@ export const UpdateRunbookExecutionStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookExecutionStep$ {
-  /** @deprecated use `UpdateRunbookExecutionStep$inboundSchema` instead. */
-  export const inboundSchema = UpdateRunbookExecutionStep$inboundSchema;
-  /** @deprecated use `UpdateRunbookExecutionStep$outboundSchema` instead. */
-  export const outboundSchema = UpdateRunbookExecutionStep$outboundSchema;
-  /** @deprecated use `UpdateRunbookExecutionStep$Outbound` instead. */
-  export type Outbound = UpdateRunbookExecutionStep$Outbound;
-}
-
 export function updateRunbookExecutionStepToJSON(
   updateRunbookExecutionStep: UpdateRunbookExecutionStep,
 ): string {
@@ -87,7 +73,6 @@ export function updateRunbookExecutionStepToJSON(
     UpdateRunbookExecutionStep$outboundSchema.parse(updateRunbookExecutionStep),
   );
 }
-
 export function updateRunbookExecutionStepFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateRunbookExecutionStep, SDKValidationError> {

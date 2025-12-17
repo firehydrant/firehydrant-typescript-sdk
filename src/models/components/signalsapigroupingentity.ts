@@ -48,7 +48,6 @@ export const SignalsAPIGroupingEntity$inboundSchema: z.ZodType<
     "reference_alert_time_period": "referenceAlertTimePeriod",
   });
 });
-
 /** @internal */
 export type SignalsAPIGroupingEntity$Outbound = {
   id?: string | null | undefined;
@@ -83,19 +82,6 @@ export const SignalsAPIGroupingEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIGroupingEntity$ {
-  /** @deprecated use `SignalsAPIGroupingEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIGroupingEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIGroupingEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIGroupingEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIGroupingEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIGroupingEntity$Outbound;
-}
-
 export function signalsAPIGroupingEntityToJSON(
   signalsAPIGroupingEntity: SignalsAPIGroupingEntity,
 ): string {
@@ -103,7 +89,6 @@ export function signalsAPIGroupingEntityToJSON(
     SignalsAPIGroupingEntity$outboundSchema.parse(signalsAPIGroupingEntity),
   );
 }
-
 export function signalsAPIGroupingEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIGroupingEntity, SDKValidationError> {

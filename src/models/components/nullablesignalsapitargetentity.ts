@@ -33,7 +33,6 @@ export const NullableSignalsAPITargetEntity$inboundSchema: z.ZodType<
     "is_pageable": "isPageable",
   });
 });
-
 /** @internal */
 export type NullableSignalsAPITargetEntity$Outbound = {
   id?: string | null | undefined;
@@ -61,19 +60,6 @@ export const NullableSignalsAPITargetEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPITargetEntity$ {
-  /** @deprecated use `NullableSignalsAPITargetEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableSignalsAPITargetEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPITargetEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableSignalsAPITargetEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPITargetEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPITargetEntity$Outbound;
-}
-
 export function nullableSignalsAPITargetEntityToJSON(
   nullableSignalsAPITargetEntity: NullableSignalsAPITargetEntity,
 ): string {
@@ -83,7 +69,6 @@ export function nullableSignalsAPITargetEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPITargetEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSignalsAPITargetEntity, SDKValidationError> {

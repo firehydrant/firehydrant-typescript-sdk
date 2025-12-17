@@ -26,7 +26,6 @@ export const ListConnectionStatusesBySlugAndIdRequest$inboundSchema: z.ZodType<
     "by_connection_id": "byConnectionId",
   });
 });
-
 /** @internal */
 export type ListConnectionStatusesBySlugAndIdRequest$Outbound = {
   slug: string;
@@ -47,21 +46,6 @@ export const ListConnectionStatusesBySlugAndIdRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListConnectionStatusesBySlugAndIdRequest$ {
-  /** @deprecated use `ListConnectionStatusesBySlugAndIdRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListConnectionStatusesBySlugAndIdRequest$inboundSchema;
-  /** @deprecated use `ListConnectionStatusesBySlugAndIdRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListConnectionStatusesBySlugAndIdRequest$outboundSchema;
-  /** @deprecated use `ListConnectionStatusesBySlugAndIdRequest$Outbound` instead. */
-  export type Outbound = ListConnectionStatusesBySlugAndIdRequest$Outbound;
-}
-
 export function listConnectionStatusesBySlugAndIdRequestToJSON(
   listConnectionStatusesBySlugAndIdRequest:
     ListConnectionStatusesBySlugAndIdRequest,
@@ -72,7 +56,6 @@ export function listConnectionStatusesBySlugAndIdRequestToJSON(
     ),
   );
 }
-
 export function listConnectionStatusesBySlugAndIdRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

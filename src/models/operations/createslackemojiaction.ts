@@ -41,7 +41,6 @@ export const CreateSlackEmojiActionRequestBody$inboundSchema: z.ZodType<
     "incident_type_id": "incidentTypeId",
   });
 });
-
 /** @internal */
 export type CreateSlackEmojiActionRequestBody$Outbound = {
   emoji_name: string;
@@ -63,20 +62,6 @@ export const CreateSlackEmojiActionRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSlackEmojiActionRequestBody$ {
-  /** @deprecated use `CreateSlackEmojiActionRequestBody$inboundSchema` instead. */
-  export const inboundSchema = CreateSlackEmojiActionRequestBody$inboundSchema;
-  /** @deprecated use `CreateSlackEmojiActionRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSlackEmojiActionRequestBody$outboundSchema;
-  /** @deprecated use `CreateSlackEmojiActionRequestBody$Outbound` instead. */
-  export type Outbound = CreateSlackEmojiActionRequestBody$Outbound;
-}
-
 export function createSlackEmojiActionRequestBodyToJSON(
   createSlackEmojiActionRequestBody: CreateSlackEmojiActionRequestBody,
 ): string {
@@ -86,7 +71,6 @@ export function createSlackEmojiActionRequestBodyToJSON(
     ),
   );
 }
-
 export function createSlackEmojiActionRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSlackEmojiActionRequestBody, SDKValidationError> {
@@ -111,7 +95,6 @@ export const CreateSlackEmojiActionRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type CreateSlackEmojiActionRequest$Outbound = {
   connection_id: string;
@@ -133,19 +116,6 @@ export const CreateSlackEmojiActionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSlackEmojiActionRequest$ {
-  /** @deprecated use `CreateSlackEmojiActionRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateSlackEmojiActionRequest$inboundSchema;
-  /** @deprecated use `CreateSlackEmojiActionRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateSlackEmojiActionRequest$outboundSchema;
-  /** @deprecated use `CreateSlackEmojiActionRequest$Outbound` instead. */
-  export type Outbound = CreateSlackEmojiActionRequest$Outbound;
-}
-
 export function createSlackEmojiActionRequestToJSON(
   createSlackEmojiActionRequest: CreateSlackEmojiActionRequest,
 ): string {
@@ -155,7 +125,6 @@ export function createSlackEmojiActionRequestToJSON(
     ),
   );
 }
-
 export function createSlackEmojiActionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSlackEmojiActionRequest, SDKValidationError> {

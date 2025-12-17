@@ -43,24 +43,10 @@ export type IntegrationsAwsConnectionEntity = {
 export const IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema:
   z.ZodNativeEnum<typeof IntegrationsAwsConnectionEntityConnectionStatus> = z
     .nativeEnum(IntegrationsAwsConnectionEntityConnectionStatus);
-
 /** @internal */
 export const IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema:
   z.ZodNativeEnum<typeof IntegrationsAwsConnectionEntityConnectionStatus> =
     IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAwsConnectionEntityConnectionStatus$ {
-  /** @deprecated use `IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsAwsConnectionEntityConnectionStatus$inboundSchema;
-  /** @deprecated use `IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsAwsConnectionEntityConnectionStatus$outboundSchema;
-}
 
 /** @internal */
 export const IntegrationsAwsConnectionEntity$inboundSchema: z.ZodType<
@@ -92,7 +78,6 @@ export const IntegrationsAwsConnectionEntity$inboundSchema: z.ZodType<
     "environment_name": "environmentName",
   });
 });
-
 /** @internal */
 export type IntegrationsAwsConnectionEntity$Outbound = {
   id?: string | null | undefined;
@@ -138,19 +123,6 @@ export const IntegrationsAwsConnectionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAwsConnectionEntity$ {
-  /** @deprecated use `IntegrationsAwsConnectionEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsAwsConnectionEntity$inboundSchema;
-  /** @deprecated use `IntegrationsAwsConnectionEntity$outboundSchema` instead. */
-  export const outboundSchema = IntegrationsAwsConnectionEntity$outboundSchema;
-  /** @deprecated use `IntegrationsAwsConnectionEntity$Outbound` instead. */
-  export type Outbound = IntegrationsAwsConnectionEntity$Outbound;
-}
-
 export function integrationsAwsConnectionEntityToJSON(
   integrationsAwsConnectionEntity: IntegrationsAwsConnectionEntity,
 ): string {
@@ -160,7 +132,6 @@ export function integrationsAwsConnectionEntityToJSON(
     ),
   );
 }
-
 export function integrationsAwsConnectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsAwsConnectionEntity, SDKValidationError> {

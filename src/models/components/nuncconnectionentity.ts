@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -37,6 +38,18 @@ import {
   NullableNuncConditionEntity$Outbound,
   NullableNuncConditionEntity$outboundSchema,
 } from "./nullablenuncconditionentity.js";
+import {
+  NullableNuncOidcAuthenticationConfigEntity,
+  NullableNuncOidcAuthenticationConfigEntity$inboundSchema,
+  NullableNuncOidcAuthenticationConfigEntity$Outbound,
+  NullableNuncOidcAuthenticationConfigEntity$outboundSchema,
+} from "./nullablenuncoidcauthenticationconfigentity.js";
+
+export const PublishState = {
+  Published: "published",
+  Unpublished: "unpublished",
+} as const;
+export type PublishState = ClosedEnum<typeof PublishState>;
 
 /**
  * NuncConnectionEntity model
@@ -72,7 +85,21 @@ export type NuncConnectionEntity = {
    * List of links attached to this status page.
    */
   links?: Array<LinksEntity> | null | undefined;
+  isDnsVerified?: boolean | null | undefined;
+  publishState?: PublishState | null | undefined;
+  authenticationMethod?: string | null | undefined;
+  oidcAuthenticationConfig?:
+    | NullableNuncOidcAuthenticationConfigEntity
+    | null
+    | undefined;
 };
+
+/** @internal */
+export const PublishState$inboundSchema: z.ZodNativeEnum<typeof PublishState> =
+  z.nativeEnum(PublishState);
+/** @internal */
+export const PublishState$outboundSchema: z.ZodNativeEnum<typeof PublishState> =
+  PublishState$inboundSchema;
 
 /** @internal */
 export const NuncConnectionEntity$inboundSchema: z.ZodType<
@@ -109,6 +136,12 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
   enable_histogram: z.nullable(z.boolean()).optional(),
   ui_version: z.nullable(z.number().int()).optional(),
   links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
+  is_dns_verified: z.nullable(z.boolean()).optional(),
+  publish_state: z.nullable(PublishState$inboundSchema).optional(),
+  authentication_method: z.nullable(z.string()).optional(),
+  oidc_authentication_config: z.nullable(
+    NullableNuncOidcAuthenticationConfigEntity$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -129,9 +162,12 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
     "dark_logo": "darkLogo",
     "enable_histogram": "enableHistogram",
     "ui_version": "uiVersion",
+    "is_dns_verified": "isDnsVerified",
+    "publish_state": "publishState",
+    "authentication_method": "authenticationMethod",
+    "oidc_authentication_config": "oidcAuthenticationConfig",
   });
 });
-
 /** @internal */
 export type NuncConnectionEntity$Outbound = {
   id?: string | null | undefined;
@@ -164,6 +200,13 @@ export type NuncConnectionEntity$Outbound = {
   enable_histogram?: boolean | null | undefined;
   ui_version?: number | null | undefined;
   links?: Array<LinksEntity$Outbound> | null | undefined;
+  is_dns_verified?: boolean | null | undefined;
+  publish_state?: string | null | undefined;
+  authentication_method?: string | null | undefined;
+  oidc_authentication_config?:
+    | NullableNuncOidcAuthenticationConfigEntity$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -201,6 +244,12 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
   enableHistogram: z.nullable(z.boolean()).optional(),
   uiVersion: z.nullable(z.number().int()).optional(),
   links: z.nullable(z.array(LinksEntity$outboundSchema)).optional(),
+  isDnsVerified: z.nullable(z.boolean()).optional(),
+  publishState: z.nullable(PublishState$outboundSchema).optional(),
+  authenticationMethod: z.nullable(z.string()).optional(),
+  oidcAuthenticationConfig: z.nullable(
+    NullableNuncOidcAuthenticationConfigEntity$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",
@@ -221,21 +270,12 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
     darkLogo: "dark_logo",
     enableHistogram: "enable_histogram",
     uiVersion: "ui_version",
+    isDnsVerified: "is_dns_verified",
+    publishState: "publish_state",
+    authenticationMethod: "authentication_method",
+    oidcAuthenticationConfig: "oidc_authentication_config",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NuncConnectionEntity$ {
-  /** @deprecated use `NuncConnectionEntity$inboundSchema` instead. */
-  export const inboundSchema = NuncConnectionEntity$inboundSchema;
-  /** @deprecated use `NuncConnectionEntity$outboundSchema` instead. */
-  export const outboundSchema = NuncConnectionEntity$outboundSchema;
-  /** @deprecated use `NuncConnectionEntity$Outbound` instead. */
-  export type Outbound = NuncConnectionEntity$Outbound;
-}
 
 export function nuncConnectionEntityToJSON(
   nuncConnectionEntity: NuncConnectionEntity,
@@ -244,7 +284,6 @@ export function nuncConnectionEntityToJSON(
     NuncConnectionEntity$outboundSchema.parse(nuncConnectionEntity),
   );
 }
-
 export function nuncConnectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NuncConnectionEntity, SDKValidationError> {

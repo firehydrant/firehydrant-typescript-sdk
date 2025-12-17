@@ -33,7 +33,6 @@ export const ConvertIncidentTaskRequest$inboundSchema: z.ZodType<
     "convert_incident_task": "convertIncidentTask",
   });
 });
-
 /** @internal */
 export type ConvertIncidentTaskRequest$Outbound = {
   task_id: string;
@@ -60,19 +59,6 @@ export const ConvertIncidentTaskRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ConvertIncidentTaskRequest$ {
-  /** @deprecated use `ConvertIncidentTaskRequest$inboundSchema` instead. */
-  export const inboundSchema = ConvertIncidentTaskRequest$inboundSchema;
-  /** @deprecated use `ConvertIncidentTaskRequest$outboundSchema` instead. */
-  export const outboundSchema = ConvertIncidentTaskRequest$outboundSchema;
-  /** @deprecated use `ConvertIncidentTaskRequest$Outbound` instead. */
-  export type Outbound = ConvertIncidentTaskRequest$Outbound;
-}
-
 export function convertIncidentTaskRequestToJSON(
   convertIncidentTaskRequest: ConvertIncidentTaskRequest,
 ): string {
@@ -80,7 +66,6 @@ export function convertIncidentTaskRequestToJSON(
     ConvertIncidentTaskRequest$outboundSchema.parse(convertIncidentTaskRequest),
   );
 }
-
 export function convertIncidentTaskRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ConvertIncidentTaskRequest, SDKValidationError> {

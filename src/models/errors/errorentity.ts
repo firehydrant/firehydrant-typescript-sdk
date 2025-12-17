@@ -68,7 +68,6 @@ export class ErrorEntity extends FirehydrantError {
 /** @internal */
 export const Meta$inboundSchema: z.ZodType<Meta, z.ZodTypeDef, unknown> = z
   .object({});
-
 /** @internal */
 export type Meta$Outbound = {};
 
@@ -76,23 +75,9 @@ export type Meta$Outbound = {};
 export const Meta$outboundSchema: z.ZodType<Meta$Outbound, z.ZodTypeDef, Meta> =
   z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Meta$ {
-  /** @deprecated use `Meta$inboundSchema` instead. */
-  export const inboundSchema = Meta$inboundSchema;
-  /** @deprecated use `Meta$outboundSchema` instead. */
-  export const outboundSchema = Meta$outboundSchema;
-  /** @deprecated use `Meta$Outbound` instead. */
-  export type Outbound = Meta$Outbound;
-}
-
 export function metaToJSON(meta: Meta): string {
   return JSON.stringify(Meta$outboundSchema.parse(meta));
 }
-
 export function metaFromJSON(
   jsonString: string,
 ): SafeParseResult<Meta, SDKValidationError> {
@@ -146,16 +131,3 @@ export const ErrorEntity$outboundSchema: z.ZodType<
     meta: z.nullable(z.lazy(() => Meta$outboundSchema)).optional(),
     code: z.nullable(z.string()).optional(),
   }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ErrorEntity$ {
-  /** @deprecated use `ErrorEntity$inboundSchema` instead. */
-  export const inboundSchema = ErrorEntity$inboundSchema;
-  /** @deprecated use `ErrorEntity$outboundSchema` instead. */
-  export const outboundSchema = ErrorEntity$outboundSchema;
-  /** @deprecated use `ErrorEntity$Outbound` instead. */
-  export type Outbound = ErrorEntity$Outbound;
-}

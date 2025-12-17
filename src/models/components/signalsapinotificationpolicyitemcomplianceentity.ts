@@ -28,7 +28,6 @@ export const SignalsAPINotificationPolicyItemComplianceEntity$inboundSchema:
       "is_compliant": "isCompliant",
     });
   });
-
 /** @internal */
 export type SignalsAPINotificationPolicyItemComplianceEntity$Outbound = {
   notification_policy_item_id?: string | null | undefined;
@@ -51,22 +50,6 @@ export const SignalsAPINotificationPolicyItemComplianceEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPINotificationPolicyItemComplianceEntity$ {
-  /** @deprecated use `SignalsAPINotificationPolicyItemComplianceEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPINotificationPolicyItemComplianceEntity$inboundSchema;
-  /** @deprecated use `SignalsAPINotificationPolicyItemComplianceEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPINotificationPolicyItemComplianceEntity$outboundSchema;
-  /** @deprecated use `SignalsAPINotificationPolicyItemComplianceEntity$Outbound` instead. */
-  export type Outbound =
-    SignalsAPINotificationPolicyItemComplianceEntity$Outbound;
-}
-
 export function signalsAPINotificationPolicyItemComplianceEntityToJSON(
   signalsAPINotificationPolicyItemComplianceEntity:
     SignalsAPINotificationPolicyItemComplianceEntity,
@@ -77,7 +60,6 @@ export function signalsAPINotificationPolicyItemComplianceEntityToJSON(
     ),
   );
 }
-
 export function signalsAPINotificationPolicyItemComplianceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

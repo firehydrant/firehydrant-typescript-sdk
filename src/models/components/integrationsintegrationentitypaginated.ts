@@ -37,7 +37,6 @@ export const IntegrationsIntegrationEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IntegrationsIntegrationEntityPaginated$Outbound = {
   data?: Array<IntegrationsIntegrationEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const IntegrationsIntegrationEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsIntegrationEntityPaginated$ {
-  /** @deprecated use `IntegrationsIntegrationEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsIntegrationEntityPaginated$inboundSchema;
-  /** @deprecated use `IntegrationsIntegrationEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsIntegrationEntityPaginated$outboundSchema;
-  /** @deprecated use `IntegrationsIntegrationEntityPaginated$Outbound` instead. */
-  export type Outbound = IntegrationsIntegrationEntityPaginated$Outbound;
-}
-
 export function integrationsIntegrationEntityPaginatedToJSON(
   integrationsIntegrationEntityPaginated:
     IntegrationsIntegrationEntityPaginated,
@@ -80,7 +64,6 @@ export function integrationsIntegrationEntityPaginatedToJSON(
     ),
   );
 }
-
 export function integrationsIntegrationEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsIntegrationEntityPaginated, SDKValidationError> {

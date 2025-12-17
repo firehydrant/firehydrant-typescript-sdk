@@ -29,7 +29,6 @@ export const UpdateAwsCloudtrailBatchRequest$inboundSchema: z.ZodType<
     "update_aws_cloudtrail_batch": "updateAwsCloudtrailBatch",
   });
 });
-
 /** @internal */
 export type UpdateAwsCloudtrailBatchRequest$Outbound = {
   id: string;
@@ -52,19 +51,6 @@ export const UpdateAwsCloudtrailBatchRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateAwsCloudtrailBatchRequest$ {
-  /** @deprecated use `UpdateAwsCloudtrailBatchRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateAwsCloudtrailBatchRequest$inboundSchema;
-  /** @deprecated use `UpdateAwsCloudtrailBatchRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateAwsCloudtrailBatchRequest$outboundSchema;
-  /** @deprecated use `UpdateAwsCloudtrailBatchRequest$Outbound` instead. */
-  export type Outbound = UpdateAwsCloudtrailBatchRequest$Outbound;
-}
-
 export function updateAwsCloudtrailBatchRequestToJSON(
   updateAwsCloudtrailBatchRequest: UpdateAwsCloudtrailBatchRequest,
 ): string {
@@ -74,7 +60,6 @@ export function updateAwsCloudtrailBatchRequestToJSON(
     ),
   );
 }
-
 export function updateAwsCloudtrailBatchRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateAwsCloudtrailBatchRequest, SDKValidationError> {

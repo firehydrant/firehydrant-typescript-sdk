@@ -33,7 +33,6 @@ export const DeleteIncidentTeamAssignmentRequestBody$inboundSchema: z.ZodType<
     "role_assignment_ids": "roleAssignmentIds",
   });
 });
-
 /** @internal */
 export type DeleteIncidentTeamAssignmentRequestBody$Outbound = {
   role_assignment_ids?: Array<string> | null | undefined;
@@ -52,21 +51,6 @@ export const DeleteIncidentTeamAssignmentRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentTeamAssignmentRequestBody$ {
-  /** @deprecated use `DeleteIncidentTeamAssignmentRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteIncidentTeamAssignmentRequestBody$inboundSchema;
-  /** @deprecated use `DeleteIncidentTeamAssignmentRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteIncidentTeamAssignmentRequestBody$outboundSchema;
-  /** @deprecated use `DeleteIncidentTeamAssignmentRequestBody$Outbound` instead. */
-  export type Outbound = DeleteIncidentTeamAssignmentRequestBody$Outbound;
-}
-
 export function deleteIncidentTeamAssignmentRequestBodyToJSON(
   deleteIncidentTeamAssignmentRequestBody:
     DeleteIncidentTeamAssignmentRequestBody,
@@ -77,7 +61,6 @@ export function deleteIncidentTeamAssignmentRequestBodyToJSON(
     ),
   );
 }
-
 export function deleteIncidentTeamAssignmentRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -112,7 +95,6 @@ export const DeleteIncidentTeamAssignmentRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type DeleteIncidentTeamAssignmentRequest$Outbound = {
   incident_id: string;
@@ -139,21 +121,6 @@ export const DeleteIncidentTeamAssignmentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentTeamAssignmentRequest$ {
-  /** @deprecated use `DeleteIncidentTeamAssignmentRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteIncidentTeamAssignmentRequest$inboundSchema;
-  /** @deprecated use `DeleteIncidentTeamAssignmentRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteIncidentTeamAssignmentRequest$outboundSchema;
-  /** @deprecated use `DeleteIncidentTeamAssignmentRequest$Outbound` instead. */
-  export type Outbound = DeleteIncidentTeamAssignmentRequest$Outbound;
-}
-
 export function deleteIncidentTeamAssignmentRequestToJSON(
   deleteIncidentTeamAssignmentRequest: DeleteIncidentTeamAssignmentRequest,
 ): string {
@@ -163,7 +130,6 @@ export function deleteIncidentTeamAssignmentRequestToJSON(
     ),
   );
 }
-
 export function deleteIncidentTeamAssignmentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteIncidentTeamAssignmentRequest, SDKValidationError> {

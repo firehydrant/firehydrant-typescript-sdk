@@ -21,7 +21,6 @@ export const NullableOrganizationEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   id: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NullableOrganizationEntity$Outbound = {
   name?: string | null | undefined;
@@ -38,19 +37,6 @@ export const NullableOrganizationEntity$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableOrganizationEntity$ {
-  /** @deprecated use `NullableOrganizationEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableOrganizationEntity$inboundSchema;
-  /** @deprecated use `NullableOrganizationEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableOrganizationEntity$outboundSchema;
-  /** @deprecated use `NullableOrganizationEntity$Outbound` instead. */
-  export type Outbound = NullableOrganizationEntity$Outbound;
-}
-
 export function nullableOrganizationEntityToJSON(
   nullableOrganizationEntity: NullableOrganizationEntity,
 ): string {
@@ -58,7 +44,6 @@ export function nullableOrganizationEntityToJSON(
     NullableOrganizationEntity$outboundSchema.parse(nullableOrganizationEntity),
   );
 }
-
 export function nullableOrganizationEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableOrganizationEntity, SDKValidationError> {

@@ -37,7 +37,6 @@ export const AttachmentsTypedAttachmentEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type AttachmentsTypedAttachmentEntityPaginated$Outbound = {
   data?: Array<AttachmentsTypedAttachmentEntity$Outbound> | null | undefined;
@@ -56,21 +55,6 @@ export const AttachmentsTypedAttachmentEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AttachmentsTypedAttachmentEntityPaginated$ {
-  /** @deprecated use `AttachmentsTypedAttachmentEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    AttachmentsTypedAttachmentEntityPaginated$inboundSchema;
-  /** @deprecated use `AttachmentsTypedAttachmentEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    AttachmentsTypedAttachmentEntityPaginated$outboundSchema;
-  /** @deprecated use `AttachmentsTypedAttachmentEntityPaginated$Outbound` instead. */
-  export type Outbound = AttachmentsTypedAttachmentEntityPaginated$Outbound;
-}
-
 export function attachmentsTypedAttachmentEntityPaginatedToJSON(
   attachmentsTypedAttachmentEntityPaginated:
     AttachmentsTypedAttachmentEntityPaginated,
@@ -81,7 +65,6 @@ export function attachmentsTypedAttachmentEntityPaginatedToJSON(
     ),
   );
 }
-
 export function attachmentsTypedAttachmentEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

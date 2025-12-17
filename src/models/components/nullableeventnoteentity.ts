@@ -53,7 +53,6 @@ export const NullableEventNoteEntity$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type NullableEventNoteEntity$Outbound = {
   id?: string | null | undefined;
@@ -87,19 +86,6 @@ export const NullableEventNoteEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableEventNoteEntity$ {
-  /** @deprecated use `NullableEventNoteEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableEventNoteEntity$inboundSchema;
-  /** @deprecated use `NullableEventNoteEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableEventNoteEntity$outboundSchema;
-  /** @deprecated use `NullableEventNoteEntity$Outbound` instead. */
-  export type Outbound = NullableEventNoteEntity$Outbound;
-}
-
 export function nullableEventNoteEntityToJSON(
   nullableEventNoteEntity: NullableEventNoteEntity,
 ): string {
@@ -107,7 +93,6 @@ export function nullableEventNoteEntityToJSON(
     NullableEventNoteEntity$outboundSchema.parse(nullableEventNoteEntity),
   );
 }
-
 export function nullableEventNoteEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableEventNoteEntity, SDKValidationError> {

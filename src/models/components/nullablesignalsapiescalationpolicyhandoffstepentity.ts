@@ -28,7 +28,6 @@ export const NullableSignalsAPIEscalationPolicyHandoffStepEntity$inboundSchema:
     id: z.nullable(z.string()).optional(),
     target: z.nullable(NullableSignalsAPITargetEntity$inboundSchema).optional(),
   });
-
 /** @internal */
 export type NullableSignalsAPIEscalationPolicyHandoffStepEntity$Outbound = {
   id?: string | null | undefined;
@@ -47,22 +46,6 @@ export const NullableSignalsAPIEscalationPolicyHandoffStepEntity$outboundSchema:
       .optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIEscalationPolicyHandoffStepEntity$ {
-  /** @deprecated use `NullableSignalsAPIEscalationPolicyHandoffStepEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIEscalationPolicyHandoffStepEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIEscalationPolicyHandoffStepEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIEscalationPolicyHandoffStepEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIEscalationPolicyHandoffStepEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIEscalationPolicyHandoffStepEntity$Outbound;
-}
-
 export function nullableSignalsAPIEscalationPolicyHandoffStepEntityToJSON(
   nullableSignalsAPIEscalationPolicyHandoffStepEntity:
     NullableSignalsAPIEscalationPolicyHandoffStepEntity,
@@ -73,7 +56,6 @@ export function nullableSignalsAPIEscalationPolicyHandoffStepEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIEscalationPolicyHandoffStepEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

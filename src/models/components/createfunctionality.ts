@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -14,6 +15,24 @@ export type CreateFunctionalityService = {
    */
   id: string;
 };
+
+/**
+ * Integer representing functionality tier. Lower values represent higher criticality. Default is 5.
+ */
+export const CreateFunctionalityServiceTier = {
+  Zero: 0,
+  One: 1,
+  Two: 2,
+  Three: 3,
+  Four: 4,
+  Five: 5,
+} as const;
+/**
+ * Integer representing functionality tier. Lower values represent higher criticality. Default is 5.
+ */
+export type CreateFunctionalityServiceTier = ClosedEnum<
+  typeof CreateFunctionalityServiceTier
+>;
 
 export type CreateFunctionalityExternalResource = {
   remoteId: string;
@@ -60,6 +79,10 @@ export type CreateFunctionality = {
    * A hash of label keys and values
    */
   labels?: { [k: string]: string } | null | undefined;
+  /**
+   * Integer representing functionality tier. Lower values represent higher criticality. Default is 5.
+   */
+  serviceTier?: CreateFunctionalityServiceTier | null | undefined;
   alertOnAdd?: boolean | null | undefined;
   autoAddRespondingTeam?: boolean | null | undefined;
   /**
@@ -91,7 +114,6 @@ export const CreateFunctionalityService$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type CreateFunctionalityService$Outbound = {
   id: string;
@@ -106,19 +128,6 @@ export const CreateFunctionalityService$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateFunctionalityService$ {
-  /** @deprecated use `CreateFunctionalityService$inboundSchema` instead. */
-  export const inboundSchema = CreateFunctionalityService$inboundSchema;
-  /** @deprecated use `CreateFunctionalityService$outboundSchema` instead. */
-  export const outboundSchema = CreateFunctionalityService$outboundSchema;
-  /** @deprecated use `CreateFunctionalityService$Outbound` instead. */
-  export type Outbound = CreateFunctionalityService$Outbound;
-}
-
 export function createFunctionalityServiceToJSON(
   createFunctionalityService: CreateFunctionalityService,
 ): string {
@@ -126,7 +135,6 @@ export function createFunctionalityServiceToJSON(
     CreateFunctionalityService$outboundSchema.parse(createFunctionalityService),
   );
 }
-
 export function createFunctionalityServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateFunctionalityService, SDKValidationError> {
@@ -136,6 +144,15 @@ export function createFunctionalityServiceFromJSON(
     `Failed to parse 'CreateFunctionalityService' from JSON`,
   );
 }
+
+/** @internal */
+export const CreateFunctionalityServiceTier$inboundSchema: z.ZodNativeEnum<
+  typeof CreateFunctionalityServiceTier
+> = z.nativeEnum(CreateFunctionalityServiceTier);
+/** @internal */
+export const CreateFunctionalityServiceTier$outboundSchema: z.ZodNativeEnum<
+  typeof CreateFunctionalityServiceTier
+> = CreateFunctionalityServiceTier$inboundSchema;
 
 /** @internal */
 export const CreateFunctionalityExternalResource$inboundSchema: z.ZodType<
@@ -151,7 +168,6 @@ export const CreateFunctionalityExternalResource$inboundSchema: z.ZodType<
     "connection_type": "connectionType",
   });
 });
-
 /** @internal */
 export type CreateFunctionalityExternalResource$Outbound = {
   remote_id: string;
@@ -173,21 +189,6 @@ export const CreateFunctionalityExternalResource$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateFunctionalityExternalResource$ {
-  /** @deprecated use `CreateFunctionalityExternalResource$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateFunctionalityExternalResource$inboundSchema;
-  /** @deprecated use `CreateFunctionalityExternalResource$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateFunctionalityExternalResource$outboundSchema;
-  /** @deprecated use `CreateFunctionalityExternalResource$Outbound` instead. */
-  export type Outbound = CreateFunctionalityExternalResource$Outbound;
-}
-
 export function createFunctionalityExternalResourceToJSON(
   createFunctionalityExternalResource: CreateFunctionalityExternalResource,
 ): string {
@@ -197,7 +198,6 @@ export function createFunctionalityExternalResourceToJSON(
     ),
   );
 }
-
 export function createFunctionalityExternalResourceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateFunctionalityExternalResource, SDKValidationError> {
@@ -224,7 +224,6 @@ export const CreateFunctionalityLink$inboundSchema: z.ZodType<
     "icon_url": "iconUrl",
   });
 });
-
 /** @internal */
 export type CreateFunctionalityLink$Outbound = {
   name: string;
@@ -248,19 +247,6 @@ export const CreateFunctionalityLink$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateFunctionalityLink$ {
-  /** @deprecated use `CreateFunctionalityLink$inboundSchema` instead. */
-  export const inboundSchema = CreateFunctionalityLink$inboundSchema;
-  /** @deprecated use `CreateFunctionalityLink$outboundSchema` instead. */
-  export const outboundSchema = CreateFunctionalityLink$outboundSchema;
-  /** @deprecated use `CreateFunctionalityLink$Outbound` instead. */
-  export type Outbound = CreateFunctionalityLink$Outbound;
-}
-
 export function createFunctionalityLinkToJSON(
   createFunctionalityLink: CreateFunctionalityLink,
 ): string {
@@ -268,7 +254,6 @@ export function createFunctionalityLinkToJSON(
     CreateFunctionalityLink$outboundSchema.parse(createFunctionalityLink),
   );
 }
-
 export function createFunctionalityLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateFunctionalityLink, SDKValidationError> {
@@ -287,7 +272,6 @@ export const CreateFunctionalityOwner$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type CreateFunctionalityOwner$Outbound = {
   id: string;
@@ -302,19 +286,6 @@ export const CreateFunctionalityOwner$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateFunctionalityOwner$ {
-  /** @deprecated use `CreateFunctionalityOwner$inboundSchema` instead. */
-  export const inboundSchema = CreateFunctionalityOwner$inboundSchema;
-  /** @deprecated use `CreateFunctionalityOwner$outboundSchema` instead. */
-  export const outboundSchema = CreateFunctionalityOwner$outboundSchema;
-  /** @deprecated use `CreateFunctionalityOwner$Outbound` instead. */
-  export type Outbound = CreateFunctionalityOwner$Outbound;
-}
-
 export function createFunctionalityOwnerToJSON(
   createFunctionalityOwner: CreateFunctionalityOwner,
 ): string {
@@ -322,7 +293,6 @@ export function createFunctionalityOwnerToJSON(
     CreateFunctionalityOwner$outboundSchema.parse(createFunctionalityOwner),
   );
 }
-
 export function createFunctionalityOwnerFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateFunctionalityOwner, SDKValidationError> {
@@ -341,7 +311,6 @@ export const CreateFunctionalityTeam$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type CreateFunctionalityTeam$Outbound = {
   id: string;
@@ -356,19 +325,6 @@ export const CreateFunctionalityTeam$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateFunctionalityTeam$ {
-  /** @deprecated use `CreateFunctionalityTeam$inboundSchema` instead. */
-  export const inboundSchema = CreateFunctionalityTeam$inboundSchema;
-  /** @deprecated use `CreateFunctionalityTeam$outboundSchema` instead. */
-  export const outboundSchema = CreateFunctionalityTeam$outboundSchema;
-  /** @deprecated use `CreateFunctionalityTeam$Outbound` instead. */
-  export type Outbound = CreateFunctionalityTeam$Outbound;
-}
-
 export function createFunctionalityTeamToJSON(
   createFunctionalityTeam: CreateFunctionalityTeam,
 ): string {
@@ -376,7 +332,6 @@ export function createFunctionalityTeamToJSON(
     CreateFunctionalityTeam$outboundSchema.parse(createFunctionalityTeam),
   );
 }
-
 export function createFunctionalityTeamFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateFunctionalityTeam, SDKValidationError> {
@@ -399,6 +354,8 @@ export const CreateFunctionality$inboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateFunctionalityService$inboundSchema)),
   ).optional(),
   labels: z.nullable(z.record(z.string())).optional(),
+  service_tier: z.nullable(CreateFunctionalityServiceTier$inboundSchema)
+    .optional(),
   alert_on_add: z.nullable(z.boolean()).optional(),
   auto_add_responding_team: z.nullable(z.boolean()).optional(),
   external_resources: z.nullable(
@@ -414,18 +371,19 @@ export const CreateFunctionality$inboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "service_tier": "serviceTier",
     "alert_on_add": "alertOnAdd",
     "auto_add_responding_team": "autoAddRespondingTeam",
     "external_resources": "externalResources",
   });
 });
-
 /** @internal */
 export type CreateFunctionality$Outbound = {
   name: string;
   description?: string | null | undefined;
   services?: Array<CreateFunctionalityService$Outbound> | null | undefined;
   labels?: { [k: string]: string } | null | undefined;
+  service_tier?: number | null | undefined;
   alert_on_add?: boolean | null | undefined;
   auto_add_responding_team?: boolean | null | undefined;
   external_resources?:
@@ -449,6 +407,8 @@ export const CreateFunctionality$outboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateFunctionalityService$outboundSchema)),
   ).optional(),
   labels: z.nullable(z.record(z.string())).optional(),
+  serviceTier: z.nullable(CreateFunctionalityServiceTier$outboundSchema)
+    .optional(),
   alertOnAdd: z.nullable(z.boolean()).optional(),
   autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
   externalResources: z.nullable(
@@ -464,24 +424,12 @@ export const CreateFunctionality$outboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    serviceTier: "service_tier",
     alertOnAdd: "alert_on_add",
     autoAddRespondingTeam: "auto_add_responding_team",
     externalResources: "external_resources",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateFunctionality$ {
-  /** @deprecated use `CreateFunctionality$inboundSchema` instead. */
-  export const inboundSchema = CreateFunctionality$inboundSchema;
-  /** @deprecated use `CreateFunctionality$outboundSchema` instead. */
-  export const outboundSchema = CreateFunctionality$outboundSchema;
-  /** @deprecated use `CreateFunctionality$Outbound` instead. */
-  export type Outbound = CreateFunctionality$Outbound;
-}
 
 export function createFunctionalityToJSON(
   createFunctionality: CreateFunctionality,
@@ -490,7 +438,6 @@ export function createFunctionalityToJSON(
     CreateFunctionality$outboundSchema.parse(createFunctionality),
   );
 }
-
 export function createFunctionalityFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateFunctionality, SDKValidationError> {

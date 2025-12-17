@@ -40,7 +40,6 @@ export const SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$inboundS
       ),
     ).optional(),
   });
-
 /** @internal */
 export type SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$Outbound =
   {
@@ -68,22 +67,6 @@ export const SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$outbound
     ).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$ {
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$Outbound` instead. */
-  export type Outbound =
-    SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity$Outbound;
-}
-
 export function signalsAPIOnCallSchedulePreviewEntityRotationPreviewEntityToJSON(
   signalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity:
     SignalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity,
@@ -93,7 +76,6 @@ export function signalsAPIOnCallSchedulePreviewEntityRotationPreviewEntityToJSON
       .parse(signalsAPIOnCallSchedulePreviewEntityRotationPreviewEntity),
   );
 }
-
 export function signalsAPIOnCallSchedulePreviewEntityRotationPreviewEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

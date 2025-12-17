@@ -19,7 +19,6 @@ export const DeleteRoleRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteRoleRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const DeleteRoleRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteRoleRequest$ {
-  /** @deprecated use `DeleteRoleRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteRoleRequest$inboundSchema;
-  /** @deprecated use `DeleteRoleRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteRoleRequest$outboundSchema;
-  /** @deprecated use `DeleteRoleRequest$Outbound` instead. */
-  export type Outbound = DeleteRoleRequest$Outbound;
-}
-
 export function deleteRoleRequestToJSON(
   deleteRoleRequest: DeleteRoleRequest,
 ): string {
@@ -54,7 +40,6 @@ export function deleteRoleRequestToJSON(
     DeleteRoleRequest$outboundSchema.parse(deleteRoleRequest),
   );
 }
-
 export function deleteRoleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteRoleRequest, SDKValidationError> {

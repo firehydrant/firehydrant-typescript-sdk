@@ -108,67 +108,29 @@ export type GetSignalsMttxAnalyticsRequest = {
 export const GetSignalsMttxAnalyticsGroupBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsMttxAnalyticsGroupBy
 > = z.nativeEnum(GetSignalsMttxAnalyticsGroupBy);
-
 /** @internal */
 export const GetSignalsMttxAnalyticsGroupBy$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsMttxAnalyticsGroupBy
 > = GetSignalsMttxAnalyticsGroupBy$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsMttxAnalyticsGroupBy$ {
-  /** @deprecated use `GetSignalsMttxAnalyticsGroupBy$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsMttxAnalyticsGroupBy$inboundSchema;
-  /** @deprecated use `GetSignalsMttxAnalyticsGroupBy$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsMttxAnalyticsGroupBy$outboundSchema;
-}
-
 /** @internal */
 export const GetSignalsMttxAnalyticsSortBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsMttxAnalyticsSortBy
 > = z.nativeEnum(GetSignalsMttxAnalyticsSortBy);
-
 /** @internal */
 export const GetSignalsMttxAnalyticsSortBy$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsMttxAnalyticsSortBy
 > = GetSignalsMttxAnalyticsSortBy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsMttxAnalyticsSortBy$ {
-  /** @deprecated use `GetSignalsMttxAnalyticsSortBy$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsMttxAnalyticsSortBy$inboundSchema;
-  /** @deprecated use `GetSignalsMttxAnalyticsSortBy$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsMttxAnalyticsSortBy$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsMttxAnalyticsSortDirection$inboundSchema:
   z.ZodNativeEnum<typeof GetSignalsMttxAnalyticsSortDirection> = z.nativeEnum(
     GetSignalsMttxAnalyticsSortDirection,
   );
-
 /** @internal */
 export const GetSignalsMttxAnalyticsSortDirection$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsMttxAnalyticsSortDirection> =
     GetSignalsMttxAnalyticsSortDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsMttxAnalyticsSortDirection$ {
-  /** @deprecated use `GetSignalsMttxAnalyticsSortDirection$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsMttxAnalyticsSortDirection$inboundSchema;
-  /** @deprecated use `GetSignalsMttxAnalyticsSortDirection$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsMttxAnalyticsSortDirection$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsMttxAnalyticsRequest$inboundSchema: z.ZodType<
@@ -202,7 +164,6 @@ export const GetSignalsMttxAnalyticsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
   });
 });
-
 /** @internal */
 export type GetSignalsMttxAnalyticsRequest$Outbound = {
   signal_rules?: string | null | undefined;
@@ -247,19 +208,6 @@ export const GetSignalsMttxAnalyticsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsMttxAnalyticsRequest$ {
-  /** @deprecated use `GetSignalsMttxAnalyticsRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsMttxAnalyticsRequest$inboundSchema;
-  /** @deprecated use `GetSignalsMttxAnalyticsRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsMttxAnalyticsRequest$outboundSchema;
-  /** @deprecated use `GetSignalsMttxAnalyticsRequest$Outbound` instead. */
-  export type Outbound = GetSignalsMttxAnalyticsRequest$Outbound;
-}
-
 export function getSignalsMttxAnalyticsRequestToJSON(
   getSignalsMttxAnalyticsRequest: GetSignalsMttxAnalyticsRequest,
 ): string {
@@ -269,7 +217,6 @@ export function getSignalsMttxAnalyticsRequestToJSON(
     ),
   );
 }
-
 export function getSignalsMttxAnalyticsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsMttxAnalyticsRequest, SDKValidationError> {

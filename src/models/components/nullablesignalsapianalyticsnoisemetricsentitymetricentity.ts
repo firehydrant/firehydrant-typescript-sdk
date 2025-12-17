@@ -44,7 +44,6 @@ export const NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$inboundSc
       "noisy_alerts": "noisyAlerts",
     });
   });
-
 /** @internal */
 export type NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$Outbound =
   {
@@ -72,22 +71,6 @@ export const NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$outboundS
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$ {
-  /** @deprecated use `NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity$Outbound;
-}
-
 export function nullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntityToJSON(
   nullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity:
     NullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity,
@@ -97,7 +80,6 @@ export function nullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntityToJSON(
       .parse(nullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntity),
   );
 }
-
 export function nullableSignalsAPIAnalyticsNoiseMetricsEntityMetricEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

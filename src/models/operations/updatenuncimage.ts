@@ -38,7 +38,6 @@ export const UpdateNuncImageFile$inboundSchema: z.ZodType<
     z.instanceof(Uint8Array),
   ]),
 });
-
 /** @internal */
 export type UpdateNuncImageFile$Outbound = {
   fileName: string;
@@ -60,19 +59,6 @@ export const UpdateNuncImageFile$outboundSchema: z.ZodType<
   ]),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncImageFile$ {
-  /** @deprecated use `UpdateNuncImageFile$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncImageFile$inboundSchema;
-  /** @deprecated use `UpdateNuncImageFile$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncImageFile$outboundSchema;
-  /** @deprecated use `UpdateNuncImageFile$Outbound` instead. */
-  export type Outbound = UpdateNuncImageFile$Outbound;
-}
-
 export function updateNuncImageFileToJSON(
   updateNuncImageFile: UpdateNuncImageFile,
 ): string {
@@ -80,7 +66,6 @@ export function updateNuncImageFileToJSON(
     UpdateNuncImageFile$outboundSchema.parse(updateNuncImageFile),
   );
 }
-
 export function updateNuncImageFileFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncImageFile, SDKValidationError> {
@@ -99,7 +84,6 @@ export const UpdateNuncImageRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   file: z.lazy(() => UpdateNuncImageFile$inboundSchema).optional(),
 });
-
 /** @internal */
 export type UpdateNuncImageRequestBody$Outbound = {
   file?: UpdateNuncImageFile$Outbound | Blob | undefined;
@@ -115,19 +99,6 @@ export const UpdateNuncImageRequestBody$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncImageRequestBody$ {
-  /** @deprecated use `UpdateNuncImageRequestBody$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncImageRequestBody$inboundSchema;
-  /** @deprecated use `UpdateNuncImageRequestBody$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncImageRequestBody$outboundSchema;
-  /** @deprecated use `UpdateNuncImageRequestBody$Outbound` instead. */
-  export type Outbound = UpdateNuncImageRequestBody$Outbound;
-}
-
 export function updateNuncImageRequestBodyToJSON(
   updateNuncImageRequestBody: UpdateNuncImageRequestBody,
 ): string {
@@ -135,7 +106,6 @@ export function updateNuncImageRequestBodyToJSON(
     UpdateNuncImageRequestBody$outboundSchema.parse(updateNuncImageRequestBody),
   );
 }
-
 export function updateNuncImageRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncImageRequestBody, SDKValidationError> {
@@ -162,7 +132,6 @@ export const UpdateNuncImageRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateNuncImageRequest$Outbound = {
   nunc_connection_id: string;
@@ -187,19 +156,6 @@ export const UpdateNuncImageRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNuncImageRequest$ {
-  /** @deprecated use `UpdateNuncImageRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateNuncImageRequest$inboundSchema;
-  /** @deprecated use `UpdateNuncImageRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateNuncImageRequest$outboundSchema;
-  /** @deprecated use `UpdateNuncImageRequest$Outbound` instead. */
-  export type Outbound = UpdateNuncImageRequest$Outbound;
-}
-
 export function updateNuncImageRequestToJSON(
   updateNuncImageRequest: UpdateNuncImageRequest,
 ): string {
@@ -207,7 +163,6 @@ export function updateNuncImageRequestToJSON(
     UpdateNuncImageRequest$outboundSchema.parse(updateNuncImageRequest),
   );
 }
-
 export function updateNuncImageRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNuncImageRequest, SDKValidationError> {

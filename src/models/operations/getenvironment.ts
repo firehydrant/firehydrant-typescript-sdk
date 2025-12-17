@@ -27,7 +27,6 @@ export const GetEnvironmentRequest$inboundSchema: z.ZodType<
     "environment_id": "environmentId",
   });
 });
-
 /** @internal */
 export type GetEnvironmentRequest$Outbound = {
   environment_id: string;
@@ -46,19 +45,6 @@ export const GetEnvironmentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetEnvironmentRequest$ {
-  /** @deprecated use `GetEnvironmentRequest$inboundSchema` instead. */
-  export const inboundSchema = GetEnvironmentRequest$inboundSchema;
-  /** @deprecated use `GetEnvironmentRequest$outboundSchema` instead. */
-  export const outboundSchema = GetEnvironmentRequest$outboundSchema;
-  /** @deprecated use `GetEnvironmentRequest$Outbound` instead. */
-  export type Outbound = GetEnvironmentRequest$Outbound;
-}
-
 export function getEnvironmentRequestToJSON(
   getEnvironmentRequest: GetEnvironmentRequest,
 ): string {
@@ -66,7 +52,6 @@ export function getEnvironmentRequestToJSON(
     GetEnvironmentRequest$outboundSchema.parse(getEnvironmentRequest),
   );
 }
-
 export function getEnvironmentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetEnvironmentRequest, SDKValidationError> {

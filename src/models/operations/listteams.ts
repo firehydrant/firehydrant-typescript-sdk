@@ -52,7 +52,6 @@ export const ListTeamsRequest$inboundSchema: z.ZodType<
     "default_incident_role": "defaultIncidentRole",
   });
 });
-
 /** @internal */
 export type ListTeamsRequest$Outbound = {
   page?: number | null | undefined;
@@ -84,19 +83,6 @@ export const ListTeamsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTeamsRequest$ {
-  /** @deprecated use `ListTeamsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTeamsRequest$inboundSchema;
-  /** @deprecated use `ListTeamsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTeamsRequest$outboundSchema;
-  /** @deprecated use `ListTeamsRequest$Outbound` instead. */
-  export type Outbound = ListTeamsRequest$Outbound;
-}
-
 export function listTeamsRequestToJSON(
   listTeamsRequest: ListTeamsRequest,
 ): string {
@@ -104,7 +90,6 @@ export function listTeamsRequestToJSON(
     ListTeamsRequest$outboundSchema.parse(listTeamsRequest),
   );
 }
-
 export function listTeamsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTeamsRequest, SDKValidationError> {

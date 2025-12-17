@@ -24,7 +24,6 @@ export const DeleteRetrospectiveTemplateRequest$inboundSchema: z.ZodType<
     "retrospective_template_id": "retrospectiveTemplateId",
   });
 });
-
 /** @internal */
 export type DeleteRetrospectiveTemplateRequest$Outbound = {
   retrospective_template_id: string;
@@ -43,20 +42,6 @@ export const DeleteRetrospectiveTemplateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteRetrospectiveTemplateRequest$ {
-  /** @deprecated use `DeleteRetrospectiveTemplateRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteRetrospectiveTemplateRequest$inboundSchema;
-  /** @deprecated use `DeleteRetrospectiveTemplateRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteRetrospectiveTemplateRequest$outboundSchema;
-  /** @deprecated use `DeleteRetrospectiveTemplateRequest$Outbound` instead. */
-  export type Outbound = DeleteRetrospectiveTemplateRequest$Outbound;
-}
-
 export function deleteRetrospectiveTemplateRequestToJSON(
   deleteRetrospectiveTemplateRequest: DeleteRetrospectiveTemplateRequest,
 ): string {
@@ -66,7 +51,6 @@ export function deleteRetrospectiveTemplateRequestToJSON(
     ),
   );
 }
-
 export function deleteRetrospectiveTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteRetrospectiveTemplateRequest, SDKValidationError> {

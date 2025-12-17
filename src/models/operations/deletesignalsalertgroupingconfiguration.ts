@@ -20,7 +20,6 @@ export const DeleteSignalsAlertGroupingConfigurationRequest$inboundSchema:
   > = z.object({
     id: z.string(),
   });
-
 /** @internal */
 export type DeleteSignalsAlertGroupingConfigurationRequest$Outbound = {
   id: string;
@@ -36,22 +35,6 @@ export const DeleteSignalsAlertGroupingConfigurationRequest$outboundSchema:
     id: z.string(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteSignalsAlertGroupingConfigurationRequest$ {
-  /** @deprecated use `DeleteSignalsAlertGroupingConfigurationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    DeleteSignalsAlertGroupingConfigurationRequest$inboundSchema;
-  /** @deprecated use `DeleteSignalsAlertGroupingConfigurationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteSignalsAlertGroupingConfigurationRequest$outboundSchema;
-  /** @deprecated use `DeleteSignalsAlertGroupingConfigurationRequest$Outbound` instead. */
-  export type Outbound =
-    DeleteSignalsAlertGroupingConfigurationRequest$Outbound;
-}
-
 export function deleteSignalsAlertGroupingConfigurationRequestToJSON(
   deleteSignalsAlertGroupingConfigurationRequest:
     DeleteSignalsAlertGroupingConfigurationRequest,
@@ -62,7 +45,6 @@ export function deleteSignalsAlertGroupingConfigurationRequestToJSON(
     ),
   );
 }
-
 export function deleteSignalsAlertGroupingConfigurationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

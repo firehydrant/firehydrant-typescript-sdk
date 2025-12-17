@@ -36,7 +36,6 @@ export const UpdateIncidentRetrospectiveFieldRequest$inboundSchema: z.ZodType<
     "update_incident_retrospective_field": "updateIncidentRetrospectiveField",
   });
 });
-
 /** @internal */
 export type UpdateIncidentRetrospectiveFieldRequest$Outbound = {
   retrospective_id: string;
@@ -67,21 +66,6 @@ export const UpdateIncidentRetrospectiveFieldRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentRetrospectiveFieldRequest$ {
-  /** @deprecated use `UpdateIncidentRetrospectiveFieldRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateIncidentRetrospectiveFieldRequest$inboundSchema;
-  /** @deprecated use `UpdateIncidentRetrospectiveFieldRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateIncidentRetrospectiveFieldRequest$outboundSchema;
-  /** @deprecated use `UpdateIncidentRetrospectiveFieldRequest$Outbound` instead. */
-  export type Outbound = UpdateIncidentRetrospectiveFieldRequest$Outbound;
-}
-
 export function updateIncidentRetrospectiveFieldRequestToJSON(
   updateIncidentRetrospectiveFieldRequest:
     UpdateIncidentRetrospectiveFieldRequest,
@@ -92,7 +76,6 @@ export function updateIncidentRetrospectiveFieldRequestToJSON(
     ),
   );
 }
-
 export function updateIncidentRetrospectiveFieldRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

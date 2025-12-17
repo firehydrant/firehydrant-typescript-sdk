@@ -51,7 +51,6 @@ export const RunbooksActionsEntityPrerequisite$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type RunbooksActionsEntityPrerequisite$Outbound = {};
 
@@ -62,20 +61,6 @@ export const RunbooksActionsEntityPrerequisite$outboundSchema: z.ZodType<
   RunbooksActionsEntityPrerequisite
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksActionsEntityPrerequisite$ {
-  /** @deprecated use `RunbooksActionsEntityPrerequisite$inboundSchema` instead. */
-  export const inboundSchema = RunbooksActionsEntityPrerequisite$inboundSchema;
-  /** @deprecated use `RunbooksActionsEntityPrerequisite$outboundSchema` instead. */
-  export const outboundSchema =
-    RunbooksActionsEntityPrerequisite$outboundSchema;
-  /** @deprecated use `RunbooksActionsEntityPrerequisite$Outbound` instead. */
-  export type Outbound = RunbooksActionsEntityPrerequisite$Outbound;
-}
-
 export function runbooksActionsEntityPrerequisiteToJSON(
   runbooksActionsEntityPrerequisite: RunbooksActionsEntityPrerequisite,
 ): string {
@@ -85,7 +70,6 @@ export function runbooksActionsEntityPrerequisiteToJSON(
     ),
   );
 }
-
 export function runbooksActionsEntityPrerequisiteFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksActionsEntityPrerequisite, SDKValidationError> {
@@ -102,7 +86,6 @@ export const RunbooksActionsEntityDefaultLogic$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type RunbooksActionsEntityDefaultLogic$Outbound = {};
 
@@ -113,20 +96,6 @@ export const RunbooksActionsEntityDefaultLogic$outboundSchema: z.ZodType<
   RunbooksActionsEntityDefaultLogic
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksActionsEntityDefaultLogic$ {
-  /** @deprecated use `RunbooksActionsEntityDefaultLogic$inboundSchema` instead. */
-  export const inboundSchema = RunbooksActionsEntityDefaultLogic$inboundSchema;
-  /** @deprecated use `RunbooksActionsEntityDefaultLogic$outboundSchema` instead. */
-  export const outboundSchema =
-    RunbooksActionsEntityDefaultLogic$outboundSchema;
-  /** @deprecated use `RunbooksActionsEntityDefaultLogic$Outbound` instead. */
-  export type Outbound = RunbooksActionsEntityDefaultLogic$Outbound;
-}
-
 export function runbooksActionsEntityDefaultLogicToJSON(
   runbooksActionsEntityDefaultLogic: RunbooksActionsEntityDefaultLogic,
 ): string {
@@ -136,7 +105,6 @@ export function runbooksActionsEntityDefaultLogicToJSON(
     ),
   );
 }
-
 export function runbooksActionsEntityDefaultLogicFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksActionsEntityDefaultLogic, SDKValidationError> {
@@ -153,7 +121,6 @@ export const RunbooksActionsEntityDefaultRuleData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type RunbooksActionsEntityDefaultRuleData$Outbound = {};
 
@@ -164,21 +131,6 @@ export const RunbooksActionsEntityDefaultRuleData$outboundSchema: z.ZodType<
   RunbooksActionsEntityDefaultRuleData
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksActionsEntityDefaultRuleData$ {
-  /** @deprecated use `RunbooksActionsEntityDefaultRuleData$inboundSchema` instead. */
-  export const inboundSchema =
-    RunbooksActionsEntityDefaultRuleData$inboundSchema;
-  /** @deprecated use `RunbooksActionsEntityDefaultRuleData$outboundSchema` instead. */
-  export const outboundSchema =
-    RunbooksActionsEntityDefaultRuleData$outboundSchema;
-  /** @deprecated use `RunbooksActionsEntityDefaultRuleData$Outbound` instead. */
-  export type Outbound = RunbooksActionsEntityDefaultRuleData$Outbound;
-}
-
 export function runbooksActionsEntityDefaultRuleDataToJSON(
   runbooksActionsEntityDefaultRuleData: RunbooksActionsEntityDefaultRuleData,
 ): string {
@@ -188,7 +140,6 @@ export function runbooksActionsEntityDefaultRuleDataToJSON(
     ),
   );
 }
-
 export function runbooksActionsEntityDefaultRuleDataFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksActionsEntityDefaultRuleData, SDKValidationError> {
@@ -243,7 +194,6 @@ export const RunbooksActionsEntity$inboundSchema: z.ZodType<
     "default_rule_data": "defaultRuleData",
   });
 });
-
 /** @internal */
 export type RunbooksActionsEntity$Outbound = {
   id?: string | null | undefined;
@@ -313,19 +263,6 @@ export const RunbooksActionsEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RunbooksActionsEntity$ {
-  /** @deprecated use `RunbooksActionsEntity$inboundSchema` instead. */
-  export const inboundSchema = RunbooksActionsEntity$inboundSchema;
-  /** @deprecated use `RunbooksActionsEntity$outboundSchema` instead. */
-  export const outboundSchema = RunbooksActionsEntity$outboundSchema;
-  /** @deprecated use `RunbooksActionsEntity$Outbound` instead. */
-  export type Outbound = RunbooksActionsEntity$Outbound;
-}
-
 export function runbooksActionsEntityToJSON(
   runbooksActionsEntity: RunbooksActionsEntity,
 ): string {
@@ -333,7 +270,6 @@ export function runbooksActionsEntityToJSON(
     RunbooksActionsEntity$outboundSchema.parse(runbooksActionsEntity),
   );
 }
-
 export function runbooksActionsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<RunbooksActionsEntity, SDKValidationError> {

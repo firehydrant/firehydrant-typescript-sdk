@@ -34,21 +34,9 @@ export type UpdateVote = {
 /** @internal */
 export const Direction$inboundSchema: z.ZodNativeEnum<typeof Direction> = z
   .nativeEnum(Direction);
-
 /** @internal */
 export const Direction$outboundSchema: z.ZodNativeEnum<typeof Direction> =
   Direction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Direction$ {
-  /** @deprecated use `Direction$inboundSchema` instead. */
-  export const inboundSchema = Direction$inboundSchema;
-  /** @deprecated use `Direction$outboundSchema` instead. */
-  export const outboundSchema = Direction$outboundSchema;
-}
 
 /** @internal */
 export const UpdateVote$inboundSchema: z.ZodType<
@@ -58,7 +46,6 @@ export const UpdateVote$inboundSchema: z.ZodType<
 > = z.object({
   direction: Direction$inboundSchema,
 });
-
 /** @internal */
 export type UpdateVote$Outbound = {
   direction: string;
@@ -73,23 +60,9 @@ export const UpdateVote$outboundSchema: z.ZodType<
   direction: Direction$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateVote$ {
-  /** @deprecated use `UpdateVote$inboundSchema` instead. */
-  export const inboundSchema = UpdateVote$inboundSchema;
-  /** @deprecated use `UpdateVote$outboundSchema` instead. */
-  export const outboundSchema = UpdateVote$outboundSchema;
-  /** @deprecated use `UpdateVote$Outbound` instead. */
-  export type Outbound = UpdateVote$Outbound;
-}
-
 export function updateVoteToJSON(updateVote: UpdateVote): string {
   return JSON.stringify(UpdateVote$outboundSchema.parse(updateVote));
 }
-
 export function updateVoteFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateVote, SDKValidationError> {

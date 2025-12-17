@@ -21,7 +21,6 @@ export const ReportsDataPointEntity$inboundSchema: z.ZodType<
   key: z.nullable(z.string()).optional(),
   value: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type ReportsDataPointEntity$Outbound = {
   key?: string | null | undefined;
@@ -38,19 +37,6 @@ export const ReportsDataPointEntity$outboundSchema: z.ZodType<
   value: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ReportsDataPointEntity$ {
-  /** @deprecated use `ReportsDataPointEntity$inboundSchema` instead. */
-  export const inboundSchema = ReportsDataPointEntity$inboundSchema;
-  /** @deprecated use `ReportsDataPointEntity$outboundSchema` instead. */
-  export const outboundSchema = ReportsDataPointEntity$outboundSchema;
-  /** @deprecated use `ReportsDataPointEntity$Outbound` instead. */
-  export type Outbound = ReportsDataPointEntity$Outbound;
-}
-
 export function reportsDataPointEntityToJSON(
   reportsDataPointEntity: ReportsDataPointEntity,
 ): string {
@@ -58,7 +44,6 @@ export function reportsDataPointEntityToJSON(
     ReportsDataPointEntity$outboundSchema.parse(reportsDataPointEntity),
   );
 }
-
 export function reportsDataPointEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportsDataPointEntity, SDKValidationError> {

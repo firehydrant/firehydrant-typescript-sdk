@@ -52,24 +52,10 @@ export type IntegrationsConnectionStatusEntity = {
 export const IntegrationsConnectionStatusEntityStatus$inboundSchema:
   z.ZodNativeEnum<typeof IntegrationsConnectionStatusEntityStatus> = z
     .nativeEnum(IntegrationsConnectionStatusEntityStatus);
-
 /** @internal */
 export const IntegrationsConnectionStatusEntityStatus$outboundSchema:
   z.ZodNativeEnum<typeof IntegrationsConnectionStatusEntityStatus> =
     IntegrationsConnectionStatusEntityStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConnectionStatusEntityStatus$ {
-  /** @deprecated use `IntegrationsConnectionStatusEntityStatus$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsConnectionStatusEntityStatus$inboundSchema;
-  /** @deprecated use `IntegrationsConnectionStatusEntityStatus$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsConnectionStatusEntityStatus$outboundSchema;
-}
 
 /** @internal */
 export const IntegrationsConnectionStatusEntityData$inboundSchema: z.ZodType<
@@ -77,7 +63,6 @@ export const IntegrationsConnectionStatusEntityData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IntegrationsConnectionStatusEntityData$Outbound = {};
 
@@ -87,21 +72,6 @@ export const IntegrationsConnectionStatusEntityData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IntegrationsConnectionStatusEntityData
 > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConnectionStatusEntityData$ {
-  /** @deprecated use `IntegrationsConnectionStatusEntityData$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsConnectionStatusEntityData$inboundSchema;
-  /** @deprecated use `IntegrationsConnectionStatusEntityData$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsConnectionStatusEntityData$outboundSchema;
-  /** @deprecated use `IntegrationsConnectionStatusEntityData$Outbound` instead. */
-  export type Outbound = IntegrationsConnectionStatusEntityData$Outbound;
-}
 
 export function integrationsConnectionStatusEntityDataToJSON(
   integrationsConnectionStatusEntityData:
@@ -113,7 +83,6 @@ export function integrationsConnectionStatusEntityDataToJSON(
     ),
   );
 }
-
 export function integrationsConnectionStatusEntityDataFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsConnectionStatusEntityData, SDKValidationError> {
@@ -155,7 +124,6 @@ export const IntegrationsConnectionStatusEntity$inboundSchema: z.ZodType<
     "performed_by": "performedBy",
   });
 });
-
 /** @internal */
 export type IntegrationsConnectionStatusEntity$Outbound = {
   checked_at?: string | null | undefined;
@@ -198,20 +166,6 @@ export const IntegrationsConnectionStatusEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsConnectionStatusEntity$ {
-  /** @deprecated use `IntegrationsConnectionStatusEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsConnectionStatusEntity$inboundSchema;
-  /** @deprecated use `IntegrationsConnectionStatusEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsConnectionStatusEntity$outboundSchema;
-  /** @deprecated use `IntegrationsConnectionStatusEntity$Outbound` instead. */
-  export type Outbound = IntegrationsConnectionStatusEntity$Outbound;
-}
-
 export function integrationsConnectionStatusEntityToJSON(
   integrationsConnectionStatusEntity: IntegrationsConnectionStatusEntity,
 ): string {
@@ -221,7 +175,6 @@ export function integrationsConnectionStatusEntityToJSON(
     ),
   );
 }
-
 export function integrationsConnectionStatusEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsConnectionStatusEntity, SDKValidationError> {

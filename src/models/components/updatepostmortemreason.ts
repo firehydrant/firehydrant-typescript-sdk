@@ -22,7 +22,6 @@ export const UpdatePostMortemReason$inboundSchema: z.ZodType<
 > = z.object({
   summary: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdatePostMortemReason$Outbound = {
   summary?: string | null | undefined;
@@ -37,19 +36,6 @@ export const UpdatePostMortemReason$outboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemReason$ {
-  /** @deprecated use `UpdatePostMortemReason$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemReason$inboundSchema;
-  /** @deprecated use `UpdatePostMortemReason$outboundSchema` instead. */
-  export const outboundSchema = UpdatePostMortemReason$outboundSchema;
-  /** @deprecated use `UpdatePostMortemReason$Outbound` instead. */
-  export type Outbound = UpdatePostMortemReason$Outbound;
-}
-
 export function updatePostMortemReasonToJSON(
   updatePostMortemReason: UpdatePostMortemReason,
 ): string {
@@ -57,7 +43,6 @@ export function updatePostMortemReasonToJSON(
     UpdatePostMortemReason$outboundSchema.parse(updatePostMortemReason),
   );
 }
-
 export function updatePostMortemReasonFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemReason, SDKValidationError> {

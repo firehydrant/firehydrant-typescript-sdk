@@ -1,5 +1,4 @@
 # Alerts
-(*alerts*)
 
 ## Overview
 

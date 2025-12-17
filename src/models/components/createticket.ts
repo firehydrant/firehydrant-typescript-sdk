@@ -8,6 +8,17 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CreateTicketAssignee = {
+  /**
+   * The source of the assignee
+   */
+  source?: string | null | undefined;
+  /**
+   * The uesr id of the assignee
+   */
+  id: string;
+};
+
 /**
  * Creates a ticket for a project
  */
@@ -30,7 +41,53 @@ export type CreateTicket = {
    * The remote URL for an existing ticket in a supported and configured ticketing integration
    */
   remoteUrl?: string | null | undefined;
+  /**
+   * An array of assignees for the ticket
+   */
+  assignees?: Array<CreateTicketAssignee> | null | undefined;
 };
+
+/** @internal */
+export const CreateTicketAssignee$inboundSchema: z.ZodType<
+  CreateTicketAssignee,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  source: z.nullable(z.string()).optional(),
+  id: z.string(),
+});
+/** @internal */
+export type CreateTicketAssignee$Outbound = {
+  source?: string | null | undefined;
+  id: string;
+};
+
+/** @internal */
+export const CreateTicketAssignee$outboundSchema: z.ZodType<
+  CreateTicketAssignee$Outbound,
+  z.ZodTypeDef,
+  CreateTicketAssignee
+> = z.object({
+  source: z.nullable(z.string()).optional(),
+  id: z.string(),
+});
+
+export function createTicketAssigneeToJSON(
+  createTicketAssignee: CreateTicketAssignee,
+): string {
+  return JSON.stringify(
+    CreateTicketAssignee$outboundSchema.parse(createTicketAssignee),
+  );
+}
+export function createTicketAssigneeFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateTicketAssignee, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateTicketAssignee$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateTicketAssignee' from JSON`,
+  );
+}
 
 /** @internal */
 export const CreateTicket$inboundSchema: z.ZodType<
@@ -47,6 +104,9 @@ export const CreateTicket$inboundSchema: z.ZodType<
   priority_id: z.nullable(z.string()).optional(),
   tag_list: z.nullable(z.array(z.string())).optional(),
   remote_url: z.nullable(z.string()).optional(),
+  assignees: z.nullable(
+    z.array(z.lazy(() => CreateTicketAssignee$inboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "related_to": "relatedTo",
@@ -56,7 +116,6 @@ export const CreateTicket$inboundSchema: z.ZodType<
     "remote_url": "remoteUrl",
   });
 });
-
 /** @internal */
 export type CreateTicket$Outbound = {
   summary: string;
@@ -68,6 +127,7 @@ export type CreateTicket$Outbound = {
   priority_id?: string | null | undefined;
   tag_list?: Array<string> | null | undefined;
   remote_url?: string | null | undefined;
+  assignees?: Array<CreateTicketAssignee$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -85,6 +145,9 @@ export const CreateTicket$outboundSchema: z.ZodType<
   priorityId: z.nullable(z.string()).optional(),
   tagList: z.nullable(z.array(z.string())).optional(),
   remoteUrl: z.nullable(z.string()).optional(),
+  assignees: z.nullable(
+    z.array(z.lazy(() => CreateTicketAssignee$outboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     relatedTo: "related_to",
@@ -95,23 +158,9 @@ export const CreateTicket$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTicket$ {
-  /** @deprecated use `CreateTicket$inboundSchema` instead. */
-  export const inboundSchema = CreateTicket$inboundSchema;
-  /** @deprecated use `CreateTicket$outboundSchema` instead. */
-  export const outboundSchema = CreateTicket$outboundSchema;
-  /** @deprecated use `CreateTicket$Outbound` instead. */
-  export type Outbound = CreateTicket$Outbound;
-}
-
 export function createTicketToJSON(createTicket: CreateTicket): string {
   return JSON.stringify(CreateTicket$outboundSchema.parse(createTicket));
 }
-
 export function createTicketFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTicket, SDKValidationError> {

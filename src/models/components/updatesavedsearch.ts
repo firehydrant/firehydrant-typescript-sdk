@@ -32,7 +32,6 @@ export const UpdateSavedSearch$inboundSchema: z.ZodType<
     "filter_values": "filterValues",
   });
 });
-
 /** @internal */
 export type UpdateSavedSearch$Outbound = {
   is_private?: boolean | null | undefined;
@@ -56,19 +55,6 @@ export const UpdateSavedSearch$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSavedSearch$ {
-  /** @deprecated use `UpdateSavedSearch$inboundSchema` instead. */
-  export const inboundSchema = UpdateSavedSearch$inboundSchema;
-  /** @deprecated use `UpdateSavedSearch$outboundSchema` instead. */
-  export const outboundSchema = UpdateSavedSearch$outboundSchema;
-  /** @deprecated use `UpdateSavedSearch$Outbound` instead. */
-  export type Outbound = UpdateSavedSearch$Outbound;
-}
-
 export function updateSavedSearchToJSON(
   updateSavedSearch: UpdateSavedSearch,
 ): string {
@@ -76,7 +62,6 @@ export function updateSavedSearchToJSON(
     UpdateSavedSearch$outboundSchema.parse(updateSavedSearch),
   );
 }
-
 export function updateSavedSearchFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSavedSearch, SDKValidationError> {

@@ -38,7 +38,6 @@ export const PongEntity$inboundSchema: z.ZodType<
   actor: z.nullable(NullableActorEntity$inboundSchema).optional(),
   organization: z.nullable(NullableOrganizationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type PongEntity$Outbound = {
   response?: string | null | undefined;
@@ -58,23 +57,9 @@ export const PongEntity$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PongEntity$ {
-  /** @deprecated use `PongEntity$inboundSchema` instead. */
-  export const inboundSchema = PongEntity$inboundSchema;
-  /** @deprecated use `PongEntity$outboundSchema` instead. */
-  export const outboundSchema = PongEntity$outboundSchema;
-  /** @deprecated use `PongEntity$Outbound` instead. */
-  export type Outbound = PongEntity$Outbound;
-}
-
 export function pongEntityToJSON(pongEntity: PongEntity): string {
   return JSON.stringify(PongEntity$outboundSchema.parse(pongEntity));
 }
-
 export function pongEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PongEntity, SDKValidationError> {

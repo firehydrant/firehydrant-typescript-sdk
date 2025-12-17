@@ -31,7 +31,6 @@ export const LinksEntity$inboundSchema: z.ZodType<
     "icon_url": "iconUrl",
   });
 });
-
 /** @internal */
 export type LinksEntity$Outbound = {
   id?: string | null | undefined;
@@ -57,23 +56,9 @@ export const LinksEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LinksEntity$ {
-  /** @deprecated use `LinksEntity$inboundSchema` instead. */
-  export const inboundSchema = LinksEntity$inboundSchema;
-  /** @deprecated use `LinksEntity$outboundSchema` instead. */
-  export const outboundSchema = LinksEntity$outboundSchema;
-  /** @deprecated use `LinksEntity$Outbound` instead. */
-  export type Outbound = LinksEntity$Outbound;
-}
-
 export function linksEntityToJSON(linksEntity: LinksEntity): string {
   return JSON.stringify(LinksEntity$outboundSchema.parse(linksEntity));
 }
-
 export function linksEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<LinksEntity, SDKValidationError> {

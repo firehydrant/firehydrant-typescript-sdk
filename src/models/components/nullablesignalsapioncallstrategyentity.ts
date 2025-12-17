@@ -32,7 +32,6 @@ export const NullableSignalsAPIOnCallStrategyEntity$inboundSchema: z.ZodType<
     "shift_duration": "shiftDuration",
   });
 });
-
 /** @internal */
 export type NullableSignalsAPIOnCallStrategyEntity$Outbound = {
   type?: string | null | undefined;
@@ -59,21 +58,6 @@ export const NullableSignalsAPIOnCallStrategyEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIOnCallStrategyEntity$ {
-  /** @deprecated use `NullableSignalsAPIOnCallStrategyEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIOnCallStrategyEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIOnCallStrategyEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIOnCallStrategyEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIOnCallStrategyEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPIOnCallStrategyEntity$Outbound;
-}
-
 export function nullableSignalsAPIOnCallStrategyEntityToJSON(
   nullableSignalsAPIOnCallStrategyEntity:
     NullableSignalsAPIOnCallStrategyEntity,
@@ -84,7 +68,6 @@ export function nullableSignalsAPIOnCallStrategyEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIOnCallStrategyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSignalsAPIOnCallStrategyEntity, SDKValidationError> {

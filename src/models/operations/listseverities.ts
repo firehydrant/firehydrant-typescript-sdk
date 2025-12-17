@@ -26,7 +26,6 @@ export const ListSeveritiesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListSeveritiesRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListSeveritiesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSeveritiesRequest$ {
-  /** @deprecated use `ListSeveritiesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSeveritiesRequest$inboundSchema;
-  /** @deprecated use `ListSeveritiesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSeveritiesRequest$outboundSchema;
-  /** @deprecated use `ListSeveritiesRequest$Outbound` instead. */
-  export type Outbound = ListSeveritiesRequest$Outbound;
-}
-
 export function listSeveritiesRequestToJSON(
   listSeveritiesRequest: ListSeveritiesRequest,
 ): string {
@@ -67,7 +53,6 @@ export function listSeveritiesRequestToJSON(
     ListSeveritiesRequest$outboundSchema.parse(listSeveritiesRequest),
   );
 }
-
 export function listSeveritiesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSeveritiesRequest, SDKValidationError> {

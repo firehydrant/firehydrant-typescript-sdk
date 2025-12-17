@@ -21,7 +21,6 @@ export const NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema:
       name: z.nullable(z.string()).optional(),
       number: z.nullable(z.number().int()).optional(),
     });
-
 /** @internal */
 export type NullablePublicApiv1IncidentsSuccinctEntity$Outbound = {
   id?: string | null | undefined;
@@ -41,21 +40,6 @@ export const NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema:
     number: z.nullable(z.number().int()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullablePublicApiv1IncidentsSuccinctEntity$ {
-  /** @deprecated use `NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullablePublicApiv1IncidentsSuccinctEntity$inboundSchema;
-  /** @deprecated use `NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullablePublicApiv1IncidentsSuccinctEntity$outboundSchema;
-  /** @deprecated use `NullablePublicApiv1IncidentsSuccinctEntity$Outbound` instead. */
-  export type Outbound = NullablePublicApiv1IncidentsSuccinctEntity$Outbound;
-}
-
 export function nullablePublicAPIV1IncidentsSuccinctEntityToJSON(
   nullablePublicApiv1IncidentsSuccinctEntity:
     NullablePublicApiv1IncidentsSuccinctEntity,
@@ -66,7 +50,6 @@ export function nullablePublicAPIV1IncidentsSuccinctEntityToJSON(
     ),
   );
 }
-
 export function nullablePublicAPIV1IncidentsSuccinctEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

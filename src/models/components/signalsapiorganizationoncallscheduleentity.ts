@@ -83,7 +83,6 @@ export const SignalsAPIOrganizationOnCallScheduleEntity$inboundSchema:
         "next_shift": "nextShift",
       });
     });
-
 /** @internal */
 export type SignalsAPIOrganizationOnCallScheduleEntity$Outbound = {
   id?: string | null | undefined;
@@ -138,21 +137,6 @@ export const SignalsAPIOrganizationOnCallScheduleEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOrganizationOnCallScheduleEntity$ {
-  /** @deprecated use `SignalsAPIOrganizationOnCallScheduleEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIOrganizationOnCallScheduleEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOrganizationOnCallScheduleEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOrganizationOnCallScheduleEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOrganizationOnCallScheduleEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIOrganizationOnCallScheduleEntity$Outbound;
-}
-
 export function signalsAPIOrganizationOnCallScheduleEntityToJSON(
   signalsAPIOrganizationOnCallScheduleEntity:
     SignalsAPIOrganizationOnCallScheduleEntity,
@@ -163,7 +147,6 @@ export function signalsAPIOrganizationOnCallScheduleEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIOrganizationOnCallScheduleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -25,7 +25,6 @@ export const UpdateSignalsAlert$inboundSchema: z.ZodType<
 > = z.object({
   noise: z.boolean(),
 });
-
 /** @internal */
 export type UpdateSignalsAlert$Outbound = {
   noise: boolean;
@@ -40,19 +39,6 @@ export const UpdateSignalsAlert$outboundSchema: z.ZodType<
   noise: z.boolean(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSignalsAlert$ {
-  /** @deprecated use `UpdateSignalsAlert$inboundSchema` instead. */
-  export const inboundSchema = UpdateSignalsAlert$inboundSchema;
-  /** @deprecated use `UpdateSignalsAlert$outboundSchema` instead. */
-  export const outboundSchema = UpdateSignalsAlert$outboundSchema;
-  /** @deprecated use `UpdateSignalsAlert$Outbound` instead. */
-  export type Outbound = UpdateSignalsAlert$Outbound;
-}
-
 export function updateSignalsAlertToJSON(
   updateSignalsAlert: UpdateSignalsAlert,
 ): string {
@@ -60,7 +46,6 @@ export function updateSignalsAlertToJSON(
     UpdateSignalsAlert$outboundSchema.parse(updateSignalsAlert),
   );
 }
-
 export function updateSignalsAlertFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSignalsAlert, SDKValidationError> {

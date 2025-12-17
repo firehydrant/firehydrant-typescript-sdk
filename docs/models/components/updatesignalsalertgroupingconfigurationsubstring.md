@@ -9,7 +9,11 @@ import { UpdateSignalsAlertGroupingConfigurationSubstring } from "firehydrant-ty
 
 let value: UpdateSignalsAlertGroupingConfigurationSubstring = {
   fieldName: "body",
-  value: "<value>",
+  values: [
+    "<value 1>",
+    "<value 2>",
+    "<value 3>",
+  ],
 };
 ```
 
@@ -18,4 +22,5 @@ let value: UpdateSignalsAlertGroupingConfigurationSubstring = {
 | Field                                                                                                                                      | Type                                                                                                                                       | Required                                                                                                                                   | Description                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `fieldName`                                                                                                                                | [components.UpdateSignalsAlertGroupingConfigurationFieldName](../../models/components/updatesignalsalertgroupingconfigurationfieldname.md) | :heavy_check_mark:                                                                                                                         | The field to use for grouping alerts                                                                                                       |
-| `value`                                                                                                                                    | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | The value to use for grouping alerts                                                                                                       |
+| `values`                                                                                                                                   | *string*[]                                                                                                                                 | :heavy_check_mark:                                                                                                                         | Multiple values to use for grouping alerts                                                                                                 |
+| `matchType`                                                                                                                                | [components.UpdateSignalsAlertGroupingConfigurationMatchType](../../models/components/updatesignalsalertgroupingconfigurationmatchtype.md) | :heavy_minus_sign:                                                                                                                         | Match type for multiple values                                                                                                             |

@@ -49,7 +49,6 @@ export const PostMortemsReasonEntity$inboundSchema: z.ZodType<
     "created_by": "createdBy",
   });
 });
-
 /** @internal */
 export type PostMortemsReasonEntity$Outbound = {
   id?: string | null | undefined;
@@ -81,19 +80,6 @@ export const PostMortemsReasonEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PostMortemsReasonEntity$ {
-  /** @deprecated use `PostMortemsReasonEntity$inboundSchema` instead. */
-  export const inboundSchema = PostMortemsReasonEntity$inboundSchema;
-  /** @deprecated use `PostMortemsReasonEntity$outboundSchema` instead. */
-  export const outboundSchema = PostMortemsReasonEntity$outboundSchema;
-  /** @deprecated use `PostMortemsReasonEntity$Outbound` instead. */
-  export type Outbound = PostMortemsReasonEntity$Outbound;
-}
-
 export function postMortemsReasonEntityToJSON(
   postMortemsReasonEntity: PostMortemsReasonEntity,
 ): string {
@@ -101,7 +87,6 @@ export function postMortemsReasonEntityToJSON(
     PostMortemsReasonEntity$outboundSchema.parse(postMortemsReasonEntity),
   );
 }
-
 export function postMortemsReasonEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PostMortemsReasonEntity, SDKValidationError> {

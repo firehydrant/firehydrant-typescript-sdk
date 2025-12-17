@@ -57,7 +57,6 @@ export const NullableTeamEntityLite$inboundSchema: z.ZodType<
     "restrict_signals_resource_management": "restrictSignalsResourceManagement",
   });
 });
-
 /** @internal */
 export type NullableTeamEntityLite$Outbound = {
   id?: string | null | undefined;
@@ -99,19 +98,6 @@ export const NullableTeamEntityLite$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTeamEntityLite$ {
-  /** @deprecated use `NullableTeamEntityLite$inboundSchema` instead. */
-  export const inboundSchema = NullableTeamEntityLite$inboundSchema;
-  /** @deprecated use `NullableTeamEntityLite$outboundSchema` instead. */
-  export const outboundSchema = NullableTeamEntityLite$outboundSchema;
-  /** @deprecated use `NullableTeamEntityLite$Outbound` instead. */
-  export type Outbound = NullableTeamEntityLite$Outbound;
-}
-
 export function nullableTeamEntityLiteToJSON(
   nullableTeamEntityLite: NullableTeamEntityLite,
 ): string {
@@ -119,7 +105,6 @@ export function nullableTeamEntityLiteToJSON(
     NullableTeamEntityLite$outboundSchema.parse(nullableTeamEntityLite),
   );
 }
-
 export function nullableTeamEntityLiteFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableTeamEntityLite, SDKValidationError> {

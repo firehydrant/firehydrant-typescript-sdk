@@ -277,6 +277,7 @@ import { tool$retrospectivesExportIncidentRetrospectives } from "./tools/retrosp
 import { tool$retrospectivesGetIncidentRetrospectiveField } from "./tools/retrospectivesGetIncidentRetrospectiveField.js";
 import { tool$retrospectivesGetPostMortemQuestion } from "./tools/retrospectivesGetPostMortemQuestion.js";
 import { tool$retrospectivesGetPostMortemReport } from "./tools/retrospectivesGetPostMortemReport.js";
+import { tool$retrospectivesGetRetrospectiveReportTemplate } from "./tools/retrospectivesGetRetrospectiveReportTemplate.js";
 import { tool$retrospectivesGetRetrospectiveTemplate } from "./tools/retrospectivesGetRetrospectiveTemplate.js";
 import { tool$retrospectivesListIncidentRetrospectives } from "./tools/retrospectivesListIncidentRetrospectives.js";
 import { tool$retrospectivesListPostMortemQuestions } from "./tools/retrospectivesListPostMortemQuestions.js";
@@ -397,6 +398,8 @@ import { tool$statusPagesDeleteNuncSubscription } from "./tools/statusPagesDelet
 import { tool$statusPagesGetNuncConnection } from "./tools/statusPagesGetNuncConnection.js";
 import { tool$statusPagesListEmailSubscribers } from "./tools/statusPagesListEmailSubscribers.js";
 import { tool$statusPagesListNuncConnections } from "./tools/statusPagesListNuncConnections.js";
+import { tool$statusPagesPublishNuncConnection } from "./tools/statusPagesPublishNuncConnection.js";
+import { tool$statusPagesUnpublishNuncConnection } from "./tools/statusPagesUnpublishNuncConnection.js";
 import { tool$statusPagesUpdateNuncComponentGroup } from "./tools/statusPagesUpdateNuncComponentGroup.js";
 import { tool$statusPagesUpdateNuncConnection } from "./tools/statusPagesUpdateNuncConnection.js";
 import { tool$statusPagesUpdateNuncImage } from "./tools/statusPagesUpdateNuncImage.js";
@@ -426,11 +429,13 @@ import { tool$teamsListTeams } from "./tools/teamsListTeams.js";
 import { tool$teamsUpdateTeam } from "./tools/teamsUpdateTeam.js";
 import { tool$ticketingCreateInboundFieldMap } from "./tools/ticketingCreateInboundFieldMap.js";
 import { tool$ticketingCreateTicket } from "./tools/ticketingCreateTicket.js";
+import { tool$ticketingCreateTicketingCustomDefinition } from "./tools/ticketingCreateTicketingCustomDefinition.js";
 import { tool$ticketingCreateTicketingFieldMap } from "./tools/ticketingCreateTicketingFieldMap.js";
 import { tool$ticketingCreateTicketingPriority } from "./tools/ticketingCreateTicketingPriority.js";
 import { tool$ticketingCreateTicketingProjectConfig } from "./tools/ticketingCreateTicketingProjectConfig.js";
 import { tool$ticketingDeleteInboundFieldMap } from "./tools/ticketingDeleteInboundFieldMap.js";
 import { tool$ticketingDeleteTicket } from "./tools/ticketingDeleteTicket.js";
+import { tool$ticketingDeleteTicketingCustomDefinition } from "./tools/ticketingDeleteTicketingCustomDefinition.js";
 import { tool$ticketingDeleteTicketingFieldMap } from "./tools/ticketingDeleteTicketingFieldMap.js";
 import { tool$ticketingDeleteTicketingPriority } from "./tools/ticketingDeleteTicketingPriority.js";
 import { tool$ticketingDeleteTicketingProjectConfig } from "./tools/ticketingDeleteTicketingProjectConfig.js";
@@ -439,18 +444,21 @@ import { tool$ticketingGetInboundFieldMap } from "./tools/ticketingGetInboundFie
 import { tool$ticketingGetOptionsForField } from "./tools/ticketingGetOptionsForField.js";
 import { tool$ticketingGetTicket } from "./tools/ticketingGetTicket.js";
 import { tool$ticketingGetTicketingFieldMap } from "./tools/ticketingGetTicketingFieldMap.js";
+import { tool$ticketingGetTicketingFormConfiguration } from "./tools/ticketingGetTicketingFormConfiguration.js";
 import { tool$ticketingGetTicketingPriority } from "./tools/ticketingGetTicketingPriority.js";
 import { tool$ticketingGetTicketingProject } from "./tools/ticketingGetTicketingProject.js";
 import { tool$ticketingGetTicketingProjectConfig } from "./tools/ticketingGetTicketingProjectConfig.js";
 import { tool$ticketingListAvailableInboundFieldMaps } from "./tools/ticketingListAvailableInboundFieldMaps.js";
 import { tool$ticketingListAvailableTicketingFieldMaps } from "./tools/ticketingListAvailableTicketingFieldMaps.js";
 import { tool$ticketingListInboundFieldMaps } from "./tools/ticketingListInboundFieldMaps.js";
+import { tool$ticketingListTicketingCustomDefinitions } from "./tools/ticketingListTicketingCustomDefinitions.js";
 import { tool$ticketingListTicketingPriorities } from "./tools/ticketingListTicketingPriorities.js";
 import { tool$ticketingListTicketingProjects } from "./tools/ticketingListTicketingProjects.js";
 import { tool$ticketingListTickets } from "./tools/ticketingListTickets.js";
 import { tool$ticketingListTicketTags } from "./tools/ticketingListTicketTags.js";
 import { tool$ticketingUpdateInboundFieldMap } from "./tools/ticketingUpdateInboundFieldMap.js";
 import { tool$ticketingUpdateTicket } from "./tools/ticketingUpdateTicket.js";
+import { tool$ticketingUpdateTicketingCustomDefinition } from "./tools/ticketingUpdateTicketingCustomDefinition.js";
 import { tool$ticketingUpdateTicketingFieldMap } from "./tools/ticketingUpdateTicketingFieldMap.js";
 import { tool$ticketingUpdateTicketingPriority } from "./tools/ticketingUpdateTicketingPriority.js";
 import { tool$ticketingUpdateTicketingProjectConfig } from "./tools/ticketingUpdateTicketingProjectConfig.js";
@@ -474,7 +482,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.1.0",
+    version: "1.2.0",
   });
 
   const client = new FirehydrantCore({
@@ -695,6 +703,8 @@ export function createMCPServer(deps: {
   tool(tool$statusPagesGetNuncConnection);
   tool(tool$statusPagesUpdateNuncConnection);
   tool(tool$statusPagesDeleteNuncConnection);
+  tool(tool$statusPagesUnpublishNuncConnection);
+  tool(tool$statusPagesPublishNuncConnection);
   tool(tool$statusPagesDeleteNuncComponentGroup);
   tool(tool$statusPagesUpdateNuncComponentGroup);
   tool(tool$statusPagesCreateNuncComponentGroup);
@@ -762,6 +772,7 @@ export function createMCPServer(deps: {
   tool(tool$retrospectivesGetRetrospectiveTemplate);
   tool(tool$retrospectivesDeleteRetrospectiveTemplate);
   tool(tool$retrospectivesUpdateRetrospectiveTemplate);
+  tool(tool$retrospectivesGetRetrospectiveReportTemplate);
   tool(tool$incidentSettingsListIncidentRoles);
   tool(tool$incidentSettingsCreateIncidentRole);
   tool(tool$incidentSettingsGetIncidentRole);
@@ -925,6 +936,11 @@ export function createMCPServer(deps: {
   tool(tool$ticketingDeleteTicketingPriority);
   tool(tool$ticketingUpdateTicketingPriority);
   tool(tool$ticketingListTicketTags);
+  tool(tool$ticketingGetTicketingFormConfiguration);
+  tool(tool$ticketingListTicketingCustomDefinitions);
+  tool(tool$ticketingCreateTicketingCustomDefinition);
+  tool(tool$ticketingDeleteTicketingCustomDefinition);
+  tool(tool$ticketingUpdateTicketingCustomDefinition);
   tool(tool$scimGetSCIMGroup);
   tool(tool$scimUpdateSCIMGroup);
   tool(tool$scimDeleteSCIMGroup);

@@ -1,5 +1,4 @@
 # Signals
-(*signals*)
 
 ## Overview
 

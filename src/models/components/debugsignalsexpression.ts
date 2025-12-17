@@ -52,7 +52,6 @@ export const Annotations$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type Annotations$Outbound = {};
 
@@ -63,23 +62,9 @@ export const Annotations$outboundSchema: z.ZodType<
   Annotations
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Annotations$ {
-  /** @deprecated use `Annotations$inboundSchema` instead. */
-  export const inboundSchema = Annotations$inboundSchema;
-  /** @deprecated use `Annotations$outboundSchema` instead. */
-  export const outboundSchema = Annotations$outboundSchema;
-  /** @deprecated use `Annotations$Outbound` instead. */
-  export type Outbound = Annotations$Outbound;
-}
-
 export function annotationsToJSON(annotations: Annotations): string {
   return JSON.stringify(Annotations$outboundSchema.parse(annotations));
 }
-
 export function annotationsFromJSON(
   jsonString: string,
 ): SafeParseResult<Annotations, SDKValidationError> {
@@ -96,7 +81,6 @@ export const Image$inboundSchema: z.ZodType<Image, z.ZodTypeDef, unknown> = z
     src: z.nullable(z.string()).optional(),
     alt: z.nullable(z.string()).optional(),
   });
-
 /** @internal */
 export type Image$Outbound = {
   src?: string | null | undefined;
@@ -113,23 +97,9 @@ export const Image$outboundSchema: z.ZodType<
   alt: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Image$ {
-  /** @deprecated use `Image$inboundSchema` instead. */
-  export const inboundSchema = Image$inboundSchema;
-  /** @deprecated use `Image$outboundSchema` instead. */
-  export const outboundSchema = Image$outboundSchema;
-  /** @deprecated use `Image$Outbound` instead. */
-  export type Outbound = Image$Outbound;
-}
-
 export function imageToJSON(image: Image): string {
   return JSON.stringify(Image$outboundSchema.parse(image));
 }
-
 export function imageFromJSON(
   jsonString: string,
 ): SafeParseResult<Image, SDKValidationError> {
@@ -149,7 +119,6 @@ export const DebugSignalsExpressionLink$inboundSchema: z.ZodType<
   href: z.nullable(z.string()).optional(),
   text: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type DebugSignalsExpressionLink$Outbound = {
   href?: string | null | undefined;
@@ -166,19 +135,6 @@ export const DebugSignalsExpressionLink$outboundSchema: z.ZodType<
   text: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DebugSignalsExpressionLink$ {
-  /** @deprecated use `DebugSignalsExpressionLink$inboundSchema` instead. */
-  export const inboundSchema = DebugSignalsExpressionLink$inboundSchema;
-  /** @deprecated use `DebugSignalsExpressionLink$outboundSchema` instead. */
-  export const outboundSchema = DebugSignalsExpressionLink$outboundSchema;
-  /** @deprecated use `DebugSignalsExpressionLink$Outbound` instead. */
-  export type Outbound = DebugSignalsExpressionLink$Outbound;
-}
-
 export function debugSignalsExpressionLinkToJSON(
   debugSignalsExpressionLink: DebugSignalsExpressionLink,
 ): string {
@@ -186,7 +142,6 @@ export function debugSignalsExpressionLinkToJSON(
     DebugSignalsExpressionLink$outboundSchema.parse(debugSignalsExpressionLink),
   );
 }
-
 export function debugSignalsExpressionLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<DebugSignalsExpressionLink, SDKValidationError> {
@@ -216,7 +171,6 @@ export const Signal$inboundSchema: z.ZodType<Signal, z.ZodTypeDef, unknown> = z
       "organization_id": "organizationId",
     });
   });
-
 /** @internal */
 export type Signal$Outbound = {
   id?: string | null | undefined;
@@ -253,23 +207,9 @@ export const Signal$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Signal$ {
-  /** @deprecated use `Signal$inboundSchema` instead. */
-  export const inboundSchema = Signal$inboundSchema;
-  /** @deprecated use `Signal$outboundSchema` instead. */
-  export const outboundSchema = Signal$outboundSchema;
-  /** @deprecated use `Signal$Outbound` instead. */
-  export type Outbound = Signal$Outbound;
-}
-
 export function signalToJSON(signal: Signal): string {
   return JSON.stringify(Signal$outboundSchema.parse(signal));
 }
-
 export function signalFromJSON(
   jsonString: string,
 ): SafeParseResult<Signal, SDKValidationError> {
@@ -289,7 +229,6 @@ export const DebugSignalsExpression$inboundSchema: z.ZodType<
   expression: z.string(),
   signals: z.array(z.lazy(() => Signal$inboundSchema)),
 });
-
 /** @internal */
 export type DebugSignalsExpression$Outbound = {
   expression: string;
@@ -306,19 +245,6 @@ export const DebugSignalsExpression$outboundSchema: z.ZodType<
   signals: z.array(z.lazy(() => Signal$outboundSchema)),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DebugSignalsExpression$ {
-  /** @deprecated use `DebugSignalsExpression$inboundSchema` instead. */
-  export const inboundSchema = DebugSignalsExpression$inboundSchema;
-  /** @deprecated use `DebugSignalsExpression$outboundSchema` instead. */
-  export const outboundSchema = DebugSignalsExpression$outboundSchema;
-  /** @deprecated use `DebugSignalsExpression$Outbound` instead. */
-  export type Outbound = DebugSignalsExpression$Outbound;
-}
-
 export function debugSignalsExpressionToJSON(
   debugSignalsExpression: DebugSignalsExpression,
 ): string {
@@ -326,7 +252,6 @@ export function debugSignalsExpressionToJSON(
     DebugSignalsExpression$outboundSchema.parse(debugSignalsExpression),
   );
 }
-
 export function debugSignalsExpressionFromJSON(
   jsonString: string,
 ): SafeParseResult<DebugSignalsExpression, SDKValidationError> {

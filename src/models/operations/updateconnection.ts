@@ -26,7 +26,6 @@ export const UpdateConnectionRequest$inboundSchema: z.ZodType<
     "connection_id": "connectionId",
   });
 });
-
 /** @internal */
 export type UpdateConnectionRequest$Outbound = {
   slug: string;
@@ -47,19 +46,6 @@ export const UpdateConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateConnectionRequest$ {
-  /** @deprecated use `UpdateConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateConnectionRequest$inboundSchema;
-  /** @deprecated use `UpdateConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateConnectionRequest$outboundSchema;
-  /** @deprecated use `UpdateConnectionRequest$Outbound` instead. */
-  export type Outbound = UpdateConnectionRequest$Outbound;
-}
-
 export function updateConnectionRequestToJSON(
   updateConnectionRequest: UpdateConnectionRequest,
 ): string {
@@ -67,7 +53,6 @@ export function updateConnectionRequestToJSON(
     UpdateConnectionRequest$outboundSchema.parse(updateConnectionRequest),
   );
 }
-
 export function updateConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateConnectionRequest, SDKValidationError> {

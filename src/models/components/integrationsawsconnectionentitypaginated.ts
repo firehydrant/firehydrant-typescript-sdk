@@ -37,7 +37,6 @@ export const IntegrationsAwsConnectionEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type IntegrationsAwsConnectionEntityPaginated$Outbound = {
   data?: Array<IntegrationsAwsConnectionEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const IntegrationsAwsConnectionEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAwsConnectionEntityPaginated$ {
-  /** @deprecated use `IntegrationsAwsConnectionEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsAwsConnectionEntityPaginated$inboundSchema;
-  /** @deprecated use `IntegrationsAwsConnectionEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsAwsConnectionEntityPaginated$outboundSchema;
-  /** @deprecated use `IntegrationsAwsConnectionEntityPaginated$Outbound` instead. */
-  export type Outbound = IntegrationsAwsConnectionEntityPaginated$Outbound;
-}
-
 export function integrationsAwsConnectionEntityPaginatedToJSON(
   integrationsAwsConnectionEntityPaginated:
     IntegrationsAwsConnectionEntityPaginated,
@@ -80,7 +64,6 @@ export function integrationsAwsConnectionEntityPaginatedToJSON(
     ),
   );
 }
-
 export function integrationsAwsConnectionEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

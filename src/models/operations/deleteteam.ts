@@ -24,7 +24,6 @@ export const DeleteTeamRequest$inboundSchema: z.ZodType<
     "team_id": "teamId",
   });
 });
-
 /** @internal */
 export type DeleteTeamRequest$Outbound = {
   team_id: string;
@@ -43,19 +42,6 @@ export const DeleteTeamRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteTeamRequest$ {
-  /** @deprecated use `DeleteTeamRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteTeamRequest$inboundSchema;
-  /** @deprecated use `DeleteTeamRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteTeamRequest$outboundSchema;
-  /** @deprecated use `DeleteTeamRequest$Outbound` instead. */
-  export type Outbound = DeleteTeamRequest$Outbound;
-}
-
 export function deleteTeamRequestToJSON(
   deleteTeamRequest: DeleteTeamRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteTeamRequestToJSON(
     DeleteTeamRequest$outboundSchema.parse(deleteTeamRequest),
   );
 }
-
 export function deleteTeamRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteTeamRequest, SDKValidationError> {

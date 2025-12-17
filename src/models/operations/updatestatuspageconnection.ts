@@ -33,7 +33,6 @@ export const UpdateStatuspageConnectionRequest$inboundSchema: z.ZodType<
     "update_statuspage_connection": "updateStatuspageConnection",
   });
 });
-
 /** @internal */
 export type UpdateStatuspageConnectionRequest$Outbound = {
   connection_id: string;
@@ -57,20 +56,6 @@ export const UpdateStatuspageConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateStatuspageConnectionRequest$ {
-  /** @deprecated use `UpdateStatuspageConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateStatuspageConnectionRequest$inboundSchema;
-  /** @deprecated use `UpdateStatuspageConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateStatuspageConnectionRequest$outboundSchema;
-  /** @deprecated use `UpdateStatuspageConnectionRequest$Outbound` instead. */
-  export type Outbound = UpdateStatuspageConnectionRequest$Outbound;
-}
-
 export function updateStatuspageConnectionRequestToJSON(
   updateStatuspageConnectionRequest: UpdateStatuspageConnectionRequest,
 ): string {
@@ -80,7 +65,6 @@ export function updateStatuspageConnectionRequestToJSON(
     ),
   );
 }
-
 export function updateStatuspageConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateStatuspageConnectionRequest, SDKValidationError> {

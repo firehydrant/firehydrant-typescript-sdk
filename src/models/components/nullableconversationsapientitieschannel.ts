@@ -19,7 +19,6 @@ export const NullableConversationsAPIEntitiesChannel$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NullableConversationsAPIEntitiesChannel$Outbound = {
   name?: string | null | undefined;
@@ -34,21 +33,6 @@ export const NullableConversationsAPIEntitiesChannel$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableConversationsAPIEntitiesChannel$ {
-  /** @deprecated use `NullableConversationsAPIEntitiesChannel$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableConversationsAPIEntitiesChannel$inboundSchema;
-  /** @deprecated use `NullableConversationsAPIEntitiesChannel$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableConversationsAPIEntitiesChannel$outboundSchema;
-  /** @deprecated use `NullableConversationsAPIEntitiesChannel$Outbound` instead. */
-  export type Outbound = NullableConversationsAPIEntitiesChannel$Outbound;
-}
-
 export function nullableConversationsAPIEntitiesChannelToJSON(
   nullableConversationsAPIEntitiesChannel:
     NullableConversationsAPIEntitiesChannel,
@@ -59,7 +43,6 @@ export function nullableConversationsAPIEntitiesChannelToJSON(
     ),
   );
 }
-
 export function nullableConversationsAPIEntitiesChannelFromJSON(
   jsonString: string,
 ): SafeParseResult<

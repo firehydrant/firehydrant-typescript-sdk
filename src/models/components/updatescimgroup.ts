@@ -33,7 +33,6 @@ export const UpdateScimGroupMember$inboundSchema: z.ZodType<
 > = z.object({
   value: z.string(),
 });
-
 /** @internal */
 export type UpdateScimGroupMember$Outbound = {
   value: string;
@@ -48,19 +47,6 @@ export const UpdateScimGroupMember$outboundSchema: z.ZodType<
   value: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimGroupMember$ {
-  /** @deprecated use `UpdateScimGroupMember$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimGroupMember$inboundSchema;
-  /** @deprecated use `UpdateScimGroupMember$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimGroupMember$outboundSchema;
-  /** @deprecated use `UpdateScimGroupMember$Outbound` instead. */
-  export type Outbound = UpdateScimGroupMember$Outbound;
-}
-
 export function updateScimGroupMemberToJSON(
   updateScimGroupMember: UpdateScimGroupMember,
 ): string {
@@ -68,7 +54,6 @@ export function updateScimGroupMemberToJSON(
     UpdateScimGroupMember$outboundSchema.parse(updateScimGroupMember),
   );
 }
-
 export function updateScimGroupMemberFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimGroupMember, SDKValidationError> {
@@ -88,7 +73,6 @@ export const UpdateScimGroup$inboundSchema: z.ZodType<
   displayName: z.string(),
   members: z.array(z.lazy(() => UpdateScimGroupMember$inboundSchema)),
 });
-
 /** @internal */
 export type UpdateScimGroup$Outbound = {
   displayName: string;
@@ -105,25 +89,11 @@ export const UpdateScimGroup$outboundSchema: z.ZodType<
   members: z.array(z.lazy(() => UpdateScimGroupMember$outboundSchema)),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateScimGroup$ {
-  /** @deprecated use `UpdateScimGroup$inboundSchema` instead. */
-  export const inboundSchema = UpdateScimGroup$inboundSchema;
-  /** @deprecated use `UpdateScimGroup$outboundSchema` instead. */
-  export const outboundSchema = UpdateScimGroup$outboundSchema;
-  /** @deprecated use `UpdateScimGroup$Outbound` instead. */
-  export type Outbound = UpdateScimGroup$Outbound;
-}
-
 export function updateScimGroupToJSON(
   updateScimGroup: UpdateScimGroup,
 ): string {
   return JSON.stringify(UpdateScimGroup$outboundSchema.parse(updateScimGroup));
 }
-
 export function updateScimGroupFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateScimGroup, SDKValidationError> {

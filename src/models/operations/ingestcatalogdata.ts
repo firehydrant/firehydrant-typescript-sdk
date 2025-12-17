@@ -28,7 +28,6 @@ export const IngestCatalogDataRequest$inboundSchema: z.ZodType<
     "ingest_catalog_data": "ingestCatalogData",
   });
 });
-
 /** @internal */
 export type IngestCatalogDataRequest$Outbound = {
   catalog_id: string;
@@ -50,19 +49,6 @@ export const IngestCatalogDataRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IngestCatalogDataRequest$ {
-  /** @deprecated use `IngestCatalogDataRequest$inboundSchema` instead. */
-  export const inboundSchema = IngestCatalogDataRequest$inboundSchema;
-  /** @deprecated use `IngestCatalogDataRequest$outboundSchema` instead. */
-  export const outboundSchema = IngestCatalogDataRequest$outboundSchema;
-  /** @deprecated use `IngestCatalogDataRequest$Outbound` instead. */
-  export type Outbound = IngestCatalogDataRequest$Outbound;
-}
-
 export function ingestCatalogDataRequestToJSON(
   ingestCatalogDataRequest: IngestCatalogDataRequest,
 ): string {
@@ -70,7 +56,6 @@ export function ingestCatalogDataRequestToJSON(
     IngestCatalogDataRequest$outboundSchema.parse(ingestCatalogDataRequest),
   );
 }
-
 export function ingestCatalogDataRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<IngestCatalogDataRequest, SDKValidationError> {

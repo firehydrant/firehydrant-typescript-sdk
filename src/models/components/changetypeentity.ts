@@ -21,7 +21,6 @@ export const ChangeTypeEntity$inboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type ChangeTypeEntity$Outbound = {
   id?: string | null | undefined;
@@ -38,19 +37,6 @@ export const ChangeTypeEntity$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeTypeEntity$ {
-  /** @deprecated use `ChangeTypeEntity$inboundSchema` instead. */
-  export const inboundSchema = ChangeTypeEntity$inboundSchema;
-  /** @deprecated use `ChangeTypeEntity$outboundSchema` instead. */
-  export const outboundSchema = ChangeTypeEntity$outboundSchema;
-  /** @deprecated use `ChangeTypeEntity$Outbound` instead. */
-  export type Outbound = ChangeTypeEntity$Outbound;
-}
-
 export function changeTypeEntityToJSON(
   changeTypeEntity: ChangeTypeEntity,
 ): string {
@@ -58,7 +44,6 @@ export function changeTypeEntityToJSON(
     ChangeTypeEntity$outboundSchema.parse(changeTypeEntity),
   );
 }
-
 export function changeTypeEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeTypeEntity, SDKValidationError> {

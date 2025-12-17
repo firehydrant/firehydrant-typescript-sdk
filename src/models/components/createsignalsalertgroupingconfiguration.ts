@@ -25,6 +25,20 @@ export type CreateSignalsAlertGroupingConfigurationFieldName = ClosedEnum<
 >;
 
 /**
+ * Match type for multiple values
+ */
+export const CreateSignalsAlertGroupingConfigurationMatchType = {
+  And: "and",
+  Or: "or",
+} as const;
+/**
+ * Match type for multiple values
+ */
+export type CreateSignalsAlertGroupingConfigurationMatchType = ClosedEnum<
+  typeof CreateSignalsAlertGroupingConfigurationMatchType
+>;
+
+/**
  * The type of strategy to use for grouping alerts
  */
 export type CreateSignalsAlertGroupingConfigurationSubstring = {
@@ -33,9 +47,16 @@ export type CreateSignalsAlertGroupingConfigurationSubstring = {
    */
   fieldName: CreateSignalsAlertGroupingConfigurationFieldName;
   /**
-   * The value to use for grouping alerts
+   * Multiple values to use for grouping alerts
    */
-  value: string;
+  values: Array<string>;
+  /**
+   * Match type for multiple values
+   */
+  matchType?:
+    | CreateSignalsAlertGroupingConfigurationMatchType
+    | null
+    | undefined;
 };
 
 /**
@@ -97,24 +118,19 @@ export type CreateSignalsAlertGroupingConfiguration = {
 export const CreateSignalsAlertGroupingConfigurationFieldName$inboundSchema:
   z.ZodNativeEnum<typeof CreateSignalsAlertGroupingConfigurationFieldName> = z
     .nativeEnum(CreateSignalsAlertGroupingConfigurationFieldName);
-
 /** @internal */
 export const CreateSignalsAlertGroupingConfigurationFieldName$outboundSchema:
   z.ZodNativeEnum<typeof CreateSignalsAlertGroupingConfigurationFieldName> =
     CreateSignalsAlertGroupingConfigurationFieldName$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsAlertGroupingConfigurationFieldName$ {
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationFieldName$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsAlertGroupingConfigurationFieldName$inboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationFieldName$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsAlertGroupingConfigurationFieldName$outboundSchema;
-}
+/** @internal */
+export const CreateSignalsAlertGroupingConfigurationMatchType$inboundSchema:
+  z.ZodNativeEnum<typeof CreateSignalsAlertGroupingConfigurationMatchType> = z
+    .nativeEnum(CreateSignalsAlertGroupingConfigurationMatchType);
+/** @internal */
+export const CreateSignalsAlertGroupingConfigurationMatchType$outboundSchema:
+  z.ZodNativeEnum<typeof CreateSignalsAlertGroupingConfigurationMatchType> =
+    CreateSignalsAlertGroupingConfigurationMatchType$inboundSchema;
 
 /** @internal */
 export const CreateSignalsAlertGroupingConfigurationSubstring$inboundSchema:
@@ -124,17 +140,21 @@ export const CreateSignalsAlertGroupingConfigurationSubstring$inboundSchema:
     unknown
   > = z.object({
     field_name: CreateSignalsAlertGroupingConfigurationFieldName$inboundSchema,
-    value: z.string(),
+    values: z.array(z.string()),
+    match_type: z.nullable(
+      CreateSignalsAlertGroupingConfigurationMatchType$inboundSchema,
+    ).optional(),
   }).transform((v) => {
     return remap$(v, {
       "field_name": "fieldName",
+      "match_type": "matchType",
     });
   });
-
 /** @internal */
 export type CreateSignalsAlertGroupingConfigurationSubstring$Outbound = {
   field_name: string;
-  value: string;
+  values: Array<string>;
+  match_type?: string | null | undefined;
 };
 
 /** @internal */
@@ -145,28 +165,16 @@ export const CreateSignalsAlertGroupingConfigurationSubstring$outboundSchema:
     CreateSignalsAlertGroupingConfigurationSubstring
   > = z.object({
     fieldName: CreateSignalsAlertGroupingConfigurationFieldName$outboundSchema,
-    value: z.string(),
+    values: z.array(z.string()),
+    matchType: z.nullable(
+      CreateSignalsAlertGroupingConfigurationMatchType$outboundSchema,
+    ).optional(),
   }).transform((v) => {
     return remap$(v, {
       fieldName: "field_name",
+      matchType: "match_type",
     });
   });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsAlertGroupingConfigurationSubstring$ {
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationSubstring$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsAlertGroupingConfigurationSubstring$inboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationSubstring$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsAlertGroupingConfigurationSubstring$outboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationSubstring$Outbound` instead. */
-  export type Outbound =
-    CreateSignalsAlertGroupingConfigurationSubstring$Outbound;
-}
 
 export function createSignalsAlertGroupingConfigurationSubstringToJSON(
   createSignalsAlertGroupingConfigurationSubstring:
@@ -178,7 +186,6 @@ export function createSignalsAlertGroupingConfigurationSubstringToJSON(
     ),
   );
 }
-
 export function createSignalsAlertGroupingConfigurationSubstringFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -208,7 +215,6 @@ export const CreateSignalsAlertGroupingConfigurationStrategy$inboundSchema:
       ),
     ).optional(),
   });
-
 /** @internal */
 export type CreateSignalsAlertGroupingConfigurationStrategy$Outbound = {
   substring?:
@@ -231,22 +237,6 @@ export const CreateSignalsAlertGroupingConfigurationStrategy$outboundSchema:
     ).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsAlertGroupingConfigurationStrategy$ {
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationStrategy$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsAlertGroupingConfigurationStrategy$inboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationStrategy$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsAlertGroupingConfigurationStrategy$outboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationStrategy$Outbound` instead. */
-  export type Outbound =
-    CreateSignalsAlertGroupingConfigurationStrategy$Outbound;
-}
-
 export function createSignalsAlertGroupingConfigurationStrategyToJSON(
   createSignalsAlertGroupingConfigurationStrategy:
     CreateSignalsAlertGroupingConfigurationStrategy,
@@ -257,7 +247,6 @@ export function createSignalsAlertGroupingConfigurationStrategyToJSON(
     ),
   );
 }
-
 export function createSignalsAlertGroupingConfigurationStrategyFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -284,7 +273,6 @@ export const CreateSignalsAlertGroupingConfigurationFyi$inboundSchema:
         "slack_channel_ids": "slackChannelIds",
       });
     });
-
 /** @internal */
 export type CreateSignalsAlertGroupingConfigurationFyi$Outbound = {
   slack_channel_ids: Array<string>;
@@ -304,21 +292,6 @@ export const CreateSignalsAlertGroupingConfigurationFyi$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsAlertGroupingConfigurationFyi$ {
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationFyi$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsAlertGroupingConfigurationFyi$inboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationFyi$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsAlertGroupingConfigurationFyi$outboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationFyi$Outbound` instead. */
-  export type Outbound = CreateSignalsAlertGroupingConfigurationFyi$Outbound;
-}
-
 export function createSignalsAlertGroupingConfigurationFyiToJSON(
   createSignalsAlertGroupingConfigurationFyi:
     CreateSignalsAlertGroupingConfigurationFyi,
@@ -329,7 +302,6 @@ export function createSignalsAlertGroupingConfigurationFyiToJSON(
     ),
   );
 }
-
 export function createSignalsAlertGroupingConfigurationFyiFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -358,7 +330,6 @@ export const CreateSignalsAlertGroupingConfigurationAction$inboundSchema:
       z.lazy(() => CreateSignalsAlertGroupingConfigurationFyi$inboundSchema),
     ).optional(),
   });
-
 /** @internal */
 export type CreateSignalsAlertGroupingConfigurationAction$Outbound = {
   link?: boolean | null | undefined;
@@ -378,21 +349,6 @@ export const CreateSignalsAlertGroupingConfigurationAction$outboundSchema:
     ).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsAlertGroupingConfigurationAction$ {
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationAction$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsAlertGroupingConfigurationAction$inboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationAction$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsAlertGroupingConfigurationAction$outboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfigurationAction$Outbound` instead. */
-  export type Outbound = CreateSignalsAlertGroupingConfigurationAction$Outbound;
-}
-
 export function createSignalsAlertGroupingConfigurationActionToJSON(
   createSignalsAlertGroupingConfigurationAction:
     CreateSignalsAlertGroupingConfigurationAction,
@@ -403,7 +359,6 @@ export function createSignalsAlertGroupingConfigurationActionToJSON(
     ),
   );
 }
-
 export function createSignalsAlertGroupingConfigurationActionFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -438,7 +393,6 @@ export const CreateSignalsAlertGroupingConfiguration$inboundSchema: z.ZodType<
     "reference_alert_time_period": "referenceAlertTimePeriod",
   });
 });
-
 /** @internal */
 export type CreateSignalsAlertGroupingConfiguration$Outbound = {
   strategy: CreateSignalsAlertGroupingConfigurationStrategy$Outbound;
@@ -468,21 +422,6 @@ export const CreateSignalsAlertGroupingConfiguration$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsAlertGroupingConfiguration$ {
-  /** @deprecated use `CreateSignalsAlertGroupingConfiguration$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsAlertGroupingConfiguration$inboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfiguration$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsAlertGroupingConfiguration$outboundSchema;
-  /** @deprecated use `CreateSignalsAlertGroupingConfiguration$Outbound` instead. */
-  export type Outbound = CreateSignalsAlertGroupingConfiguration$Outbound;
-}
-
 export function createSignalsAlertGroupingConfigurationToJSON(
   createSignalsAlertGroupingConfiguration:
     CreateSignalsAlertGroupingConfiguration,
@@ -493,7 +432,6 @@ export function createSignalsAlertGroupingConfigurationToJSON(
     ),
   );
 }
-
 export function createSignalsAlertGroupingConfigurationFromJSON(
   jsonString: string,
 ): SafeParseResult<

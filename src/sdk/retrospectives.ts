@@ -15,6 +15,7 @@ import { retrospectivesExportIncidentRetrospectives } from "../funcs/retrospecti
 import { retrospectivesGetIncidentRetrospectiveField } from "../funcs/retrospectivesGetIncidentRetrospectiveField.js";
 import { retrospectivesGetPostMortemQuestion } from "../funcs/retrospectivesGetPostMortemQuestion.js";
 import { retrospectivesGetPostMortemReport } from "../funcs/retrospectivesGetPostMortemReport.js";
+import { retrospectivesGetRetrospectiveReportTemplate } from "../funcs/retrospectivesGetRetrospectiveReportTemplate.js";
 import { retrospectivesGetRetrospectiveTemplate } from "../funcs/retrospectivesGetRetrospectiveTemplate.js";
 import { retrospectivesListIncidentRetrospectives } from "../funcs/retrospectivesListIncidentRetrospectives.js";
 import { retrospectivesListPostMortemQuestions } from "../funcs/retrospectivesListPostMortemQuestions.js";
@@ -542,6 +543,23 @@ export class Retrospectives extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.RetrospectivesTemplateEntity> {
     return unwrapAsync(retrospectivesUpdateRetrospectiveTemplate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get a retrospective report template
+   *
+   * @remarks
+   * Retrieve a single retrospective report template by ID
+   */
+  async getRetrospectiveReportTemplate(
+    request: operations.GetRetrospectiveReportTemplateRequest,
+    options?: RequestOptions,
+  ): Promise<components.RetrospectivesReportTemplateEntity> {
+    return unwrapAsync(retrospectivesGetRetrospectiveReportTemplate(
       this,
       request,
       options,

@@ -27,7 +27,6 @@ export const PatchScimGroupRequest$inboundSchema: z.ZodType<
     "patch_scim_group": "patchScimGroup",
   });
 });
-
 /** @internal */
 export type PatchScimGroupRequest$Outbound = {
   id: string;
@@ -48,19 +47,6 @@ export const PatchScimGroupRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PatchScimGroupRequest$ {
-  /** @deprecated use `PatchScimGroupRequest$inboundSchema` instead. */
-  export const inboundSchema = PatchScimGroupRequest$inboundSchema;
-  /** @deprecated use `PatchScimGroupRequest$outboundSchema` instead. */
-  export const outboundSchema = PatchScimGroupRequest$outboundSchema;
-  /** @deprecated use `PatchScimGroupRequest$Outbound` instead. */
-  export type Outbound = PatchScimGroupRequest$Outbound;
-}
-
 export function patchScimGroupRequestToJSON(
   patchScimGroupRequest: PatchScimGroupRequest,
 ): string {
@@ -68,7 +54,6 @@ export function patchScimGroupRequestToJSON(
     PatchScimGroupRequest$outboundSchema.parse(patchScimGroupRequest),
   );
 }
-
 export function patchScimGroupRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<PatchScimGroupRequest, SDKValidationError> {

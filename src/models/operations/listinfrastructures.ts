@@ -42,7 +42,6 @@ export const ListInfrastructuresRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListInfrastructuresRequest$Outbound = {
   query?: string | null | undefined;
@@ -70,19 +69,6 @@ export const ListInfrastructuresRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListInfrastructuresRequest$ {
-  /** @deprecated use `ListInfrastructuresRequest$inboundSchema` instead. */
-  export const inboundSchema = ListInfrastructuresRequest$inboundSchema;
-  /** @deprecated use `ListInfrastructuresRequest$outboundSchema` instead. */
-  export const outboundSchema = ListInfrastructuresRequest$outboundSchema;
-  /** @deprecated use `ListInfrastructuresRequest$Outbound` instead. */
-  export type Outbound = ListInfrastructuresRequest$Outbound;
-}
-
 export function listInfrastructuresRequestToJSON(
   listInfrastructuresRequest: ListInfrastructuresRequest,
 ): string {
@@ -90,7 +76,6 @@ export function listInfrastructuresRequestToJSON(
     ListInfrastructuresRequest$outboundSchema.parse(listInfrastructuresRequest),
   );
 }
-
 export function listInfrastructuresRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListInfrastructuresRequest, SDKValidationError> {

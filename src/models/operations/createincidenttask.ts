@@ -30,7 +30,6 @@ export const CreateIncidentTaskRequest$inboundSchema: z.ZodType<
     "create_incident_task": "createIncidentTask",
   });
 });
-
 /** @internal */
 export type CreateIncidentTaskRequest$Outbound = {
   incident_id: string;
@@ -54,19 +53,6 @@ export const CreateIncidentTaskRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentTaskRequest$ {
-  /** @deprecated use `CreateIncidentTaskRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentTaskRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentTaskRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentTaskRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentTaskRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentTaskRequest$Outbound;
-}
-
 export function createIncidentTaskRequestToJSON(
   createIncidentTaskRequest: CreateIncidentTaskRequest,
 ): string {
@@ -74,7 +60,6 @@ export function createIncidentTaskRequestToJSON(
     CreateIncidentTaskRequest$outboundSchema.parse(createIncidentTaskRequest),
   );
 }
-
 export function createIncidentTaskRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentTaskRequest, SDKValidationError> {

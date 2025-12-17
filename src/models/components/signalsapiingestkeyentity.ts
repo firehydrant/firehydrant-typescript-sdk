@@ -22,7 +22,6 @@ export const SignalsAPIIngestKeyEntity$inboundSchema: z.ZodType<
 > = z.object({
   url: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type SignalsAPIIngestKeyEntity$Outbound = {
   url?: string | null | undefined;
@@ -37,19 +36,6 @@ export const SignalsAPIIngestKeyEntity$outboundSchema: z.ZodType<
   url: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIIngestKeyEntity$ {
-  /** @deprecated use `SignalsAPIIngestKeyEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIIngestKeyEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIIngestKeyEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIIngestKeyEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIIngestKeyEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIIngestKeyEntity$Outbound;
-}
-
 export function signalsAPIIngestKeyEntityToJSON(
   signalsAPIIngestKeyEntity: SignalsAPIIngestKeyEntity,
 ): string {
@@ -57,7 +43,6 @@ export function signalsAPIIngestKeyEntityToJSON(
     SignalsAPIIngestKeyEntity$outboundSchema.parse(signalsAPIIngestKeyEntity),
   );
 }
-
 export function signalsAPIIngestKeyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIIngestKeyEntity, SDKValidationError> {

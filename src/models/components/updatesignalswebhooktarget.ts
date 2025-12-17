@@ -49,7 +49,6 @@ export const UpdateSignalsWebhookTarget$inboundSchema: z.ZodType<
     "signing_key": "signingKey",
   });
 });
-
 /** @internal */
 export type UpdateSignalsWebhookTarget$Outbound = {
   name?: string | null | undefined;
@@ -74,19 +73,6 @@ export const UpdateSignalsWebhookTarget$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSignalsWebhookTarget$ {
-  /** @deprecated use `UpdateSignalsWebhookTarget$inboundSchema` instead. */
-  export const inboundSchema = UpdateSignalsWebhookTarget$inboundSchema;
-  /** @deprecated use `UpdateSignalsWebhookTarget$outboundSchema` instead. */
-  export const outboundSchema = UpdateSignalsWebhookTarget$outboundSchema;
-  /** @deprecated use `UpdateSignalsWebhookTarget$Outbound` instead. */
-  export type Outbound = UpdateSignalsWebhookTarget$Outbound;
-}
-
 export function updateSignalsWebhookTargetToJSON(
   updateSignalsWebhookTarget: UpdateSignalsWebhookTarget,
 ): string {
@@ -94,7 +80,6 @@ export function updateSignalsWebhookTargetToJSON(
     UpdateSignalsWebhookTarget$outboundSchema.parse(updateSignalsWebhookTarget),
   );
 }
-
 export function updateSignalsWebhookTargetFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSignalsWebhookTarget, SDKValidationError> {

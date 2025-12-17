@@ -19,7 +19,6 @@ export const GetScimGroupRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetScimGroupRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetScimGroupRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetScimGroupRequest$ {
-  /** @deprecated use `GetScimGroupRequest$inboundSchema` instead. */
-  export const inboundSchema = GetScimGroupRequest$inboundSchema;
-  /** @deprecated use `GetScimGroupRequest$outboundSchema` instead. */
-  export const outboundSchema = GetScimGroupRequest$outboundSchema;
-  /** @deprecated use `GetScimGroupRequest$Outbound` instead. */
-  export type Outbound = GetScimGroupRequest$Outbound;
-}
-
 export function getScimGroupRequestToJSON(
   getScimGroupRequest: GetScimGroupRequest,
 ): string {
@@ -54,7 +40,6 @@ export function getScimGroupRequestToJSON(
     GetScimGroupRequest$outboundSchema.parse(getScimGroupRequest),
   );
 }
-
 export function getScimGroupRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetScimGroupRequest, SDKValidationError> {

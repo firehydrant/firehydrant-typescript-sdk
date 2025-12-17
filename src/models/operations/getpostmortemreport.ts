@@ -24,7 +24,6 @@ export const GetPostMortemReportRequest$inboundSchema: z.ZodType<
     "report_id": "reportId",
   });
 });
-
 /** @internal */
 export type GetPostMortemReportRequest$Outbound = {
   report_id: string;
@@ -43,19 +42,6 @@ export const GetPostMortemReportRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetPostMortemReportRequest$ {
-  /** @deprecated use `GetPostMortemReportRequest$inboundSchema` instead. */
-  export const inboundSchema = GetPostMortemReportRequest$inboundSchema;
-  /** @deprecated use `GetPostMortemReportRequest$outboundSchema` instead. */
-  export const outboundSchema = GetPostMortemReportRequest$outboundSchema;
-  /** @deprecated use `GetPostMortemReportRequest$Outbound` instead. */
-  export type Outbound = GetPostMortemReportRequest$Outbound;
-}
-
 export function getPostMortemReportRequestToJSON(
   getPostMortemReportRequest: GetPostMortemReportRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getPostMortemReportRequestToJSON(
     GetPostMortemReportRequest$outboundSchema.parse(getPostMortemReportRequest),
   );
 }
-
 export function getPostMortemReportRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetPostMortemReportRequest, SDKValidationError> {

@@ -24,7 +24,6 @@ export const ListIncidentConferenceBridgesRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentConferenceBridgesRequest$Outbound = {
   incident_id: string;
@@ -43,21 +42,6 @@ export const ListIncidentConferenceBridgesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentConferenceBridgesRequest$ {
-  /** @deprecated use `ListIncidentConferenceBridgesRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListIncidentConferenceBridgesRequest$inboundSchema;
-  /** @deprecated use `ListIncidentConferenceBridgesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListIncidentConferenceBridgesRequest$outboundSchema;
-  /** @deprecated use `ListIncidentConferenceBridgesRequest$Outbound` instead. */
-  export type Outbound = ListIncidentConferenceBridgesRequest$Outbound;
-}
-
 export function listIncidentConferenceBridgesRequestToJSON(
   listIncidentConferenceBridgesRequest: ListIncidentConferenceBridgesRequest,
 ): string {
@@ -67,7 +51,6 @@ export function listIncidentConferenceBridgesRequestToJSON(
     ),
   );
 }
-
 export function listIncidentConferenceBridgesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentConferenceBridgesRequest, SDKValidationError> {

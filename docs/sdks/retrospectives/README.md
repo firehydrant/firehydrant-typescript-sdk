@@ -1,5 +1,4 @@
 # Retrospectives
-(*retrospectives*)
 
 ## Overview
 
@@ -37,6 +36,7 @@ Operations related to Retrospectives
 * [getRetrospectiveTemplate](#getretrospectivetemplate) - Get a retrospective template
 * [deleteRetrospectiveTemplate](#deleteretrospectivetemplate) - Delete a retrospective template
 * [updateRetrospectiveTemplate](#updateretrospectivetemplate) - Update a retrospective template
+* [getRetrospectiveReportTemplate](#getretrospectivereporttemplate) - Get a retrospective report template
 
 ## shareIncidentRetrospectives
 
@@ -2286,6 +2286,7 @@ async function run() {
       fieldsType: [
         "markdown_text",
       ],
+      reportElementsType: "retrospective_field",
     },
   });
 
@@ -2325,6 +2326,7 @@ async function run() {
       fieldsType: [
         "markdown_text",
       ],
+      reportElementsType: "retrospective_field",
     },
   });
   if (res.ok) {
@@ -2350,6 +2352,79 @@ run();
 ### Response
 
 **Promise\<[components.RetrospectivesTemplateEntity](../../models/components/retrospectivestemplateentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getRetrospectiveReportTemplate
+
+Retrieve a single retrospective report template by ID
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get_retrospective_report_template" method="get" path="/v1/retrospective_report_templates/{id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.retrospectives.getRetrospectiveReportTemplate({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesGetRetrospectiveReportTemplate } from "firehydrant-typescript-sdk/funcs/retrospectivesGetRetrospectiveReportTemplate.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await retrospectivesGetRetrospectiveReportTemplate(firehydrant, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("retrospectivesGetRetrospectiveReportTemplate failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetRetrospectiveReportTemplateRequest](../../models/operations/getretrospectivereporttemplaterequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.RetrospectivesReportTemplateEntity](../../models/components/retrospectivesreporttemplateentity.md)\>**
 
 ### Errors
 

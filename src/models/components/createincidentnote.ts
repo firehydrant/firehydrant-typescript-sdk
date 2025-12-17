@@ -40,22 +40,10 @@ export type CreateIncidentNote = {
 export const CreateIncidentNoteVisibility$inboundSchema: z.ZodNativeEnum<
   typeof CreateIncidentNoteVisibility
 > = z.nativeEnum(CreateIncidentNoteVisibility);
-
 /** @internal */
 export const CreateIncidentNoteVisibility$outboundSchema: z.ZodNativeEnum<
   typeof CreateIncidentNoteVisibility
 > = CreateIncidentNoteVisibility$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentNoteVisibility$ {
-  /** @deprecated use `CreateIncidentNoteVisibility$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentNoteVisibility$inboundSchema;
-  /** @deprecated use `CreateIncidentNoteVisibility$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentNoteVisibility$outboundSchema;
-}
 
 /** @internal */
 export const CreateIncidentNoteStatusPage$inboundSchema: z.ZodType<
@@ -70,7 +58,6 @@ export const CreateIncidentNoteStatusPage$inboundSchema: z.ZodType<
     "integration_slug": "integrationSlug",
   });
 });
-
 /** @internal */
 export type CreateIncidentNoteStatusPage$Outbound = {
   id: string;
@@ -91,19 +78,6 @@ export const CreateIncidentNoteStatusPage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentNoteStatusPage$ {
-  /** @deprecated use `CreateIncidentNoteStatusPage$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentNoteStatusPage$inboundSchema;
-  /** @deprecated use `CreateIncidentNoteStatusPage$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentNoteStatusPage$outboundSchema;
-  /** @deprecated use `CreateIncidentNoteStatusPage$Outbound` instead. */
-  export type Outbound = CreateIncidentNoteStatusPage$Outbound;
-}
-
 export function createIncidentNoteStatusPageToJSON(
   createIncidentNoteStatusPage: CreateIncidentNoteStatusPage,
 ): string {
@@ -113,7 +87,6 @@ export function createIncidentNoteStatusPageToJSON(
     ),
   );
 }
-
 export function createIncidentNoteStatusPageFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentNoteStatusPage, SDKValidationError> {
@@ -146,7 +119,6 @@ export const CreateIncidentNote$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type CreateIncidentNote$Outbound = {
   body: string;
@@ -179,19 +151,6 @@ export const CreateIncidentNote$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentNote$ {
-  /** @deprecated use `CreateIncidentNote$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentNote$inboundSchema;
-  /** @deprecated use `CreateIncidentNote$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentNote$outboundSchema;
-  /** @deprecated use `CreateIncidentNote$Outbound` instead. */
-  export type Outbound = CreateIncidentNote$Outbound;
-}
-
 export function createIncidentNoteToJSON(
   createIncidentNote: CreateIncidentNote,
 ): string {
@@ -199,7 +158,6 @@ export function createIncidentNoteToJSON(
     CreateIncidentNote$outboundSchema.parse(createIncidentNote),
   );
 }
-
 export function createIncidentNoteFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentNote, SDKValidationError> {

@@ -105,68 +105,28 @@ export type UpdateTeamSignalRule = {
 export const UpdateTeamSignalRuleTargetType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateTeamSignalRuleTargetType
 > = z.nativeEnum(UpdateTeamSignalRuleTargetType);
-
 /** @internal */
 export const UpdateTeamSignalRuleTargetType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateTeamSignalRuleTargetType
 > = UpdateTeamSignalRuleTargetType$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamSignalRuleTargetType$ {
-  /** @deprecated use `UpdateTeamSignalRuleTargetType$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamSignalRuleTargetType$inboundSchema;
-  /** @deprecated use `UpdateTeamSignalRuleTargetType$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamSignalRuleTargetType$outboundSchema;
-}
-
 /** @internal */
 export const UpdateTeamSignalRuleNotificationPriorityOverride$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamSignalRuleNotificationPriorityOverride> = z
     .nativeEnum(UpdateTeamSignalRuleNotificationPriorityOverride);
-
 /** @internal */
 export const UpdateTeamSignalRuleNotificationPriorityOverride$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamSignalRuleNotificationPriorityOverride> =
     UpdateTeamSignalRuleNotificationPriorityOverride$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamSignalRuleNotificationPriorityOverride$ {
-  /** @deprecated use `UpdateTeamSignalRuleNotificationPriorityOverride$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamSignalRuleNotificationPriorityOverride$inboundSchema;
-  /** @deprecated use `UpdateTeamSignalRuleNotificationPriorityOverride$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamSignalRuleNotificationPriorityOverride$outboundSchema;
-}
-
 /** @internal */
 export const UpdateTeamSignalRuleCreateIncidentConditionWhen$inboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamSignalRuleCreateIncidentConditionWhen> = z
     .nativeEnum(UpdateTeamSignalRuleCreateIncidentConditionWhen);
-
 /** @internal */
 export const UpdateTeamSignalRuleCreateIncidentConditionWhen$outboundSchema:
   z.ZodNativeEnum<typeof UpdateTeamSignalRuleCreateIncidentConditionWhen> =
     UpdateTeamSignalRuleCreateIncidentConditionWhen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamSignalRuleCreateIncidentConditionWhen$ {
-  /** @deprecated use `UpdateTeamSignalRuleCreateIncidentConditionWhen$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateTeamSignalRuleCreateIncidentConditionWhen$inboundSchema;
-  /** @deprecated use `UpdateTeamSignalRuleCreateIncidentConditionWhen$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateTeamSignalRuleCreateIncidentConditionWhen$outboundSchema;
-}
 
 /** @internal */
 export const UpdateTeamSignalRule$inboundSchema: z.ZodType<
@@ -197,7 +157,6 @@ export const UpdateTeamSignalRule$inboundSchema: z.ZodType<
     "deduplication_expiry": "deduplicationExpiry",
   });
 });
-
 /** @internal */
 export type UpdateTeamSignalRule$Outbound = {
   name?: string | null | undefined;
@@ -240,19 +199,6 @@ export const UpdateTeamSignalRule$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTeamSignalRule$ {
-  /** @deprecated use `UpdateTeamSignalRule$inboundSchema` instead. */
-  export const inboundSchema = UpdateTeamSignalRule$inboundSchema;
-  /** @deprecated use `UpdateTeamSignalRule$outboundSchema` instead. */
-  export const outboundSchema = UpdateTeamSignalRule$outboundSchema;
-  /** @deprecated use `UpdateTeamSignalRule$Outbound` instead. */
-  export type Outbound = UpdateTeamSignalRule$Outbound;
-}
-
 export function updateTeamSignalRuleToJSON(
   updateTeamSignalRule: UpdateTeamSignalRule,
 ): string {
@@ -260,7 +206,6 @@ export function updateTeamSignalRuleToJSON(
     UpdateTeamSignalRule$outboundSchema.parse(updateTeamSignalRule),
   );
 }
-
 export function updateTeamSignalRuleFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTeamSignalRule, SDKValidationError> {

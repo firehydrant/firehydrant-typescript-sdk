@@ -30,7 +30,6 @@ export const CreateIncidentLinkRequest$inboundSchema: z.ZodType<
     "create_incident_link": "createIncidentLink",
   });
 });
-
 /** @internal */
 export type CreateIncidentLinkRequest$Outbound = {
   incident_id: string;
@@ -54,19 +53,6 @@ export const CreateIncidentLinkRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentLinkRequest$ {
-  /** @deprecated use `CreateIncidentLinkRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentLinkRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentLinkRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentLinkRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentLinkRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentLinkRequest$Outbound;
-}
-
 export function createIncidentLinkRequestToJSON(
   createIncidentLinkRequest: CreateIncidentLinkRequest,
 ): string {
@@ -74,7 +60,6 @@ export function createIncidentLinkRequestToJSON(
     CreateIncidentLinkRequest$outboundSchema.parse(createIncidentLinkRequest),
   );
 }
-
 export function createIncidentLinkRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentLinkRequest, SDKValidationError> {

@@ -46,7 +46,6 @@ export const ChangeEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ChangeEntityLabels$Outbound = {};
 
@@ -57,19 +56,6 @@ export const ChangeEntityLabels$outboundSchema: z.ZodType<
   ChangeEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEntityLabels$ {
-  /** @deprecated use `ChangeEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = ChangeEntityLabels$inboundSchema;
-  /** @deprecated use `ChangeEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = ChangeEntityLabels$outboundSchema;
-  /** @deprecated use `ChangeEntityLabels$Outbound` instead. */
-  export type Outbound = ChangeEntityLabels$Outbound;
-}
-
 export function changeEntityLabelsToJSON(
   changeEntityLabels: ChangeEntityLabels,
 ): string {
@@ -77,7 +63,6 @@ export function changeEntityLabelsToJSON(
     ChangeEntityLabels$outboundSchema.parse(changeEntityLabels),
   );
 }
-
 export function changeEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEntityLabels, SDKValidationError> {
@@ -110,7 +95,6 @@ export const ChangeEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type ChangeEntity$Outbound = {
   id?: string | null | undefined;
@@ -141,23 +125,9 @@ export const ChangeEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEntity$ {
-  /** @deprecated use `ChangeEntity$inboundSchema` instead. */
-  export const inboundSchema = ChangeEntity$inboundSchema;
-  /** @deprecated use `ChangeEntity$outboundSchema` instead. */
-  export const outboundSchema = ChangeEntity$outboundSchema;
-  /** @deprecated use `ChangeEntity$Outbound` instead. */
-  export type Outbound = ChangeEntity$Outbound;
-}
-
 export function changeEntityToJSON(changeEntity: ChangeEntity): string {
   return JSON.stringify(ChangeEntity$outboundSchema.parse(changeEntity));
 }
-
 export function changeEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEntity, SDKValidationError> {

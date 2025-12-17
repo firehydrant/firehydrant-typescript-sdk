@@ -30,7 +30,6 @@ export const CreateTeamOnCallScheduleRequest$inboundSchema: z.ZodType<
     "create_team_on_call_schedule": "createTeamOnCallSchedule",
   });
 });
-
 /** @internal */
 export type CreateTeamOnCallScheduleRequest$Outbound = {
   team_id: string;
@@ -54,19 +53,6 @@ export const CreateTeamOnCallScheduleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamOnCallScheduleRequest$ {
-  /** @deprecated use `CreateTeamOnCallScheduleRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamOnCallScheduleRequest$inboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamOnCallScheduleRequest$outboundSchema;
-  /** @deprecated use `CreateTeamOnCallScheduleRequest$Outbound` instead. */
-  export type Outbound = CreateTeamOnCallScheduleRequest$Outbound;
-}
-
 export function createTeamOnCallScheduleRequestToJSON(
   createTeamOnCallScheduleRequest: CreateTeamOnCallScheduleRequest,
 ): string {
@@ -76,7 +62,6 @@ export function createTeamOnCallScheduleRequestToJSON(
     ),
   );
 }
-
 export function createTeamOnCallScheduleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamOnCallScheduleRequest, SDKValidationError> {

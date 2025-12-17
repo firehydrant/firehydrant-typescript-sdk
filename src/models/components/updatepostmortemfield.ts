@@ -22,7 +22,6 @@ export const UpdatePostMortemField$inboundSchema: z.ZodType<
 > = z.object({
   value: z.string(),
 });
-
 /** @internal */
 export type UpdatePostMortemField$Outbound = {
   value: string;
@@ -37,19 +36,6 @@ export const UpdatePostMortemField$outboundSchema: z.ZodType<
   value: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemField$ {
-  /** @deprecated use `UpdatePostMortemField$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemField$inboundSchema;
-  /** @deprecated use `UpdatePostMortemField$outboundSchema` instead. */
-  export const outboundSchema = UpdatePostMortemField$outboundSchema;
-  /** @deprecated use `UpdatePostMortemField$Outbound` instead. */
-  export type Outbound = UpdatePostMortemField$Outbound;
-}
-
 export function updatePostMortemFieldToJSON(
   updatePostMortemField: UpdatePostMortemField,
 ): string {
@@ -57,7 +43,6 @@ export function updatePostMortemFieldToJSON(
     UpdatePostMortemField$outboundSchema.parse(updatePostMortemField),
   );
 }
-
 export function updatePostMortemFieldFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemField, SDKValidationError> {

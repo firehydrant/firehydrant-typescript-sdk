@@ -22,7 +22,6 @@ export const ListSignalsEmailTargetsRequest$inboundSchema: z.ZodType<
 > = z.object({
   query: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type ListSignalsEmailTargetsRequest$Outbound = {
   query?: string | null | undefined;
@@ -37,19 +36,6 @@ export const ListSignalsEmailTargetsRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSignalsEmailTargetsRequest$ {
-  /** @deprecated use `ListSignalsEmailTargetsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSignalsEmailTargetsRequest$inboundSchema;
-  /** @deprecated use `ListSignalsEmailTargetsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSignalsEmailTargetsRequest$outboundSchema;
-  /** @deprecated use `ListSignalsEmailTargetsRequest$Outbound` instead. */
-  export type Outbound = ListSignalsEmailTargetsRequest$Outbound;
-}
-
 export function listSignalsEmailTargetsRequestToJSON(
   listSignalsEmailTargetsRequest: ListSignalsEmailTargetsRequest,
 ): string {
@@ -59,7 +45,6 @@ export function listSignalsEmailTargetsRequestToJSON(
     ),
   );
 }
-
 export function listSignalsEmailTargetsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSignalsEmailTargetsRequest, SDKValidationError> {

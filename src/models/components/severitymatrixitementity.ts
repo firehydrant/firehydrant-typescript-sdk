@@ -32,7 +32,6 @@ export const SeverityMatrixItemEntity$inboundSchema: z.ZodType<
     "impact_type": "impactType",
   });
 });
-
 /** @internal */
 export type SeverityMatrixItemEntity$Outbound = {
   severity?: string | null | undefined;
@@ -59,19 +58,6 @@ export const SeverityMatrixItemEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeverityMatrixItemEntity$ {
-  /** @deprecated use `SeverityMatrixItemEntity$inboundSchema` instead. */
-  export const inboundSchema = SeverityMatrixItemEntity$inboundSchema;
-  /** @deprecated use `SeverityMatrixItemEntity$outboundSchema` instead. */
-  export const outboundSchema = SeverityMatrixItemEntity$outboundSchema;
-  /** @deprecated use `SeverityMatrixItemEntity$Outbound` instead. */
-  export type Outbound = SeverityMatrixItemEntity$Outbound;
-}
-
 export function severityMatrixItemEntityToJSON(
   severityMatrixItemEntity: SeverityMatrixItemEntity,
 ): string {
@@ -79,7 +65,6 @@ export function severityMatrixItemEntityToJSON(
     SeverityMatrixItemEntity$outboundSchema.parse(severityMatrixItemEntity),
   );
 }
-
 export function severityMatrixItemEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SeverityMatrixItemEntity, SDKValidationError> {

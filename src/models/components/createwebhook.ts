@@ -22,7 +22,6 @@ export const CreateWebhook$inboundSchema: z.ZodType<
 > = z.object({
   url: z.string(),
 });
-
 /** @internal */
 export type CreateWebhook$Outbound = {
   url: string;
@@ -37,23 +36,9 @@ export const CreateWebhook$outboundSchema: z.ZodType<
   url: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateWebhook$ {
-  /** @deprecated use `CreateWebhook$inboundSchema` instead. */
-  export const inboundSchema = CreateWebhook$inboundSchema;
-  /** @deprecated use `CreateWebhook$outboundSchema` instead. */
-  export const outboundSchema = CreateWebhook$outboundSchema;
-  /** @deprecated use `CreateWebhook$Outbound` instead. */
-  export type Outbound = CreateWebhook$Outbound;
-}
-
 export function createWebhookToJSON(createWebhook: CreateWebhook): string {
   return JSON.stringify(CreateWebhook$outboundSchema.parse(createWebhook));
 }
-
 export function createWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateWebhook, SDKValidationError> {

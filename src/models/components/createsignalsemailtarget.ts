@@ -116,22 +116,10 @@ export type CreateSignalsEmailTarget = {
 export const CreateSignalsEmailTargetType$inboundSchema: z.ZodNativeEnum<
   typeof CreateSignalsEmailTargetType
 > = z.nativeEnum(CreateSignalsEmailTargetType);
-
 /** @internal */
 export const CreateSignalsEmailTargetType$outboundSchema: z.ZodNativeEnum<
   typeof CreateSignalsEmailTargetType
 > = CreateSignalsEmailTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEmailTargetType$ {
-  /** @deprecated use `CreateSignalsEmailTargetType$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsEmailTargetType$inboundSchema;
-  /** @deprecated use `CreateSignalsEmailTargetType$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsEmailTargetType$outboundSchema;
-}
 
 /** @internal */
 export const CreateSignalsEmailTargetTarget$inboundSchema: z.ZodType<
@@ -142,7 +130,6 @@ export const CreateSignalsEmailTargetTarget$inboundSchema: z.ZodType<
   type: CreateSignalsEmailTargetType$inboundSchema,
   id: z.string(),
 });
-
 /** @internal */
 export type CreateSignalsEmailTargetTarget$Outbound = {
   type: string;
@@ -159,19 +146,6 @@ export const CreateSignalsEmailTargetTarget$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEmailTargetTarget$ {
-  /** @deprecated use `CreateSignalsEmailTargetTarget$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsEmailTargetTarget$inboundSchema;
-  /** @deprecated use `CreateSignalsEmailTargetTarget$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsEmailTargetTarget$outboundSchema;
-  /** @deprecated use `CreateSignalsEmailTargetTarget$Outbound` instead. */
-  export type Outbound = CreateSignalsEmailTargetTarget$Outbound;
-}
-
 export function createSignalsEmailTargetTargetToJSON(
   createSignalsEmailTargetTarget: CreateSignalsEmailTargetTarget,
 ): string {
@@ -181,7 +155,6 @@ export function createSignalsEmailTargetTargetToJSON(
     ),
   );
 }
-
 export function createSignalsEmailTargetTargetFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSignalsEmailTargetTarget, SDKValidationError> {
@@ -196,24 +169,10 @@ export function createSignalsEmailTargetTargetFromJSON(
 export const CreateSignalsEmailTargetRuleMatchingStrategy$inboundSchema:
   z.ZodNativeEnum<typeof CreateSignalsEmailTargetRuleMatchingStrategy> = z
     .nativeEnum(CreateSignalsEmailTargetRuleMatchingStrategy);
-
 /** @internal */
 export const CreateSignalsEmailTargetRuleMatchingStrategy$outboundSchema:
   z.ZodNativeEnum<typeof CreateSignalsEmailTargetRuleMatchingStrategy> =
     CreateSignalsEmailTargetRuleMatchingStrategy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEmailTargetRuleMatchingStrategy$ {
-  /** @deprecated use `CreateSignalsEmailTargetRuleMatchingStrategy$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSignalsEmailTargetRuleMatchingStrategy$inboundSchema;
-  /** @deprecated use `CreateSignalsEmailTargetRuleMatchingStrategy$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSignalsEmailTargetRuleMatchingStrategy$outboundSchema;
-}
 
 /** @internal */
 export const CreateSignalsEmailTarget$inboundSchema: z.ZodType<
@@ -241,7 +200,6 @@ export const CreateSignalsEmailTarget$inboundSchema: z.ZodType<
     "level_cel": "levelCel",
   });
 });
-
 /** @internal */
 export type CreateSignalsEmailTarget$Outbound = {
   name: string;
@@ -283,19 +241,6 @@ export const CreateSignalsEmailTarget$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSignalsEmailTarget$ {
-  /** @deprecated use `CreateSignalsEmailTarget$inboundSchema` instead. */
-  export const inboundSchema = CreateSignalsEmailTarget$inboundSchema;
-  /** @deprecated use `CreateSignalsEmailTarget$outboundSchema` instead. */
-  export const outboundSchema = CreateSignalsEmailTarget$outboundSchema;
-  /** @deprecated use `CreateSignalsEmailTarget$Outbound` instead. */
-  export type Outbound = CreateSignalsEmailTarget$Outbound;
-}
-
 export function createSignalsEmailTargetToJSON(
   createSignalsEmailTarget: CreateSignalsEmailTarget,
 ): string {
@@ -303,7 +248,6 @@ export function createSignalsEmailTargetToJSON(
     CreateSignalsEmailTarget$outboundSchema.parse(createSignalsEmailTarget),
   );
 }
-
 export function createSignalsEmailTargetFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSignalsEmailTarget, SDKValidationError> {

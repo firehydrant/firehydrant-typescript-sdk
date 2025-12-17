@@ -27,7 +27,6 @@ export const ListAudienceSummariesRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListAudienceSummariesRequest$Outbound = {
   incident_id: string;
@@ -46,19 +45,6 @@ export const ListAudienceSummariesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAudienceSummariesRequest$ {
-  /** @deprecated use `ListAudienceSummariesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAudienceSummariesRequest$inboundSchema;
-  /** @deprecated use `ListAudienceSummariesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAudienceSummariesRequest$outboundSchema;
-  /** @deprecated use `ListAudienceSummariesRequest$Outbound` instead. */
-  export type Outbound = ListAudienceSummariesRequest$Outbound;
-}
-
 export function listAudienceSummariesRequestToJSON(
   listAudienceSummariesRequest: ListAudienceSummariesRequest,
 ): string {
@@ -68,7 +54,6 @@ export function listAudienceSummariesRequestToJSON(
     ),
   );
 }
-
 export function listAudienceSummariesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAudienceSummariesRequest, SDKValidationError> {

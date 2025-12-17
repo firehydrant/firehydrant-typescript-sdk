@@ -36,7 +36,6 @@ export const ChangeEventSlimEntityPaginated$inboundSchema: z.ZodType<
   data: z.nullable(z.array(ChangeEventSlimEntity$inboundSchema)).optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type ChangeEventSlimEntityPaginated$Outbound = {
   data?: Array<ChangeEventSlimEntity$Outbound> | null | undefined;
@@ -53,19 +52,6 @@ export const ChangeEventSlimEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeEventSlimEntityPaginated$ {
-  /** @deprecated use `ChangeEventSlimEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema = ChangeEventSlimEntityPaginated$inboundSchema;
-  /** @deprecated use `ChangeEventSlimEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema = ChangeEventSlimEntityPaginated$outboundSchema;
-  /** @deprecated use `ChangeEventSlimEntityPaginated$Outbound` instead. */
-  export type Outbound = ChangeEventSlimEntityPaginated$Outbound;
-}
-
 export function changeEventSlimEntityPaginatedToJSON(
   changeEventSlimEntityPaginated: ChangeEventSlimEntityPaginated,
 ): string {
@@ -75,7 +61,6 @@ export function changeEventSlimEntityPaginatedToJSON(
     ),
   );
 }
-
 export function changeEventSlimEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeEventSlimEntityPaginated, SDKValidationError> {

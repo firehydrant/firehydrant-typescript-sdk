@@ -53,7 +53,6 @@ export const SeverityEntity$inboundSchema: z.ZodType<
     "allowed_role_ids": "allowedRoleIds",
   });
 });
-
 /** @internal */
 export type SeverityEntity$Outbound = {
   slug?: string | null | undefined;
@@ -91,23 +90,9 @@ export const SeverityEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeverityEntity$ {
-  /** @deprecated use `SeverityEntity$inboundSchema` instead. */
-  export const inboundSchema = SeverityEntity$inboundSchema;
-  /** @deprecated use `SeverityEntity$outboundSchema` instead. */
-  export const outboundSchema = SeverityEntity$outboundSchema;
-  /** @deprecated use `SeverityEntity$Outbound` instead. */
-  export type Outbound = SeverityEntity$Outbound;
-}
-
 export function severityEntityToJSON(severityEntity: SeverityEntity): string {
   return JSON.stringify(SeverityEntity$outboundSchema.parse(severityEntity));
 }
-
 export function severityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SeverityEntity, SDKValidationError> {

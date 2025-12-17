@@ -100,7 +100,6 @@ export const AlertsAlertEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type AlertsAlertEntityLabels$Outbound = {};
 
@@ -111,19 +110,6 @@ export const AlertsAlertEntityLabels$outboundSchema: z.ZodType<
   AlertsAlertEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsAlertEntityLabels$ {
-  /** @deprecated use `AlertsAlertEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = AlertsAlertEntityLabels$inboundSchema;
-  /** @deprecated use `AlertsAlertEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = AlertsAlertEntityLabels$outboundSchema;
-  /** @deprecated use `AlertsAlertEntityLabels$Outbound` instead. */
-  export type Outbound = AlertsAlertEntityLabels$Outbound;
-}
-
 export function alertsAlertEntityLabelsToJSON(
   alertsAlertEntityLabels: AlertsAlertEntityLabels,
 ): string {
@@ -131,7 +117,6 @@ export function alertsAlertEntityLabelsToJSON(
     AlertsAlertEntityLabels$outboundSchema.parse(alertsAlertEntityLabels),
   );
 }
-
 export function alertsAlertEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<AlertsAlertEntityLabels, SDKValidationError> {
@@ -212,7 +197,6 @@ export const AlertsAlertEntity$inboundSchema: z.ZodType<
     "child_alerts": "childAlerts",
   });
 });
-
 /** @internal */
 export type AlertsAlertEntity$Outbound = {
   id?: string | null | undefined;
@@ -320,19 +304,6 @@ export const AlertsAlertEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsAlertEntity$ {
-  /** @deprecated use `AlertsAlertEntity$inboundSchema` instead. */
-  export const inboundSchema = AlertsAlertEntity$inboundSchema;
-  /** @deprecated use `AlertsAlertEntity$outboundSchema` instead. */
-  export const outboundSchema = AlertsAlertEntity$outboundSchema;
-  /** @deprecated use `AlertsAlertEntity$Outbound` instead. */
-  export type Outbound = AlertsAlertEntity$Outbound;
-}
-
 export function alertsAlertEntityToJSON(
   alertsAlertEntity: AlertsAlertEntity,
 ): string {
@@ -340,7 +311,6 @@ export function alertsAlertEntityToJSON(
     AlertsAlertEntity$outboundSchema.parse(alertsAlertEntity),
   );
 }
-
 export function alertsAlertEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<AlertsAlertEntity, SDKValidationError> {

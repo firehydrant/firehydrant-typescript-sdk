@@ -24,7 +24,6 @@ export const GetIncidentChannelRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type GetIncidentChannelRequest$Outbound = {
   incident_id: string;
@@ -43,19 +42,6 @@ export const GetIncidentChannelRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetIncidentChannelRequest$ {
-  /** @deprecated use `GetIncidentChannelRequest$inboundSchema` instead. */
-  export const inboundSchema = GetIncidentChannelRequest$inboundSchema;
-  /** @deprecated use `GetIncidentChannelRequest$outboundSchema` instead. */
-  export const outboundSchema = GetIncidentChannelRequest$outboundSchema;
-  /** @deprecated use `GetIncidentChannelRequest$Outbound` instead. */
-  export type Outbound = GetIncidentChannelRequest$Outbound;
-}
-
 export function getIncidentChannelRequestToJSON(
   getIncidentChannelRequest: GetIncidentChannelRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getIncidentChannelRequestToJSON(
     GetIncidentChannelRequest$outboundSchema.parse(getIncidentChannelRequest),
   );
 }
-
 export function getIncidentChannelRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetIncidentChannelRequest, SDKValidationError> {

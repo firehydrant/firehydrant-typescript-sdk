@@ -40,7 +40,6 @@ export const UpdateCustomFieldDefinition$inboundSchema: z.ZodType<
     "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
-
 /** @internal */
 export type UpdateCustomFieldDefinition$Outbound = {
   description?: string | null | undefined;
@@ -69,19 +68,6 @@ export const UpdateCustomFieldDefinition$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCustomFieldDefinition$ {
-  /** @deprecated use `UpdateCustomFieldDefinition$inboundSchema` instead. */
-  export const inboundSchema = UpdateCustomFieldDefinition$inboundSchema;
-  /** @deprecated use `UpdateCustomFieldDefinition$outboundSchema` instead. */
-  export const outboundSchema = UpdateCustomFieldDefinition$outboundSchema;
-  /** @deprecated use `UpdateCustomFieldDefinition$Outbound` instead. */
-  export type Outbound = UpdateCustomFieldDefinition$Outbound;
-}
-
 export function updateCustomFieldDefinitionToJSON(
   updateCustomFieldDefinition: UpdateCustomFieldDefinition,
 ): string {
@@ -91,7 +77,6 @@ export function updateCustomFieldDefinitionToJSON(
     ),
   );
 }
-
 export function updateCustomFieldDefinitionFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCustomFieldDefinition, SDKValidationError> {

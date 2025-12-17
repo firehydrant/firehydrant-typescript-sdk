@@ -24,7 +24,6 @@ export const DeleteFunctionalityRequest$inboundSchema: z.ZodType<
     "functionality_id": "functionalityId",
   });
 });
-
 /** @internal */
 export type DeleteFunctionalityRequest$Outbound = {
   functionality_id: string;
@@ -43,19 +42,6 @@ export const DeleteFunctionalityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteFunctionalityRequest$ {
-  /** @deprecated use `DeleteFunctionalityRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteFunctionalityRequest$inboundSchema;
-  /** @deprecated use `DeleteFunctionalityRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteFunctionalityRequest$outboundSchema;
-  /** @deprecated use `DeleteFunctionalityRequest$Outbound` instead. */
-  export type Outbound = DeleteFunctionalityRequest$Outbound;
-}
-
 export function deleteFunctionalityRequestToJSON(
   deleteFunctionalityRequest: DeleteFunctionalityRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteFunctionalityRequestToJSON(
     DeleteFunctionalityRequest$outboundSchema.parse(deleteFunctionalityRequest),
   );
 }
-
 export function deleteFunctionalityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteFunctionalityRequest, SDKValidationError> {

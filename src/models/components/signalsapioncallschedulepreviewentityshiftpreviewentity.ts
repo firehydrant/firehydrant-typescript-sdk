@@ -40,7 +40,6 @@ export const SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$inboundSche
       "end_time": "endTime",
     });
   });
-
 /** @internal */
 export type SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$Outbound = {
   start_time?: string | null | undefined;
@@ -65,22 +64,6 @@ export const SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$outboundSch
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$ {
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$Outbound` instead. */
-  export type Outbound =
-    SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity$Outbound;
-}
-
 export function signalsAPIOnCallSchedulePreviewEntityShiftPreviewEntityToJSON(
   signalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity:
     SignalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity,
@@ -90,7 +73,6 @@ export function signalsAPIOnCallSchedulePreviewEntityShiftPreviewEntityToJSON(
       .parse(signalsAPIOnCallSchedulePreviewEntityShiftPreviewEntity),
   );
 }
-
 export function signalsAPIOnCallSchedulePreviewEntityShiftPreviewEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

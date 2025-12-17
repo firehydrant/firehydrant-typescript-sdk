@@ -37,7 +37,6 @@ export const SignalsAPIWebhookTargetEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type SignalsAPIWebhookTargetEntityPaginated$Outbound = {
   data?: Array<SignalsAPIWebhookTargetEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const SignalsAPIWebhookTargetEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIWebhookTargetEntityPaginated$ {
-  /** @deprecated use `SignalsAPIWebhookTargetEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIWebhookTargetEntityPaginated$inboundSchema;
-  /** @deprecated use `SignalsAPIWebhookTargetEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIWebhookTargetEntityPaginated$outboundSchema;
-  /** @deprecated use `SignalsAPIWebhookTargetEntityPaginated$Outbound` instead. */
-  export type Outbound = SignalsAPIWebhookTargetEntityPaginated$Outbound;
-}
-
 export function signalsAPIWebhookTargetEntityPaginatedToJSON(
   signalsAPIWebhookTargetEntityPaginated:
     SignalsAPIWebhookTargetEntityPaginated,
@@ -80,7 +64,6 @@ export function signalsAPIWebhookTargetEntityPaginatedToJSON(
     ),
   );
 }
-
 export function signalsAPIWebhookTargetEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIWebhookTargetEntityPaginated, SDKValidationError> {

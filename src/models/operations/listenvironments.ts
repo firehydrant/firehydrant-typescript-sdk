@@ -36,7 +36,6 @@ export const ListEnvironmentsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListEnvironmentsRequest$Outbound = {
   page?: number | null | undefined;
@@ -61,19 +60,6 @@ export const ListEnvironmentsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListEnvironmentsRequest$ {
-  /** @deprecated use `ListEnvironmentsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListEnvironmentsRequest$inboundSchema;
-  /** @deprecated use `ListEnvironmentsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListEnvironmentsRequest$outboundSchema;
-  /** @deprecated use `ListEnvironmentsRequest$Outbound` instead. */
-  export type Outbound = ListEnvironmentsRequest$Outbound;
-}
-
 export function listEnvironmentsRequestToJSON(
   listEnvironmentsRequest: ListEnvironmentsRequest,
 ): string {
@@ -81,7 +67,6 @@ export function listEnvironmentsRequestToJSON(
     ListEnvironmentsRequest$outboundSchema.parse(listEnvironmentsRequest),
   );
 }
-
 export function listEnvironmentsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListEnvironmentsRequest, SDKValidationError> {

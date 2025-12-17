@@ -258,7 +258,6 @@ export const IncidentEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IncidentEntityLabels$Outbound = {};
 
@@ -269,19 +268,6 @@ export const IncidentEntityLabels$outboundSchema: z.ZodType<
   IncidentEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEntityLabels$ {
-  /** @deprecated use `IncidentEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = IncidentEntityLabels$inboundSchema;
-  /** @deprecated use `IncidentEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = IncidentEntityLabels$outboundSchema;
-  /** @deprecated use `IncidentEntityLabels$Outbound` instead. */
-  export type Outbound = IncidentEntityLabels$Outbound;
-}
-
 export function incidentEntityLabelsToJSON(
   incidentEntityLabels: IncidentEntityLabels,
 ): string {
@@ -289,7 +275,6 @@ export function incidentEntityLabelsToJSON(
     IncidentEntityLabels$outboundSchema.parse(incidentEntityLabels),
   );
 }
-
 export function incidentEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentEntityLabels, SDKValidationError> {
@@ -306,7 +291,6 @@ export const IncidentEntityRetroExport$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type IncidentEntityRetroExport$Outbound = {};
 
@@ -317,19 +301,6 @@ export const IncidentEntityRetroExport$outboundSchema: z.ZodType<
   IncidentEntityRetroExport
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEntityRetroExport$ {
-  /** @deprecated use `IncidentEntityRetroExport$inboundSchema` instead. */
-  export const inboundSchema = IncidentEntityRetroExport$inboundSchema;
-  /** @deprecated use `IncidentEntityRetroExport$outboundSchema` instead. */
-  export const outboundSchema = IncidentEntityRetroExport$outboundSchema;
-  /** @deprecated use `IncidentEntityRetroExport$Outbound` instead. */
-  export type Outbound = IncidentEntityRetroExport$Outbound;
-}
-
 export function incidentEntityRetroExportToJSON(
   incidentEntityRetroExport: IncidentEntityRetroExport,
 ): string {
@@ -337,7 +308,6 @@ export function incidentEntityRetroExportToJSON(
     IncidentEntityRetroExport$outboundSchema.parse(incidentEntityRetroExport),
   );
 }
-
 export function incidentEntityRetroExportFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentEntityRetroExport, SDKValidationError> {
@@ -488,7 +458,6 @@ export const IncidentEntity$inboundSchema: z.ZodType<
     "field_requirements": "fieldRequirements",
   });
 });
-
 /** @internal */
 export type IncidentEntity$Outbound = {
   id?: string | null | undefined;
@@ -717,23 +686,9 @@ export const IncidentEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentEntity$ {
-  /** @deprecated use `IncidentEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentEntity$inboundSchema;
-  /** @deprecated use `IncidentEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentEntity$outboundSchema;
-  /** @deprecated use `IncidentEntity$Outbound` instead. */
-  export type Outbound = IncidentEntity$Outbound;
-}
-
 export function incidentEntityToJSON(incidentEntity: IncidentEntity): string {
   return JSON.stringify(IncidentEntity$outboundSchema.parse(incidentEntity));
 }
-
 export function incidentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentEntity, SDKValidationError> {

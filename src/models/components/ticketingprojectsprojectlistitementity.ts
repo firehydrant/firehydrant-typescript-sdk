@@ -55,7 +55,6 @@ export const TicketingProjectsProjectListItemEntity$inboundSchema: z.ZodType<
     "connection_slug": "connectionSlug",
   });
 });
-
 /** @internal */
 export type TicketingProjectsProjectListItemEntity$Outbound = {
   id?: string | null | undefined;
@@ -91,21 +90,6 @@ export const TicketingProjectsProjectListItemEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectsProjectListItemEntity$ {
-  /** @deprecated use `TicketingProjectsProjectListItemEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectsProjectListItemEntity$inboundSchema;
-  /** @deprecated use `TicketingProjectsProjectListItemEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectsProjectListItemEntity$outboundSchema;
-  /** @deprecated use `TicketingProjectsProjectListItemEntity$Outbound` instead. */
-  export type Outbound = TicketingProjectsProjectListItemEntity$Outbound;
-}
-
 export function ticketingProjectsProjectListItemEntityToJSON(
   ticketingProjectsProjectListItemEntity:
     TicketingProjectsProjectListItemEntity,
@@ -116,7 +100,6 @@ export function ticketingProjectsProjectListItemEntityToJSON(
     ),
   );
 }
-
 export function ticketingProjectsProjectListItemEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingProjectsProjectListItemEntity, SDKValidationError> {

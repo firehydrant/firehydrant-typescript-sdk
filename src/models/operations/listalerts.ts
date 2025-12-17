@@ -67,28 +67,32 @@ export type ListAlertsRequest = {
    * A comma separated list of statuses to filter by. Valid statuses are: opened, acknowledged, resolved, ignored, expired, linked, or snoozed
    */
   statuses?: string | null | undefined;
+  /**
+   * Filters for alerts that started on or after the beginning of this date
+   */
+  startDate?: Date | null | undefined;
+  /**
+   * Filters for alerts that started on or before the end of this date
+   */
+  endDate?: Date | null | undefined;
+  /**
+   * Filters for alerts that started at or after this exact datetime
+   */
+  startDatetime?: Date | null | undefined;
+  /**
+   * Filters for alerts that started at or before this exact datetime
+   */
+  endDatetime?: Date | null | undefined;
 };
 
 /** @internal */
 export const ListAlertsTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
   typeof ListAlertsTagMatchStrategy
 > = z.nativeEnum(ListAlertsTagMatchStrategy);
-
 /** @internal */
 export const ListAlertsTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
   typeof ListAlertsTagMatchStrategy
 > = ListAlertsTagMatchStrategy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAlertsTagMatchStrategy$ {
-  /** @deprecated use `ListAlertsTagMatchStrategy$inboundSchema` instead. */
-  export const inboundSchema = ListAlertsTagMatchStrategy$inboundSchema;
-  /** @deprecated use `ListAlertsTagMatchStrategy$outboundSchema` instead. */
-  export const outboundSchema = ListAlertsTagMatchStrategy$outboundSchema;
-}
 
 /** @internal */
 export const ListAlertsRequest$inboundSchema: z.ZodType<
@@ -109,14 +113,29 @@ export const ListAlertsRequest$inboundSchema: z.ZodType<
   tag_match_strategy: z.nullable(ListAlertsTagMatchStrategy$inboundSchema)
     .optional(),
   statuses: z.nullable(z.string()).optional(),
+  start_date: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  end_date: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  start_datetime: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  end_datetime: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "per_page": "perPage",
     "signal_rules": "signalRules",
     "tag_match_strategy": "tagMatchStrategy",
+    "start_date": "startDate",
+    "end_date": "endDate",
+    "start_datetime": "startDatetime",
+    "end_datetime": "endDatetime",
   });
 });
-
 /** @internal */
 export type ListAlertsRequest$Outbound = {
   page?: number | null | undefined;
@@ -131,6 +150,10 @@ export type ListAlertsRequest$Outbound = {
   tags?: string | null | undefined;
   tag_match_strategy?: string | null | undefined;
   statuses?: string | null | undefined;
+  start_date?: string | null | undefined;
+  end_date?: string | null | undefined;
+  start_datetime?: string | null | undefined;
+  end_datetime?: string | null | undefined;
 };
 
 /** @internal */
@@ -152,26 +175,22 @@ export const ListAlertsRequest$outboundSchema: z.ZodType<
   tagMatchStrategy: z.nullable(ListAlertsTagMatchStrategy$outboundSchema)
     .optional(),
   statuses: z.nullable(z.string()).optional(),
+  startDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  endDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  startDatetime: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  endDatetime: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     perPage: "per_page",
     signalRules: "signal_rules",
     tagMatchStrategy: "tag_match_strategy",
+    startDate: "start_date",
+    endDate: "end_date",
+    startDatetime: "start_datetime",
+    endDatetime: "end_datetime",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAlertsRequest$ {
-  /** @deprecated use `ListAlertsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAlertsRequest$inboundSchema;
-  /** @deprecated use `ListAlertsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAlertsRequest$outboundSchema;
-  /** @deprecated use `ListAlertsRequest$Outbound` instead. */
-  export type Outbound = ListAlertsRequest$Outbound;
-}
 
 export function listAlertsRequestToJSON(
   listAlertsRequest: ListAlertsRequest,
@@ -180,7 +199,6 @@ export function listAlertsRequestToJSON(
     ListAlertsRequest$outboundSchema.parse(listAlertsRequest),
   );
 }
-
 export function listAlertsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAlertsRequest, SDKValidationError> {

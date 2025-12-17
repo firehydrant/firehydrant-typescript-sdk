@@ -24,7 +24,6 @@ export const GetPostMortemQuestionRequest$inboundSchema: z.ZodType<
     "question_id": "questionId",
   });
 });
-
 /** @internal */
 export type GetPostMortemQuestionRequest$Outbound = {
   question_id: string;
@@ -43,19 +42,6 @@ export const GetPostMortemQuestionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetPostMortemQuestionRequest$ {
-  /** @deprecated use `GetPostMortemQuestionRequest$inboundSchema` instead. */
-  export const inboundSchema = GetPostMortemQuestionRequest$inboundSchema;
-  /** @deprecated use `GetPostMortemQuestionRequest$outboundSchema` instead. */
-  export const outboundSchema = GetPostMortemQuestionRequest$outboundSchema;
-  /** @deprecated use `GetPostMortemQuestionRequest$Outbound` instead. */
-  export type Outbound = GetPostMortemQuestionRequest$Outbound;
-}
-
 export function getPostMortemQuestionRequestToJSON(
   getPostMortemQuestionRequest: GetPostMortemQuestionRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getPostMortemQuestionRequestToJSON(
     ),
   );
 }
-
 export function getPostMortemQuestionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetPostMortemQuestionRequest, SDKValidationError> {

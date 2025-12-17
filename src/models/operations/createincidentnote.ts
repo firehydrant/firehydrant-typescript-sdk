@@ -30,7 +30,6 @@ export const CreateIncidentNoteRequest$inboundSchema: z.ZodType<
     "create_incident_note": "createIncidentNote",
   });
 });
-
 /** @internal */
 export type CreateIncidentNoteRequest$Outbound = {
   incident_id: string;
@@ -54,19 +53,6 @@ export const CreateIncidentNoteRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentNoteRequest$ {
-  /** @deprecated use `CreateIncidentNoteRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentNoteRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentNoteRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentNoteRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentNoteRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentNoteRequest$Outbound;
-}
-
 export function createIncidentNoteRequestToJSON(
   createIncidentNoteRequest: CreateIncidentNoteRequest,
 ): string {
@@ -74,7 +60,6 @@ export function createIncidentNoteRequestToJSON(
     CreateIncidentNoteRequest$outboundSchema.parse(createIncidentNoteRequest),
   );
 }
-
 export function createIncidentNoteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentNoteRequest, SDKValidationError> {

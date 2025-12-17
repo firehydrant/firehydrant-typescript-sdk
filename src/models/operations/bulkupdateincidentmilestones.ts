@@ -30,7 +30,6 @@ export const BulkUpdateIncidentMilestonesRequest$inboundSchema: z.ZodType<
     "bulk_update_incident_milestones": "bulkUpdateIncidentMilestones",
   });
 });
-
 /** @internal */
 export type BulkUpdateIncidentMilestonesRequest$Outbound = {
   incident_id: string;
@@ -55,21 +54,6 @@ export const BulkUpdateIncidentMilestonesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BulkUpdateIncidentMilestonesRequest$ {
-  /** @deprecated use `BulkUpdateIncidentMilestonesRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    BulkUpdateIncidentMilestonesRequest$inboundSchema;
-  /** @deprecated use `BulkUpdateIncidentMilestonesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    BulkUpdateIncidentMilestonesRequest$outboundSchema;
-  /** @deprecated use `BulkUpdateIncidentMilestonesRequest$Outbound` instead. */
-  export type Outbound = BulkUpdateIncidentMilestonesRequest$Outbound;
-}
-
 export function bulkUpdateIncidentMilestonesRequestToJSON(
   bulkUpdateIncidentMilestonesRequest: BulkUpdateIncidentMilestonesRequest,
 ): string {
@@ -79,7 +63,6 @@ export function bulkUpdateIncidentMilestonesRequestToJSON(
     ),
   );
 }
-
 export function bulkUpdateIncidentMilestonesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<BulkUpdateIncidentMilestonesRequest, SDKValidationError> {

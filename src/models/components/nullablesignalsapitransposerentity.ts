@@ -44,7 +44,6 @@ export const NullableSignalsAPITransposerEntityExamplePayload$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type NullableSignalsAPITransposerEntityExamplePayload$Outbound = {};
 
@@ -56,22 +55,6 @@ export const NullableSignalsAPITransposerEntityExamplePayload$outboundSchema:
     NullableSignalsAPITransposerEntityExamplePayload
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPITransposerEntityExamplePayload$ {
-  /** @deprecated use `NullableSignalsAPITransposerEntityExamplePayload$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPITransposerEntityExamplePayload$inboundSchema;
-  /** @deprecated use `NullableSignalsAPITransposerEntityExamplePayload$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPITransposerEntityExamplePayload$outboundSchema;
-  /** @deprecated use `NullableSignalsAPITransposerEntityExamplePayload$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPITransposerEntityExamplePayload$Outbound;
-}
-
 export function nullableSignalsAPITransposerEntityExamplePayloadToJSON(
   nullableSignalsAPITransposerEntityExamplePayload:
     NullableSignalsAPITransposerEntityExamplePayload,
@@ -82,7 +65,6 @@ export function nullableSignalsAPITransposerEntityExamplePayloadToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPITransposerEntityExamplePayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -129,7 +111,6 @@ export const NullableSignalsAPITransposerEntity$inboundSchema: z.ZodType<
     "updated_by": "updatedBy",
   });
 });
-
 /** @internal */
 export type NullableSignalsAPITransposerEntity$Outbound = {
   name?: string | null | undefined;
@@ -180,20 +161,6 @@ export const NullableSignalsAPITransposerEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPITransposerEntity$ {
-  /** @deprecated use `NullableSignalsAPITransposerEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableSignalsAPITransposerEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPITransposerEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPITransposerEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPITransposerEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPITransposerEntity$Outbound;
-}
-
 export function nullableSignalsAPITransposerEntityToJSON(
   nullableSignalsAPITransposerEntity: NullableSignalsAPITransposerEntity,
 ): string {
@@ -203,7 +170,6 @@ export function nullableSignalsAPITransposerEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPITransposerEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSignalsAPITransposerEntity, SDKValidationError> {

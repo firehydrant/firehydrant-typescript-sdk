@@ -33,7 +33,6 @@ export const CreateOnCallShiftRequest$inboundSchema: z.ZodType<
     "create_on_call_shift": "createOnCallShift",
   });
 });
-
 /** @internal */
 export type CreateOnCallShiftRequest$Outbound = {
   team_id: string;
@@ -58,19 +57,6 @@ export const CreateOnCallShiftRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateOnCallShiftRequest$ {
-  /** @deprecated use `CreateOnCallShiftRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateOnCallShiftRequest$inboundSchema;
-  /** @deprecated use `CreateOnCallShiftRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateOnCallShiftRequest$outboundSchema;
-  /** @deprecated use `CreateOnCallShiftRequest$Outbound` instead. */
-  export type Outbound = CreateOnCallShiftRequest$Outbound;
-}
-
 export function createOnCallShiftRequestToJSON(
   createOnCallShiftRequest: CreateOnCallShiftRequest,
 ): string {
@@ -78,7 +64,6 @@ export function createOnCallShiftRequestToJSON(
     CreateOnCallShiftRequest$outboundSchema.parse(createOnCallShiftRequest),
   );
 }
-
 export function createOnCallShiftRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateOnCallShiftRequest, SDKValidationError> {

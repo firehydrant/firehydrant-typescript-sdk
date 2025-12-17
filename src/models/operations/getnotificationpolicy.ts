@@ -19,7 +19,6 @@ export const GetNotificationPolicyRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetNotificationPolicyRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetNotificationPolicyRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetNotificationPolicyRequest$ {
-  /** @deprecated use `GetNotificationPolicyRequest$inboundSchema` instead. */
-  export const inboundSchema = GetNotificationPolicyRequest$inboundSchema;
-  /** @deprecated use `GetNotificationPolicyRequest$outboundSchema` instead. */
-  export const outboundSchema = GetNotificationPolicyRequest$outboundSchema;
-  /** @deprecated use `GetNotificationPolicyRequest$Outbound` instead. */
-  export type Outbound = GetNotificationPolicyRequest$Outbound;
-}
-
 export function getNotificationPolicyRequestToJSON(
   getNotificationPolicyRequest: GetNotificationPolicyRequest,
 ): string {
@@ -56,7 +42,6 @@ export function getNotificationPolicyRequestToJSON(
     ),
   );
 }
-
 export function getNotificationPolicyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetNotificationPolicyRequest, SDKValidationError> {

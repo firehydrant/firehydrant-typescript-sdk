@@ -45,7 +45,6 @@ export const NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$inboun
       "total_incidents": "totalIncidents",
     });
   });
-
 /** @internal */
 export type NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$Outbound =
   {
@@ -74,22 +73,6 @@ export const NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$outbou
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$ {
-  /** @deprecated use `NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$Outbound;
-}
-
 export function nullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntityToJSON(
   nullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity:
     NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity,
@@ -99,7 +82,6 @@ export function nullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntityToJS
       .parse(nullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity),
   );
 }
-
 export function nullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

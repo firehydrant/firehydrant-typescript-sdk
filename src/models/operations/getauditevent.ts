@@ -19,7 +19,6 @@ export const GetAuditEventRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetAuditEventRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetAuditEventRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetAuditEventRequest$ {
-  /** @deprecated use `GetAuditEventRequest$inboundSchema` instead. */
-  export const inboundSchema = GetAuditEventRequest$inboundSchema;
-  /** @deprecated use `GetAuditEventRequest$outboundSchema` instead. */
-  export const outboundSchema = GetAuditEventRequest$outboundSchema;
-  /** @deprecated use `GetAuditEventRequest$Outbound` instead. */
-  export type Outbound = GetAuditEventRequest$Outbound;
-}
-
 export function getAuditEventRequestToJSON(
   getAuditEventRequest: GetAuditEventRequest,
 ): string {
@@ -54,7 +40,6 @@ export function getAuditEventRequestToJSON(
     GetAuditEventRequest$outboundSchema.parse(getAuditEventRequest),
   );
 }
-
 export function getAuditEventRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetAuditEventRequest, SDKValidationError> {

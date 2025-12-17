@@ -30,7 +30,6 @@ export const UpdateFunctionalityRequest$inboundSchema: z.ZodType<
     "update_functionality": "updateFunctionality",
   });
 });
-
 /** @internal */
 export type UpdateFunctionalityRequest$Outbound = {
   functionality_id: string;
@@ -54,19 +53,6 @@ export const UpdateFunctionalityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateFunctionalityRequest$ {
-  /** @deprecated use `UpdateFunctionalityRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateFunctionalityRequest$inboundSchema;
-  /** @deprecated use `UpdateFunctionalityRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateFunctionalityRequest$outboundSchema;
-  /** @deprecated use `UpdateFunctionalityRequest$Outbound` instead. */
-  export type Outbound = UpdateFunctionalityRequest$Outbound;
-}
-
 export function updateFunctionalityRequestToJSON(
   updateFunctionalityRequest: UpdateFunctionalityRequest,
 ): string {
@@ -74,7 +60,6 @@ export function updateFunctionalityRequestToJSON(
     UpdateFunctionalityRequest$outboundSchema.parse(updateFunctionalityRequest),
   );
 }
-
 export function updateFunctionalityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateFunctionalityRequest, SDKValidationError> {

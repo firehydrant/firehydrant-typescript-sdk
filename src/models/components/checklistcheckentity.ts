@@ -25,7 +25,6 @@ export const ChecklistCheckEntity$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   status: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type ChecklistCheckEntity$Outbound = {
   id?: string | null | undefined;
@@ -46,19 +45,6 @@ export const ChecklistCheckEntity$outboundSchema: z.ZodType<
   status: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChecklistCheckEntity$ {
-  /** @deprecated use `ChecklistCheckEntity$inboundSchema` instead. */
-  export const inboundSchema = ChecklistCheckEntity$inboundSchema;
-  /** @deprecated use `ChecklistCheckEntity$outboundSchema` instead. */
-  export const outboundSchema = ChecklistCheckEntity$outboundSchema;
-  /** @deprecated use `ChecklistCheckEntity$Outbound` instead. */
-  export type Outbound = ChecklistCheckEntity$Outbound;
-}
-
 export function checklistCheckEntityToJSON(
   checklistCheckEntity: ChecklistCheckEntity,
 ): string {
@@ -66,7 +52,6 @@ export function checklistCheckEntityToJSON(
     ChecklistCheckEntity$outboundSchema.parse(checklistCheckEntity),
   );
 }
-
 export function checklistCheckEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChecklistCheckEntity, SDKValidationError> {

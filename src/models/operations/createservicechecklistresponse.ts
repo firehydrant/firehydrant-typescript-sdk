@@ -33,7 +33,6 @@ export const CreateServiceChecklistResponseRequest$inboundSchema: z.ZodType<
     "create_service_checklist_response": "createServiceChecklistResponse",
   });
 });
-
 /** @internal */
 export type CreateServiceChecklistResponseRequest$Outbound = {
   service_id: string;
@@ -61,21 +60,6 @@ export const CreateServiceChecklistResponseRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateServiceChecklistResponseRequest$ {
-  /** @deprecated use `CreateServiceChecklistResponseRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateServiceChecklistResponseRequest$inboundSchema;
-  /** @deprecated use `CreateServiceChecklistResponseRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateServiceChecklistResponseRequest$outboundSchema;
-  /** @deprecated use `CreateServiceChecklistResponseRequest$Outbound` instead. */
-  export type Outbound = CreateServiceChecklistResponseRequest$Outbound;
-}
-
 export function createServiceChecklistResponseRequestToJSON(
   createServiceChecklistResponseRequest: CreateServiceChecklistResponseRequest,
 ): string {
@@ -85,7 +69,6 @@ export function createServiceChecklistResponseRequestToJSON(
     ),
   );
 }
-
 export function createServiceChecklistResponseRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateServiceChecklistResponseRequest, SDKValidationError> {

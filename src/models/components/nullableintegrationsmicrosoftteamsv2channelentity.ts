@@ -49,7 +49,6 @@ export const NullableIntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema:
       "channel_url": "channelUrl",
     });
   });
-
 /** @internal */
 export type NullableIntegrationsMicrosoftTeamsV2ChannelEntity$Outbound = {
   id?: string | null | undefined;
@@ -87,22 +86,6 @@ export const NullableIntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIntegrationsMicrosoftTeamsV2ChannelEntity$ {
-  /** @deprecated use `NullableIntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIntegrationsMicrosoftTeamsV2ChannelEntity$inboundSchema;
-  /** @deprecated use `NullableIntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIntegrationsMicrosoftTeamsV2ChannelEntity$outboundSchema;
-  /** @deprecated use `NullableIntegrationsMicrosoftTeamsV2ChannelEntity$Outbound` instead. */
-  export type Outbound =
-    NullableIntegrationsMicrosoftTeamsV2ChannelEntity$Outbound;
-}
-
 export function nullableIntegrationsMicrosoftTeamsV2ChannelEntityToJSON(
   nullableIntegrationsMicrosoftTeamsV2ChannelEntity:
     NullableIntegrationsMicrosoftTeamsV2ChannelEntity,
@@ -113,7 +96,6 @@ export function nullableIntegrationsMicrosoftTeamsV2ChannelEntityToJSON(
     ),
   );
 }
-
 export function nullableIntegrationsMicrosoftTeamsV2ChannelEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

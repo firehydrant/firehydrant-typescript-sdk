@@ -69,45 +69,19 @@ export type UpdateNotificationPolicyRequest = {
 export const UpdateNotificationPolicyNotificationGroupMethod$inboundSchema:
   z.ZodNativeEnum<typeof UpdateNotificationPolicyNotificationGroupMethod> = z
     .nativeEnum(UpdateNotificationPolicyNotificationGroupMethod);
-
 /** @internal */
 export const UpdateNotificationPolicyNotificationGroupMethod$outboundSchema:
   z.ZodNativeEnum<typeof UpdateNotificationPolicyNotificationGroupMethod> =
     UpdateNotificationPolicyNotificationGroupMethod$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNotificationPolicyNotificationGroupMethod$ {
-  /** @deprecated use `UpdateNotificationPolicyNotificationGroupMethod$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateNotificationPolicyNotificationGroupMethod$inboundSchema;
-  /** @deprecated use `UpdateNotificationPolicyNotificationGroupMethod$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateNotificationPolicyNotificationGroupMethod$outboundSchema;
-}
-
 /** @internal */
 export const UpdateNotificationPolicyPriority$inboundSchema: z.ZodNativeEnum<
   typeof UpdateNotificationPolicyPriority
 > = z.nativeEnum(UpdateNotificationPolicyPriority);
-
 /** @internal */
 export const UpdateNotificationPolicyPriority$outboundSchema: z.ZodNativeEnum<
   typeof UpdateNotificationPolicyPriority
 > = UpdateNotificationPolicyPriority$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNotificationPolicyPriority$ {
-  /** @deprecated use `UpdateNotificationPolicyPriority$inboundSchema` instead. */
-  export const inboundSchema = UpdateNotificationPolicyPriority$inboundSchema;
-  /** @deprecated use `UpdateNotificationPolicyPriority$outboundSchema` instead. */
-  export const outboundSchema = UpdateNotificationPolicyPriority$outboundSchema;
-}
 
 /** @internal */
 export const UpdateNotificationPolicyRequestBody$inboundSchema: z.ZodType<
@@ -127,7 +101,6 @@ export const UpdateNotificationPolicyRequestBody$inboundSchema: z.ZodType<
     "max_delay": "maxDelay",
   });
 });
-
 /** @internal */
 export type UpdateNotificationPolicyRequestBody$Outbound = {
   notification_group_method?: string | null | undefined;
@@ -154,21 +127,6 @@ export const UpdateNotificationPolicyRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNotificationPolicyRequestBody$ {
-  /** @deprecated use `UpdateNotificationPolicyRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateNotificationPolicyRequestBody$inboundSchema;
-  /** @deprecated use `UpdateNotificationPolicyRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateNotificationPolicyRequestBody$outboundSchema;
-  /** @deprecated use `UpdateNotificationPolicyRequestBody$Outbound` instead. */
-  export type Outbound = UpdateNotificationPolicyRequestBody$Outbound;
-}
-
 export function updateNotificationPolicyRequestBodyToJSON(
   updateNotificationPolicyRequestBody: UpdateNotificationPolicyRequestBody,
 ): string {
@@ -178,7 +136,6 @@ export function updateNotificationPolicyRequestBodyToJSON(
     ),
   );
 }
-
 export function updateNotificationPolicyRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNotificationPolicyRequestBody, SDKValidationError> {
@@ -204,7 +161,6 @@ export const UpdateNotificationPolicyRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type UpdateNotificationPolicyRequest$Outbound = {
   id: string;
@@ -226,19 +182,6 @@ export const UpdateNotificationPolicyRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateNotificationPolicyRequest$ {
-  /** @deprecated use `UpdateNotificationPolicyRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateNotificationPolicyRequest$inboundSchema;
-  /** @deprecated use `UpdateNotificationPolicyRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateNotificationPolicyRequest$outboundSchema;
-  /** @deprecated use `UpdateNotificationPolicyRequest$Outbound` instead. */
-  export type Outbound = UpdateNotificationPolicyRequest$Outbound;
-}
-
 export function updateNotificationPolicyRequestToJSON(
   updateNotificationPolicyRequest: UpdateNotificationPolicyRequest,
 ): string {
@@ -248,7 +191,6 @@ export function updateNotificationPolicyRequestToJSON(
     ),
   );
 }
-
 export function updateNotificationPolicyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateNotificationPolicyRequest, SDKValidationError> {

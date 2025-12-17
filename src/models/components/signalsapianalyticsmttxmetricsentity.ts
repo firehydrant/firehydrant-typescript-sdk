@@ -33,7 +33,6 @@ export const SignalsAPIAnalyticsMttxMetricsEntity$inboundSchema: z.ZodType<
     NullableSignalsAPIAnalyticsMttxMetricsEntityMetricEntity$inboundSchema,
   ).optional(),
 });
-
 /** @internal */
 export type SignalsAPIAnalyticsMttxMetricsEntity$Outbound = {
   data?:
@@ -53,21 +52,6 @@ export const SignalsAPIAnalyticsMttxMetricsEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIAnalyticsMttxMetricsEntity$ {
-  /** @deprecated use `SignalsAPIAnalyticsMttxMetricsEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIAnalyticsMttxMetricsEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsMttxMetricsEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIAnalyticsMttxMetricsEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsMttxMetricsEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIAnalyticsMttxMetricsEntity$Outbound;
-}
-
 export function signalsAPIAnalyticsMttxMetricsEntityToJSON(
   signalsAPIAnalyticsMttxMetricsEntity: SignalsAPIAnalyticsMttxMetricsEntity,
 ): string {
@@ -77,7 +61,6 @@ export function signalsAPIAnalyticsMttxMetricsEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIAnalyticsMttxMetricsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIAnalyticsMttxMetricsEntity, SDKValidationError> {

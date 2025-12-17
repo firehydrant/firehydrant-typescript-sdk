@@ -38,7 +38,6 @@ export const PostMortemsQuestionTypeEntity$inboundSchema: z.ZodType<
     "available_options": "availableOptions",
   });
 });
-
 /** @internal */
 export type PostMortemsQuestionTypeEntity$Outbound = {
   id?: string | null | undefined;
@@ -68,19 +67,6 @@ export const PostMortemsQuestionTypeEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PostMortemsQuestionTypeEntity$ {
-  /** @deprecated use `PostMortemsQuestionTypeEntity$inboundSchema` instead. */
-  export const inboundSchema = PostMortemsQuestionTypeEntity$inboundSchema;
-  /** @deprecated use `PostMortemsQuestionTypeEntity$outboundSchema` instead. */
-  export const outboundSchema = PostMortemsQuestionTypeEntity$outboundSchema;
-  /** @deprecated use `PostMortemsQuestionTypeEntity$Outbound` instead. */
-  export type Outbound = PostMortemsQuestionTypeEntity$Outbound;
-}
-
 export function postMortemsQuestionTypeEntityToJSON(
   postMortemsQuestionTypeEntity: PostMortemsQuestionTypeEntity,
 ): string {
@@ -90,7 +76,6 @@ export function postMortemsQuestionTypeEntityToJSON(
     ),
   );
 }
-
 export function postMortemsQuestionTypeEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PostMortemsQuestionTypeEntity, SDKValidationError> {

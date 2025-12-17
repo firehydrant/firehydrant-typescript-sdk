@@ -24,7 +24,6 @@ export const ListIncidentMilestonesRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentMilestonesRequest$Outbound = {
   incident_id: string;
@@ -43,19 +42,6 @@ export const ListIncidentMilestonesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentMilestonesRequest$ {
-  /** @deprecated use `ListIncidentMilestonesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentMilestonesRequest$inboundSchema;
-  /** @deprecated use `ListIncidentMilestonesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentMilestonesRequest$outboundSchema;
-  /** @deprecated use `ListIncidentMilestonesRequest$Outbound` instead. */
-  export type Outbound = ListIncidentMilestonesRequest$Outbound;
-}
-
 export function listIncidentMilestonesRequestToJSON(
   listIncidentMilestonesRequest: ListIncidentMilestonesRequest,
 ): string {
@@ -65,7 +51,6 @@ export function listIncidentMilestonesRequestToJSON(
     ),
   );
 }
-
 export function listIncidentMilestonesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentMilestonesRequest, SDKValidationError> {

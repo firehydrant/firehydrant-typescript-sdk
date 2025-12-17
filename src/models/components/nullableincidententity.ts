@@ -258,7 +258,6 @@ export const NullableIncidentEntityLabels$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableIncidentEntityLabels$Outbound = {};
 
@@ -269,19 +268,6 @@ export const NullableIncidentEntityLabels$outboundSchema: z.ZodType<
   NullableIncidentEntityLabels
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentEntityLabels$ {
-  /** @deprecated use `NullableIncidentEntityLabels$inboundSchema` instead. */
-  export const inboundSchema = NullableIncidentEntityLabels$inboundSchema;
-  /** @deprecated use `NullableIncidentEntityLabels$outboundSchema` instead. */
-  export const outboundSchema = NullableIncidentEntityLabels$outboundSchema;
-  /** @deprecated use `NullableIncidentEntityLabels$Outbound` instead. */
-  export type Outbound = NullableIncidentEntityLabels$Outbound;
-}
-
 export function nullableIncidentEntityLabelsToJSON(
   nullableIncidentEntityLabels: NullableIncidentEntityLabels,
 ): string {
@@ -291,7 +277,6 @@ export function nullableIncidentEntityLabelsToJSON(
     ),
   );
 }
-
 export function nullableIncidentEntityLabelsFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableIncidentEntityLabels, SDKValidationError> {
@@ -308,7 +293,6 @@ export const NullableIncidentEntityRetroExport$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableIncidentEntityRetroExport$Outbound = {};
 
@@ -319,20 +303,6 @@ export const NullableIncidentEntityRetroExport$outboundSchema: z.ZodType<
   NullableIncidentEntityRetroExport
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentEntityRetroExport$ {
-  /** @deprecated use `NullableIncidentEntityRetroExport$inboundSchema` instead. */
-  export const inboundSchema = NullableIncidentEntityRetroExport$inboundSchema;
-  /** @deprecated use `NullableIncidentEntityRetroExport$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIncidentEntityRetroExport$outboundSchema;
-  /** @deprecated use `NullableIncidentEntityRetroExport$Outbound` instead. */
-  export type Outbound = NullableIncidentEntityRetroExport$Outbound;
-}
-
 export function nullableIncidentEntityRetroExportToJSON(
   nullableIncidentEntityRetroExport: NullableIncidentEntityRetroExport,
 ): string {
@@ -342,7 +312,6 @@ export function nullableIncidentEntityRetroExportToJSON(
     ),
   );
 }
-
 export function nullableIncidentEntityRetroExportFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableIncidentEntityRetroExport, SDKValidationError> {
@@ -493,7 +462,6 @@ export const NullableIncidentEntity$inboundSchema: z.ZodType<
     "field_requirements": "fieldRequirements",
   });
 });
-
 /** @internal */
 export type NullableIncidentEntity$Outbound = {
   id?: string | null | undefined;
@@ -725,19 +693,6 @@ export const NullableIncidentEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentEntity$ {
-  /** @deprecated use `NullableIncidentEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableIncidentEntity$inboundSchema;
-  /** @deprecated use `NullableIncidentEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableIncidentEntity$outboundSchema;
-  /** @deprecated use `NullableIncidentEntity$Outbound` instead. */
-  export type Outbound = NullableIncidentEntity$Outbound;
-}
-
 export function nullableIncidentEntityToJSON(
   nullableIncidentEntity: NullableIncidentEntity,
 ): string {
@@ -745,7 +700,6 @@ export function nullableIncidentEntityToJSON(
     NullableIncidentEntity$outboundSchema.parse(nullableIncidentEntity),
   );
 }
-
 export function nullableIncidentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableIncidentEntity, SDKValidationError> {

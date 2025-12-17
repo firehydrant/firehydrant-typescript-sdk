@@ -50,7 +50,6 @@ export const TicketingFieldMapsMappableFieldEntity$inboundSchema: z.ZodType<
     "allowed_values": "allowedValues",
   });
 });
-
 /** @internal */
 export type TicketingFieldMapsMappableFieldEntity$Outbound = {
   value?: string | null | undefined;
@@ -77,21 +76,6 @@ export const TicketingFieldMapsMappableFieldEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingFieldMapsMappableFieldEntity$ {
-  /** @deprecated use `TicketingFieldMapsMappableFieldEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingFieldMapsMappableFieldEntity$inboundSchema;
-  /** @deprecated use `TicketingFieldMapsMappableFieldEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingFieldMapsMappableFieldEntity$outboundSchema;
-  /** @deprecated use `TicketingFieldMapsMappableFieldEntity$Outbound` instead. */
-  export type Outbound = TicketingFieldMapsMappableFieldEntity$Outbound;
-}
-
 export function ticketingFieldMapsMappableFieldEntityToJSON(
   ticketingFieldMapsMappableFieldEntity: TicketingFieldMapsMappableFieldEntity,
 ): string {
@@ -101,7 +85,6 @@ export function ticketingFieldMapsMappableFieldEntityToJSON(
     ),
   );
 }
-
 export function ticketingFieldMapsMappableFieldEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingFieldMapsMappableFieldEntity, SDKValidationError> {

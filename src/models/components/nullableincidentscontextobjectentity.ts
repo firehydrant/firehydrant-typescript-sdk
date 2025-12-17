@@ -33,7 +33,6 @@ export const NullableIncidentsContextObjectEntity$inboundSchema: z.ZodType<
     "context_description": "contextDescription",
   });
 });
-
 /** @internal */
 export type NullableIncidentsContextObjectEntity$Outbound = {
   object_type?: string | null | undefined;
@@ -61,21 +60,6 @@ export const NullableIncidentsContextObjectEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentsContextObjectEntity$ {
-  /** @deprecated use `NullableIncidentsContextObjectEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIncidentsContextObjectEntity$inboundSchema;
-  /** @deprecated use `NullableIncidentsContextObjectEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIncidentsContextObjectEntity$outboundSchema;
-  /** @deprecated use `NullableIncidentsContextObjectEntity$Outbound` instead. */
-  export type Outbound = NullableIncidentsContextObjectEntity$Outbound;
-}
-
 export function nullableIncidentsContextObjectEntityToJSON(
   nullableIncidentsContextObjectEntity: NullableIncidentsContextObjectEntity,
 ): string {
@@ -85,7 +69,6 @@ export function nullableIncidentsContextObjectEntityToJSON(
     ),
   );
 }
-
 export function nullableIncidentsContextObjectEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableIncidentsContextObjectEntity, SDKValidationError> {

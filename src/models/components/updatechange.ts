@@ -26,7 +26,6 @@ export const UpdateChange$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   labels: z.nullable(z.record(z.string())).optional(),
 });
-
 /** @internal */
 export type UpdateChange$Outbound = {
   summary?: string | null | undefined;
@@ -45,23 +44,9 @@ export const UpdateChange$outboundSchema: z.ZodType<
   labels: z.nullable(z.record(z.string())).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChange$ {
-  /** @deprecated use `UpdateChange$inboundSchema` instead. */
-  export const inboundSchema = UpdateChange$inboundSchema;
-  /** @deprecated use `UpdateChange$outboundSchema` instead. */
-  export const outboundSchema = UpdateChange$outboundSchema;
-  /** @deprecated use `UpdateChange$Outbound` instead. */
-  export type Outbound = UpdateChange$Outbound;
-}
-
 export function updateChangeToJSON(updateChange: UpdateChange): string {
   return JSON.stringify(UpdateChange$outboundSchema.parse(updateChange));
 }
-
 export function updateChangeFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChange, SDKValidationError> {

@@ -27,7 +27,6 @@ export const DeleteNuncComponentGroupRequest$inboundSchema: z.ZodType<
     "group_id": "groupId",
   });
 });
-
 /** @internal */
 export type DeleteNuncComponentGroupRequest$Outbound = {
   nunc_connection_id: string;
@@ -49,19 +48,6 @@ export const DeleteNuncComponentGroupRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteNuncComponentGroupRequest$ {
-  /** @deprecated use `DeleteNuncComponentGroupRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteNuncComponentGroupRequest$inboundSchema;
-  /** @deprecated use `DeleteNuncComponentGroupRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteNuncComponentGroupRequest$outboundSchema;
-  /** @deprecated use `DeleteNuncComponentGroupRequest$Outbound` instead. */
-  export type Outbound = DeleteNuncComponentGroupRequest$Outbound;
-}
-
 export function deleteNuncComponentGroupRequestToJSON(
   deleteNuncComponentGroupRequest: DeleteNuncComponentGroupRequest,
 ): string {
@@ -71,7 +57,6 @@ export function deleteNuncComponentGroupRequestToJSON(
     ),
   );
 }
-
 export function deleteNuncComponentGroupRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteNuncComponentGroupRequest, SDKValidationError> {

@@ -19,7 +19,6 @@ export const NullableRunbooksElementMarkdownEntity$inboundSchema: z.ZodType<
 > = z.object({
   text: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NullableRunbooksElementMarkdownEntity$Outbound = {
   text?: string | null | undefined;
@@ -34,21 +33,6 @@ export const NullableRunbooksElementMarkdownEntity$outboundSchema: z.ZodType<
   text: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksElementMarkdownEntity$ {
-  /** @deprecated use `NullableRunbooksElementMarkdownEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksElementMarkdownEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksElementMarkdownEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksElementMarkdownEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksElementMarkdownEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksElementMarkdownEntity$Outbound;
-}
-
 export function nullableRunbooksElementMarkdownEntityToJSON(
   nullableRunbooksElementMarkdownEntity: NullableRunbooksElementMarkdownEntity,
 ): string {
@@ -58,7 +42,6 @@ export function nullableRunbooksElementMarkdownEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksElementMarkdownEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRunbooksElementMarkdownEntity, SDKValidationError> {

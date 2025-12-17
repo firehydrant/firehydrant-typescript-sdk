@@ -72,7 +72,6 @@ export const CreateIncidentTypeImpact$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type CreateIncidentTypeImpact$Outbound = {
   id: string;
@@ -93,19 +92,6 @@ export const CreateIncidentTypeImpact$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentTypeImpact$ {
-  /** @deprecated use `CreateIncidentTypeImpact$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentTypeImpact$inboundSchema;
-  /** @deprecated use `CreateIncidentTypeImpact$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentTypeImpact$outboundSchema;
-  /** @deprecated use `CreateIncidentTypeImpact$Outbound` instead. */
-  export type Outbound = CreateIncidentTypeImpact$Outbound;
-}
-
 export function createIncidentTypeImpactToJSON(
   createIncidentTypeImpact: CreateIncidentTypeImpact,
 ): string {
@@ -113,7 +99,6 @@ export function createIncidentTypeImpactToJSON(
     CreateIncidentTypeImpact$outboundSchema.parse(createIncidentTypeImpact),
   );
 }
-
 export function createIncidentTypeImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentTypeImpact, SDKValidationError> {
@@ -151,7 +136,6 @@ export const CreateIncidentTypeTemplate$inboundSchema: z.ZodType<
     "team_ids": "teamIds",
   });
 });
-
 /** @internal */
 export type CreateIncidentTypeTemplate$Outbound = {
   description?: string | null | undefined;
@@ -194,19 +178,6 @@ export const CreateIncidentTypeTemplate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentTypeTemplate$ {
-  /** @deprecated use `CreateIncidentTypeTemplate$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentTypeTemplate$inboundSchema;
-  /** @deprecated use `CreateIncidentTypeTemplate$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentTypeTemplate$outboundSchema;
-  /** @deprecated use `CreateIncidentTypeTemplate$Outbound` instead. */
-  export type Outbound = CreateIncidentTypeTemplate$Outbound;
-}
-
 export function createIncidentTypeTemplateToJSON(
   createIncidentTypeTemplate: CreateIncidentTypeTemplate,
 ): string {
@@ -214,7 +185,6 @@ export function createIncidentTypeTemplateToJSON(
     CreateIncidentTypeTemplate$outboundSchema.parse(createIncidentTypeTemplate),
   );
 }
-
 export function createIncidentTypeTemplateFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentTypeTemplate, SDKValidationError> {
@@ -235,7 +205,6 @@ export const CreateIncidentType$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   template: z.lazy(() => CreateIncidentTypeTemplate$inboundSchema),
 });
-
 /** @internal */
 export type CreateIncidentType$Outbound = {
   name: string;
@@ -254,19 +223,6 @@ export const CreateIncidentType$outboundSchema: z.ZodType<
   template: z.lazy(() => CreateIncidentTypeTemplate$outboundSchema),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentType$ {
-  /** @deprecated use `CreateIncidentType$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentType$inboundSchema;
-  /** @deprecated use `CreateIncidentType$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentType$outboundSchema;
-  /** @deprecated use `CreateIncidentType$Outbound` instead. */
-  export type Outbound = CreateIncidentType$Outbound;
-}
-
 export function createIncidentTypeToJSON(
   createIncidentType: CreateIncidentType,
 ): string {
@@ -274,7 +230,6 @@ export function createIncidentTypeToJSON(
     CreateIncidentType$outboundSchema.parse(createIncidentType),
   );
 }
-
 export function createIncidentTypeFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentType, SDKValidationError> {

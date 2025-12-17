@@ -39,7 +39,6 @@ export const NullableIncidentsConferenceBridgeEntityAttachment$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type NullableIncidentsConferenceBridgeEntityAttachment$Outbound = {};
 
@@ -51,22 +50,6 @@ export const NullableIncidentsConferenceBridgeEntityAttachment$outboundSchema:
     NullableIncidentsConferenceBridgeEntityAttachment
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentsConferenceBridgeEntityAttachment$ {
-  /** @deprecated use `NullableIncidentsConferenceBridgeEntityAttachment$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIncidentsConferenceBridgeEntityAttachment$inboundSchema;
-  /** @deprecated use `NullableIncidentsConferenceBridgeEntityAttachment$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIncidentsConferenceBridgeEntityAttachment$outboundSchema;
-  /** @deprecated use `NullableIncidentsConferenceBridgeEntityAttachment$Outbound` instead. */
-  export type Outbound =
-    NullableIncidentsConferenceBridgeEntityAttachment$Outbound;
-}
-
 export function nullableIncidentsConferenceBridgeEntityAttachmentToJSON(
   nullableIncidentsConferenceBridgeEntityAttachment:
     NullableIncidentsConferenceBridgeEntityAttachment,
@@ -77,7 +60,6 @@ export function nullableIncidentsConferenceBridgeEntityAttachmentToJSON(
     ),
   );
 }
-
 export function nullableIncidentsConferenceBridgeEntityAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -120,7 +102,6 @@ export const NullableIncidentsConferenceBridgeEntity$inboundSchema: z.ZodType<
     "previous_host_assignment": "previousHostAssignment",
   });
 });
-
 /** @internal */
 export type NullableIncidentsConferenceBridgeEntity$Outbound = {
   id?: string | null | undefined;
@@ -162,21 +143,6 @@ export const NullableIncidentsConferenceBridgeEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableIncidentsConferenceBridgeEntity$ {
-  /** @deprecated use `NullableIncidentsConferenceBridgeEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableIncidentsConferenceBridgeEntity$inboundSchema;
-  /** @deprecated use `NullableIncidentsConferenceBridgeEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableIncidentsConferenceBridgeEntity$outboundSchema;
-  /** @deprecated use `NullableIncidentsConferenceBridgeEntity$Outbound` instead. */
-  export type Outbound = NullableIncidentsConferenceBridgeEntity$Outbound;
-}
-
 export function nullableIncidentsConferenceBridgeEntityToJSON(
   nullableIncidentsConferenceBridgeEntity:
     NullableIncidentsConferenceBridgeEntity,
@@ -187,7 +153,6 @@ export function nullableIncidentsConferenceBridgeEntityToJSON(
     ),
   );
 }
-
 export function nullableIncidentsConferenceBridgeEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

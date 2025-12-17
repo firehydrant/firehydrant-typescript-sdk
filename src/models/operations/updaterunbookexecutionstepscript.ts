@@ -29,7 +29,6 @@ export const UpdateRunbookExecutionStepScriptRequest$inboundSchema: z.ZodType<
     "step_id": "stepId",
   });
 });
-
 /** @internal */
 export type UpdateRunbookExecutionStepScriptRequest$Outbound = {
   execution_id: string;
@@ -53,21 +52,6 @@ export const UpdateRunbookExecutionStepScriptRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateRunbookExecutionStepScriptRequest$ {
-  /** @deprecated use `UpdateRunbookExecutionStepScriptRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateRunbookExecutionStepScriptRequest$inboundSchema;
-  /** @deprecated use `UpdateRunbookExecutionStepScriptRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateRunbookExecutionStepScriptRequest$outboundSchema;
-  /** @deprecated use `UpdateRunbookExecutionStepScriptRequest$Outbound` instead. */
-  export type Outbound = UpdateRunbookExecutionStepScriptRequest$Outbound;
-}
-
 export function updateRunbookExecutionStepScriptRequestToJSON(
   updateRunbookExecutionStepScriptRequest:
     UpdateRunbookExecutionStepScriptRequest,
@@ -78,7 +62,6 @@ export function updateRunbookExecutionStepScriptRequestToJSON(
     ),
   );
 }
-
 export function updateRunbookExecutionStepScriptRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

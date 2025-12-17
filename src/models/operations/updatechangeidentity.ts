@@ -33,7 +33,6 @@ export const UpdateChangeIdentityRequest$inboundSchema: z.ZodType<
     "update_change_identity": "updateChangeIdentity",
   });
 });
-
 /** @internal */
 export type UpdateChangeIdentityRequest$Outbound = {
   identity_id: string;
@@ -60,19 +59,6 @@ export const UpdateChangeIdentityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateChangeIdentityRequest$ {
-  /** @deprecated use `UpdateChangeIdentityRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateChangeIdentityRequest$inboundSchema;
-  /** @deprecated use `UpdateChangeIdentityRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateChangeIdentityRequest$outboundSchema;
-  /** @deprecated use `UpdateChangeIdentityRequest$Outbound` instead. */
-  export type Outbound = UpdateChangeIdentityRequest$Outbound;
-}
-
 export function updateChangeIdentityRequestToJSON(
   updateChangeIdentityRequest: UpdateChangeIdentityRequest,
 ): string {
@@ -82,7 +68,6 @@ export function updateChangeIdentityRequestToJSON(
     ),
   );
 }
-
 export function updateChangeIdentityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateChangeIdentityRequest, SDKValidationError> {

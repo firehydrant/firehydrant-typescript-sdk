@@ -36,7 +36,6 @@ export const CopyOnCallScheduleRotationRequest$inboundSchema: z.ZodType<
     "copy_on_call_schedule_rotation": "copyOnCallScheduleRotation",
   });
 });
-
 /** @internal */
 export type CopyOnCallScheduleRotationRequest$Outbound = {
   rotation_id: string;
@@ -67,20 +66,6 @@ export const CopyOnCallScheduleRotationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CopyOnCallScheduleRotationRequest$ {
-  /** @deprecated use `CopyOnCallScheduleRotationRequest$inboundSchema` instead. */
-  export const inboundSchema = CopyOnCallScheduleRotationRequest$inboundSchema;
-  /** @deprecated use `CopyOnCallScheduleRotationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CopyOnCallScheduleRotationRequest$outboundSchema;
-  /** @deprecated use `CopyOnCallScheduleRotationRequest$Outbound` instead. */
-  export type Outbound = CopyOnCallScheduleRotationRequest$Outbound;
-}
-
 export function copyOnCallScheduleRotationRequestToJSON(
   copyOnCallScheduleRotationRequest: CopyOnCallScheduleRotationRequest,
 ): string {
@@ -90,7 +75,6 @@ export function copyOnCallScheduleRotationRequestToJSON(
     ),
   );
 }
-
 export function copyOnCallScheduleRotationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CopyOnCallScheduleRotationRequest, SDKValidationError> {

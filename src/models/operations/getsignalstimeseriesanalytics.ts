@@ -127,94 +127,38 @@ export type GetSignalsTimeseriesAnalyticsRequest = {
 export const GetSignalsTimeseriesAnalyticsBucket$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsTimeseriesAnalyticsBucket
 > = z.nativeEnum(GetSignalsTimeseriesAnalyticsBucket);
-
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsBucket$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsBucket> =
     GetSignalsTimeseriesAnalyticsBucket$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsTimeseriesAnalyticsBucket$ {
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsBucket$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsTimeseriesAnalyticsBucket$inboundSchema;
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsBucket$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsTimeseriesAnalyticsBucket$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsGroupBy$inboundSchema:
   z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsGroupBy> = z.nativeEnum(
     GetSignalsTimeseriesAnalyticsGroupBy,
   );
-
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsGroupBy$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsGroupBy> =
     GetSignalsTimeseriesAnalyticsGroupBy$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsTimeseriesAnalyticsGroupBy$ {
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsGroupBy$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsTimeseriesAnalyticsGroupBy$inboundSchema;
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsGroupBy$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsTimeseriesAnalyticsGroupBy$outboundSchema;
-}
-
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsSortBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsTimeseriesAnalyticsSortBy
 > = z.nativeEnum(GetSignalsTimeseriesAnalyticsSortBy);
-
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsSortBy$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsSortBy> =
     GetSignalsTimeseriesAnalyticsSortBy$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsTimeseriesAnalyticsSortBy$ {
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsSortBy$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsTimeseriesAnalyticsSortBy$inboundSchema;
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsSortBy$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsTimeseriesAnalyticsSortBy$outboundSchema;
-}
-
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsSortDirection$inboundSchema:
   z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsSortDirection> = z
     .nativeEnum(GetSignalsTimeseriesAnalyticsSortDirection);
-
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsSortDirection$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsTimeseriesAnalyticsSortDirection> =
     GetSignalsTimeseriesAnalyticsSortDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsTimeseriesAnalyticsSortDirection$ {
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsSortDirection$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsTimeseriesAnalyticsSortDirection$inboundSchema;
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsSortDirection$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsTimeseriesAnalyticsSortDirection$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsTimeseriesAnalyticsRequest$inboundSchema: z.ZodType<
@@ -253,7 +197,6 @@ export const GetSignalsTimeseriesAnalyticsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
   });
 });
-
 /** @internal */
 export type GetSignalsTimeseriesAnalyticsRequest$Outbound = {
   bucket?: string | null | undefined;
@@ -304,21 +247,6 @@ export const GetSignalsTimeseriesAnalyticsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsTimeseriesAnalyticsRequest$ {
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsTimeseriesAnalyticsRequest$inboundSchema;
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsTimeseriesAnalyticsRequest$outboundSchema;
-  /** @deprecated use `GetSignalsTimeseriesAnalyticsRequest$Outbound` instead. */
-  export type Outbound = GetSignalsTimeseriesAnalyticsRequest$Outbound;
-}
-
 export function getSignalsTimeseriesAnalyticsRequestToJSON(
   getSignalsTimeseriesAnalyticsRequest: GetSignalsTimeseriesAnalyticsRequest,
 ): string {
@@ -328,7 +256,6 @@ export function getSignalsTimeseriesAnalyticsRequestToJSON(
     ),
   );
 }
-
 export function getSignalsTimeseriesAnalyticsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsTimeseriesAnalyticsRequest, SDKValidationError> {

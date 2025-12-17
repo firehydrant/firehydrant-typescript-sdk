@@ -37,7 +37,6 @@ export const UpdateTaskListTaskListItem$inboundSchema: z.ZodType<
   summary: z.string(),
   description: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateTaskListTaskListItem$Outbound = {
   summary: string;
@@ -54,19 +53,6 @@ export const UpdateTaskListTaskListItem$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTaskListTaskListItem$ {
-  /** @deprecated use `UpdateTaskListTaskListItem$inboundSchema` instead. */
-  export const inboundSchema = UpdateTaskListTaskListItem$inboundSchema;
-  /** @deprecated use `UpdateTaskListTaskListItem$outboundSchema` instead. */
-  export const outboundSchema = UpdateTaskListTaskListItem$outboundSchema;
-  /** @deprecated use `UpdateTaskListTaskListItem$Outbound` instead. */
-  export type Outbound = UpdateTaskListTaskListItem$Outbound;
-}
-
 export function updateTaskListTaskListItemToJSON(
   updateTaskListTaskListItem: UpdateTaskListTaskListItem,
 ): string {
@@ -74,7 +60,6 @@ export function updateTaskListTaskListItemToJSON(
     UpdateTaskListTaskListItem$outboundSchema.parse(updateTaskListTaskListItem),
   );
 }
-
 export function updateTaskListTaskListItemFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTaskListTaskListItem, SDKValidationError> {
@@ -101,7 +86,6 @@ export const UpdateTaskList$inboundSchema: z.ZodType<
     "task_list_items": "taskListItems",
   });
 });
-
 /** @internal */
 export type UpdateTaskList$Outbound = {
   name?: string | null | undefined;
@@ -129,23 +113,9 @@ export const UpdateTaskList$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTaskList$ {
-  /** @deprecated use `UpdateTaskList$inboundSchema` instead. */
-  export const inboundSchema = UpdateTaskList$inboundSchema;
-  /** @deprecated use `UpdateTaskList$outboundSchema` instead. */
-  export const outboundSchema = UpdateTaskList$outboundSchema;
-  /** @deprecated use `UpdateTaskList$Outbound` instead. */
-  export type Outbound = UpdateTaskList$Outbound;
-}
-
 export function updateTaskListToJSON(updateTaskList: UpdateTaskList): string {
   return JSON.stringify(UpdateTaskList$outboundSchema.parse(updateTaskList));
 }
-
 export function updateTaskListFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTaskList, SDKValidationError> {

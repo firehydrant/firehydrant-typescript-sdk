@@ -41,22 +41,10 @@ export type ListCommentsRequest = {
 export const ListCommentsSort$inboundSchema: z.ZodNativeEnum<
   typeof ListCommentsSort
 > = z.nativeEnum(ListCommentsSort);
-
 /** @internal */
 export const ListCommentsSort$outboundSchema: z.ZodNativeEnum<
   typeof ListCommentsSort
 > = ListCommentsSort$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCommentsSort$ {
-  /** @deprecated use `ListCommentsSort$inboundSchema` instead. */
-  export const inboundSchema = ListCommentsSort$inboundSchema;
-  /** @deprecated use `ListCommentsSort$outboundSchema` instead. */
-  export const outboundSchema = ListCommentsSort$outboundSchema;
-}
 
 /** @internal */
 export const ListCommentsRequest$inboundSchema: z.ZodType<
@@ -77,7 +65,6 @@ export const ListCommentsRequest$inboundSchema: z.ZodType<
     "conversation_id": "conversationId",
   });
 });
-
 /** @internal */
 export type ListCommentsRequest$Outbound = {
   before?: string | null | undefined;
@@ -102,19 +89,6 @@ export const ListCommentsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCommentsRequest$ {
-  /** @deprecated use `ListCommentsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListCommentsRequest$inboundSchema;
-  /** @deprecated use `ListCommentsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListCommentsRequest$outboundSchema;
-  /** @deprecated use `ListCommentsRequest$Outbound` instead. */
-  export type Outbound = ListCommentsRequest$Outbound;
-}
-
 export function listCommentsRequestToJSON(
   listCommentsRequest: ListCommentsRequest,
 ): string {
@@ -122,7 +96,6 @@ export function listCommentsRequestToJSON(
     ListCommentsRequest$outboundSchema.parse(listCommentsRequest),
   );
 }
-
 export function listCommentsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListCommentsRequest, SDKValidationError> {

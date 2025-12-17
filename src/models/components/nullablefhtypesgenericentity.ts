@@ -23,7 +23,6 @@ export const NullableFHTypesGenericEntity$inboundSchema: z.ZodType<
   value: z.nullable(z.string()).optional(),
   label: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type NullableFHTypesGenericEntity$Outbound = {
   type?: string | null | undefined;
@@ -42,19 +41,6 @@ export const NullableFHTypesGenericEntity$outboundSchema: z.ZodType<
   label: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableFHTypesGenericEntity$ {
-  /** @deprecated use `NullableFHTypesGenericEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableFHTypesGenericEntity$inboundSchema;
-  /** @deprecated use `NullableFHTypesGenericEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableFHTypesGenericEntity$outboundSchema;
-  /** @deprecated use `NullableFHTypesGenericEntity$Outbound` instead. */
-  export type Outbound = NullableFHTypesGenericEntity$Outbound;
-}
-
 export function nullableFHTypesGenericEntityToJSON(
   nullableFHTypesGenericEntity: NullableFHTypesGenericEntity,
 ): string {
@@ -64,7 +50,6 @@ export function nullableFHTypesGenericEntityToJSON(
     ),
   );
 }
-
 export function nullableFHTypesGenericEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableFHTypesGenericEntity, SDKValidationError> {

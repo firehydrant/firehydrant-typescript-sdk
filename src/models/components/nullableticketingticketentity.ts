@@ -32,6 +32,12 @@ import {
   NullableTicketingPriorityEntity$Outbound,
   NullableTicketingPriorityEntity$outboundSchema,
 } from "./nullableticketingpriorityentity.js";
+import {
+  TicketingCustomFieldsFieldValue,
+  TicketingCustomFieldsFieldValue$inboundSchema,
+  TicketingCustomFieldsFieldValue$Outbound,
+  TicketingCustomFieldsFieldValue$outboundSchema,
+} from "./ticketingcustomfieldsfieldvalue.js";
 
 export const NullableTicketingTicketEntityState = {
   Open: "open",
@@ -97,6 +103,10 @@ export type NullableTicketingTicketEntity = {
    * Error message from syncing this ticket to integrations
    */
   syncErrorMessage?: string | null | undefined;
+  ticketingCustomFields?:
+    | Array<TicketingCustomFieldsFieldValue>
+    | null
+    | undefined;
   link?: NullableAttachmentsLinkEntity | null | undefined;
 };
 
@@ -104,45 +114,19 @@ export type NullableTicketingTicketEntity = {
 export const NullableTicketingTicketEntityState$inboundSchema: z.ZodNativeEnum<
   typeof NullableTicketingTicketEntityState
 > = z.nativeEnum(NullableTicketingTicketEntityState);
-
 /** @internal */
 export const NullableTicketingTicketEntityState$outboundSchema: z.ZodNativeEnum<
   typeof NullableTicketingTicketEntityState
 > = NullableTicketingTicketEntityState$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingTicketEntityState$ {
-  /** @deprecated use `NullableTicketingTicketEntityState$inboundSchema` instead. */
-  export const inboundSchema = NullableTicketingTicketEntityState$inboundSchema;
-  /** @deprecated use `NullableTicketingTicketEntityState$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingTicketEntityState$outboundSchema;
-}
-
 /** @internal */
 export const NullableTicketingTicketEntityType$inboundSchema: z.ZodNativeEnum<
   typeof NullableTicketingTicketEntityType
 > = z.nativeEnum(NullableTicketingTicketEntityType);
-
 /** @internal */
 export const NullableTicketingTicketEntityType$outboundSchema: z.ZodNativeEnum<
   typeof NullableTicketingTicketEntityType
 > = NullableTicketingTicketEntityType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingTicketEntityType$ {
-  /** @deprecated use `NullableTicketingTicketEntityType$inboundSchema` instead. */
-  export const inboundSchema = NullableTicketingTicketEntityType$inboundSchema;
-  /** @deprecated use `NullableTicketingTicketEntityType$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingTicketEntityType$outboundSchema;
-}
 
 /** @internal */
 export const NullableTicketingTicketEntityAttachment$inboundSchema: z.ZodType<
@@ -150,7 +134,6 @@ export const NullableTicketingTicketEntityAttachment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableTicketingTicketEntityAttachment$Outbound = {};
 
@@ -160,21 +143,6 @@ export const NullableTicketingTicketEntityAttachment$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NullableTicketingTicketEntityAttachment
 > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingTicketEntityAttachment$ {
-  /** @deprecated use `NullableTicketingTicketEntityAttachment$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableTicketingTicketEntityAttachment$inboundSchema;
-  /** @deprecated use `NullableTicketingTicketEntityAttachment$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableTicketingTicketEntityAttachment$outboundSchema;
-  /** @deprecated use `NullableTicketingTicketEntityAttachment$Outbound` instead. */
-  export type Outbound = NullableTicketingTicketEntityAttachment$Outbound;
-}
 
 export function nullableTicketingTicketEntityAttachmentToJSON(
   nullableTicketingTicketEntityAttachment:
@@ -186,7 +154,6 @@ export function nullableTicketingTicketEntityAttachmentToJSON(
     ),
   );
 }
-
 export function nullableTicketingTicketEntityAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -239,6 +206,9 @@ export const NullableTicketingTicketEntity$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   sync_error_message: z.nullable(z.string()).optional(),
+  ticketing_custom_fields: z.nullable(
+    z.array(TicketingCustomFieldsFieldValue$inboundSchema),
+  ).optional(),
   link: z.nullable(NullableAttachmentsLinkEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -252,9 +222,9 @@ export const NullableTicketingTicketEntity$inboundSchema: z.ZodType<
     "task_id": "taskId",
     "due_at": "dueAt",
     "sync_error_message": "syncErrorMessage",
+    "ticketing_custom_fields": "ticketingCustomFields",
   });
 });
-
 /** @internal */
 export type NullableTicketingTicketEntity$Outbound = {
   id?: string | null | undefined;
@@ -278,6 +248,10 @@ export type NullableTicketingTicketEntity$Outbound = {
   task_id?: string | null | undefined;
   due_at?: string | null | undefined;
   sync_error_message?: string | null | undefined;
+  ticketing_custom_fields?:
+    | Array<TicketingCustomFieldsFieldValue$Outbound>
+    | null
+    | undefined;
   link?: NullableAttachmentsLinkEntity$Outbound | null | undefined;
 };
 
@@ -311,6 +285,9 @@ export const NullableTicketingTicketEntity$outboundSchema: z.ZodType<
   taskId: z.nullable(z.string()).optional(),
   dueAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   syncErrorMessage: z.nullable(z.string()).optional(),
+  ticketingCustomFields: z.nullable(
+    z.array(TicketingCustomFieldsFieldValue$outboundSchema),
+  ).optional(),
   link: z.nullable(NullableAttachmentsLinkEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -324,21 +301,9 @@ export const NullableTicketingTicketEntity$outboundSchema: z.ZodType<
     taskId: "task_id",
     dueAt: "due_at",
     syncErrorMessage: "sync_error_message",
+    ticketingCustomFields: "ticketing_custom_fields",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableTicketingTicketEntity$ {
-  /** @deprecated use `NullableTicketingTicketEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableTicketingTicketEntity$inboundSchema;
-  /** @deprecated use `NullableTicketingTicketEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableTicketingTicketEntity$outboundSchema;
-  /** @deprecated use `NullableTicketingTicketEntity$Outbound` instead. */
-  export type Outbound = NullableTicketingTicketEntity$Outbound;
-}
 
 export function nullableTicketingTicketEntityToJSON(
   nullableTicketingTicketEntity: NullableTicketingTicketEntity,
@@ -349,7 +314,6 @@ export function nullableTicketingTicketEntityToJSON(
     ),
   );
 }
-
 export function nullableTicketingTicketEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableTicketingTicketEntity, SDKValidationError> {

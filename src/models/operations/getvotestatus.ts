@@ -27,7 +27,6 @@ export const GetVoteStatusRequest$inboundSchema: z.ZodType<
     "event_id": "eventId",
   });
 });
-
 /** @internal */
 export type GetVoteStatusRequest$Outbound = {
   incident_id: string;
@@ -49,19 +48,6 @@ export const GetVoteStatusRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetVoteStatusRequest$ {
-  /** @deprecated use `GetVoteStatusRequest$inboundSchema` instead. */
-  export const inboundSchema = GetVoteStatusRequest$inboundSchema;
-  /** @deprecated use `GetVoteStatusRequest$outboundSchema` instead. */
-  export const outboundSchema = GetVoteStatusRequest$outboundSchema;
-  /** @deprecated use `GetVoteStatusRequest$Outbound` instead. */
-  export type Outbound = GetVoteStatusRequest$Outbound;
-}
-
 export function getVoteStatusRequestToJSON(
   getVoteStatusRequest: GetVoteStatusRequest,
 ): string {
@@ -69,7 +55,6 @@ export function getVoteStatusRequestToJSON(
     GetVoteStatusRequest$outboundSchema.parse(getVoteStatusRequest),
   );
 }
-
 export function getVoteStatusRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetVoteStatusRequest, SDKValidationError> {

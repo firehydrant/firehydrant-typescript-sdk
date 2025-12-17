@@ -31,7 +31,6 @@ export const ListSchedulesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListSchedulesRequest$Outbound = {
   query?: string | null | undefined;
@@ -54,19 +53,6 @@ export const ListSchedulesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListSchedulesRequest$ {
-  /** @deprecated use `ListSchedulesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListSchedulesRequest$inboundSchema;
-  /** @deprecated use `ListSchedulesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListSchedulesRequest$outboundSchema;
-  /** @deprecated use `ListSchedulesRequest$Outbound` instead. */
-  export type Outbound = ListSchedulesRequest$Outbound;
-}
-
 export function listSchedulesRequestToJSON(
   listSchedulesRequest: ListSchedulesRequest,
 ): string {
@@ -74,7 +60,6 @@ export function listSchedulesRequestToJSON(
     ListSchedulesRequest$outboundSchema.parse(listSchedulesRequest),
   );
 }
-
 export function listSchedulesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListSchedulesRequest, SDKValidationError> {

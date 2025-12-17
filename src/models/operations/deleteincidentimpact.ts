@@ -29,22 +29,10 @@ export type DeleteIncidentImpactRequest = {
 export const DeleteIncidentImpactType$inboundSchema: z.ZodNativeEnum<
   typeof DeleteIncidentImpactType
 > = z.nativeEnum(DeleteIncidentImpactType);
-
 /** @internal */
 export const DeleteIncidentImpactType$outboundSchema: z.ZodNativeEnum<
   typeof DeleteIncidentImpactType
 > = DeleteIncidentImpactType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentImpactType$ {
-  /** @deprecated use `DeleteIncidentImpactType$inboundSchema` instead. */
-  export const inboundSchema = DeleteIncidentImpactType$inboundSchema;
-  /** @deprecated use `DeleteIncidentImpactType$outboundSchema` instead. */
-  export const outboundSchema = DeleteIncidentImpactType$outboundSchema;
-}
 
 /** @internal */
 export const DeleteIncidentImpactRequest$inboundSchema: z.ZodType<
@@ -60,7 +48,6 @@ export const DeleteIncidentImpactRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type DeleteIncidentImpactRequest$Outbound = {
   incident_id: string;
@@ -83,19 +70,6 @@ export const DeleteIncidentImpactRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentImpactRequest$ {
-  /** @deprecated use `DeleteIncidentImpactRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteIncidentImpactRequest$inboundSchema;
-  /** @deprecated use `DeleteIncidentImpactRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteIncidentImpactRequest$outboundSchema;
-  /** @deprecated use `DeleteIncidentImpactRequest$Outbound` instead. */
-  export type Outbound = DeleteIncidentImpactRequest$Outbound;
-}
-
 export function deleteIncidentImpactRequestToJSON(
   deleteIncidentImpactRequest: DeleteIncidentImpactRequest,
 ): string {
@@ -105,7 +79,6 @@ export function deleteIncidentImpactRequestToJSON(
     ),
   );
 }
-
 export function deleteIncidentImpactRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteIncidentImpactRequest, SDKValidationError> {

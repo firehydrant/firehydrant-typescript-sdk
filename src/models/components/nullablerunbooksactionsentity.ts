@@ -57,7 +57,6 @@ export const NullableRunbooksActionsEntityPrerequisite$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableRunbooksActionsEntityPrerequisite$Outbound = {};
 
@@ -69,21 +68,6 @@ export const NullableRunbooksActionsEntityPrerequisite$outboundSchema:
     NullableRunbooksActionsEntityPrerequisite
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksActionsEntityPrerequisite$ {
-  /** @deprecated use `NullableRunbooksActionsEntityPrerequisite$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksActionsEntityPrerequisite$inboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntityPrerequisite$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksActionsEntityPrerequisite$outboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntityPrerequisite$Outbound` instead. */
-  export type Outbound = NullableRunbooksActionsEntityPrerequisite$Outbound;
-}
-
 export function nullableRunbooksActionsEntityPrerequisiteToJSON(
   nullableRunbooksActionsEntityPrerequisite:
     NullableRunbooksActionsEntityPrerequisite,
@@ -94,7 +78,6 @@ export function nullableRunbooksActionsEntityPrerequisiteToJSON(
     ),
   );
 }
-
 export function nullableRunbooksActionsEntityPrerequisiteFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -117,7 +100,6 @@ export const NullableRunbooksActionsEntityDefaultLogic$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type NullableRunbooksActionsEntityDefaultLogic$Outbound = {};
 
@@ -129,21 +111,6 @@ export const NullableRunbooksActionsEntityDefaultLogic$outboundSchema:
     NullableRunbooksActionsEntityDefaultLogic
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksActionsEntityDefaultLogic$ {
-  /** @deprecated use `NullableRunbooksActionsEntityDefaultLogic$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksActionsEntityDefaultLogic$inboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntityDefaultLogic$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksActionsEntityDefaultLogic$outboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntityDefaultLogic$Outbound` instead. */
-  export type Outbound = NullableRunbooksActionsEntityDefaultLogic$Outbound;
-}
-
 export function nullableRunbooksActionsEntityDefaultLogicToJSON(
   nullableRunbooksActionsEntityDefaultLogic:
     NullableRunbooksActionsEntityDefaultLogic,
@@ -154,7 +121,6 @@ export function nullableRunbooksActionsEntityDefaultLogicToJSON(
     ),
   );
 }
-
 export function nullableRunbooksActionsEntityDefaultLogicFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -178,7 +144,6 @@ export const NullableRunbooksActionsEntityDefaultRuleData$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type NullableRunbooksActionsEntityDefaultRuleData$Outbound = {};
 
@@ -190,21 +155,6 @@ export const NullableRunbooksActionsEntityDefaultRuleData$outboundSchema:
     NullableRunbooksActionsEntityDefaultRuleData
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksActionsEntityDefaultRuleData$ {
-  /** @deprecated use `NullableRunbooksActionsEntityDefaultRuleData$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksActionsEntityDefaultRuleData$inboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntityDefaultRuleData$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksActionsEntityDefaultRuleData$outboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntityDefaultRuleData$Outbound` instead. */
-  export type Outbound = NullableRunbooksActionsEntityDefaultRuleData$Outbound;
-}
-
 export function nullableRunbooksActionsEntityDefaultRuleDataToJSON(
   nullableRunbooksActionsEntityDefaultRuleData:
     NullableRunbooksActionsEntityDefaultRuleData,
@@ -215,7 +165,6 @@ export function nullableRunbooksActionsEntityDefaultRuleDataToJSON(
     ),
   );
 }
-
 export function nullableRunbooksActionsEntityDefaultRuleDataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -277,7 +226,6 @@ export const NullableRunbooksActionsEntity$inboundSchema: z.ZodType<
     "default_rule_data": "defaultRuleData",
   });
 });
-
 /** @internal */
 export type NullableRunbooksActionsEntity$Outbound = {
   id?: string | null | undefined;
@@ -352,19 +300,6 @@ export const NullableRunbooksActionsEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksActionsEntity$ {
-  /** @deprecated use `NullableRunbooksActionsEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableRunbooksActionsEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableRunbooksActionsEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksActionsEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksActionsEntity$Outbound;
-}
-
 export function nullableRunbooksActionsEntityToJSON(
   nullableRunbooksActionsEntity: NullableRunbooksActionsEntity,
 ): string {
@@ -374,7 +309,6 @@ export function nullableRunbooksActionsEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksActionsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRunbooksActionsEntity, SDKValidationError> {

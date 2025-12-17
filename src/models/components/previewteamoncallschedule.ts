@@ -222,7 +222,6 @@ export const PreviewTeamOnCallScheduleMember$inboundSchema: z.ZodType<
     "user_id": "userId",
   });
 });
-
 /** @internal */
 export type PreviewTeamOnCallScheduleMember$Outbound = {
   user_id?: string | null | undefined;
@@ -241,19 +240,6 @@ export const PreviewTeamOnCallScheduleMember$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleMember$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleMember$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleMember$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleMember$outboundSchema` instead. */
-  export const outboundSchema = PreviewTeamOnCallScheduleMember$outboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleMember$Outbound` instead. */
-  export type Outbound = PreviewTeamOnCallScheduleMember$Outbound;
-}
-
 export function previewTeamOnCallScheduleMemberToJSON(
   previewTeamOnCallScheduleMember: PreviewTeamOnCallScheduleMember,
 ): string {
@@ -263,7 +249,6 @@ export function previewTeamOnCallScheduleMemberToJSON(
     ),
   );
 }
-
 export function previewTeamOnCallScheduleMemberFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewTeamOnCallScheduleMember, SDKValidationError> {
@@ -278,45 +263,19 @@ export function previewTeamOnCallScheduleMemberFromJSON(
 export const PreviewTeamOnCallScheduleType$inboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleType
 > = z.nativeEnum(PreviewTeamOnCallScheduleType);
-
 /** @internal */
 export const PreviewTeamOnCallScheduleType$outboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleType
 > = PreviewTeamOnCallScheduleType$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleType$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleType$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleType$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleType$outboundSchema` instead. */
-  export const outboundSchema = PreviewTeamOnCallScheduleType$outboundSchema;
-}
-
 /** @internal */
 export const PreviewTeamOnCallScheduleHandoffDay$inboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleHandoffDay
 > = z.nativeEnum(PreviewTeamOnCallScheduleHandoffDay);
-
 /** @internal */
 export const PreviewTeamOnCallScheduleHandoffDay$outboundSchema:
   z.ZodNativeEnum<typeof PreviewTeamOnCallScheduleHandoffDay> =
     PreviewTeamOnCallScheduleHandoffDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleHandoffDay$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleHandoffDay$inboundSchema` instead. */
-  export const inboundSchema =
-    PreviewTeamOnCallScheduleHandoffDay$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleHandoffDay$outboundSchema` instead. */
-  export const outboundSchema =
-    PreviewTeamOnCallScheduleHandoffDay$outboundSchema;
-}
 
 /** @internal */
 export const PreviewTeamOnCallScheduleStrategy$inboundSchema: z.ZodType<
@@ -336,7 +295,6 @@ export const PreviewTeamOnCallScheduleStrategy$inboundSchema: z.ZodType<
     "shift_duration": "shiftDuration",
   });
 });
-
 /** @internal */
 export type PreviewTeamOnCallScheduleStrategy$Outbound = {
   type: string;
@@ -364,20 +322,6 @@ export const PreviewTeamOnCallScheduleStrategy$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleStrategy$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleStrategy$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleStrategy$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleStrategy$outboundSchema` instead. */
-  export const outboundSchema =
-    PreviewTeamOnCallScheduleStrategy$outboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleStrategy$Outbound` instead. */
-  export type Outbound = PreviewTeamOnCallScheduleStrategy$Outbound;
-}
-
 export function previewTeamOnCallScheduleStrategyToJSON(
   previewTeamOnCallScheduleStrategy: PreviewTeamOnCallScheduleStrategy,
 ): string {
@@ -387,7 +331,6 @@ export function previewTeamOnCallScheduleStrategyToJSON(
     ),
   );
 }
-
 export function previewTeamOnCallScheduleStrategyFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewTeamOnCallScheduleStrategy, SDKValidationError> {
@@ -402,44 +345,19 @@ export function previewTeamOnCallScheduleStrategyFromJSON(
 export const PreviewTeamOnCallScheduleStartDay$inboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleStartDay
 > = z.nativeEnum(PreviewTeamOnCallScheduleStartDay);
-
 /** @internal */
 export const PreviewTeamOnCallScheduleStartDay$outboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleStartDay
 > = PreviewTeamOnCallScheduleStartDay$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleStartDay$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleStartDay$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleStartDay$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleStartDay$outboundSchema` instead. */
-  export const outboundSchema =
-    PreviewTeamOnCallScheduleStartDay$outboundSchema;
-}
-
 /** @internal */
 export const PreviewTeamOnCallScheduleEndDay$inboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleEndDay
 > = z.nativeEnum(PreviewTeamOnCallScheduleEndDay);
-
 /** @internal */
 export const PreviewTeamOnCallScheduleEndDay$outboundSchema: z.ZodNativeEnum<
   typeof PreviewTeamOnCallScheduleEndDay
 > = PreviewTeamOnCallScheduleEndDay$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleEndDay$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleEndDay$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleEndDay$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleEndDay$outboundSchema` instead. */
-  export const outboundSchema = PreviewTeamOnCallScheduleEndDay$outboundSchema;
-}
 
 /** @internal */
 export const PreviewTeamOnCallScheduleRestriction$inboundSchema: z.ZodType<
@@ -459,7 +377,6 @@ export const PreviewTeamOnCallScheduleRestriction$inboundSchema: z.ZodType<
     "end_time": "endTime",
   });
 });
-
 /** @internal */
 export type PreviewTeamOnCallScheduleRestriction$Outbound = {
   start_day: string;
@@ -487,21 +404,6 @@ export const PreviewTeamOnCallScheduleRestriction$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleRestriction$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleRestriction$inboundSchema` instead. */
-  export const inboundSchema =
-    PreviewTeamOnCallScheduleRestriction$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleRestriction$outboundSchema` instead. */
-  export const outboundSchema =
-    PreviewTeamOnCallScheduleRestriction$outboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleRestriction$Outbound` instead. */
-  export type Outbound = PreviewTeamOnCallScheduleRestriction$Outbound;
-}
-
 export function previewTeamOnCallScheduleRestrictionToJSON(
   previewTeamOnCallScheduleRestriction: PreviewTeamOnCallScheduleRestriction,
 ): string {
@@ -511,7 +413,6 @@ export function previewTeamOnCallScheduleRestrictionToJSON(
     ),
   );
 }
-
 export function previewTeamOnCallScheduleRestrictionFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewTeamOnCallScheduleRestriction, SDKValidationError> {
@@ -555,7 +456,6 @@ export const PreviewTeamOnCallScheduleRotation$inboundSchema: z.ZodType<
     "start_time": "startTime",
   });
 });
-
 /** @internal */
 export type PreviewTeamOnCallScheduleRotation$Outbound = {
   name: string;
@@ -608,20 +508,6 @@ export const PreviewTeamOnCallScheduleRotation$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallScheduleRotation$ {
-  /** @deprecated use `PreviewTeamOnCallScheduleRotation$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallScheduleRotation$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleRotation$outboundSchema` instead. */
-  export const outboundSchema =
-    PreviewTeamOnCallScheduleRotation$outboundSchema;
-  /** @deprecated use `PreviewTeamOnCallScheduleRotation$Outbound` instead. */
-  export type Outbound = PreviewTeamOnCallScheduleRotation$Outbound;
-}
-
 export function previewTeamOnCallScheduleRotationToJSON(
   previewTeamOnCallScheduleRotation: PreviewTeamOnCallScheduleRotation,
 ): string {
@@ -631,7 +517,6 @@ export function previewTeamOnCallScheduleRotationToJSON(
     ),
   );
 }
-
 export function previewTeamOnCallScheduleRotationFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewTeamOnCallScheduleRotation, SDKValidationError> {
@@ -656,7 +541,6 @@ export const PreviewTeamOnCallSchedule$inboundSchema: z.ZodType<
   from: z.nullable(z.string()).optional(),
   to: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type PreviewTeamOnCallSchedule$Outbound = {
   name: string;
@@ -681,19 +565,6 @@ export const PreviewTeamOnCallSchedule$outboundSchema: z.ZodType<
   to: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviewTeamOnCallSchedule$ {
-  /** @deprecated use `PreviewTeamOnCallSchedule$inboundSchema` instead. */
-  export const inboundSchema = PreviewTeamOnCallSchedule$inboundSchema;
-  /** @deprecated use `PreviewTeamOnCallSchedule$outboundSchema` instead. */
-  export const outboundSchema = PreviewTeamOnCallSchedule$outboundSchema;
-  /** @deprecated use `PreviewTeamOnCallSchedule$Outbound` instead. */
-  export type Outbound = PreviewTeamOnCallSchedule$Outbound;
-}
-
 export function previewTeamOnCallScheduleToJSON(
   previewTeamOnCallSchedule: PreviewTeamOnCallSchedule,
 ): string {
@@ -701,7 +572,6 @@ export function previewTeamOnCallScheduleToJSON(
     PreviewTeamOnCallSchedule$outboundSchema.parse(previewTeamOnCallSchedule),
   );
 }
-
 export function previewTeamOnCallScheduleFromJSON(
   jsonString: string,
 ): SafeParseResult<PreviewTeamOnCallSchedule, SDKValidationError> {

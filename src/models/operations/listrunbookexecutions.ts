@@ -26,7 +26,6 @@ export const ListRunbookExecutionsRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListRunbookExecutionsRequest$Outbound = {
   page?: number | null | undefined;
@@ -47,19 +46,6 @@ export const ListRunbookExecutionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListRunbookExecutionsRequest$ {
-  /** @deprecated use `ListRunbookExecutionsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListRunbookExecutionsRequest$inboundSchema;
-  /** @deprecated use `ListRunbookExecutionsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListRunbookExecutionsRequest$outboundSchema;
-  /** @deprecated use `ListRunbookExecutionsRequest$Outbound` instead. */
-  export type Outbound = ListRunbookExecutionsRequest$Outbound;
-}
-
 export function listRunbookExecutionsRequestToJSON(
   listRunbookExecutionsRequest: ListRunbookExecutionsRequest,
 ): string {
@@ -69,7 +55,6 @@ export function listRunbookExecutionsRequestToJSON(
     ),
   );
 }
-
 export function listRunbookExecutionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListRunbookExecutionsRequest, SDKValidationError> {

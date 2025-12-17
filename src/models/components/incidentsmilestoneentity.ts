@@ -48,7 +48,6 @@ export const IncidentsMilestoneEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type IncidentsMilestoneEntity$Outbound = {
   id?: string | null | undefined;
@@ -79,19 +78,6 @@ export const IncidentsMilestoneEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsMilestoneEntity$ {
-  /** @deprecated use `IncidentsMilestoneEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsMilestoneEntity$inboundSchema;
-  /** @deprecated use `IncidentsMilestoneEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsMilestoneEntity$outboundSchema;
-  /** @deprecated use `IncidentsMilestoneEntity$Outbound` instead. */
-  export type Outbound = IncidentsMilestoneEntity$Outbound;
-}
-
 export function incidentsMilestoneEntityToJSON(
   incidentsMilestoneEntity: IncidentsMilestoneEntity,
 ): string {
@@ -99,7 +85,6 @@ export function incidentsMilestoneEntityToJSON(
     IncidentsMilestoneEntity$outboundSchema.parse(incidentsMilestoneEntity),
   );
 }
-
 export function incidentsMilestoneEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsMilestoneEntity, SDKValidationError> {

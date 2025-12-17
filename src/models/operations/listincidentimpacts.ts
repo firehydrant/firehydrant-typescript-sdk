@@ -28,22 +28,10 @@ export type ListIncidentImpactsRequest = {
 export const ListIncidentImpactsType$inboundSchema: z.ZodNativeEnum<
   typeof ListIncidentImpactsType
 > = z.nativeEnum(ListIncidentImpactsType);
-
 /** @internal */
 export const ListIncidentImpactsType$outboundSchema: z.ZodNativeEnum<
   typeof ListIncidentImpactsType
 > = ListIncidentImpactsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentImpactsType$ {
-  /** @deprecated use `ListIncidentImpactsType$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentImpactsType$inboundSchema;
-  /** @deprecated use `ListIncidentImpactsType$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentImpactsType$outboundSchema;
-}
 
 /** @internal */
 export const ListIncidentImpactsRequest$inboundSchema: z.ZodType<
@@ -58,7 +46,6 @@ export const ListIncidentImpactsRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentImpactsRequest$Outbound = {
   incident_id: string;
@@ -79,19 +66,6 @@ export const ListIncidentImpactsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentImpactsRequest$ {
-  /** @deprecated use `ListIncidentImpactsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentImpactsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentImpactsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentImpactsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentImpactsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentImpactsRequest$Outbound;
-}
-
 export function listIncidentImpactsRequestToJSON(
   listIncidentImpactsRequest: ListIncidentImpactsRequest,
 ): string {
@@ -99,7 +73,6 @@ export function listIncidentImpactsRequestToJSON(
     ListIncidentImpactsRequest$outboundSchema.parse(listIncidentImpactsRequest),
   );
 }
-
 export function listIncidentImpactsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentImpactsRequest, SDKValidationError> {

@@ -24,7 +24,6 @@ export const UpdateStatusUpdateTemplate$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   body: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateStatusUpdateTemplate$Outbound = {
   name?: string | null | undefined;
@@ -41,19 +40,6 @@ export const UpdateStatusUpdateTemplate$outboundSchema: z.ZodType<
   body: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateStatusUpdateTemplate$ {
-  /** @deprecated use `UpdateStatusUpdateTemplate$inboundSchema` instead. */
-  export const inboundSchema = UpdateStatusUpdateTemplate$inboundSchema;
-  /** @deprecated use `UpdateStatusUpdateTemplate$outboundSchema` instead. */
-  export const outboundSchema = UpdateStatusUpdateTemplate$outboundSchema;
-  /** @deprecated use `UpdateStatusUpdateTemplate$Outbound` instead. */
-  export type Outbound = UpdateStatusUpdateTemplate$Outbound;
-}
-
 export function updateStatusUpdateTemplateToJSON(
   updateStatusUpdateTemplate: UpdateStatusUpdateTemplate,
 ): string {
@@ -61,7 +47,6 @@ export function updateStatusUpdateTemplateToJSON(
     UpdateStatusUpdateTemplate$outboundSchema.parse(updateStatusUpdateTemplate),
   );
 }
-
 export function updateStatusUpdateTemplateFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateStatusUpdateTemplate, SDKValidationError> {

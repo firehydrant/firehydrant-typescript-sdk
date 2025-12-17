@@ -24,7 +24,6 @@ export const ListEmailSubscribersRequest$inboundSchema: z.ZodType<
     "nunc_connection_id": "nuncConnectionId",
   });
 });
-
 /** @internal */
 export type ListEmailSubscribersRequest$Outbound = {
   nunc_connection_id: string;
@@ -43,19 +42,6 @@ export const ListEmailSubscribersRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListEmailSubscribersRequest$ {
-  /** @deprecated use `ListEmailSubscribersRequest$inboundSchema` instead. */
-  export const inboundSchema = ListEmailSubscribersRequest$inboundSchema;
-  /** @deprecated use `ListEmailSubscribersRequest$outboundSchema` instead. */
-  export const outboundSchema = ListEmailSubscribersRequest$outboundSchema;
-  /** @deprecated use `ListEmailSubscribersRequest$Outbound` instead. */
-  export type Outbound = ListEmailSubscribersRequest$Outbound;
-}
-
 export function listEmailSubscribersRequestToJSON(
   listEmailSubscribersRequest: ListEmailSubscribersRequest,
 ): string {
@@ -65,7 +51,6 @@ export function listEmailSubscribersRequestToJSON(
     ),
   );
 }
-
 export function listEmailSubscribersRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListEmailSubscribersRequest, SDKValidationError> {

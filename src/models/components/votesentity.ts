@@ -39,7 +39,6 @@ export const VotesEntity$inboundSchema: z.ZodType<
   likes: z.nullable(z.number().int()).optional(),
   dislikes: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type VotesEntity$Outbound = {
   voted?: boolean | null | undefined;
@@ -62,23 +61,9 @@ export const VotesEntity$outboundSchema: z.ZodType<
   dislikes: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VotesEntity$ {
-  /** @deprecated use `VotesEntity$inboundSchema` instead. */
-  export const inboundSchema = VotesEntity$inboundSchema;
-  /** @deprecated use `VotesEntity$outboundSchema` instead. */
-  export const outboundSchema = VotesEntity$outboundSchema;
-  /** @deprecated use `VotesEntity$Outbound` instead. */
-  export type Outbound = VotesEntity$Outbound;
-}
-
 export function votesEntityToJSON(votesEntity: VotesEntity): string {
   return JSON.stringify(VotesEntity$outboundSchema.parse(votesEntity));
 }
-
 export function votesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<VotesEntity, SDKValidationError> {

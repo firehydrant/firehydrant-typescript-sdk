@@ -42,7 +42,6 @@ export const PublicApiv1PermissionEntity$inboundSchema: z.ZodType<
     "dependency_slugs": "dependencySlugs",
   });
 });
-
 /** @internal */
 export type PublicApiv1PermissionEntity$Outbound = {
   slug?: string | null | undefined;
@@ -79,19 +78,6 @@ export const PublicApiv1PermissionEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1PermissionEntity$ {
-  /** @deprecated use `PublicApiv1PermissionEntity$inboundSchema` instead. */
-  export const inboundSchema = PublicApiv1PermissionEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1PermissionEntity$outboundSchema` instead. */
-  export const outboundSchema = PublicApiv1PermissionEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1PermissionEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1PermissionEntity$Outbound;
-}
-
 export function publicAPIV1PermissionEntityToJSON(
   publicApiv1PermissionEntity: PublicApiv1PermissionEntity,
 ): string {
@@ -101,7 +87,6 @@ export function publicAPIV1PermissionEntityToJSON(
     ),
   );
 }
-
 export function publicAPIV1PermissionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PublicApiv1PermissionEntity, SDKValidationError> {

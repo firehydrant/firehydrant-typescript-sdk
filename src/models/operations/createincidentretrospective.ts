@@ -32,7 +32,6 @@ export const CreateIncidentRetrospectiveRequestBody$inboundSchema: z.ZodType<
     "retrospective_template_id": "retrospectiveTemplateId",
   });
 });
-
 /** @internal */
 export type CreateIncidentRetrospectiveRequestBody$Outbound = {
   retrospective_template_id: string;
@@ -51,21 +50,6 @@ export const CreateIncidentRetrospectiveRequestBody$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentRetrospectiveRequestBody$ {
-  /** @deprecated use `CreateIncidentRetrospectiveRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateIncidentRetrospectiveRequestBody$inboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentRetrospectiveRequestBody$outboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveRequestBody$Outbound` instead. */
-  export type Outbound = CreateIncidentRetrospectiveRequestBody$Outbound;
-}
-
 export function createIncidentRetrospectiveRequestBodyToJSON(
   createIncidentRetrospectiveRequestBody:
     CreateIncidentRetrospectiveRequestBody,
@@ -76,7 +60,6 @@ export function createIncidentRetrospectiveRequestBodyToJSON(
     ),
   );
 }
-
 export function createIncidentRetrospectiveRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentRetrospectiveRequestBody, SDKValidationError> {
@@ -104,7 +87,6 @@ export const CreateIncidentRetrospectiveRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type CreateIncidentRetrospectiveRequest$Outbound = {
   incident_id: string;
@@ -128,20 +110,6 @@ export const CreateIncidentRetrospectiveRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentRetrospectiveRequest$ {
-  /** @deprecated use `CreateIncidentRetrospectiveRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentRetrospectiveRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentRetrospectiveRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentRetrospectiveRequest$Outbound;
-}
-
 export function createIncidentRetrospectiveRequestToJSON(
   createIncidentRetrospectiveRequest: CreateIncidentRetrospectiveRequest,
 ): string {
@@ -151,7 +119,6 @@ export function createIncidentRetrospectiveRequestToJSON(
     ),
   );
 }
-
 export function createIncidentRetrospectiveRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentRetrospectiveRequest, SDKValidationError> {

@@ -4,11 +4,13 @@
 
 import { ticketingCreateInboundFieldMap } from "../funcs/ticketingCreateInboundFieldMap.js";
 import { ticketingCreateTicket } from "../funcs/ticketingCreateTicket.js";
+import { ticketingCreateTicketingCustomDefinition } from "../funcs/ticketingCreateTicketingCustomDefinition.js";
 import { ticketingCreateTicketingFieldMap } from "../funcs/ticketingCreateTicketingFieldMap.js";
 import { ticketingCreateTicketingPriority } from "../funcs/ticketingCreateTicketingPriority.js";
 import { ticketingCreateTicketingProjectConfig } from "../funcs/ticketingCreateTicketingProjectConfig.js";
 import { ticketingDeleteInboundFieldMap } from "../funcs/ticketingDeleteInboundFieldMap.js";
 import { ticketingDeleteTicket } from "../funcs/ticketingDeleteTicket.js";
+import { ticketingDeleteTicketingCustomDefinition } from "../funcs/ticketingDeleteTicketingCustomDefinition.js";
 import { ticketingDeleteTicketingFieldMap } from "../funcs/ticketingDeleteTicketingFieldMap.js";
 import { ticketingDeleteTicketingPriority } from "../funcs/ticketingDeleteTicketingPriority.js";
 import { ticketingDeleteTicketingProjectConfig } from "../funcs/ticketingDeleteTicketingProjectConfig.js";
@@ -17,18 +19,21 @@ import { ticketingGetInboundFieldMap } from "../funcs/ticketingGetInboundFieldMa
 import { ticketingGetOptionsForField } from "../funcs/ticketingGetOptionsForField.js";
 import { ticketingGetTicket } from "../funcs/ticketingGetTicket.js";
 import { ticketingGetTicketingFieldMap } from "../funcs/ticketingGetTicketingFieldMap.js";
+import { ticketingGetTicketingFormConfiguration } from "../funcs/ticketingGetTicketingFormConfiguration.js";
 import { ticketingGetTicketingPriority } from "../funcs/ticketingGetTicketingPriority.js";
 import { ticketingGetTicketingProject } from "../funcs/ticketingGetTicketingProject.js";
 import { ticketingGetTicketingProjectConfig } from "../funcs/ticketingGetTicketingProjectConfig.js";
 import { ticketingListAvailableInboundFieldMaps } from "../funcs/ticketingListAvailableInboundFieldMaps.js";
 import { ticketingListAvailableTicketingFieldMaps } from "../funcs/ticketingListAvailableTicketingFieldMaps.js";
 import { ticketingListInboundFieldMaps } from "../funcs/ticketingListInboundFieldMaps.js";
+import { ticketingListTicketingCustomDefinitions } from "../funcs/ticketingListTicketingCustomDefinitions.js";
 import { ticketingListTicketingPriorities } from "../funcs/ticketingListTicketingPriorities.js";
 import { ticketingListTicketingProjects } from "../funcs/ticketingListTicketingProjects.js";
 import { ticketingListTickets } from "../funcs/ticketingListTickets.js";
 import { ticketingListTicketTags } from "../funcs/ticketingListTicketTags.js";
 import { ticketingUpdateInboundFieldMap } from "../funcs/ticketingUpdateInboundFieldMap.js";
 import { ticketingUpdateTicket } from "../funcs/ticketingUpdateTicket.js";
+import { ticketingUpdateTicketingCustomDefinition } from "../funcs/ticketingUpdateTicketingCustomDefinition.js";
 import { ticketingUpdateTicketingFieldMap } from "../funcs/ticketingUpdateTicketingFieldMap.js";
 import { ticketingUpdateTicketingPriority } from "../funcs/ticketingUpdateTicketingPriority.js";
 import { ticketingUpdateTicketingProjectConfig } from "../funcs/ticketingUpdateTicketingProjectConfig.js";
@@ -540,6 +545,87 @@ export class Ticketing extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.TagEntityPaginated> {
     return unwrapAsync(ticketingListTicketTags(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get the ticketing form configuration
+   *
+   * @remarks
+   * Get the ticketing form configuration
+   */
+  async getTicketingFormConfiguration(
+    options?: RequestOptions,
+  ): Promise<components.TicketingTicketFormConfigurationEntity> {
+    return unwrapAsync(ticketingGetTicketingFormConfiguration(
+      this,
+      options,
+    ));
+  }
+
+  /**
+   * List ticketing custom fields
+   *
+   * @remarks
+   * List all ticketing custom fields available to the organization
+   */
+  async listTicketingCustomDefinitions(
+    options?: RequestOptions,
+  ): Promise<components.OrganizationsTicketingCustomFieldDefinitionEntity> {
+    return unwrapAsync(ticketingListTicketingCustomDefinitions(
+      this,
+      options,
+    ));
+  }
+
+  /**
+   * Create a ticketing custom field
+   *
+   * @remarks
+   * Creates a ticketing custom field for the organization
+   */
+  async createTicketingCustomDefinition(
+    request: components.CreateTicketingCustomDefinition,
+    options?: RequestOptions,
+  ): Promise<components.OrganizationsTicketingCustomFieldDefinitionEntity> {
+    return unwrapAsync(ticketingCreateTicketingCustomDefinition(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete a ticketing custom field
+   *
+   * @remarks
+   * Deletes a ticketing custom field for the organization
+   */
+  async deleteTicketingCustomDefinition(
+    request: operations.DeleteTicketingCustomDefinitionRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(ticketingDeleteTicketingCustomDefinition(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a ticketing custom field
+   *
+   * @remarks
+   * Update a ticketing custom field for the organization
+   */
+  async updateTicketingCustomDefinition(
+    request: operations.UpdateTicketingCustomDefinitionRequest,
+    options?: RequestOptions,
+  ): Promise<components.OrganizationsTicketingCustomFieldDefinitionEntity> {
+    return unwrapAsync(ticketingUpdateTicketingCustomDefinition(
       this,
       request,
       options,

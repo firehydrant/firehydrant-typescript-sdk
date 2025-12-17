@@ -30,7 +30,6 @@ export const NullableRunbooksElementInputEntity$inboundSchema: z.ZodType<
     "default_value": "defaultValue",
   });
 });
-
 /** @internal */
 export type NullableRunbooksElementInputEntity$Outbound = {
   label?: string | null | undefined;
@@ -55,20 +54,6 @@ export const NullableRunbooksElementInputEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksElementInputEntity$ {
-  /** @deprecated use `NullableRunbooksElementInputEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableRunbooksElementInputEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksElementInputEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksElementInputEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksElementInputEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksElementInputEntity$Outbound;
-}
-
 export function nullableRunbooksElementInputEntityToJSON(
   nullableRunbooksElementInputEntity: NullableRunbooksElementInputEntity,
 ): string {
@@ -78,7 +63,6 @@ export function nullableRunbooksElementInputEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksElementInputEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRunbooksElementInputEntity, SDKValidationError> {

@@ -30,7 +30,6 @@ export const GetIncidentRetrospectiveFieldRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type GetIncidentRetrospectiveFieldRequest$Outbound = {
   retrospective_id: string;
@@ -55,21 +54,6 @@ export const GetIncidentRetrospectiveFieldRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetIncidentRetrospectiveFieldRequest$ {
-  /** @deprecated use `GetIncidentRetrospectiveFieldRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    GetIncidentRetrospectiveFieldRequest$inboundSchema;
-  /** @deprecated use `GetIncidentRetrospectiveFieldRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    GetIncidentRetrospectiveFieldRequest$outboundSchema;
-  /** @deprecated use `GetIncidentRetrospectiveFieldRequest$Outbound` instead. */
-  export type Outbound = GetIncidentRetrospectiveFieldRequest$Outbound;
-}
-
 export function getIncidentRetrospectiveFieldRequestToJSON(
   getIncidentRetrospectiveFieldRequest: GetIncidentRetrospectiveFieldRequest,
 ): string {
@@ -79,7 +63,6 @@ export function getIncidentRetrospectiveFieldRequestToJSON(
     ),
   );
 }
-
 export function getIncidentRetrospectiveFieldRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetIncidentRetrospectiveFieldRequest, SDKValidationError> {

@@ -31,7 +31,6 @@ export const NullableSignalsAPIGroupingEntityStrategyEntity$inboundSchema:
       NullableSignalsAPIGroupingEntityStrategyEntitySubstringEntity$inboundSchema,
     ).optional(),
   });
-
 /** @internal */
 export type NullableSignalsAPIGroupingEntityStrategyEntity$Outbound = {
   substring?:
@@ -52,22 +51,6 @@ export const NullableSignalsAPIGroupingEntityStrategyEntity$outboundSchema:
     ).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIGroupingEntityStrategyEntity$ {
-  /** @deprecated use `NullableSignalsAPIGroupingEntityStrategyEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIGroupingEntityStrategyEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityStrategyEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIGroupingEntityStrategyEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIGroupingEntityStrategyEntity$Outbound` instead. */
-  export type Outbound =
-    NullableSignalsAPIGroupingEntityStrategyEntity$Outbound;
-}
-
 export function nullableSignalsAPIGroupingEntityStrategyEntityToJSON(
   nullableSignalsAPIGroupingEntityStrategyEntity:
     NullableSignalsAPIGroupingEntityStrategyEntity,
@@ -78,7 +61,6 @@ export function nullableSignalsAPIGroupingEntityStrategyEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIGroupingEntityStrategyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

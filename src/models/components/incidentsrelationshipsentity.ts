@@ -49,7 +49,6 @@ export const IncidentsRelationshipsEntity$inboundSchema: z.ZodType<
     z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema),
   ).optional(),
 });
-
 /** @internal */
 export type IncidentsRelationshipsEntity$Outbound = {
   parent?:
@@ -82,19 +81,6 @@ export const IncidentsRelationshipsEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRelationshipsEntity$ {
-  /** @deprecated use `IncidentsRelationshipsEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsRelationshipsEntity$inboundSchema;
-  /** @deprecated use `IncidentsRelationshipsEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsRelationshipsEntity$outboundSchema;
-  /** @deprecated use `IncidentsRelationshipsEntity$Outbound` instead. */
-  export type Outbound = IncidentsRelationshipsEntity$Outbound;
-}
-
 export function incidentsRelationshipsEntityToJSON(
   incidentsRelationshipsEntity: IncidentsRelationshipsEntity,
 ): string {
@@ -104,7 +90,6 @@ export function incidentsRelationshipsEntityToJSON(
     ),
   );
 }
-
 export function incidentsRelationshipsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsRelationshipsEntity, SDKValidationError> {

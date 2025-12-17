@@ -44,22 +44,10 @@ export type IncidentAttachmentEntity = {
 export const IncidentAttachmentEntityStatus$inboundSchema: z.ZodNativeEnum<
   typeof IncidentAttachmentEntityStatus
 > = z.nativeEnum(IncidentAttachmentEntityStatus);
-
 /** @internal */
 export const IncidentAttachmentEntityStatus$outboundSchema: z.ZodNativeEnum<
   typeof IncidentAttachmentEntityStatus
 > = IncidentAttachmentEntityStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentAttachmentEntityStatus$ {
-  /** @deprecated use `IncidentAttachmentEntityStatus$inboundSchema` instead. */
-  export const inboundSchema = IncidentAttachmentEntityStatus$inboundSchema;
-  /** @deprecated use `IncidentAttachmentEntityStatus$outboundSchema` instead. */
-  export const outboundSchema = IncidentAttachmentEntityStatus$outboundSchema;
-}
 
 /** @internal */
 export const Versions$inboundSchema: z.ZodType<
@@ -67,7 +55,6 @@ export const Versions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type Versions$Outbound = {};
 
@@ -78,23 +65,9 @@ export const Versions$outboundSchema: z.ZodType<
   Versions
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Versions$ {
-  /** @deprecated use `Versions$inboundSchema` instead. */
-  export const inboundSchema = Versions$inboundSchema;
-  /** @deprecated use `Versions$outboundSchema` instead. */
-  export const outboundSchema = Versions$outboundSchema;
-  /** @deprecated use `Versions$Outbound` instead. */
-  export type Outbound = Versions$Outbound;
-}
-
 export function versionsToJSON(versions: Versions): string {
   return JSON.stringify(Versions$outboundSchema.parse(versions));
 }
-
 export function versionsFromJSON(
   jsonString: string,
 ): SafeParseResult<Versions, SDKValidationError> {
@@ -130,7 +103,6 @@ export const IncidentAttachmentEntity$inboundSchema: z.ZodType<
     "file_size": "fileSize",
   });
 });
-
 /** @internal */
 export type IncidentAttachmentEntity$Outbound = {
   file_name?: string | null | undefined;
@@ -170,19 +142,6 @@ export const IncidentAttachmentEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentAttachmentEntity$ {
-  /** @deprecated use `IncidentAttachmentEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentAttachmentEntity$inboundSchema;
-  /** @deprecated use `IncidentAttachmentEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentAttachmentEntity$outboundSchema;
-  /** @deprecated use `IncidentAttachmentEntity$Outbound` instead. */
-  export type Outbound = IncidentAttachmentEntity$Outbound;
-}
-
 export function incidentAttachmentEntityToJSON(
   incidentAttachmentEntity: IncidentAttachmentEntity,
 ): string {
@@ -190,7 +149,6 @@ export function incidentAttachmentEntityToJSON(
     IncidentAttachmentEntity$outboundSchema.parse(incidentAttachmentEntity),
   );
 }
-
 export function incidentAttachmentEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentAttachmentEntity, SDKValidationError> {

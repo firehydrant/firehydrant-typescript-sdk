@@ -24,7 +24,6 @@ export const NullableRunbooksExecutionEntityExecutedForEntity$inboundSchema:
     type: z.nullable(z.string()).optional(),
     name: z.nullable(z.string()).optional(),
   });
-
 /** @internal */
 export type NullableRunbooksExecutionEntityExecutedForEntity$Outbound = {
   id?: string | null | undefined;
@@ -44,22 +43,6 @@ export const NullableRunbooksExecutionEntityExecutedForEntity$outboundSchema:
     name: z.nullable(z.string()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksExecutionEntityExecutedForEntity$ {
-  /** @deprecated use `NullableRunbooksExecutionEntityExecutedForEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksExecutionEntityExecutedForEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionEntityExecutedForEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksExecutionEntityExecutedForEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksExecutionEntityExecutedForEntity$Outbound` instead. */
-  export type Outbound =
-    NullableRunbooksExecutionEntityExecutedForEntity$Outbound;
-}
-
 export function nullableRunbooksExecutionEntityExecutedForEntityToJSON(
   nullableRunbooksExecutionEntityExecutedForEntity:
     NullableRunbooksExecutionEntityExecutedForEntity,
@@ -70,7 +53,6 @@ export function nullableRunbooksExecutionEntityExecutedForEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksExecutionEntityExecutedForEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

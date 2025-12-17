@@ -33,7 +33,6 @@ export const SignalsAPIAnalyticsGroupedMetricsEntity$inboundSchema: z.ZodType<
     NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$inboundSchema,
   ).optional(),
 });
-
 /** @internal */
 export type SignalsAPIAnalyticsGroupedMetricsEntity$Outbound = {
   data?:
@@ -53,21 +52,6 @@ export const SignalsAPIAnalyticsGroupedMetricsEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIAnalyticsGroupedMetricsEntity$ {
-  /** @deprecated use `SignalsAPIAnalyticsGroupedMetricsEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPIAnalyticsGroupedMetricsEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsGroupedMetricsEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPIAnalyticsGroupedMetricsEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIAnalyticsGroupedMetricsEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIAnalyticsGroupedMetricsEntity$Outbound;
-}
-
 export function signalsAPIAnalyticsGroupedMetricsEntityToJSON(
   signalsAPIAnalyticsGroupedMetricsEntity:
     SignalsAPIAnalyticsGroupedMetricsEntity,
@@ -78,7 +62,6 @@ export function signalsAPIAnalyticsGroupedMetricsEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIAnalyticsGroupedMetricsEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

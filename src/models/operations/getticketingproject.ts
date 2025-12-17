@@ -24,7 +24,6 @@ export const GetTicketingProjectRequest$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type GetTicketingProjectRequest$Outbound = {
   ticketing_project_id: string;
@@ -43,19 +42,6 @@ export const GetTicketingProjectRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetTicketingProjectRequest$ {
-  /** @deprecated use `GetTicketingProjectRequest$inboundSchema` instead. */
-  export const inboundSchema = GetTicketingProjectRequest$inboundSchema;
-  /** @deprecated use `GetTicketingProjectRequest$outboundSchema` instead. */
-  export const outboundSchema = GetTicketingProjectRequest$outboundSchema;
-  /** @deprecated use `GetTicketingProjectRequest$Outbound` instead. */
-  export type Outbound = GetTicketingProjectRequest$Outbound;
-}
-
 export function getTicketingProjectRequestToJSON(
   getTicketingProjectRequest: GetTicketingProjectRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getTicketingProjectRequestToJSON(
     GetTicketingProjectRequest$outboundSchema.parse(getTicketingProjectRequest),
   );
 }
-
 export function getTicketingProjectRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetTicketingProjectRequest, SDKValidationError> {

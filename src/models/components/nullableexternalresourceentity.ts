@@ -51,7 +51,6 @@ export const NullableExternalResourceEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type NullableExternalResourceEntity$Outbound = {
   connection_type?: string | null | undefined;
@@ -93,19 +92,6 @@ export const NullableExternalResourceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableExternalResourceEntity$ {
-  /** @deprecated use `NullableExternalResourceEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableExternalResourceEntity$inboundSchema;
-  /** @deprecated use `NullableExternalResourceEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableExternalResourceEntity$outboundSchema;
-  /** @deprecated use `NullableExternalResourceEntity$Outbound` instead. */
-  export type Outbound = NullableExternalResourceEntity$Outbound;
-}
-
 export function nullableExternalResourceEntityToJSON(
   nullableExternalResourceEntity: NullableExternalResourceEntity,
 ): string {
@@ -115,7 +101,6 @@ export function nullableExternalResourceEntityToJSON(
     ),
   );
 }
-
 export function nullableExternalResourceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableExternalResourceEntity, SDKValidationError> {

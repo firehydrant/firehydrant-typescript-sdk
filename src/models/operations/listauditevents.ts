@@ -44,7 +44,6 @@ export const ListAuditEventsRequest$inboundSchema: z.ZodType<
   filter: z.nullable(z.string()).optional(),
   limit: z.nullable(z.number().int().default(20)),
 });
-
 /** @internal */
 export type ListAuditEventsRequest$Outbound = {
   cursor?: string | null | undefined;
@@ -63,19 +62,6 @@ export const ListAuditEventsRequest$outboundSchema: z.ZodType<
   limit: z.nullable(z.number().int().default(20)),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListAuditEventsRequest$ {
-  /** @deprecated use `ListAuditEventsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListAuditEventsRequest$inboundSchema;
-  /** @deprecated use `ListAuditEventsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListAuditEventsRequest$outboundSchema;
-  /** @deprecated use `ListAuditEventsRequest$Outbound` instead. */
-  export type Outbound = ListAuditEventsRequest$Outbound;
-}
-
 export function listAuditEventsRequestToJSON(
   listAuditEventsRequest: ListAuditEventsRequest,
 ): string {
@@ -83,7 +69,6 @@ export function listAuditEventsRequestToJSON(
     ListAuditEventsRequest$outboundSchema.parse(listAuditEventsRequest),
   );
 }
-
 export function listAuditEventsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListAuditEventsRequest, SDKValidationError> {

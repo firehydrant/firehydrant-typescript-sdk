@@ -24,7 +24,6 @@ export const RefreshCatalogRequest$inboundSchema: z.ZodType<
     "catalog_id": "catalogId",
   });
 });
-
 /** @internal */
 export type RefreshCatalogRequest$Outbound = {
   catalog_id: string;
@@ -43,19 +42,6 @@ export const RefreshCatalogRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefreshCatalogRequest$ {
-  /** @deprecated use `RefreshCatalogRequest$inboundSchema` instead. */
-  export const inboundSchema = RefreshCatalogRequest$inboundSchema;
-  /** @deprecated use `RefreshCatalogRequest$outboundSchema` instead. */
-  export const outboundSchema = RefreshCatalogRequest$outboundSchema;
-  /** @deprecated use `RefreshCatalogRequest$Outbound` instead. */
-  export type Outbound = RefreshCatalogRequest$Outbound;
-}
-
 export function refreshCatalogRequestToJSON(
   refreshCatalogRequest: RefreshCatalogRequest,
 ): string {
@@ -63,7 +49,6 @@ export function refreshCatalogRequestToJSON(
     RefreshCatalogRequest$outboundSchema.parse(refreshCatalogRequest),
   );
 }
-
 export function refreshCatalogRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<RefreshCatalogRequest, SDKValidationError> {

@@ -34,7 +34,6 @@ export const CreateLifecycleMeasurementDefinitionRequest$inboundSchema:
       "ends_at_milestone_id": "endsAtMilestoneId",
     });
   });
-
 /** @internal */
 export type CreateLifecycleMeasurementDefinitionRequest$Outbound = {
   name: string;
@@ -63,21 +62,6 @@ export const CreateLifecycleMeasurementDefinitionRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateLifecycleMeasurementDefinitionRequest$ {
-  /** @deprecated use `CreateLifecycleMeasurementDefinitionRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateLifecycleMeasurementDefinitionRequest$inboundSchema;
-  /** @deprecated use `CreateLifecycleMeasurementDefinitionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateLifecycleMeasurementDefinitionRequest$outboundSchema;
-  /** @deprecated use `CreateLifecycleMeasurementDefinitionRequest$Outbound` instead. */
-  export type Outbound = CreateLifecycleMeasurementDefinitionRequest$Outbound;
-}
-
 export function createLifecycleMeasurementDefinitionRequestToJSON(
   createLifecycleMeasurementDefinitionRequest:
     CreateLifecycleMeasurementDefinitionRequest,
@@ -88,7 +72,6 @@ export function createLifecycleMeasurementDefinitionRequestToJSON(
     ),
   );
 }
-
 export function createLifecycleMeasurementDefinitionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

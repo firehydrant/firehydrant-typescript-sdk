@@ -28,7 +28,6 @@ export const CreateCommentRequest$inboundSchema: z.ZodType<
     "create_comment": "createComment",
   });
 });
-
 /** @internal */
 export type CreateCommentRequest$Outbound = {
   conversation_id: string;
@@ -50,19 +49,6 @@ export const CreateCommentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateCommentRequest$ {
-  /** @deprecated use `CreateCommentRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateCommentRequest$inboundSchema;
-  /** @deprecated use `CreateCommentRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateCommentRequest$outboundSchema;
-  /** @deprecated use `CreateCommentRequest$Outbound` instead. */
-  export type Outbound = CreateCommentRequest$Outbound;
-}
-
 export function createCommentRequestToJSON(
   createCommentRequest: CreateCommentRequest,
 ): string {
@@ -70,7 +56,6 @@ export function createCommentRequestToJSON(
     CreateCommentRequest$outboundSchema.parse(createCommentRequest),
   );
 }
-
 export function createCommentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateCommentRequest, SDKValidationError> {

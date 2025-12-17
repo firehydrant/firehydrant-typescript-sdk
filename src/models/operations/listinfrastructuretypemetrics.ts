@@ -37,24 +37,10 @@ export const ListInfrastructureTypeMetricsInfraType$inboundSchema:
   z.ZodNativeEnum<typeof ListInfrastructureTypeMetricsInfraType> = z.nativeEnum(
     ListInfrastructureTypeMetricsInfraType,
   );
-
 /** @internal */
 export const ListInfrastructureTypeMetricsInfraType$outboundSchema:
   z.ZodNativeEnum<typeof ListInfrastructureTypeMetricsInfraType> =
     ListInfrastructureTypeMetricsInfraType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListInfrastructureTypeMetricsInfraType$ {
-  /** @deprecated use `ListInfrastructureTypeMetricsInfraType$inboundSchema` instead. */
-  export const inboundSchema =
-    ListInfrastructureTypeMetricsInfraType$inboundSchema;
-  /** @deprecated use `ListInfrastructureTypeMetricsInfraType$outboundSchema` instead. */
-  export const outboundSchema =
-    ListInfrastructureTypeMetricsInfraType$outboundSchema;
-}
 
 /** @internal */
 export const ListInfrastructureTypeMetricsRequest$inboundSchema: z.ZodType<
@@ -72,7 +58,6 @@ export const ListInfrastructureTypeMetricsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
   });
 });
-
 /** @internal */
 export type ListInfrastructureTypeMetricsRequest$Outbound = {
   infra_type: string;
@@ -99,21 +84,6 @@ export const ListInfrastructureTypeMetricsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListInfrastructureTypeMetricsRequest$ {
-  /** @deprecated use `ListInfrastructureTypeMetricsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListInfrastructureTypeMetricsRequest$inboundSchema;
-  /** @deprecated use `ListInfrastructureTypeMetricsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListInfrastructureTypeMetricsRequest$outboundSchema;
-  /** @deprecated use `ListInfrastructureTypeMetricsRequest$Outbound` instead. */
-  export type Outbound = ListInfrastructureTypeMetricsRequest$Outbound;
-}
-
 export function listInfrastructureTypeMetricsRequestToJSON(
   listInfrastructureTypeMetricsRequest: ListInfrastructureTypeMetricsRequest,
 ): string {
@@ -123,7 +93,6 @@ export function listInfrastructureTypeMetricsRequestToJSON(
     ),
   );
 }
-
 export function listInfrastructureTypeMetricsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListInfrastructureTypeMetricsRequest, SDKValidationError> {

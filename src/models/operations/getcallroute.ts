@@ -19,7 +19,6 @@ export const GetCallRouteRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetCallRouteRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const GetCallRouteRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetCallRouteRequest$ {
-  /** @deprecated use `GetCallRouteRequest$inboundSchema` instead. */
-  export const inboundSchema = GetCallRouteRequest$inboundSchema;
-  /** @deprecated use `GetCallRouteRequest$outboundSchema` instead. */
-  export const outboundSchema = GetCallRouteRequest$outboundSchema;
-  /** @deprecated use `GetCallRouteRequest$Outbound` instead. */
-  export type Outbound = GetCallRouteRequest$Outbound;
-}
-
 export function getCallRouteRequestToJSON(
   getCallRouteRequest: GetCallRouteRequest,
 ): string {
@@ -54,7 +40,6 @@ export function getCallRouteRequestToJSON(
     GetCallRouteRequest$outboundSchema.parse(getCallRouteRequest),
   );
 }
-
 export function getCallRouteRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetCallRouteRequest, SDKValidationError> {

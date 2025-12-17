@@ -47,47 +47,19 @@ export type ListUserInvolvementMetricsRequest = {
 export const ListUserInvolvementMetricsSortField$inboundSchema: z.ZodNativeEnum<
   typeof ListUserInvolvementMetricsSortField
 > = z.nativeEnum(ListUserInvolvementMetricsSortField);
-
 /** @internal */
 export const ListUserInvolvementMetricsSortField$outboundSchema:
   z.ZodNativeEnum<typeof ListUserInvolvementMetricsSortField> =
     ListUserInvolvementMetricsSortField$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListUserInvolvementMetricsSortField$ {
-  /** @deprecated use `ListUserInvolvementMetricsSortField$inboundSchema` instead. */
-  export const inboundSchema =
-    ListUserInvolvementMetricsSortField$inboundSchema;
-  /** @deprecated use `ListUserInvolvementMetricsSortField$outboundSchema` instead. */
-  export const outboundSchema =
-    ListUserInvolvementMetricsSortField$outboundSchema;
-}
-
 /** @internal */
 export const ListUserInvolvementMetricsSortDirection$inboundSchema:
   z.ZodNativeEnum<typeof ListUserInvolvementMetricsSortDirection> = z
     .nativeEnum(ListUserInvolvementMetricsSortDirection);
-
 /** @internal */
 export const ListUserInvolvementMetricsSortDirection$outboundSchema:
   z.ZodNativeEnum<typeof ListUserInvolvementMetricsSortDirection> =
     ListUserInvolvementMetricsSortDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListUserInvolvementMetricsSortDirection$ {
-  /** @deprecated use `ListUserInvolvementMetricsSortDirection$inboundSchema` instead. */
-  export const inboundSchema =
-    ListUserInvolvementMetricsSortDirection$inboundSchema;
-  /** @deprecated use `ListUserInvolvementMetricsSortDirection$outboundSchema` instead. */
-  export const outboundSchema =
-    ListUserInvolvementMetricsSortDirection$outboundSchema;
-}
 
 /** @internal */
 export const ListUserInvolvementMetricsRequest$inboundSchema: z.ZodType<
@@ -115,7 +87,6 @@ export const ListUserInvolvementMetricsRequest$inboundSchema: z.ZodType<
     "sort_limit": "sortLimit",
   });
 });
-
 /** @internal */
 export type ListUserInvolvementMetricsRequest$Outbound = {
   start_date?: string | null | undefined;
@@ -156,20 +127,6 @@ export const ListUserInvolvementMetricsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListUserInvolvementMetricsRequest$ {
-  /** @deprecated use `ListUserInvolvementMetricsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListUserInvolvementMetricsRequest$inboundSchema;
-  /** @deprecated use `ListUserInvolvementMetricsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListUserInvolvementMetricsRequest$outboundSchema;
-  /** @deprecated use `ListUserInvolvementMetricsRequest$Outbound` instead. */
-  export type Outbound = ListUserInvolvementMetricsRequest$Outbound;
-}
-
 export function listUserInvolvementMetricsRequestToJSON(
   listUserInvolvementMetricsRequest: ListUserInvolvementMetricsRequest,
 ): string {
@@ -179,7 +136,6 @@ export function listUserInvolvementMetricsRequestToJSON(
     ),
   );
 }
-
 export function listUserInvolvementMetricsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListUserInvolvementMetricsRequest, SDKValidationError> {

@@ -30,7 +30,6 @@ export const ReorderPostMortemReasonsRequest$inboundSchema: z.ZodType<
     "reorder_post_mortem_reasons": "reorderPostMortemReasons",
   });
 });
-
 /** @internal */
 export type ReorderPostMortemReasonsRequest$Outbound = {
   report_id: string;
@@ -54,19 +53,6 @@ export const ReorderPostMortemReasonsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ReorderPostMortemReasonsRequest$ {
-  /** @deprecated use `ReorderPostMortemReasonsRequest$inboundSchema` instead. */
-  export const inboundSchema = ReorderPostMortemReasonsRequest$inboundSchema;
-  /** @deprecated use `ReorderPostMortemReasonsRequest$outboundSchema` instead. */
-  export const outboundSchema = ReorderPostMortemReasonsRequest$outboundSchema;
-  /** @deprecated use `ReorderPostMortemReasonsRequest$Outbound` instead. */
-  export type Outbound = ReorderPostMortemReasonsRequest$Outbound;
-}
-
 export function reorderPostMortemReasonsRequestToJSON(
   reorderPostMortemReasonsRequest: ReorderPostMortemReasonsRequest,
 ): string {
@@ -76,7 +62,6 @@ export function reorderPostMortemReasonsRequestToJSON(
     ),
   );
 }
-
 export function reorderPostMortemReasonsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ReorderPostMortemReasonsRequest, SDKValidationError> {

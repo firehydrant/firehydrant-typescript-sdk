@@ -126,64 +126,28 @@ export type CreateTeamCallRoute = {
 export const CreateTeamCallRouteRoutingMode$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamCallRouteRoutingMode
 > = z.nativeEnum(CreateTeamCallRouteRoutingMode);
-
 /** @internal */
 export const CreateTeamCallRouteRoutingMode$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamCallRouteRoutingMode
 > = CreateTeamCallRouteRoutingMode$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRouteRoutingMode$ {
-  /** @deprecated use `CreateTeamCallRouteRoutingMode$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRouteRoutingMode$inboundSchema;
-  /** @deprecated use `CreateTeamCallRouteRoutingMode$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRouteRoutingMode$outboundSchema;
-}
-
 /** @internal */
 export const CreateTeamCallRouteConnectMode$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamCallRouteConnectMode
 > = z.nativeEnum(CreateTeamCallRouteConnectMode);
-
 /** @internal */
 export const CreateTeamCallRouteConnectMode$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamCallRouteConnectMode
 > = CreateTeamCallRouteConnectMode$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRouteConnectMode$ {
-  /** @deprecated use `CreateTeamCallRouteConnectMode$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRouteConnectMode$inboundSchema;
-  /** @deprecated use `CreateTeamCallRouteConnectMode$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRouteConnectMode$outboundSchema;
-}
-
 /** @internal */
 export const CreateTeamCallRouteTargetType$inboundSchema: z.ZodNativeEnum<
   typeof CreateTeamCallRouteTargetType
 > = z.nativeEnum(CreateTeamCallRouteTargetType);
-
 /** @internal */
 export const CreateTeamCallRouteTargetType$outboundSchema: z.ZodNativeEnum<
   typeof CreateTeamCallRouteTargetType
 > = CreateTeamCallRouteTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRouteTargetType$ {
-  /** @deprecated use `CreateTeamCallRouteTargetType$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRouteTargetType$inboundSchema;
-  /** @deprecated use `CreateTeamCallRouteTargetType$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRouteTargetType$outboundSchema;
-}
 
 /** @internal */
 export const CreateTeamCallRouteStep$inboundSchema: z.ZodType<
@@ -202,7 +166,6 @@ export const CreateTeamCallRouteStep$inboundSchema: z.ZodType<
     "on_call_rotation_id": "onCallRotationId",
   });
 });
-
 /** @internal */
 export type CreateTeamCallRouteStep$Outbound = {
   target_type: string;
@@ -229,19 +192,6 @@ export const CreateTeamCallRouteStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRouteStep$ {
-  /** @deprecated use `CreateTeamCallRouteStep$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRouteStep$inboundSchema;
-  /** @deprecated use `CreateTeamCallRouteStep$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRouteStep$outboundSchema;
-  /** @deprecated use `CreateTeamCallRouteStep$Outbound` instead. */
-  export type Outbound = CreateTeamCallRouteStep$Outbound;
-}
-
 export function createTeamCallRouteStepToJSON(
   createTeamCallRouteStep: CreateTeamCallRouteStep,
 ): string {
@@ -249,7 +199,6 @@ export function createTeamCallRouteStepToJSON(
     CreateTeamCallRouteStep$outboundSchema.parse(createTeamCallRouteStep),
   );
 }
-
 export function createTeamCallRouteStepFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamCallRouteStep, SDKValidationError> {
@@ -269,7 +218,6 @@ export const CreateTeamCallRouteTarget$inboundSchema: z.ZodType<
   type: z.string(),
   id: z.string(),
 });
-
 /** @internal */
 export type CreateTeamCallRouteTarget$Outbound = {
   type: string;
@@ -286,19 +234,6 @@ export const CreateTeamCallRouteTarget$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRouteTarget$ {
-  /** @deprecated use `CreateTeamCallRouteTarget$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRouteTarget$inboundSchema;
-  /** @deprecated use `CreateTeamCallRouteTarget$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRouteTarget$outboundSchema;
-  /** @deprecated use `CreateTeamCallRouteTarget$Outbound` instead. */
-  export type Outbound = CreateTeamCallRouteTarget$Outbound;
-}
-
 export function createTeamCallRouteTargetToJSON(
   createTeamCallRouteTarget: CreateTeamCallRouteTarget,
 ): string {
@@ -306,7 +241,6 @@ export function createTeamCallRouteTargetToJSON(
     CreateTeamCallRouteTarget$outboundSchema.parse(createTeamCallRouteTarget),
   );
 }
-
 export function createTeamCallRouteTargetFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamCallRouteTarget, SDKValidationError> {
@@ -343,7 +277,6 @@ export const CreateTeamCallRoute$inboundSchema: z.ZodType<
     "greeting_message": "greetingMessage",
   });
 });
-
 /** @internal */
 export type CreateTeamCallRoute$Outbound = {
   name: string;
@@ -383,19 +316,6 @@ export const CreateTeamCallRoute$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateTeamCallRoute$ {
-  /** @deprecated use `CreateTeamCallRoute$inboundSchema` instead. */
-  export const inboundSchema = CreateTeamCallRoute$inboundSchema;
-  /** @deprecated use `CreateTeamCallRoute$outboundSchema` instead. */
-  export const outboundSchema = CreateTeamCallRoute$outboundSchema;
-  /** @deprecated use `CreateTeamCallRoute$Outbound` instead. */
-  export type Outbound = CreateTeamCallRoute$Outbound;
-}
-
 export function createTeamCallRouteToJSON(
   createTeamCallRoute: CreateTeamCallRoute,
 ): string {
@@ -403,7 +323,6 @@ export function createTeamCallRouteToJSON(
     CreateTeamCallRoute$outboundSchema.parse(createTeamCallRoute),
   );
 }
-
 export function createTeamCallRouteFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateTeamCallRoute, SDKValidationError> {

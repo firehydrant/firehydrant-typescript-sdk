@@ -24,7 +24,6 @@ export const UnarchiveIncidentRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type UnarchiveIncidentRequest$Outbound = {
   incident_id: string;
@@ -43,19 +42,6 @@ export const UnarchiveIncidentRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UnarchiveIncidentRequest$ {
-  /** @deprecated use `UnarchiveIncidentRequest$inboundSchema` instead. */
-  export const inboundSchema = UnarchiveIncidentRequest$inboundSchema;
-  /** @deprecated use `UnarchiveIncidentRequest$outboundSchema` instead. */
-  export const outboundSchema = UnarchiveIncidentRequest$outboundSchema;
-  /** @deprecated use `UnarchiveIncidentRequest$Outbound` instead. */
-  export type Outbound = UnarchiveIncidentRequest$Outbound;
-}
-
 export function unarchiveIncidentRequestToJSON(
   unarchiveIncidentRequest: UnarchiveIncidentRequest,
 ): string {
@@ -63,7 +49,6 @@ export function unarchiveIncidentRequestToJSON(
     UnarchiveIncidentRequest$outboundSchema.parse(unarchiveIncidentRequest),
   );
 }
-
 export function unarchiveIncidentRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UnarchiveIncidentRequest, SDKValidationError> {

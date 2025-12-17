@@ -77,7 +77,6 @@ export const ChangeIdentity$inboundSchema: z.ZodType<
   type: z.string(),
   value: z.string(),
 });
-
 /** @internal */
 export type ChangeIdentity$Outbound = {
   type: string;
@@ -94,23 +93,9 @@ export const ChangeIdentity$outboundSchema: z.ZodType<
   value: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChangeIdentity$ {
-  /** @deprecated use `ChangeIdentity$inboundSchema` instead. */
-  export const inboundSchema = ChangeIdentity$inboundSchema;
-  /** @deprecated use `ChangeIdentity$outboundSchema` instead. */
-  export const outboundSchema = ChangeIdentity$outboundSchema;
-  /** @deprecated use `ChangeIdentity$Outbound` instead. */
-  export type Outbound = ChangeIdentity$Outbound;
-}
-
 export function changeIdentityToJSON(changeIdentity: ChangeIdentity): string {
   return JSON.stringify(ChangeIdentity$outboundSchema.parse(changeIdentity));
 }
-
 export function changeIdentityFromJSON(
   jsonString: string,
 ): SafeParseResult<ChangeIdentity, SDKValidationError> {
@@ -125,22 +110,10 @@ export function changeIdentityFromJSON(
 export const CreateChangeEventType$inboundSchema: z.ZodNativeEnum<
   typeof CreateChangeEventType
 > = z.nativeEnum(CreateChangeEventType);
-
 /** @internal */
 export const CreateChangeEventType$outboundSchema: z.ZodNativeEnum<
   typeof CreateChangeEventType
 > = CreateChangeEventType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChangeEventType$ {
-  /** @deprecated use `CreateChangeEventType$inboundSchema` instead. */
-  export const inboundSchema = CreateChangeEventType$inboundSchema;
-  /** @deprecated use `CreateChangeEventType$outboundSchema` instead. */
-  export const outboundSchema = CreateChangeEventType$outboundSchema;
-}
 
 /** @internal */
 export const CreateChangeEventAttachment$inboundSchema: z.ZodType<
@@ -150,7 +123,6 @@ export const CreateChangeEventAttachment$inboundSchema: z.ZodType<
 > = z.object({
   type: CreateChangeEventType$inboundSchema,
 });
-
 /** @internal */
 export type CreateChangeEventAttachment$Outbound = {
   type: string;
@@ -165,19 +137,6 @@ export const CreateChangeEventAttachment$outboundSchema: z.ZodType<
   type: CreateChangeEventType$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChangeEventAttachment$ {
-  /** @deprecated use `CreateChangeEventAttachment$inboundSchema` instead. */
-  export const inboundSchema = CreateChangeEventAttachment$inboundSchema;
-  /** @deprecated use `CreateChangeEventAttachment$outboundSchema` instead. */
-  export const outboundSchema = CreateChangeEventAttachment$outboundSchema;
-  /** @deprecated use `CreateChangeEventAttachment$Outbound` instead. */
-  export type Outbound = CreateChangeEventAttachment$Outbound;
-}
-
 export function createChangeEventAttachmentToJSON(
   createChangeEventAttachment: CreateChangeEventAttachment,
 ): string {
@@ -187,7 +146,6 @@ export function createChangeEventAttachmentToJSON(
     ),
   );
 }
-
 export function createChangeEventAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChangeEventAttachment, SDKValidationError> {
@@ -209,7 +167,6 @@ export const Author$inboundSchema: z.ZodType<Author, z.ZodTypeDef, unknown> = z
       "source_id": "sourceId",
     });
   });
-
 /** @internal */
 export type Author$Outbound = {
   source: string;
@@ -232,23 +189,9 @@ export const Author$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Author$ {
-  /** @deprecated use `Author$inboundSchema` instead. */
-  export const inboundSchema = Author$inboundSchema;
-  /** @deprecated use `Author$outboundSchema` instead. */
-  export const outboundSchema = Author$outboundSchema;
-  /** @deprecated use `Author$Outbound` instead. */
-  export type Outbound = Author$Outbound;
-}
-
 export function authorToJSON(author: Author): string {
   return JSON.stringify(Author$outboundSchema.parse(author));
 }
-
 export function authorFromJSON(
   jsonString: string,
 ): SafeParseResult<Author, SDKValidationError> {
@@ -293,7 +236,6 @@ export const CreateChangeEvent$inboundSchema: z.ZodType<
     "change_identities": "changeIdentities",
   });
 });
-
 /** @internal */
 export type CreateChangeEvent$Outbound = {
   summary: string;
@@ -341,19 +283,6 @@ export const CreateChangeEvent$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChangeEvent$ {
-  /** @deprecated use `CreateChangeEvent$inboundSchema` instead. */
-  export const inboundSchema = CreateChangeEvent$inboundSchema;
-  /** @deprecated use `CreateChangeEvent$outboundSchema` instead. */
-  export const outboundSchema = CreateChangeEvent$outboundSchema;
-  /** @deprecated use `CreateChangeEvent$Outbound` instead. */
-  export type Outbound = CreateChangeEvent$Outbound;
-}
-
 export function createChangeEventToJSON(
   createChangeEvent: CreateChangeEvent,
 ): string {
@@ -361,7 +290,6 @@ export function createChangeEventToJSON(
     CreateChangeEvent$outboundSchema.parse(createChangeEvent),
   );
 }
-
 export function createChangeEventFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChangeEvent, SDKValidationError> {

@@ -33,7 +33,6 @@ export const IntegrationsSlackUsergroupEntity$inboundSchema: z.ZodType<
     "is_disabled": "isDisabled",
   });
 });
-
 /** @internal */
 export type IntegrationsSlackUsergroupEntity$Outbound = {
   id?: string | null | undefined;
@@ -58,19 +57,6 @@ export const IntegrationsSlackUsergroupEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsSlackUsergroupEntity$ {
-  /** @deprecated use `IntegrationsSlackUsergroupEntity$inboundSchema` instead. */
-  export const inboundSchema = IntegrationsSlackUsergroupEntity$inboundSchema;
-  /** @deprecated use `IntegrationsSlackUsergroupEntity$outboundSchema` instead. */
-  export const outboundSchema = IntegrationsSlackUsergroupEntity$outboundSchema;
-  /** @deprecated use `IntegrationsSlackUsergroupEntity$Outbound` instead. */
-  export type Outbound = IntegrationsSlackUsergroupEntity$Outbound;
-}
-
 export function integrationsSlackUsergroupEntityToJSON(
   integrationsSlackUsergroupEntity: IntegrationsSlackUsergroupEntity,
 ): string {
@@ -80,7 +66,6 @@ export function integrationsSlackUsergroupEntityToJSON(
     ),
   );
 }
-
 export function integrationsSlackUsergroupEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IntegrationsSlackUsergroupEntity, SDKValidationError> {

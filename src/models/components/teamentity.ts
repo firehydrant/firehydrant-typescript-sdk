@@ -155,7 +155,6 @@ export const TeamEntity$inboundSchema: z.ZodType<
     "default_signals_escalation_policy": "defaultSignalsEscalationPolicy",
   });
 });
-
 /** @internal */
 export type TeamEntity$Outbound = {
   id?: string | null | undefined;
@@ -256,23 +255,9 @@ export const TeamEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TeamEntity$ {
-  /** @deprecated use `TeamEntity$inboundSchema` instead. */
-  export const inboundSchema = TeamEntity$inboundSchema;
-  /** @deprecated use `TeamEntity$outboundSchema` instead. */
-  export const outboundSchema = TeamEntity$outboundSchema;
-  /** @deprecated use `TeamEntity$Outbound` instead. */
-  export type Outbound = TeamEntity$Outbound;
-}
-
 export function teamEntityToJSON(teamEntity: TeamEntity): string {
   return JSON.stringify(TeamEntity$outboundSchema.parse(teamEntity));
 }
-
 export function teamEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TeamEntity, SDKValidationError> {

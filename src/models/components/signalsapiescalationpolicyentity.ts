@@ -96,7 +96,6 @@ export const SignalsAPIEscalationPolicyEntity$inboundSchema: z.ZodType<
     "notification_priority_policies": "notificationPriorityPolicies",
   });
 });
-
 /** @internal */
 export type SignalsAPIEscalationPolicyEntity$Outbound = {
   id?: string | null | undefined;
@@ -157,19 +156,6 @@ export const SignalsAPIEscalationPolicyEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPIEscalationPolicyEntity$ {
-  /** @deprecated use `SignalsAPIEscalationPolicyEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPIEscalationPolicyEntity$inboundSchema;
-  /** @deprecated use `SignalsAPIEscalationPolicyEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPIEscalationPolicyEntity$outboundSchema;
-  /** @deprecated use `SignalsAPIEscalationPolicyEntity$Outbound` instead. */
-  export type Outbound = SignalsAPIEscalationPolicyEntity$Outbound;
-}
-
 export function signalsAPIEscalationPolicyEntityToJSON(
   signalsAPIEscalationPolicyEntity: SignalsAPIEscalationPolicyEntity,
 ): string {
@@ -179,7 +165,6 @@ export function signalsAPIEscalationPolicyEntityToJSON(
     ),
   );
 }
-
 export function signalsAPIEscalationPolicyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPIEscalationPolicyEntity, SDKValidationError> {

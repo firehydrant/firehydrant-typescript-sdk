@@ -32,7 +32,6 @@ export const PublicApiv1FormConfigurationsSelectedValueEntityTemplate$inboundSch
     z.ZodTypeDef,
     unknown
   > = z.object({});
-
 /** @internal */
 export type PublicApiv1FormConfigurationsSelectedValueEntityTemplate$Outbound =
   {};
@@ -45,22 +44,6 @@ export const PublicApiv1FormConfigurationsSelectedValueEntityTemplate$outboundSc
     PublicApiv1FormConfigurationsSelectedValueEntityTemplate
   > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1FormConfigurationsSelectedValueEntityTemplate$ {
-  /** @deprecated use `PublicApiv1FormConfigurationsSelectedValueEntityTemplate$inboundSchema` instead. */
-  export const inboundSchema =
-    PublicApiv1FormConfigurationsSelectedValueEntityTemplate$inboundSchema;
-  /** @deprecated use `PublicApiv1FormConfigurationsSelectedValueEntityTemplate$outboundSchema` instead. */
-  export const outboundSchema =
-    PublicApiv1FormConfigurationsSelectedValueEntityTemplate$outboundSchema;
-  /** @deprecated use `PublicApiv1FormConfigurationsSelectedValueEntityTemplate$Outbound` instead. */
-  export type Outbound =
-    PublicApiv1FormConfigurationsSelectedValueEntityTemplate$Outbound;
-}
-
 export function publicAPIV1FormConfigurationsSelectedValueEntityTemplateToJSON(
   publicApiv1FormConfigurationsSelectedValueEntityTemplate:
     PublicApiv1FormConfigurationsSelectedValueEntityTemplate,
@@ -70,7 +53,6 @@ export function publicAPIV1FormConfigurationsSelectedValueEntityTemplateToJSON(
       .parse(publicApiv1FormConfigurationsSelectedValueEntityTemplate),
   );
 }
-
 export function publicAPIV1FormConfigurationsSelectedValueEntityTemplateFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -99,7 +81,6 @@ export const PublicApiv1FormConfigurationsSelectedValueEntity$inboundSchema:
       ),
     ).optional(),
   });
-
 /** @internal */
 export type PublicApiv1FormConfigurationsSelectedValueEntity$Outbound = {
   template?:
@@ -122,22 +103,6 @@ export const PublicApiv1FormConfigurationsSelectedValueEntity$outboundSchema:
     ).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1FormConfigurationsSelectedValueEntity$ {
-  /** @deprecated use `PublicApiv1FormConfigurationsSelectedValueEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    PublicApiv1FormConfigurationsSelectedValueEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1FormConfigurationsSelectedValueEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    PublicApiv1FormConfigurationsSelectedValueEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1FormConfigurationsSelectedValueEntity$Outbound` instead. */
-  export type Outbound =
-    PublicApiv1FormConfigurationsSelectedValueEntity$Outbound;
-}
-
 export function publicAPIV1FormConfigurationsSelectedValueEntityToJSON(
   publicApiv1FormConfigurationsSelectedValueEntity:
     PublicApiv1FormConfigurationsSelectedValueEntity,
@@ -148,7 +113,6 @@ export function publicAPIV1FormConfigurationsSelectedValueEntityToJSON(
     ),
   );
 }
-
 export function publicAPIV1FormConfigurationsSelectedValueEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

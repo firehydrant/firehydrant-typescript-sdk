@@ -44,24 +44,10 @@ export const CreateIncidentRetrospectiveFieldType$inboundSchema:
   z.ZodNativeEnum<typeof CreateIncidentRetrospectiveFieldType> = z.nativeEnum(
     CreateIncidentRetrospectiveFieldType,
   );
-
 /** @internal */
 export const CreateIncidentRetrospectiveFieldType$outboundSchema:
   z.ZodNativeEnum<typeof CreateIncidentRetrospectiveFieldType> =
     CreateIncidentRetrospectiveFieldType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentRetrospectiveFieldType$ {
-  /** @deprecated use `CreateIncidentRetrospectiveFieldType$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateIncidentRetrospectiveFieldType$inboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveFieldType$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentRetrospectiveFieldType$outboundSchema;
-}
 
 /** @internal */
 export const CreateIncidentRetrospectiveFieldRequestBody$inboundSchema:
@@ -85,7 +71,6 @@ export const CreateIncidentRetrospectiveFieldRequestBody$inboundSchema:
       "required_at_milestone_id": "requiredAtMilestoneId",
     });
   });
-
 /** @internal */
 export type CreateIncidentRetrospectiveFieldRequestBody$Outbound = {
   label: string;
@@ -120,21 +105,6 @@ export const CreateIncidentRetrospectiveFieldRequestBody$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentRetrospectiveFieldRequestBody$ {
-  /** @deprecated use `CreateIncidentRetrospectiveFieldRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateIncidentRetrospectiveFieldRequestBody$inboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveFieldRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentRetrospectiveFieldRequestBody$outboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveFieldRequestBody$Outbound` instead. */
-  export type Outbound = CreateIncidentRetrospectiveFieldRequestBody$Outbound;
-}
-
 export function createIncidentRetrospectiveFieldRequestBodyToJSON(
   createIncidentRetrospectiveFieldRequestBody:
     CreateIncidentRetrospectiveFieldRequestBody,
@@ -145,7 +115,6 @@ export function createIncidentRetrospectiveFieldRequestBodyToJSON(
     ),
   );
 }
-
 export function createIncidentRetrospectiveFieldRequestBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -180,7 +149,6 @@ export const CreateIncidentRetrospectiveFieldRequest$inboundSchema: z.ZodType<
     "RequestBody": "requestBody",
   });
 });
-
 /** @internal */
 export type CreateIncidentRetrospectiveFieldRequest$Outbound = {
   retrospective_id: string;
@@ -207,21 +175,6 @@ export const CreateIncidentRetrospectiveFieldRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentRetrospectiveFieldRequest$ {
-  /** @deprecated use `CreateIncidentRetrospectiveFieldRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateIncidentRetrospectiveFieldRequest$inboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveFieldRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateIncidentRetrospectiveFieldRequest$outboundSchema;
-  /** @deprecated use `CreateIncidentRetrospectiveFieldRequest$Outbound` instead. */
-  export type Outbound = CreateIncidentRetrospectiveFieldRequest$Outbound;
-}
-
 export function createIncidentRetrospectiveFieldRequestToJSON(
   createIncidentRetrospectiveFieldRequest:
     CreateIncidentRetrospectiveFieldRequest,
@@ -232,7 +185,6 @@ export function createIncidentRetrospectiveFieldRequestToJSON(
     ),
   );
 }
-
 export function createIncidentRetrospectiveFieldRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

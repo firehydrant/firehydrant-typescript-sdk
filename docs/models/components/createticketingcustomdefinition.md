@@ -1,0 +1,24 @@
+# CreateTicketingCustomDefinition
+
+Creates a ticketing custom field for the organization
+
+## Example Usage
+
+```typescript
+import { CreateTicketingCustomDefinition } from "firehydrant-typescript-sdk/models/components";
+
+let value: CreateTicketingCustomDefinition = {
+  displayName: "Richmond78",
+  fieldType: "<value>",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                   | Type                                                                                                                                                    | Required                                                                                                                                                | Description                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `displayName`                                                                                                                                           | *string*                                                                                                                                                | :heavy_check_mark:                                                                                                                                      | The display name of the ticketing custom field definition                                                                                               |
+| `description`                                                                                                                                           | *string*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                      | The description of the ticketing custom field definition                                                                                                |
+| `fieldType`                                                                                                                                             | *string*                                                                                                                                                | :heavy_check_mark:                                                                                                                                      | The field type of the ticketing custom field definition (datetime, string, single_select, multi_select)                                                 |
+| `permissibleValues`                                                                                                                                     | *string*[]                                                                                                                                              | :heavy_minus_sign:                                                                                                                                      | The permissible values of the ticketing custom field definition (for single_select and multi_select field types)                                        |
+| `required`                                                                                                                                              | *boolean*                                                                                                                                               | :heavy_minus_sign:                                                                                                                                      | Whether the ticketing custom field definition should be required for all follow-up tickets. If not specified, the custom field will be set as optional. |

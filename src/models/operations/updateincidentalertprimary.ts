@@ -33,7 +33,6 @@ export const UpdateIncidentAlertPrimaryRequest$inboundSchema: z.ZodType<
     "update_incident_alert_primary": "updateIncidentAlertPrimary",
   });
 });
-
 /** @internal */
 export type UpdateIncidentAlertPrimaryRequest$Outbound = {
   incident_alert_id: string;
@@ -60,20 +59,6 @@ export const UpdateIncidentAlertPrimaryRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentAlertPrimaryRequest$ {
-  /** @deprecated use `UpdateIncidentAlertPrimaryRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentAlertPrimaryRequest$inboundSchema;
-  /** @deprecated use `UpdateIncidentAlertPrimaryRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateIncidentAlertPrimaryRequest$outboundSchema;
-  /** @deprecated use `UpdateIncidentAlertPrimaryRequest$Outbound` instead. */
-  export type Outbound = UpdateIncidentAlertPrimaryRequest$Outbound;
-}
-
 export function updateIncidentAlertPrimaryRequestToJSON(
   updateIncidentAlertPrimaryRequest: UpdateIncidentAlertPrimaryRequest,
 ): string {
@@ -83,7 +68,6 @@ export function updateIncidentAlertPrimaryRequestToJSON(
     ),
   );
 }
-
 export function updateIncidentAlertPrimaryRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentAlertPrimaryRequest, SDKValidationError> {

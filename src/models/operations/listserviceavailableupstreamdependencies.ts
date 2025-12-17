@@ -25,7 +25,6 @@ export const ListServiceAvailableUpstreamDependenciesRequest$inboundSchema:
       "service_id": "serviceId",
     });
   });
-
 /** @internal */
 export type ListServiceAvailableUpstreamDependenciesRequest$Outbound = {
   service_id: string;
@@ -45,22 +44,6 @@ export const ListServiceAvailableUpstreamDependenciesRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListServiceAvailableUpstreamDependenciesRequest$ {
-  /** @deprecated use `ListServiceAvailableUpstreamDependenciesRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListServiceAvailableUpstreamDependenciesRequest$inboundSchema;
-  /** @deprecated use `ListServiceAvailableUpstreamDependenciesRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListServiceAvailableUpstreamDependenciesRequest$outboundSchema;
-  /** @deprecated use `ListServiceAvailableUpstreamDependenciesRequest$Outbound` instead. */
-  export type Outbound =
-    ListServiceAvailableUpstreamDependenciesRequest$Outbound;
-}
-
 export function listServiceAvailableUpstreamDependenciesRequestToJSON(
   listServiceAvailableUpstreamDependenciesRequest:
     ListServiceAvailableUpstreamDependenciesRequest,
@@ -71,7 +54,6 @@ export function listServiceAvailableUpstreamDependenciesRequestToJSON(
     ),
   );
 }
-
 export function listServiceAvailableUpstreamDependenciesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

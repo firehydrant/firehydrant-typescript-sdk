@@ -35,7 +35,6 @@ export const NullableRulesRuleEntity$inboundSchema: z.ZodType<
     "user_data": "userData",
   });
 });
-
 /** @internal */
 export type NullableRulesRuleEntity$Outbound = {
   logic?: string | null | undefined;
@@ -56,19 +55,6 @@ export const NullableRulesRuleEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRulesRuleEntity$ {
-  /** @deprecated use `NullableRulesRuleEntity$inboundSchema` instead. */
-  export const inboundSchema = NullableRulesRuleEntity$inboundSchema;
-  /** @deprecated use `NullableRulesRuleEntity$outboundSchema` instead. */
-  export const outboundSchema = NullableRulesRuleEntity$outboundSchema;
-  /** @deprecated use `NullableRulesRuleEntity$Outbound` instead. */
-  export type Outbound = NullableRulesRuleEntity$Outbound;
-}
-
 export function nullableRulesRuleEntityToJSON(
   nullableRulesRuleEntity: NullableRulesRuleEntity,
 ): string {
@@ -76,7 +62,6 @@ export function nullableRulesRuleEntityToJSON(
     NullableRulesRuleEntity$outboundSchema.parse(nullableRulesRuleEntity),
   );
 }
-
 export function nullableRulesRuleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRulesRuleEntity, SDKValidationError> {

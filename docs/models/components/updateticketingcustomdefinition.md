@@ -1,0 +1,20 @@
+# UpdateTicketingCustomDefinition
+
+Update a ticketing custom field for the organization
+
+## Example Usage
+
+```typescript
+import { UpdateTicketingCustomDefinition } from "firehydrant-typescript-sdk/models/components";
+
+let value: UpdateTicketingCustomDefinition = {};
+```
+
+## Fields
+
+| Field                                                                                                                                                   | Type                                                                                                                                                    | Required                                                                                                                                                | Description                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `displayName`                                                                                                                                           | *string*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                      | The display name of the ticketing custom field definition                                                                                               |
+| `description`                                                                                                                                           | *string*                                                                                                                                                | :heavy_minus_sign:                                                                                                                                      | The description of the ticketing custom field definition                                                                                                |
+| `permissibleValues`                                                                                                                                     | *string*[]                                                                                                                                              | :heavy_minus_sign:                                                                                                                                      | The permissible values of the ticketing custom field definition (for single_select and multi_select field types)                                        |
+| `required`                                                                                                                                              | *boolean*                                                                                                                                               | :heavy_minus_sign:                                                                                                                                      | Whether the ticketing custom field definition should be required for all follow-up tickets. If not specified, the custom field will be set as optional. |

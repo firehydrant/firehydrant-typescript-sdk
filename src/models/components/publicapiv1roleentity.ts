@@ -57,7 +57,6 @@ export const PublicApiv1RoleEntity$inboundSchema: z.ZodType<
     "read_only": "readOnly",
   });
 });
-
 /** @internal */
 export type PublicApiv1RoleEntity$Outbound = {
   id?: string | null | undefined;
@@ -96,19 +95,6 @@ export const PublicApiv1RoleEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PublicApiv1RoleEntity$ {
-  /** @deprecated use `PublicApiv1RoleEntity$inboundSchema` instead. */
-  export const inboundSchema = PublicApiv1RoleEntity$inboundSchema;
-  /** @deprecated use `PublicApiv1RoleEntity$outboundSchema` instead. */
-  export const outboundSchema = PublicApiv1RoleEntity$outboundSchema;
-  /** @deprecated use `PublicApiv1RoleEntity$Outbound` instead. */
-  export type Outbound = PublicApiv1RoleEntity$Outbound;
-}
-
 export function publicAPIV1RoleEntityToJSON(
   publicApiv1RoleEntity: PublicApiv1RoleEntity,
 ): string {
@@ -116,7 +102,6 @@ export function publicAPIV1RoleEntityToJSON(
     PublicApiv1RoleEntity$outboundSchema.parse(publicApiv1RoleEntity),
   );
 }
-
 export function publicAPIV1RoleEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PublicApiv1RoleEntity, SDKValidationError> {

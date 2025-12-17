@@ -42,7 +42,6 @@ export const PriorityEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type PriorityEntity$Outbound = {
   slug?: string | null | undefined;
@@ -72,23 +71,9 @@ export const PriorityEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PriorityEntity$ {
-  /** @deprecated use `PriorityEntity$inboundSchema` instead. */
-  export const inboundSchema = PriorityEntity$inboundSchema;
-  /** @deprecated use `PriorityEntity$outboundSchema` instead. */
-  export const outboundSchema = PriorityEntity$outboundSchema;
-  /** @deprecated use `PriorityEntity$Outbound` instead. */
-  export type Outbound = PriorityEntity$Outbound;
-}
-
 export function priorityEntityToJSON(priorityEntity: PriorityEntity): string {
   return JSON.stringify(PriorityEntity$outboundSchema.parse(priorityEntity));
 }
-
 export function priorityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PriorityEntity, SDKValidationError> {

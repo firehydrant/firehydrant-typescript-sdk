@@ -60,7 +60,6 @@ export const NullableSignalsAPIOnCallShiftEntity$inboundSchema: z.ZodType<
     "end_time": "endTime",
   });
 });
-
 /** @internal */
 export type NullableSignalsAPIOnCallShiftEntity$Outbound = {
   id?: string | null | undefined;
@@ -102,21 +101,6 @@ export const NullableSignalsAPIOnCallShiftEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSignalsAPIOnCallShiftEntity$ {
-  /** @deprecated use `NullableSignalsAPIOnCallShiftEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSignalsAPIOnCallShiftEntity$inboundSchema;
-  /** @deprecated use `NullableSignalsAPIOnCallShiftEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSignalsAPIOnCallShiftEntity$outboundSchema;
-  /** @deprecated use `NullableSignalsAPIOnCallShiftEntity$Outbound` instead. */
-  export type Outbound = NullableSignalsAPIOnCallShiftEntity$Outbound;
-}
-
 export function nullableSignalsAPIOnCallShiftEntityToJSON(
   nullableSignalsAPIOnCallShiftEntity: NullableSignalsAPIOnCallShiftEntity,
 ): string {
@@ -126,7 +110,6 @@ export function nullableSignalsAPIOnCallShiftEntityToJSON(
     ),
   );
 }
-
 export function nullableSignalsAPIOnCallShiftEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSignalsAPIOnCallShiftEntity, SDKValidationError> {

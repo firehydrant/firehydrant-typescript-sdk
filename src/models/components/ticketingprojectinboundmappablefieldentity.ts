@@ -28,7 +28,6 @@ export const TicketingProjectInboundMappableFieldEntity$inboundSchema:
       value: z.nullable(z.string()).optional(),
       label: z.nullable(z.string()).optional(),
     });
-
 /** @internal */
 export type TicketingProjectInboundMappableFieldEntity$Outbound = {
   value?: string | null | undefined;
@@ -46,21 +45,6 @@ export const TicketingProjectInboundMappableFieldEntity$outboundSchema:
     label: z.nullable(z.string()).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingProjectInboundMappableFieldEntity$ {
-  /** @deprecated use `TicketingProjectInboundMappableFieldEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    TicketingProjectInboundMappableFieldEntity$inboundSchema;
-  /** @deprecated use `TicketingProjectInboundMappableFieldEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    TicketingProjectInboundMappableFieldEntity$outboundSchema;
-  /** @deprecated use `TicketingProjectInboundMappableFieldEntity$Outbound` instead. */
-  export type Outbound = TicketingProjectInboundMappableFieldEntity$Outbound;
-}
-
 export function ticketingProjectInboundMappableFieldEntityToJSON(
   ticketingProjectInboundMappableFieldEntity:
     TicketingProjectInboundMappableFieldEntity,
@@ -71,7 +55,6 @@ export function ticketingProjectInboundMappableFieldEntityToJSON(
     ),
   );
 }
-
 export function ticketingProjectInboundMappableFieldEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

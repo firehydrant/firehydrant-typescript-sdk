@@ -37,7 +37,6 @@ export const NullableMetricsRetrospectiveEntitySummaryEntity$inboundSchema:
       "completion_percentage": "completionPercentage",
     });
   });
-
 /** @internal */
 export type NullableMetricsRetrospectiveEntitySummaryEntity$Outbound = {
   completed?: number | null | undefined;
@@ -69,22 +68,6 @@ export const NullableMetricsRetrospectiveEntitySummaryEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableMetricsRetrospectiveEntitySummaryEntity$ {
-  /** @deprecated use `NullableMetricsRetrospectiveEntitySummaryEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableMetricsRetrospectiveEntitySummaryEntity$inboundSchema;
-  /** @deprecated use `NullableMetricsRetrospectiveEntitySummaryEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableMetricsRetrospectiveEntitySummaryEntity$outboundSchema;
-  /** @deprecated use `NullableMetricsRetrospectiveEntitySummaryEntity$Outbound` instead. */
-  export type Outbound =
-    NullableMetricsRetrospectiveEntitySummaryEntity$Outbound;
-}
-
 export function nullableMetricsRetrospectiveEntitySummaryEntityToJSON(
   nullableMetricsRetrospectiveEntitySummaryEntity:
     NullableMetricsRetrospectiveEntitySummaryEntity,
@@ -95,7 +78,6 @@ export function nullableMetricsRetrospectiveEntitySummaryEntityToJSON(
     ),
   );
 }
-
 export function nullableMetricsRetrospectiveEntitySummaryEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

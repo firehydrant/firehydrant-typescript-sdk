@@ -26,7 +26,6 @@ export const CreatePriority$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   default: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type CreatePriority$Outbound = {
   slug: string;
@@ -45,23 +44,9 @@ export const CreatePriority$outboundSchema: z.ZodType<
   default: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreatePriority$ {
-  /** @deprecated use `CreatePriority$inboundSchema` instead. */
-  export const inboundSchema = CreatePriority$inboundSchema;
-  /** @deprecated use `CreatePriority$outboundSchema` instead. */
-  export const outboundSchema = CreatePriority$outboundSchema;
-  /** @deprecated use `CreatePriority$Outbound` instead. */
-  export type Outbound = CreatePriority$Outbound;
-}
-
 export function createPriorityToJSON(createPriority: CreatePriority): string {
   return JSON.stringify(CreatePriority$outboundSchema.parse(createPriority));
 }
-
 export function createPriorityFromJSON(
   jsonString: string,
 ): SafeParseResult<CreatePriority, SDKValidationError> {

@@ -30,7 +30,6 @@ export const UpdateCustomFieldDefinitionRequest$inboundSchema: z.ZodType<
     "update_custom_field_definition": "updateCustomFieldDefinition",
   });
 });
-
 /** @internal */
 export type UpdateCustomFieldDefinitionRequest$Outbound = {
   field_id: string;
@@ -55,20 +54,6 @@ export const UpdateCustomFieldDefinitionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCustomFieldDefinitionRequest$ {
-  /** @deprecated use `UpdateCustomFieldDefinitionRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateCustomFieldDefinitionRequest$inboundSchema;
-  /** @deprecated use `UpdateCustomFieldDefinitionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateCustomFieldDefinitionRequest$outboundSchema;
-  /** @deprecated use `UpdateCustomFieldDefinitionRequest$Outbound` instead. */
-  export type Outbound = UpdateCustomFieldDefinitionRequest$Outbound;
-}
-
 export function updateCustomFieldDefinitionRequestToJSON(
   updateCustomFieldDefinitionRequest: UpdateCustomFieldDefinitionRequest,
 ): string {
@@ -78,7 +63,6 @@ export function updateCustomFieldDefinitionRequestToJSON(
     ),
   );
 }
-
 export function updateCustomFieldDefinitionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCustomFieldDefinitionRequest, SDKValidationError> {

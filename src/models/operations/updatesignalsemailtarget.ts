@@ -29,7 +29,6 @@ export const UpdateSignalsEmailTargetRequest$inboundSchema: z.ZodType<
     "update_signals_email_target": "updateSignalsEmailTarget",
   });
 });
-
 /** @internal */
 export type UpdateSignalsEmailTargetRequest$Outbound = {
   id: string;
@@ -52,19 +51,6 @@ export const UpdateSignalsEmailTargetRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSignalsEmailTargetRequest$ {
-  /** @deprecated use `UpdateSignalsEmailTargetRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateSignalsEmailTargetRequest$inboundSchema;
-  /** @deprecated use `UpdateSignalsEmailTargetRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateSignalsEmailTargetRequest$outboundSchema;
-  /** @deprecated use `UpdateSignalsEmailTargetRequest$Outbound` instead. */
-  export type Outbound = UpdateSignalsEmailTargetRequest$Outbound;
-}
-
 export function updateSignalsEmailTargetRequestToJSON(
   updateSignalsEmailTargetRequest: UpdateSignalsEmailTargetRequest,
 ): string {
@@ -74,7 +60,6 @@ export function updateSignalsEmailTargetRequestToJSON(
     ),
   );
 }
-
 export function updateSignalsEmailTargetRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSignalsEmailTargetRequest, SDKValidationError> {

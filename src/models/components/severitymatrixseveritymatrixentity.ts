@@ -47,7 +47,6 @@ export const SeverityMatrixSeverityMatrixEntity$inboundSchema: z.ZodType<
   conditions: z.nullable(z.array(SeverityMatrixConditionEntity$inboundSchema))
     .optional(),
 });
-
 /** @internal */
 export type SeverityMatrixSeverityMatrixEntity$Outbound = {
   matrix?: Array<SeverityMatrixItemEntity$Outbound> | null | undefined;
@@ -69,20 +68,6 @@ export const SeverityMatrixSeverityMatrixEntity$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeverityMatrixSeverityMatrixEntity$ {
-  /** @deprecated use `SeverityMatrixSeverityMatrixEntity$inboundSchema` instead. */
-  export const inboundSchema = SeverityMatrixSeverityMatrixEntity$inboundSchema;
-  /** @deprecated use `SeverityMatrixSeverityMatrixEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    SeverityMatrixSeverityMatrixEntity$outboundSchema;
-  /** @deprecated use `SeverityMatrixSeverityMatrixEntity$Outbound` instead. */
-  export type Outbound = SeverityMatrixSeverityMatrixEntity$Outbound;
-}
-
 export function severityMatrixSeverityMatrixEntityToJSON(
   severityMatrixSeverityMatrixEntity: SeverityMatrixSeverityMatrixEntity,
 ): string {
@@ -92,7 +77,6 @@ export function severityMatrixSeverityMatrixEntityToJSON(
     ),
   );
 }
-
 export function severityMatrixSeverityMatrixEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SeverityMatrixSeverityMatrixEntity, SDKValidationError> {

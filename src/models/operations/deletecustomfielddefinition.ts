@@ -24,7 +24,6 @@ export const DeleteCustomFieldDefinitionRequest$inboundSchema: z.ZodType<
     "field_id": "fieldId",
   });
 });
-
 /** @internal */
 export type DeleteCustomFieldDefinitionRequest$Outbound = {
   field_id: string;
@@ -43,20 +42,6 @@ export const DeleteCustomFieldDefinitionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteCustomFieldDefinitionRequest$ {
-  /** @deprecated use `DeleteCustomFieldDefinitionRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteCustomFieldDefinitionRequest$inboundSchema;
-  /** @deprecated use `DeleteCustomFieldDefinitionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    DeleteCustomFieldDefinitionRequest$outboundSchema;
-  /** @deprecated use `DeleteCustomFieldDefinitionRequest$Outbound` instead. */
-  export type Outbound = DeleteCustomFieldDefinitionRequest$Outbound;
-}
-
 export function deleteCustomFieldDefinitionRequestToJSON(
   deleteCustomFieldDefinitionRequest: DeleteCustomFieldDefinitionRequest,
 ): string {
@@ -66,7 +51,6 @@ export function deleteCustomFieldDefinitionRequestToJSON(
     ),
   );
 }
-
 export function deleteCustomFieldDefinitionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteCustomFieldDefinitionRequest, SDKValidationError> {

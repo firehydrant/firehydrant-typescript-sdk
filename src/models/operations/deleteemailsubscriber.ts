@@ -30,7 +30,6 @@ export const DeleteEmailSubscriberRequest$inboundSchema: z.ZodType<
     "subscriber_ids": "subscriberIds",
   });
 });
-
 /** @internal */
 export type DeleteEmailSubscriberRequest$Outbound = {
   nunc_connection_id: string;
@@ -52,19 +51,6 @@ export const DeleteEmailSubscriberRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteEmailSubscriberRequest$ {
-  /** @deprecated use `DeleteEmailSubscriberRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteEmailSubscriberRequest$inboundSchema;
-  /** @deprecated use `DeleteEmailSubscriberRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteEmailSubscriberRequest$outboundSchema;
-  /** @deprecated use `DeleteEmailSubscriberRequest$Outbound` instead. */
-  export type Outbound = DeleteEmailSubscriberRequest$Outbound;
-}
-
 export function deleteEmailSubscriberRequestToJSON(
   deleteEmailSubscriberRequest: DeleteEmailSubscriberRequest,
 ): string {
@@ -74,7 +60,6 @@ export function deleteEmailSubscriberRequestToJSON(
     ),
   );
 }
-
 export function deleteEmailSubscriberRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteEmailSubscriberRequest, SDKValidationError> {

@@ -24,7 +24,6 @@ export const GetNuncConnectionRequest$inboundSchema: z.ZodType<
     "nunc_connection_id": "nuncConnectionId",
   });
 });
-
 /** @internal */
 export type GetNuncConnectionRequest$Outbound = {
   nunc_connection_id: string;
@@ -43,19 +42,6 @@ export const GetNuncConnectionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetNuncConnectionRequest$ {
-  /** @deprecated use `GetNuncConnectionRequest$inboundSchema` instead. */
-  export const inboundSchema = GetNuncConnectionRequest$inboundSchema;
-  /** @deprecated use `GetNuncConnectionRequest$outboundSchema` instead. */
-  export const outboundSchema = GetNuncConnectionRequest$outboundSchema;
-  /** @deprecated use `GetNuncConnectionRequest$Outbound` instead. */
-  export type Outbound = GetNuncConnectionRequest$Outbound;
-}
-
 export function getNuncConnectionRequestToJSON(
   getNuncConnectionRequest: GetNuncConnectionRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getNuncConnectionRequestToJSON(
     GetNuncConnectionRequest$outboundSchema.parse(getNuncConnectionRequest),
   );
 }
-
 export function getNuncConnectionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetNuncConnectionRequest, SDKValidationError> {

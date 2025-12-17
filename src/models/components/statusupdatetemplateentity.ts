@@ -45,7 +45,6 @@ export const StatusUpdateTemplateEntity$inboundSchema: z.ZodType<
     "discarded_at": "discardedAt",
   });
 });
-
 /** @internal */
 export type StatusUpdateTemplateEntity$Outbound = {
   id?: string | null | undefined;
@@ -76,19 +75,6 @@ export const StatusUpdateTemplateEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace StatusUpdateTemplateEntity$ {
-  /** @deprecated use `StatusUpdateTemplateEntity$inboundSchema` instead. */
-  export const inboundSchema = StatusUpdateTemplateEntity$inboundSchema;
-  /** @deprecated use `StatusUpdateTemplateEntity$outboundSchema` instead. */
-  export const outboundSchema = StatusUpdateTemplateEntity$outboundSchema;
-  /** @deprecated use `StatusUpdateTemplateEntity$Outbound` instead. */
-  export type Outbound = StatusUpdateTemplateEntity$Outbound;
-}
-
 export function statusUpdateTemplateEntityToJSON(
   statusUpdateTemplateEntity: StatusUpdateTemplateEntity,
 ): string {
@@ -96,7 +82,6 @@ export function statusUpdateTemplateEntityToJSON(
     StatusUpdateTemplateEntity$outboundSchema.parse(statusUpdateTemplateEntity),
   );
 }
-
 export function statusUpdateTemplateEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<StatusUpdateTemplateEntity, SDKValidationError> {

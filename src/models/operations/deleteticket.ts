@@ -24,7 +24,6 @@ export const DeleteTicketRequest$inboundSchema: z.ZodType<
     "ticket_id": "ticketId",
   });
 });
-
 /** @internal */
 export type DeleteTicketRequest$Outbound = {
   ticket_id: string;
@@ -43,19 +42,6 @@ export const DeleteTicketRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteTicketRequest$ {
-  /** @deprecated use `DeleteTicketRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteTicketRequest$inboundSchema;
-  /** @deprecated use `DeleteTicketRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteTicketRequest$outboundSchema;
-  /** @deprecated use `DeleteTicketRequest$Outbound` instead. */
-  export type Outbound = DeleteTicketRequest$Outbound;
-}
-
 export function deleteTicketRequestToJSON(
   deleteTicketRequest: DeleteTicketRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteTicketRequestToJSON(
     DeleteTicketRequest$outboundSchema.parse(deleteTicketRequest),
   );
 }
-
 export function deleteTicketRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteTicketRequest, SDKValidationError> {

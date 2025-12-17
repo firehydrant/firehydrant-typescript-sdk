@@ -29,7 +29,6 @@ export const CreateChange$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   labels: z.nullable(z.record(z.string())).optional(),
 });
-
 /** @internal */
 export type CreateChange$Outbound = {
   summary?: string | null | undefined;
@@ -48,23 +47,9 @@ export const CreateChange$outboundSchema: z.ZodType<
   labels: z.nullable(z.record(z.string())).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateChange$ {
-  /** @deprecated use `CreateChange$inboundSchema` instead. */
-  export const inboundSchema = CreateChange$inboundSchema;
-  /** @deprecated use `CreateChange$outboundSchema` instead. */
-  export const outboundSchema = CreateChange$outboundSchema;
-  /** @deprecated use `CreateChange$Outbound` instead. */
-  export type Outbound = CreateChange$Outbound;
-}
-
 export function createChangeToJSON(createChange: CreateChange): string {
   return JSON.stringify(CreateChange$outboundSchema.parse(createChange));
 }
-
 export function createChangeFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateChange, SDKValidationError> {

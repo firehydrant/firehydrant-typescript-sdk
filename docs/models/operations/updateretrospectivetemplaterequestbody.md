@@ -17,6 +17,7 @@ let value: UpdateRetrospectiveTemplateRequestBody = {
   fieldsType: [
     "dynamic_input_group",
   ],
+  reportElementsType: "retrospective_field",
 };
 ```
 
@@ -37,3 +38,4 @@ let value: UpdateRetrospectiveTemplateRequestBody = {
 | `fieldsIsRequired`                                                                                                     | *boolean*[]                                                                                                            | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
 | `fieldsRequiredAtMilestoneId`                                                                                          | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
 | `fieldsSchema`                                                                                                         | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `reportElementsType`                                                                                                   | [operations.ReportElementsType](../../models/operations/reportelementstype.md)                                         | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

@@ -45,7 +45,6 @@ export const ServiceChildDependencyEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type ServiceChildDependencyEntity$Outbound = {
   id?: string | null | undefined;
@@ -75,19 +74,6 @@ export const ServiceChildDependencyEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceChildDependencyEntity$ {
-  /** @deprecated use `ServiceChildDependencyEntity$inboundSchema` instead. */
-  export const inboundSchema = ServiceChildDependencyEntity$inboundSchema;
-  /** @deprecated use `ServiceChildDependencyEntity$outboundSchema` instead. */
-  export const outboundSchema = ServiceChildDependencyEntity$outboundSchema;
-  /** @deprecated use `ServiceChildDependencyEntity$Outbound` instead. */
-  export type Outbound = ServiceChildDependencyEntity$Outbound;
-}
-
 export function serviceChildDependencyEntityToJSON(
   serviceChildDependencyEntity: ServiceChildDependencyEntity,
 ): string {
@@ -97,7 +83,6 @@ export function serviceChildDependencyEntityToJSON(
     ),
   );
 }
-
 export function serviceChildDependencyEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceChildDependencyEntity, SDKValidationError> {

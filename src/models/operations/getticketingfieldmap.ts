@@ -27,7 +27,6 @@ export const GetTicketingFieldMapRequest$inboundSchema: z.ZodType<
     "ticketing_project_id": "ticketingProjectId",
   });
 });
-
 /** @internal */
 export type GetTicketingFieldMapRequest$Outbound = {
   map_id: string;
@@ -49,19 +48,6 @@ export const GetTicketingFieldMapRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetTicketingFieldMapRequest$ {
-  /** @deprecated use `GetTicketingFieldMapRequest$inboundSchema` instead. */
-  export const inboundSchema = GetTicketingFieldMapRequest$inboundSchema;
-  /** @deprecated use `GetTicketingFieldMapRequest$outboundSchema` instead. */
-  export const outboundSchema = GetTicketingFieldMapRequest$outboundSchema;
-  /** @deprecated use `GetTicketingFieldMapRequest$Outbound` instead. */
-  export type Outbound = GetTicketingFieldMapRequest$Outbound;
-}
-
 export function getTicketingFieldMapRequestToJSON(
   getTicketingFieldMapRequest: GetTicketingFieldMapRequest,
 ): string {
@@ -71,7 +57,6 @@ export function getTicketingFieldMapRequestToJSON(
     ),
   );
 }
-
 export function getTicketingFieldMapRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetTicketingFieldMapRequest, SDKValidationError> {

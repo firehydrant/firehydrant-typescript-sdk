@@ -24,7 +24,6 @@ export const GetScheduledMaintenanceRequest$inboundSchema: z.ZodType<
     "scheduled_maintenance_id": "scheduledMaintenanceId",
   });
 });
-
 /** @internal */
 export type GetScheduledMaintenanceRequest$Outbound = {
   scheduled_maintenance_id: string;
@@ -43,19 +42,6 @@ export const GetScheduledMaintenanceRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetScheduledMaintenanceRequest$ {
-  /** @deprecated use `GetScheduledMaintenanceRequest$inboundSchema` instead. */
-  export const inboundSchema = GetScheduledMaintenanceRequest$inboundSchema;
-  /** @deprecated use `GetScheduledMaintenanceRequest$outboundSchema` instead. */
-  export const outboundSchema = GetScheduledMaintenanceRequest$outboundSchema;
-  /** @deprecated use `GetScheduledMaintenanceRequest$Outbound` instead. */
-  export type Outbound = GetScheduledMaintenanceRequest$Outbound;
-}
-
 export function getScheduledMaintenanceRequestToJSON(
   getScheduledMaintenanceRequest: GetScheduledMaintenanceRequest,
 ): string {
@@ -65,7 +51,6 @@ export function getScheduledMaintenanceRequestToJSON(
     ),
   );
 }
-
 export function getScheduledMaintenanceRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetScheduledMaintenanceRequest, SDKValidationError> {

@@ -21,7 +21,6 @@ export const IncidentsRetrospectiveEntitySectionEntity$inboundSchema: z.ZodType<
   slug: z.nullable(z.string()).optional(),
   elements: z.nullable(z.array(z.string())).optional(),
 });
-
 /** @internal */
 export type IncidentsRetrospectiveEntitySectionEntity$Outbound = {
   slug?: string | null | undefined;
@@ -39,21 +38,6 @@ export const IncidentsRetrospectiveEntitySectionEntity$outboundSchema:
     elements: z.nullable(z.array(z.string())).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsRetrospectiveEntitySectionEntity$ {
-  /** @deprecated use `IncidentsRetrospectiveEntitySectionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    IncidentsRetrospectiveEntitySectionEntity$inboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveEntitySectionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    IncidentsRetrospectiveEntitySectionEntity$outboundSchema;
-  /** @deprecated use `IncidentsRetrospectiveEntitySectionEntity$Outbound` instead. */
-  export type Outbound = IncidentsRetrospectiveEntitySectionEntity$Outbound;
-}
-
 export function incidentsRetrospectiveEntitySectionEntityToJSON(
   incidentsRetrospectiveEntitySectionEntity:
     IncidentsRetrospectiveEntitySectionEntity,
@@ -64,7 +48,6 @@ export function incidentsRetrospectiveEntitySectionEntityToJSON(
     ),
   );
 }
-
 export function incidentsRetrospectiveEntitySectionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -20,6 +20,7 @@ export const UpdateSavedSearchResourceType = {
   Analytics: "analytics",
   ImpactAnalytics: "impact_analytics",
   Alerts: "alerts",
+  AlertAnalytics: "alert_analytics",
   IncidentEvents: "incident_events",
 } as const;
 export type UpdateSavedSearchResourceType = ClosedEnum<
@@ -36,22 +37,10 @@ export type UpdateSavedSearchRequest = {
 export const UpdateSavedSearchResourceType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateSavedSearchResourceType
 > = z.nativeEnum(UpdateSavedSearchResourceType);
-
 /** @internal */
 export const UpdateSavedSearchResourceType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateSavedSearchResourceType
 > = UpdateSavedSearchResourceType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSavedSearchResourceType$ {
-  /** @deprecated use `UpdateSavedSearchResourceType$inboundSchema` instead. */
-  export const inboundSchema = UpdateSavedSearchResourceType$inboundSchema;
-  /** @deprecated use `UpdateSavedSearchResourceType$outboundSchema` instead. */
-  export const outboundSchema = UpdateSavedSearchResourceType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateSavedSearchRequest$inboundSchema: z.ZodType<
@@ -69,7 +58,6 @@ export const UpdateSavedSearchRequest$inboundSchema: z.ZodType<
     "update_saved_search": "updateSavedSearch",
   });
 });
-
 /** @internal */
 export type UpdateSavedSearchRequest$Outbound = {
   resource_type: string;
@@ -94,19 +82,6 @@ export const UpdateSavedSearchRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSavedSearchRequest$ {
-  /** @deprecated use `UpdateSavedSearchRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateSavedSearchRequest$inboundSchema;
-  /** @deprecated use `UpdateSavedSearchRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateSavedSearchRequest$outboundSchema;
-  /** @deprecated use `UpdateSavedSearchRequest$Outbound` instead. */
-  export type Outbound = UpdateSavedSearchRequest$Outbound;
-}
-
 export function updateSavedSearchRequestToJSON(
   updateSavedSearchRequest: UpdateSavedSearchRequest,
 ): string {
@@ -114,7 +89,6 @@ export function updateSavedSearchRequestToJSON(
     UpdateSavedSearchRequest$outboundSchema.parse(updateSavedSearchRequest),
   );
 }
-
 export function updateSavedSearchRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSavedSearchRequest, SDKValidationError> {

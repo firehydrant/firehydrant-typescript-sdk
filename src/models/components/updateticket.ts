@@ -8,6 +8,17 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type UpdateTicketAssignee = {
+  /**
+   * The source of the assignee
+   */
+  source?: string | null | undefined;
+  /**
+   * The uesr id of the assignee
+   */
+  id: string;
+};
+
 /**
  * Update a ticket's attributes
  */
@@ -21,7 +32,53 @@ export type UpdateTicket = {
    * List of tags for the ticket
    */
   tagList?: Array<string> | null | undefined;
+  /**
+   * An array of assignees for the ticket
+   */
+  assignees?: Array<UpdateTicketAssignee> | null | undefined;
 };
+
+/** @internal */
+export const UpdateTicketAssignee$inboundSchema: z.ZodType<
+  UpdateTicketAssignee,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  source: z.nullable(z.string()).optional(),
+  id: z.string(),
+});
+/** @internal */
+export type UpdateTicketAssignee$Outbound = {
+  source?: string | null | undefined;
+  id: string;
+};
+
+/** @internal */
+export const UpdateTicketAssignee$outboundSchema: z.ZodType<
+  UpdateTicketAssignee$Outbound,
+  z.ZodTypeDef,
+  UpdateTicketAssignee
+> = z.object({
+  source: z.nullable(z.string()).optional(),
+  id: z.string(),
+});
+
+export function updateTicketAssigneeToJSON(
+  updateTicketAssignee: UpdateTicketAssignee,
+): string {
+  return JSON.stringify(
+    UpdateTicketAssignee$outboundSchema.parse(updateTicketAssignee),
+  );
+}
+export function updateTicketAssigneeFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateTicketAssignee, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateTicketAssignee$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateTicketAssignee' from JSON`,
+  );
+}
 
 /** @internal */
 export const UpdateTicket$inboundSchema: z.ZodType<
@@ -35,13 +92,15 @@ export const UpdateTicket$inboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   priority_id: z.nullable(z.string()).optional(),
   tag_list: z.nullable(z.array(z.string())).optional(),
+  assignees: z.nullable(
+    z.array(z.lazy(() => UpdateTicketAssignee$inboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "priority_id": "priorityId",
     "tag_list": "tagList",
   });
 });
-
 /** @internal */
 export type UpdateTicket$Outbound = {
   summary?: string | null | undefined;
@@ -50,6 +109,7 @@ export type UpdateTicket$Outbound = {
   type?: string | null | undefined;
   priority_id?: string | null | undefined;
   tag_list?: Array<string> | null | undefined;
+  assignees?: Array<UpdateTicketAssignee$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -64,6 +124,9 @@ export const UpdateTicket$outboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   priorityId: z.nullable(z.string()).optional(),
   tagList: z.nullable(z.array(z.string())).optional(),
+  assignees: z.nullable(
+    z.array(z.lazy(() => UpdateTicketAssignee$outboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     priorityId: "priority_id",
@@ -71,23 +134,9 @@ export const UpdateTicket$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateTicket$ {
-  /** @deprecated use `UpdateTicket$inboundSchema` instead. */
-  export const inboundSchema = UpdateTicket$inboundSchema;
-  /** @deprecated use `UpdateTicket$outboundSchema` instead. */
-  export const outboundSchema = UpdateTicket$outboundSchema;
-  /** @deprecated use `UpdateTicket$Outbound` instead. */
-  export type Outbound = UpdateTicket$Outbound;
-}
-
 export function updateTicketToJSON(updateTicket: UpdateTicket): string {
   return JSON.stringify(UpdateTicket$outboundSchema.parse(updateTicket));
 }
-
 export function updateTicketFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateTicket, SDKValidationError> {

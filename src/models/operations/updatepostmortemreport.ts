@@ -30,7 +30,6 @@ export const UpdatePostMortemReportRequest$inboundSchema: z.ZodType<
     "update_post_mortem_report": "updatePostMortemReport",
   });
 });
-
 /** @internal */
 export type UpdatePostMortemReportRequest$Outbound = {
   report_id: string;
@@ -54,19 +53,6 @@ export const UpdatePostMortemReportRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdatePostMortemReportRequest$ {
-  /** @deprecated use `UpdatePostMortemReportRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdatePostMortemReportRequest$inboundSchema;
-  /** @deprecated use `UpdatePostMortemReportRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdatePostMortemReportRequest$outboundSchema;
-  /** @deprecated use `UpdatePostMortemReportRequest$Outbound` instead. */
-  export type Outbound = UpdatePostMortemReportRequest$Outbound;
-}
-
 export function updatePostMortemReportRequestToJSON(
   updatePostMortemReportRequest: UpdatePostMortemReportRequest,
 ): string {
@@ -76,7 +62,6 @@ export function updatePostMortemReportRequestToJSON(
     ),
   );
 }
-
 export function updatePostMortemReportRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdatePostMortemReportRequest, SDKValidationError> {

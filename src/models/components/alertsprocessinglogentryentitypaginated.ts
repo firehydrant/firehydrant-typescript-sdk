@@ -37,7 +37,6 @@ export const AlertsProcessingLogEntryEntityPaginated$inboundSchema: z.ZodType<
     .optional(),
   pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
 });
-
 /** @internal */
 export type AlertsProcessingLogEntryEntityPaginated$Outbound = {
   data?: Array<AlertsProcessingLogEntryEntity$Outbound> | null | undefined;
@@ -55,21 +54,6 @@ export const AlertsProcessingLogEntryEntityPaginated$outboundSchema: z.ZodType<
   pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlertsProcessingLogEntryEntityPaginated$ {
-  /** @deprecated use `AlertsProcessingLogEntryEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    AlertsProcessingLogEntryEntityPaginated$inboundSchema;
-  /** @deprecated use `AlertsProcessingLogEntryEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    AlertsProcessingLogEntryEntityPaginated$outboundSchema;
-  /** @deprecated use `AlertsProcessingLogEntryEntityPaginated$Outbound` instead. */
-  export type Outbound = AlertsProcessingLogEntryEntityPaginated$Outbound;
-}
-
 export function alertsProcessingLogEntryEntityPaginatedToJSON(
   alertsProcessingLogEntryEntityPaginated:
     AlertsProcessingLogEntryEntityPaginated,
@@ -80,7 +64,6 @@ export function alertsProcessingLogEntryEntityPaginatedToJSON(
     ),
   );
 }
-
 export function alertsProcessingLogEntryEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

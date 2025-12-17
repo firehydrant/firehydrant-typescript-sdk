@@ -24,7 +24,6 @@ export const SearchConfluenceSpacesRequest$inboundSchema: z.ZodType<
   id: z.string(),
   keyword: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type SearchConfluenceSpacesRequest$Outbound = {
   id: string;
@@ -41,19 +40,6 @@ export const SearchConfluenceSpacesRequest$outboundSchema: z.ZodType<
   keyword: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SearchConfluenceSpacesRequest$ {
-  /** @deprecated use `SearchConfluenceSpacesRequest$inboundSchema` instead. */
-  export const inboundSchema = SearchConfluenceSpacesRequest$inboundSchema;
-  /** @deprecated use `SearchConfluenceSpacesRequest$outboundSchema` instead. */
-  export const outboundSchema = SearchConfluenceSpacesRequest$outboundSchema;
-  /** @deprecated use `SearchConfluenceSpacesRequest$Outbound` instead. */
-  export type Outbound = SearchConfluenceSpacesRequest$Outbound;
-}
-
 export function searchConfluenceSpacesRequestToJSON(
   searchConfluenceSpacesRequest: SearchConfluenceSpacesRequest,
 ): string {
@@ -63,7 +49,6 @@ export function searchConfluenceSpacesRequestToJSON(
     ),
   );
 }
-
 export function searchConfluenceSpacesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<SearchConfluenceSpacesRequest, SDKValidationError> {

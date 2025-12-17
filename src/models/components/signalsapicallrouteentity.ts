@@ -57,48 +57,20 @@ export const SignalsAPICallRouteEntityRoutingMode$inboundSchema:
   z.ZodNativeEnum<typeof SignalsAPICallRouteEntityRoutingMode> = z.nativeEnum(
     SignalsAPICallRouteEntityRoutingMode,
   );
-
 /** @internal */
 export const SignalsAPICallRouteEntityRoutingMode$outboundSchema:
   z.ZodNativeEnum<typeof SignalsAPICallRouteEntityRoutingMode> =
     SignalsAPICallRouteEntityRoutingMode$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPICallRouteEntityRoutingMode$ {
-  /** @deprecated use `SignalsAPICallRouteEntityRoutingMode$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPICallRouteEntityRoutingMode$inboundSchema;
-  /** @deprecated use `SignalsAPICallRouteEntityRoutingMode$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPICallRouteEntityRoutingMode$outboundSchema;
-}
 
 /** @internal */
 export const SignalsAPICallRouteEntityConnectMode$inboundSchema:
   z.ZodNativeEnum<typeof SignalsAPICallRouteEntityConnectMode> = z.nativeEnum(
     SignalsAPICallRouteEntityConnectMode,
   );
-
 /** @internal */
 export const SignalsAPICallRouteEntityConnectMode$outboundSchema:
   z.ZodNativeEnum<typeof SignalsAPICallRouteEntityConnectMode> =
     SignalsAPICallRouteEntityConnectMode$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPICallRouteEntityConnectMode$ {
-  /** @deprecated use `SignalsAPICallRouteEntityConnectMode$inboundSchema` instead. */
-  export const inboundSchema =
-    SignalsAPICallRouteEntityConnectMode$inboundSchema;
-  /** @deprecated use `SignalsAPICallRouteEntityConnectMode$outboundSchema` instead. */
-  export const outboundSchema =
-    SignalsAPICallRouteEntityConnectMode$outboundSchema;
-}
 
 /** @internal */
 export const SignalsAPICallRouteEntity$inboundSchema: z.ZodType<
@@ -126,7 +98,6 @@ export const SignalsAPICallRouteEntity$inboundSchema: z.ZodType<
     "connect_mode": "connectMode",
   });
 });
-
 /** @internal */
 export type SignalsAPICallRouteEntity$Outbound = {
   id?: string | null | undefined;
@@ -167,19 +138,6 @@ export const SignalsAPICallRouteEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPICallRouteEntity$ {
-  /** @deprecated use `SignalsAPICallRouteEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPICallRouteEntity$inboundSchema;
-  /** @deprecated use `SignalsAPICallRouteEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPICallRouteEntity$outboundSchema;
-  /** @deprecated use `SignalsAPICallRouteEntity$Outbound` instead. */
-  export type Outbound = SignalsAPICallRouteEntity$Outbound;
-}
-
 export function signalsAPICallRouteEntityToJSON(
   signalsAPICallRouteEntity: SignalsAPICallRouteEntity,
 ): string {
@@ -187,7 +145,6 @@ export function signalsAPICallRouteEntityToJSON(
     SignalsAPICallRouteEntity$outboundSchema.parse(signalsAPICallRouteEntity),
   );
 }
-
 export function signalsAPICallRouteEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPICallRouteEntity, SDKValidationError> {

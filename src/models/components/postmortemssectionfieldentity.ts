@@ -26,7 +26,6 @@ export const PostMortemsSectionFieldEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   value: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type PostMortemsSectionFieldEntity$Outbound = {
   id?: string | null | undefined;
@@ -45,19 +44,6 @@ export const PostMortemsSectionFieldEntity$outboundSchema: z.ZodType<
   value: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PostMortemsSectionFieldEntity$ {
-  /** @deprecated use `PostMortemsSectionFieldEntity$inboundSchema` instead. */
-  export const inboundSchema = PostMortemsSectionFieldEntity$inboundSchema;
-  /** @deprecated use `PostMortemsSectionFieldEntity$outboundSchema` instead. */
-  export const outboundSchema = PostMortemsSectionFieldEntity$outboundSchema;
-  /** @deprecated use `PostMortemsSectionFieldEntity$Outbound` instead. */
-  export type Outbound = PostMortemsSectionFieldEntity$Outbound;
-}
-
 export function postMortemsSectionFieldEntityToJSON(
   postMortemsSectionFieldEntity: PostMortemsSectionFieldEntity,
 ): string {
@@ -67,7 +53,6 @@ export function postMortemsSectionFieldEntityToJSON(
     ),
   );
 }
-
 export function postMortemsSectionFieldEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<PostMortemsSectionFieldEntity, SDKValidationError> {

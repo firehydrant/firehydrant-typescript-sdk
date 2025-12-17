@@ -19,7 +19,6 @@ export const GetUserRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type GetUserRequest$Outbound = {
   id: string;
@@ -34,23 +33,9 @@ export const GetUserRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetUserRequest$ {
-  /** @deprecated use `GetUserRequest$inboundSchema` instead. */
-  export const inboundSchema = GetUserRequest$inboundSchema;
-  /** @deprecated use `GetUserRequest$outboundSchema` instead. */
-  export const outboundSchema = GetUserRequest$outboundSchema;
-  /** @deprecated use `GetUserRequest$Outbound` instead. */
-  export type Outbound = GetUserRequest$Outbound;
-}
-
 export function getUserRequestToJSON(getUserRequest: GetUserRequest): string {
   return JSON.stringify(GetUserRequest$outboundSchema.parse(getUserRequest));
 }
-
 export function getUserRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetUserRequest, SDKValidationError> {

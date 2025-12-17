@@ -24,7 +24,6 @@ export const DeleteLifecycleMilestoneRequest$inboundSchema: z.ZodType<
     "milestone_id": "milestoneId",
   });
 });
-
 /** @internal */
 export type DeleteLifecycleMilestoneRequest$Outbound = {
   milestone_id: string;
@@ -43,19 +42,6 @@ export const DeleteLifecycleMilestoneRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteLifecycleMilestoneRequest$ {
-  /** @deprecated use `DeleteLifecycleMilestoneRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteLifecycleMilestoneRequest$inboundSchema;
-  /** @deprecated use `DeleteLifecycleMilestoneRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteLifecycleMilestoneRequest$outboundSchema;
-  /** @deprecated use `DeleteLifecycleMilestoneRequest$Outbound` instead. */
-  export type Outbound = DeleteLifecycleMilestoneRequest$Outbound;
-}
-
 export function deleteLifecycleMilestoneRequestToJSON(
   deleteLifecycleMilestoneRequest: DeleteLifecycleMilestoneRequest,
 ): string {
@@ -65,7 +51,6 @@ export function deleteLifecycleMilestoneRequestToJSON(
     ),
   );
 }
-
 export function deleteLifecycleMilestoneRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteLifecycleMilestoneRequest, SDKValidationError> {

@@ -127,88 +127,38 @@ export type GetSignalsNoiseAnalyticsRequest = {
 export const GetSignalsNoiseAnalyticsBucket$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsNoiseAnalyticsBucket
 > = z.nativeEnum(GetSignalsNoiseAnalyticsBucket);
-
 /** @internal */
 export const GetSignalsNoiseAnalyticsBucket$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsNoiseAnalyticsBucket
 > = GetSignalsNoiseAnalyticsBucket$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsNoiseAnalyticsBucket$ {
-  /** @deprecated use `GetSignalsNoiseAnalyticsBucket$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsNoiseAnalyticsBucket$inboundSchema;
-  /** @deprecated use `GetSignalsNoiseAnalyticsBucket$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsNoiseAnalyticsBucket$outboundSchema;
-}
-
 /** @internal */
 export const GetSignalsNoiseAnalyticsGroupBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsNoiseAnalyticsGroupBy
 > = z.nativeEnum(GetSignalsNoiseAnalyticsGroupBy);
-
 /** @internal */
 export const GetSignalsNoiseAnalyticsGroupBy$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsNoiseAnalyticsGroupBy
 > = GetSignalsNoiseAnalyticsGroupBy$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsNoiseAnalyticsGroupBy$ {
-  /** @deprecated use `GetSignalsNoiseAnalyticsGroupBy$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsNoiseAnalyticsGroupBy$inboundSchema;
-  /** @deprecated use `GetSignalsNoiseAnalyticsGroupBy$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsNoiseAnalyticsGroupBy$outboundSchema;
-}
-
 /** @internal */
 export const GetSignalsNoiseAnalyticsSortBy$inboundSchema: z.ZodNativeEnum<
   typeof GetSignalsNoiseAnalyticsSortBy
 > = z.nativeEnum(GetSignalsNoiseAnalyticsSortBy);
-
 /** @internal */
 export const GetSignalsNoiseAnalyticsSortBy$outboundSchema: z.ZodNativeEnum<
   typeof GetSignalsNoiseAnalyticsSortBy
 > = GetSignalsNoiseAnalyticsSortBy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsNoiseAnalyticsSortBy$ {
-  /** @deprecated use `GetSignalsNoiseAnalyticsSortBy$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsNoiseAnalyticsSortBy$inboundSchema;
-  /** @deprecated use `GetSignalsNoiseAnalyticsSortBy$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsNoiseAnalyticsSortBy$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsNoiseAnalyticsSortDirection$inboundSchema:
   z.ZodNativeEnum<typeof GetSignalsNoiseAnalyticsSortDirection> = z.nativeEnum(
     GetSignalsNoiseAnalyticsSortDirection,
   );
-
 /** @internal */
 export const GetSignalsNoiseAnalyticsSortDirection$outboundSchema:
   z.ZodNativeEnum<typeof GetSignalsNoiseAnalyticsSortDirection> =
     GetSignalsNoiseAnalyticsSortDirection$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsNoiseAnalyticsSortDirection$ {
-  /** @deprecated use `GetSignalsNoiseAnalyticsSortDirection$inboundSchema` instead. */
-  export const inboundSchema =
-    GetSignalsNoiseAnalyticsSortDirection$inboundSchema;
-  /** @deprecated use `GetSignalsNoiseAnalyticsSortDirection$outboundSchema` instead. */
-  export const outboundSchema =
-    GetSignalsNoiseAnalyticsSortDirection$outboundSchema;
-}
 
 /** @internal */
 export const GetSignalsNoiseAnalyticsRequest$inboundSchema: z.ZodType<
@@ -245,7 +195,6 @@ export const GetSignalsNoiseAnalyticsRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
   });
 });
-
 /** @internal */
 export type GetSignalsNoiseAnalyticsRequest$Outbound = {
   bucket?: string | null | undefined;
@@ -294,19 +243,6 @@ export const GetSignalsNoiseAnalyticsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSignalsNoiseAnalyticsRequest$ {
-  /** @deprecated use `GetSignalsNoiseAnalyticsRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSignalsNoiseAnalyticsRequest$inboundSchema;
-  /** @deprecated use `GetSignalsNoiseAnalyticsRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSignalsNoiseAnalyticsRequest$outboundSchema;
-  /** @deprecated use `GetSignalsNoiseAnalyticsRequest$Outbound` instead. */
-  export type Outbound = GetSignalsNoiseAnalyticsRequest$Outbound;
-}
-
 export function getSignalsNoiseAnalyticsRequestToJSON(
   getSignalsNoiseAnalyticsRequest: GetSignalsNoiseAnalyticsRequest,
 ): string {
@@ -316,7 +252,6 @@ export function getSignalsNoiseAnalyticsRequestToJSON(
     ),
   );
 }
-
 export function getSignalsNoiseAnalyticsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSignalsNoiseAnalyticsRequest, SDKValidationError> {

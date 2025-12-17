@@ -39,22 +39,10 @@ export type ListIncidentChangeEventsRequest = {
 export const ListIncidentChangeEventsType$inboundSchema: z.ZodNativeEnum<
   typeof ListIncidentChangeEventsType
 > = z.nativeEnum(ListIncidentChangeEventsType);
-
 /** @internal */
 export const ListIncidentChangeEventsType$outboundSchema: z.ZodNativeEnum<
   typeof ListIncidentChangeEventsType
 > = ListIncidentChangeEventsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentChangeEventsType$ {
-  /** @deprecated use `ListIncidentChangeEventsType$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentChangeEventsType$inboundSchema;
-  /** @deprecated use `ListIncidentChangeEventsType$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentChangeEventsType$outboundSchema;
-}
 
 /** @internal */
 export const ListIncidentChangeEventsRequest$inboundSchema: z.ZodType<
@@ -72,7 +60,6 @@ export const ListIncidentChangeEventsRequest$inboundSchema: z.ZodType<
     "incident_id": "incidentId",
   });
 });
-
 /** @internal */
 export type ListIncidentChangeEventsRequest$Outbound = {
   page?: number | null | undefined;
@@ -98,19 +85,6 @@ export const ListIncidentChangeEventsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListIncidentChangeEventsRequest$ {
-  /** @deprecated use `ListIncidentChangeEventsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListIncidentChangeEventsRequest$inboundSchema;
-  /** @deprecated use `ListIncidentChangeEventsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListIncidentChangeEventsRequest$outboundSchema;
-  /** @deprecated use `ListIncidentChangeEventsRequest$Outbound` instead. */
-  export type Outbound = ListIncidentChangeEventsRequest$Outbound;
-}
-
 export function listIncidentChangeEventsRequestToJSON(
   listIncidentChangeEventsRequest: ListIncidentChangeEventsRequest,
 ): string {
@@ -120,7 +94,6 @@ export function listIncidentChangeEventsRequestToJSON(
     ),
   );
 }
-
 export function listIncidentChangeEventsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListIncidentChangeEventsRequest, SDKValidationError> {

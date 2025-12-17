@@ -39,7 +39,6 @@ export const IntegrationsAwsCloudtrailBatchEntityPaginated$inboundSchema:
     ).optional(),
     pagination: z.nullable(NullablePaginationEntity$inboundSchema).optional(),
   });
-
 /** @internal */
 export type IntegrationsAwsCloudtrailBatchEntityPaginated$Outbound = {
   data?:
@@ -62,21 +61,6 @@ export const IntegrationsAwsCloudtrailBatchEntityPaginated$outboundSchema:
     pagination: z.nullable(NullablePaginationEntity$outboundSchema).optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntegrationsAwsCloudtrailBatchEntityPaginated$ {
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntityPaginated$inboundSchema` instead. */
-  export const inboundSchema =
-    IntegrationsAwsCloudtrailBatchEntityPaginated$inboundSchema;
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntityPaginated$outboundSchema` instead. */
-  export const outboundSchema =
-    IntegrationsAwsCloudtrailBatchEntityPaginated$outboundSchema;
-  /** @deprecated use `IntegrationsAwsCloudtrailBatchEntityPaginated$Outbound` instead. */
-  export type Outbound = IntegrationsAwsCloudtrailBatchEntityPaginated$Outbound;
-}
-
 export function integrationsAwsCloudtrailBatchEntityPaginatedToJSON(
   integrationsAwsCloudtrailBatchEntityPaginated:
     IntegrationsAwsCloudtrailBatchEntityPaginated,
@@ -87,7 +71,6 @@ export function integrationsAwsCloudtrailBatchEntityPaginatedToJSON(
     ),
   );
 }
-
 export function integrationsAwsCloudtrailBatchEntityPaginatedFromJSON(
   jsonString: string,
 ): SafeParseResult<

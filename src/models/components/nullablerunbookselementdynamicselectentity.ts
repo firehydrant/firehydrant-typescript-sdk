@@ -62,7 +62,6 @@ export const NullableRunbooksElementDynamicSelectEntity$inboundSchema:
         "default_value": "defaultValue",
       });
     });
-
 /** @internal */
 export type NullableRunbooksElementDynamicSelectEntity$Outbound = {
   label?: string | null | undefined;
@@ -110,21 +109,6 @@ export const NullableRunbooksElementDynamicSelectEntity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksElementDynamicSelectEntity$ {
-  /** @deprecated use `NullableRunbooksElementDynamicSelectEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksElementDynamicSelectEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksElementDynamicSelectEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksElementDynamicSelectEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksElementDynamicSelectEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksElementDynamicSelectEntity$Outbound;
-}
-
 export function nullableRunbooksElementDynamicSelectEntityToJSON(
   nullableRunbooksElementDynamicSelectEntity:
     NullableRunbooksElementDynamicSelectEntity,
@@ -135,7 +119,6 @@ export function nullableRunbooksElementDynamicSelectEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksElementDynamicSelectEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<

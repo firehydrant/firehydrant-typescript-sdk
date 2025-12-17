@@ -24,7 +24,6 @@ export const DeleteIncidentRoleRequest$inboundSchema: z.ZodType<
     "incident_role_id": "incidentRoleId",
   });
 });
-
 /** @internal */
 export type DeleteIncidentRoleRequest$Outbound = {
   incident_role_id: string;
@@ -43,19 +42,6 @@ export const DeleteIncidentRoleRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteIncidentRoleRequest$ {
-  /** @deprecated use `DeleteIncidentRoleRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteIncidentRoleRequest$inboundSchema;
-  /** @deprecated use `DeleteIncidentRoleRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteIncidentRoleRequest$outboundSchema;
-  /** @deprecated use `DeleteIncidentRoleRequest$Outbound` instead. */
-  export type Outbound = DeleteIncidentRoleRequest$Outbound;
-}
-
 export function deleteIncidentRoleRequestToJSON(
   deleteIncidentRoleRequest: DeleteIncidentRoleRequest,
 ): string {
@@ -63,7 +49,6 @@ export function deleteIncidentRoleRequestToJSON(
     DeleteIncidentRoleRequest$outboundSchema.parse(deleteIncidentRoleRequest),
   );
 }
-
 export function deleteIncidentRoleRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteIncidentRoleRequest, SDKValidationError> {

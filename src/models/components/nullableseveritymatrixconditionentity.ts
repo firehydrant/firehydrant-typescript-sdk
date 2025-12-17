@@ -29,7 +29,6 @@ export const NullableSeverityMatrixConditionEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
 });
-
 /** @internal */
 export type NullableSeverityMatrixConditionEntity$Outbound = {
   id?: string | null | undefined;
@@ -48,21 +47,6 @@ export const NullableSeverityMatrixConditionEntity$outboundSchema: z.ZodType<
   position: z.nullable(z.number().int()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableSeverityMatrixConditionEntity$ {
-  /** @deprecated use `NullableSeverityMatrixConditionEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableSeverityMatrixConditionEntity$inboundSchema;
-  /** @deprecated use `NullableSeverityMatrixConditionEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableSeverityMatrixConditionEntity$outboundSchema;
-  /** @deprecated use `NullableSeverityMatrixConditionEntity$Outbound` instead. */
-  export type Outbound = NullableSeverityMatrixConditionEntity$Outbound;
-}
-
 export function nullableSeverityMatrixConditionEntityToJSON(
   nullableSeverityMatrixConditionEntity: NullableSeverityMatrixConditionEntity,
 ): string {
@@ -72,7 +56,6 @@ export function nullableSeverityMatrixConditionEntityToJSON(
     ),
   );
 }
-
 export function nullableSeverityMatrixConditionEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableSeverityMatrixConditionEntity, SDKValidationError> {

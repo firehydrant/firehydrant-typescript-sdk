@@ -19,7 +19,6 @@ export const DeleteScimUserRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type DeleteScimUserRequest$Outbound = {
   id: string;
@@ -34,19 +33,6 @@ export const DeleteScimUserRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteScimUserRequest$ {
-  /** @deprecated use `DeleteScimUserRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteScimUserRequest$inboundSchema;
-  /** @deprecated use `DeleteScimUserRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteScimUserRequest$outboundSchema;
-  /** @deprecated use `DeleteScimUserRequest$Outbound` instead. */
-  export type Outbound = DeleteScimUserRequest$Outbound;
-}
-
 export function deleteScimUserRequestToJSON(
   deleteScimUserRequest: DeleteScimUserRequest,
 ): string {
@@ -54,7 +40,6 @@ export function deleteScimUserRequestToJSON(
     DeleteScimUserRequest$outboundSchema.parse(deleteScimUserRequest),
   );
 }
-
 export function deleteScimUserRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteScimUserRequest, SDKValidationError> {

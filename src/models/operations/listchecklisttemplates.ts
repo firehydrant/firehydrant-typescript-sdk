@@ -31,7 +31,6 @@ export const ListChecklistTemplatesRequest$inboundSchema: z.ZodType<
     "per_page": "perPage",
   });
 });
-
 /** @internal */
 export type ListChecklistTemplatesRequest$Outbound = {
   page?: number | null | undefined;
@@ -54,19 +53,6 @@ export const ListChecklistTemplatesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListChecklistTemplatesRequest$ {
-  /** @deprecated use `ListChecklistTemplatesRequest$inboundSchema` instead. */
-  export const inboundSchema = ListChecklistTemplatesRequest$inboundSchema;
-  /** @deprecated use `ListChecklistTemplatesRequest$outboundSchema` instead. */
-  export const outboundSchema = ListChecklistTemplatesRequest$outboundSchema;
-  /** @deprecated use `ListChecklistTemplatesRequest$Outbound` instead. */
-  export type Outbound = ListChecklistTemplatesRequest$Outbound;
-}
-
 export function listChecklistTemplatesRequestToJSON(
   listChecklistTemplatesRequest: ListChecklistTemplatesRequest,
 ): string {
@@ -76,7 +62,6 @@ export function listChecklistTemplatesRequestToJSON(
     ),
   );
 }
-
 export function listChecklistTemplatesRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListChecklistTemplatesRequest, SDKValidationError> {

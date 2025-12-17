@@ -171,7 +171,6 @@ export const Detail$inboundSchema: z.ZodType<Detail, z.ZodTypeDef, unknown> = z
     prompt: z.string(),
     slug: z.nullable(z.string()).optional(),
   });
-
 /** @internal */
 export type Detail$Outbound = {
   question: string;
@@ -190,23 +189,9 @@ export const Detail$outboundSchema: z.ZodType<
   slug: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Detail$ {
-  /** @deprecated use `Detail$inboundSchema` instead. */
-  export const inboundSchema = Detail$inboundSchema;
-  /** @deprecated use `Detail$outboundSchema` instead. */
-  export const outboundSchema = Detail$outboundSchema;
-  /** @deprecated use `Detail$Outbound` instead. */
-  export type Outbound = Detail$Outbound;
-}
-
 export function detailToJSON(detail: Detail): string {
   return JSON.stringify(Detail$outboundSchema.parse(detail));
 }
-
 export function detailFromJSON(
   jsonString: string,
 ): SafeParseResult<Detail, SDKValidationError> {
@@ -238,7 +223,6 @@ export const HighValueEvents$inboundSchema: z.ZodType<
     "external_link": "externalLink",
   });
 });
-
 /** @internal */
 export type HighValueEvents$Outbound = {
   incident_status: boolean;
@@ -271,25 +255,11 @@ export const HighValueEvents$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HighValueEvents$ {
-  /** @deprecated use `HighValueEvents$inboundSchema` instead. */
-  export const inboundSchema = HighValueEvents$inboundSchema;
-  /** @deprecated use `HighValueEvents$outboundSchema` instead. */
-  export const outboundSchema = HighValueEvents$outboundSchema;
-  /** @deprecated use `HighValueEvents$Outbound` instead. */
-  export type Outbound = HighValueEvents$Outbound;
-}
-
 export function highValueEventsToJSON(
   highValueEvents: HighValueEvents,
 ): string {
   return JSON.stringify(HighValueEvents$outboundSchema.parse(highValueEvents));
 }
-
 export function highValueEventsFromJSON(
   jsonString: string,
 ): SafeParseResult<HighValueEvents, SDKValidationError> {
@@ -320,7 +290,6 @@ export const MediumValueEvents$inboundSchema: z.ZodType<
     "change_type": "changeType",
   });
 });
-
 /** @internal */
 export type MediumValueEvents$Outbound = {
   parent_changed: boolean;
@@ -351,19 +320,6 @@ export const MediumValueEvents$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MediumValueEvents$ {
-  /** @deprecated use `MediumValueEvents$inboundSchema` instead. */
-  export const inboundSchema = MediumValueEvents$inboundSchema;
-  /** @deprecated use `MediumValueEvents$outboundSchema` instead. */
-  export const outboundSchema = MediumValueEvents$outboundSchema;
-  /** @deprecated use `MediumValueEvents$Outbound` instead. */
-  export type Outbound = MediumValueEvents$Outbound;
-}
-
 export function mediumValueEventsToJSON(
   mediumValueEvents: MediumValueEvents,
 ): string {
@@ -371,7 +327,6 @@ export function mediumValueEventsToJSON(
     MediumValueEvents$outboundSchema.parse(mediumValueEvents),
   );
 }
-
 export function mediumValueEventsFromJSON(
   jsonString: string,
 ): SafeParseResult<MediumValueEvents, SDKValidationError> {
@@ -416,7 +371,6 @@ export const Settings$inboundSchema: z.ZodType<
     "medium_value_events": "mediumValueEvents",
   });
 });
-
 /** @internal */
 export type Settings$Outbound = {
   id: boolean;
@@ -473,23 +427,9 @@ export const Settings$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Settings$ {
-  /** @deprecated use `Settings$inboundSchema` instead. */
-  export const inboundSchema = Settings$inboundSchema;
-  /** @deprecated use `Settings$outboundSchema` instead. */
-  export const outboundSchema = Settings$outboundSchema;
-  /** @deprecated use `Settings$Outbound` instead. */
-  export type Outbound = Settings$Outbound;
-}
-
 export function settingsToJSON(settings: Settings): string {
   return JSON.stringify(Settings$outboundSchema.parse(settings));
 }
-
 export function settingsFromJSON(
   jsonString: string,
 ): SafeParseResult<Settings, SDKValidationError> {
@@ -512,7 +452,6 @@ export const CreateAudience$inboundSchema: z.ZodType<
   details: z.nullable(z.array(z.lazy(() => Detail$inboundSchema))).optional(),
   settings: z.nullable(z.lazy(() => Settings$inboundSchema)).optional(),
 });
-
 /** @internal */
 export type CreateAudience$Outbound = {
   name: string;
@@ -535,23 +474,9 @@ export const CreateAudience$outboundSchema: z.ZodType<
   settings: z.nullable(z.lazy(() => Settings$outboundSchema)).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateAudience$ {
-  /** @deprecated use `CreateAudience$inboundSchema` instead. */
-  export const inboundSchema = CreateAudience$inboundSchema;
-  /** @deprecated use `CreateAudience$outboundSchema` instead. */
-  export const outboundSchema = CreateAudience$outboundSchema;
-  /** @deprecated use `CreateAudience$Outbound` instead. */
-  export type Outbound = CreateAudience$Outbound;
-}
-
 export function createAudienceToJSON(createAudience: CreateAudience): string {
   return JSON.stringify(CreateAudience$outboundSchema.parse(createAudience));
 }
-
 export function createAudienceFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateAudience, SDKValidationError> {

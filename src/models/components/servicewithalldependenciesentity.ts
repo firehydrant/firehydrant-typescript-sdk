@@ -52,7 +52,6 @@ export const ServiceDependency$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ServiceDependency$Outbound = {};
 
@@ -63,19 +62,6 @@ export const ServiceDependency$outboundSchema: z.ZodType<
   ServiceDependency
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceDependency$ {
-  /** @deprecated use `ServiceDependency$inboundSchema` instead. */
-  export const inboundSchema = ServiceDependency$inboundSchema;
-  /** @deprecated use `ServiceDependency$outboundSchema` instead. */
-  export const outboundSchema = ServiceDependency$outboundSchema;
-  /** @deprecated use `ServiceDependency$Outbound` instead. */
-  export type Outbound = ServiceDependency$Outbound;
-}
-
 export function serviceDependencyToJSON(
   serviceDependency: ServiceDependency,
 ): string {
@@ -83,7 +69,6 @@ export function serviceDependencyToJSON(
     ServiceDependency$outboundSchema.parse(serviceDependency),
   );
 }
-
 export function serviceDependencyFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceDependency, SDKValidationError> {
@@ -116,7 +101,6 @@ export const ServiceWithAllDependenciesEntity$inboundSchema: z.ZodType<
     "service_dependencies": "serviceDependencies",
   });
 });
-
 /** @internal */
 export type ServiceWithAllDependenciesEntity$Outbound = {
   child_service_dependencies?:
@@ -153,19 +137,6 @@ export const ServiceWithAllDependenciesEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceWithAllDependenciesEntity$ {
-  /** @deprecated use `ServiceWithAllDependenciesEntity$inboundSchema` instead. */
-  export const inboundSchema = ServiceWithAllDependenciesEntity$inboundSchema;
-  /** @deprecated use `ServiceWithAllDependenciesEntity$outboundSchema` instead. */
-  export const outboundSchema = ServiceWithAllDependenciesEntity$outboundSchema;
-  /** @deprecated use `ServiceWithAllDependenciesEntity$Outbound` instead. */
-  export type Outbound = ServiceWithAllDependenciesEntity$Outbound;
-}
-
 export function serviceWithAllDependenciesEntityToJSON(
   serviceWithAllDependenciesEntity: ServiceWithAllDependenciesEntity,
 ): string {
@@ -175,7 +146,6 @@ export function serviceWithAllDependenciesEntityToJSON(
     ),
   );
 }
-
 export function serviceWithAllDependenciesEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceWithAllDependenciesEntity, SDKValidationError> {

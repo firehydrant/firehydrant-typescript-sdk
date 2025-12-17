@@ -30,7 +30,6 @@ export const UpdateIncidentRetrospective$inboundSchema: z.ZodType<
     "is_hidden": "isHidden",
   });
 });
-
 /** @internal */
 export type UpdateIncidentRetrospective$Outbound = {
   is_hidden?: boolean | null | undefined;
@@ -49,19 +48,6 @@ export const UpdateIncidentRetrospective$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentRetrospective$ {
-  /** @deprecated use `UpdateIncidentRetrospective$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentRetrospective$inboundSchema;
-  /** @deprecated use `UpdateIncidentRetrospective$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentRetrospective$outboundSchema;
-  /** @deprecated use `UpdateIncidentRetrospective$Outbound` instead. */
-  export type Outbound = UpdateIncidentRetrospective$Outbound;
-}
-
 export function updateIncidentRetrospectiveToJSON(
   updateIncidentRetrospective: UpdateIncidentRetrospective,
 ): string {
@@ -71,7 +57,6 @@ export function updateIncidentRetrospectiveToJSON(
     ),
   );
 }
-
 export function updateIncidentRetrospectiveFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentRetrospective, SDKValidationError> {

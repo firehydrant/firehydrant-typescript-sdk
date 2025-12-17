@@ -63,42 +63,18 @@ export type ListTicketsRequest = {
 export const ListTicketsTagMatchStrategy$inboundSchema: z.ZodNativeEnum<
   typeof ListTicketsTagMatchStrategy
 > = z.nativeEnum(ListTicketsTagMatchStrategy);
-
 /** @internal */
 export const ListTicketsTagMatchStrategy$outboundSchema: z.ZodNativeEnum<
   typeof ListTicketsTagMatchStrategy
 > = ListTicketsTagMatchStrategy$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTicketsTagMatchStrategy$ {
-  /** @deprecated use `ListTicketsTagMatchStrategy$inboundSchema` instead. */
-  export const inboundSchema = ListTicketsTagMatchStrategy$inboundSchema;
-  /** @deprecated use `ListTicketsTagMatchStrategy$outboundSchema` instead. */
-  export const outboundSchema = ListTicketsTagMatchStrategy$outboundSchema;
-}
-
 /** @internal */
 export const State$inboundSchema: z.ZodNativeEnum<typeof State> = z.nativeEnum(
   State,
 );
-
 /** @internal */
 export const State$outboundSchema: z.ZodNativeEnum<typeof State> =
   State$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace State$ {
-  /** @deprecated use `State$inboundSchema` instead. */
-  export const inboundSchema = State$inboundSchema;
-  /** @deprecated use `State$outboundSchema` instead. */
-  export const outboundSchema = State$outboundSchema;
-}
 
 /** @internal */
 export const ListTicketsRequest$inboundSchema: z.ZodType<
@@ -120,7 +96,6 @@ export const ListTicketsRequest$inboundSchema: z.ZodType<
     "assigned_user": "assignedUser",
   });
 });
-
 /** @internal */
 export type ListTicketsRequest$Outbound = {
   page?: number | null | undefined;
@@ -152,19 +127,6 @@ export const ListTicketsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListTicketsRequest$ {
-  /** @deprecated use `ListTicketsRequest$inboundSchema` instead. */
-  export const inboundSchema = ListTicketsRequest$inboundSchema;
-  /** @deprecated use `ListTicketsRequest$outboundSchema` instead. */
-  export const outboundSchema = ListTicketsRequest$outboundSchema;
-  /** @deprecated use `ListTicketsRequest$Outbound` instead. */
-  export type Outbound = ListTicketsRequest$Outbound;
-}
-
 export function listTicketsRequestToJSON(
   listTicketsRequest: ListTicketsRequest,
 ): string {
@@ -172,7 +134,6 @@ export function listTicketsRequestToJSON(
     ListTicketsRequest$outboundSchema.parse(listTicketsRequest),
   );
 }
-
 export function listTicketsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListTicketsRequest, SDKValidationError> {

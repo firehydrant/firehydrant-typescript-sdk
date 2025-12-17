@@ -30,7 +30,6 @@ export const UpdateSeverityMatrixConditionRequest$inboundSchema: z.ZodType<
     "update_severity_matrix_condition": "updateSeverityMatrixCondition",
   });
 });
-
 /** @internal */
 export type UpdateSeverityMatrixConditionRequest$Outbound = {
   condition_id: string;
@@ -55,21 +54,6 @@ export const UpdateSeverityMatrixConditionRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSeverityMatrixConditionRequest$ {
-  /** @deprecated use `UpdateSeverityMatrixConditionRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateSeverityMatrixConditionRequest$inboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixConditionRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateSeverityMatrixConditionRequest$outboundSchema;
-  /** @deprecated use `UpdateSeverityMatrixConditionRequest$Outbound` instead. */
-  export type Outbound = UpdateSeverityMatrixConditionRequest$Outbound;
-}
-
 export function updateSeverityMatrixConditionRequestToJSON(
   updateSeverityMatrixConditionRequest: UpdateSeverityMatrixConditionRequest,
 ): string {
@@ -79,7 +63,6 @@ export function updateSeverityMatrixConditionRequestToJSON(
     ),
   );
 }
-
 export function updateSeverityMatrixConditionRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateSeverityMatrixConditionRequest, SDKValidationError> {

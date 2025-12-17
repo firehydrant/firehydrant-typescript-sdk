@@ -29,7 +29,6 @@ export const DeleteOnCallShiftRequest$inboundSchema: z.ZodType<
     "schedule_id": "scheduleId",
   });
 });
-
 /** @internal */
 export type DeleteOnCallShiftRequest$Outbound = {
   id: string;
@@ -53,19 +52,6 @@ export const DeleteOnCallShiftRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteOnCallShiftRequest$ {
-  /** @deprecated use `DeleteOnCallShiftRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteOnCallShiftRequest$inboundSchema;
-  /** @deprecated use `DeleteOnCallShiftRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteOnCallShiftRequest$outboundSchema;
-  /** @deprecated use `DeleteOnCallShiftRequest$Outbound` instead. */
-  export type Outbound = DeleteOnCallShiftRequest$Outbound;
-}
-
 export function deleteOnCallShiftRequestToJSON(
   deleteOnCallShiftRequest: DeleteOnCallShiftRequest,
 ): string {
@@ -73,7 +59,6 @@ export function deleteOnCallShiftRequestToJSON(
     DeleteOnCallShiftRequest$outboundSchema.parse(deleteOnCallShiftRequest),
   );
 }
-
 export function deleteOnCallShiftRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteOnCallShiftRequest, SDKValidationError> {

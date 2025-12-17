@@ -138,64 +138,28 @@ export type UpdateCallRoute = {
 export const UpdateCallRouteRoutingMode$inboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteRoutingMode
 > = z.nativeEnum(UpdateCallRouteRoutingMode);
-
 /** @internal */
 export const UpdateCallRouteRoutingMode$outboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteRoutingMode
 > = UpdateCallRouteRoutingMode$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteRoutingMode$ {
-  /** @deprecated use `UpdateCallRouteRoutingMode$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteRoutingMode$inboundSchema;
-  /** @deprecated use `UpdateCallRouteRoutingMode$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteRoutingMode$outboundSchema;
-}
-
 /** @internal */
 export const UpdateCallRouteConnectMode$inboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteConnectMode
 > = z.nativeEnum(UpdateCallRouteConnectMode);
-
 /** @internal */
 export const UpdateCallRouteConnectMode$outboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteConnectMode
 > = UpdateCallRouteConnectMode$inboundSchema;
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteConnectMode$ {
-  /** @deprecated use `UpdateCallRouteConnectMode$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteConnectMode$inboundSchema;
-  /** @deprecated use `UpdateCallRouteConnectMode$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteConnectMode$outboundSchema;
-}
-
 /** @internal */
 export const UpdateCallRouteTargetType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteTargetType
 > = z.nativeEnum(UpdateCallRouteTargetType);
-
 /** @internal */
 export const UpdateCallRouteTargetType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteTargetType
 > = UpdateCallRouteTargetType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteTargetType$ {
-  /** @deprecated use `UpdateCallRouteTargetType$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteTargetType$inboundSchema;
-  /** @deprecated use `UpdateCallRouteTargetType$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteTargetType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateCallRouteStep$inboundSchema: z.ZodType<
@@ -214,7 +178,6 @@ export const UpdateCallRouteStep$inboundSchema: z.ZodType<
     "on_call_rotation_id": "onCallRotationId",
   });
 });
-
 /** @internal */
 export type UpdateCallRouteStep$Outbound = {
   target_type: string;
@@ -241,19 +204,6 @@ export const UpdateCallRouteStep$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteStep$ {
-  /** @deprecated use `UpdateCallRouteStep$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteStep$inboundSchema;
-  /** @deprecated use `UpdateCallRouteStep$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteStep$outboundSchema;
-  /** @deprecated use `UpdateCallRouteStep$Outbound` instead. */
-  export type Outbound = UpdateCallRouteStep$Outbound;
-}
-
 export function updateCallRouteStepToJSON(
   updateCallRouteStep: UpdateCallRouteStep,
 ): string {
@@ -261,7 +211,6 @@ export function updateCallRouteStepToJSON(
     UpdateCallRouteStep$outboundSchema.parse(updateCallRouteStep),
   );
 }
-
 export function updateCallRouteStepFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCallRouteStep, SDKValidationError> {
@@ -276,22 +225,10 @@ export function updateCallRouteStepFromJSON(
 export const UpdateCallRouteType$inboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteType
 > = z.nativeEnum(UpdateCallRouteType);
-
 /** @internal */
 export const UpdateCallRouteType$outboundSchema: z.ZodNativeEnum<
   typeof UpdateCallRouteType
 > = UpdateCallRouteType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteType$ {
-  /** @deprecated use `UpdateCallRouteType$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteType$inboundSchema;
-  /** @deprecated use `UpdateCallRouteType$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteType$outboundSchema;
-}
 
 /** @internal */
 export const UpdateCallRouteTarget$inboundSchema: z.ZodType<
@@ -302,7 +239,6 @@ export const UpdateCallRouteTarget$inboundSchema: z.ZodType<
   type: UpdateCallRouteType$inboundSchema,
   id: z.string(),
 });
-
 /** @internal */
 export type UpdateCallRouteTarget$Outbound = {
   type: string;
@@ -319,19 +255,6 @@ export const UpdateCallRouteTarget$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRouteTarget$ {
-  /** @deprecated use `UpdateCallRouteTarget$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRouteTarget$inboundSchema;
-  /** @deprecated use `UpdateCallRouteTarget$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRouteTarget$outboundSchema;
-  /** @deprecated use `UpdateCallRouteTarget$Outbound` instead. */
-  export type Outbound = UpdateCallRouteTarget$Outbound;
-}
-
 export function updateCallRouteTargetToJSON(
   updateCallRouteTarget: UpdateCallRouteTarget,
 ): string {
@@ -339,7 +262,6 @@ export function updateCallRouteTargetToJSON(
     UpdateCallRouteTarget$outboundSchema.parse(updateCallRouteTarget),
   );
 }
-
 export function updateCallRouteTargetFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCallRouteTarget, SDKValidationError> {
@@ -372,7 +294,6 @@ export const UpdateCallRoute$inboundSchema: z.ZodType<
     "greeting_message": "greetingMessage",
   });
 });
-
 /** @internal */
 export type UpdateCallRoute$Outbound = {
   name?: string | null | undefined;
@@ -407,25 +328,11 @@ export const UpdateCallRoute$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateCallRoute$ {
-  /** @deprecated use `UpdateCallRoute$inboundSchema` instead. */
-  export const inboundSchema = UpdateCallRoute$inboundSchema;
-  /** @deprecated use `UpdateCallRoute$outboundSchema` instead. */
-  export const outboundSchema = UpdateCallRoute$outboundSchema;
-  /** @deprecated use `UpdateCallRoute$Outbound` instead. */
-  export type Outbound = UpdateCallRoute$Outbound;
-}
-
 export function updateCallRouteToJSON(
   updateCallRoute: UpdateCallRoute,
 ): string {
   return JSON.stringify(UpdateCallRoute$outboundSchema.parse(updateCallRoute));
 }
-
 export function updateCallRouteFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateCallRoute, SDKValidationError> {

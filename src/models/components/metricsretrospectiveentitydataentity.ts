@@ -21,7 +21,6 @@ export const MetricsRetrospectiveEntityDataEntity$inboundSchema: z.ZodType<
   x: z.nullable(z.string()).optional(),
   y: z.nullable(z.number()).optional(),
 });
-
 /** @internal */
 export type MetricsRetrospectiveEntityDataEntity$Outbound = {
   x?: string | null | undefined;
@@ -38,21 +37,6 @@ export const MetricsRetrospectiveEntityDataEntity$outboundSchema: z.ZodType<
   y: z.nullable(z.number()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsRetrospectiveEntityDataEntity$ {
-  /** @deprecated use `MetricsRetrospectiveEntityDataEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsRetrospectiveEntityDataEntity$inboundSchema;
-  /** @deprecated use `MetricsRetrospectiveEntityDataEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsRetrospectiveEntityDataEntity$outboundSchema;
-  /** @deprecated use `MetricsRetrospectiveEntityDataEntity$Outbound` instead. */
-  export type Outbound = MetricsRetrospectiveEntityDataEntity$Outbound;
-}
-
 export function metricsRetrospectiveEntityDataEntityToJSON(
   metricsRetrospectiveEntityDataEntity: MetricsRetrospectiveEntityDataEntity,
 ): string {
@@ -62,7 +46,6 @@ export function metricsRetrospectiveEntityDataEntityToJSON(
     ),
   );
 }
-
 export function metricsRetrospectiveEntityDataEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsRetrospectiveEntityDataEntity, SDKValidationError> {

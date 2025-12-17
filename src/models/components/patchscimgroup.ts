@@ -16,7 +16,7 @@ export type PatchScimGroupOperation = {
   /**
    * The path to the attribute to be modified
    */
-  path: string;
+  path?: string | null | undefined;
 };
 
 /**
@@ -40,13 +40,12 @@ export const PatchScimGroupOperation$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   op: z.string(),
-  path: z.string(),
+  path: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type PatchScimGroupOperation$Outbound = {
   op: string;
-  path: string;
+  path?: string | null | undefined;
 };
 
 /** @internal */
@@ -56,21 +55,8 @@ export const PatchScimGroupOperation$outboundSchema: z.ZodType<
   PatchScimGroupOperation
 > = z.object({
   op: z.string(),
-  path: z.string(),
+  path: z.nullable(z.string()).optional(),
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PatchScimGroupOperation$ {
-  /** @deprecated use `PatchScimGroupOperation$inboundSchema` instead. */
-  export const inboundSchema = PatchScimGroupOperation$inboundSchema;
-  /** @deprecated use `PatchScimGroupOperation$outboundSchema` instead. */
-  export const outboundSchema = PatchScimGroupOperation$outboundSchema;
-  /** @deprecated use `PatchScimGroupOperation$Outbound` instead. */
-  export type Outbound = PatchScimGroupOperation$Outbound;
-}
 
 export function patchScimGroupOperationToJSON(
   patchScimGroupOperation: PatchScimGroupOperation,
@@ -79,7 +65,6 @@ export function patchScimGroupOperationToJSON(
     PatchScimGroupOperation$outboundSchema.parse(patchScimGroupOperation),
   );
 }
-
 export function patchScimGroupOperationFromJSON(
   jsonString: string,
 ): SafeParseResult<PatchScimGroupOperation, SDKValidationError> {
@@ -103,7 +88,6 @@ export const PatchScimGroup$inboundSchema: z.ZodType<
     "Operations": "operations",
   });
 });
-
 /** @internal */
 export type PatchScimGroup$Outbound = {
   trail?: string | null | undefined;
@@ -124,23 +108,9 @@ export const PatchScimGroup$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PatchScimGroup$ {
-  /** @deprecated use `PatchScimGroup$inboundSchema` instead. */
-  export const inboundSchema = PatchScimGroup$inboundSchema;
-  /** @deprecated use `PatchScimGroup$outboundSchema` instead. */
-  export const outboundSchema = PatchScimGroup$outboundSchema;
-  /** @deprecated use `PatchScimGroup$Outbound` instead. */
-  export type Outbound = PatchScimGroup$Outbound;
-}
-
 export function patchScimGroupToJSON(patchScimGroup: PatchScimGroup): string {
   return JSON.stringify(PatchScimGroup$outboundSchema.parse(patchScimGroup));
 }
-
 export function patchScimGroupFromJSON(
   jsonString: string,
 ): SafeParseResult<PatchScimGroup, SDKValidationError> {

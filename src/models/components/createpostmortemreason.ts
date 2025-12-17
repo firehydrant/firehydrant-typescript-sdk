@@ -22,7 +22,6 @@ export const CreatePostMortemReason$inboundSchema: z.ZodType<
 > = z.object({
   summary: z.string(),
 });
-
 /** @internal */
 export type CreatePostMortemReason$Outbound = {
   summary: string;
@@ -37,19 +36,6 @@ export const CreatePostMortemReason$outboundSchema: z.ZodType<
   summary: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreatePostMortemReason$ {
-  /** @deprecated use `CreatePostMortemReason$inboundSchema` instead. */
-  export const inboundSchema = CreatePostMortemReason$inboundSchema;
-  /** @deprecated use `CreatePostMortemReason$outboundSchema` instead. */
-  export const outboundSchema = CreatePostMortemReason$outboundSchema;
-  /** @deprecated use `CreatePostMortemReason$Outbound` instead. */
-  export type Outbound = CreatePostMortemReason$Outbound;
-}
-
 export function createPostMortemReasonToJSON(
   createPostMortemReason: CreatePostMortemReason,
 ): string {
@@ -57,7 +43,6 @@ export function createPostMortemReasonToJSON(
     CreatePostMortemReason$outboundSchema.parse(createPostMortemReason),
   );
 }
-
 export function createPostMortemReasonFromJSON(
   jsonString: string,
 ): SafeParseResult<CreatePostMortemReason, SDKValidationError> {

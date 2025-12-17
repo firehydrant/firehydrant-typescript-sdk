@@ -33,7 +33,6 @@ export const SignalsAPITargetEntity$inboundSchema: z.ZodType<
     "is_pageable": "isPageable",
   });
 });
-
 /** @internal */
 export type SignalsAPITargetEntity$Outbound = {
   id?: string | null | undefined;
@@ -61,19 +60,6 @@ export const SignalsAPITargetEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SignalsAPITargetEntity$ {
-  /** @deprecated use `SignalsAPITargetEntity$inboundSchema` instead. */
-  export const inboundSchema = SignalsAPITargetEntity$inboundSchema;
-  /** @deprecated use `SignalsAPITargetEntity$outboundSchema` instead. */
-  export const outboundSchema = SignalsAPITargetEntity$outboundSchema;
-  /** @deprecated use `SignalsAPITargetEntity$Outbound` instead. */
-  export type Outbound = SignalsAPITargetEntity$Outbound;
-}
-
 export function signalsAPITargetEntityToJSON(
   signalsAPITargetEntity: SignalsAPITargetEntity,
 ): string {
@@ -81,7 +67,6 @@ export function signalsAPITargetEntityToJSON(
     SignalsAPITargetEntity$outboundSchema.parse(signalsAPITargetEntity),
   );
 }
-
 export function signalsAPITargetEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<SignalsAPITargetEntity, SDKValidationError> {

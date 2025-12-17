@@ -24,7 +24,6 @@ export const GetSeverityRequest$inboundSchema: z.ZodType<
     "severity_slug": "severitySlug",
   });
 });
-
 /** @internal */
 export type GetSeverityRequest$Outbound = {
   severity_slug: string;
@@ -43,19 +42,6 @@ export const GetSeverityRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetSeverityRequest$ {
-  /** @deprecated use `GetSeverityRequest$inboundSchema` instead. */
-  export const inboundSchema = GetSeverityRequest$inboundSchema;
-  /** @deprecated use `GetSeverityRequest$outboundSchema` instead. */
-  export const outboundSchema = GetSeverityRequest$outboundSchema;
-  /** @deprecated use `GetSeverityRequest$Outbound` instead. */
-  export type Outbound = GetSeverityRequest$Outbound;
-}
-
 export function getSeverityRequestToJSON(
   getSeverityRequest: GetSeverityRequest,
 ): string {
@@ -63,7 +49,6 @@ export function getSeverityRequestToJSON(
     GetSeverityRequest$outboundSchema.parse(getSeverityRequest),
   );
 }
-
 export function getSeverityRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<GetSeverityRequest, SDKValidationError> {

@@ -57,7 +57,6 @@ export const MembershipEntity$inboundSchema: z.ZodType<
     "default_incident_role": "defaultIncidentRole",
   });
 });
-
 /** @internal */
 export type MembershipEntity$Outbound = {
   user?: NullableUserEntity$Outbound | null | undefined;
@@ -88,19 +87,6 @@ export const MembershipEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MembershipEntity$ {
-  /** @deprecated use `MembershipEntity$inboundSchema` instead. */
-  export const inboundSchema = MembershipEntity$inboundSchema;
-  /** @deprecated use `MembershipEntity$outboundSchema` instead. */
-  export const outboundSchema = MembershipEntity$outboundSchema;
-  /** @deprecated use `MembershipEntity$Outbound` instead. */
-  export type Outbound = MembershipEntity$Outbound;
-}
-
 export function membershipEntityToJSON(
   membershipEntity: MembershipEntity,
 ): string {
@@ -108,7 +94,6 @@ export function membershipEntityToJSON(
     MembershipEntity$outboundSchema.parse(membershipEntity),
   );
 }
-
 export function membershipEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<MembershipEntity, SDKValidationError> {

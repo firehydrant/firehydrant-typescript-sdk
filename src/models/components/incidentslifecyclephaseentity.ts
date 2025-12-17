@@ -37,7 +37,6 @@ export const IncidentsLifecyclePhaseEntity$inboundSchema: z.ZodType<
     z.array(IncidentsLifecycleMilestoneEntity$inboundSchema),
   ).optional(),
 });
-
 /** @internal */
 export type IncidentsLifecyclePhaseEntity$Outbound = {
   id?: string | null | undefined;
@@ -67,19 +66,6 @@ export const IncidentsLifecyclePhaseEntity$outboundSchema: z.ZodType<
   ).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IncidentsLifecyclePhaseEntity$ {
-  /** @deprecated use `IncidentsLifecyclePhaseEntity$inboundSchema` instead. */
-  export const inboundSchema = IncidentsLifecyclePhaseEntity$inboundSchema;
-  /** @deprecated use `IncidentsLifecyclePhaseEntity$outboundSchema` instead. */
-  export const outboundSchema = IncidentsLifecyclePhaseEntity$outboundSchema;
-  /** @deprecated use `IncidentsLifecyclePhaseEntity$Outbound` instead. */
-  export type Outbound = IncidentsLifecyclePhaseEntity$Outbound;
-}
-
 export function incidentsLifecyclePhaseEntityToJSON(
   incidentsLifecyclePhaseEntity: IncidentsLifecyclePhaseEntity,
 ): string {
@@ -89,7 +75,6 @@ export function incidentsLifecyclePhaseEntityToJSON(
     ),
   );
 }
-
 export function incidentsLifecyclePhaseEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<IncidentsLifecyclePhaseEntity, SDKValidationError> {

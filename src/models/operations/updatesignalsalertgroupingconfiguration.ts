@@ -32,7 +32,6 @@ export const UpdateSignalsAlertGroupingConfigurationRequest$inboundSchema:
         "updateSignalsAlertGroupingConfiguration",
     });
   });
-
 /** @internal */
 export type UpdateSignalsAlertGroupingConfigurationRequest$Outbound = {
   id: string;
@@ -58,22 +57,6 @@ export const UpdateSignalsAlertGroupingConfigurationRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateSignalsAlertGroupingConfigurationRequest$ {
-  /** @deprecated use `UpdateSignalsAlertGroupingConfigurationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    UpdateSignalsAlertGroupingConfigurationRequest$inboundSchema;
-  /** @deprecated use `UpdateSignalsAlertGroupingConfigurationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateSignalsAlertGroupingConfigurationRequest$outboundSchema;
-  /** @deprecated use `UpdateSignalsAlertGroupingConfigurationRequest$Outbound` instead. */
-  export type Outbound =
-    UpdateSignalsAlertGroupingConfigurationRequest$Outbound;
-}
-
 export function updateSignalsAlertGroupingConfigurationRequestToJSON(
   updateSignalsAlertGroupingConfigurationRequest:
     UpdateSignalsAlertGroupingConfigurationRequest,
@@ -84,7 +67,6 @@ export function updateSignalsAlertGroupingConfigurationRequestToJSON(
     ),
   );
 }
-
 export function updateSignalsAlertGroupingConfigurationRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<

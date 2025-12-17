@@ -49,7 +49,6 @@ export const UpdateIncidentImpactPutImpact$inboundSchema: z.ZodType<
     "condition_id": "conditionId",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPutImpact$Outbound = {
   id: string;
@@ -70,19 +69,6 @@ export const UpdateIncidentImpactPutImpact$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPutImpact$ {
-  /** @deprecated use `UpdateIncidentImpactPutImpact$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentImpactPutImpact$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPutImpact$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentImpactPutImpact$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPutImpact$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPutImpact$Outbound;
-}
-
 export function updateIncidentImpactPutImpactToJSON(
   updateIncidentImpactPutImpact: UpdateIncidentImpactPutImpact,
 ): string {
@@ -92,7 +78,6 @@ export function updateIncidentImpactPutImpactToJSON(
     ),
   );
 }
-
 export function updateIncidentImpactPutImpactFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPutImpact, SDKValidationError> {
@@ -116,7 +101,6 @@ export const UpdateIncidentImpactPutStatusPage$inboundSchema: z.ZodType<
     "integration_slug": "integrationSlug",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPutStatusPage$Outbound = {
   id: string;
@@ -137,20 +121,6 @@ export const UpdateIncidentImpactPutStatusPage$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPutStatusPage$ {
-  /** @deprecated use `UpdateIncidentImpactPutStatusPage$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentImpactPutStatusPage$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPutStatusPage$outboundSchema` instead. */
-  export const outboundSchema =
-    UpdateIncidentImpactPutStatusPage$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPutStatusPage$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPutStatusPage$Outbound;
-}
-
 export function updateIncidentImpactPutStatusPageToJSON(
   updateIncidentImpactPutStatusPage: UpdateIncidentImpactPutStatusPage,
 ): string {
@@ -160,7 +130,6 @@ export function updateIncidentImpactPutStatusPageToJSON(
     ),
   );
 }
-
 export function updateIncidentImpactPutStatusPageFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPutStatusPage, SDKValidationError> {
@@ -190,7 +159,6 @@ export const UpdateIncidentImpactPut$inboundSchema: z.ZodType<
     "status_pages": "statusPages",
   });
 });
-
 /** @internal */
 export type UpdateIncidentImpactPut$Outbound = {
   note?: string | null | undefined;
@@ -222,19 +190,6 @@ export const UpdateIncidentImpactPut$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentImpactPut$ {
-  /** @deprecated use `UpdateIncidentImpactPut$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentImpactPut$inboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPut$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentImpactPut$outboundSchema;
-  /** @deprecated use `UpdateIncidentImpactPut$Outbound` instead. */
-  export type Outbound = UpdateIncidentImpactPut$Outbound;
-}
-
 export function updateIncidentImpactPutToJSON(
   updateIncidentImpactPut: UpdateIncidentImpactPut,
 ): string {
@@ -242,7 +197,6 @@ export function updateIncidentImpactPutToJSON(
     UpdateIncidentImpactPut$outboundSchema.parse(updateIncidentImpactPut),
   );
 }
-
 export function updateIncidentImpactPutFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentImpactPut, SDKValidationError> {

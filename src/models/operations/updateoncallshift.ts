@@ -35,7 +35,6 @@ export const UpdateOnCallShiftRequest$inboundSchema: z.ZodType<
     "update_on_call_shift": "updateOnCallShift",
   });
 });
-
 /** @internal */
 export type UpdateOnCallShiftRequest$Outbound = {
   id: string;
@@ -62,19 +61,6 @@ export const UpdateOnCallShiftRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateOnCallShiftRequest$ {
-  /** @deprecated use `UpdateOnCallShiftRequest$inboundSchema` instead. */
-  export const inboundSchema = UpdateOnCallShiftRequest$inboundSchema;
-  /** @deprecated use `UpdateOnCallShiftRequest$outboundSchema` instead. */
-  export const outboundSchema = UpdateOnCallShiftRequest$outboundSchema;
-  /** @deprecated use `UpdateOnCallShiftRequest$Outbound` instead. */
-  export type Outbound = UpdateOnCallShiftRequest$Outbound;
-}
-
 export function updateOnCallShiftRequestToJSON(
   updateOnCallShiftRequest: UpdateOnCallShiftRequest,
 ): string {
@@ -82,7 +68,6 @@ export function updateOnCallShiftRequestToJSON(
     UpdateOnCallShiftRequest$outboundSchema.parse(updateOnCallShiftRequest),
   );
 }
-
 export function updateOnCallShiftRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateOnCallShiftRequest, SDKValidationError> {

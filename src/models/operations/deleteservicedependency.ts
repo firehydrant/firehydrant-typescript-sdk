@@ -24,7 +24,6 @@ export const DeleteServiceDependencyRequest$inboundSchema: z.ZodType<
     "service_dependency_id": "serviceDependencyId",
   });
 });
-
 /** @internal */
 export type DeleteServiceDependencyRequest$Outbound = {
   service_dependency_id: string;
@@ -43,19 +42,6 @@ export const DeleteServiceDependencyRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeleteServiceDependencyRequest$ {
-  /** @deprecated use `DeleteServiceDependencyRequest$inboundSchema` instead. */
-  export const inboundSchema = DeleteServiceDependencyRequest$inboundSchema;
-  /** @deprecated use `DeleteServiceDependencyRequest$outboundSchema` instead. */
-  export const outboundSchema = DeleteServiceDependencyRequest$outboundSchema;
-  /** @deprecated use `DeleteServiceDependencyRequest$Outbound` instead. */
-  export type Outbound = DeleteServiceDependencyRequest$Outbound;
-}
-
 export function deleteServiceDependencyRequestToJSON(
   deleteServiceDependencyRequest: DeleteServiceDependencyRequest,
 ): string {
@@ -65,7 +51,6 @@ export function deleteServiceDependencyRequestToJSON(
     ),
   );
 }
-
 export function deleteServiceDependencyRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<DeleteServiceDependencyRequest, SDKValidationError> {

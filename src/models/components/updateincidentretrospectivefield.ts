@@ -35,7 +35,6 @@ export const UpdateIncidentRetrospectiveField$inboundSchema: z.ZodType<
     "dynamic_input_field_id": "dynamicInputFieldId",
   });
 });
-
 /** @internal */
 export type UpdateIncidentRetrospectiveField$Outbound = {
   dynamic_input_field_id?: string | null | undefined;
@@ -56,19 +55,6 @@ export const UpdateIncidentRetrospectiveField$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateIncidentRetrospectiveField$ {
-  /** @deprecated use `UpdateIncidentRetrospectiveField$inboundSchema` instead. */
-  export const inboundSchema = UpdateIncidentRetrospectiveField$inboundSchema;
-  /** @deprecated use `UpdateIncidentRetrospectiveField$outboundSchema` instead. */
-  export const outboundSchema = UpdateIncidentRetrospectiveField$outboundSchema;
-  /** @deprecated use `UpdateIncidentRetrospectiveField$Outbound` instead. */
-  export type Outbound = UpdateIncidentRetrospectiveField$Outbound;
-}
-
 export function updateIncidentRetrospectiveFieldToJSON(
   updateIncidentRetrospectiveField: UpdateIncidentRetrospectiveField,
 ): string {
@@ -78,7 +64,6 @@ export function updateIncidentRetrospectiveFieldToJSON(
     ),
   );
 }
-
 export function updateIncidentRetrospectiveFieldFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateIncidentRetrospectiveField, SDKValidationError> {

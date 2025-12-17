@@ -174,7 +174,6 @@ export const Checklist$inboundSchema: z.ZodType<
   id: z.string(),
   remove: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type Checklist$Outbound = {
   id: string;
@@ -191,23 +190,9 @@ export const Checklist$outboundSchema: z.ZodType<
   remove: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Checklist$ {
-  /** @deprecated use `Checklist$inboundSchema` instead. */
-  export const inboundSchema = Checklist$inboundSchema;
-  /** @deprecated use `Checklist$outboundSchema` instead. */
-  export const outboundSchema = Checklist$outboundSchema;
-  /** @deprecated use `Checklist$Outbound` instead. */
-  export type Outbound = Checklist$Outbound;
-}
-
 export function checklistToJSON(checklist: Checklist): string {
   return JSON.stringify(Checklist$outboundSchema.parse(checklist));
 }
-
 export function checklistFromJSON(
   jsonString: string,
 ): SafeParseResult<Checklist, SDKValidationError> {
@@ -233,7 +218,6 @@ export const UpdateServiceExternalResource$inboundSchema: z.ZodType<
     "connection_type": "connectionType",
   });
 });
-
 /** @internal */
 export type UpdateServiceExternalResource$Outbound = {
   remote_id: string;
@@ -257,19 +241,6 @@ export const UpdateServiceExternalResource$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateServiceExternalResource$ {
-  /** @deprecated use `UpdateServiceExternalResource$inboundSchema` instead. */
-  export const inboundSchema = UpdateServiceExternalResource$inboundSchema;
-  /** @deprecated use `UpdateServiceExternalResource$outboundSchema` instead. */
-  export const outboundSchema = UpdateServiceExternalResource$outboundSchema;
-  /** @deprecated use `UpdateServiceExternalResource$Outbound` instead. */
-  export type Outbound = UpdateServiceExternalResource$Outbound;
-}
-
 export function updateServiceExternalResourceToJSON(
   updateServiceExternalResource: UpdateServiceExternalResource,
 ): string {
@@ -279,7 +250,6 @@ export function updateServiceExternalResourceToJSON(
     ),
   );
 }
-
 export function updateServiceExternalResourceFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateServiceExternalResource, SDKValidationError> {
@@ -300,7 +270,6 @@ export const UpdateServiceFunctionality$inboundSchema: z.ZodType<
   remove: z.nullable(z.boolean()).optional(),
   summary: z.nullable(z.string()).optional(),
 });
-
 /** @internal */
 export type UpdateServiceFunctionality$Outbound = {
   id?: string | null | undefined;
@@ -319,19 +288,6 @@ export const UpdateServiceFunctionality$outboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateServiceFunctionality$ {
-  /** @deprecated use `UpdateServiceFunctionality$inboundSchema` instead. */
-  export const inboundSchema = UpdateServiceFunctionality$inboundSchema;
-  /** @deprecated use `UpdateServiceFunctionality$outboundSchema` instead. */
-  export const outboundSchema = UpdateServiceFunctionality$outboundSchema;
-  /** @deprecated use `UpdateServiceFunctionality$Outbound` instead. */
-  export type Outbound = UpdateServiceFunctionality$Outbound;
-}
-
 export function updateServiceFunctionalityToJSON(
   updateServiceFunctionality: UpdateServiceFunctionality,
 ): string {
@@ -339,7 +295,6 @@ export function updateServiceFunctionalityToJSON(
     UpdateServiceFunctionality$outboundSchema.parse(updateServiceFunctionality),
   );
 }
-
 export function updateServiceFunctionalityFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateServiceFunctionality, SDKValidationError> {
@@ -367,7 +322,6 @@ export const UpdateServiceLink$inboundSchema: z.ZodType<
     "icon_url": "iconUrl",
   });
 });
-
 /** @internal */
 export type UpdateServiceLink$Outbound = {
   href_url: string;
@@ -395,19 +349,6 @@ export const UpdateServiceLink$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateServiceLink$ {
-  /** @deprecated use `UpdateServiceLink$inboundSchema` instead. */
-  export const inboundSchema = UpdateServiceLink$inboundSchema;
-  /** @deprecated use `UpdateServiceLink$outboundSchema` instead. */
-  export const outboundSchema = UpdateServiceLink$outboundSchema;
-  /** @deprecated use `UpdateServiceLink$Outbound` instead. */
-  export type Outbound = UpdateServiceLink$Outbound;
-}
-
 export function updateServiceLinkToJSON(
   updateServiceLink: UpdateServiceLink,
 ): string {
@@ -415,7 +356,6 @@ export function updateServiceLinkToJSON(
     UpdateServiceLink$outboundSchema.parse(updateServiceLink),
   );
 }
-
 export function updateServiceLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateServiceLink, SDKValidationError> {
@@ -434,7 +374,6 @@ export const UpdateServiceOwner$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-
 /** @internal */
 export type UpdateServiceOwner$Outbound = {
   id: string;
@@ -449,19 +388,6 @@ export const UpdateServiceOwner$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateServiceOwner$ {
-  /** @deprecated use `UpdateServiceOwner$inboundSchema` instead. */
-  export const inboundSchema = UpdateServiceOwner$inboundSchema;
-  /** @deprecated use `UpdateServiceOwner$outboundSchema` instead. */
-  export const outboundSchema = UpdateServiceOwner$outboundSchema;
-  /** @deprecated use `UpdateServiceOwner$Outbound` instead. */
-  export type Outbound = UpdateServiceOwner$Outbound;
-}
-
 export function updateServiceOwnerToJSON(
   updateServiceOwner: UpdateServiceOwner,
 ): string {
@@ -469,7 +395,6 @@ export function updateServiceOwnerToJSON(
     UpdateServiceOwner$outboundSchema.parse(updateServiceOwner),
   );
 }
-
 export function updateServiceOwnerFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateServiceOwner, SDKValidationError> {
@@ -484,22 +409,10 @@ export function updateServiceOwnerFromJSON(
 export const UpdateServiceServiceTier$inboundSchema: z.ZodNativeEnum<
   typeof UpdateServiceServiceTier
 > = z.nativeEnum(UpdateServiceServiceTier);
-
 /** @internal */
 export const UpdateServiceServiceTier$outboundSchema: z.ZodNativeEnum<
   typeof UpdateServiceServiceTier
 > = UpdateServiceServiceTier$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateServiceServiceTier$ {
-  /** @deprecated use `UpdateServiceServiceTier$inboundSchema` instead. */
-  export const inboundSchema = UpdateServiceServiceTier$inboundSchema;
-  /** @deprecated use `UpdateServiceServiceTier$outboundSchema` instead. */
-  export const outboundSchema = UpdateServiceServiceTier$outboundSchema;
-}
 
 /** @internal */
 export const UpdateServiceTeam$inboundSchema: z.ZodType<
@@ -510,7 +423,6 @@ export const UpdateServiceTeam$inboundSchema: z.ZodType<
   id: z.string(),
   remove: z.nullable(z.boolean()).optional(),
 });
-
 /** @internal */
 export type UpdateServiceTeam$Outbound = {
   id: string;
@@ -527,19 +439,6 @@ export const UpdateServiceTeam$outboundSchema: z.ZodType<
   remove: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateServiceTeam$ {
-  /** @deprecated use `UpdateServiceTeam$inboundSchema` instead. */
-  export const inboundSchema = UpdateServiceTeam$inboundSchema;
-  /** @deprecated use `UpdateServiceTeam$outboundSchema` instead. */
-  export const outboundSchema = UpdateServiceTeam$outboundSchema;
-  /** @deprecated use `UpdateServiceTeam$Outbound` instead. */
-  export type Outbound = UpdateServiceTeam$Outbound;
-}
-
 export function updateServiceTeamToJSON(
   updateServiceTeam: UpdateServiceTeam,
 ): string {
@@ -547,7 +446,6 @@ export function updateServiceTeamToJSON(
     UpdateServiceTeam$outboundSchema.parse(updateServiceTeam),
   );
 }
-
 export function updateServiceTeamFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateServiceTeam, SDKValidationError> {
@@ -601,7 +499,6 @@ export const UpdateService$inboundSchema: z.ZodType<
     "service_tier": "serviceTier",
   });
 });
-
 /** @internal */
 export type UpdateService$Outbound = {
   alert_on_add?: boolean | null | undefined;
@@ -673,23 +570,9 @@ export const UpdateService$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UpdateService$ {
-  /** @deprecated use `UpdateService$inboundSchema` instead. */
-  export const inboundSchema = UpdateService$inboundSchema;
-  /** @deprecated use `UpdateService$outboundSchema` instead. */
-  export const outboundSchema = UpdateService$outboundSchema;
-  /** @deprecated use `UpdateService$Outbound` instead. */
-  export type Outbound = UpdateService$Outbound;
-}
-
 export function updateServiceToJSON(updateService: UpdateService): string {
   return JSON.stringify(UpdateService$outboundSchema.parse(updateService));
 }
-
 export function updateServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<UpdateService, SDKValidationError> {

@@ -20,6 +20,7 @@ export const CreateSavedSearchResourceType = {
   Analytics: "analytics",
   ImpactAnalytics: "impact_analytics",
   Alerts: "alerts",
+  AlertAnalytics: "alert_analytics",
   IncidentEvents: "incident_events",
 } as const;
 export type CreateSavedSearchResourceType = ClosedEnum<
@@ -35,22 +36,10 @@ export type CreateSavedSearchRequest = {
 export const CreateSavedSearchResourceType$inboundSchema: z.ZodNativeEnum<
   typeof CreateSavedSearchResourceType
 > = z.nativeEnum(CreateSavedSearchResourceType);
-
 /** @internal */
 export const CreateSavedSearchResourceType$outboundSchema: z.ZodNativeEnum<
   typeof CreateSavedSearchResourceType
 > = CreateSavedSearchResourceType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSavedSearchResourceType$ {
-  /** @deprecated use `CreateSavedSearchResourceType$inboundSchema` instead. */
-  export const inboundSchema = CreateSavedSearchResourceType$inboundSchema;
-  /** @deprecated use `CreateSavedSearchResourceType$outboundSchema` instead. */
-  export const outboundSchema = CreateSavedSearchResourceType$outboundSchema;
-}
 
 /** @internal */
 export const CreateSavedSearchRequest$inboundSchema: z.ZodType<
@@ -66,7 +55,6 @@ export const CreateSavedSearchRequest$inboundSchema: z.ZodType<
     "create_saved_search": "createSavedSearch",
   });
 });
-
 /** @internal */
 export type CreateSavedSearchRequest$Outbound = {
   resource_type: string;
@@ -88,19 +76,6 @@ export const CreateSavedSearchRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSavedSearchRequest$ {
-  /** @deprecated use `CreateSavedSearchRequest$inboundSchema` instead. */
-  export const inboundSchema = CreateSavedSearchRequest$inboundSchema;
-  /** @deprecated use `CreateSavedSearchRequest$outboundSchema` instead. */
-  export const outboundSchema = CreateSavedSearchRequest$outboundSchema;
-  /** @deprecated use `CreateSavedSearchRequest$Outbound` instead. */
-  export type Outbound = CreateSavedSearchRequest$Outbound;
-}
-
 export function createSavedSearchRequestToJSON(
   createSavedSearchRequest: CreateSavedSearchRequest,
 ): string {
@@ -108,7 +83,6 @@ export function createSavedSearchRequestToJSON(
     CreateSavedSearchRequest$outboundSchema.parse(createSavedSearchRequest),
   );
 }
-
 export function createSavedSearchRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSavedSearchRequest, SDKValidationError> {

@@ -124,7 +124,6 @@ export const ServiceEntityManagedBySettings$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type ServiceEntityManagedBySettings$Outbound = {};
 
@@ -135,19 +134,6 @@ export const ServiceEntityManagedBySettings$outboundSchema: z.ZodType<
   ServiceEntityManagedBySettings
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceEntityManagedBySettings$ {
-  /** @deprecated use `ServiceEntityManagedBySettings$inboundSchema` instead. */
-  export const inboundSchema = ServiceEntityManagedBySettings$inboundSchema;
-  /** @deprecated use `ServiceEntityManagedBySettings$outboundSchema` instead. */
-  export const outboundSchema = ServiceEntityManagedBySettings$outboundSchema;
-  /** @deprecated use `ServiceEntityManagedBySettings$Outbound` instead. */
-  export type Outbound = ServiceEntityManagedBySettings$Outbound;
-}
-
 export function serviceEntityManagedBySettingsToJSON(
   serviceEntityManagedBySettings: ServiceEntityManagedBySettings,
 ): string {
@@ -157,7 +143,6 @@ export function serviceEntityManagedBySettingsToJSON(
     ),
   );
 }
-
 export function serviceEntityManagedBySettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceEntityManagedBySettings, SDKValidationError> {
@@ -228,7 +213,6 @@ export const ServiceEntity$inboundSchema: z.ZodType<
     "updated_by": "updatedBy",
   });
 });
-
 /** @internal */
 export type ServiceEntity$Outbound = {
   id?: string | null | undefined;
@@ -323,23 +307,9 @@ export const ServiceEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceEntity$ {
-  /** @deprecated use `ServiceEntity$inboundSchema` instead. */
-  export const inboundSchema = ServiceEntity$inboundSchema;
-  /** @deprecated use `ServiceEntity$outboundSchema` instead. */
-  export const outboundSchema = ServiceEntity$outboundSchema;
-  /** @deprecated use `ServiceEntity$Outbound` instead. */
-  export type Outbound = ServiceEntity$Outbound;
-}
-
 export function serviceEntityToJSON(serviceEntity: ServiceEntity): string {
   return JSON.stringify(ServiceEntity$outboundSchema.parse(serviceEntity));
 }
-
 export function serviceEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceEntity, SDKValidationError> {

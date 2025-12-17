@@ -44,7 +44,6 @@ export const CustomFieldsFieldValue$inboundSchema: z.ZodType<
     "value_string": "valueString",
   });
 });
-
 /** @internal */
 export type CustomFieldsFieldValue$Outbound = {
   name?: string | null | undefined;
@@ -83,19 +82,6 @@ export const CustomFieldsFieldValue$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsFieldValue$ {
-  /** @deprecated use `CustomFieldsFieldValue$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldsFieldValue$inboundSchema;
-  /** @deprecated use `CustomFieldsFieldValue$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldsFieldValue$outboundSchema;
-  /** @deprecated use `CustomFieldsFieldValue$Outbound` instead. */
-  export type Outbound = CustomFieldsFieldValue$Outbound;
-}
-
 export function customFieldsFieldValueToJSON(
   customFieldsFieldValue: CustomFieldsFieldValue,
 ): string {
@@ -103,7 +89,6 @@ export function customFieldsFieldValueToJSON(
     CustomFieldsFieldValue$outboundSchema.parse(customFieldsFieldValue),
   );
 }
-
 export function customFieldsFieldValueFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldsFieldValue, SDKValidationError> {

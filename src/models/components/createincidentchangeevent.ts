@@ -38,22 +38,10 @@ export type CreateIncidentChangeEvent = {
 export const CreateIncidentChangeEventType$inboundSchema: z.ZodNativeEnum<
   typeof CreateIncidentChangeEventType
 > = z.nativeEnum(CreateIncidentChangeEventType);
-
 /** @internal */
 export const CreateIncidentChangeEventType$outboundSchema: z.ZodNativeEnum<
   typeof CreateIncidentChangeEventType
 > = CreateIncidentChangeEventType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentChangeEventType$ {
-  /** @deprecated use `CreateIncidentChangeEventType$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentChangeEventType$inboundSchema;
-  /** @deprecated use `CreateIncidentChangeEventType$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentChangeEventType$outboundSchema;
-}
 
 /** @internal */
 export const CreateIncidentChangeEvent$inboundSchema: z.ZodType<
@@ -69,7 +57,6 @@ export const CreateIncidentChangeEvent$inboundSchema: z.ZodType<
     "change_event_id": "changeEventId",
   });
 });
-
 /** @internal */
 export type CreateIncidentChangeEvent$Outbound = {
   change_event_id: string;
@@ -92,19 +79,6 @@ export const CreateIncidentChangeEvent$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateIncidentChangeEvent$ {
-  /** @deprecated use `CreateIncidentChangeEvent$inboundSchema` instead. */
-  export const inboundSchema = CreateIncidentChangeEvent$inboundSchema;
-  /** @deprecated use `CreateIncidentChangeEvent$outboundSchema` instead. */
-  export const outboundSchema = CreateIncidentChangeEvent$outboundSchema;
-  /** @deprecated use `CreateIncidentChangeEvent$Outbound` instead. */
-  export type Outbound = CreateIncidentChangeEvent$Outbound;
-}
-
 export function createIncidentChangeEventToJSON(
   createIncidentChangeEvent: CreateIncidentChangeEvent,
 ): string {
@@ -112,7 +86,6 @@ export function createIncidentChangeEventToJSON(
     CreateIncidentChangeEvent$outboundSchema.parse(createIncidentChangeEvent),
   );
 }
-
 export function createIncidentChangeEventFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateIncidentChangeEvent, SDKValidationError> {

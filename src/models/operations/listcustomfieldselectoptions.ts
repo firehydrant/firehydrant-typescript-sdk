@@ -35,7 +35,6 @@ export const ListCustomFieldSelectOptionsRequest$inboundSchema: z.ZodType<
     "all_versions": "allVersions",
   });
 });
-
 /** @internal */
 export type ListCustomFieldSelectOptionsRequest$Outbound = {
   field_id: string;
@@ -59,21 +58,6 @@ export const ListCustomFieldSelectOptionsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListCustomFieldSelectOptionsRequest$ {
-  /** @deprecated use `ListCustomFieldSelectOptionsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ListCustomFieldSelectOptionsRequest$inboundSchema;
-  /** @deprecated use `ListCustomFieldSelectOptionsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ListCustomFieldSelectOptionsRequest$outboundSchema;
-  /** @deprecated use `ListCustomFieldSelectOptionsRequest$Outbound` instead. */
-  export type Outbound = ListCustomFieldSelectOptionsRequest$Outbound;
-}
-
 export function listCustomFieldSelectOptionsRequestToJSON(
   listCustomFieldSelectOptionsRequest: ListCustomFieldSelectOptionsRequest,
 ): string {
@@ -83,7 +67,6 @@ export function listCustomFieldSelectOptionsRequestToJSON(
     ),
   );
 }
-
 export function listCustomFieldSelectOptionsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<ListCustomFieldSelectOptionsRequest, SDKValidationError> {

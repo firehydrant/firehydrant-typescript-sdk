@@ -40,7 +40,6 @@ export const TicketingPriorityEntity$inboundSchema: z.ZodType<
     "updated_at": "updatedAt",
   });
 });
-
 /** @internal */
 export type TicketingPriorityEntity$Outbound = {
   id?: string | null | undefined;
@@ -68,19 +67,6 @@ export const TicketingPriorityEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TicketingPriorityEntity$ {
-  /** @deprecated use `TicketingPriorityEntity$inboundSchema` instead. */
-  export const inboundSchema = TicketingPriorityEntity$inboundSchema;
-  /** @deprecated use `TicketingPriorityEntity$outboundSchema` instead. */
-  export const outboundSchema = TicketingPriorityEntity$outboundSchema;
-  /** @deprecated use `TicketingPriorityEntity$Outbound` instead. */
-  export type Outbound = TicketingPriorityEntity$Outbound;
-}
-
 export function ticketingPriorityEntityToJSON(
   ticketingPriorityEntity: TicketingPriorityEntity,
 ): string {
@@ -88,7 +74,6 @@ export function ticketingPriorityEntityToJSON(
     TicketingPriorityEntity$outboundSchema.parse(ticketingPriorityEntity),
   );
 }
-
 export function ticketingPriorityEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<TicketingPriorityEntity, SDKValidationError> {

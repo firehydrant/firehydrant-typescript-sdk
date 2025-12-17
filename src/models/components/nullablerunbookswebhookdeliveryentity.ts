@@ -26,7 +26,6 @@ export const NullableRunbooksWebhookDeliveryEntity$inboundSchema: z.ZodType<
     "status_code": "statusCode",
   });
 });
-
 /** @internal */
 export type NullableRunbooksWebhookDeliveryEntity$Outbound = {
   headers?: string | null | undefined;
@@ -47,21 +46,6 @@ export const NullableRunbooksWebhookDeliveryEntity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NullableRunbooksWebhookDeliveryEntity$ {
-  /** @deprecated use `NullableRunbooksWebhookDeliveryEntity$inboundSchema` instead. */
-  export const inboundSchema =
-    NullableRunbooksWebhookDeliveryEntity$inboundSchema;
-  /** @deprecated use `NullableRunbooksWebhookDeliveryEntity$outboundSchema` instead. */
-  export const outboundSchema =
-    NullableRunbooksWebhookDeliveryEntity$outboundSchema;
-  /** @deprecated use `NullableRunbooksWebhookDeliveryEntity$Outbound` instead. */
-  export type Outbound = NullableRunbooksWebhookDeliveryEntity$Outbound;
-}
-
 export function nullableRunbooksWebhookDeliveryEntityToJSON(
   nullableRunbooksWebhookDeliveryEntity: NullableRunbooksWebhookDeliveryEntity,
 ): string {
@@ -71,7 +55,6 @@ export function nullableRunbooksWebhookDeliveryEntityToJSON(
     ),
   );
 }
-
 export function nullableRunbooksWebhookDeliveryEntityFromJSON(
   jsonString: string,
 ): SafeParseResult<NullableRunbooksWebhookDeliveryEntity, SDKValidationError> {
