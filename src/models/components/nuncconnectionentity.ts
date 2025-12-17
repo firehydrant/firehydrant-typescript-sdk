@@ -92,6 +92,7 @@ export type NuncConnectionEntity = {
     | NullableNuncOidcAuthenticationConfigEntity
     | null
     | undefined;
+  hasCustomConfiguration?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -142,6 +143,7 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
   oidc_authentication_config: z.nullable(
     NullableNuncOidcAuthenticationConfigEntity$inboundSchema,
   ).optional(),
+  has_custom_configuration: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -166,6 +168,7 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
     "publish_state": "publishState",
     "authentication_method": "authenticationMethod",
     "oidc_authentication_config": "oidcAuthenticationConfig",
+    "has_custom_configuration": "hasCustomConfiguration",
   });
 });
 /** @internal */
@@ -207,6 +210,7 @@ export type NuncConnectionEntity$Outbound = {
     | NullableNuncOidcAuthenticationConfigEntity$Outbound
     | null
     | undefined;
+  has_custom_configuration?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -250,6 +254,7 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
   oidcAuthenticationConfig: z.nullable(
     NullableNuncOidcAuthenticationConfigEntity$outboundSchema,
   ).optional(),
+  hasCustomConfiguration: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",
@@ -274,6 +279,7 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
     publishState: "publish_state",
     authenticationMethod: "authentication_method",
     oidcAuthenticationConfig: "oidc_authentication_config",
+    hasCustomConfiguration: "has_custom_configuration",
   });
 });
 

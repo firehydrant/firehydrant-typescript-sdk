@@ -37,7 +37,7 @@ export function integrationsSearchConfluenceSpaces(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.IntegrationsConfluenceCloudSpaceKeyEntity,
+    components.IntegrationsConfluenceCloudSpaceEntity,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.IntegrationsConfluenceCloudSpaceKeyEntity,
+      components.IntegrationsConfluenceCloudSpaceEntity,
       | FirehydrantError
       | ResponseValidationError
       | ConnectionError
@@ -153,7 +153,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.IntegrationsConfluenceCloudSpaceKeyEntity,
+    components.IntegrationsConfluenceCloudSpaceEntity,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -165,7 +165,7 @@ async function $do(
   >(
     M.json(
       200,
-      components.IntegrationsConfluenceCloudSpaceKeyEntity$inboundSchema,
+      components.IntegrationsConfluenceCloudSpaceEntity$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),

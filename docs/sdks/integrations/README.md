@@ -1561,7 +1561,7 @@ run();
 
 ### Response
 
-**Promise\<[components.IntegrationsConfluenceCloudSpaceKeyEntity](../../models/components/integrationsconfluencecloudspacekeyentity.md)\>**
+**Promise\<[components.IntegrationsConfluenceCloudSpaceEntity](../../models/components/integrationsconfluencecloudspaceentity.md)\>**
 
 ### Errors
 
