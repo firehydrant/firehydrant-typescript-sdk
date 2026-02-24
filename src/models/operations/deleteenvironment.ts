@@ -10,7 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteEnvironmentRequest = {
   /**
-   * Environment UUID
+   * Environment UUID or slug
    */
   environmentId: string;
 };

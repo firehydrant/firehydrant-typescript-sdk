@@ -53,11 +53,17 @@ Operations related to Signals
 * [getSignalsWebhookTarget](#getsignalswebhooktarget) - Get a webhook target
 * [deleteSignalsWebhookTarget](#deletesignalswebhooktarget) - Delete a webhook target
 * [updateSignalsWebhookTarget](#updatesignalswebhooktarget) - Update a webhook target
+* [listSignalsHeartbeatEndpointConfigurations](#listsignalsheartbeatendpointconfigurations) - List heartbeat endpoint configurations
+* [createSignalsHeartbeatEndpointConfiguration](#createsignalsheartbeatendpointconfiguration) - Create a heartbeat endpoint configuration
+* [getSignalsHeartbeatEndpointConfiguration](#getsignalsheartbeatendpointconfiguration) - Get a heartbeat endpoint configuration
+* [deleteSignalsHeartbeatEndpointConfiguration](#deletesignalsheartbeatendpointconfiguration) - Delete a heartbeat endpoint configuration
+* [updateSignalsHeartbeatEndpointConfiguration](#updatesignalsheartbeatendpointconfiguration) - Update a heartbeat endpoint configuration
 * [listNotificationPolicySettings](#listnotificationpolicysettings) - List notification policies
 * [createNotificationPolicy](#createnotificationpolicy) - Create a notification policy
 * [getNotificationPolicy](#getnotificationpolicy) - Get a notification policy
 * [deleteNotificationPolicy](#deletenotificationpolicy) - Delete a notification policy
 * [updateNotificationPolicy](#updatenotificationpolicy) - Update a notification policy
+* [listUserNotificationSettingsByUserId](#listusernotificationsettingsbyuserid) - List notification settings for a user
 * [listSignalsTransposers](#listsignalstransposers) - List signal transposers
 * [getSignalsIngestUrl](#getsignalsingesturl) - Get the signals ingestion URL
 * [debugSignalsExpression](#debugsignalsexpression) - Debug Signals expressions
@@ -1881,7 +1887,7 @@ run();
 
 ## createTeamSignalRule
 
-Create a Signals rule for a team.
+Create a Signals rule for a team. We support up to 2000 rules per organization.
 
 ### Example Usage
 
@@ -2568,7 +2574,7 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  const result = await firehydrant.signals.listSignalsAlertGroupingConfigurations();
+  const result = await firehydrant.signals.listSignalsAlertGroupingConfigurations({});
 
   console.log(result);
 }
@@ -2591,7 +2597,7 @@ const firehydrant = new FirehydrantCore({
 });
 
 async function run() {
-  const res = await signalsListSignalsAlertGroupingConfigurations(firehydrant);
+  const res = await signalsListSignalsAlertGroupingConfigurations(firehydrant, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -2607,6 +2613,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListSignalsAlertGroupingConfigurationsRequest](../../models/operations/listsignalsalertgroupingconfigurationsrequest.md)                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -3645,6 +3652,376 @@ run();
 | --------------- | --------------- | --------------- |
 | errors.APIError | 4XX, 5XX        | \*/\*           |
 
+## listSignalsHeartbeatEndpointConfigurations
+
+Retrieve all heartbeat endpoint configurations for your organization
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_signals_heartbeat_endpoint_configurations" method="get" path="/v1/signals/heartbeat_endpoints" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.signals.listSignalsHeartbeatEndpointConfigurations();
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListSignalsHeartbeatEndpointConfigurations } from "firehydrant-typescript-sdk/funcs/signalsListSignalsHeartbeatEndpointConfigurations.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsListSignalsHeartbeatEndpointConfigurations(firehydrant);
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsListSignalsHeartbeatEndpointConfigurations failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## createSignalsHeartbeatEndpointConfiguration
+
+Create a new heartbeat endpoint configuration for your organization
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="create_signals_heartbeat_endpoint_configuration" method="post" path="/v1/signals/heartbeat_endpoints" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.signals.createSignalsHeartbeatEndpointConfiguration({
+    slug: "<value>",
+    enabled: false,
+    expectInterval: "<value>",
+    templateSignal: {},
+    kind: "email",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsCreateSignalsHeartbeatEndpointConfiguration } from "firehydrant-typescript-sdk/funcs/signalsCreateSignalsHeartbeatEndpointConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsCreateSignalsHeartbeatEndpointConfiguration(firehydrant, {
+    slug: "<value>",
+    enabled: false,
+    expectInterval: "<value>",
+    templateSignal: {},
+    kind: "email",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsCreateSignalsHeartbeatEndpointConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.CreateSignalsHeartbeatEndpointConfiguration](../../models/components/createsignalsheartbeatendpointconfiguration.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## getSignalsHeartbeatEndpointConfiguration
+
+Retrieve a single heartbeat endpoint configuration
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get_signals_heartbeat_endpoint_configuration" method="get" path="/v1/signals/heartbeat_endpoints/{id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.signals.getSignalsHeartbeatEndpointConfiguration({
+    id: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsGetSignalsHeartbeatEndpointConfiguration } from "firehydrant-typescript-sdk/funcs/signalsGetSignalsHeartbeatEndpointConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsGetSignalsHeartbeatEndpointConfiguration(firehydrant, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsGetSignalsHeartbeatEndpointConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSignalsHeartbeatEndpointConfigurationRequest](../../models/operations/getsignalsheartbeatendpointconfigurationrequest.md)                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## deleteSignalsHeartbeatEndpointConfiguration
+
+Delete a heartbeat endpoint configuration
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="delete_signals_heartbeat_endpoint_configuration" method="delete" path="/v1/signals/heartbeat_endpoints/{id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.signals.deleteSignalsHeartbeatEndpointConfiguration({
+    id: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsDeleteSignalsHeartbeatEndpointConfiguration } from "firehydrant-typescript-sdk/funcs/signalsDeleteSignalsHeartbeatEndpointConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsDeleteSignalsHeartbeatEndpointConfiguration(firehydrant, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsDeleteSignalsHeartbeatEndpointConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteSignalsHeartbeatEndpointConfigurationRequest](../../models/operations/deletesignalsheartbeatendpointconfigurationrequest.md)                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## updateSignalsHeartbeatEndpointConfiguration
+
+Update an existing heartbeat endpoint configuration
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update_signals_heartbeat_endpoint_configuration" method="patch" path="/v1/signals/heartbeat_endpoints/{id}" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.signals.updateSignalsHeartbeatEndpointConfiguration({
+    id: "<id>",
+    updateSignalsHeartbeatEndpointConfiguration: {},
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsUpdateSignalsHeartbeatEndpointConfiguration } from "firehydrant-typescript-sdk/funcs/signalsUpdateSignalsHeartbeatEndpointConfiguration.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsUpdateSignalsHeartbeatEndpointConfiguration(firehydrant, {
+    id: "<id>",
+    updateSignalsHeartbeatEndpointConfiguration: {},
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("signalsUpdateSignalsHeartbeatEndpointConfiguration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateSignalsHeartbeatEndpointConfigurationRequest](../../models/operations/updatesignalsheartbeatendpointconfigurationrequest.md)                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
 ## listNotificationPolicySettings
 
 List all Signals notification policies.
@@ -4009,6 +4386,80 @@ run();
 | Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listUserNotificationSettingsByUserId
+
+List all Signals notification settings for a specific user. Requires an API key with PII access enabled.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_user_notification_settings_by_user_id" method="get" path="/v1/signals/users/{user_id}/notification_settings" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.signals.listUserNotificationSettingsByUserId({
+    userId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { signalsListUserNotificationSettingsByUserId } from "firehydrant-typescript-sdk/funcs/signalsListUserNotificationSettingsByUserId.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await signalsListUserNotificationSettingsByUserId(firehydrant, {
+    userId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("signalsListUserNotificationSettingsByUserId failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListUserNotificationSettingsByUserIdRequest](../../models/operations/listusernotificationsettingsbyuseridrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.SignalsAPIUserNotificationSettingEntityPaginated](../../models/components/signalsapiusernotificationsettingentitypaginated.md)\>**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| errors.ErrorEntity | 403                | application/json   |
+| errors.APIError    | 4XX, 5XX           | \*/\*              |
 
 ## listSignalsTransposers
 

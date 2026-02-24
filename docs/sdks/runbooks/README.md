@@ -754,7 +754,7 @@ run();
 
 ### Response
 
-**Promise\<[components.RunbookEntity](../../models/components/runbookentity.md)\>**
+**Promise\<[components.SlimRunbookEntityPaginated](../../models/components/slimrunbookentitypaginated.md)\>**
 
 ### Errors
 

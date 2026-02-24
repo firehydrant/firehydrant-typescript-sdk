@@ -17,7 +17,7 @@ let value: UpdateRetrospectiveTemplateRequestBody = {
   fieldsType: [
     "dynamic_input_group",
   ],
-  reportElementsType: "retrospective_field",
+  reportElementsType: "custom_field",
 };
 ```
 

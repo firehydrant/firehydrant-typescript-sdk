@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -10,9 +11,15 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type SearchConfluenceSpacesRequest = {
   id: string;
   /**
-   * Space Key
+   * Space Key (Deprecated)
    */
   keyword?: string | null | undefined;
+  /**
+   * Space name query
+   */
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -23,11 +30,21 @@ export const SearchConfluenceSpacesRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   keyword: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "per_page": "perPage",
+  });
 });
 /** @internal */
 export type SearchConfluenceSpacesRequest$Outbound = {
   id: string;
   keyword?: string | null | undefined;
+  query?: string | null | undefined;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -38,6 +55,13 @@ export const SearchConfluenceSpacesRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   keyword: z.nullable(z.string()).optional(),
+  query: z.nullable(z.string()).optional(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    perPage: "per_page",
+  });
 });
 
 export function searchConfluenceSpacesRequestToJSON(

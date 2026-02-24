@@ -9,6 +9,7 @@ import { signalsCreateOnCallShift } from "../funcs/signalsCreateOnCallShift.js";
 import { signalsCreateSignalsAlertGroupingConfiguration } from "../funcs/signalsCreateSignalsAlertGroupingConfiguration.js";
 import { signalsCreateSignalsEmailTarget } from "../funcs/signalsCreateSignalsEmailTarget.js";
 import { signalsCreateSignalsEventSource } from "../funcs/signalsCreateSignalsEventSource.js";
+import { signalsCreateSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsCreateSignalsHeartbeatEndpointConfiguration.js";
 import { signalsCreateSignalsWebhookTarget } from "../funcs/signalsCreateSignalsWebhookTarget.js";
 import { signalsCreateTeamEscalationPolicy } from "../funcs/signalsCreateTeamEscalationPolicy.js";
 import { signalsCreateTeamOnCallSchedule } from "../funcs/signalsCreateTeamOnCallSchedule.js";
@@ -20,6 +21,7 @@ import { signalsDeleteOnCallShift } from "../funcs/signalsDeleteOnCallShift.js";
 import { signalsDeleteSignalsAlertGroupingConfiguration } from "../funcs/signalsDeleteSignalsAlertGroupingConfiguration.js";
 import { signalsDeleteSignalsEmailTarget } from "../funcs/signalsDeleteSignalsEmailTarget.js";
 import { signalsDeleteSignalsEventSource } from "../funcs/signalsDeleteSignalsEventSource.js";
+import { signalsDeleteSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsDeleteSignalsHeartbeatEndpointConfiguration.js";
 import { signalsDeleteSignalsWebhookTarget } from "../funcs/signalsDeleteSignalsWebhookTarget.js";
 import { signalsDeleteTeamEscalationPolicy } from "../funcs/signalsDeleteTeamEscalationPolicy.js";
 import { signalsDeleteTeamOnCallSchedule } from "../funcs/signalsDeleteTeamOnCallSchedule.js";
@@ -31,6 +33,7 @@ import { signalsGetSignalsAlertGroupingConfiguration } from "../funcs/signalsGet
 import { signalsGetSignalsEmailTarget } from "../funcs/signalsGetSignalsEmailTarget.js";
 import { signalsGetSignalsEventSource } from "../funcs/signalsGetSignalsEventSource.js";
 import { signalsGetSignalsHackerMode } from "../funcs/signalsGetSignalsHackerMode.js";
+import { signalsGetSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsGetSignalsHeartbeatEndpointConfiguration.js";
 import { signalsGetSignalsIngestUrl } from "../funcs/signalsGetSignalsIngestUrl.js";
 import { signalsGetSignalsWebhookTarget } from "../funcs/signalsGetSignalsWebhookTarget.js";
 import { signalsGetTeamEscalationPolicy } from "../funcs/signalsGetTeamEscalationPolicy.js";
@@ -41,11 +44,13 @@ import { signalsListOrganizationOnCallSchedules } from "../funcs/signalsListOrga
 import { signalsListSignalsAlertGroupingConfigurations } from "../funcs/signalsListSignalsAlertGroupingConfigurations.js";
 import { signalsListSignalsEmailTargets } from "../funcs/signalsListSignalsEmailTargets.js";
 import { signalsListSignalsEventSources } from "../funcs/signalsListSignalsEventSources.js";
+import { signalsListSignalsHeartbeatEndpointConfigurations } from "../funcs/signalsListSignalsHeartbeatEndpointConfigurations.js";
 import { signalsListSignalsTransposers } from "../funcs/signalsListSignalsTransposers.js";
 import { signalsListSignalsWebhookTargets } from "../funcs/signalsListSignalsWebhookTargets.js";
 import { signalsListTeamEscalationPolicies } from "../funcs/signalsListTeamEscalationPolicies.js";
 import { signalsListTeamOnCallSchedules } from "../funcs/signalsListTeamOnCallSchedules.js";
 import { signalsListTeamSignalRules } from "../funcs/signalsListTeamSignalRules.js";
+import { signalsListUserNotificationSettingsByUserId } from "../funcs/signalsListUserNotificationSettingsByUserId.js";
 import { signalsOverrideOnCallScheduleRotationShifts } from "../funcs/signalsOverrideOnCallScheduleRotationShifts.js";
 import { signalsPreviewOnCallScheduleRotation } from "../funcs/signalsPreviewOnCallScheduleRotation.js";
 import { signalsPreviewTeamOnCallSchedule } from "../funcs/signalsPreviewTeamOnCallSchedule.js";
@@ -54,6 +59,7 @@ import { signalsUpdateOnCallScheduleRotation } from "../funcs/signalsUpdateOnCal
 import { signalsUpdateOnCallShift } from "../funcs/signalsUpdateOnCallShift.js";
 import { signalsUpdateSignalsAlertGroupingConfiguration } from "../funcs/signalsUpdateSignalsAlertGroupingConfiguration.js";
 import { signalsUpdateSignalsEmailTarget } from "../funcs/signalsUpdateSignalsEmailTarget.js";
+import { signalsUpdateSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsUpdateSignalsHeartbeatEndpointConfiguration.js";
 import { signalsUpdateSignalsWebhookTarget } from "../funcs/signalsUpdateSignalsWebhookTarget.js";
 import { signalsUpdateTeamEscalationPolicy } from "../funcs/signalsUpdateTeamEscalationPolicy.js";
 import { signalsUpdateTeamOnCallSchedule } from "../funcs/signalsUpdateTeamOnCallSchedule.js";
@@ -463,7 +469,7 @@ export class Signals extends ClientSDK {
    * Create a Signals rule
    *
    * @remarks
-   * Create a Signals rule for a team.
+   * Create a Signals rule for a team. We support up to 2000 rules per organization.
    */
   async createTeamSignalRule(
     request: operations.CreateTeamSignalRuleRequest,
@@ -617,10 +623,12 @@ export class Signals extends ClientSDK {
    * List all Signals alert grouping rules for the organization.
    */
   async listSignalsAlertGroupingConfigurations(
+    request: operations.ListSignalsAlertGroupingConfigurationsRequest,
     options?: RequestOptions,
   ): Promise<components.SignalsAPIGroupingEntityPaginated> {
     return unwrapAsync(signalsListSignalsAlertGroupingConfigurations(
       this,
+      request,
       options,
     ));
   }
@@ -864,6 +872,89 @@ export class Signals extends ClientSDK {
   }
 
   /**
+   * List heartbeat endpoint configurations
+   *
+   * @remarks
+   * Retrieve all heartbeat endpoint configurations for your organization
+   */
+  async listSignalsHeartbeatEndpointConfigurations(
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(signalsListSignalsHeartbeatEndpointConfigurations(
+      this,
+      options,
+    ));
+  }
+
+  /**
+   * Create a heartbeat endpoint configuration
+   *
+   * @remarks
+   * Create a new heartbeat endpoint configuration for your organization
+   */
+  async createSignalsHeartbeatEndpointConfiguration(
+    request: components.CreateSignalsHeartbeatEndpointConfiguration,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(signalsCreateSignalsHeartbeatEndpointConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get a heartbeat endpoint configuration
+   *
+   * @remarks
+   * Retrieve a single heartbeat endpoint configuration
+   */
+  async getSignalsHeartbeatEndpointConfiguration(
+    request: operations.GetSignalsHeartbeatEndpointConfigurationRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(signalsGetSignalsHeartbeatEndpointConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete a heartbeat endpoint configuration
+   *
+   * @remarks
+   * Delete a heartbeat endpoint configuration
+   */
+  async deleteSignalsHeartbeatEndpointConfiguration(
+    request: operations.DeleteSignalsHeartbeatEndpointConfigurationRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(signalsDeleteSignalsHeartbeatEndpointConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a heartbeat endpoint configuration
+   *
+   * @remarks
+   * Update an existing heartbeat endpoint configuration
+   */
+  async updateSignalsHeartbeatEndpointConfiguration(
+    request: operations.UpdateSignalsHeartbeatEndpointConfigurationRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(signalsUpdateSignalsHeartbeatEndpointConfiguration(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * List notification policies
    *
    * @remarks
@@ -942,6 +1033,23 @@ export class Signals extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(signalsUpdateNotificationPolicy(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List notification settings for a user
+   *
+   * @remarks
+   * List all Signals notification settings for a specific user. Requires an API key with PII access enabled.
+   */
+  async listUserNotificationSettingsByUserId(
+    request: operations.ListUserNotificationSettingsByUserIdRequest,
+    options?: RequestOptions,
+  ): Promise<components.SignalsAPIUserNotificationSettingEntityPaginated> {
+    return unwrapAsync(signalsListUserNotificationSettingsByUserId(
       this,
       request,
       options,

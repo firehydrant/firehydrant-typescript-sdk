@@ -36,6 +36,7 @@ export type IncidentsRetrospectiveFieldEntity = {
   permissibleValues?: Array<string> | null | undefined;
   isRequired?: boolean | null | undefined;
   value?: string | null | undefined;
+  retrospectiveFieldId?: string | null | undefined;
   schema?: Array<Schema> | null | undefined;
   requiredAtMilestoneId?: string | null | undefined;
 };
@@ -90,6 +91,7 @@ export const IncidentsRetrospectiveFieldEntity$inboundSchema: z.ZodType<
   permissible_values: z.nullable(z.array(z.string())).optional(),
   is_required: z.nullable(z.boolean()).optional(),
   value: z.nullable(z.string()).optional(),
+  retrospective_field_id: z.nullable(z.string()).optional(),
   schema: z.nullable(z.array(z.lazy(() => Schema$inboundSchema))).optional(),
   required_at_milestone_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -97,6 +99,7 @@ export const IncidentsRetrospectiveFieldEntity$inboundSchema: z.ZodType<
     "help_text": "helpText",
     "permissible_values": "permissibleValues",
     "is_required": "isRequired",
+    "retrospective_field_id": "retrospectiveFieldId",
     "required_at_milestone_id": "requiredAtMilestoneId",
   });
 });
@@ -109,6 +112,7 @@ export type IncidentsRetrospectiveFieldEntity$Outbound = {
   permissible_values?: Array<string> | null | undefined;
   is_required?: boolean | null | undefined;
   value?: string | null | undefined;
+  retrospective_field_id?: string | null | undefined;
   schema?: Array<Schema$Outbound> | null | undefined;
   required_at_milestone_id?: string | null | undefined;
 };
@@ -127,6 +131,7 @@ export const IncidentsRetrospectiveFieldEntity$outboundSchema: z.ZodType<
   permissibleValues: z.nullable(z.array(z.string())).optional(),
   isRequired: z.nullable(z.boolean()).optional(),
   value: z.nullable(z.string()).optional(),
+  retrospectiveFieldId: z.nullable(z.string()).optional(),
   schema: z.nullable(z.array(z.lazy(() => Schema$outboundSchema))).optional(),
   requiredAtMilestoneId: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -134,6 +139,7 @@ export const IncidentsRetrospectiveFieldEntity$outboundSchema: z.ZodType<
     helpText: "help_text",
     permissibleValues: "permissible_values",
     isRequired: "is_required",
+    retrospectiveFieldId: "retrospective_field_id",
     requiredAtMilestoneId: "required_at_milestone_id",
   });
 });

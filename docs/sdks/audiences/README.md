@@ -79,7 +79,7 @@ run();
 
 ### Response
 
-**Promise\<[components.AudiencesEntitiesAudienceEntity](../../models/components/audiencesentitiesaudienceentity.md)\>**
+**Promise\<[components.AudiencesEntitiesAudienceEntityPaginated](../../models/components/audiencesentitiesaudienceentitypaginated.md)\>**
 
 ### Errors
 

@@ -19,12 +19,16 @@ import { catalogEntriesGetService } from "../funcs/catalogEntriesGetService.js";
 import { catalogEntriesGetServiceDependencies } from "../funcs/catalogEntriesGetServiceDependencies.js";
 import { catalogEntriesGetServiceDependency } from "../funcs/catalogEntriesGetServiceDependency.js";
 import { catalogEntriesIngestCatalogData } from "../funcs/catalogEntriesIngestCatalogData.js";
+import { catalogEntriesListEnvironmentFunctionalities } from "../funcs/catalogEntriesListEnvironmentFunctionalities.js";
 import { catalogEntriesListEnvironments } from "../funcs/catalogEntriesListEnvironments.js";
+import { catalogEntriesListEnvironmentServices } from "../funcs/catalogEntriesListEnvironmentServices.js";
 import { catalogEntriesListFunctionalities } from "../funcs/catalogEntriesListFunctionalities.js";
+import { catalogEntriesListFunctionalityEnvironments } from "../funcs/catalogEntriesListFunctionalityEnvironments.js";
 import { catalogEntriesListFunctionalityServices } from "../funcs/catalogEntriesListFunctionalityServices.js";
 import { catalogEntriesListInfrastructures } from "../funcs/catalogEntriesListInfrastructures.js";
 import { catalogEntriesListServiceAvailableDownstreamDependencies } from "../funcs/catalogEntriesListServiceAvailableDownstreamDependencies.js";
 import { catalogEntriesListServiceAvailableUpstreamDependencies } from "../funcs/catalogEntriesListServiceAvailableUpstreamDependencies.js";
+import { catalogEntriesListServiceEnvironments } from "../funcs/catalogEntriesListServiceEnvironments.js";
 import { catalogEntriesListServices } from "../funcs/catalogEntriesListServices.js";
 import { catalogEntriesListUserOwnedServices } from "../funcs/catalogEntriesListUserOwnedServices.js";
 import { catalogEntriesRefreshCatalog } from "../funcs/catalogEntriesRefreshCatalog.js";
@@ -117,6 +121,40 @@ export class CatalogEntries extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.EnvironmentEntryEntity> {
     return unwrapAsync(catalogEntriesUpdateEnvironment(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List services for an environment
+   *
+   * @remarks
+   * List services for an environment
+   */
+  async listEnvironmentServices(
+    request: operations.ListEnvironmentServicesRequest,
+    options?: RequestOptions,
+  ): Promise<components.ServiceEntityLitePaginated> {
+    return unwrapAsync(catalogEntriesListEnvironmentServices(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List functionalities for an environment
+   *
+   * @remarks
+   * List functionalities for an environment
+   */
+  async listEnvironmentFunctionalities(
+    request: operations.ListEnvironmentFunctionalitiesRequest,
+    options?: RequestOptions,
+  ): Promise<components.FunctionalityEntityLitePaginated> {
+    return unwrapAsync(catalogEntriesListEnvironmentFunctionalities(
       this,
       request,
       options,
@@ -220,6 +258,23 @@ export class CatalogEntries extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.ServiceEntity> {
     return unwrapAsync(catalogEntriesUpdateService(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List environments for a service
+   *
+   * @remarks
+   * List environments for a service
+   */
+  async listServiceEnvironments(
+    request: operations.ListServiceEnvironmentsRequest,
+    options?: RequestOptions,
+  ): Promise<components.EnvironmentEntryEntityPaginated> {
+    return unwrapAsync(catalogEntriesListServiceEnvironments(
       this,
       request,
       options,
@@ -458,6 +513,23 @@ export class CatalogEntries extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.FunctionalityEntity> {
     return unwrapAsync(catalogEntriesUpdateFunctionality(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List environments for a functionality
+   *
+   * @remarks
+   * List environments for a functionality
+   */
+  async listFunctionalityEnvironments(
+    request: operations.ListFunctionalityEnvironmentsRequest,
+    options?: RequestOptions,
+  ): Promise<components.EnvironmentEntryEntityPaginated> {
+    return unwrapAsync(catalogEntriesListFunctionalityEnvironments(
       this,
       request,
       options,

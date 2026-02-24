@@ -7,7 +7,7 @@ import { CreateIncidentMilestone } from "firehydrant-typescript-sdk/models/compo
 
 let value: CreateIncidentMilestone = {
   type: "<value>",
-  occurredAt: new Date("2024-04-24T13:05:36.106Z"),
+  occurredAt: new Date("2025-04-24T13:05:36.106Z"),
 };
 ```
 

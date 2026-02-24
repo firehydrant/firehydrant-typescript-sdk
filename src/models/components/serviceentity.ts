@@ -14,6 +14,12 @@ import {
   ChecklistTemplateEntity$outboundSchema,
 } from "./checklisttemplateentity.js";
 import {
+  EnvironmentEntryEntity,
+  EnvironmentEntryEntity$inboundSchema,
+  EnvironmentEntryEntity$Outbound,
+  EnvironmentEntryEntity$outboundSchema,
+} from "./environmententryentity.js";
+import {
   ExternalResourceEntity,
   ExternalResourceEntity$inboundSchema,
   ExternalResourceEntity$Outbound,
@@ -96,6 +102,10 @@ export type ServiceEntity = {
    * List of functionalities attached to the service
    */
   functionalities?: Array<FunctionalityEntity> | null | undefined;
+  /**
+   * Environments related to this service
+   */
+  environments?: Array<EnvironmentEntryEntity> | null | undefined;
   lastImport?: NullableImportsImportableResourceEntity | null | undefined;
   /**
    * List of links attached to this service.
@@ -182,6 +192,8 @@ export const ServiceEntity$inboundSchema: z.ZodType<
     .optional(),
   functionalities: z.nullable(z.array(FunctionalityEntity$inboundSchema))
     .optional(),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$inboundSchema))
+    .optional(),
   last_import: z.nullable(NullableImportsImportableResourceEntity$inboundSchema)
     .optional(),
   links: z.nullable(z.array(LinksEntity$inboundSchema)).optional(),
@@ -234,6 +246,7 @@ export type ServiceEntity$Outbound = {
     | null
     | undefined;
   functionalities?: Array<FunctionalityEntity$Outbound> | null | undefined;
+  environments?: Array<EnvironmentEntryEntity$Outbound> | null | undefined;
   last_import?:
     | NullableImportsImportableResourceEntity$Outbound
     | null
@@ -274,6 +287,8 @@ export const ServiceEntity$outboundSchema: z.ZodType<
   externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
     .optional(),
   functionalities: z.nullable(z.array(FunctionalityEntity$outboundSchema))
+    .optional(),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$outboundSchema))
     .optional(),
   lastImport: z.nullable(NullableImportsImportableResourceEntity$outboundSchema)
     .optional(),

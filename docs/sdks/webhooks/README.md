@@ -74,7 +74,7 @@ run();
 
 ### Response
 
-**Promise\<[components.WebhooksEntitiesWebhookEntity](../../models/components/webhooksentitieswebhookentity.md)\>**
+**Promise\<[components.WebhooksEntitiesWebhookEntityPaginated](../../models/components/webhooksentitieswebhookentitypaginated.md)\>**
 
 ### Errors
 
@@ -170,11 +170,11 @@ const firehydrant = new Firehydrant({
 });
 
 async function run() {
-  await firehydrant.webhooks.listWebhookDeliveries({
+  const result = await firehydrant.webhooks.listWebhookDeliveries({
     webhookId: "<id>",
   });
 
-
+  console.log(result);
 }
 
 run();
@@ -200,7 +200,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    
+    console.log(result);
   } else {
     console.log("webhooksListWebhookDeliveries failed:", res.error);
   }
@@ -220,7 +220,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[components.WebhooksEntitiesDeliveryEntityPaginated](../../models/components/webhooksentitiesdeliveryentitypaginated.md)\>**
 
 ### Errors
 

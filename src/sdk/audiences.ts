@@ -28,7 +28,7 @@ export class Audiences extends ClientSDK {
   async listAudiences(
     request: operations.ListAudiencesRequest,
     options?: RequestOptions,
-  ): Promise<components.AudiencesEntitiesAudienceEntity> {
+  ): Promise<components.AudiencesEntitiesAudienceEntityPaginated> {
     return unwrapAsync(audiencesListAudiences(
       this,
       request,

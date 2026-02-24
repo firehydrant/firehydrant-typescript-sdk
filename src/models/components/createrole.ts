@@ -26,6 +26,7 @@ export const CreateRolePermission = {
   ReadOnCallSchedules: "read_on_call_schedules",
   ManageOnCallShifts: "manage_on_call_shifts",
   ClaimOnCallShifts: "claim_on_call_shifts",
+  ReadSignalsPii: "read_signals_pii",
   ManageOrganizationNotificationPolicies:
     "manage_organization_notification_policies",
   ReadNotificationPolicyCompliance: "read_notification_policy_compliance",

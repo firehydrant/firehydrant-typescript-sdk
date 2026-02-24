@@ -221,6 +221,9 @@ export type NullableIncidentEntity = {
   lastUpdate?: string | null | undefined;
   lastNote?: NullableEventNoteEntity | null | undefined;
   reportId?: string | null | undefined;
+  /**
+   * DEPRECATED: this field is deprecated and will be removed in a future version. Please use the `/v1/audiences/summaries/:incident_id` endpoint instead.
+   */
   aiIncidentSummary?: string | null | undefined;
   services?: Array<SuccinctEntity> | null | undefined;
   environments?: Array<SuccinctEntity> | null | undefined;

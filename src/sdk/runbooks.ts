@@ -185,7 +185,7 @@ export class Runbooks extends ClientSDK {
   async listRunbooks(
     request: operations.ListRunbooksRequest,
     options?: RequestOptions,
-  ): Promise<components.RunbookEntity> {
+  ): Promise<components.SlimRunbookEntityPaginated> {
     return unwrapAsync(runbooksListRunbooks(
       this,
       request,

@@ -9,6 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetTeamRequest = {
+  /**
+   * Team UUID or slug
+   */
   teamId: string;
   /**
    * Boolean to determine whether to return a slimified version of the teams object

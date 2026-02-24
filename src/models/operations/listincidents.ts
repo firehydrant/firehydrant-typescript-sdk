@@ -144,9 +144,17 @@ export type ListIncidentsRequest = {
    */
   updatedBefore?: Date | null | undefined;
   /**
-   * A comma separated list of incident type IDs
+   * A comma separated list of incident type IDs or 'is_empty' to filter for incidents with no incident type
    */
   incidentTypeId?: string | null | undefined;
+  /**
+   * Custom field ID to filter on
+   */
+  customFieldsFieldId?: Array<string> | null | undefined;
+  /**
+   * Custom field value (empty means no value set)
+   */
+  customFieldsValue?: Array<string> | null | undefined;
   /**
    * A comma separated list of retrospective template IDs
    */
@@ -225,6 +233,8 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   incident_type_id: z.nullable(z.string()).optional(),
+  "custom_fields[field_id]": z.nullable(z.array(z.string())).optional(),
+  "custom_fields[value]": z.nullable(z.array(z.string())).optional(),
   retrospective_templates: z.nullable(z.string()).optional(),
   attached_runbooks: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -248,6 +258,8 @@ export const ListIncidentsRequest$inboundSchema: z.ZodType<
     "updated_after": "updatedAfter",
     "updated_before": "updatedBefore",
     "incident_type_id": "incidentTypeId",
+    "custom_fields[field_id]": "customFieldsFieldId",
+    "custom_fields[value]": "customFieldsValue",
     "retrospective_templates": "retrospectiveTemplates",
     "attached_runbooks": "attachedRunbooks",
   });
@@ -286,6 +298,8 @@ export type ListIncidentsRequest$Outbound = {
   updated_after?: string | null | undefined;
   updated_before?: string | null | undefined;
   incident_type_id?: string | null | undefined;
+  "custom_fields[field_id]"?: Array<string> | null | undefined;
+  "custom_fields[value]"?: Array<string> | null | undefined;
   retrospective_templates?: string | null | undefined;
   attached_runbooks?: string | null | undefined;
 };
@@ -336,6 +350,8 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
   updatedBefore: z.nullable(z.date().transform(v => v.toISOString()))
     .optional(),
   incidentTypeId: z.nullable(z.string()).optional(),
+  customFieldsFieldId: z.nullable(z.array(z.string())).optional(),
+  customFieldsValue: z.nullable(z.array(z.string())).optional(),
   retrospectiveTemplates: z.nullable(z.string()).optional(),
   attachedRunbooks: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -359,6 +375,8 @@ export const ListIncidentsRequest$outboundSchema: z.ZodType<
     updatedAfter: "updated_after",
     updatedBefore: "updated_before",
     incidentTypeId: "incident_type_id",
+    customFieldsFieldId: "custom_fields[field_id]",
+    customFieldsValue: "custom_fields[value]",
     retrospectiveTemplates: "retrospective_templates",
     attachedRunbooks: "attached_runbooks",
   });

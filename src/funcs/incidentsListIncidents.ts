@@ -3,7 +3,7 @@
  */
 
 import { FirehydrantCore } from "../core.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import { encodeFormQuery, queryJoin } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -88,42 +88,48 @@ async function $do(
 
   const path = pathToFunc("/v1/incidents")();
 
-  const query = encodeFormQuery({
-    "archived": payload.archived,
-    "assigned_teams": payload.assigned_teams,
-    "attached_runbooks": payload.attached_runbooks,
-    "closed_at_or_after": payload.closed_at_or_after,
-    "closed_at_or_before": payload.closed_at_or_before,
-    "conditions": payload.conditions,
-    "created_at_or_after": payload.created_at_or_after,
-    "created_at_or_before": payload.created_at_or_before,
-    "current_milestones": payload.current_milestones,
-    "end_date": payload.end_date,
-    "environments": payload.environments,
-    "excluded_infrastructure_ids": payload.excluded_infrastructure_ids,
-    "functionalities": payload.functionalities,
-    "incident_type_id": payload.incident_type_id,
-    "name": payload.name,
-    "page": payload.page,
-    "per_page": payload.per_page,
-    "priorities": payload.priorities,
-    "priority_not_set": payload.priority_not_set,
-    "query": payload.query,
-    "resolved_at_or_after": payload.resolved_at_or_after,
-    "resolved_at_or_before": payload.resolved_at_or_before,
-    "retrospective_templates": payload.retrospective_templates,
-    "saved_search_id": payload.saved_search_id,
-    "services": payload.services,
-    "severities": payload.severities,
-    "severity_not_set": payload.severity_not_set,
-    "start_date": payload.start_date,
-    "status": payload.status,
-    "tag_match_strategy": payload.tag_match_strategy,
-    "tags": payload.tags,
-    "teams": payload.teams,
-    "updated_after": payload.updated_after,
-    "updated_before": payload.updated_before,
-  });
+  const query = queryJoin(
+    encodeFormQuery({
+      "custom_fields[field_id]": payload["custom_fields[field_id]"],
+      "custom_fields[value]": payload["custom_fields[value]"],
+    }, { explode: false }),
+    encodeFormQuery({
+      "archived": payload.archived,
+      "assigned_teams": payload.assigned_teams,
+      "attached_runbooks": payload.attached_runbooks,
+      "closed_at_or_after": payload.closed_at_or_after,
+      "closed_at_or_before": payload.closed_at_or_before,
+      "conditions": payload.conditions,
+      "created_at_or_after": payload.created_at_or_after,
+      "created_at_or_before": payload.created_at_or_before,
+      "current_milestones": payload.current_milestones,
+      "end_date": payload.end_date,
+      "environments": payload.environments,
+      "excluded_infrastructure_ids": payload.excluded_infrastructure_ids,
+      "functionalities": payload.functionalities,
+      "incident_type_id": payload.incident_type_id,
+      "name": payload.name,
+      "page": payload.page,
+      "per_page": payload.per_page,
+      "priorities": payload.priorities,
+      "priority_not_set": payload.priority_not_set,
+      "query": payload.query,
+      "resolved_at_or_after": payload.resolved_at_or_after,
+      "resolved_at_or_before": payload.resolved_at_or_before,
+      "retrospective_templates": payload.retrospective_templates,
+      "saved_search_id": payload.saved_search_id,
+      "services": payload.services,
+      "severities": payload.severities,
+      "severity_not_set": payload.severity_not_set,
+      "start_date": payload.start_date,
+      "status": payload.status,
+      "tag_match_strategy": payload.tag_match_strategy,
+      "tags": payload.tags,
+      "teams": payload.teams,
+      "updated_after": payload.updated_after,
+      "updated_before": payload.updated_before,
+    }),
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",

@@ -7,9 +7,7 @@ import { UpdateEnvironmentRequest } from "firehydrant-typescript-sdk/models/oper
 
 let value: UpdateEnvironmentRequest = {
   environmentId: "<id>",
-  updateEnvironment: {
-    name: "<value>",
-  },
+  updateEnvironment: {},
 };
 ```
 
@@ -17,5 +15,5 @@ let value: UpdateEnvironmentRequest = {
 
 | Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `environmentId`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | Environment UUID                                                             |
+| `environmentId`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | Environment UUID or slug                                                     |
 | `updateEnvironment`                                                          | [components.UpdateEnvironment](../../models/components/updateenvironment.md) | :heavy_check_mark:                                                           | N/A                                                                          |

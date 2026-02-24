@@ -267,3 +267,13 @@ Based on:
 - [typescript v1.2.1] .
 ### Releases
 - [NPM v1.2.1] https://www.npmjs.com/package/firehydrant-typescript-sdk/v/1.2.1 - .
+
+## 2026-02-24 00:12:42
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.725.0 (2.836.5) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.3.0] .
+### Releases
+- [NPM v1.3.0] https://www.npmjs.com/package/firehydrant-typescript-sdk/v/1.3.0 - .

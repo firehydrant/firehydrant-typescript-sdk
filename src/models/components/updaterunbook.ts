@@ -23,7 +23,7 @@ export type UpdateRunbookService = {
   id?: string | null | undefined;
 };
 
-export type Environment = {
+export type UpdateRunbookEnvironment = {
   id?: string | null | undefined;
 };
 
@@ -85,7 +85,7 @@ export type UpdateRunbook = {
   owner?: UpdateRunbookOwner | null | undefined;
   severities?: Array<UpdateRunbookSeverity> | null | undefined;
   services?: Array<UpdateRunbookService> | null | undefined;
-  environments?: Array<Environment> | null | undefined;
+  environments?: Array<UpdateRunbookEnvironment> | null | undefined;
   attachmentRule?: UpdateRunbookAttachmentRule | null | undefined;
   steps?: Array<UpdateRunbookStep> | null | undefined;
   /**
@@ -212,37 +212,41 @@ export function updateRunbookServiceFromJSON(
 }
 
 /** @internal */
-export const Environment$inboundSchema: z.ZodType<
-  Environment,
+export const UpdateRunbookEnvironment$inboundSchema: z.ZodType<
+  UpdateRunbookEnvironment,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.nullable(z.string()).optional(),
 });
 /** @internal */
-export type Environment$Outbound = {
+export type UpdateRunbookEnvironment$Outbound = {
   id?: string | null | undefined;
 };
 
 /** @internal */
-export const Environment$outboundSchema: z.ZodType<
-  Environment$Outbound,
+export const UpdateRunbookEnvironment$outboundSchema: z.ZodType<
+  UpdateRunbookEnvironment$Outbound,
   z.ZodTypeDef,
-  Environment
+  UpdateRunbookEnvironment
 > = z.object({
   id: z.nullable(z.string()).optional(),
 });
 
-export function environmentToJSON(environment: Environment): string {
-  return JSON.stringify(Environment$outboundSchema.parse(environment));
+export function updateRunbookEnvironmentToJSON(
+  updateRunbookEnvironment: UpdateRunbookEnvironment,
+): string {
+  return JSON.stringify(
+    UpdateRunbookEnvironment$outboundSchema.parse(updateRunbookEnvironment),
+  );
 }
-export function environmentFromJSON(
+export function updateRunbookEnvironmentFromJSON(
   jsonString: string,
-): SafeParseResult<Environment, SDKValidationError> {
+): SafeParseResult<UpdateRunbookEnvironment, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Environment$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Environment' from JSON`,
+    (x) => UpdateRunbookEnvironment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateRunbookEnvironment' from JSON`,
   );
 }
 
@@ -423,8 +427,9 @@ export const UpdateRunbook$inboundSchema: z.ZodType<
   services: z.nullable(
     z.array(z.lazy(() => UpdateRunbookService$inboundSchema)),
   ).optional(),
-  environments: z.nullable(z.array(z.lazy(() => Environment$inboundSchema)))
-    .optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => UpdateRunbookEnvironment$inboundSchema)),
+  ).optional(),
   attachment_rule: z.nullable(
     z.lazy(() => UpdateRunbookAttachmentRule$inboundSchema),
   ).optional(),
@@ -446,7 +451,7 @@ export type UpdateRunbook$Outbound = {
   owner?: UpdateRunbookOwner$Outbound | null | undefined;
   severities?: Array<UpdateRunbookSeverity$Outbound> | null | undefined;
   services?: Array<UpdateRunbookService$Outbound> | null | undefined;
-  environments?: Array<Environment$Outbound> | null | undefined;
+  environments?: Array<UpdateRunbookEnvironment$Outbound> | null | undefined;
   attachment_rule?: UpdateRunbookAttachmentRule$Outbound | null | undefined;
   steps?: Array<UpdateRunbookStep$Outbound> | null | undefined;
   auto_attach_to_restricted_incidents?: boolean | null | undefined;
@@ -469,8 +474,9 @@ export const UpdateRunbook$outboundSchema: z.ZodType<
   services: z.nullable(
     z.array(z.lazy(() => UpdateRunbookService$outboundSchema)),
   ).optional(),
-  environments: z.nullable(z.array(z.lazy(() => Environment$outboundSchema)))
-    .optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => UpdateRunbookEnvironment$outboundSchema)),
+  ).optional(),
   attachmentRule: z.nullable(
     z.lazy(() => UpdateRunbookAttachmentRule$outboundSchema),
   ).optional(),

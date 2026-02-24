@@ -14,13 +14,53 @@ import {
   NullableFHTypesGenericEntity$outboundSchema,
 } from "./nullablefhtypesgenericentity.js";
 
+/**
+ * An unstructured object of key/value pairs describing the logic for applying the rule.
+ */
+export type NullableRulesRuleEntityLogic = {};
+
 export type NullableRulesRuleEntity = {
   /**
-   * JSON stringified object of key/value pairs describing the logic for applying the rule.
+   * An unstructured object of key/value pairs describing the logic for applying the rule.
    */
-  logic?: string | null | undefined;
+  logic?: NullableRulesRuleEntityLogic | null | undefined;
   userData?: NullableFHTypesGenericEntity | null | undefined;
 };
+
+/** @internal */
+export const NullableRulesRuleEntityLogic$inboundSchema: z.ZodType<
+  NullableRulesRuleEntityLogic,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+/** @internal */
+export type NullableRulesRuleEntityLogic$Outbound = {};
+
+/** @internal */
+export const NullableRulesRuleEntityLogic$outboundSchema: z.ZodType<
+  NullableRulesRuleEntityLogic$Outbound,
+  z.ZodTypeDef,
+  NullableRulesRuleEntityLogic
+> = z.object({});
+
+export function nullableRulesRuleEntityLogicToJSON(
+  nullableRulesRuleEntityLogic: NullableRulesRuleEntityLogic,
+): string {
+  return JSON.stringify(
+    NullableRulesRuleEntityLogic$outboundSchema.parse(
+      nullableRulesRuleEntityLogic,
+    ),
+  );
+}
+export function nullableRulesRuleEntityLogicFromJSON(
+  jsonString: string,
+): SafeParseResult<NullableRulesRuleEntityLogic, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => NullableRulesRuleEntityLogic$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'NullableRulesRuleEntityLogic' from JSON`,
+  );
+}
 
 /** @internal */
 export const NullableRulesRuleEntity$inboundSchema: z.ZodType<
@@ -28,7 +68,8 @@ export const NullableRulesRuleEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  logic: z.nullable(z.string()).optional(),
+  logic: z.nullable(z.lazy(() => NullableRulesRuleEntityLogic$inboundSchema))
+    .optional(),
   user_data: z.nullable(NullableFHTypesGenericEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -37,7 +78,7 @@ export const NullableRulesRuleEntity$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type NullableRulesRuleEntity$Outbound = {
-  logic?: string | null | undefined;
+  logic?: NullableRulesRuleEntityLogic$Outbound | null | undefined;
   user_data?: NullableFHTypesGenericEntity$Outbound | null | undefined;
 };
 
@@ -47,7 +88,8 @@ export const NullableRulesRuleEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   NullableRulesRuleEntity
 > = z.object({
-  logic: z.nullable(z.string()).optional(),
+  logic: z.nullable(z.lazy(() => NullableRulesRuleEntityLogic$outboundSchema))
+    .optional(),
   userData: z.nullable(NullableFHTypesGenericEntity$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {

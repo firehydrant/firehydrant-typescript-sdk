@@ -38,6 +38,17 @@ export type UpdateFunctionalityService = {
   remove?: boolean | null | undefined;
 };
 
+export type UpdateFunctionalityEnvironment = {
+  /**
+   * ID of an environment
+   */
+  id: string;
+  /**
+   * Set to true if you want to remove the given environment from the functionality
+   */
+  remove?: boolean | null | undefined;
+};
+
 export type UpdateFunctionalityLink = {
   /**
    * URL
@@ -100,6 +111,15 @@ export type UpdateFunctionality = {
   serviceTier?: UpdateFunctionalityServiceTier | null | undefined;
   services?: Array<UpdateFunctionalityService> | null | undefined;
   /**
+   * Set this to true if you want to remove all of the services that are not included in the services array from the functionality
+   */
+  removeRemainingServices?: boolean | null | undefined;
+  environments?: Array<UpdateFunctionalityEnvironment> | null | undefined;
+  /**
+   * Set this to true if you want to remove all of the environments that are not included in the environments array from the functionality
+   */
+  removeRemainingEnvironments?: boolean | null | undefined;
+  /**
    * An array of links to associate with this functionality. This will remove all links not present in the patch. Only acts if 'links' key is included in the payload.
    */
   links?: Array<UpdateFunctionalityLink> | null | undefined;
@@ -136,10 +156,6 @@ export type UpdateFunctionality = {
   labels?: { [k: string]: string } | null | undefined;
   alertOnAdd?: boolean | null | undefined;
   autoAddRespondingTeam?: boolean | null | undefined;
-  /**
-   * Set this to true if you want to remove all of the services that are not included in the services array from the functionality
-   */
-  removeRemainingServices?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -190,6 +206,50 @@ export function updateFunctionalityServiceFromJSON(
     jsonString,
     (x) => UpdateFunctionalityService$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'UpdateFunctionalityService' from JSON`,
+  );
+}
+
+/** @internal */
+export const UpdateFunctionalityEnvironment$inboundSchema: z.ZodType<
+  UpdateFunctionalityEnvironment,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+/** @internal */
+export type UpdateFunctionalityEnvironment$Outbound = {
+  id: string;
+  remove?: boolean | null | undefined;
+};
+
+/** @internal */
+export const UpdateFunctionalityEnvironment$outboundSchema: z.ZodType<
+  UpdateFunctionalityEnvironment$Outbound,
+  z.ZodTypeDef,
+  UpdateFunctionalityEnvironment
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+
+export function updateFunctionalityEnvironmentToJSON(
+  updateFunctionalityEnvironment: UpdateFunctionalityEnvironment,
+): string {
+  return JSON.stringify(
+    UpdateFunctionalityEnvironment$outboundSchema.parse(
+      updateFunctionalityEnvironment,
+    ),
+  );
+}
+export function updateFunctionalityEnvironmentFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateFunctionalityEnvironment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateFunctionalityEnvironment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateFunctionalityEnvironment' from JSON`,
   );
 }
 
@@ -406,6 +466,11 @@ export const UpdateFunctionality$inboundSchema: z.ZodType<
   services: z.nullable(
     z.array(z.lazy(() => UpdateFunctionalityService$inboundSchema)),
   ).optional(),
+  remove_remaining_services: z.nullable(z.boolean().default(false)),
+  environments: z.nullable(
+    z.array(z.lazy(() => UpdateFunctionalityEnvironment$inboundSchema)),
+  ).optional(),
+  remove_remaining_environments: z.nullable(z.boolean().default(false)),
   links: z.nullable(
     z.array(z.lazy(() => UpdateFunctionalityLink$inboundSchema)),
   ).optional(),
@@ -423,17 +488,17 @@ export const UpdateFunctionality$inboundSchema: z.ZodType<
   labels: z.nullable(z.record(z.string())).optional(),
   alert_on_add: z.nullable(z.boolean()).optional(),
   auto_add_responding_team: z.nullable(z.boolean()).optional(),
-  remove_remaining_services: z.nullable(z.boolean().default(false)),
 }).transform((v) => {
   return remap$(v, {
     "service_tier": "serviceTier",
+    "remove_remaining_services": "removeRemainingServices",
+    "remove_remaining_environments": "removeRemainingEnvironments",
     "remove_owner": "removeOwner",
     "remove_remaining_teams": "removeRemainingTeams",
     "external_resources": "externalResources",
     "remove_remaining_external_resources": "removeRemainingExternalResources",
     "alert_on_add": "alertOnAdd",
     "auto_add_responding_team": "autoAddRespondingTeam",
-    "remove_remaining_services": "removeRemainingServices",
   });
 });
 /** @internal */
@@ -442,6 +507,12 @@ export type UpdateFunctionality$Outbound = {
   description?: string | null | undefined;
   service_tier?: number | null | undefined;
   services?: Array<UpdateFunctionalityService$Outbound> | null | undefined;
+  remove_remaining_services: boolean | null;
+  environments?:
+    | Array<UpdateFunctionalityEnvironment$Outbound>
+    | null
+    | undefined;
+  remove_remaining_environments: boolean | null;
   links?: Array<UpdateFunctionalityLink$Outbound> | null | undefined;
   owner?: UpdateFunctionalityOwner$Outbound | null | undefined;
   remove_owner?: boolean | null | undefined;
@@ -455,7 +526,6 @@ export type UpdateFunctionality$Outbound = {
   labels?: { [k: string]: string } | null | undefined;
   alert_on_add?: boolean | null | undefined;
   auto_add_responding_team?: boolean | null | undefined;
-  remove_remaining_services: boolean | null;
 };
 
 /** @internal */
@@ -471,6 +541,11 @@ export const UpdateFunctionality$outboundSchema: z.ZodType<
   services: z.nullable(
     z.array(z.lazy(() => UpdateFunctionalityService$outboundSchema)),
   ).optional(),
+  removeRemainingServices: z.nullable(z.boolean().default(false)),
+  environments: z.nullable(
+    z.array(z.lazy(() => UpdateFunctionalityEnvironment$outboundSchema)),
+  ).optional(),
+  removeRemainingEnvironments: z.nullable(z.boolean().default(false)),
   links: z.nullable(
     z.array(z.lazy(() => UpdateFunctionalityLink$outboundSchema)),
   ).optional(),
@@ -488,17 +563,17 @@ export const UpdateFunctionality$outboundSchema: z.ZodType<
   labels: z.nullable(z.record(z.string())).optional(),
   alertOnAdd: z.nullable(z.boolean()).optional(),
   autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
-  removeRemainingServices: z.nullable(z.boolean().default(false)),
 }).transform((v) => {
   return remap$(v, {
     serviceTier: "service_tier",
+    removeRemainingServices: "remove_remaining_services",
+    removeRemainingEnvironments: "remove_remaining_environments",
     removeOwner: "remove_owner",
     removeRemainingTeams: "remove_remaining_teams",
     externalResources: "external_resources",
     removeRemainingExternalResources: "remove_remaining_external_resources",
     alertOnAdd: "alert_on_add",
     autoAddRespondingTeam: "auto_add_responding_team",
-    removeRemainingServices: "remove_remaining_services",
   });
 });
 

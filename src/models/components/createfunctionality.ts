@@ -16,6 +16,13 @@ export type CreateFunctionalityService = {
   id: string;
 };
 
+export type CreateFunctionalityEnvironment = {
+  /**
+   * ID of an environment
+   */
+  id: string;
+};
+
 /**
  * Integer representing functionality tier. Lower values represent higher criticality. Default is 5.
  */
@@ -75,6 +82,7 @@ export type CreateFunctionality = {
   name: string;
   description?: string | null | undefined;
   services?: Array<CreateFunctionalityService> | null | undefined;
+  environments?: Array<CreateFunctionalityEnvironment> | null | undefined;
   /**
    * A hash of label keys and values
    */
@@ -142,6 +150,47 @@ export function createFunctionalityServiceFromJSON(
     jsonString,
     (x) => CreateFunctionalityService$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CreateFunctionalityService' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateFunctionalityEnvironment$inboundSchema: z.ZodType<
+  CreateFunctionalityEnvironment,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+});
+/** @internal */
+export type CreateFunctionalityEnvironment$Outbound = {
+  id: string;
+};
+
+/** @internal */
+export const CreateFunctionalityEnvironment$outboundSchema: z.ZodType<
+  CreateFunctionalityEnvironment$Outbound,
+  z.ZodTypeDef,
+  CreateFunctionalityEnvironment
+> = z.object({
+  id: z.string(),
+});
+
+export function createFunctionalityEnvironmentToJSON(
+  createFunctionalityEnvironment: CreateFunctionalityEnvironment,
+): string {
+  return JSON.stringify(
+    CreateFunctionalityEnvironment$outboundSchema.parse(
+      createFunctionalityEnvironment,
+    ),
+  );
+}
+export function createFunctionalityEnvironmentFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateFunctionalityEnvironment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateFunctionalityEnvironment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateFunctionalityEnvironment' from JSON`,
   );
 }
 
@@ -353,6 +402,9 @@ export const CreateFunctionality$inboundSchema: z.ZodType<
   services: z.nullable(
     z.array(z.lazy(() => CreateFunctionalityService$inboundSchema)),
   ).optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => CreateFunctionalityEnvironment$inboundSchema)),
+  ).optional(),
   labels: z.nullable(z.record(z.string())).optional(),
   service_tier: z.nullable(CreateFunctionalityServiceTier$inboundSchema)
     .optional(),
@@ -382,6 +434,10 @@ export type CreateFunctionality$Outbound = {
   name: string;
   description?: string | null | undefined;
   services?: Array<CreateFunctionalityService$Outbound> | null | undefined;
+  environments?:
+    | Array<CreateFunctionalityEnvironment$Outbound>
+    | null
+    | undefined;
   labels?: { [k: string]: string } | null | undefined;
   service_tier?: number | null | undefined;
   alert_on_add?: boolean | null | undefined;
@@ -405,6 +461,9 @@ export const CreateFunctionality$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   services: z.nullable(
     z.array(z.lazy(() => CreateFunctionalityService$outboundSchema)),
+  ).optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => CreateFunctionalityEnvironment$outboundSchema)),
   ).optional(),
   labels: z.nullable(z.record(z.string())).optional(),
   serviceTier: z.nullable(CreateFunctionalityServiceTier$outboundSchema)

@@ -3,17 +3,136 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+export type UpdateEnvironmentFunctionality = {
+  /**
+   * ID of a functionality
+   */
+  id: string;
+  /**
+   * Set to true if you want to remove the given functionality from the environment
+   */
+  remove?: boolean | null | undefined;
+};
+
+export type UpdateEnvironmentService = {
+  /**
+   * ID of a service
+   */
+  id: string;
+  /**
+   * Set to true if you want to remove the given service from the environment
+   */
+  remove?: boolean | null | undefined;
+};
 
 /**
  * Update a environments attributes
  */
 export type UpdateEnvironment = {
-  name: string;
+  name?: string | null | undefined;
   description?: string | null | undefined;
+  functionalities?: Array<UpdateEnvironmentFunctionality> | null | undefined;
+  /**
+   * Set this to true if you want to remove all of the functionalities that are not included in the functionalities array from the environment
+   */
+  removeRemainingFunctionalities?: boolean | null | undefined;
+  services?: Array<UpdateEnvironmentService> | null | undefined;
+  /**
+   * Set this to true if you want to remove all of the services that are not included in the services array from the environment
+   */
+  removeRemainingServices?: boolean | null | undefined;
 };
+
+/** @internal */
+export const UpdateEnvironmentFunctionality$inboundSchema: z.ZodType<
+  UpdateEnvironmentFunctionality,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+/** @internal */
+export type UpdateEnvironmentFunctionality$Outbound = {
+  id: string;
+  remove?: boolean | null | undefined;
+};
+
+/** @internal */
+export const UpdateEnvironmentFunctionality$outboundSchema: z.ZodType<
+  UpdateEnvironmentFunctionality$Outbound,
+  z.ZodTypeDef,
+  UpdateEnvironmentFunctionality
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+
+export function updateEnvironmentFunctionalityToJSON(
+  updateEnvironmentFunctionality: UpdateEnvironmentFunctionality,
+): string {
+  return JSON.stringify(
+    UpdateEnvironmentFunctionality$outboundSchema.parse(
+      updateEnvironmentFunctionality,
+    ),
+  );
+}
+export function updateEnvironmentFunctionalityFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateEnvironmentFunctionality, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateEnvironmentFunctionality$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateEnvironmentFunctionality' from JSON`,
+  );
+}
+
+/** @internal */
+export const UpdateEnvironmentService$inboundSchema: z.ZodType<
+  UpdateEnvironmentService,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+/** @internal */
+export type UpdateEnvironmentService$Outbound = {
+  id: string;
+  remove?: boolean | null | undefined;
+};
+
+/** @internal */
+export const UpdateEnvironmentService$outboundSchema: z.ZodType<
+  UpdateEnvironmentService$Outbound,
+  z.ZodTypeDef,
+  UpdateEnvironmentService
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+
+export function updateEnvironmentServiceToJSON(
+  updateEnvironmentService: UpdateEnvironmentService,
+): string {
+  return JSON.stringify(
+    UpdateEnvironmentService$outboundSchema.parse(updateEnvironmentService),
+  );
+}
+export function updateEnvironmentServiceFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateEnvironmentService, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateEnvironmentService$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateEnvironmentService' from JSON`,
+  );
+}
 
 /** @internal */
 export const UpdateEnvironment$inboundSchema: z.ZodType<
@@ -21,13 +140,33 @@ export const UpdateEnvironment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  name: z.string(),
+  name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(
+    z.array(z.lazy(() => UpdateEnvironmentFunctionality$inboundSchema)),
+  ).optional(),
+  remove_remaining_functionalities: z.nullable(z.boolean().default(false)),
+  services: z.nullable(
+    z.array(z.lazy(() => UpdateEnvironmentService$inboundSchema)),
+  ).optional(),
+  remove_remaining_services: z.nullable(z.boolean().default(false)),
+}).transform((v) => {
+  return remap$(v, {
+    "remove_remaining_functionalities": "removeRemainingFunctionalities",
+    "remove_remaining_services": "removeRemainingServices",
+  });
 });
 /** @internal */
 export type UpdateEnvironment$Outbound = {
-  name: string;
+  name?: string | null | undefined;
   description?: string | null | undefined;
+  functionalities?:
+    | Array<UpdateEnvironmentFunctionality$Outbound>
+    | null
+    | undefined;
+  remove_remaining_functionalities: boolean | null;
+  services?: Array<UpdateEnvironmentService$Outbound> | null | undefined;
+  remove_remaining_services: boolean | null;
 };
 
 /** @internal */
@@ -36,8 +175,21 @@ export const UpdateEnvironment$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateEnvironment
 > = z.object({
-  name: z.string(),
+  name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(
+    z.array(z.lazy(() => UpdateEnvironmentFunctionality$outboundSchema)),
+  ).optional(),
+  removeRemainingFunctionalities: z.nullable(z.boolean().default(false)),
+  services: z.nullable(
+    z.array(z.lazy(() => UpdateEnvironmentService$outboundSchema)),
+  ).optional(),
+  removeRemainingServices: z.nullable(z.boolean().default(false)),
+}).transform((v) => {
+  return remap$(v, {
+    removeRemainingFunctionalities: "remove_remaining_functionalities",
+    removeRemainingServices: "remove_remaining_services",
+  });
 });
 
 export function updateEnvironmentToJSON(

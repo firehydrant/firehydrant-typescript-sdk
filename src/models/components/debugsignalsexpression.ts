@@ -8,7 +8,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Annotations = {};
+export type DebugSignalsExpressionAnnotations = {};
 
 export type Image = {
   src?: string | null | undefined;
@@ -26,7 +26,7 @@ export type Signal = {
   summary?: string | null | undefined;
   body?: string | null | undefined;
   level?: string | null | undefined;
-  annotations?: Annotations | null | undefined;
+  annotations?: DebugSignalsExpressionAnnotations | null | undefined;
   tags?: Array<string> | null | undefined;
   images?: Array<Image> | null | undefined;
   links?: Array<DebugSignalsExpressionLink> | null | undefined;
@@ -47,31 +47,37 @@ export type DebugSignalsExpression = {
 };
 
 /** @internal */
-export const Annotations$inboundSchema: z.ZodType<
-  Annotations,
+export const DebugSignalsExpressionAnnotations$inboundSchema: z.ZodType<
+  DebugSignalsExpressionAnnotations,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 /** @internal */
-export type Annotations$Outbound = {};
+export type DebugSignalsExpressionAnnotations$Outbound = {};
 
 /** @internal */
-export const Annotations$outboundSchema: z.ZodType<
-  Annotations$Outbound,
+export const DebugSignalsExpressionAnnotations$outboundSchema: z.ZodType<
+  DebugSignalsExpressionAnnotations$Outbound,
   z.ZodTypeDef,
-  Annotations
+  DebugSignalsExpressionAnnotations
 > = z.object({});
 
-export function annotationsToJSON(annotations: Annotations): string {
-  return JSON.stringify(Annotations$outboundSchema.parse(annotations));
+export function debugSignalsExpressionAnnotationsToJSON(
+  debugSignalsExpressionAnnotations: DebugSignalsExpressionAnnotations,
+): string {
+  return JSON.stringify(
+    DebugSignalsExpressionAnnotations$outboundSchema.parse(
+      debugSignalsExpressionAnnotations,
+    ),
+  );
 }
-export function annotationsFromJSON(
+export function debugSignalsExpressionAnnotationsFromJSON(
   jsonString: string,
-): SafeParseResult<Annotations, SDKValidationError> {
+): SafeParseResult<DebugSignalsExpressionAnnotations, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Annotations$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Annotations' from JSON`,
+    (x) => DebugSignalsExpressionAnnotations$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DebugSignalsExpressionAnnotations' from JSON`,
   );
 }
 
@@ -160,7 +166,9 @@ export const Signal$inboundSchema: z.ZodType<Signal, z.ZodTypeDef, unknown> = z
     summary: z.nullable(z.string()).optional(),
     body: z.nullable(z.string()).optional(),
     level: z.nullable(z.string()).optional(),
-    annotations: z.nullable(z.lazy(() => Annotations$inboundSchema)).optional(),
+    annotations: z.nullable(
+      z.lazy(() => DebugSignalsExpressionAnnotations$inboundSchema),
+    ).optional(),
     tags: z.nullable(z.array(z.string())).optional(),
     images: z.nullable(z.array(z.lazy(() => Image$inboundSchema))).optional(),
     links: z.nullable(
@@ -178,7 +186,7 @@ export type Signal$Outbound = {
   summary?: string | null | undefined;
   body?: string | null | undefined;
   level?: string | null | undefined;
-  annotations?: Annotations$Outbound | null | undefined;
+  annotations?: DebugSignalsExpressionAnnotations$Outbound | null | undefined;
   tags?: Array<string> | null | undefined;
   images?: Array<Image$Outbound> | null | undefined;
   links?: Array<DebugSignalsExpressionLink$Outbound> | null | undefined;
@@ -195,7 +203,9 @@ export const Signal$outboundSchema: z.ZodType<
   summary: z.nullable(z.string()).optional(),
   body: z.nullable(z.string()).optional(),
   level: z.nullable(z.string()).optional(),
-  annotations: z.nullable(z.lazy(() => Annotations$outboundSchema)).optional(),
+  annotations: z.nullable(
+    z.lazy(() => DebugSignalsExpressionAnnotations$outboundSchema),
+  ).optional(),
   tags: z.nullable(z.array(z.string())).optional(),
   images: z.nullable(z.array(z.lazy(() => Image$outboundSchema))).optional(),
   links: z.nullable(

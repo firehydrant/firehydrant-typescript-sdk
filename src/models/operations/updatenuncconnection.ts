@@ -31,6 +31,11 @@ export type UpdateNuncConnectionRequestBody = {
   exposedFields?: Array<string> | null | undefined;
   enableHistogram?: boolean | null | undefined;
   uiVersion?: number | null | undefined;
+  authenticationMethod?: string | null | undefined;
+  oidcAuthenticationConfigIssuerUrl?: string | null | undefined;
+  oidcAuthenticationConfigClientId?: string | null | undefined;
+  oidcAuthenticationConfigClientSecret?: string | null | undefined;
+  autoPublish?: boolean | null | undefined;
 };
 
 export type UpdateNuncConnectionRequest = {
@@ -60,6 +65,12 @@ export const UpdateNuncConnectionRequestBody$inboundSchema: z.ZodType<
   exposed_fields: z.nullable(z.array(z.string())).optional(),
   enable_histogram: z.nullable(z.boolean()).optional(),
   ui_version: z.nullable(z.number().int()).optional(),
+  authentication_method: z.nullable(z.string()).optional(),
+  "oidc_authentication_config[issuer_url]": z.nullable(z.string()).optional(),
+  "oidc_authentication_config[client_id]": z.nullable(z.string()).optional(),
+  "oidc_authentication_config[client_secret]": z.nullable(z.string())
+    .optional(),
+  auto_publish: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -77,6 +88,13 @@ export const UpdateNuncConnectionRequestBody$inboundSchema: z.ZodType<
     "exposed_fields": "exposedFields",
     "enable_histogram": "enableHistogram",
     "ui_version": "uiVersion",
+    "authentication_method": "authenticationMethod",
+    "oidc_authentication_config[issuer_url]":
+      "oidcAuthenticationConfigIssuerUrl",
+    "oidc_authentication_config[client_id]": "oidcAuthenticationConfigClientId",
+    "oidc_authentication_config[client_secret]":
+      "oidcAuthenticationConfigClientSecret",
+    "auto_publish": "autoPublish",
   });
 });
 /** @internal */
@@ -97,6 +115,11 @@ export type UpdateNuncConnectionRequestBody$Outbound = {
   exposed_fields?: Array<string> | null | undefined;
   enable_histogram?: boolean | null | undefined;
   ui_version?: number | null | undefined;
+  authentication_method?: string | null | undefined;
+  "oidc_authentication_config[issuer_url]"?: string | null | undefined;
+  "oidc_authentication_config[client_id]"?: string | null | undefined;
+  "oidc_authentication_config[client_secret]"?: string | null | undefined;
+  auto_publish?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -121,6 +144,11 @@ export const UpdateNuncConnectionRequestBody$outboundSchema: z.ZodType<
   exposedFields: z.nullable(z.array(z.string())).optional(),
   enableHistogram: z.nullable(z.boolean()).optional(),
   uiVersion: z.nullable(z.number().int()).optional(),
+  authenticationMethod: z.nullable(z.string()).optional(),
+  oidcAuthenticationConfigIssuerUrl: z.nullable(z.string()).optional(),
+  oidcAuthenticationConfigClientId: z.nullable(z.string()).optional(),
+  oidcAuthenticationConfigClientSecret: z.nullable(z.string()).optional(),
+  autoPublish: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",
@@ -138,6 +166,12 @@ export const UpdateNuncConnectionRequestBody$outboundSchema: z.ZodType<
     exposedFields: "exposed_fields",
     enableHistogram: "enable_histogram",
     uiVersion: "ui_version",
+    authenticationMethod: "authentication_method",
+    oidcAuthenticationConfigIssuerUrl: "oidc_authentication_config[issuer_url]",
+    oidcAuthenticationConfigClientId: "oidc_authentication_config[client_id]",
+    oidcAuthenticationConfigClientSecret:
+      "oidc_authentication_config[client_secret]",
+    autoPublish: "auto_publish",
   });
 });
 

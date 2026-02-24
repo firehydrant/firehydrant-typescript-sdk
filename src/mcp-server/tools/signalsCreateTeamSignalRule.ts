@@ -14,7 +14,7 @@ export const tool$signalsCreateTeamSignalRule: ToolDefinition<typeof args> = {
   name: "signals-create-team-signal-rule",
   description: `Create a Signals rule
 
-Create a Signals rule for a team.`,
+Create a Signals rule for a team. We support up to 2000 rules per organization.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await signalsCreateTeamSignalRule(

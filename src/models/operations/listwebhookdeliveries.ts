@@ -13,6 +13,8 @@ export type ListWebhookDeliveriesRequest = {
    * ID of a webhook
    */
   webhookId: string;
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
 };
 
 /** @internal */
@@ -22,14 +24,19 @@ export const ListWebhookDeliveriesRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   webhook_id: z.string(),
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "webhook_id": "webhookId",
+    "per_page": "perPage",
   });
 });
 /** @internal */
 export type ListWebhookDeliveriesRequest$Outbound = {
   webhook_id: string;
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
 };
 
 /** @internal */
@@ -39,9 +46,12 @@ export const ListWebhookDeliveriesRequest$outboundSchema: z.ZodType<
   ListWebhookDeliveriesRequest
 > = z.object({
   webhookId: z.string(),
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     webhookId: "webhook_id",
+    perPage: "per_page",
   });
 });
 

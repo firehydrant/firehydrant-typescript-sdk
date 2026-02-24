@@ -1,0 +1,20 @@
+# UpdateSignalsHeartbeatEndpointConfigurationTemplateSignal
+
+Signal template to be used when generating alerts for missed heartbeats
+
+## Example Usage
+
+```typescript
+import { UpdateSignalsHeartbeatEndpointConfigurationTemplateSignal } from "firehydrant-typescript-sdk/models/components";
+
+let value: UpdateSignalsHeartbeatEndpointConfigurationTemplateSignal = {};
+```
+
+## Fields
+
+| Field                                                                                                                                                  | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `body`                                                                                                                                                 | *string*                                                                                                                                               | :heavy_minus_sign:                                                                                                                                     | N/A                                                                                                                                                    |
+| `annotations`                                                                                                                                          | [components.UpdateSignalsHeartbeatEndpointConfigurationAnnotations](../../models/components/updatesignalsheartbeatendpointconfigurationannotations.md) | :heavy_minus_sign:                                                                                                                                     | N/A                                                                                                                                                    |
+| `tags`                                                                                                                                                 | *string*[]                                                                                                                                             | :heavy_minus_sign:                                                                                                                                     | N/A                                                                                                                                                    |
+| `links`                                                                                                                                                | [components.UpdateSignalsHeartbeatEndpointConfigurationLink](../../models/components/updatesignalsheartbeatendpointconfigurationlink.md)[]             | :heavy_minus_sign:                                                                                                                                     | N/A                                                                                                                                                    |

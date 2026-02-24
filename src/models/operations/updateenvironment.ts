@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateEnvironmentRequest = {
   /**
-   * Environment UUID
+   * Environment UUID or slug
    */
   environmentId: string;
   updateEnvironment: components.UpdateEnvironment;

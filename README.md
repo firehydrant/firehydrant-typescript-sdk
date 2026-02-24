@@ -375,12 +375,15 @@ run();
 * [getEnvironment](docs/sdks/catalogentries/README.md#getenvironment) - Get an environment
 * [deleteEnvironment](docs/sdks/catalogentries/README.md#deleteenvironment) - Archive an environment
 * [updateEnvironment](docs/sdks/catalogentries/README.md#updateenvironment) - Update an environment
+* [listEnvironmentServices](docs/sdks/catalogentries/README.md#listenvironmentservices) - List services for an environment
+* [listEnvironmentFunctionalities](docs/sdks/catalogentries/README.md#listenvironmentfunctionalities) - List functionalities for an environment
 * [listServices](docs/sdks/catalogentries/README.md#listservices) - List services
 * [createService](docs/sdks/catalogentries/README.md#createservice) - Create a service
 * [createServiceLinks](docs/sdks/catalogentries/README.md#createservicelinks) - Create multiple services linked to external services
 * [getService](docs/sdks/catalogentries/README.md#getservice) - Get a service
 * [deleteService](docs/sdks/catalogentries/README.md#deleteservice) - Delete a service
 * [updateService](docs/sdks/catalogentries/README.md#updateservice) - Update a service
+* [listServiceEnvironments](docs/sdks/catalogentries/README.md#listserviceenvironments) - List environments for a service
 * [getServiceDependencies](docs/sdks/catalogentries/README.md#getservicedependencies) - List dependencies for a service
 * [listServiceAvailableUpstreamDependencies](docs/sdks/catalogentries/README.md#listserviceavailableupstreamdependencies) - List available upstream service dependencies
 * [listServiceAvailableDownstreamDependencies](docs/sdks/catalogentries/README.md#listserviceavailabledownstreamdependencies) - List available downstream service dependencies
@@ -395,6 +398,7 @@ run();
 * [getFunctionality](docs/sdks/catalogentries/README.md#getfunctionality) - Get a functionality
 * [deleteFunctionality](docs/sdks/catalogentries/README.md#deletefunctionality) - Archive a functionality
 * [updateFunctionality](docs/sdks/catalogentries/README.md#updatefunctionality) - Update a functionality
+* [listFunctionalityEnvironments](docs/sdks/catalogentries/README.md#listfunctionalityenvironments) - List environments for a functionality
 * [listFunctionalityServices](docs/sdks/catalogentries/README.md#listfunctionalityservices) - List services for a functionality
 * [listUserOwnedServices](docs/sdks/catalogentries/README.md#listuserownedservices) - List services owned by a user's teams
 * [listInfrastructures](docs/sdks/catalogentries/README.md#listinfrastructures) - Lists functionality, service and environment objects
@@ -605,6 +609,7 @@ run();
 * [getSignalsGroupedMetrics](docs/sdks/metricsreporting/README.md#getsignalsgroupedmetrics) - Generate grouped alert metrics
 * [getSignalsMttxAnalytics](docs/sdks/metricsreporting/README.md#getsignalsmttxanalytics) - Get MTTX analytics for signals
 * [getSignalsNoiseAnalytics](docs/sdks/metricsreporting/README.md#getsignalsnoiseanalytics) - Get noise analytics for signals
+* [exportSignalsShiftAnalytics](docs/sdks/metricsreporting/README.md#exportsignalsshiftanalytics) - Export on-call hours report
 
 ### [Pages](docs/sdks/pages/README.md)
 
@@ -648,7 +653,6 @@ run();
 * [getRetrospectiveTemplate](docs/sdks/retrospectives/README.md#getretrospectivetemplate) - Get a retrospective template
 * [deleteRetrospectiveTemplate](docs/sdks/retrospectives/README.md#deleteretrospectivetemplate) - Delete a retrospective template
 * [updateRetrospectiveTemplate](docs/sdks/retrospectives/README.md#updateretrospectivetemplate) - Update a retrospective template
-* [getRetrospectiveReportTemplate](docs/sdks/retrospectives/README.md#getretrospectivereporttemplate) - Get a retrospective report template
 
 ### [Roles](docs/sdks/roles/README.md)
 
@@ -740,11 +744,17 @@ run();
 * [getSignalsWebhookTarget](docs/sdks/signals/README.md#getsignalswebhooktarget) - Get a webhook target
 * [deleteSignalsWebhookTarget](docs/sdks/signals/README.md#deletesignalswebhooktarget) - Delete a webhook target
 * [updateSignalsWebhookTarget](docs/sdks/signals/README.md#updatesignalswebhooktarget) - Update a webhook target
+* [listSignalsHeartbeatEndpointConfigurations](docs/sdks/signals/README.md#listsignalsheartbeatendpointconfigurations) - List heartbeat endpoint configurations
+* [createSignalsHeartbeatEndpointConfiguration](docs/sdks/signals/README.md#createsignalsheartbeatendpointconfiguration) - Create a heartbeat endpoint configuration
+* [getSignalsHeartbeatEndpointConfiguration](docs/sdks/signals/README.md#getsignalsheartbeatendpointconfiguration) - Get a heartbeat endpoint configuration
+* [deleteSignalsHeartbeatEndpointConfiguration](docs/sdks/signals/README.md#deletesignalsheartbeatendpointconfiguration) - Delete a heartbeat endpoint configuration
+* [updateSignalsHeartbeatEndpointConfiguration](docs/sdks/signals/README.md#updatesignalsheartbeatendpointconfiguration) - Update a heartbeat endpoint configuration
 * [listNotificationPolicySettings](docs/sdks/signals/README.md#listnotificationpolicysettings) - List notification policies
 * [createNotificationPolicy](docs/sdks/signals/README.md#createnotificationpolicy) - Create a notification policy
 * [getNotificationPolicy](docs/sdks/signals/README.md#getnotificationpolicy) - Get a notification policy
 * [deleteNotificationPolicy](docs/sdks/signals/README.md#deletenotificationpolicy) - Delete a notification policy
 * [updateNotificationPolicy](docs/sdks/signals/README.md#updatenotificationpolicy) - Update a notification policy
+* [listUserNotificationSettingsByUserId](docs/sdks/signals/README.md#listusernotificationsettingsbyuserid) - List notification settings for a user
 * [listSignalsTransposers](docs/sdks/signals/README.md#listsignalstransposers) - List signal transposers
 * [getSignalsIngestUrl](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 * [debugSignalsExpression](docs/sdks/signals/README.md#debugsignalsexpression) - Debug Signals expressions
@@ -924,12 +934,16 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`catalogEntriesGetServiceDependencies`](docs/sdks/catalogentries/README.md#getservicedependencies) - List dependencies for a service
 - [`catalogEntriesGetServiceDependency`](docs/sdks/catalogentries/README.md#getservicedependency) - Get a service dependency
 - [`catalogEntriesIngestCatalogData`](docs/sdks/catalogentries/README.md#ingestcatalogdata) - Ingest service catalog data
+- [`catalogEntriesListEnvironmentFunctionalities`](docs/sdks/catalogentries/README.md#listenvironmentfunctionalities) - List functionalities for an environment
 - [`catalogEntriesListEnvironments`](docs/sdks/catalogentries/README.md#listenvironments) - List environments
+- [`catalogEntriesListEnvironmentServices`](docs/sdks/catalogentries/README.md#listenvironmentservices) - List services for an environment
 - [`catalogEntriesListFunctionalities`](docs/sdks/catalogentries/README.md#listfunctionalities) - List functionalities
+- [`catalogEntriesListFunctionalityEnvironments`](docs/sdks/catalogentries/README.md#listfunctionalityenvironments) - List environments for a functionality
 - [`catalogEntriesListFunctionalityServices`](docs/sdks/catalogentries/README.md#listfunctionalityservices) - List services for a functionality
 - [`catalogEntriesListInfrastructures`](docs/sdks/catalogentries/README.md#listinfrastructures) - Lists functionality, service and environment objects
 - [`catalogEntriesListServiceAvailableDownstreamDependencies`](docs/sdks/catalogentries/README.md#listserviceavailabledownstreamdependencies) - List available downstream service dependencies
 - [`catalogEntriesListServiceAvailableUpstreamDependencies`](docs/sdks/catalogentries/README.md#listserviceavailableupstreamdependencies) - List available upstream service dependencies
+- [`catalogEntriesListServiceEnvironments`](docs/sdks/catalogentries/README.md#listserviceenvironments) - List environments for a service
 - [`catalogEntriesListServices`](docs/sdks/catalogentries/README.md#listservices) - List services
 - [`catalogEntriesListUserOwnedServices`](docs/sdks/catalogentries/README.md#listuserownedservices) - List services owned by a user's teams
 - [`catalogEntriesRefreshCatalog`](docs/sdks/catalogentries/README.md#refreshcatalog) - Refresh a service catalog
@@ -1108,6 +1122,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`integrationsUpdateStatuspageConnection`](docs/sdks/integrations/README.md#updatestatuspageconnection) - Update a Statuspage connection
 - [`metricsReportingCreateSavedSearch`](docs/sdks/metricsreporting/README.md#createsavedsearch) - Create a saved search
 - [`metricsReportingDeleteSavedSearch`](docs/sdks/metricsreporting/README.md#deletesavedsearch) - Delete a saved search
+- [`metricsReportingExportSignalsShiftAnalytics`](docs/sdks/metricsreporting/README.md#exportsignalsshiftanalytics) - Export on-call hours report
 - [`metricsReportingGetMeanTimeReport`](docs/sdks/metricsreporting/README.md#getmeantimereport) - Get mean time metrics for incidents
 - [`metricsReportingGetSavedSearch`](docs/sdks/metricsreporting/README.md#getsavedsearch) - Get a saved search
 - [`metricsReportingGetSignalsGroupedMetrics`](docs/sdks/metricsreporting/README.md#getsignalsgroupedmetrics) - Generate grouped alert metrics
@@ -1138,7 +1153,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`retrospectivesGetIncidentRetrospectiveField`](docs/sdks/retrospectives/README.md#getincidentretrospectivefield) - Get a retrospective field
 - [`retrospectivesGetPostMortemQuestion`](docs/sdks/retrospectives/README.md#getpostmortemquestion) - Get a retrospective question
 - [`retrospectivesGetPostMortemReport`](docs/sdks/retrospectives/README.md#getpostmortemreport) - Get a retrospective report
-- [`retrospectivesGetRetrospectiveReportTemplate`](docs/sdks/retrospectives/README.md#getretrospectivereporttemplate) - Get a retrospective report template
 - [`retrospectivesGetRetrospectiveTemplate`](docs/sdks/retrospectives/README.md#getretrospectivetemplate) - Get a retrospective template
 - [`retrospectivesListIncidentRetrospectives`](docs/sdks/retrospectives/README.md#listincidentretrospectives) - All attached retrospectives for an incident
 - [`retrospectivesListPostMortemQuestions`](docs/sdks/retrospectives/README.md#listpostmortemquestions) - List retrospective questions
@@ -1195,6 +1209,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsCreateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#createsignalsalertgroupingconfiguration) - Create an alert grouping configuration.
 - [`signalsCreateSignalsEmailTarget`](docs/sdks/signals/README.md#createsignalsemailtarget) - Create an email target for signals
 - [`signalsCreateSignalsEventSource`](docs/sdks/signals/README.md#createsignalseventsource) - Create an event source for Signals
+- [`signalsCreateSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#createsignalsheartbeatendpointconfiguration) - Create a heartbeat endpoint configuration
 - [`signalsCreateSignalsWebhookTarget`](docs/sdks/signals/README.md#createsignalswebhooktarget) - Create a webhook target
 - [`signalsCreateTeamEscalationPolicy`](docs/sdks/signals/README.md#createteamescalationpolicy) - Create an escalation policy for a team
 - [`signalsCreateTeamOnCallSchedule`](docs/sdks/signals/README.md#createteamoncallschedule) - Create an on-call schedule for a team
@@ -1206,6 +1221,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsDeleteSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#deletesignalsalertgroupingconfiguration) - Delete an alert grouping configuration.
 - [`signalsDeleteSignalsEmailTarget`](docs/sdks/signals/README.md#deletesignalsemailtarget) - Delete a signal email target
 - [`signalsDeleteSignalsEventSource`](docs/sdks/signals/README.md#deletesignalseventsource) - Delete an event source for Signals
+- [`signalsDeleteSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#deletesignalsheartbeatendpointconfiguration) - Delete a heartbeat endpoint configuration
 - [`signalsDeleteSignalsWebhookTarget`](docs/sdks/signals/README.md#deletesignalswebhooktarget) - Delete a webhook target
 - [`signalsDeleteTeamEscalationPolicy`](docs/sdks/signals/README.md#deleteteamescalationpolicy) - Delete an escalation policy for a team
 - [`signalsDeleteTeamOnCallSchedule`](docs/sdks/signals/README.md#deleteteamoncallschedule) - Delete an on-call schedule for a team
@@ -1217,6 +1233,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsGetSignalsEmailTarget`](docs/sdks/signals/README.md#getsignalsemailtarget) - Get a signal email target
 - [`signalsGetSignalsEventSource`](docs/sdks/signals/README.md#getsignalseventsource) - Get an event source for Signals
 - [`signalsGetSignalsHackerMode`](docs/sdks/signals/README.md#getsignalshackermode) - Get hacker mode status
+- [`signalsGetSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#getsignalsheartbeatendpointconfiguration) - Get a heartbeat endpoint configuration
 - [`signalsGetSignalsIngestUrl`](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 - [`signalsGetSignalsWebhookTarget`](docs/sdks/signals/README.md#getsignalswebhooktarget) - Get a webhook target
 - [`signalsGetTeamEscalationPolicy`](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
@@ -1227,11 +1244,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsListSignalsAlertGroupingConfigurations`](docs/sdks/signals/README.md#listsignalsalertgroupingconfigurations) - List alert grouping configurations.
 - [`signalsListSignalsEmailTargets`](docs/sdks/signals/README.md#listsignalsemailtargets) - List email targets for signals
 - [`signalsListSignalsEventSources`](docs/sdks/signals/README.md#listsignalseventsources) - List event sources for Signals
+- [`signalsListSignalsHeartbeatEndpointConfigurations`](docs/sdks/signals/README.md#listsignalsheartbeatendpointconfigurations) - List heartbeat endpoint configurations
 - [`signalsListSignalsTransposers`](docs/sdks/signals/README.md#listsignalstransposers) - List signal transposers
 - [`signalsListSignalsWebhookTargets`](docs/sdks/signals/README.md#listsignalswebhooktargets) - List webhook targets
 - [`signalsListTeamEscalationPolicies`](docs/sdks/signals/README.md#listteamescalationpolicies) - List escalation policies for a team
 - [`signalsListTeamOnCallSchedules`](docs/sdks/signals/README.md#listteamoncallschedules) - List on-call schedules for a team
 - [`signalsListTeamSignalRules`](docs/sdks/signals/README.md#listteamsignalrules) - List Signals rules
+- [`signalsListUserNotificationSettingsByUserId`](docs/sdks/signals/README.md#listusernotificationsettingsbyuserid) - List notification settings for a user
 - [`signalsOverrideOnCallScheduleRotationShifts`](docs/sdks/signals/README.md#overrideoncallschedulerotationshifts) - Override one or more shifts in an on-call rotation
 - [`signalsPreviewOnCallScheduleRotation`](docs/sdks/signals/README.md#previewoncallschedulerotation) - Preview an on-call rotation
 - [`signalsPreviewTeamOnCallSchedule`](docs/sdks/signals/README.md#previewteamoncallschedule) - Preview a new on-call schedule for a team
@@ -1240,6 +1259,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsUpdateOnCallShift`](docs/sdks/signals/README.md#updateoncallshift) - Update an on-call shift for a team schedule
 - [`signalsUpdateSignalsAlertGroupingConfiguration`](docs/sdks/signals/README.md#updatesignalsalertgroupingconfiguration) - Update an alert grouping configuration.
 - [`signalsUpdateSignalsEmailTarget`](docs/sdks/signals/README.md#updatesignalsemailtarget) - Update an email target
+- [`signalsUpdateSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#updatesignalsheartbeatendpointconfiguration) - Update a heartbeat endpoint configuration
 - [`signalsUpdateSignalsWebhookTarget`](docs/sdks/signals/README.md#updatesignalswebhooktarget) - Update a webhook target
 - [`signalsUpdateTeamEscalationPolicy`](docs/sdks/signals/README.md#updateteamescalationpolicy) - Update an escalation policy for a team
 - [`signalsUpdateTeamOnCallSchedule`](docs/sdks/signals/README.md#updateteamoncallschedule) - Update an on-call schedule for a team
@@ -1507,7 +1527,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 12 of 458 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 13 of 468 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -1553,19 +1573,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { Firehydrant } from "firehydrant-typescript-sdk";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "firehydrant-typescript-sdk/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {

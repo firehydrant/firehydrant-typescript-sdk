@@ -16,6 +16,8 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
@@ -23,13 +25,14 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 1.2.1
+  version: 1.3.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -49,6 +52,7 @@ typescript:
   enumFormat: union
   envVarPrefix: FIREHYDRANT
   exportZodModelNamespace: false
+  flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flattenSdk: true
   flattenSpecOptions:
@@ -70,6 +74,7 @@ typescript:
   inputModelSuffix: input
   jsonpath: legacy
   laxMode: strict
+  legacyFileNaming: true
   maxMethodParams: 0
   methodArguments: require-security-and-request
   modelPropertyCasing: camel
@@ -78,6 +83,7 @@ typescript:
   outputModelSuffix: output
   packageName: firehydrant-typescript-sdk
   preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
