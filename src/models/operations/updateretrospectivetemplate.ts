@@ -26,6 +26,7 @@ export type UpdateRetrospectiveTemplateFieldsType = ClosedEnum<
 export const ReportElementsType = {
   IncidentData: "incident_data",
   RetrospectiveField: "retrospective_field",
+  CustomField: "custom_field",
   ProsemirrorContent: "prosemirror_content",
   Divider: "divider",
 } as const;

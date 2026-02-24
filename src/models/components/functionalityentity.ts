@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  EnvironmentEntryEntity,
+  EnvironmentEntryEntity$inboundSchema,
+  EnvironmentEntryEntity$Outbound,
+  EnvironmentEntryEntity$outboundSchema,
+} from "./environmententryentity.js";
+import {
   ExternalResourceEntity,
   ExternalResourceEntity$inboundSchema,
   ExternalResourceEntity$Outbound,
@@ -79,6 +85,10 @@ export type FunctionalityEntity = {
    */
   services?: Array<ServiceEntityLite> | null | undefined;
   /**
+   * Environments related to this functionality
+   */
+  environments?: Array<EnvironmentEntryEntity> | null | undefined;
+  /**
    * Information about known linkages to representations of services outside of FireHydrant.
    */
   externalResources?: Array<ExternalResourceEntity> | null | undefined;
@@ -113,6 +123,8 @@ export const FunctionalityEntity$inboundSchema: z.ZodType<
   auto_add_responding_team: z.nullable(z.boolean()).optional(),
   updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
   services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$inboundSchema))
+    .optional(),
   external_resources: z.nullable(z.array(ExternalResourceEntity$inboundSchema))
     .optional(),
   teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
@@ -145,6 +157,7 @@ export type FunctionalityEntity$Outbound = {
   auto_add_responding_team?: boolean | null | undefined;
   updated_by?: NullableAuthorEntity$Outbound | null | undefined;
   services?: Array<ServiceEntityLite$Outbound> | null | undefined;
+  environments?: Array<EnvironmentEntryEntity$Outbound> | null | undefined;
   external_resources?:
     | Array<ExternalResourceEntity$Outbound>
     | null
@@ -173,6 +186,8 @@ export const FunctionalityEntity$outboundSchema: z.ZodType<
   autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
   updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
   services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
+  environments: z.nullable(z.array(EnvironmentEntryEntity$outboundSchema))
+    .optional(),
   externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
     .optional(),
   teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),

@@ -9,8 +9,8 @@ import { CreateScheduledMaintenance } from "firehydrant-typescript-sdk/models/co
 
 let value: CreateScheduledMaintenance = {
   name: "<value>",
-  startsAt: new Date("2023-04-13T10:47:11.279Z"),
-  endsAt: new Date("2025-10-18T12:37:20.450Z"),
+  startsAt: new Date("2024-04-12T10:47:11.279Z"),
+  endsAt: new Date("2026-10-18T12:37:20.450Z"),
 };
 ```
 

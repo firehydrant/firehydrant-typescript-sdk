@@ -4,6 +4,7 @@
 
 import { metricsReportingCreateSavedSearch } from "../funcs/metricsReportingCreateSavedSearch.js";
 import { metricsReportingDeleteSavedSearch } from "../funcs/metricsReportingDeleteSavedSearch.js";
+import { metricsReportingExportSignalsShiftAnalytics } from "../funcs/metricsReportingExportSignalsShiftAnalytics.js";
 import { metricsReportingGetMeanTimeReport } from "../funcs/metricsReportingGetMeanTimeReport.js";
 import { metricsReportingGetSavedSearch } from "../funcs/metricsReportingGetSavedSearch.js";
 import { metricsReportingGetSignalsGroupedMetrics } from "../funcs/metricsReportingGetSignalsGroupedMetrics.js";
@@ -272,6 +273,23 @@ export class MetricsReporting extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.SignalsAPIAnalyticsNoiseMetricsEntity> {
     return unwrapAsync(metricsReportingGetSignalsNoiseAnalytics(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export on-call hours report
+   *
+   * @remarks
+   * Export on-call hours report for users/teams during a time period
+   */
+  async exportSignalsShiftAnalytics(
+    request: operations.ExportSignalsShiftAnalyticsRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(metricsReportingExportSignalsShiftAnalytics(
       this,
       request,
       options,

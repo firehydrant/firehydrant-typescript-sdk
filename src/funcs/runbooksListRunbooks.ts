@@ -37,7 +37,7 @@ export function runbooksListRunbooks(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.RunbookEntity,
+    components.SlimRunbookEntityPaginated,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.RunbookEntity,
+      components.SlimRunbookEntityPaginated,
       | FirehydrantError
       | ResponseValidationError
       | ConnectionError
@@ -149,7 +149,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.RunbookEntity,
+    components.SlimRunbookEntityPaginated,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.RunbookEntity$inboundSchema),
+    M.json(200, components.SlimRunbookEntityPaginated$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

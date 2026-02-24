@@ -13,6 +13,18 @@ import {
   ExternalResourceEntity$Outbound,
   ExternalResourceEntity$outboundSchema,
 } from "./externalresourceentity.js";
+import {
+  FunctionalityEntityLite,
+  FunctionalityEntityLite$inboundSchema,
+  FunctionalityEntityLite$Outbound,
+  FunctionalityEntityLite$outboundSchema,
+} from "./functionalityentitylite.js";
+import {
+  ServiceEntityLite,
+  ServiceEntityLite$inboundSchema,
+  ServiceEntityLite$Outbound,
+  ServiceEntityLite$outboundSchema,
+} from "./serviceentitylite.js";
 
 /**
  * EnvironmentEntryEntity model
@@ -50,6 +62,14 @@ export type EnvironmentEntryEntity = {
    * Information about known linkages to representations of services outside of FireHydrant.
    */
   externalResources?: Array<ExternalResourceEntity> | null | undefined;
+  /**
+   * Functionalities related to this environment
+   */
+  functionalities?: Array<FunctionalityEntityLite> | null | undefined;
+  /**
+   * Services related to this environment
+   */
+  services?: Array<ServiceEntityLite> | null | undefined;
 };
 
 /** @internal */
@@ -71,6 +91,9 @@ export const EnvironmentEntryEntity$inboundSchema: z.ZodType<
   active_incidents: z.nullable(z.array(z.string())).optional(),
   external_resources: z.nullable(z.array(ExternalResourceEntity$inboundSchema))
     .optional(),
+  functionalities: z.nullable(z.array(FunctionalityEntityLite$inboundSchema))
+    .optional(),
+  services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "updated_at": "updatedAt",
@@ -92,6 +115,8 @@ export type EnvironmentEntryEntity$Outbound = {
     | Array<ExternalResourceEntity$Outbound>
     | null
     | undefined;
+  functionalities?: Array<FunctionalityEntityLite$Outbound> | null | undefined;
+  services?: Array<ServiceEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -109,6 +134,9 @@ export const EnvironmentEntryEntity$outboundSchema: z.ZodType<
   activeIncidents: z.nullable(z.array(z.string())).optional(),
   externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
     .optional(),
+  functionalities: z.nullable(z.array(FunctionalityEntityLite$outboundSchema))
+    .optional(),
+  services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     updatedAt: "updated_at",

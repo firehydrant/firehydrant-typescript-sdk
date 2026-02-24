@@ -3,30 +3,39 @@
  */
 
 import { signalsListSignalsAlertGroupingConfigurations } from "../../funcs/signalsListSignalsAlertGroupingConfigurations.js";
+import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
-export const tool$signalsListSignalsAlertGroupingConfigurations:
-  ToolDefinition = {
-    name: "signals-list-signals-alert-grouping-configurations",
-    description: `List alert grouping configurations.
+const args = {
+  request:
+    operations.ListSignalsAlertGroupingConfigurationsRequest$inboundSchema,
+};
+
+export const tool$signalsListSignalsAlertGroupingConfigurations: ToolDefinition<
+  typeof args
+> = {
+  name: "signals-list-signals-alert-grouping-configurations",
+  description: `List alert grouping configurations.
 
 List all Signals alert grouping rules for the organization.`,
-    tool: async (client, ctx) => {
-      const [result, apiCall] =
-        await signalsListSignalsAlertGroupingConfigurations(
-          client,
-          { fetchOptions: { signal: ctx.signal } },
-        ).$inspect();
+  args,
+  tool: async (client, args, ctx) => {
+    const [result, apiCall] =
+      await signalsListSignalsAlertGroupingConfigurations(
+        client,
+        args.request,
+        { fetchOptions: { signal: ctx.signal } },
+      ).$inspect();
 
-      if (!result.ok) {
-        return {
-          content: [{ type: "text", text: result.error.message }],
-          isError: true,
-        };
-      }
+    if (!result.ok) {
+      return {
+        content: [{ type: "text", text: result.error.message }],
+        isError: true,
+      };
+    }
 
-      const value = result.value;
+    const value = result.value;
 
-      return formatResult(value, apiCall);
-    },
-  };
+    return formatResult(value, apiCall);
+  },
+};

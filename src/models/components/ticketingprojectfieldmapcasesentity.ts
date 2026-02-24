@@ -17,13 +17,13 @@ import {
 /**
  * An unstructured object of key/value pairs describing the logic for applying the rule.
  */
-export type Logic = {};
+export type TicketingProjectFieldMapCasesEntityLogic = {};
 
 export type TicketingProjectFieldMapCasesEntity = {
   /**
    * An unstructured object of key/value pairs describing the logic for applying the rule.
    */
-  logic?: Logic | null | undefined;
+  logic?: TicketingProjectFieldMapCasesEntityLogic | null | undefined;
   externalValue?:
     | NullableTicketingProjectFieldMapExternalValueEntity
     | null
@@ -31,28 +31,44 @@ export type TicketingProjectFieldMapCasesEntity = {
 };
 
 /** @internal */
-export const Logic$inboundSchema: z.ZodType<Logic, z.ZodTypeDef, unknown> = z
-  .object({});
+export const TicketingProjectFieldMapCasesEntityLogic$inboundSchema: z.ZodType<
+  TicketingProjectFieldMapCasesEntityLogic,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
 /** @internal */
-export type Logic$Outbound = {};
+export type TicketingProjectFieldMapCasesEntityLogic$Outbound = {};
 
 /** @internal */
-export const Logic$outboundSchema: z.ZodType<
-  Logic$Outbound,
+export const TicketingProjectFieldMapCasesEntityLogic$outboundSchema: z.ZodType<
+  TicketingProjectFieldMapCasesEntityLogic$Outbound,
   z.ZodTypeDef,
-  Logic
+  TicketingProjectFieldMapCasesEntityLogic
 > = z.object({});
 
-export function logicToJSON(logic: Logic): string {
-  return JSON.stringify(Logic$outboundSchema.parse(logic));
+export function ticketingProjectFieldMapCasesEntityLogicToJSON(
+  ticketingProjectFieldMapCasesEntityLogic:
+    TicketingProjectFieldMapCasesEntityLogic,
+): string {
+  return JSON.stringify(
+    TicketingProjectFieldMapCasesEntityLogic$outboundSchema.parse(
+      ticketingProjectFieldMapCasesEntityLogic,
+    ),
+  );
 }
-export function logicFromJSON(
+export function ticketingProjectFieldMapCasesEntityLogicFromJSON(
   jsonString: string,
-): SafeParseResult<Logic, SDKValidationError> {
+): SafeParseResult<
+  TicketingProjectFieldMapCasesEntityLogic,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => Logic$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Logic' from JSON`,
+    (x) =>
+      TicketingProjectFieldMapCasesEntityLogic$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TicketingProjectFieldMapCasesEntityLogic' from JSON`,
   );
 }
 
@@ -62,7 +78,9 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  logic: z.nullable(z.lazy(() => Logic$inboundSchema)).optional(),
+  logic: z.nullable(
+    z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$inboundSchema),
+  ).optional(),
   external_value: z.nullable(
     NullableTicketingProjectFieldMapExternalValueEntity$inboundSchema,
   ).optional(),
@@ -73,7 +91,7 @@ export const TicketingProjectFieldMapCasesEntity$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type TicketingProjectFieldMapCasesEntity$Outbound = {
-  logic?: Logic$Outbound | null | undefined;
+  logic?: TicketingProjectFieldMapCasesEntityLogic$Outbound | null | undefined;
   external_value?:
     | NullableTicketingProjectFieldMapExternalValueEntity$Outbound
     | null
@@ -86,7 +104,9 @@ export const TicketingProjectFieldMapCasesEntity$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TicketingProjectFieldMapCasesEntity
 > = z.object({
-  logic: z.nullable(z.lazy(() => Logic$outboundSchema)).optional(),
+  logic: z.nullable(
+    z.lazy(() => TicketingProjectFieldMapCasesEntityLogic$outboundSchema),
+  ).optional(),
   externalValue: z.nullable(
     NullableTicketingProjectFieldMapExternalValueEntity$outboundSchema,
   ).optional(),

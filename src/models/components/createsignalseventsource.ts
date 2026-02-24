@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Hash of HTTP headers with values as Array, e.g. { 'Content-Type' => ['application/json'] }
  */
-export type Headers = {};
+export type CreateSignalsEventSourceHeaders = {};
 
 /**
  * JSON body of request.
@@ -25,7 +25,7 @@ export type CreateSignalsEventSourceExamplePayload = {
   /**
    * Hash of HTTP headers with values as Array, e.g. { 'Content-Type' => ['application/json'] }
    */
-  headers?: Headers | null | undefined;
+  headers?: CreateSignalsEventSourceHeaders | null | undefined;
   /**
    * JSON body of request.
    */
@@ -59,28 +59,37 @@ export type CreateSignalsEventSource = {
 };
 
 /** @internal */
-export const Headers$inboundSchema: z.ZodType<Headers, z.ZodTypeDef, unknown> =
-  z.object({});
+export const CreateSignalsEventSourceHeaders$inboundSchema: z.ZodType<
+  CreateSignalsEventSourceHeaders,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
 /** @internal */
-export type Headers$Outbound = {};
+export type CreateSignalsEventSourceHeaders$Outbound = {};
 
 /** @internal */
-export const Headers$outboundSchema: z.ZodType<
-  Headers$Outbound,
+export const CreateSignalsEventSourceHeaders$outboundSchema: z.ZodType<
+  CreateSignalsEventSourceHeaders$Outbound,
   z.ZodTypeDef,
-  Headers
+  CreateSignalsEventSourceHeaders
 > = z.object({});
 
-export function headersToJSON(headers: Headers): string {
-  return JSON.stringify(Headers$outboundSchema.parse(headers));
+export function createSignalsEventSourceHeadersToJSON(
+  createSignalsEventSourceHeaders: CreateSignalsEventSourceHeaders,
+): string {
+  return JSON.stringify(
+    CreateSignalsEventSourceHeaders$outboundSchema.parse(
+      createSignalsEventSourceHeaders,
+    ),
+  );
 }
-export function headersFromJSON(
+export function createSignalsEventSourceHeadersFromJSON(
   jsonString: string,
-): SafeParseResult<Headers, SDKValidationError> {
+): SafeParseResult<CreateSignalsEventSourceHeaders, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Headers$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Headers' from JSON`,
+    (x) => CreateSignalsEventSourceHeaders$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSignalsEventSourceHeaders' from JSON`,
   );
 }
 
@@ -125,13 +134,15 @@ export const CreateSignalsEventSourceExamplePayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  headers: z.nullable(z.lazy(() => Headers$inboundSchema)).optional(),
+  headers: z.nullable(
+    z.lazy(() => CreateSignalsEventSourceHeaders$inboundSchema),
+  ).optional(),
   data: z.nullable(z.lazy(() => CreateSignalsEventSourceData$inboundSchema))
     .optional(),
 });
 /** @internal */
 export type CreateSignalsEventSourceExamplePayload$Outbound = {
-  headers?: Headers$Outbound | null | undefined;
+  headers?: CreateSignalsEventSourceHeaders$Outbound | null | undefined;
   data?: CreateSignalsEventSourceData$Outbound | null | undefined;
 };
 
@@ -141,7 +152,9 @@ export const CreateSignalsEventSourceExamplePayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CreateSignalsEventSourceExamplePayload
 > = z.object({
-  headers: z.nullable(z.lazy(() => Headers$outboundSchema)).optional(),
+  headers: z.nullable(
+    z.lazy(() => CreateSignalsEventSourceHeaders$outboundSchema),
+  ).optional(),
   data: z.nullable(z.lazy(() => CreateSignalsEventSourceData$outboundSchema))
     .optional(),
 });

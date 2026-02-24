@@ -63,12 +63,16 @@ import { tool$catalogEntriesGetService } from "./tools/catalogEntriesGetService.
 import { tool$catalogEntriesGetServiceDependencies } from "./tools/catalogEntriesGetServiceDependencies.js";
 import { tool$catalogEntriesGetServiceDependency } from "./tools/catalogEntriesGetServiceDependency.js";
 import { tool$catalogEntriesIngestCatalogData } from "./tools/catalogEntriesIngestCatalogData.js";
+import { tool$catalogEntriesListEnvironmentFunctionalities } from "./tools/catalogEntriesListEnvironmentFunctionalities.js";
 import { tool$catalogEntriesListEnvironments } from "./tools/catalogEntriesListEnvironments.js";
+import { tool$catalogEntriesListEnvironmentServices } from "./tools/catalogEntriesListEnvironmentServices.js";
 import { tool$catalogEntriesListFunctionalities } from "./tools/catalogEntriesListFunctionalities.js";
+import { tool$catalogEntriesListFunctionalityEnvironments } from "./tools/catalogEntriesListFunctionalityEnvironments.js";
 import { tool$catalogEntriesListFunctionalityServices } from "./tools/catalogEntriesListFunctionalityServices.js";
 import { tool$catalogEntriesListInfrastructures } from "./tools/catalogEntriesListInfrastructures.js";
 import { tool$catalogEntriesListServiceAvailableDownstreamDependencies } from "./tools/catalogEntriesListServiceAvailableDownstreamDependencies.js";
 import { tool$catalogEntriesListServiceAvailableUpstreamDependencies } from "./tools/catalogEntriesListServiceAvailableUpstreamDependencies.js";
+import { tool$catalogEntriesListServiceEnvironments } from "./tools/catalogEntriesListServiceEnvironments.js";
 import { tool$catalogEntriesListServices } from "./tools/catalogEntriesListServices.js";
 import { tool$catalogEntriesListUserOwnedServices } from "./tools/catalogEntriesListUserOwnedServices.js";
 import { tool$catalogEntriesRefreshCatalog } from "./tools/catalogEntriesRefreshCatalog.js";
@@ -247,6 +251,7 @@ import { tool$integrationsUpdateSlackEmojiAction } from "./tools/integrationsUpd
 import { tool$integrationsUpdateStatuspageConnection } from "./tools/integrationsUpdateStatuspageConnection.js";
 import { tool$metricsReportingCreateSavedSearch } from "./tools/metricsReportingCreateSavedSearch.js";
 import { tool$metricsReportingDeleteSavedSearch } from "./tools/metricsReportingDeleteSavedSearch.js";
+import { tool$metricsReportingExportSignalsShiftAnalytics } from "./tools/metricsReportingExportSignalsShiftAnalytics.js";
 import { tool$metricsReportingGetMeanTimeReport } from "./tools/metricsReportingGetMeanTimeReport.js";
 import { tool$metricsReportingGetSavedSearch } from "./tools/metricsReportingGetSavedSearch.js";
 import { tool$metricsReportingGetSignalsGroupedMetrics } from "./tools/metricsReportingGetSignalsGroupedMetrics.js";
@@ -277,7 +282,6 @@ import { tool$retrospectivesExportIncidentRetrospectives } from "./tools/retrosp
 import { tool$retrospectivesGetIncidentRetrospectiveField } from "./tools/retrospectivesGetIncidentRetrospectiveField.js";
 import { tool$retrospectivesGetPostMortemQuestion } from "./tools/retrospectivesGetPostMortemQuestion.js";
 import { tool$retrospectivesGetPostMortemReport } from "./tools/retrospectivesGetPostMortemReport.js";
-import { tool$retrospectivesGetRetrospectiveReportTemplate } from "./tools/retrospectivesGetRetrospectiveReportTemplate.js";
 import { tool$retrospectivesGetRetrospectiveTemplate } from "./tools/retrospectivesGetRetrospectiveTemplate.js";
 import { tool$retrospectivesListIncidentRetrospectives } from "./tools/retrospectivesListIncidentRetrospectives.js";
 import { tool$retrospectivesListPostMortemQuestions } from "./tools/retrospectivesListPostMortemQuestions.js";
@@ -334,6 +338,7 @@ import { tool$signalsCreateOnCallShift } from "./tools/signalsCreateOnCallShift.
 import { tool$signalsCreateSignalsAlertGroupingConfiguration } from "./tools/signalsCreateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsCreateSignalsEmailTarget } from "./tools/signalsCreateSignalsEmailTarget.js";
 import { tool$signalsCreateSignalsEventSource } from "./tools/signalsCreateSignalsEventSource.js";
+import { tool$signalsCreateSignalsHeartbeatEndpointConfiguration } from "./tools/signalsCreateSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsCreateSignalsWebhookTarget } from "./tools/signalsCreateSignalsWebhookTarget.js";
 import { tool$signalsCreateTeamEscalationPolicy } from "./tools/signalsCreateTeamEscalationPolicy.js";
 import { tool$signalsCreateTeamOnCallSchedule } from "./tools/signalsCreateTeamOnCallSchedule.js";
@@ -345,6 +350,7 @@ import { tool$signalsDeleteOnCallShift } from "./tools/signalsDeleteOnCallShift.
 import { tool$signalsDeleteSignalsAlertGroupingConfiguration } from "./tools/signalsDeleteSignalsAlertGroupingConfiguration.js";
 import { tool$signalsDeleteSignalsEmailTarget } from "./tools/signalsDeleteSignalsEmailTarget.js";
 import { tool$signalsDeleteSignalsEventSource } from "./tools/signalsDeleteSignalsEventSource.js";
+import { tool$signalsDeleteSignalsHeartbeatEndpointConfiguration } from "./tools/signalsDeleteSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsDeleteSignalsWebhookTarget } from "./tools/signalsDeleteSignalsWebhookTarget.js";
 import { tool$signalsDeleteTeamEscalationPolicy } from "./tools/signalsDeleteTeamEscalationPolicy.js";
 import { tool$signalsDeleteTeamOnCallSchedule } from "./tools/signalsDeleteTeamOnCallSchedule.js";
@@ -356,6 +362,7 @@ import { tool$signalsGetSignalsAlertGroupingConfiguration } from "./tools/signal
 import { tool$signalsGetSignalsEmailTarget } from "./tools/signalsGetSignalsEmailTarget.js";
 import { tool$signalsGetSignalsEventSource } from "./tools/signalsGetSignalsEventSource.js";
 import { tool$signalsGetSignalsHackerMode } from "./tools/signalsGetSignalsHackerMode.js";
+import { tool$signalsGetSignalsHeartbeatEndpointConfiguration } from "./tools/signalsGetSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsGetSignalsIngestUrl } from "./tools/signalsGetSignalsIngestUrl.js";
 import { tool$signalsGetSignalsWebhookTarget } from "./tools/signalsGetSignalsWebhookTarget.js";
 import { tool$signalsGetTeamEscalationPolicy } from "./tools/signalsGetTeamEscalationPolicy.js";
@@ -366,11 +373,13 @@ import { tool$signalsListOrganizationOnCallSchedules } from "./tools/signalsList
 import { tool$signalsListSignalsAlertGroupingConfigurations } from "./tools/signalsListSignalsAlertGroupingConfigurations.js";
 import { tool$signalsListSignalsEmailTargets } from "./tools/signalsListSignalsEmailTargets.js";
 import { tool$signalsListSignalsEventSources } from "./tools/signalsListSignalsEventSources.js";
+import { tool$signalsListSignalsHeartbeatEndpointConfigurations } from "./tools/signalsListSignalsHeartbeatEndpointConfigurations.js";
 import { tool$signalsListSignalsTransposers } from "./tools/signalsListSignalsTransposers.js";
 import { tool$signalsListSignalsWebhookTargets } from "./tools/signalsListSignalsWebhookTargets.js";
 import { tool$signalsListTeamEscalationPolicies } from "./tools/signalsListTeamEscalationPolicies.js";
 import { tool$signalsListTeamOnCallSchedules } from "./tools/signalsListTeamOnCallSchedules.js";
 import { tool$signalsListTeamSignalRules } from "./tools/signalsListTeamSignalRules.js";
+import { tool$signalsListUserNotificationSettingsByUserId } from "./tools/signalsListUserNotificationSettingsByUserId.js";
 import { tool$signalsOverrideOnCallScheduleRotationShifts } from "./tools/signalsOverrideOnCallScheduleRotationShifts.js";
 import { tool$signalsPreviewOnCallScheduleRotation } from "./tools/signalsPreviewOnCallScheduleRotation.js";
 import { tool$signalsPreviewTeamOnCallSchedule } from "./tools/signalsPreviewTeamOnCallSchedule.js";
@@ -379,6 +388,7 @@ import { tool$signalsUpdateOnCallScheduleRotation } from "./tools/signalsUpdateO
 import { tool$signalsUpdateOnCallShift } from "./tools/signalsUpdateOnCallShift.js";
 import { tool$signalsUpdateSignalsAlertGroupingConfiguration } from "./tools/signalsUpdateSignalsAlertGroupingConfiguration.js";
 import { tool$signalsUpdateSignalsEmailTarget } from "./tools/signalsUpdateSignalsEmailTarget.js";
+import { tool$signalsUpdateSignalsHeartbeatEndpointConfiguration } from "./tools/signalsUpdateSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsUpdateSignalsWebhookTarget } from "./tools/signalsUpdateSignalsWebhookTarget.js";
 import { tool$signalsUpdateTeamEscalationPolicy } from "./tools/signalsUpdateTeamEscalationPolicy.js";
 import { tool$signalsUpdateTeamOnCallSchedule } from "./tools/signalsUpdateTeamOnCallSchedule.js";
@@ -482,7 +492,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.2.1",
+    version: "1.3.0",
   });
 
   const client = new FirehydrantCore({
@@ -523,12 +533,15 @@ export function createMCPServer(deps: {
   tool(tool$catalogEntriesGetEnvironment);
   tool(tool$catalogEntriesDeleteEnvironment);
   tool(tool$catalogEntriesUpdateEnvironment);
+  tool(tool$catalogEntriesListEnvironmentServices);
+  tool(tool$catalogEntriesListEnvironmentFunctionalities);
   tool(tool$catalogEntriesListServices);
   tool(tool$catalogEntriesCreateService);
   tool(tool$catalogEntriesCreateServiceLinks);
   tool(tool$catalogEntriesGetService);
   tool(tool$catalogEntriesDeleteService);
   tool(tool$catalogEntriesUpdateService);
+  tool(tool$catalogEntriesListServiceEnvironments);
   tool(tool$catalogEntriesGetServiceDependencies);
   tool(tool$catalogEntriesListServiceAvailableUpstreamDependencies);
   tool(tool$catalogEntriesListServiceAvailableDownstreamDependencies);
@@ -543,6 +556,7 @@ export function createMCPServer(deps: {
   tool(tool$catalogEntriesGetFunctionality);
   tool(tool$catalogEntriesDeleteFunctionality);
   tool(tool$catalogEntriesUpdateFunctionality);
+  tool(tool$catalogEntriesListFunctionalityEnvironments);
   tool(tool$catalogEntriesListFunctionalityServices);
   tool(tool$catalogEntriesListUserOwnedServices);
   tool(tool$catalogEntriesListInfrastructures);
@@ -607,11 +621,17 @@ export function createMCPServer(deps: {
   tool(tool$signalsGetSignalsWebhookTarget);
   tool(tool$signalsDeleteSignalsWebhookTarget);
   tool(tool$signalsUpdateSignalsWebhookTarget);
+  tool(tool$signalsListSignalsHeartbeatEndpointConfigurations);
+  tool(tool$signalsCreateSignalsHeartbeatEndpointConfiguration);
+  tool(tool$signalsGetSignalsHeartbeatEndpointConfiguration);
+  tool(tool$signalsDeleteSignalsHeartbeatEndpointConfiguration);
+  tool(tool$signalsUpdateSignalsHeartbeatEndpointConfiguration);
   tool(tool$signalsListNotificationPolicySettings);
   tool(tool$signalsCreateNotificationPolicy);
   tool(tool$signalsGetNotificationPolicy);
   tool(tool$signalsDeleteNotificationPolicy);
   tool(tool$signalsUpdateNotificationPolicy);
+  tool(tool$signalsListUserNotificationSettingsByUserId);
   tool(tool$signalsListSignalsTransposers);
   tool(tool$signalsGetSignalsIngestUrl);
   tool(tool$signalsDebugSignalsExpression);
@@ -772,7 +792,6 @@ export function createMCPServer(deps: {
   tool(tool$retrospectivesGetRetrospectiveTemplate);
   tool(tool$retrospectivesDeleteRetrospectiveTemplate);
   tool(tool$retrospectivesUpdateRetrospectiveTemplate);
-  tool(tool$retrospectivesGetRetrospectiveReportTemplate);
   tool(tool$incidentSettingsListIncidentRoles);
   tool(tool$incidentSettingsCreateIncidentRole);
   tool(tool$incidentSettingsGetIncidentRole);
@@ -878,6 +897,7 @@ export function createMCPServer(deps: {
   tool(tool$metricsReportingGetSignalsGroupedMetrics);
   tool(tool$metricsReportingGetSignalsMttxAnalytics);
   tool(tool$metricsReportingGetSignalsNoiseAnalytics);
+  tool(tool$metricsReportingExportSignalsShiftAnalytics);
   tool(tool$rolesListRoles);
   tool(tool$rolesCreateRole);
   tool(tool$rolesGetRole);

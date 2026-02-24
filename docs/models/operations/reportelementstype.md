@@ -11,5 +11,5 @@ let value: ReportElementsType = "prosemirror_content";
 ## Values
 
 ```typescript
-"incident_data" | "retrospective_field" | "prosemirror_content" | "divider"
+"incident_data" | "retrospective_field" | "custom_field" | "prosemirror_content" | "divider"
 ```

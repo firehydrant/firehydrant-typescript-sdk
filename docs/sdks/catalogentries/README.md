@@ -11,12 +11,15 @@ Operations related to Catalog Entries
 * [getEnvironment](#getenvironment) - Get an environment
 * [deleteEnvironment](#deleteenvironment) - Archive an environment
 * [updateEnvironment](#updateenvironment) - Update an environment
+* [listEnvironmentServices](#listenvironmentservices) - List services for an environment
+* [listEnvironmentFunctionalities](#listenvironmentfunctionalities) - List functionalities for an environment
 * [listServices](#listservices) - List services
 * [createService](#createservice) - Create a service
 * [createServiceLinks](#createservicelinks) - Create multiple services linked to external services
 * [getService](#getservice) - Get a service
 * [deleteService](#deleteservice) - Delete a service
 * [updateService](#updateservice) - Update a service
+* [listServiceEnvironments](#listserviceenvironments) - List environments for a service
 * [getServiceDependencies](#getservicedependencies) - List dependencies for a service
 * [listServiceAvailableUpstreamDependencies](#listserviceavailableupstreamdependencies) - List available upstream service dependencies
 * [listServiceAvailableDownstreamDependencies](#listserviceavailabledownstreamdependencies) - List available downstream service dependencies
@@ -31,6 +34,7 @@ Operations related to Catalog Entries
 * [getFunctionality](#getfunctionality) - Get a functionality
 * [deleteFunctionality](#deletefunctionality) - Archive a functionality
 * [updateFunctionality](#updatefunctionality) - Update a functionality
+* [listFunctionalityEnvironments](#listfunctionalityenvironments) - List environments for a functionality
 * [listFunctionalityServices](#listfunctionalityservices) - List services for a functionality
 * [listUserOwnedServices](#listuserownedservices) - List services owned by a user's teams
 * [listInfrastructures](#listinfrastructures) - Lists functionality, service and environment objects
@@ -342,9 +346,7 @@ const firehydrant = new Firehydrant({
 async function run() {
   const result = await firehydrant.catalogEntries.updateEnvironment({
     environmentId: "<id>",
-    updateEnvironment: {
-      name: "<value>",
-    },
+    updateEnvironment: {},
   });
 
   console.log(result);
@@ -370,9 +372,7 @@ const firehydrant = new FirehydrantCore({
 async function run() {
   const res = await catalogEntriesUpdateEnvironment(firehydrant, {
     environmentId: "<id>",
-    updateEnvironment: {
-      name: "<value>",
-    },
+    updateEnvironment: {},
   });
   if (res.ok) {
     const { value: result } = res;
@@ -397,6 +397,152 @@ run();
 ### Response
 
 **Promise\<[components.EnvironmentEntryEntity](../../models/components/environmententryentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listEnvironmentServices
+
+List services for an environment
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_environment_services" method="get" path="/v1/environments/{environment_id}/services" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.catalogEntries.listEnvironmentServices({
+    environmentId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListEnvironmentServices } from "firehydrant-typescript-sdk/funcs/catalogEntriesListEnvironmentServices.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await catalogEntriesListEnvironmentServices(firehydrant, {
+    environmentId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListEnvironmentServices failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListEnvironmentServicesRequest](../../models/operations/listenvironmentservicesrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.ServiceEntityLitePaginated](../../models/components/serviceentitylitepaginated.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listEnvironmentFunctionalities
+
+List functionalities for an environment
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_environment_functionalities" method="get" path="/v1/environments/{environment_id}/functionalities" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.catalogEntries.listEnvironmentFunctionalities({
+    environmentId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListEnvironmentFunctionalities } from "firehydrant-typescript-sdk/funcs/catalogEntriesListEnvironmentFunctionalities.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await catalogEntriesListEnvironmentFunctionalities(firehydrant, {
+    environmentId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListEnvironmentFunctionalities failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListEnvironmentFunctionalitiesRequest](../../models/operations/listenvironmentfunctionalitiesrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.FunctionalityEntityLitePaginated](../../models/components/functionalityentitylitepaginated.md)\>**
 
 ### Errors
 
@@ -840,6 +986,79 @@ run();
 ### Response
 
 **Promise\<[components.ServiceEntity](../../models/components/serviceentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listServiceEnvironments
+
+List environments for a service
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_service_environments" method="get" path="/v1/services/{service_id}/environments" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.catalogEntries.listServiceEnvironments({
+    serviceId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListServiceEnvironments } from "firehydrant-typescript-sdk/funcs/catalogEntriesListServiceEnvironments.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await catalogEntriesListServiceEnvironments(firehydrant, {
+    serviceId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListServiceEnvironments failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListServiceEnvironmentsRequest](../../models/operations/listserviceenvironmentsrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.EnvironmentEntryEntityPaginated](../../models/components/environmententryentitypaginated.md)\>**
 
 ### Errors
 
@@ -1876,6 +2095,79 @@ run();
 ### Response
 
 **Promise\<[components.FunctionalityEntity](../../models/components/functionalityentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## listFunctionalityEnvironments
+
+List environments for a functionality
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="list_functionality_environments" method="get" path="/v1/functionalities/{functionality_id}/environments" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.catalogEntries.listFunctionalityEnvironments({
+    functionalityId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { catalogEntriesListFunctionalityEnvironments } from "firehydrant-typescript-sdk/funcs/catalogEntriesListFunctionalityEnvironments.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await catalogEntriesListFunctionalityEnvironments(firehydrant, {
+    functionalityId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("catalogEntriesListFunctionalityEnvironments failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListFunctionalityEnvironmentsRequest](../../models/operations/listfunctionalityenvironmentsrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.EnvironmentEntryEntityPaginated](../../models/components/environmententryentitypaginated.md)\>**
 
 ### Errors
 

@@ -8,8 +8,8 @@ Create a Signals on-call shift in a schedule.
 import { CreateOnCallShift } from "firehydrant-typescript-sdk/models/components";
 
 let value: CreateOnCallShift = {
-  startTime: new Date("2024-08-17T02:34:49.567Z"),
-  endTime: new Date("2023-06-01T00:39:49.630Z"),
+  startTime: new Date("2025-08-17T02:34:49.567Z"),
+  endTime: new Date("2024-05-31T00:39:49.630Z"),
 };
 ```
 

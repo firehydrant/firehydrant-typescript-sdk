@@ -38,6 +38,13 @@ export type CreateServiceFunctionality = {
   id?: string | null | undefined;
 };
 
+export type CreateServiceEnvironment = {
+  /**
+   * ID of an environment
+   */
+  id: string;
+};
+
 export type CreateServiceLink = {
   /**
    * Short name used to display and identify this link
@@ -90,6 +97,7 @@ export type CreateService = {
    * An array of functionalities
    */
   functionalities?: Array<CreateServiceFunctionality> | null | undefined;
+  environments?: Array<CreateServiceEnvironment> | null | undefined;
   /**
    * An array of links to associate with this service
    */
@@ -158,6 +166,45 @@ export function createServiceFunctionalityFromJSON(
     jsonString,
     (x) => CreateServiceFunctionality$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CreateServiceFunctionality' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateServiceEnvironment$inboundSchema: z.ZodType<
+  CreateServiceEnvironment,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+});
+/** @internal */
+export type CreateServiceEnvironment$Outbound = {
+  id: string;
+};
+
+/** @internal */
+export const CreateServiceEnvironment$outboundSchema: z.ZodType<
+  CreateServiceEnvironment$Outbound,
+  z.ZodTypeDef,
+  CreateServiceEnvironment
+> = z.object({
+  id: z.string(),
+});
+
+export function createServiceEnvironmentToJSON(
+  createServiceEnvironment: CreateServiceEnvironment,
+): string {
+  return JSON.stringify(
+    CreateServiceEnvironment$outboundSchema.parse(createServiceEnvironment),
+  );
+}
+export function createServiceEnvironmentFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateServiceEnvironment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateServiceEnvironment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateServiceEnvironment' from JSON`,
   );
 }
 
@@ -361,6 +408,9 @@ export const CreateService$inboundSchema: z.ZodType<
   functionalities: z.nullable(
     z.array(z.lazy(() => CreateServiceFunctionality$inboundSchema)),
   ).optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => CreateServiceEnvironment$inboundSchema)),
+  ).optional(),
   links: z.nullable(z.array(z.lazy(() => CreateServiceLink$inboundSchema)))
     .optional(),
   owner: z.nullable(z.lazy(() => CreateServiceOwner$inboundSchema)).optional(),
@@ -389,6 +439,7 @@ export type CreateService$Outbound = {
     | Array<CreateServiceFunctionality$Outbound>
     | null
     | undefined;
+  environments?: Array<CreateServiceEnvironment$Outbound> | null | undefined;
   links?: Array<CreateServiceLink$Outbound> | null | undefined;
   owner?: CreateServiceOwner$Outbound | null | undefined;
   teams?: Array<CreateServiceTeam$Outbound> | null | undefined;
@@ -412,6 +463,9 @@ export const CreateService$outboundSchema: z.ZodType<
   serviceTier: z.nullable(CreateServiceServiceTier$outboundSchema).optional(),
   functionalities: z.nullable(
     z.array(z.lazy(() => CreateServiceFunctionality$outboundSchema)),
+  ).optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => CreateServiceEnvironment$outboundSchema)),
   ).optional(),
   links: z.nullable(z.array(z.lazy(() => CreateServiceLink$outboundSchema)))
     .optional(),

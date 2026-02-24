@@ -3,64 +3,45 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type RetrospectivesTemplateEntityReportElementEntityContent = {};
+export type Content = {};
 
 export type RetrospectivesTemplateEntityReportElementEntity = {
   type?: string | null | undefined;
   data?: string | null | undefined;
   id?: string | null | undefined;
+  fieldId?: string | null | undefined;
   label?: string | null | undefined;
-  content?:
-    | RetrospectivesTemplateEntityReportElementEntityContent
-    | null
-    | undefined;
+  content?: Content | null | undefined;
 };
 
 /** @internal */
-export const RetrospectivesTemplateEntityReportElementEntityContent$inboundSchema:
-  z.ZodType<
-    RetrospectivesTemplateEntityReportElementEntityContent,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({});
+export const Content$inboundSchema: z.ZodType<Content, z.ZodTypeDef, unknown> =
+  z.object({});
 /** @internal */
-export type RetrospectivesTemplateEntityReportElementEntityContent$Outbound =
-  {};
+export type Content$Outbound = {};
 
 /** @internal */
-export const RetrospectivesTemplateEntityReportElementEntityContent$outboundSchema:
-  z.ZodType<
-    RetrospectivesTemplateEntityReportElementEntityContent$Outbound,
-    z.ZodTypeDef,
-    RetrospectivesTemplateEntityReportElementEntityContent
-  > = z.object({});
+export const Content$outboundSchema: z.ZodType<
+  Content$Outbound,
+  z.ZodTypeDef,
+  Content
+> = z.object({});
 
-export function retrospectivesTemplateEntityReportElementEntityContentToJSON(
-  retrospectivesTemplateEntityReportElementEntityContent:
-    RetrospectivesTemplateEntityReportElementEntityContent,
-): string {
-  return JSON.stringify(
-    RetrospectivesTemplateEntityReportElementEntityContent$outboundSchema.parse(
-      retrospectivesTemplateEntityReportElementEntityContent,
-    ),
-  );
+export function contentToJSON(content: Content): string {
+  return JSON.stringify(Content$outboundSchema.parse(content));
 }
-export function retrospectivesTemplateEntityReportElementEntityContentFromJSON(
+export function contentFromJSON(
   jsonString: string,
-): SafeParseResult<
-  RetrospectivesTemplateEntityReportElementEntityContent,
-  SDKValidationError
-> {
+): SafeParseResult<Content, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      RetrospectivesTemplateEntityReportElementEntityContent$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'RetrospectivesTemplateEntityReportElementEntityContent' from JSON`,
+    (x) => Content$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Content' from JSON`,
   );
 }
 
@@ -74,23 +55,22 @@ export const RetrospectivesTemplateEntityReportElementEntity$inboundSchema:
     type: z.nullable(z.string()).optional(),
     data: z.nullable(z.string()).optional(),
     id: z.nullable(z.string()).optional(),
+    field_id: z.nullable(z.string()).optional(),
     label: z.nullable(z.string()).optional(),
-    content: z.nullable(
-      z.lazy(() =>
-        RetrospectivesTemplateEntityReportElementEntityContent$inboundSchema
-      ),
-    ).optional(),
+    content: z.nullable(z.lazy(() => Content$inboundSchema)).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "field_id": "fieldId",
+    });
   });
 /** @internal */
 export type RetrospectivesTemplateEntityReportElementEntity$Outbound = {
   type?: string | null | undefined;
   data?: string | null | undefined;
   id?: string | null | undefined;
+  field_id?: string | null | undefined;
   label?: string | null | undefined;
-  content?:
-    | RetrospectivesTemplateEntityReportElementEntityContent$Outbound
-    | null
-    | undefined;
+  content?: Content$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -103,12 +83,13 @@ export const RetrospectivesTemplateEntityReportElementEntity$outboundSchema:
     type: z.nullable(z.string()).optional(),
     data: z.nullable(z.string()).optional(),
     id: z.nullable(z.string()).optional(),
+    fieldId: z.nullable(z.string()).optional(),
     label: z.nullable(z.string()).optional(),
-    content: z.nullable(
-      z.lazy(() =>
-        RetrospectivesTemplateEntityReportElementEntityContent$outboundSchema
-      ),
-    ).optional(),
+    content: z.nullable(z.lazy(() => Content$outboundSchema)).optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      fieldId: "field_id",
+    });
   });
 
 export function retrospectivesTemplateEntityReportElementEntityToJSON(

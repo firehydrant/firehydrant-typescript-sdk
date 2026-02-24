@@ -23,7 +23,7 @@ export class Webhooks extends ClientSDK {
   async listWebhooks(
     request: operations.ListWebhooksRequest,
     options?: RequestOptions,
-  ): Promise<components.WebhooksEntitiesWebhookEntity> {
+  ): Promise<components.WebhooksEntitiesWebhookEntityPaginated> {
     return unwrapAsync(webhooksListWebhooks(
       this,
       request,
@@ -57,7 +57,7 @@ export class Webhooks extends ClientSDK {
   async listWebhookDeliveries(
     request: operations.ListWebhookDeliveriesRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<components.WebhooksEntitiesDeliveryEntityPaginated> {
     return unwrapAsync(webhooksListWebhookDeliveries(
       this,
       request,

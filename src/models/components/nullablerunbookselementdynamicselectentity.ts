@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  NullableRunbooksElementDynamicSelectEntitySelectOptionEntity,
-  NullableRunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema,
-  NullableRunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound,
-  NullableRunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema,
-} from "./nullablerunbookselementdynamicselectentityselectoptionentity.js";
-import {
   RunbooksElementDynamicSelectEntitySelectOptionEntity,
   RunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema,
   RunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound,
@@ -27,10 +21,6 @@ export type NullableRunbooksElementDynamicSelectEntity = {
   required?: boolean | null | undefined;
   clearable?: boolean | null | undefined;
   isMulti?: boolean | null | undefined;
-  defaultValue?:
-    | NullableRunbooksElementDynamicSelectEntitySelectOptionEntity
-    | null
-    | undefined;
   options?:
     | Array<RunbooksElementDynamicSelectEntitySelectOptionEntity>
     | null
@@ -47,9 +37,6 @@ export const NullableRunbooksElementDynamicSelectEntity$inboundSchema:
       required: z.nullable(z.boolean()).optional(),
       clearable: z.nullable(z.boolean()).optional(),
       is_multi: z.nullable(z.boolean()).optional(),
-      default_value: z.nullable(
-        NullableRunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema,
-      ).optional(),
       options: z.nullable(
         z.array(
           RunbooksElementDynamicSelectEntitySelectOptionEntity$inboundSchema,
@@ -59,7 +46,6 @@ export const NullableRunbooksElementDynamicSelectEntity$inboundSchema:
       return remap$(v, {
         "async_url": "asyncUrl",
         "is_multi": "isMulti",
-        "default_value": "defaultValue",
       });
     });
 /** @internal */
@@ -70,10 +56,6 @@ export type NullableRunbooksElementDynamicSelectEntity$Outbound = {
   required?: boolean | null | undefined;
   clearable?: boolean | null | undefined;
   is_multi?: boolean | null | undefined;
-  default_value?:
-    | NullableRunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound
-    | null
-    | undefined;
   options?:
     | Array<RunbooksElementDynamicSelectEntitySelectOptionEntity$Outbound>
     | null
@@ -93,9 +75,6 @@ export const NullableRunbooksElementDynamicSelectEntity$outboundSchema:
     required: z.nullable(z.boolean()).optional(),
     clearable: z.nullable(z.boolean()).optional(),
     isMulti: z.nullable(z.boolean()).optional(),
-    defaultValue: z.nullable(
-      NullableRunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema,
-    ).optional(),
     options: z.nullable(
       z.array(
         RunbooksElementDynamicSelectEntitySelectOptionEntity$outboundSchema,
@@ -105,7 +84,6 @@ export const NullableRunbooksElementDynamicSelectEntity$outboundSchema:
     return remap$(v, {
       asyncUrl: "async_url",
       isMulti: "is_multi",
-      defaultValue: "default_value",
     });
   });
 

@@ -37,7 +37,7 @@ export function audiencesListAudiences(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.AudiencesEntitiesAudienceEntity,
+    components.AudiencesEntitiesAudienceEntityPaginated,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -62,7 +62,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.AudiencesEntitiesAudienceEntity,
+      components.AudiencesEntitiesAudienceEntityPaginated,
       | FirehydrantError
       | ResponseValidationError
       | ConnectionError
@@ -90,6 +90,8 @@ async function $do(
 
   const query = encodeFormQuery({
     "include_archived": payload.include_archived,
+    "page": payload.page,
+    "per_page": payload.per_page,
   });
 
   const headers = new Headers(compactMap({
@@ -143,7 +145,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.AudiencesEntitiesAudienceEntity,
+    components.AudiencesEntitiesAudienceEntityPaginated,
     | FirehydrantError
     | ResponseValidationError
     | ConnectionError
@@ -153,7 +155,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.AudiencesEntitiesAudienceEntity$inboundSchema),
+    M.json(
+      200,
+      components.AudiencesEntitiesAudienceEntityPaginated$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req);

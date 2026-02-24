@@ -93,6 +93,8 @@ export type NuncConnectionEntity = {
     | null
     | undefined;
   hasCustomConfiguration?: boolean | null | undefined;
+  autoPublish?: boolean | null | undefined;
+  lastVerifiedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -144,6 +146,10 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
     NullableNuncOidcAuthenticationConfigEntity$inboundSchema,
   ).optional(),
   has_custom_configuration: z.nullable(z.boolean()).optional(),
+  auto_publish: z.nullable(z.boolean()).optional(),
+  last_verified_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -169,6 +175,8 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
     "authentication_method": "authenticationMethod",
     "oidc_authentication_config": "oidcAuthenticationConfig",
     "has_custom_configuration": "hasCustomConfiguration",
+    "auto_publish": "autoPublish",
+    "last_verified_at": "lastVerifiedAt",
   });
 });
 /** @internal */
@@ -211,6 +219,8 @@ export type NuncConnectionEntity$Outbound = {
     | null
     | undefined;
   has_custom_configuration?: boolean | null | undefined;
+  auto_publish?: boolean | null | undefined;
+  last_verified_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -255,6 +265,9 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
     NullableNuncOidcAuthenticationConfigEntity$outboundSchema,
   ).optional(),
   hasCustomConfiguration: z.nullable(z.boolean()).optional(),
+  autoPublish: z.nullable(z.boolean()).optional(),
+  lastVerifiedAt: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",
@@ -280,6 +293,8 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
     authenticationMethod: "authentication_method",
     oidcAuthenticationConfig: "oidc_authentication_config",
     hasCustomConfiguration: "has_custom_configuration",
+    autoPublish: "auto_publish",
+    lastVerifiedAt: "last_verified_at",
   });
 });
 

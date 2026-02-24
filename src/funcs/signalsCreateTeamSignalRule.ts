@@ -29,7 +29,7 @@ import { Result } from "../types/fp.js";
  * Create a Signals rule
  *
  * @remarks
- * Create a Signals rule for a team.
+ * Create a Signals rule for a team. We support up to 2000 rules per organization.
  */
 export function signalsCreateTeamSignalRule(
   client: FirehydrantCore,

@@ -12,6 +12,6 @@ let value: GetEnvironmentRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `environmentId`    | *string*           | :heavy_check_mark: | Environment UUID   |
+| Field                    | Type                     | Required                 | Description              |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `environmentId`          | *string*                 | :heavy_check_mark:       | Environment UUID or slug |

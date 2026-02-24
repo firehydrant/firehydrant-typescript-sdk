@@ -100,6 +100,9 @@ async function $do(
 
   const query = encodeFormQuery({
     "keyword": payload.keyword,
+    "page": payload.page,
+    "per_page": payload.per_page,
+    "query": payload.query,
   });
 
   const headers = new Headers(compactMap({

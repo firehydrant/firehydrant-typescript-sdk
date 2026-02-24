@@ -44,6 +44,17 @@ export type UpdateServiceFunctionality = {
   summary?: string | null | undefined;
 };
 
+export type UpdateServiceEnvironment = {
+  /**
+   * ID of an environment
+   */
+  id: string;
+  /**
+   * Set to true if you want to remove the given environment from the service
+   */
+  remove?: boolean | null | undefined;
+};
+
 export type UpdateServiceLink = {
   /**
    * URL
@@ -123,6 +134,15 @@ export type UpdateService = {
    */
   functionalities?: Array<UpdateServiceFunctionality> | null | undefined;
   /**
+   * If set to true, any functionalities tagged on the service that are not included in the given array will be removed. Set this to true if you want to do a replacement operation for the functionalities
+   */
+  removeRemainingFunctionalities?: boolean | null | undefined;
+  environments?: Array<UpdateServiceEnvironment> | null | undefined;
+  /**
+   * Set this to true if you want to remove all of the environments that are not included in the environments array from the service
+   */
+  removeRemainingEnvironments?: boolean | null | undefined;
+  /**
    * A hash of label keys and values
    */
   labels?: { [k: string]: string } | null | undefined;
@@ -147,10 +167,6 @@ export type UpdateService = {
    * If set to true, any external_resources tagged on the service that are not included in the given array will be removed. Set this to true if you want to do a replacement operation for the external_resources
    */
   removeRemainingExternalResources?: boolean | null | undefined;
-  /**
-   * If set to true, any functionalities tagged on the service that are not included in the given array will be removed. Set this to true if you want to do a replacement operation for the functionalities
-   */
-  removeRemainingFunctionalities?: boolean | null | undefined;
   /**
    * If set to true, any teams tagged on the service that are not included in the given array will be removed. Set this to true if you want to do a replacement operation for the teams
    */
@@ -302,6 +318,48 @@ export function updateServiceFunctionalityFromJSON(
     jsonString,
     (x) => UpdateServiceFunctionality$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'UpdateServiceFunctionality' from JSON`,
+  );
+}
+
+/** @internal */
+export const UpdateServiceEnvironment$inboundSchema: z.ZodType<
+  UpdateServiceEnvironment,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+/** @internal */
+export type UpdateServiceEnvironment$Outbound = {
+  id: string;
+  remove?: boolean | null | undefined;
+};
+
+/** @internal */
+export const UpdateServiceEnvironment$outboundSchema: z.ZodType<
+  UpdateServiceEnvironment$Outbound,
+  z.ZodTypeDef,
+  UpdateServiceEnvironment
+> = z.object({
+  id: z.string(),
+  remove: z.nullable(z.boolean()).optional(),
+});
+
+export function updateServiceEnvironmentToJSON(
+  updateServiceEnvironment: UpdateServiceEnvironment,
+): string {
+  return JSON.stringify(
+    UpdateServiceEnvironment$outboundSchema.parse(updateServiceEnvironment),
+  );
+}
+export function updateServiceEnvironmentFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateServiceEnvironment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateServiceEnvironment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateServiceEnvironment' from JSON`,
   );
 }
 
@@ -473,6 +531,11 @@ export const UpdateService$inboundSchema: z.ZodType<
   functionalities: z.nullable(
     z.array(z.lazy(() => UpdateServiceFunctionality$inboundSchema)),
   ).optional(),
+  remove_remaining_functionalities: z.nullable(z.boolean()).optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => UpdateServiceEnvironment$inboundSchema)),
+  ).optional(),
+  remove_remaining_environments: z.nullable(z.boolean().default(false)),
   labels: z.nullable(z.record(z.string())).optional(),
   links: z.nullable(z.array(z.lazy(() => UpdateServiceLink$inboundSchema)))
     .optional(),
@@ -481,7 +544,6 @@ export const UpdateService$inboundSchema: z.ZodType<
   remove_owner: z.nullable(z.boolean()).optional(),
   remove_remaining_checklists: z.nullable(z.boolean()).optional(),
   remove_remaining_external_resources: z.nullable(z.boolean()).optional(),
-  remove_remaining_functionalities: z.nullable(z.boolean()).optional(),
   remove_remaining_teams: z.nullable(z.boolean()).optional(),
   service_tier: z.nullable(UpdateServiceServiceTier$inboundSchema).optional(),
   teams: z.nullable(z.array(z.lazy(() => UpdateServiceTeam$inboundSchema)))
@@ -491,10 +553,11 @@ export const UpdateService$inboundSchema: z.ZodType<
     "alert_on_add": "alertOnAdd",
     "auto_add_responding_team": "autoAddRespondingTeam",
     "external_resources": "externalResources",
+    "remove_remaining_functionalities": "removeRemainingFunctionalities",
+    "remove_remaining_environments": "removeRemainingEnvironments",
     "remove_owner": "removeOwner",
     "remove_remaining_checklists": "removeRemainingChecklists",
     "remove_remaining_external_resources": "removeRemainingExternalResources",
-    "remove_remaining_functionalities": "removeRemainingFunctionalities",
     "remove_remaining_teams": "removeRemainingTeams",
     "service_tier": "serviceTier",
   });
@@ -513,6 +576,9 @@ export type UpdateService$Outbound = {
     | Array<UpdateServiceFunctionality$Outbound>
     | null
     | undefined;
+  remove_remaining_functionalities?: boolean | null | undefined;
+  environments?: Array<UpdateServiceEnvironment$Outbound> | null | undefined;
+  remove_remaining_environments: boolean | null;
   labels?: { [k: string]: string } | null | undefined;
   links?: Array<UpdateServiceLink$Outbound> | null | undefined;
   name?: string | null | undefined;
@@ -520,7 +586,6 @@ export type UpdateService$Outbound = {
   remove_owner?: boolean | null | undefined;
   remove_remaining_checklists?: boolean | null | undefined;
   remove_remaining_external_resources?: boolean | null | undefined;
-  remove_remaining_functionalities?: boolean | null | undefined;
   remove_remaining_teams?: boolean | null | undefined;
   service_tier?: number | null | undefined;
   teams?: Array<UpdateServiceTeam$Outbound> | null | undefined;
@@ -543,6 +608,11 @@ export const UpdateService$outboundSchema: z.ZodType<
   functionalities: z.nullable(
     z.array(z.lazy(() => UpdateServiceFunctionality$outboundSchema)),
   ).optional(),
+  removeRemainingFunctionalities: z.nullable(z.boolean()).optional(),
+  environments: z.nullable(
+    z.array(z.lazy(() => UpdateServiceEnvironment$outboundSchema)),
+  ).optional(),
+  removeRemainingEnvironments: z.nullable(z.boolean().default(false)),
   labels: z.nullable(z.record(z.string())).optional(),
   links: z.nullable(z.array(z.lazy(() => UpdateServiceLink$outboundSchema)))
     .optional(),
@@ -551,7 +621,6 @@ export const UpdateService$outboundSchema: z.ZodType<
   removeOwner: z.nullable(z.boolean()).optional(),
   removeRemainingChecklists: z.nullable(z.boolean()).optional(),
   removeRemainingExternalResources: z.nullable(z.boolean()).optional(),
-  removeRemainingFunctionalities: z.nullable(z.boolean()).optional(),
   removeRemainingTeams: z.nullable(z.boolean()).optional(),
   serviceTier: z.nullable(UpdateServiceServiceTier$outboundSchema).optional(),
   teams: z.nullable(z.array(z.lazy(() => UpdateServiceTeam$outboundSchema)))
@@ -561,10 +630,11 @@ export const UpdateService$outboundSchema: z.ZodType<
     alertOnAdd: "alert_on_add",
     autoAddRespondingTeam: "auto_add_responding_team",
     externalResources: "external_resources",
+    removeRemainingFunctionalities: "remove_remaining_functionalities",
+    removeRemainingEnvironments: "remove_remaining_environments",
     removeOwner: "remove_owner",
     removeRemainingChecklists: "remove_remaining_checklists",
     removeRemainingExternalResources: "remove_remaining_external_resources",
-    removeRemainingFunctionalities: "remove_remaining_functionalities",
     removeRemainingTeams: "remove_remaining_teams",
     serviceTier: "service_tier",
   });

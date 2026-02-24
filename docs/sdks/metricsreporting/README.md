@@ -21,6 +21,7 @@ Operations related to Metrics & Reporting
 * [getSignalsGroupedMetrics](#getsignalsgroupedmetrics) - Generate grouped alert metrics
 * [getSignalsMttxAnalytics](#getsignalsmttxanalytics) - Get MTTX analytics for signals
 * [getSignalsNoiseAnalytics](#getsignalsnoiseanalytics) - Get noise analytics for signals
+* [exportSignalsShiftAnalytics](#exportsignalsshiftanalytics) - Export on-call hours report
 
 ## getMeanTimeReport
 
@@ -1100,6 +1101,81 @@ run();
 ### Response
 
 **Promise\<[components.SignalsAPIAnalyticsNoiseMetricsEntity](../../models/components/signalsapianalyticsnoisemetricsentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## exportSignalsShiftAnalytics
+
+Export on-call hours report for users/teams during a time period
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="export_signals_shift_analytics" method="get" path="/v1/signals/analytics/shifts/export" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.metricsReporting.exportSignalsShiftAnalytics({
+    periodStart: new Date("2026-01-17T01:07:20.168Z"),
+    periodEnd: new Date("2025-10-08T06:33:20.543Z"),
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { metricsReportingExportSignalsShiftAnalytics } from "firehydrant-typescript-sdk/funcs/metricsReportingExportSignalsShiftAnalytics.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await metricsReportingExportSignalsShiftAnalytics(firehydrant, {
+    periodStart: new Date("2026-01-17T01:07:20.168Z"),
+    periodEnd: new Date("2025-10-08T06:33:20.543Z"),
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("metricsReportingExportSignalsShiftAnalytics failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ExportSignalsShiftAnalyticsRequest](../../models/operations/exportsignalsshiftanalyticsrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

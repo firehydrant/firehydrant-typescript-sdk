@@ -9,6 +9,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAudiencesRequest = {
+  page?: number | null | undefined;
+  perPage?: number | null | undefined;
   /**
    * Include archived (discarded) audiences
    */
@@ -21,14 +23,19 @@ export const ListAudiencesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  page: z.nullable(z.number().int()).optional(),
+  per_page: z.nullable(z.number().int()).optional(),
   include_archived: z.nullable(z.boolean().default(false)),
 }).transform((v) => {
   return remap$(v, {
+    "per_page": "perPage",
     "include_archived": "includeArchived",
   });
 });
 /** @internal */
 export type ListAudiencesRequest$Outbound = {
+  page?: number | null | undefined;
+  per_page?: number | null | undefined;
   include_archived: boolean | null;
 };
 
@@ -38,9 +45,12 @@ export const ListAudiencesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListAudiencesRequest
 > = z.object({
+  page: z.nullable(z.number().int()).optional(),
+  perPage: z.nullable(z.number().int()).optional(),
   includeArchived: z.nullable(z.boolean().default(false)),
 }).transform((v) => {
   return remap$(v, {
+    perPage: "per_page",
     includeArchived: "include_archived",
   });
 });

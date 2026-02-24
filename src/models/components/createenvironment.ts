@@ -7,13 +7,109 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CreateEnvironmentFunctionality = {
+  /**
+   * ID of a functionality
+   */
+  id: string;
+};
+
+export type CreateEnvironmentService = {
+  /**
+   * ID of a service
+   */
+  id: string;
+};
+
 /**
  * Creates an environment for the organization
  */
 export type CreateEnvironment = {
   name: string;
   description?: string | null | undefined;
+  functionalities?: Array<CreateEnvironmentFunctionality> | null | undefined;
+  services?: Array<CreateEnvironmentService> | null | undefined;
 };
+
+/** @internal */
+export const CreateEnvironmentFunctionality$inboundSchema: z.ZodType<
+  CreateEnvironmentFunctionality,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+});
+/** @internal */
+export type CreateEnvironmentFunctionality$Outbound = {
+  id: string;
+};
+
+/** @internal */
+export const CreateEnvironmentFunctionality$outboundSchema: z.ZodType<
+  CreateEnvironmentFunctionality$Outbound,
+  z.ZodTypeDef,
+  CreateEnvironmentFunctionality
+> = z.object({
+  id: z.string(),
+});
+
+export function createEnvironmentFunctionalityToJSON(
+  createEnvironmentFunctionality: CreateEnvironmentFunctionality,
+): string {
+  return JSON.stringify(
+    CreateEnvironmentFunctionality$outboundSchema.parse(
+      createEnvironmentFunctionality,
+    ),
+  );
+}
+export function createEnvironmentFunctionalityFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateEnvironmentFunctionality, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateEnvironmentFunctionality$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateEnvironmentFunctionality' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateEnvironmentService$inboundSchema: z.ZodType<
+  CreateEnvironmentService,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+});
+/** @internal */
+export type CreateEnvironmentService$Outbound = {
+  id: string;
+};
+
+/** @internal */
+export const CreateEnvironmentService$outboundSchema: z.ZodType<
+  CreateEnvironmentService$Outbound,
+  z.ZodTypeDef,
+  CreateEnvironmentService
+> = z.object({
+  id: z.string(),
+});
+
+export function createEnvironmentServiceToJSON(
+  createEnvironmentService: CreateEnvironmentService,
+): string {
+  return JSON.stringify(
+    CreateEnvironmentService$outboundSchema.parse(createEnvironmentService),
+  );
+}
+export function createEnvironmentServiceFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateEnvironmentService, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateEnvironmentService$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateEnvironmentService' from JSON`,
+  );
+}
 
 /** @internal */
 export const CreateEnvironment$inboundSchema: z.ZodType<
@@ -23,11 +119,22 @@ export const CreateEnvironment$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(
+    z.array(z.lazy(() => CreateEnvironmentFunctionality$inboundSchema)),
+  ).optional(),
+  services: z.nullable(
+    z.array(z.lazy(() => CreateEnvironmentService$inboundSchema)),
+  ).optional(),
 });
 /** @internal */
 export type CreateEnvironment$Outbound = {
   name: string;
   description?: string | null | undefined;
+  functionalities?:
+    | Array<CreateEnvironmentFunctionality$Outbound>
+    | null
+    | undefined;
+  services?: Array<CreateEnvironmentService$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -38,6 +145,12 @@ export const CreateEnvironment$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
+  functionalities: z.nullable(
+    z.array(z.lazy(() => CreateEnvironmentFunctionality$outboundSchema)),
+  ).optional(),
+  services: z.nullable(
+    z.array(z.lazy(() => CreateEnvironmentService$outboundSchema)),
+  ).optional(),
 });
 
 export function createEnvironmentToJSON(
