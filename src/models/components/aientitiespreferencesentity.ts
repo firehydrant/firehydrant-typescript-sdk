@@ -18,7 +18,10 @@ export type AIEntitiesPreferencesEntity = {
   impact?: boolean | null | undefined;
   retros?: boolean | null | undefined;
   similarIncidents?: boolean | null | undefined;
+  similarIncidentsCooldownMinutes?: number | null | undefined;
+  similarIncidentsMaxPerIncident?: number | null | undefined;
   summaries?: boolean | null | undefined;
+  conferenceBridgeSummaryMinIntervalMinutes?: number | null | undefined;
   updates?: boolean | null | undefined;
 };
 
@@ -34,11 +37,19 @@ export const AIEntitiesPreferencesEntity$inboundSchema: z.ZodType<
   impact: z.nullable(z.boolean()).optional(),
   retros: z.nullable(z.boolean()).optional(),
   similar_incidents: z.nullable(z.boolean()).optional(),
+  similar_incidents_cooldown_minutes: z.nullable(z.number().int()).optional(),
+  similar_incidents_max_per_incident: z.nullable(z.number().int()).optional(),
   summaries: z.nullable(z.boolean()).optional(),
+  conference_bridge_summary_min_interval_minutes: z.nullable(z.number().int())
+    .optional(),
   updates: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "similar_incidents": "similarIncidents",
+    "similar_incidents_cooldown_minutes": "similarIncidentsCooldownMinutes",
+    "similar_incidents_max_per_incident": "similarIncidentsMaxPerIncident",
+    "conference_bridge_summary_min_interval_minutes":
+      "conferenceBridgeSummaryMinIntervalMinutes",
   });
 });
 /** @internal */
@@ -49,7 +60,10 @@ export type AIEntitiesPreferencesEntity$Outbound = {
   impact?: boolean | null | undefined;
   retros?: boolean | null | undefined;
   similar_incidents?: boolean | null | undefined;
+  similar_incidents_cooldown_minutes?: number | null | undefined;
+  similar_incidents_max_per_incident?: number | null | undefined;
   summaries?: boolean | null | undefined;
+  conference_bridge_summary_min_interval_minutes?: number | null | undefined;
   updates?: boolean | null | undefined;
 };
 
@@ -65,11 +79,19 @@ export const AIEntitiesPreferencesEntity$outboundSchema: z.ZodType<
   impact: z.nullable(z.boolean()).optional(),
   retros: z.nullable(z.boolean()).optional(),
   similarIncidents: z.nullable(z.boolean()).optional(),
+  similarIncidentsCooldownMinutes: z.nullable(z.number().int()).optional(),
+  similarIncidentsMaxPerIncident: z.nullable(z.number().int()).optional(),
   summaries: z.nullable(z.boolean()).optional(),
+  conferenceBridgeSummaryMinIntervalMinutes: z.nullable(z.number().int())
+    .optional(),
   updates: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     similarIncidents: "similar_incidents",
+    similarIncidentsCooldownMinutes: "similar_incidents_cooldown_minutes",
+    similarIncidentsMaxPerIncident: "similar_incidents_max_per_incident",
+    conferenceBridgeSummaryMinIntervalMinutes:
+      "conference_bridge_summary_min_interval_minutes",
   });
 });
 

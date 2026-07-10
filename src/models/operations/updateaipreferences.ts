@@ -41,6 +41,18 @@ export type UpdateAiPreferencesRequest = {
    * Whether to enable similar incidents
    */
   similarIncidents?: boolean | null | undefined;
+  /**
+   * Minimum minutes between related-incident posts per incident. 0 disables the cooldown. Null = no cooldown.
+   */
+  similarIncidentsCooldownMinutes?: number | null | undefined;
+  /**
+   * Maximum related-incident posts per incident lifetime. 0 disables related-incident posts entirely. Null = no cap.
+   */
+  similarIncidentsMaxPerIncident?: number | null | undefined;
+  /**
+   * Minimum minutes between conference bridge summary posts. Null uses the default (5 minutes).
+   */
+  conferenceBridgeSummaryMinIntervalMinutes?: number | null | undefined;
 };
 
 /** @internal */
@@ -57,9 +69,17 @@ export const UpdateAiPreferencesRequest$inboundSchema: z.ZodType<
   retros: z.nullable(z.boolean()).optional(),
   followups: z.nullable(z.boolean()).optional(),
   similar_incidents: z.nullable(z.boolean()).optional(),
+  similar_incidents_cooldown_minutes: z.nullable(z.number().int()).optional(),
+  similar_incidents_max_per_incident: z.nullable(z.number().int()).optional(),
+  conference_bridge_summary_min_interval_minutes: z.nullable(z.number().int())
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "similar_incidents": "similarIncidents",
+    "similar_incidents_cooldown_minutes": "similarIncidentsCooldownMinutes",
+    "similar_incidents_max_per_incident": "similarIncidentsMaxPerIncident",
+    "conference_bridge_summary_min_interval_minutes":
+      "conferenceBridgeSummaryMinIntervalMinutes",
   });
 });
 /** @internal */
@@ -72,6 +92,9 @@ export type UpdateAiPreferencesRequest$Outbound = {
   retros?: boolean | null | undefined;
   followups?: boolean | null | undefined;
   similar_incidents?: boolean | null | undefined;
+  similar_incidents_cooldown_minutes?: number | null | undefined;
+  similar_incidents_max_per_incident?: number | null | undefined;
+  conference_bridge_summary_min_interval_minutes?: number | null | undefined;
 };
 
 /** @internal */
@@ -88,9 +111,17 @@ export const UpdateAiPreferencesRequest$outboundSchema: z.ZodType<
   retros: z.nullable(z.boolean()).optional(),
   followups: z.nullable(z.boolean()).optional(),
   similarIncidents: z.nullable(z.boolean()).optional(),
+  similarIncidentsCooldownMinutes: z.nullable(z.number().int()).optional(),
+  similarIncidentsMaxPerIncident: z.nullable(z.number().int()).optional(),
+  conferenceBridgeSummaryMinIntervalMinutes: z.nullable(z.number().int())
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     similarIncidents: "similar_incidents",
+    similarIncidentsCooldownMinutes: "similar_incidents_cooldown_minutes",
+    similarIncidentsMaxPerIncident: "similar_incidents_max_per_incident",
+    conferenceBridgeSummaryMinIntervalMinutes:
+      "conference_bridge_summary_min_interval_minutes",
   });
 });
 

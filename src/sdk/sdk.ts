@@ -46,14 +46,14 @@ export class Firehydrant extends ClientSDK {
     return (this._teams ??= new Teams(this._options));
   }
 
-  private _callRoutes?: CallRoutes;
-  get callRoutes(): CallRoutes {
-    return (this._callRoutes ??= new CallRoutes(this._options));
-  }
-
   private _signals?: Signals;
   get signals(): Signals {
     return (this._signals ??= new Signals(this._options));
+  }
+
+  private _callRoutes?: CallRoutes;
+  get callRoutes(): CallRoutes {
+    return (this._callRoutes ??= new CallRoutes(this._options));
   }
 
   private _changes?: Changes;

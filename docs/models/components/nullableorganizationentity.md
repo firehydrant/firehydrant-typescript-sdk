@@ -10,7 +10,8 @@ let value: NullableOrganizationEntity = {};
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `name`             | *string*           | :heavy_minus_sign: | N/A                |
-| `id`               | *string*           | :heavy_minus_sign: | N/A                |
+| Field                     | Type                      | Required                  | Description               |
+| ------------------------- | ------------------------- | ------------------------- | ------------------------- |
+| `name`                    | *string*                  | :heavy_minus_sign:        | N/A                       |
+| `id`                      | *string*                  | :heavy_minus_sign:        | N/A                       |
+| `provisionedInFreshworks` | *string*                  | :heavy_minus_sign:        | N/A                       |

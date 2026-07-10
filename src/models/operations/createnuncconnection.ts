@@ -37,6 +37,7 @@ export type CreateNuncConnectionRequest = {
   oidcAuthenticationConfigIssuerUrl?: string | null | undefined;
   oidcAuthenticationConfigClientSecret?: string | null | undefined;
   autoPublish?: boolean | null | undefined;
+  onlyDisplayActiveIncidents?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -68,6 +69,7 @@ export const CreateNuncConnectionRequest$inboundSchema: z.ZodType<
   "oidc_authentication_config[client_secret]": z.nullable(z.string())
     .optional(),
   auto_publish: z.nullable(z.boolean()).optional(),
+  only_display_active_incidents: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -92,6 +94,7 @@ export const CreateNuncConnectionRequest$inboundSchema: z.ZodType<
     "oidc_authentication_config[client_secret]":
       "oidcAuthenticationConfigClientSecret",
     "auto_publish": "autoPublish",
+    "only_display_active_incidents": "onlyDisplayActiveIncidents",
   });
 });
 /** @internal */
@@ -118,6 +121,7 @@ export type CreateNuncConnectionRequest$Outbound = {
   "oidc_authentication_config[issuer_url]"?: string | null | undefined;
   "oidc_authentication_config[client_secret]"?: string | null | undefined;
   auto_publish?: boolean | null | undefined;
+  only_display_active_incidents?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -148,6 +152,7 @@ export const CreateNuncConnectionRequest$outboundSchema: z.ZodType<
   oidcAuthenticationConfigIssuerUrl: z.nullable(z.string()).optional(),
   oidcAuthenticationConfigClientSecret: z.nullable(z.string()).optional(),
   autoPublish: z.nullable(z.boolean()).optional(),
+  onlyDisplayActiveIncidents: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",
@@ -171,6 +176,7 @@ export const CreateNuncConnectionRequest$outboundSchema: z.ZodType<
     oidcAuthenticationConfigClientSecret:
       "oidc_authentication_config[client_secret]",
     autoPublish: "auto_publish",
+    onlyDisplayActiveIncidents: "only_display_active_incidents",
   });
 });
 

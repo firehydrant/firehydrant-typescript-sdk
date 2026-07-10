@@ -94,6 +94,7 @@ export type NuncConnectionEntity = {
     | undefined;
   hasCustomConfiguration?: boolean | null | undefined;
   autoPublish?: boolean | null | undefined;
+  onlyDisplayActiveIncidents?: boolean | null | undefined;
   lastVerifiedAt?: Date | null | undefined;
 };
 
@@ -147,6 +148,7 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
   ).optional(),
   has_custom_configuration: z.nullable(z.boolean()).optional(),
   auto_publish: z.nullable(z.boolean()).optional(),
+  only_display_active_incidents: z.nullable(z.boolean()).optional(),
   last_verified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
@@ -176,6 +178,7 @@ export const NuncConnectionEntity$inboundSchema: z.ZodType<
     "oidc_authentication_config": "oidcAuthenticationConfig",
     "has_custom_configuration": "hasCustomConfiguration",
     "auto_publish": "autoPublish",
+    "only_display_active_incidents": "onlyDisplayActiveIncidents",
     "last_verified_at": "lastVerifiedAt",
   });
 });
@@ -220,6 +223,7 @@ export type NuncConnectionEntity$Outbound = {
     | undefined;
   has_custom_configuration?: boolean | null | undefined;
   auto_publish?: boolean | null | undefined;
+  only_display_active_incidents?: boolean | null | undefined;
   last_verified_at?: string | null | undefined;
 };
 
@@ -266,6 +270,7 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
   ).optional(),
   hasCustomConfiguration: z.nullable(z.boolean()).optional(),
   autoPublish: z.nullable(z.boolean()).optional(),
+  onlyDisplayActiveIncidents: z.nullable(z.boolean()).optional(),
   lastVerifiedAt: z.nullable(z.date().transform(v => v.toISOString()))
     .optional(),
 }).transform((v) => {
@@ -294,6 +299,7 @@ export const NuncConnectionEntity$outboundSchema: z.ZodType<
     oidcAuthenticationConfig: "oidc_authentication_config",
     hasCustomConfiguration: "has_custom_configuration",
     autoPublish: "auto_publish",
+    onlyDisplayActiveIncidents: "only_display_active_incidents",
     lastVerifiedAt: "last_verified_at",
   });
 });

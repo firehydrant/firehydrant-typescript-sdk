@@ -29,7 +29,9 @@ import { integrationsListStatuspageConnectionPages } from "../funcs/integrations
 import { integrationsListStatuspageConnections } from "../funcs/integrationsListStatuspageConnections.js";
 import { integrationsRefreshConnection } from "../funcs/integrationsRefreshConnection.js";
 import { integrationsSearchConfluenceSpaces } from "../funcs/integrationsSearchConfluenceSpaces.js";
+import { integrationsSearchSlackChannels } from "../funcs/integrationsSearchSlackChannels.js";
 import { integrationsSearchZendeskTickets } from "../funcs/integrationsSearchZendeskTickets.js";
+import { integrationsTestSlackChannel } from "../funcs/integrationsTestSlackChannel.js";
 import { integrationsUpdateAuthedProvider } from "../funcs/integrationsUpdateAuthedProvider.js";
 import { integrationsUpdateAwsCloudtrailBatch } from "../funcs/integrationsUpdateAwsCloudtrailBatch.js";
 import { integrationsUpdateAwsConnection } from "../funcs/integrationsUpdateAwsConnection.js";
@@ -178,10 +180,10 @@ export class Integrations extends ClientSDK {
   }
 
   /**
-   * Refresh an integration connection
+   * Refresh an integration connection's incident role schedules
    *
    * @remarks
-   * Refresh the integration connection with the provided data
+   * Refresh the integration connection's incident role schedules
    */
   async refreshConnection(
     request: operations.RefreshConnectionRequest,
@@ -407,6 +409,40 @@ export class Integrations extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.IntegrationsSlackWorkspaceEntity> {
     return unwrapAsync(integrationsListSlackWorkspaces(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Slack channels
+   *
+   * @remarks
+   * List or search for known Slack channels that the FireHydrant bot can access
+   */
+  async searchSlackChannels(
+    request: operations.SearchSlackChannelsRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(integrationsSearchSlackChannels(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Test a Slack channel
+   *
+   * @remarks
+   * Test the ability of the FireHydrant bot to operate in a Slack channel
+   */
+  async testSlackChannel(
+    request: operations.TestSlackChannelRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(integrationsTestSlackChannel(
       this,
       request,
       options,

@@ -81,6 +81,10 @@ export type FunctionalityEntity = {
   autoAddRespondingTeam?: boolean | null | undefined;
   updatedBy?: NullableAuthorEntity | null | undefined;
   /**
+   * List of teams attached to the functionality
+   */
+  teams?: Array<TeamEntityLite> | null | undefined;
+  /**
    * Services this functionality provides
    */
   services?: Array<ServiceEntityLite> | null | undefined;
@@ -92,10 +96,6 @@ export type FunctionalityEntity = {
    * Information about known linkages to representations of services outside of FireHydrant.
    */
   externalResources?: Array<ExternalResourceEntity> | null | undefined;
-  /**
-   * List of teams attached to the functionality
-   */
-  teams?: Array<TeamEntityLite> | null | undefined;
 };
 
 /** @internal */
@@ -122,12 +122,12 @@ export const FunctionalityEntity$inboundSchema: z.ZodType<
   alert_on_add: z.nullable(z.boolean()).optional(),
   auto_add_responding_team: z.nullable(z.boolean()).optional(),
   updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
   services: z.nullable(z.array(ServiceEntityLite$inboundSchema)).optional(),
   environments: z.nullable(z.array(EnvironmentEntryEntity$inboundSchema))
     .optional(),
   external_resources: z.nullable(z.array(ExternalResourceEntity$inboundSchema))
     .optional(),
-  teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -156,13 +156,13 @@ export type FunctionalityEntity$Outbound = {
   alert_on_add?: boolean | null | undefined;
   auto_add_responding_team?: boolean | null | undefined;
   updated_by?: NullableAuthorEntity$Outbound | null | undefined;
+  teams?: Array<TeamEntityLite$Outbound> | null | undefined;
   services?: Array<ServiceEntityLite$Outbound> | null | undefined;
   environments?: Array<EnvironmentEntryEntity$Outbound> | null | undefined;
   external_resources?:
     | Array<ExternalResourceEntity$Outbound>
     | null
     | undefined;
-  teams?: Array<TeamEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -185,12 +185,12 @@ export const FunctionalityEntity$outboundSchema: z.ZodType<
   alertOnAdd: z.nullable(z.boolean()).optional(),
   autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
   updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),
   services: z.nullable(z.array(ServiceEntityLite$outboundSchema)).optional(),
   environments: z.nullable(z.array(EnvironmentEntryEntity$outboundSchema))
     .optional(),
   externalResources: z.nullable(z.array(ExternalResourceEntity$outboundSchema))
     .optional(),
-  teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

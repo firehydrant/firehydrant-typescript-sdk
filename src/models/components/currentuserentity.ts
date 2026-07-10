@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  NullableOrganizationEntity,
+  NullableOrganizationEntity$inboundSchema,
+  NullableOrganizationEntity$Outbound,
+  NullableOrganizationEntity$outboundSchema,
+} from "./nullableorganizationentity.js";
+import {
   SuccinctEntity,
   SuccinctEntity$inboundSchema,
   SuccinctEntity$Outbound,
@@ -27,6 +33,9 @@ export type CurrentUserEntity = {
   organizationId?: string | null | undefined;
   organizationName?: string | null | undefined;
   accountId?: number | null | undefined;
+  region?: string | null | undefined;
+  instance?: string | null | undefined;
+  organization?: NullableOrganizationEntity | null | undefined;
 };
 
 /** @internal */
@@ -44,6 +53,9 @@ export const CurrentUserEntity$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.string()).optional(),
   organization_name: z.nullable(z.string()).optional(),
   account_id: z.nullable(z.number().int()).optional(),
+  region: z.nullable(z.string()).optional(),
+  instance: z.nullable(z.string()).optional(),
+  organization: z.nullable(NullableOrganizationEntity$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -62,6 +74,9 @@ export type CurrentUserEntity$Outbound = {
   organization_id?: string | null | undefined;
   organization_name?: string | null | undefined;
   account_id?: number | null | undefined;
+  region?: string | null | undefined;
+  instance?: string | null | undefined;
+  organization?: NullableOrganizationEntity$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -79,6 +94,10 @@ export const CurrentUserEntity$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.string()).optional(),
   organizationName: z.nullable(z.string()).optional(),
   accountId: z.nullable(z.number().int()).optional(),
+  region: z.nullable(z.string()).optional(),
+  instance: z.nullable(z.string()).optional(),
+  organization: z.nullable(NullableOrganizationEntity$outboundSchema)
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

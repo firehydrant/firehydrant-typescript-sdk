@@ -11,13 +11,22 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateOnCallScheduleRotationMember = {
   /**
-   * The ID of a user who should be added to the rotation. You can add a user to the rotation
+   * The ID of a user who should be added to the schedule's initial rotation. You can add a user to the
    *
    * @remarks
-   * multiple times to construct more complex rotations, and you can specify a `null` user ID to create
-   * unassigned slots in the rotation.
+   * schedule multiple times to construct more complex rotations, and you can specify a `null` user ID
+   * to either leave a gap in the rotation or create an unassigned shift in the rotation depending on
+   * the value of `create_unassigned_shifts`.
    */
   userId?: string | null | undefined;
+  /**
+   * When `user_id` is `null`, allows populating the rotation with unassigned shifts for this slot when
+   *
+   * @remarks
+   * set to `true`. When `false`, the default value, the rotation will instead have a gap for this slot.
+   * Note: this value will be ignored when a valid `user_id` is provided.
+   */
+  createUnassignedShifts?: boolean | null | undefined;
 };
 
 /**
@@ -201,14 +210,17 @@ export const UpdateOnCallScheduleRotationMember$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   user_id: z.nullable(z.string()).optional(),
+  create_unassigned_shifts: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "user_id": "userId",
+    "create_unassigned_shifts": "createUnassignedShifts",
   });
 });
 /** @internal */
 export type UpdateOnCallScheduleRotationMember$Outbound = {
   user_id?: string | null | undefined;
+  create_unassigned_shifts?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -218,9 +230,11 @@ export const UpdateOnCallScheduleRotationMember$outboundSchema: z.ZodType<
   UpdateOnCallScheduleRotationMember
 > = z.object({
   userId: z.nullable(z.string()).optional(),
+  createUnassignedShifts: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     userId: "user_id",
+    createUnassignedShifts: "create_unassigned_shifts",
   });
 });
 

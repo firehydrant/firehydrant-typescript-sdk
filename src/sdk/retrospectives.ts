@@ -12,6 +12,7 @@ import { retrospectivesDeleteIncidentRetrospectiveDynamicInput } from "../funcs/
 import { retrospectivesDeletePostMortemReason } from "../funcs/retrospectivesDeletePostMortemReason.js";
 import { retrospectivesDeleteRetrospectiveTemplate } from "../funcs/retrospectivesDeleteRetrospectiveTemplate.js";
 import { retrospectivesExportIncidentRetrospectives } from "../funcs/retrospectivesExportIncidentRetrospectives.js";
+import { retrospectivesExportIncidentRetrospectivesMarkdown } from "../funcs/retrospectivesExportIncidentRetrospectivesMarkdown.js";
 import { retrospectivesGetIncidentRetrospectiveField } from "../funcs/retrospectivesGetIncidentRetrospectiveField.js";
 import { retrospectivesGetPostMortemQuestion } from "../funcs/retrospectivesGetPostMortemQuestion.js";
 import { retrospectivesGetPostMortemReport } from "../funcs/retrospectivesGetPostMortemReport.js";
@@ -49,6 +50,23 @@ export class Retrospectives extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.IncidentsShareRetrospectivesResultEntity> {
     return unwrapAsync(retrospectivesShareIncidentRetrospectives(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export an incident's retrospective(s) as markdown
+   *
+   * @remarks
+   * Export incident's retrospective(s) as markdown
+   */
+  async exportIncidentRetrospectivesMarkdown(
+    request: operations.ExportIncidentRetrospectivesMarkdownRequest,
+    options?: RequestOptions,
+  ): Promise<components.IncidentsExportRetrospectiveMarkdownEntity> {
+    return unwrapAsync(retrospectivesExportIncidentRetrospectivesMarkdown(
       this,
       request,
       options,

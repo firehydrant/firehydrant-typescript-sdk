@@ -46,6 +46,7 @@ export const NullableActorEntityType = {
   ZoomV2: "zoom_v2",
   Linear: "linear",
   Cortex: "cortex",
+  Freshservice: "freshservice",
 } as const;
 export type NullableActorEntityType = ClosedEnum<
   typeof NullableActorEntityType

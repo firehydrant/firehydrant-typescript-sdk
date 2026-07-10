@@ -28,6 +28,8 @@ export type RetrospectivesTemplateEntity = {
   name?: string | null | undefined;
   description?: string | null | undefined;
   isDefault?: boolean | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   sections?:
     | Array<RetrospectivesTemplateEntityIncidentSectionEntity>
     | null
@@ -45,6 +47,12 @@ export const RetrospectivesTemplateEntity$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   is_default: z.nullable(z.boolean()).optional(),
+  created_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updated_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   sections: z.nullable(
     z.array(RetrospectivesTemplateEntityIncidentSectionEntity$inboundSchema),
   ).optional(),
@@ -53,6 +61,8 @@ export const RetrospectivesTemplateEntity$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "is_default": "isDefault",
+    "created_at": "createdAt",
+    "updated_at": "updatedAt",
   });
 });
 /** @internal */
@@ -61,6 +71,8 @@ export type RetrospectivesTemplateEntity$Outbound = {
   name?: string | null | undefined;
   description?: string | null | undefined;
   is_default?: boolean | null | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
   sections?:
     | Array<RetrospectivesTemplateEntityIncidentSectionEntity$Outbound>
     | null
@@ -78,6 +90,8 @@ export const RetrospectivesTemplateEntity$outboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   isDefault: z.nullable(z.boolean()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   sections: z.nullable(
     z.array(RetrospectivesTemplateEntityIncidentSectionEntity$outboundSchema),
   ).optional(),
@@ -86,6 +100,8 @@ export const RetrospectivesTemplateEntity$outboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     isDefault: "is_default",
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   });
 });
 

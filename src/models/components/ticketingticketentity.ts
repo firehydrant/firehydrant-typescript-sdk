@@ -69,6 +69,10 @@ export type TicketingTicketEntity = {
   description?: string | null | undefined;
   state?: TicketingTicketEntityState | null | undefined;
   type?: TicketingTicketEntityType | null | undefined;
+  /**
+   * Integration slug for the ticket's connection (e.g. freshservice, jira_cloud)
+   */
+  connectionType?: string | null | undefined;
   assignees?: Array<AuthorEntity> | null | undefined;
   priority?: NullableTicketingPriorityEntity | null | undefined;
   createdBy?: NullableAuthorEntity | null | undefined;
@@ -105,6 +109,10 @@ export type TicketingTicketEntity = {
     | null
     | undefined;
   link?: NullableAttachmentsLinkEntity | null | undefined;
+  /**
+   * Integration-specific status label (e.g. Freshservice status name)
+   */
+  providerStatusLabel?: string | null | undefined;
 };
 
 /** @internal */
@@ -171,6 +179,7 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   state: z.nullable(TicketingTicketEntityState$inboundSchema).optional(),
   type: z.nullable(TicketingTicketEntityType$inboundSchema).optional(),
+  connection_type: z.nullable(z.string()).optional(),
   assignees: z.nullable(z.array(AuthorEntity$inboundSchema)).optional(),
   priority: z.nullable(NullableTicketingPriorityEntity$inboundSchema)
     .optional(),
@@ -197,8 +206,10 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
     z.array(TicketingCustomFieldsFieldValue$inboundSchema),
   ).optional(),
   link: z.nullable(NullableAttachmentsLinkEntity$inboundSchema).optional(),
+  provider_status_label: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "connection_type": "connectionType",
     "created_by": "createdBy",
     "created_at": "createdAt",
     "updated_at": "updatedAt",
@@ -210,6 +221,7 @@ export const TicketingTicketEntity$inboundSchema: z.ZodType<
     "due_at": "dueAt",
     "sync_error_message": "syncErrorMessage",
     "ticketing_custom_fields": "ticketingCustomFields",
+    "provider_status_label": "providerStatusLabel",
   });
 });
 /** @internal */
@@ -219,6 +231,7 @@ export type TicketingTicketEntity$Outbound = {
   description?: string | null | undefined;
   state?: string | null | undefined;
   type?: string | null | undefined;
+  connection_type?: string | null | undefined;
   assignees?: Array<AuthorEntity$Outbound> | null | undefined;
   priority?: NullableTicketingPriorityEntity$Outbound | null | undefined;
   created_by?: NullableAuthorEntity$Outbound | null | undefined;
@@ -240,6 +253,7 @@ export type TicketingTicketEntity$Outbound = {
     | null
     | undefined;
   link?: NullableAttachmentsLinkEntity$Outbound | null | undefined;
+  provider_status_label?: string | null | undefined;
 };
 
 /** @internal */
@@ -253,6 +267,7 @@ export const TicketingTicketEntity$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   state: z.nullable(TicketingTicketEntityState$outboundSchema).optional(),
   type: z.nullable(TicketingTicketEntityType$outboundSchema).optional(),
+  connectionType: z.nullable(z.string()).optional(),
   assignees: z.nullable(z.array(AuthorEntity$outboundSchema)).optional(),
   priority: z.nullable(NullableTicketingPriorityEntity$outboundSchema)
     .optional(),
@@ -273,8 +288,10 @@ export const TicketingTicketEntity$outboundSchema: z.ZodType<
     z.array(TicketingCustomFieldsFieldValue$outboundSchema),
   ).optional(),
   link: z.nullable(NullableAttachmentsLinkEntity$outboundSchema).optional(),
+  providerStatusLabel: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    connectionType: "connection_type",
     createdBy: "created_by",
     createdAt: "created_at",
     updatedAt: "updated_at",
@@ -286,6 +303,7 @@ export const TicketingTicketEntity$outboundSchema: z.ZodType<
     dueAt: "due_at",
     syncErrorMessage: "sync_error_message",
     ticketingCustomFields: "ticketing_custom_fields",
+    providerStatusLabel: "provider_status_label",
   });
 });
 

@@ -37,6 +37,10 @@ export type MembershipEntity = {
   schedule?: NullableScheduleEntity | null | undefined;
   signalsOnCallSchedule?: NullableSuccinctEntity | null | undefined;
   defaultIncidentRole?: NullableIncidentRoleEntity | null | undefined;
+  /**
+   * Whether the user has read-only permissions
+   */
+  readOnlyPermissions?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -51,10 +55,12 @@ export const MembershipEntity$inboundSchema: z.ZodType<
     .optional(),
   default_incident_role: z.nullable(NullableIncidentRoleEntity$inboundSchema)
     .optional(),
+  read_only_permissions: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "signals_on_call_schedule": "signalsOnCallSchedule",
     "default_incident_role": "defaultIncidentRole",
+    "read_only_permissions": "readOnlyPermissions",
   });
 });
 /** @internal */
@@ -66,6 +72,7 @@ export type MembershipEntity$Outbound = {
     | NullableIncidentRoleEntity$Outbound
     | null
     | undefined;
+  read_only_permissions?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -80,10 +87,12 @@ export const MembershipEntity$outboundSchema: z.ZodType<
     .optional(),
   defaultIncidentRole: z.nullable(NullableIncidentRoleEntity$outboundSchema)
     .optional(),
+  readOnlyPermissions: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     signalsOnCallSchedule: "signals_on_call_schedule",
     defaultIncidentRole: "default_incident_role",
+    readOnlyPermissions: "read_only_permissions",
   });
 });
 

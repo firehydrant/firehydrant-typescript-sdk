@@ -14,7 +14,7 @@ Operations related to Integrations
 * [updateAuthedProvider](#updateauthedprovider) - Get an authed provider
 * [listConnections](#listconnections) - List integration connections
 * [createConnection](#createconnection) - Create a new integration connection
-* [refreshConnection](#refreshconnection) - Refresh an integration connection
+* [refreshConnection](#refreshconnection) - Refresh an integration connection's incident role schedules
 * [updateConnection](#updateconnection) - Update an integration connection
 * [listConnectionStatuses](#listconnectionstatuses) - Get integration connection status
 * [listConnectionStatusesBySlug](#listconnectionstatusesbyslug) - Get an integration connection status
@@ -28,6 +28,8 @@ Operations related to Integrations
 * [listAwsCloudtrailBatchEvents](#listawscloudtrailbatchevents) - List events for an AWS CloudTrail batch
 * [searchConfluenceSpaces](#searchconfluencespaces) - List Confluence spaces
 * [listSlackWorkspaces](#listslackworkspaces) - List Slack workspaces
+* [searchSlackChannels](#searchslackchannels) - List Slack channels
+* [testSlackChannel](#testslackchannel) - Test a Slack channel
 * [listSlackUsergroups](#listslackusergroups) - List Slack user groups
 * [listSlackEmojiActions](#listslackemojiactions) - List Slack emoji actions
 * [createSlackEmojiAction](#createslackemojiaction) - Create a new Slack emoji action
@@ -625,7 +627,7 @@ run();
 
 ## refreshConnection
 
-Refresh the integration connection with the provided data
+Refresh the integration connection's incident role schedules
 
 ### Example Usage
 
@@ -1635,6 +1637,148 @@ run();
 ### Response
 
 **Promise\<[components.IntegrationsSlackWorkspaceEntity](../../models/components/integrationsslackworkspaceentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## searchSlackChannels
+
+List or search for known Slack channels that the FireHydrant bot can access
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="search_slack_channels" method="get" path="/v1/integrations/slack/channels" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.integrations.searchSlackChannels({});
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsSearchSlackChannels } from "firehydrant-typescript-sdk/funcs/integrationsSearchSlackChannels.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await integrationsSearchSlackChannels(firehydrant, {});
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsSearchSlackChannels failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.SearchSlackChannelsRequest](../../models/operations/searchslackchannelsrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## testSlackChannel
+
+Test the ability of the FireHydrant bot to operate in a Slack channel
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="test_slack_channel" method="put" path="/v1/integrations/slack/channels/{id}/test" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  await firehydrant.integrations.testSlackChannel({
+    id: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { integrationsTestSlackChannel } from "firehydrant-typescript-sdk/funcs/integrationsTestSlackChannel.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await integrationsTestSlackChannel(firehydrant, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsTestSlackChannel failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.TestSlackChannelRequest](../../models/operations/testslackchannelrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

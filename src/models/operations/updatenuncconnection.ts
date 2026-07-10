@@ -36,6 +36,7 @@ export type UpdateNuncConnectionRequestBody = {
   oidcAuthenticationConfigClientId?: string | null | undefined;
   oidcAuthenticationConfigClientSecret?: string | null | undefined;
   autoPublish?: boolean | null | undefined;
+  onlyDisplayActiveIncidents?: boolean | null | undefined;
 };
 
 export type UpdateNuncConnectionRequest = {
@@ -71,6 +72,7 @@ export const UpdateNuncConnectionRequestBody$inboundSchema: z.ZodType<
   "oidc_authentication_config[client_secret]": z.nullable(z.string())
     .optional(),
   auto_publish: z.nullable(z.boolean()).optional(),
+  only_display_active_incidents: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "company_name": "companyName",
@@ -95,6 +97,7 @@ export const UpdateNuncConnectionRequestBody$inboundSchema: z.ZodType<
     "oidc_authentication_config[client_secret]":
       "oidcAuthenticationConfigClientSecret",
     "auto_publish": "autoPublish",
+    "only_display_active_incidents": "onlyDisplayActiveIncidents",
   });
 });
 /** @internal */
@@ -120,6 +123,7 @@ export type UpdateNuncConnectionRequestBody$Outbound = {
   "oidc_authentication_config[client_id]"?: string | null | undefined;
   "oidc_authentication_config[client_secret]"?: string | null | undefined;
   auto_publish?: boolean | null | undefined;
+  only_display_active_incidents?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -149,6 +153,7 @@ export const UpdateNuncConnectionRequestBody$outboundSchema: z.ZodType<
   oidcAuthenticationConfigClientId: z.nullable(z.string()).optional(),
   oidcAuthenticationConfigClientSecret: z.nullable(z.string()).optional(),
   autoPublish: z.nullable(z.boolean()).optional(),
+  onlyDisplayActiveIncidents: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     companyName: "company_name",
@@ -172,6 +177,7 @@ export const UpdateNuncConnectionRequestBody$outboundSchema: z.ZodType<
     oidcAuthenticationConfigClientSecret:
       "oidc_authentication_config[client_secret]",
     autoPublish: "auto_publish",
+    onlyDisplayActiveIncidents: "only_display_active_incidents",
   });
 });
 

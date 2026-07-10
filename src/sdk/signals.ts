@@ -23,6 +23,7 @@ import { signalsDeleteSignalsEmailTarget } from "../funcs/signalsDeleteSignalsEm
 import { signalsDeleteSignalsEventSource } from "../funcs/signalsDeleteSignalsEventSource.js";
 import { signalsDeleteSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsDeleteSignalsHeartbeatEndpointConfiguration.js";
 import { signalsDeleteSignalsWebhookTarget } from "../funcs/signalsDeleteSignalsWebhookTarget.js";
+import { signalsDeleteSupportHoursSchedule } from "../funcs/signalsDeleteSupportHoursSchedule.js";
 import { signalsDeleteTeamEscalationPolicy } from "../funcs/signalsDeleteTeamEscalationPolicy.js";
 import { signalsDeleteTeamOnCallSchedule } from "../funcs/signalsDeleteTeamOnCallSchedule.js";
 import { signalsDeleteTeamSignalRule } from "../funcs/signalsDeleteTeamSignalRule.js";
@@ -36,6 +37,7 @@ import { signalsGetSignalsHackerMode } from "../funcs/signalsGetSignalsHackerMod
 import { signalsGetSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsGetSignalsHeartbeatEndpointConfiguration.js";
 import { signalsGetSignalsIngestUrl } from "../funcs/signalsGetSignalsIngestUrl.js";
 import { signalsGetSignalsWebhookTarget } from "../funcs/signalsGetSignalsWebhookTarget.js";
+import { signalsGetSupportHoursSchedule } from "../funcs/signalsGetSupportHoursSchedule.js";
 import { signalsGetTeamEscalationPolicy } from "../funcs/signalsGetTeamEscalationPolicy.js";
 import { signalsGetTeamOnCallSchedule } from "../funcs/signalsGetTeamOnCallSchedule.js";
 import { signalsGetTeamSignalRule } from "../funcs/signalsGetTeamSignalRule.js";
@@ -61,6 +63,7 @@ import { signalsUpdateSignalsAlertGroupingConfiguration } from "../funcs/signals
 import { signalsUpdateSignalsEmailTarget } from "../funcs/signalsUpdateSignalsEmailTarget.js";
 import { signalsUpdateSignalsHeartbeatEndpointConfiguration } from "../funcs/signalsUpdateSignalsHeartbeatEndpointConfiguration.js";
 import { signalsUpdateSignalsWebhookTarget } from "../funcs/signalsUpdateSignalsWebhookTarget.js";
+import { signalsUpdateSupportHoursSchedule } from "../funcs/signalsUpdateSupportHoursSchedule.js";
 import { signalsUpdateTeamEscalationPolicy } from "../funcs/signalsUpdateTeamEscalationPolicy.js";
 import { signalsUpdateTeamOnCallSchedule } from "../funcs/signalsUpdateTeamOnCallSchedule.js";
 import { signalsUpdateTeamSignalRule } from "../funcs/signalsUpdateTeamSignalRule.js";
@@ -70,6 +73,57 @@ import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Signals extends ClientSDK {
+  /**
+   * Get support hours schedule
+   *
+   * @remarks
+   * Get support hours schedule for the team
+   */
+  async getSupportHoursSchedule(
+    request: operations.GetSupportHoursScheduleRequest,
+    options?: RequestOptions,
+  ): Promise<components.SupportHoursScheduleEntity> {
+    return unwrapAsync(signalsGetSupportHoursSchedule(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete a specific support hours schedule
+   *
+   * @remarks
+   * Delete a specific support hours schedule
+   */
+  async deleteSupportHoursSchedule(
+    request: operations.DeleteSupportHoursScheduleRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(signalsDeleteSupportHoursSchedule(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update support hours schedule
+   *
+   * @remarks
+   * Update the team's support hours schedule
+   */
+  async updateSupportHoursSchedule(
+    request: operations.UpdateSupportHoursScheduleRequest,
+    options?: RequestOptions,
+  ): Promise<components.SupportHoursScheduleEntity> {
+    return unwrapAsync(signalsUpdateSupportHoursSchedule(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * List escalation policies for a team
    *

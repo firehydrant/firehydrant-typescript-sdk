@@ -25,6 +25,12 @@ import {
   NullableTeamEntityLite$Outbound,
   NullableTeamEntityLite$outboundSchema,
 } from "./nullableteamentitylite.js";
+import {
+  TeamEntityLite,
+  TeamEntityLite$inboundSchema,
+  TeamEntityLite$Outbound,
+  TeamEntityLite$outboundSchema,
+} from "./teamentitylite.js";
 
 export type FunctionalityEntityLite = {
   id?: string | null | undefined;
@@ -53,6 +59,10 @@ export type FunctionalityEntityLite = {
   alertOnAdd?: boolean | null | undefined;
   autoAddRespondingTeam?: boolean | null | undefined;
   updatedBy?: NullableAuthorEntity | null | undefined;
+  /**
+   * List of teams attached to the functionality
+   */
+  teams?: Array<TeamEntityLite> | null | undefined;
 };
 
 /** @internal */
@@ -79,6 +89,7 @@ export const FunctionalityEntityLite$inboundSchema: z.ZodType<
   alert_on_add: z.nullable(z.boolean()).optional(),
   auto_add_responding_team: z.nullable(z.boolean()).optional(),
   updated_by: z.nullable(NullableAuthorEntity$inboundSchema).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -106,6 +117,7 @@ export type FunctionalityEntityLite$Outbound = {
   alert_on_add?: boolean | null | undefined;
   auto_add_responding_team?: boolean | null | undefined;
   updated_by?: NullableAuthorEntity$Outbound | null | undefined;
+  teams?: Array<TeamEntityLite$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -128,6 +140,7 @@ export const FunctionalityEntityLite$outboundSchema: z.ZodType<
   alertOnAdd: z.nullable(z.boolean()).optional(),
   autoAddRespondingTeam: z.nullable(z.boolean()).optional(),
   updatedBy: z.nullable(NullableAuthorEntity$outboundSchema).optional(),
+  teams: z.nullable(z.array(TeamEntityLite$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

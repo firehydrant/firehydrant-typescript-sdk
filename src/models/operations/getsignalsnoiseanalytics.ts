@@ -48,6 +48,8 @@ export const GetSignalsNoiseAnalyticsSortBy = {
   TotalOpenedAlerts: "total_opened_alerts",
   TotalAckedAlerts: "total_acked_alerts",
   TotalIncidents: "total_incidents",
+  TotalBillableAlerts: "total_billable_alerts",
+  TotalResolvedAlerts: "total_resolved_alerts",
   AckedPercentage: "acked_percentage",
   IncidentsPercentage: "incidents_percentage",
 } as const;

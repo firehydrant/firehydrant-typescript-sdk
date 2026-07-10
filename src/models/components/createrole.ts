@@ -29,6 +29,8 @@ export const CreateRolePermission = {
   ReadSignalsPii: "read_signals_pii",
   ManageOrganizationNotificationPolicies:
     "manage_organization_notification_policies",
+  ReadOrganizationNotificationPolicies:
+    "read_organization_notification_policies",
   ReadNotificationPolicyCompliance: "read_notification_policy_compliance",
   ManageWebhookTargets: "manage_webhook_targets",
   ReadWebhookTargets: "read_webhook_targets",

@@ -15,6 +15,7 @@ export type PublicApiv1PermissionEntity = {
   categoryDisplayName?: string | null | undefined;
   categorySlug?: string | null | undefined;
   parentSlug?: string | null | undefined;
+  required?: boolean | null | undefined;
   available?: boolean | null | undefined;
   dependencySlugs?: Array<string> | null | undefined;
 };
@@ -31,6 +32,7 @@ export const PublicApiv1PermissionEntity$inboundSchema: z.ZodType<
   category_display_name: z.nullable(z.string()).optional(),
   category_slug: z.nullable(z.string()).optional(),
   parent_slug: z.nullable(z.string()).optional(),
+  required: z.nullable(z.boolean()).optional(),
   available: z.nullable(z.boolean()).optional(),
   dependency_slugs: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
@@ -50,6 +52,7 @@ export type PublicApiv1PermissionEntity$Outbound = {
   category_display_name?: string | null | undefined;
   category_slug?: string | null | undefined;
   parent_slug?: string | null | undefined;
+  required?: boolean | null | undefined;
   available?: boolean | null | undefined;
   dependency_slugs?: Array<string> | null | undefined;
 };
@@ -66,6 +69,7 @@ export const PublicApiv1PermissionEntity$outboundSchema: z.ZodType<
   categoryDisplayName: z.nullable(z.string()).optional(),
   categorySlug: z.nullable(z.string()).optional(),
   parentSlug: z.nullable(z.string()).optional(),
+  required: z.nullable(z.boolean()).optional(),
   available: z.nullable(z.boolean()).optional(),
   dependencySlugs: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
