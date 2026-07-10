@@ -39,7 +39,7 @@ export type CreateIncidentMilestone = {
   occurredAt: Date;
 };
 
-export type CustomField = {
+export type CreateIncidentCustomField = {
   /**
    * The ID of the custom field you wish to set.
    */
@@ -98,7 +98,7 @@ export type CreateIncident = {
   /**
    * An array of custom fields to set on the incident.
    */
-  customFields?: Array<CustomField> | null | undefined;
+  customFields?: Array<CreateIncidentCustomField> | null | undefined;
   externalLinks?: string | null | undefined;
   /**
    * The ID of the incident type. This will copy values from the incident type (if any) unless they are being overridden via parameters in this request.
@@ -249,8 +249,8 @@ export function createIncidentMilestoneFromJSON(
 }
 
 /** @internal */
-export const CustomField$inboundSchema: z.ZodType<
-  CustomField,
+export const CreateIncidentCustomField$inboundSchema: z.ZodType<
+  CreateIncidentCustomField,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -265,17 +265,17 @@ export const CustomField$inboundSchema: z.ZodType<
   });
 });
 /** @internal */
-export type CustomField$Outbound = {
+export type CreateIncidentCustomField$Outbound = {
   field_id: string;
   value_string?: string | null | undefined;
   value_array?: Array<string> | null | undefined;
 };
 
 /** @internal */
-export const CustomField$outboundSchema: z.ZodType<
-  CustomField$Outbound,
+export const CreateIncidentCustomField$outboundSchema: z.ZodType<
+  CreateIncidentCustomField$Outbound,
   z.ZodTypeDef,
-  CustomField
+  CreateIncidentCustomField
 > = z.object({
   fieldId: z.string(),
   valueString: z.nullable(z.string()).optional(),
@@ -288,16 +288,20 @@ export const CustomField$outboundSchema: z.ZodType<
   });
 });
 
-export function customFieldToJSON(customField: CustomField): string {
-  return JSON.stringify(CustomField$outboundSchema.parse(customField));
+export function createIncidentCustomFieldToJSON(
+  createIncidentCustomField: CreateIncidentCustomField,
+): string {
+  return JSON.stringify(
+    CreateIncidentCustomField$outboundSchema.parse(createIncidentCustomField),
+  );
 }
-export function customFieldFromJSON(
+export function createIncidentCustomFieldFromJSON(
   jsonString: string,
-): SafeParseResult<CustomField, SDKValidationError> {
+): SafeParseResult<CreateIncidentCustomField, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomField$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomField' from JSON`,
+    (x) => CreateIncidentCustomField$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateIncidentCustomField' from JSON`,
   );
 }
 
@@ -328,8 +332,9 @@ export const CreateIncident$inboundSchema: z.ZodType<
   ).optional(),
   restricted: z.nullable(z.boolean()).optional(),
   team_ids: z.nullable(z.array(z.string())).optional(),
-  custom_fields: z.nullable(z.array(z.lazy(() => CustomField$inboundSchema)))
-    .optional(),
+  custom_fields: z.nullable(
+    z.array(z.lazy(() => CreateIncidentCustomField$inboundSchema)),
+  ).optional(),
   external_links: z.nullable(z.string()).optional(),
   incident_type_id: z.nullable(z.string()).optional(),
   skip_incident_type_values: z.nullable(z.boolean().default(false)),
@@ -366,7 +371,7 @@ export type CreateIncident$Outbound = {
   milestones?: Array<CreateIncidentMilestone$Outbound> | null | undefined;
   restricted?: boolean | null | undefined;
   team_ids?: Array<string> | null | undefined;
-  custom_fields?: Array<CustomField$Outbound> | null | undefined;
+  custom_fields?: Array<CreateIncidentCustomField$Outbound> | null | undefined;
   external_links?: string | null | undefined;
   incident_type_id?: string | null | undefined;
   skip_incident_type_values: boolean | null;
@@ -399,8 +404,9 @@ export const CreateIncident$outboundSchema: z.ZodType<
   ).optional(),
   restricted: z.nullable(z.boolean()).optional(),
   teamIds: z.nullable(z.array(z.string())).optional(),
-  customFields: z.nullable(z.array(z.lazy(() => CustomField$outboundSchema)))
-    .optional(),
+  customFields: z.nullable(
+    z.array(z.lazy(() => CreateIncidentCustomField$outboundSchema)),
+  ).optional(),
   externalLinks: z.nullable(z.string()).optional(),
   incidentTypeId: z.nullable(z.string()).optional(),
   skipIncidentTypeValues: z.nullable(z.boolean().default(false)),

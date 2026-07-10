@@ -12,9 +12,9 @@ const args = {
 
 export const tool$integrationsRefreshConnection: ToolDefinition<typeof args> = {
   name: "integrations-refresh-connection",
-  description: `Refresh an integration connection
+  description: `Refresh an integration connection's incident role schedules
 
-Refresh the integration connection with the provided data`,
+Refresh the integration connection's incident role schedules`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await integrationsRefreshConnection(

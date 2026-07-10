@@ -241,7 +241,9 @@ import { tool$integrationsListStatuspageConnectionPages } from "./tools/integrat
 import { tool$integrationsListStatuspageConnections } from "./tools/integrationsListStatuspageConnections.js";
 import { tool$integrationsRefreshConnection } from "./tools/integrationsRefreshConnection.js";
 import { tool$integrationsSearchConfluenceSpaces } from "./tools/integrationsSearchConfluenceSpaces.js";
+import { tool$integrationsSearchSlackChannels } from "./tools/integrationsSearchSlackChannels.js";
 import { tool$integrationsSearchZendeskTickets } from "./tools/integrationsSearchZendeskTickets.js";
+import { tool$integrationsTestSlackChannel } from "./tools/integrationsTestSlackChannel.js";
 import { tool$integrationsUpdateAuthedProvider } from "./tools/integrationsUpdateAuthedProvider.js";
 import { tool$integrationsUpdateAwsCloudtrailBatch } from "./tools/integrationsUpdateAwsCloudtrailBatch.js";
 import { tool$integrationsUpdateAwsConnection } from "./tools/integrationsUpdateAwsConnection.js";
@@ -279,6 +281,7 @@ import { tool$retrospectivesDeleteIncidentRetrospectiveDynamicInput } from "./to
 import { tool$retrospectivesDeletePostMortemReason } from "./tools/retrospectivesDeletePostMortemReason.js";
 import { tool$retrospectivesDeleteRetrospectiveTemplate } from "./tools/retrospectivesDeleteRetrospectiveTemplate.js";
 import { tool$retrospectivesExportIncidentRetrospectives } from "./tools/retrospectivesExportIncidentRetrospectives.js";
+import { tool$retrospectivesExportIncidentRetrospectivesMarkdown } from "./tools/retrospectivesExportIncidentRetrospectivesMarkdown.js";
 import { tool$retrospectivesGetIncidentRetrospectiveField } from "./tools/retrospectivesGetIncidentRetrospectiveField.js";
 import { tool$retrospectivesGetPostMortemQuestion } from "./tools/retrospectivesGetPostMortemQuestion.js";
 import { tool$retrospectivesGetPostMortemReport } from "./tools/retrospectivesGetPostMortemReport.js";
@@ -352,6 +355,7 @@ import { tool$signalsDeleteSignalsEmailTarget } from "./tools/signalsDeleteSigna
 import { tool$signalsDeleteSignalsEventSource } from "./tools/signalsDeleteSignalsEventSource.js";
 import { tool$signalsDeleteSignalsHeartbeatEndpointConfiguration } from "./tools/signalsDeleteSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsDeleteSignalsWebhookTarget } from "./tools/signalsDeleteSignalsWebhookTarget.js";
+import { tool$signalsDeleteSupportHoursSchedule } from "./tools/signalsDeleteSupportHoursSchedule.js";
 import { tool$signalsDeleteTeamEscalationPolicy } from "./tools/signalsDeleteTeamEscalationPolicy.js";
 import { tool$signalsDeleteTeamOnCallSchedule } from "./tools/signalsDeleteTeamOnCallSchedule.js";
 import { tool$signalsDeleteTeamSignalRule } from "./tools/signalsDeleteTeamSignalRule.js";
@@ -365,6 +369,7 @@ import { tool$signalsGetSignalsHackerMode } from "./tools/signalsGetSignalsHacke
 import { tool$signalsGetSignalsHeartbeatEndpointConfiguration } from "./tools/signalsGetSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsGetSignalsIngestUrl } from "./tools/signalsGetSignalsIngestUrl.js";
 import { tool$signalsGetSignalsWebhookTarget } from "./tools/signalsGetSignalsWebhookTarget.js";
+import { tool$signalsGetSupportHoursSchedule } from "./tools/signalsGetSupportHoursSchedule.js";
 import { tool$signalsGetTeamEscalationPolicy } from "./tools/signalsGetTeamEscalationPolicy.js";
 import { tool$signalsGetTeamOnCallSchedule } from "./tools/signalsGetTeamOnCallSchedule.js";
 import { tool$signalsGetTeamSignalRule } from "./tools/signalsGetTeamSignalRule.js";
@@ -390,6 +395,7 @@ import { tool$signalsUpdateSignalsAlertGroupingConfiguration } from "./tools/sig
 import { tool$signalsUpdateSignalsEmailTarget } from "./tools/signalsUpdateSignalsEmailTarget.js";
 import { tool$signalsUpdateSignalsHeartbeatEndpointConfiguration } from "./tools/signalsUpdateSignalsHeartbeatEndpointConfiguration.js";
 import { tool$signalsUpdateSignalsWebhookTarget } from "./tools/signalsUpdateSignalsWebhookTarget.js";
+import { tool$signalsUpdateSupportHoursSchedule } from "./tools/signalsUpdateSupportHoursSchedule.js";
 import { tool$signalsUpdateTeamEscalationPolicy } from "./tools/signalsUpdateTeamEscalationPolicy.js";
 import { tool$signalsUpdateTeamOnCallSchedule } from "./tools/signalsUpdateTeamOnCallSchedule.js";
 import { tool$signalsUpdateTeamSignalRule } from "./tools/signalsUpdateTeamSignalRule.js";
@@ -492,7 +498,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Firehydrant",
-    version: "1.3.0",
+    version: "1.4.0",
   });
 
   const client = new FirehydrantCore({
@@ -568,12 +574,9 @@ export function createMCPServer(deps: {
   tool(tool$teamsDeleteTeam);
   tool(tool$teamsUpdateTeam);
   tool(tool$teamsListSchedules);
-  tool(tool$callRoutesListTeamCallRoutes);
-  tool(tool$callRoutesCreateTeamCallRoute);
-  tool(tool$callRoutesListCallRoutes);
-  tool(tool$callRoutesGetCallRoute);
-  tool(tool$callRoutesDeleteCallRoute);
-  tool(tool$callRoutesUpdateCallRoute);
+  tool(tool$signalsGetSupportHoursSchedule);
+  tool(tool$signalsDeleteSupportHoursSchedule);
+  tool(tool$signalsUpdateSupportHoursSchedule);
   tool(tool$signalsListTeamEscalationPolicies);
   tool(tool$signalsCreateTeamEscalationPolicy);
   tool(tool$signalsGetTeamEscalationPolicy);
@@ -636,6 +639,12 @@ export function createMCPServer(deps: {
   tool(tool$signalsGetSignalsIngestUrl);
   tool(tool$signalsDebugSignalsExpression);
   tool(tool$signalsListOrganizationOnCallSchedules);
+  tool(tool$callRoutesListTeamCallRoutes);
+  tool(tool$callRoutesCreateTeamCallRoute);
+  tool(tool$callRoutesListCallRoutes);
+  tool(tool$callRoutesGetCallRoute);
+  tool(tool$callRoutesDeleteCallRoute);
+  tool(tool$callRoutesUpdateCallRoute);
   tool(tool$changesListChanges);
   tool(tool$changesCreateChange);
   tool(tool$changesDeleteChange);
@@ -763,6 +772,7 @@ export function createMCPServer(deps: {
   tool(tool$conversationsListComments);
   tool(tool$conversationsCreateComment);
   tool(tool$retrospectivesShareIncidentRetrospectives);
+  tool(tool$retrospectivesExportIncidentRetrospectivesMarkdown);
   tool(tool$retrospectivesExportIncidentRetrospectives);
   tool(tool$retrospectivesListIncidentRetrospectives);
   tool(tool$retrospectivesCreateIncidentRetrospective);
@@ -863,6 +873,8 @@ export function createMCPServer(deps: {
   tool(tool$integrationsListAwsCloudtrailBatchEvents);
   tool(tool$integrationsSearchConfluenceSpaces);
   tool(tool$integrationsListSlackWorkspaces);
+  tool(tool$integrationsSearchSlackChannels);
+  tool(tool$integrationsTestSlackChannel);
   tool(tool$integrationsListSlackUsergroups);
   tool(tool$integrationsListSlackEmojiActions);
   tool(tool$integrationsCreateSlackEmojiAction);

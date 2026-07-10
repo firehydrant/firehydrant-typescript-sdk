@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v3";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -10,6 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type NullableOrganizationEntity = {
   name?: string | null | undefined;
   id?: string | null | undefined;
+  provisionedInFreshworks?: string | null | undefined;
 };
 
 /** @internal */
@@ -20,11 +22,17 @@ export const NullableOrganizationEntity$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   id: z.nullable(z.string()).optional(),
+  provisioned_in_freshworks: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "provisioned_in_freshworks": "provisionedInFreshworks",
+  });
 });
 /** @internal */
 export type NullableOrganizationEntity$Outbound = {
   name?: string | null | undefined;
   id?: string | null | undefined;
+  provisioned_in_freshworks?: string | null | undefined;
 };
 
 /** @internal */
@@ -35,6 +43,11 @@ export const NullableOrganizationEntity$outboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   id: z.nullable(z.string()).optional(),
+  provisionedInFreshworks: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    provisionedInFreshworks: "provisioned_in_freshworks",
+  });
 });
 
 export function nullableOrganizationEntityToJSON(

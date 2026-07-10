@@ -13,5 +13,5 @@ let value: GetSignalsNoiseAnalyticsSortBy = "incidents_percentage";
 ## Values
 
 ```typescript
-"total_opened_alerts" | "total_acked_alerts" | "total_incidents" | "acked_percentage" | "incidents_percentage"
+"total_opened_alerts" | "total_acked_alerts" | "total_incidents" | "total_billable_alerts" | "total_resolved_alerts" | "acked_percentage" | "incidents_percentage"
 ```

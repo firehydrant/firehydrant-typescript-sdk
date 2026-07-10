@@ -85,6 +85,7 @@ export type NullableAlertsAlertEntity = {
   teamName?: string | null | undefined;
   teamId?: string | null | undefined;
   position?: number | null | undefined;
+  notificationPriority?: string | null | undefined;
   incidents?: Array<PublicApiv1IncidentsSuccinctEntity> | null | undefined;
   events?: Array<AlertsSirenEventEntity> | null | undefined;
   isExpired?: boolean | null | undefined;
@@ -166,6 +167,7 @@ export const NullableAlertsAlertEntity$inboundSchema: z.ZodType<
   team_name: z.nullable(z.string()).optional(),
   team_id: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
+  notification_priority: z.nullable(z.string()).optional(),
   incidents: z.nullable(
     z.array(PublicApiv1IncidentsSuccinctEntity$inboundSchema),
   ).optional(),
@@ -194,6 +196,7 @@ export const NullableAlertsAlertEntity$inboundSchema: z.ZodType<
     "signal_target": "signalTarget",
     "team_name": "teamName",
     "team_id": "teamId",
+    "notification_priority": "notificationPriority",
     "is_expired": "isExpired",
     "is_noise": "isNoise",
     "parent_alerts": "parentAlerts",
@@ -225,6 +228,7 @@ export type NullableAlertsAlertEntity$Outbound = {
   team_name?: string | null | undefined;
   team_id?: string | null | undefined;
   position?: number | null | undefined;
+  notification_priority?: string | null | undefined;
   incidents?:
     | Array<PublicApiv1IncidentsSuccinctEntity$Outbound>
     | null
@@ -273,6 +277,7 @@ export const NullableAlertsAlertEntity$outboundSchema: z.ZodType<
   teamName: z.nullable(z.string()).optional(),
   teamId: z.nullable(z.string()).optional(),
   position: z.nullable(z.number().int()).optional(),
+  notificationPriority: z.nullable(z.string()).optional(),
   incidents: z.nullable(
     z.array(PublicApiv1IncidentsSuccinctEntity$outboundSchema),
   ).optional(),
@@ -301,6 +306,7 @@ export const NullableAlertsAlertEntity$outboundSchema: z.ZodType<
     signalTarget: "signal_target",
     teamName: "team_name",
     teamId: "team_id",
+    notificationPriority: "notification_priority",
     isExpired: "is_expired",
     isNoise: "is_noise",
     parentAlerts: "parent_alerts",

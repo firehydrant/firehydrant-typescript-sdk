@@ -32,6 +32,10 @@ export type TicketingFieldMapsMappableFieldEntity = {
    * If the field is required to be mapped
    */
   required?: string | null | undefined;
+  /**
+   * If the field type is supported for mapping
+   */
+  supported?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -45,6 +49,7 @@ export const TicketingFieldMapsMappableFieldEntity$inboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   allowed_values: z.nullable(z.array(z.string())).optional(),
   required: z.nullable(z.string()).optional(),
+  supported: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "allowed_values": "allowedValues",
@@ -57,6 +62,7 @@ export type TicketingFieldMapsMappableFieldEntity$Outbound = {
   type?: string | null | undefined;
   allowed_values?: Array<string> | null | undefined;
   required?: string | null | undefined;
+  supported?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -70,6 +76,7 @@ export const TicketingFieldMapsMappableFieldEntity$outboundSchema: z.ZodType<
   type: z.nullable(z.string()).optional(),
   allowedValues: z.nullable(z.array(z.string())).optional(),
   required: z.nullable(z.string()).optional(),
+  supported: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     allowedValues: "allowed_values",

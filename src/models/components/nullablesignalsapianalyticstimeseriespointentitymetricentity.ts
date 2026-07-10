@@ -25,6 +25,10 @@ export type NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity = {
    * The total number of incidents
    */
   totalIncidents?: number | null | undefined;
+  /**
+   * The total number of billable alerts (SMS/voice notifications sent)
+   */
+  totalBillableAlerts?: number | null | undefined;
 };
 
 /** @internal */
@@ -38,11 +42,13 @@ export const NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$inboun
     total_opened_alerts: z.nullable(z.number().int()).optional(),
     total_acked_alerts: z.nullable(z.number().int()).optional(),
     total_incidents: z.nullable(z.number().int()).optional(),
+    total_billable_alerts: z.nullable(z.number().int()).optional(),
   }).transform((v) => {
     return remap$(v, {
       "total_opened_alerts": "totalOpenedAlerts",
       "total_acked_alerts": "totalAckedAlerts",
       "total_incidents": "totalIncidents",
+      "total_billable_alerts": "totalBillableAlerts",
     });
   });
 /** @internal */
@@ -52,6 +58,7 @@ export type NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$Outboun
     total_opened_alerts?: number | null | undefined;
     total_acked_alerts?: number | null | undefined;
     total_incidents?: number | null | undefined;
+    total_billable_alerts?: number | null | undefined;
   };
 
 /** @internal */
@@ -65,11 +72,13 @@ export const NullableSignalsAPIAnalyticsTimeseriesPointEntityMetricEntity$outbou
     totalOpenedAlerts: z.nullable(z.number().int()).optional(),
     totalAckedAlerts: z.nullable(z.number().int()).optional(),
     totalIncidents: z.nullable(z.number().int()).optional(),
+    totalBillableAlerts: z.nullable(z.number().int()).optional(),
   }).transform((v) => {
     return remap$(v, {
       totalOpenedAlerts: "total_opened_alerts",
       totalAckedAlerts: "total_acked_alerts",
       totalIncidents: "total_incidents",
+      totalBillableAlerts: "total_billable_alerts",
     });
   });
 

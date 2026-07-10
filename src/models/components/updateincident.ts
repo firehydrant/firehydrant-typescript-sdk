@@ -13,6 +13,21 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type UpdateIncidentLabels = {};
 
+export type UpdateIncidentCustomField = {
+  /**
+   * The ID of the custom field you wish to set.
+   */
+  fieldId: string;
+  /**
+   * The value you wish to set on the custom field if the type of the field accepts string values
+   */
+  valueString?: string | null | undefined;
+  /**
+   * The value you wish to set on the custom field if the type of the field accepts array values
+   */
+  valueArray?: Array<string> | null | undefined;
+};
+
 /**
  * Updates an incident with provided parameters
  */
@@ -37,6 +52,10 @@ export type UpdateIncident = {
    * The ID of the incident type. This will copy values from the incident type (if any) unless they are being overridden via parameters in this request.
    */
   incidentTypeId?: string | null | undefined;
+  /**
+   * An array of custom fields to set on the incident.
+   */
+  customFields?: Array<UpdateIncidentCustomField> | null | undefined;
 };
 
 /** @internal */
@@ -73,6 +92,63 @@ export function updateIncidentLabelsFromJSON(
 }
 
 /** @internal */
+export const UpdateIncidentCustomField$inboundSchema: z.ZodType<
+  UpdateIncidentCustomField,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  field_id: z.string(),
+  value_string: z.nullable(z.string()).optional(),
+  value_array: z.nullable(z.array(z.string())).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "field_id": "fieldId",
+    "value_string": "valueString",
+    "value_array": "valueArray",
+  });
+});
+/** @internal */
+export type UpdateIncidentCustomField$Outbound = {
+  field_id: string;
+  value_string?: string | null | undefined;
+  value_array?: Array<string> | null | undefined;
+};
+
+/** @internal */
+export const UpdateIncidentCustomField$outboundSchema: z.ZodType<
+  UpdateIncidentCustomField$Outbound,
+  z.ZodTypeDef,
+  UpdateIncidentCustomField
+> = z.object({
+  fieldId: z.string(),
+  valueString: z.nullable(z.string()).optional(),
+  valueArray: z.nullable(z.array(z.string())).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    fieldId: "field_id",
+    valueString: "value_string",
+    valueArray: "value_array",
+  });
+});
+
+export function updateIncidentCustomFieldToJSON(
+  updateIncidentCustomField: UpdateIncidentCustomField,
+): string {
+  return JSON.stringify(
+    UpdateIncidentCustomField$outboundSchema.parse(updateIncidentCustomField),
+  );
+}
+export function updateIncidentCustomFieldFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateIncidentCustomField, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateIncidentCustomField$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateIncidentCustomField' from JSON`,
+  );
+}
+
+/** @internal */
 export const UpdateIncident$inboundSchema: z.ZodType<
   UpdateIncident,
   z.ZodTypeDef,
@@ -90,6 +166,9 @@ export const UpdateIncident$inboundSchema: z.ZodType<
   severity_impact_id: z.nullable(z.string()).optional(),
   tag_list: z.nullable(z.array(z.string())).optional(),
   incident_type_id: z.nullable(z.string()).optional(),
+  custom_fields: z.nullable(
+    z.array(z.lazy(() => UpdateIncidentCustomField$inboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "customer_impact_summary": "customerImpactSummary",
@@ -97,6 +176,7 @@ export const UpdateIncident$inboundSchema: z.ZodType<
     "severity_impact_id": "severityImpactId",
     "tag_list": "tagList",
     "incident_type_id": "incidentTypeId",
+    "custom_fields": "customFields",
   });
 });
 /** @internal */
@@ -112,6 +192,7 @@ export type UpdateIncident$Outbound = {
   severity_impact_id?: string | null | undefined;
   tag_list?: Array<string> | null | undefined;
   incident_type_id?: string | null | undefined;
+  custom_fields?: Array<UpdateIncidentCustomField$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -132,6 +213,9 @@ export const UpdateIncident$outboundSchema: z.ZodType<
   severityImpactId: z.nullable(z.string()).optional(),
   tagList: z.nullable(z.array(z.string())).optional(),
   incidentTypeId: z.nullable(z.string()).optional(),
+  customFields: z.nullable(
+    z.array(z.lazy(() => UpdateIncidentCustomField$outboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     customerImpactSummary: "customer_impact_summary",
@@ -139,6 +223,7 @@ export const UpdateIncident$outboundSchema: z.ZodType<
     severityImpactId: "severity_impact_id",
     tagList: "tag_list",
     incidentTypeId: "incident_type_id",
+    customFields: "custom_fields",
   });
 });
 

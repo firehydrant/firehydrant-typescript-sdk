@@ -7,6 +7,7 @@ Operations related to Retrospectives
 ### Available Operations
 
 * [shareIncidentRetrospectives](#shareincidentretrospectives) - Share an incident's retrospective
+* [exportIncidentRetrospectivesMarkdown](#exportincidentretrospectivesmarkdown) - Export an incident's retrospective(s) as markdown
 * [exportIncidentRetrospectives](#exportincidentretrospectives) - Export an incident's retrospective(s)
 * [listIncidentRetrospectives](#listincidentretrospectives) - All attached retrospectives for an incident
 * [createIncidentRetrospective](#createincidentretrospective) - Create a new retrospective on the incident using the template
@@ -115,6 +116,79 @@ run();
 ### Response
 
 **Promise\<[components.IncidentsShareRetrospectivesResultEntity](../../models/components/incidentsshareretrospectivesresultentity.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.APIError | 4XX, 5XX        | \*/\*           |
+
+## exportIncidentRetrospectivesMarkdown
+
+Export incident's retrospective(s) as markdown
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="export_incident_retrospectives_markdown" method="post" path="/v1/incidents/{incident_id}/retrospectives/export_markdown" -->
+```typescript
+import { Firehydrant } from "firehydrant-typescript-sdk";
+
+const firehydrant = new Firehydrant({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await firehydrant.retrospectives.exportIncidentRetrospectivesMarkdown({
+    incidentId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { FirehydrantCore } from "firehydrant-typescript-sdk/core.js";
+import { retrospectivesExportIncidentRetrospectivesMarkdown } from "firehydrant-typescript-sdk/funcs/retrospectivesExportIncidentRetrospectivesMarkdown.js";
+
+// Use `FirehydrantCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const firehydrant = new FirehydrantCore({
+  apiKey: process.env["FIREHYDRANT_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await retrospectivesExportIncidentRetrospectivesMarkdown(firehydrant, {
+    incidentId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("retrospectivesExportIncidentRetrospectivesMarkdown failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ExportIncidentRetrospectivesMarkdownRequest](../../models/operations/exportincidentretrospectivesmarkdownrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.IncidentsExportRetrospectiveMarkdownEntity](../../models/components/incidentsexportretrospectivemarkdownentity.md)\>**
 
 ### Errors
 

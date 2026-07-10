@@ -30,6 +30,14 @@ export type NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity = {
    */
   totalIncidents?: number | null | undefined;
   /**
+   * The total number of billable alerts (SMS/voice notifications sent)
+   */
+  totalBillableAlerts?: number | null | undefined;
+  /**
+   * The total number of currently-resolved alerts
+   */
+  totalResolvedAlerts?: number | null | undefined;
+  /**
    * The percentage of acknowledged alerts
    */
   ackedPercentage?: number | null | undefined;
@@ -51,6 +59,8 @@ export const NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$inbound
     total_opened_alerts: z.nullable(z.number().int()).optional(),
     total_acked_alerts: z.nullable(z.number().int()).optional(),
     total_incidents: z.nullable(z.number().int()).optional(),
+    total_billable_alerts: z.nullable(z.number().int()).optional(),
+    total_resolved_alerts: z.nullable(z.number().int()).optional(),
     acked_percentage: z.nullable(z.number()).optional(),
     incidents_percentage: z.nullable(z.number()).optional(),
   }).transform((v) => {
@@ -60,6 +70,8 @@ export const NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$inbound
       "total_opened_alerts": "totalOpenedAlerts",
       "total_acked_alerts": "totalAckedAlerts",
       "total_incidents": "totalIncidents",
+      "total_billable_alerts": "totalBillableAlerts",
+      "total_resolved_alerts": "totalResolvedAlerts",
       "acked_percentage": "ackedPercentage",
       "incidents_percentage": "incidentsPercentage",
     });
@@ -72,6 +84,8 @@ export type NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$Outbound
     total_opened_alerts?: number | null | undefined;
     total_acked_alerts?: number | null | undefined;
     total_incidents?: number | null | undefined;
+    total_billable_alerts?: number | null | undefined;
+    total_resolved_alerts?: number | null | undefined;
     acked_percentage?: number | null | undefined;
     incidents_percentage?: number | null | undefined;
   };
@@ -88,6 +102,8 @@ export const NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$outboun
     totalOpenedAlerts: z.nullable(z.number().int()).optional(),
     totalAckedAlerts: z.nullable(z.number().int()).optional(),
     totalIncidents: z.nullable(z.number().int()).optional(),
+    totalBillableAlerts: z.nullable(z.number().int()).optional(),
+    totalResolvedAlerts: z.nullable(z.number().int()).optional(),
     ackedPercentage: z.nullable(z.number()).optional(),
     incidentsPercentage: z.nullable(z.number()).optional(),
   }).transform((v) => {
@@ -97,6 +113,8 @@ export const NullableSignalsAPIAnalyticsGroupedMetricsEntityMetricEntity$outboun
       totalOpenedAlerts: "total_opened_alerts",
       totalAckedAlerts: "total_acked_alerts",
       totalIncidents: "total_incidents",
+      totalBillableAlerts: "total_billable_alerts",
+      totalResolvedAlerts: "total_resolved_alerts",
       ackedPercentage: "acked_percentage",
       incidentsPercentage: "incidents_percentage",
     });

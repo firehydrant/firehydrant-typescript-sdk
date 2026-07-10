@@ -18,5 +18,6 @@ let value: PublicApiv1PermissionEntity = {};
 | `categoryDisplayName` | *string*              | :heavy_minus_sign:    | N/A                   |
 | `categorySlug`        | *string*              | :heavy_minus_sign:    | N/A                   |
 | `parentSlug`          | *string*              | :heavy_minus_sign:    | N/A                   |
+| `required`            | *boolean*             | :heavy_minus_sign:    | N/A                   |
 | `available`           | *boolean*             | :heavy_minus_sign:    | N/A                   |
 | `dependencySlugs`     | *string*[]            | :heavy_minus_sign:    | N/A                   |

@@ -4,6 +4,7 @@
 
 import { FirehydrantCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
+import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -26,10 +27,10 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Refresh an integration connection
+ * Refresh an integration connection's incident role schedules
  *
  * @remarks
- * Refresh the integration connection with the provided data
+ * Refresh the integration connection's incident role schedules
  */
 export function integrationsRefreshConnection(
   client: FirehydrantCore,
@@ -96,7 +97,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc(
     "/v1/integrations/connections/{slug}/{connection_id}/refresh",
   )(pathParams);
@@ -141,7 +141,8 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["4XX", "5XX"],
+    isErrorStatusCode: (statusCode: number) =>
+      matchStatusCode({ status: statusCode } as Response, ["4XX", "5XX"]),
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });

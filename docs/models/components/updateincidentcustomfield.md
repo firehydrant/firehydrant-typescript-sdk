@@ -1,11 +1,11 @@
-# CustomField
+# UpdateIncidentCustomField
 
 ## Example Usage
 
 ```typescript
-import { CustomField } from "firehydrant-typescript-sdk/models/components";
+import { UpdateIncidentCustomField } from "firehydrant-typescript-sdk/models/components";
 
-let value: CustomField = {
+let value: UpdateIncidentCustomField = {
   fieldId: "<id>",
 };
 ```

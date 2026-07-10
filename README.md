@@ -564,7 +564,7 @@ run();
 * [updateAuthedProvider](docs/sdks/integrations/README.md#updateauthedprovider) - Get an authed provider
 * [listConnections](docs/sdks/integrations/README.md#listconnections) - List integration connections
 * [createConnection](docs/sdks/integrations/README.md#createconnection) - Create a new integration connection
-* [refreshConnection](docs/sdks/integrations/README.md#refreshconnection) - Refresh an integration connection
+* [refreshConnection](docs/sdks/integrations/README.md#refreshconnection) - Refresh an integration connection's incident role schedules
 * [updateConnection](docs/sdks/integrations/README.md#updateconnection) - Update an integration connection
 * [listConnectionStatuses](docs/sdks/integrations/README.md#listconnectionstatuses) - Get integration connection status
 * [listConnectionStatusesBySlug](docs/sdks/integrations/README.md#listconnectionstatusesbyslug) - Get an integration connection status
@@ -578,6 +578,8 @@ run();
 * [listAwsCloudtrailBatchEvents](docs/sdks/integrations/README.md#listawscloudtrailbatchevents) - List events for an AWS CloudTrail batch
 * [searchConfluenceSpaces](docs/sdks/integrations/README.md#searchconfluencespaces) - List Confluence spaces
 * [listSlackWorkspaces](docs/sdks/integrations/README.md#listslackworkspaces) - List Slack workspaces
+* [searchSlackChannels](docs/sdks/integrations/README.md#searchslackchannels) - List Slack channels
+* [testSlackChannel](docs/sdks/integrations/README.md#testslackchannel) - Test a Slack channel
 * [listSlackUsergroups](docs/sdks/integrations/README.md#listslackusergroups) - List Slack user groups
 * [listSlackEmojiActions](docs/sdks/integrations/README.md#listslackemojiactions) - List Slack emoji actions
 * [createSlackEmojiAction](docs/sdks/integrations/README.md#createslackemojiaction) - Create a new Slack emoji action
@@ -624,6 +626,7 @@ run();
 ### [Retrospectives](docs/sdks/retrospectives/README.md)
 
 * [shareIncidentRetrospectives](docs/sdks/retrospectives/README.md#shareincidentretrospectives) - Share an incident's retrospective
+* [exportIncidentRetrospectivesMarkdown](docs/sdks/retrospectives/README.md#exportincidentretrospectivesmarkdown) - Export an incident's retrospective(s) as markdown
 * [exportIncidentRetrospectives](docs/sdks/retrospectives/README.md#exportincidentretrospectives) - Export an incident's retrospective(s)
 * [listIncidentRetrospectives](docs/sdks/retrospectives/README.md#listincidentretrospectives) - All attached retrospectives for an incident
 * [createIncidentRetrospective](docs/sdks/retrospectives/README.md#createincidentretrospective) - Create a new retrospective on the incident using the template
@@ -697,6 +700,9 @@ run();
 
 ### [Signals](docs/sdks/signals/README.md)
 
+* [getSupportHoursSchedule](docs/sdks/signals/README.md#getsupporthoursschedule) - Get support hours schedule
+* [deleteSupportHoursSchedule](docs/sdks/signals/README.md#deletesupporthoursschedule) - Delete a specific support hours schedule
+* [updateSupportHoursSchedule](docs/sdks/signals/README.md#updatesupporthoursschedule) - Update support hours schedule
 * [listTeamEscalationPolicies](docs/sdks/signals/README.md#listteamescalationpolicies) - List escalation policies for a team
 * [createTeamEscalationPolicy](docs/sdks/signals/README.md#createteamescalationpolicy) - Create an escalation policy for a team
 * [getTeamEscalationPolicy](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
@@ -1110,9 +1116,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`integrationsListSlackWorkspaces`](docs/sdks/integrations/README.md#listslackworkspaces) - List Slack workspaces
 - [`integrationsListStatuspageConnectionPages`](docs/sdks/integrations/README.md#liststatuspageconnectionpages) - List StatusPage pages for a connection
 - [`integrationsListStatuspageConnections`](docs/sdks/integrations/README.md#liststatuspageconnections) - List Statuspage connections
-- [`integrationsRefreshConnection`](docs/sdks/integrations/README.md#refreshconnection) - Refresh an integration connection
+- [`integrationsRefreshConnection`](docs/sdks/integrations/README.md#refreshconnection) - Refresh an integration connection's incident role schedules
 - [`integrationsSearchConfluenceSpaces`](docs/sdks/integrations/README.md#searchconfluencespaces) - List Confluence spaces
+- [`integrationsSearchSlackChannels`](docs/sdks/integrations/README.md#searchslackchannels) - List Slack channels
 - [`integrationsSearchZendeskTickets`](docs/sdks/integrations/README.md#searchzendesktickets) - Search for Zendesk tickets
+- [`integrationsTestSlackChannel`](docs/sdks/integrations/README.md#testslackchannel) - Test a Slack channel
 - [`integrationsUpdateAuthedProvider`](docs/sdks/integrations/README.md#updateauthedprovider) - Get an authed provider
 - [`integrationsUpdateAwsCloudtrailBatch`](docs/sdks/integrations/README.md#updateawscloudtrailbatch) - Update a CloudTrail batch
 - [`integrationsUpdateAwsConnection`](docs/sdks/integrations/README.md#updateawsconnection) - Update an AWS connection
@@ -1150,6 +1158,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`retrospectivesDeletePostMortemReason`](docs/sdks/retrospectives/README.md#deletepostmortemreason) - Delete a contributing factor from a retrospective report
 - [`retrospectivesDeleteRetrospectiveTemplate`](docs/sdks/retrospectives/README.md#deleteretrospectivetemplate) - Delete a retrospective template
 - [`retrospectivesExportIncidentRetrospectives`](docs/sdks/retrospectives/README.md#exportincidentretrospectives) - Export an incident's retrospective(s)
+- [`retrospectivesExportIncidentRetrospectivesMarkdown`](docs/sdks/retrospectives/README.md#exportincidentretrospectivesmarkdown) - Export an incident's retrospective(s) as markdown
 - [`retrospectivesGetIncidentRetrospectiveField`](docs/sdks/retrospectives/README.md#getincidentretrospectivefield) - Get a retrospective field
 - [`retrospectivesGetPostMortemQuestion`](docs/sdks/retrospectives/README.md#getpostmortemquestion) - Get a retrospective question
 - [`retrospectivesGetPostMortemReport`](docs/sdks/retrospectives/README.md#getpostmortemreport) - Get a retrospective report
@@ -1223,6 +1232,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsDeleteSignalsEventSource`](docs/sdks/signals/README.md#deletesignalseventsource) - Delete an event source for Signals
 - [`signalsDeleteSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#deletesignalsheartbeatendpointconfiguration) - Delete a heartbeat endpoint configuration
 - [`signalsDeleteSignalsWebhookTarget`](docs/sdks/signals/README.md#deletesignalswebhooktarget) - Delete a webhook target
+- [`signalsDeleteSupportHoursSchedule`](docs/sdks/signals/README.md#deletesupporthoursschedule) - Delete a specific support hours schedule
 - [`signalsDeleteTeamEscalationPolicy`](docs/sdks/signals/README.md#deleteteamescalationpolicy) - Delete an escalation policy for a team
 - [`signalsDeleteTeamOnCallSchedule`](docs/sdks/signals/README.md#deleteteamoncallschedule) - Delete an on-call schedule for a team
 - [`signalsDeleteTeamSignalRule`](docs/sdks/signals/README.md#deleteteamsignalrule) - Delete a Signals rule
@@ -1236,6 +1246,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsGetSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#getsignalsheartbeatendpointconfiguration) - Get a heartbeat endpoint configuration
 - [`signalsGetSignalsIngestUrl`](docs/sdks/signals/README.md#getsignalsingesturl) - Get the signals ingestion URL
 - [`signalsGetSignalsWebhookTarget`](docs/sdks/signals/README.md#getsignalswebhooktarget) - Get a webhook target
+- [`signalsGetSupportHoursSchedule`](docs/sdks/signals/README.md#getsupporthoursschedule) - Get support hours schedule
 - [`signalsGetTeamEscalationPolicy`](docs/sdks/signals/README.md#getteamescalationpolicy) - Get an escalation policy for a team
 - [`signalsGetTeamOnCallSchedule`](docs/sdks/signals/README.md#getteamoncallschedule) - Get an on-call schedule for a team
 - [`signalsGetTeamSignalRule`](docs/sdks/signals/README.md#getteamsignalrule) - Get a Signals rule
@@ -1261,6 +1272,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`signalsUpdateSignalsEmailTarget`](docs/sdks/signals/README.md#updatesignalsemailtarget) - Update an email target
 - [`signalsUpdateSignalsHeartbeatEndpointConfiguration`](docs/sdks/signals/README.md#updatesignalsheartbeatendpointconfiguration) - Update a heartbeat endpoint configuration
 - [`signalsUpdateSignalsWebhookTarget`](docs/sdks/signals/README.md#updatesignalswebhooktarget) - Update a webhook target
+- [`signalsUpdateSupportHoursSchedule`](docs/sdks/signals/README.md#updatesupporthoursschedule) - Update support hours schedule
 - [`signalsUpdateTeamEscalationPolicy`](docs/sdks/signals/README.md#updateteamescalationpolicy) - Update an escalation policy for a team
 - [`signalsUpdateTeamOnCallSchedule`](docs/sdks/signals/README.md#updateteamoncallschedule) - Update an on-call schedule for a team
 - [`signalsUpdateTeamSignalRule`](docs/sdks/signals/README.md#updateteamsignalrule) - Update a Signals rule
@@ -1527,7 +1539,7 @@ run();
 
 
 **Inherit from [`FirehydrantError`](./src/models/errors/firehydranterror.ts)**:
-* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 13 of 468 methods.*
+* [`ErrorEntity`](./src/models/errors/errorentity.ts): ErrorEntity model. Applicable to 13 of 474 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

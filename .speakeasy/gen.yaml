@@ -32,7 +32,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 1.3.0
+  version: 1.4.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -41,6 +41,7 @@ typescript:
   additionalPackageJSON: {}
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
+  apiPromiseHelpers: false
   author: Firehydrant
   baseErrorName: FirehydrantError
   clientServerStatusCodesAsErrors: true
@@ -51,7 +52,9 @@ typescript:
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: FIREHYDRANT
+  eventStreamClassName: EventStream
   exportZodModelNamespace: false
+  fixEnumNameSanitization: false
   flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flattenSdk: true
@@ -84,10 +87,14 @@ typescript:
   packageName: firehydrant-typescript-sdk
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
+  privateIdentifierPrefix: '#'
+  requestExtras: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
   unionStrategy: left-to-right
   usageSDKInitImports: []
   useIndexModules: true
+  useOxlint: false
+  useTsgo: false
   zodVersion: v3
